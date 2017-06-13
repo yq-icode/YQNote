@@ -1,0 +1,168 @@
+﻿@charset "utf-8";
+/* CSS Document */
+@import url(common.css);
+
+
+/* --- mainNavi --- */
+#mainNavi{
+	background:url(/admin02/images/common/web_02.gif) repeat-x;
+}
+#mainNavi ul{
+	clear:both;	
+	height:50px;
+	line-height:50px;
+	width:1200px;
+	margin:0 auto;
+}
+#mainNavi li{
+	display:block;
+	float:left;
+	font-size:12px;
+	font-weight:bold;
+	text-align:center;
+	width:90px;
+	padding-top:10px;
+}
+/* --- subNavi --- */
+#snbar{
+	position:relative;
+	width:1200px;
+	margin:0 auto;
+	padding-bottom:16px;
+	background:url(/admin02/images/menu/bottom.gif) repeat-x left bottom;
+}
+#snbar ul#subNavi{
+	padding:10px 10px 5px 10px;
+	background:url(/admin02/images/menu/bottom_03.gif) repeat-y;
+}
+#snbar ul#subNavi li{
+	display:inline;
+	padding-right:20px;
+}
+
+/* --- mainNavi active --- */
+#bmn01 #mainNavi li#mn01 a,
+#bmn02 #mainNavi li#mn02 a,
+#bmn03 #mainNavi li#mn03 a,
+#bmn04 #mainNavi li#mn04 a,
+#bmn05 #mainNavi li#mn05 a,
+#bmn06 #mainNavi li#mn06 a,
+#bmn07 #mainNavi li#mn07 a,
+#bmn08 #mainNavi li#mn08 a,
+#bmn09 #mainNavi li#mn09 a,
+#bmn10 #mainNavi li#mn10 a,
+#bmn11 #mainNavi li#mn11 a,
+#bmn12 #mainNavi li#mn12 a,
+#bmn13 #mainNavi li#mn13 a,
+#bmn14 #mainNavi li#mn14 a{
+	color:#0066cc;
+}
+
+/* --- subNavi active --- */
+#bmn01.bsn01 #subNavi li.sn01 a,
+#bmn01.bsn02 #subNavi li.sn02 a,
+#bmn01.bsn03 #subNavi li.sn03 a,
+#bmn01.bsn04 #subNavi li.sn04 a,
+#bmn01.bsn05 #subNavi li.sn05 a{
+	color:#0066cc;
+}
+
+#bmn02.bsn01 #subNavi li.sn01 a,
+#bmn02.bsn02 #subNavi li.sn02 a,
+#bmn02.bsn03 #subNavi li.sn03 a,
+#bmn02.bsn04 #subNavi li.sn04 a,
+#bmn02.bsn05 #subNavi li.sn05 a,
+#bmn02.bsn06 #subNavi li.sn06 a,
+#bmn02.bsn07 #subNavi li.sn07 a,
+#bmn02.bsn08 #subNavi li.sn08 a,
+#bmn02.bsn09 #subNavi li.sn09 a{
+	color:#0066cc;
+}
+
+#bmn03.bsn01 #subNavi li.sn01 a,
+#bmn03.bsn02 #subNavi li.sn02 a,
+#bmn03.bsn03 #subNavi li.sn03 a{
+	color:#0066cc;
+}
+
+#bmn04.bsn01 #subNavi li.sn01 a,
+#bmn04.bsn02 #subNavi li.sn02 a,
+#bmn04.bsn03 #subNavi li.sn03 a,
+#bmn04.bsn04 #subNavi li.sn04 a,
+#bmn04.bsn05 #subNavi li.sn05 a{
+	color:#0066cc;
+}
+
+#bmn05.bsn01 #subNavi li.sn01 a,
+#bmn05.bsn02 #subNavi li.sn02 a,
+#bmn05.bsn03 #subNavi li.sn03 a,
+#bmn05.bsn04 #subNavi li.sn04 a,
+#bmn05.bsn05 #subNavi li.sn05 a{
+	color:#0066cc;
+}
+
+#bmn06.bsn01 #subNavi li.sn01 a,
+#bmn06.bsn02 #subNavi li.sn02 a,
+#bmn06.bsn03 #subNavi li.sn03 a,
+#bmn06.bsn04 #subNavi li.sn04 a,
+#bmn06.bsn05 #subNavi li.sn05 a,
+#bmn06.bsn06 #subNavi li.sn06 a,
+#bmn06.bsn07 #subNavi li.sn07 a,
+#bmn06.bsn08 #subNavi li.sn08 a,
+#bmn06.bsn09 #subNavi li.sn09 a{
+	color:#0066cc;
+}
+
+#bmn07.bsn01 #subNavi li.sn01 a,
+#bmn07.bsn02 #subNavi li.sn02 a,
+#bmn07.bsn03 #subNavi li.sn03 a,
+#bmn07.bsn04 #subNavi li.sn04 a,
+#bmn07.bsn05 #subNavi li.sn05 a,
+#bmn07.bsn06 #subNavi li.sn06 a{
+	color:#0066cc;
+}
+
+#bmn08.bsn01 #subNavi li.sn01 a,
+#bmn08.bsn02 #subNavi li.sn02 a,
+#bmn08.bsn03 #subNavi li.sn03 a,
+#bmn08.bsn04 #subNavi li.sn04 a,
+#bmn08.bsn05 #subNavi li.sn05 a,
+#bmn08.bsn06 #subNavi li.sn06 a{
+	color:#0066cc;
+}
+
+#bmn09.bsn01 #subNavi li.sn01 a,
+#bmn09.bsn02 #subNavi li.sn02 a,
+#bmn09.bsn03 #subNavi li.sn03 a,
+#bmn09.bsn04 #subNavi li.sn04 a,
+#bmn09.bsn05 #subNavi li.sn05 a{
+	color:#0066cc;
+}
+
+#bmn10.bsn01 #subNavi li.sn01 a,
+#bmn10.bsn02 #subNavi li.sn02 a,
+#bmn10.bsn03 #subNavi li.sn03 a,
+#bmn10.bsn04 #subNavi li.sn04 a,
+#bmn10.bsn05 #subNavi li.sn05 a,
+#bmn10.bsn06 #subNavi li.sn06 a,
+#bmn10.bsn07 #subNavi li.sn07 a{
+	color:#0066cc;
+}
+
+#bmn11.bsn01 #subNavi li.sn01 a{
+	color:#0066cc;
+}
+
+#bmn12.bsn01 #subNavi li.sn01 a,
+#bmn12.bsn02 #subNavi li.sn02 a{
+	color:#0066cc;
+}
+
+#bmn13.bsn01 #subNavi li.sn01 a{
+	color:#0066cc;
+}
+
+
+
+
+

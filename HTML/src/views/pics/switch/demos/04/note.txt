@@ -1,0 +1,17 @@
+【图片切换-组4】
+
+■使用说明：
+<div id="picBox-1" class="picBox">
+1  此DIV必须要有ID；
+2  此DIV的ID和CLASS的名称可以换；
+--------------------------------
+$(document).ready(function() {
+    $('.picBox').coinslider({ hoverPause: false });
+});
+此处可以取ID，也可以取CLASS
+
+■浏览器兼容：
+IE6/IE7/IE8/FF/Chrome
+
+
+

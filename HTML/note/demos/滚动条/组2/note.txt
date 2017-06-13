@@ -1,0 +1,9 @@
+【滚动条-组2】
+
+
+■使用说明：
+有两种效果，效果一请看index.html  效果二请看index2.html
+
+■浏览器兼容：
+IE6/IE7/IE8/IE9/FF/Safari/Chrome
+

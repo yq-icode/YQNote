@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "/css/global.less";
+
+
+.nav{
+	@color:rgb(27,154,247);
+	position:relative;
+	display:inline-block;
+	text-align:center;
+	button{
+		border:0;
+		padding:10px 50px;
+		background-color:@color;
+		color:#fff;
+		font-size:18px;
+		&:hover{background-color:lighten(@color,10%);}
+		&:active{
+			background-color:darken(@color,5%);
+			.box-shadow(0,3px,1px,0,darken(@color,10%),inset);
+			.text-shadow(1px,1px,0,rgba(255,255,255,.3));
+			color:darken(@color,20%);
+		}
+		i{font-size:14px;}
+	}
+	ul{
+		position:absolute;
+		width:100%;
+		border:1px solid darken(@color,10%);
+		background-color:lighten(@color,10%);
+		.box-shadow(0,0,5px,5px,rgba(0,0,0,.05));
+		a{
+			display:block;
+			padding:10px;
+			color:#fff;
+			font-size:14px;
+			&:hover{background-color:darken(@color,5%);text-decoration:none;}
+		}
+	}
+}

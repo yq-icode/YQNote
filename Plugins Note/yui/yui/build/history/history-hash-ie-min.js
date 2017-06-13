@@ -1,0 +1,8 @@
+/*
+Copyright (c) 2010, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 3.3.0pr1
+build: 10
+*/
+YUI.add("history-hash-ie",function(H){if(H.UA.ie&&!H.HistoryBase.nativeHashChange){var C=H.Do,D=YUI.namespace("Env.HistoryHash"),B=H.HistoryHash,E=D._iframe,G=H.config.win,A=G.location,F="";B.getIframeHash=function(){var I=B.hashPrefix,J=E?E.contentWindow.location.hash.substr(1):A.hash.substr(1);return I&&J.indexOf(I)===0?J.replace(I,""):J;};B._updateIframe=function(J,I){var K=E.contentWindow.document,L=K.location;K.open().close();if(I){L.replace(J.charAt(0)==="#"?J:"#"+J);}else{L.hash=J;}};C.after(B._updateIframe,B,"replaceHash",B,true);if(!E){H.on("domready",function(){E=D._iframe=H.Node.getDOMNode(H.Node.create('<iframe src="javascript:0" style="display:none" height="0" width="0" tabindex="-1" title="empty"/>'));H.config.doc.documentElement.appendChild(E);B._updateIframe(B.getHash());});H.on("hashchange",function(I){F=I.newHash;if(B.getIframeHash()!==F){B._updateIframe(F);}},G);H.later(50,null,function(){var I=B.getIframeHash();if(I&&F&&I!==F){B.setHash(I);}},null,true);}}},"3.3.0pr1",{requires:["history-hash","node-base"]});

@@ -1,0 +1,213 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "../../css/global.less";
+
+.btn1 {
+	@color:#3bb3e0;
+	background-color:@color;
+	width:150px;
+	display:inline-block;
+	font-size:12px;
+	text-align:center;
+	color:#fff;
+	position:relative;
+	margin-top:40px;
+	padding-bottom:10px;
+	padding-top:10px;
+	.linear-gradient-two-top(lighten(@color,8%),darken(@color,8%));
+	.b-radius-bl(5px);
+	.b-radius-br(5px);
+	@shadow:inset 0px 1px 0px darken(@color,8%), 0px 5px 0px 0px darken(@color,20%), 0px 10px 5px rgba(0,0,0,.3);
+	.box-shadow-multiple(@shadow);
+	&:active {
+		top:0px;
+		@shadow:inset 0px 4px 1px darken(@color,10%), 0px 2px 0px 0px darken(@color,15%), 0px 4px 2px rgba(0,0,0,.3);
+		.box-shadow-multiple(@shadow);
+	}
+	&:before{
+		background:#f2f2f2 url(images/heart.gif) no-repeat center;
+		content:"";
+		width:150px;
+		height:40px;
+		position:absolute;
+		top:-30px;
+		left:0px;
+		margin-top:-11px;
+		z-index:1;
+		.b-radius-tl(5px);
+		.b-radius-tr(5px);
+	}
+	&:active:before{
+		top: -30px;	
+		.box-shadow(0,3px,0,0,rgba(0,0,0,.1));
+	}
+}
+
+.loop(@distance) when(@distance > 0){
+	.loop((@distance - 1));
+	width:unit(@distance,px) unit(@distance,px);
+}
+.testv{
+	.loop(5);
+}
+
+.btn2 {
+	@color:#1B9AF7;
+	margin:10px;
+	display:inline-block;
+	height:65px;
+	line-height:65px;
+	overflow:hidden;
+	background-color:@color;
+	padding:0 20px;
+	text-align:center;
+	font-size:24px;
+	color:#fff;
+	.b-radius(8px);
+	@shadow:1px 1px 0 darken(@color,10%), 2px 2px 0 darken(@color,10%), 3px 3px 0 darken(@color,10%), 
+			4px 4px 0 darken(@color,10%), 5px 5px 0 darken(@color,10%), 6px 6px 0 darken(@color,10%),
+			7px 7px 0 darken(@color,10%), 8px 8px 0 darken(@color,10%), 9px 9px 0 darken(@color,10%),
+			10px 10px 0 darken(@color,10%), 11px 11px 0 darken(@color,10%), 12px 12px 0 darken(@color,10%),
+			13px 13px 0 darken(@color,10%), 14px 14px 0 darken(@color,10%), 15px 15px 0 darken(@color,10%),
+			16px 16px 0 darken(@color,10%), 17px 17px 0 darken(@color,10%), 18px 18px 0 darken(@color,10%),
+			19px 19px 0 darken(@color,10%), 20px 20px 0 darken(@color,10%), 21px 21px 0 darken(@color,10%),
+			22px 22px 0 darken(@color,10%), 23px 23px 0 darken(@color,10%), 24px 24px 0 darken(@color,10%),
+			25px 25px 0 darken(@color,10%), 26px 26px 0 darken(@color,10%), 27px 27px 0 darken(@color,10%),
+			28px 28px 0 darken(@color,10%), 29px 29px 0 darken(@color,10%), 30px 30px 0 darken(@color,10%),
+			31px 31px 0 darken(@color,10%), 32px 32px 0 darken(@color,10%), 33px 33px 0 darken(@color,10%),
+			34px 34px 0 darken(@color,10%), 35px 35px 0 darken(@color,10%), 36px 36px 0 darken(@color,10%),
+			37px 37px 0 darken(@color,10%), 38px 38px 0 darken(@color,10%), 39px 39px 0 darken(@color,10%),
+			40px 40px 0 darken(@color,10%);
+	.text-shadow-multiple(@shadow);
+	&:hover, &:focus{background-color:lighten(@color,7%);color:#fff;}
+	&:active{
+		color:darken(@color,15%);
+		background-color:darken(@color,5%);
+		.text-shadow(1px,1px,0,rgba(255,255,255,.2));
+		.box-shadow(0,3px,3px,0,darken(@color,10%),inset);
+		.transition(all,.15s);
+	}
+}
+button.btn2{
+	@color:#1B9AF7;
+	border:0;
+	@shadow:-1px 1px 0 darken(@color,10%), -2px 2px 0 darken(@color,10%), -3px 3px 0 darken(@color,10%),
+			-4px 4px 0 darken(@color,10%), -5px 5px 0 darken(@color,10%), -6px 6px 0 darken(@color,10%),
+			-7px 7px 0 darken(@color,10%), -8px 8px 0 darken(@color,10%), -9px 9px 0 darken(@color,10%),
+			-10px 10px 0 darken(@color,10%), -11px 11px 0 darken(@color,10%), -12px 12px 0 darken(@color,10%),
+			-13px 13px 0 darken(@color,10%), -14px 14px 0 darken(@color,10%), -15px 15px 0 darken(@color,10%),
+			-16px 16px 0 darken(@color,10%), -17px 17px 0 darken(@color,10%), -18px 18px 0 darken(@color,10%),
+			-19px 19px 0 darken(@color,10%), -20px 20px 0 darken(@color,10%), -21px 21px 0 darken(@color,10%),
+			-22px 22px 0 darken(@color,10%), -23px 23px 0 darken(@color,10%), -24px 24px 0 darken(@color,10%),
+			-25px 25px 0 darken(@color,10%), -26px 26px 0 darken(@color,10%), -27px 27px 0 darken(@color,10%),
+			-28px 28px 0 darken(@color,10%), -29px 29px 0 darken(@color,10%), -30px 30px 0 darken(@color,10%),
+			-31px 31px 0 darken(@color,10%), -32px 32px 0 darken(@color,10%), -33px 33px 0 darken(@color,10%),
+			-34px 34px 0 darken(@color,10%), -35px 35px 0 darken(@color,10%), -36px 36px 0 darken(@color,10%),
+			-37px 37px 0 darken(@color,10%), -38px 38px 0 darken(@color,10%), -39px 39px 0 darken(@color,10%),
+			-40px 40px 0 darken(@color,10%);
+	.text-shadow-multiple(@shadow);
+}
+
+.btn3{
+	@color:#7B72E9;
+	margin:10px;display:inline-block;height:38px;line-height:38px;text-align:center;padding:0 10px;background-color:@color;color:#fff;.b-radius(50%);font-size:18px;
+	&:hover{background-color:lighten(@color,10%);color:#fff;}
+	&:active{background-color:darken(@color,3%);color:darken(@color,20%);.text-shadow(0,1px,0,rgba(255,255,255,.4));}
+}
+button.btn3{border:0;}
+.btn3-1{.b-radius(3px);}
+
+.btn4{
+	@color:#eee;
+	position:relative;
+	top:0;
+	display:inline-block;
+	margin:10px;
+	height:55px;
+	padding:0 20px;
+	line-height:55px;
+	text-align:center;
+	background-color:@color;
+	color:darken(@color,40%);
+	font-size:24px;
+	.b-radius(5px);
+	@shadow:0 7px 0 0 darken(@color,15%),0 8px 3px 0 rgba(0,0,0,.2);
+	.box-shadow-multiple(@shadow);
+	.transition(all,.15s);
+	&:hover{background-color:lighten(@color,2%);color:darken(@color,50%);}
+	&:active{
+		top:5px;
+		background-color:lighten(@color,2%);
+		color:darken(@color,10%);
+		@shadow:0 2px 0 0 darken(@color,13%),0 3px 3px 0 rgba(0,0,0,.2);
+		.box-shadow-multiple(@shadow);
+		.text-shadow(0,1px,0,rgba(255,255,255,.8));
+	}
+}
+button.btn4{border:0;}
+
+@-webkit-keyframes 'glowing'{
+  from{-webkit-box-shadow:0 0 0 0 rgba(254, 174, 27, 0.3);}
+  50% {-webkit-box-shadow:0 0 20px 0 rgba(254, 174, 27, 0.8);}
+  to  {-webkit-box-shadow:0 0 0 0 rgba(254, 174, 27, 0.3);}
+}
+@-moz-keyframes 'glowing'{
+  from{-moz-box-shadow:0 0 0 0 rgba(254, 174, 27, 0.3);}
+  50% {-moz-box-shadow:0 0 20px 0 rgba(254, 174, 27, 0.8);}
+  to  {-moz-box-shadow:0 0 0 0 rgba(254, 174, 27, 0.3);}
+}
+@keyframes 'glowing'{
+  from{box-shadow:0 0 0 0 rgba(254, 174, 27, 0.3);}
+  50% {box-shadow:0 0 20px 0 rgba(254, 174, 27, 0.8);}
+  to  {box-shadow:0 0 0 0 rgba(254, 174, 27, 0.3);}
+}
+.btn5{
+	@color:#fec04e;
+	display:inline-block;
+	margin:10px;
+	height:55px;
+	padding:0 20px;
+	line-height:55px;
+	text-align:center;
+	background-color:@color;
+	color:#fff;
+	font-size:24px;
+	.b-radius(5px);
+	.animation(glowing,3s);
+}
+button.btn5{border:0;}
+
+.btn6{
+	margin:10px;
+	display:inline-block;
+	border:1px solid #ccc;
+	padding:20px;
+	text-align:center;
+	.linear-gradient-two-top(#f2f2f2,#fff);
+	.box-shadow(0,2px,1px,0,rgba(204,204,204,.3),inset);
+	.b-radius(50%);
+	a,button{
+		@color:#088ef0;
+		display:inline-block;
+		height:40px;
+		border:1px solid @color;
+		line-height:40px;
+		padding:0 11px;
+		.linear-gradient-two-top(lighten(@color,5%), @color);
+		@shadow:inset 0 1px 0 0 rgba(255,255,255,.4),0 1px 2px 0 rgba(0,0,0,.15);
+		.box-shadow-multiple(@shadow);
+		.b-radius(50%);
+		font-size:18px;
+		color:#fff;
+		&:active{
+			color:darken(@color,10%);
+			background:lighten(@color,5%);
+			.box-shadow(0,2px,1px,0,@color,inset);
+			@shadow:0 1px 0 rgba(255,255,255,.2),1px 1px 0 rgba(255,255,255,.2);
+			.text-shadow-multiple(@shadow);
+		}
+	}
+	button{.b-radius(200px);}
+	&.btn6-1{.b-radius(200px);}
+}

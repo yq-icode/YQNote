@@ -1,0 +1,123 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body{
+	font-family:Arial, Helvetica, sans-serif, "宋体";
+	line-height:16px;
+	color:#333;
+	font-size:12px;
+}
+
+body,h1,h2,h3,h4,h5,h6,div,p,ul,ol,li,dl,dt,dd,hr,form{margin:0; padding:0;}
+li{list-style-type:none;}
+img{border:0;}
+.valignMid *{vertical-align:middle;}
+.valignTop *{vertical-align:top;}
+.cursorP{cursor:pointer;}
+
+div{_height:1%;}
+
+a{text-decoration:none;color:#333;}
+a:hover{text-decoration:underline;}
+a.udline{text-decoration:underline;}
+a:visited{color:#333;}
+
+.fl{float:left;}
+.fr{float:right;}
+
+.fontS11{font-size:11px;}
+.fontS13{font-size:13px;}
+.fontS14{font-size:14px;}
+.fontS16{font-size:16px;}
+.fontS18{font-size:18px;}
+
+.fontC01, .fontC01:visited{color:#006699;}
+.fontC02{color:#666666;}
+.fontC03, .fontC03:visited{color:#990000;}
+.fontC04, .fontC04:visited{color:#0066cc;}
+.fontC05, .fontC05:visited{color:#000;}
+
+.mb5{margin-bottom:5px;}
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15px;}
+.mb20{margin-bottom:20px;}
+.mb50{margin-bottom:50px;}
+
+.mt5{margin-top:5px;}
+.mt10{margin-top:10px;}
+.mt15{margin-top:15px;}
+.mt20{margin-top:20px;}
+.mt50{margin-top:50px;}
+.mt100{margin-top:100px;}
+
+.ml_10{margin-left:-10px;}
+.ml5{margin-left:5px;}
+.ml10{margin-left:10px;}
+.ml15{margin-left:15px;}
+.ml20{margin-left:20px;}
+.ml50{margin-left:50px;}
+.ml70{margin-left:70px;}
+
+.mr_10{margin-right:-10px;}
+.mr5{margin-right:5px;}
+.mr10{margin-right:10px;}
+.mr15{margin-right:15px;}
+.mr20{margin-right:20px;}
+.mr30{margin-right:30px;}
+.mr50{margin-right:50px;}
+
+.pt10{padding-top:10px;}
+.pt15{padding-top:15px;}
+
+.pl10{padding-left:10px;}
+.pl31{padding-left:31px;}
+
+.pr10{padding-right:10px;}
+
+input.editbox,textarea,select{
+	border:1px solid #ccc;
+	padding:3px;
+	color:#333;
+	font-size:12px;
+}
+input.wdate{
+	padding-right:18px;
+	background:#fff url(/bbag/images/calendar.gif) no-repeat 99% center;	
+}
+
+.w01{width:120px;}
+input.w02, textarea.w02{width:280px;}
+select.w02{width:288px;}
+.w03{width:300px;}
+select.w03{width:308px;}
+.w04{width:100px;}
+.w05{width:400px;}
+.w06{width:350px;}
+.w07{width:200px;_width:180px;}
+select.w07{width:208px;_width:188px;}
+
+/* ------------------------------------------------------- *
+ * clearfix
+ * ------------------------------------------------------- */
+.cb{
+	visibility:hidden;
+	height:1px;
+	border:none;
+	clear:both;
+	font-size:0;
+	line-height:0;
+	overflow:hidden;
+}
+.clearfix:after{
+  content: ".";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+.clearfix{
+  display: inline-block;
+  overflow:hidden;
+}
+* html .clearfix{height: 1%;}
+.clearfix{display: block;}

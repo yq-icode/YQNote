@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>notebook</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+<link type="text/css" rel="stylesheet" href="/css/html.css" media="all" />
+
+
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="html" -->
+</head>
+
+<body id="html">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		<!--#include virtual="/include/lnHtml.html" -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<div class="pgTitle">
+			<h2>DIV属性详解</h2>
+		</div>
+		<h3>DIV设置height:100%后在不同父容器中的表现</h3>
+		<div class="section">
+			<dl>
+				<dt>A：子元素DIV-已设置属性height:100% &nbsp;&nbsp;&nbsp;&nbsp; B：父元素DIV  &nbsp;&nbsp;&nbsp;&nbsp; C：父元素：TD</dt>
+				<dd>
+					<table class="list">
+						<tr>
+							<th width="25%">E6 IE7 IE8 FF safari：</th>
+							<td>A会占满B</td>
+						</tr>
+						<tr>
+							<th>IE6 IE7 IE8 FF：</th>
+							<td>A不会占满C，A会根据它包含的内容来调节自身的高度</td>
+						</tr>
+						<tr>
+							<th>safari：</th>
+							<td>A会占满其父TD的高度</td>
+						</tr>
+					</table>
+				</dd>
+			</dl>
+		</div>
+		<h3>如果DIV的宽高继承自BODY，则它会随着屏幕分辨率的改变而变化。</h3>
+		<div class="section">			
+					原理：屏幕分辨率改变后BODY的宽高也会改变，DIV继承BODY的宽高，所以自然也会变化。（在IE6 IE7 IE8 FF Safari中测试通过）				
+		</div>
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

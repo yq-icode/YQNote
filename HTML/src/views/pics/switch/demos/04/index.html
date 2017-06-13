@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片切换-组4</title>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="coin-slider.js"></script>
+<script type="text/javascript" src="coin-slider.min.js"></script>
+<link href="coin-slider-styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div class="pbWrap">
+	<div id="picBox-1" class="picBox">
+		<a href="#" target="_blank">
+			<img src="images/mini_ninjas.jpg" alt="Mini Ninjas" style="display: none;">
+			<span style="display: none;">
+				<b>Mini Ninjas</b><br>
+				Your quest to defeat the Evil Samurai Warlord has begun. Control the powers of nature, possess creatures, use your
+				furious Ninja skills to free your Ninja friends.
+			</span>
+		</a>
+		<a href="#" target="_blank">
+			<img src="images/prince_of_persia.jpg" alt="Price of Persia" style="display: none;">
+		</a>
+		<a href="#" target="_blank">
+			<img src="images/spiderman_shattered_dimensions.jpg" alt="spiderman_shattered_dimensions" style="display: none;">
+		</a>
+		<a href="#" target="_blank">
+			<img src="images/brink.jpg" alt="brink" style="display: none;">
+		</a>
+		<a href="#" target="_blank">
+			<img src="images/god_of_war_3.jpg" alt="god_of_war_3" style="display: none;">
+		</a>
+	</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.picBox').coinslider({ hoverPause: false });
+		});
+	</script>
+</body>
+</html>

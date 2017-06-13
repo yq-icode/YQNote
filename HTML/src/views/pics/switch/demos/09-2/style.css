@@ -1,0 +1,85 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body,h1,h2,h3,h4,h5,h6,div,p,ul,ol,li,dl,dt,dd,hr,form{margin:0; padding:0;}
+li{list-style-type:none;}
+.fr{float:right;}
+img{border:0;}
+/* ------------------------------------------------------- *
+ * 【picSwitch】
+ * ------------------------------------------------------- */
+.picWrap{margin:50px;width:762px;}
+.picWrap .picLarge{position:relative;margin-bottom:10px;width:762px;overflow:hidden;}
+.picWrap .picLarge a{display:block;height:380px;overflow:hidden;text-decoration:none;}
+.picWrap .imgbox .imgbg{display:block;left:0;bottom:0;width:762px;height:40px;}
+.picWrap .imgbox .imgtxt{display:block;left:0;bottom:0;height:40px;line-height:40px;font-size:14px;}
+.picWrap .imgbox .imgtxt span{margin-left:5px;}
+
+.picWrap .picList{position:relative;height:86px;overflow:hidden;}
+.picWrap .picList .mask{position:relative;margin:0 auto;width:638px;height:86px;overflow:hidden;}
+.picWrap .picList .mask ul{position:relative;height:86px;}
+.picWrap .picList .mask ul li{float:left;_display:inline;margin:3px;width:100px;height:80px;overflow:hidden;}
+.picWrap .picList .mask ul li.on{position:relative;margin:1px;border:2px solid #000;}
+
+.picWrap .picList .btn-left,
+.picWrap .picList .btn-right{position:absolute;top:18px;display:block;text-decoration:none;}
+.picWrap .picList .btn-left span,
+.picWrap .picList .btn-right span{display:block;width:50px;height:50px;text-align:center;line-height:50px;background-color:#f3f3f3;color:#c00;font:32px "Microsoft yahei";font-weight:bold;cursor:pointer;}
+.picWrap .picList .btn-left span.disable,
+.picWrap .picList .btn-right span.disable{color:#ccc;}
+.picWrap .picList .btn-left:hover,
+.picWrap .picList .btn-right:hover{text-decoration:none;}
+.picWrap .picList .btn-left:hover span,
+.picWrap .picList .btn-right:hover span{background-color:#eee;}
+.picWrap .picList .btn-left:hover span.disable,
+.picWrap .picList .btn-right:hover span.disable{background-color:#f3f3f3;}
+.picWrap .picList .btn-left:visited,
+.picWrap .picList .btn-right:visited{color:#fff;}
+.picWrap .picList .btn-left{left:0;}
+.picWrap .picList .btn-right{right:0;}
+/* ------------------------------------------------------- *
+ * 【imgbox】
+ * ------------------------------------------------------- */
+.imgbox{
+	position:relative;
+	display:block;
+	overflow:hidden;
+	cursor:pointer;
+}
+.imgbox .imgbg{
+	position:absolute;
+	bottom:0;
+	left:0;
+	display:none;
+	width:100%;
+	height:100%;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+	background-color:#000;
+	cursor:pointer;
+}
+.imgbox .imgtxt{
+	position:absolute;
+	bottom:0;
+	left:0;
+	display:none;
+	width:100%;
+	height:100%;
+	color:#fff;
+}
+/* ------------------------------------------------------- *
+ * clearfix
+ * ------------------------------------------------------- */
+.clearfix:after{
+  content: ".";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+.clearfix{
+  display: inline-block;
+  overflow:hidden;
+}
+* html .clearfix{height: 1%;}
+.clearfix{display: block;}

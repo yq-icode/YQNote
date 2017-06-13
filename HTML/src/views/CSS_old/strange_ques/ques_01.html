@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>无标题文档</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+
+<link type="text/css" rel="stylesheet" href="/css/css.css" media="all" />
+
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="css" -->
+</head>
+
+<body id="css">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		
+		<!--#include virtual="/include/lnCss.html" -->
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<div class="pgTitle"><h2>样式问题一</h2></div>
+		<h3>1.由于缺少”}”导致样式失效</h3>
+		<div class="section">
+			<blockquote class="codebox">
+				.a_textM{ font-size:80%; color:#333333;}<br />
+				.text1{font-size:70%; }<br />
+				.text2{font-size:80%; letter-spacing:1px;}
+			</blockquote>
+			<p>如果a_textM缺少”}”,就会导致位于 a_textM后面的所有样式失效,此种情况只在FF中发生,IE6和IE7正常.</p>
+		</div>
+		<h3>2.预防CSS注释BUG</h3>
+		<div class="section">
+			<dl>
+				<dt>中文注释BUG</dt>
+				<dd>在一些特殊情况下中文注释会导致部分代码失效,主要原因是服务器支持、文档编码类型以及程序类型等引起的.解决方法：<br />
+				(一)将注释改成英文;<br />(二)更改文档编码类型;
+				</dd>
+				<dt>HTML注释BUG</dt>
+				<dd>在内部样式中添加HTML注释,则后面相邻的样式也会失效;</dd>
+			</dl>
+		</div>
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head> 
+<style> 
+li {
+    background:#ccc;
+}
+</style> 
+<script src="../../../../build/yui/yui.js"></script> 
+</head>
+<body> 
+<p> this is some text above the li</p>
+<ul>
+    <li>this is a</li>
+    <li>this is b</li>
+    <li>this is c</li>
+</ul>
+<p>this is some text below the li</p>
+
+<script type="text/javascript">
+ 
+YUI({filter:'debug'}).use('transition', 'event-custom-complex', 'selector-native', 'node-style', function(Y) {
+    var nodes = Y.all('ul li'),
+        node = nodes.item(0),
+        running = false;
+
+    document.onclick = function() {
+        nodes.toggleView('fade');
+    };
+});
+ 
+</script> 
+</body></html> 

@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "../../css/pics.less";
+
+.pic-zoom-warp{}
+/******************* pz-01 *******************/
+.pz-01 a {
+	font-size:14px;
+	color:#333;
+	text-decoration:none;
+}
+.pz-01 a img {
+	border:solid 1px #ddd;
+	margin:0 5px;
+}
+.previewShowWindow {
+	display:none;
+	position:absolute;
+	padding:5px;
+	background-color:#000;
+	text-align:center;
+	z-index:999;
+	.b-radius(30px);
+	img{.b-radius(30px);}
+}
+/******************* pz-02 *******************/
+.pz-02{
+	ul li{
+		float:left;
+		margin-right:10px;
+		width:270px;
+		height:150px;
+		overflow:hidden;
+		img{width:100%;.transition(all,.5s);}
+		&:hover{
+			img{.transform-scale-only(1.5,1.5);}
+		}
+	}
+}
+/******************* pz-03 *******************/
+.pz-03{
+	ul li{
+		float:left;
+		margin-right:10px;
+		width:270px;
+		height:150px;
+		overflow:hidden;
+		img{
+			position:relative;
+			left:0;
+			top:0;
+			width:100%;
+			.transition(all,.5s);
+		}
+		&:hover{
+			img{
+				width:400px;
+				left:-65px;
+				top:-30px;
+			}
+		}
+	}
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>css属性详解</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="css/css.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+    <style type="text/css">
+	body{background-color:#fff;}
+	</style>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+    <div class="topbar">
+		<div class="container">
+			<h2>css属性详解-深入剖析css属性</h2>
+		</div>
+	</div>
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-9" role="main">
+            	<!--#include virtual="_a.html" -->
+                <!-- **************** separator line ****************  -->
+                <section>
+                	<div class="title-bar">
+						<h3>列表与list-style-type</h3>
+                    </div>
+                    <p class="box">list-style-type的值只有应用在列表 ol li ul 上才能正常显示，如果应用在设置了display:list-item的其它标签上，则不能正常显示。例如：对设置了display:list-item的dl标签设置list-style-type属性，在chrome中正常，在firefox中不能正常显示。</p>
+                </section>
+                <!-- **************** separator line ****************  -->
+            </div>
+            <div class="col-md-3" id="side">
+            	<div class="fix-side-nav">
+                	<!--#include virtual="_property_list.html" -->
+                    <p class="toTop">
+                    	<a href="#"><i class="icon-circle-arrow-up"></i> TOP</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

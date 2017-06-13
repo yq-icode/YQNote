@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>YQ-Note css详解</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/common.js"></script>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+    <div class="cblock">
+    	<div class="bg-under">
+        	<div class="shape1"></div>
+        </div>
+        <div class="container content-area">
+        	<h1>高度自适应</h1>
+            <p>根据内容自动调节高度，从而实现自适应。</p>
+        </div>
+    </div>
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-9" role="main">
+            	<h3>最小自适应高度</h3>
+                <p>在IE6环境下，其实height就几乎就等于是min-height，指定容器高度后，当内容变多时有自动撑大容器的特质。而IE7 IE8 Firefox不会，它们只是显示固定height值，当内容变多时会溢出容器.所以可以这样设置CSS:<br>兼容性：<kbd>IE6+</kbd></p>
+                <div class="code-box">
+                	<pre class="language-css line-numbers">
+                    	<code>
+.selector{height:auto !important;height:600px; min-height:600px;}                        
+                        </code>
+                    </pre>
+                </div>
+                <!-- **************** separator line ****************  -->
+                <h3>最大自适应高度</h3>
+                <div class="code-box">
+                	<pre class="language-css line-numbers">
+                    	<code>
+.selector{
+	height:auto !important;
+    height:250px;
+    max-height:250px;
+    overflow:hidden;
+    overflow-y:auto;
+}      
+/* 因为IE6不支持min/max-width, min/max-height,所以针对IE6：*/
+* html .selector{
+	height:expression(this.height > 250 ? '250px' : auto)
+}                  
+                        </code>
+                    </pre>
+                </div>
+                <!-- **************** separator line ****************  -->
+            </div>
+            <div class="col-md-3" id="side">
+            	<div class="fix-side-nav">
+                	<!--#include virtual="_common_nav.html" -->
+                    <p class="toTop"><a href="#"><i class="icon-circle-arrow-up"></i>TOP</a></p>
+                </div>
+            </div>
+        </div>
+	</div>
+</body>
+</html>

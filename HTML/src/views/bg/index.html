@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>YQ-Note纯CSS制作图形背景</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="bg.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+    <!--#include virtual="/include/_header.html" -->
+    <div class="cblock">
+    	<div class="bg-under">
+        	<div class="shape1"></div>
+        </div>
+        <div class="container content-area">
+        	<h1>纯CSS制作图形背景</h1>
+        </div>
+    </div>
+    <div class="container">
+    	<div class="row">
+            <div class="main col-md-9">
+                <dl class="sec">
+                    <dt>椭圆作背景</dt>
+                    <dd>
+                    	<div class="bg-effect-1">
+                        	<div class="bg-under">
+                            	<div class="shape1"></div>
+                            	<div class="shape2"></div>
+                            </div>
+                            <div class="content-area"></div><!-- 这是内容区 -->
+                        </div>
+                    </dd>
+                    <dd class="txt">利用border-radius设置成椭圆，使其作背景。对于椭圆的尺寸，在用PS设计时要记下，方便在此时用</dd>
+                </dl>
+                <dl class="sec">
+                    <dt>平等四边形背景</dt>
+                    <dd>
+                    	<div class="bg-effect-2">
+                        	<div class="bg-under">
+                            	<div class="shape1"></div>
+                                <div class="shape2"></div>
+                            </div>
+                            <div class="content-area"></div><!-- 这是内容区 -->
+                        </div>
+                    </dd>
+                    <dd class="txt">矩形斜切skew作背景</dd>
+                </dl>
+                <dl class="sec">
+                    <dt>border-color的妙用</dt>
+                    <dd>
+                    	<div class="bg-effect-3">
+                        	<div class="bg-under">
+                            	<div class="shape1"></div>
+                            </div>
+                            <div class="content-area"></div><!-- 这是内容区 -->
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="sec">
+                    <dt>字体图标背景</dt>
+                    <dd>
+                    	<div class="bg-effect-4">
+                        	<div class="bg-under">
+                            	<span class="shape1 glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                            </div>
+                            <div class="content-area"></div><!-- 这是内容区 -->
+                        </div>
+                    </dd>
+                    <dd class="txt">此处使用的是Bootstrap自带的Glyphicon Halflings字体图标</dd>
+                </dl>
+            </div>
+            <div class="col-md-3" id="side">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

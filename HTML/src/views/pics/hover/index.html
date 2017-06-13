@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>图片HOVER效果</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="css/hover.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="js/hover.js"></script>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+    <div class="topbar">
+		<div class="container">
+			<h2>图片HOVER效果</h2>
+		</div>
+	</div>
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-9" role="main">
+            	<h3>
+                	<span class="num">1</span>效果一
+                </h3>
+                <p>兼容性：<kbd>IE6+</kbd></p>
+                <div class="pic-hover-warp ph-01">
+                <!--#include virtual="/views/pics/hover/_pic_hover_01.html" -->
+                </div>
+                <!-- **************** separator line ****************  -->
+                <h3>
+                	<span class="num">2</span>效果二
+                </h3>
+                <p>兼容性：<kbd>IE6+</kbd></p>
+                <div class="pic-hover-warp ph-02">
+                <!--#include virtual="/views/pics/hover/_pic_hover_02.html" -->
+                </div>
+                <p>a,img{border:0} 这里必须是'0'，不能写成'none'，如果写成'none'，在IE6/7/8中的效果就有问题，原因不明<br>IE6下文字背景没有和图片底对齐，差一个像素，原因不明；<br>IE7/IE8下，每行之间相隔一个像素，IE6/Chrome没有这个问题，原因不明；</p>
+                <!-- **************** separator line ****************  -->
+                <h3>
+                	<span class="num">3</span>效果三
+                </h3>
+                <p>兼容性：<kbd>IE6+</kbd></p>
+                <div class="pic-hover-warp ph-03">
+                <!--#include virtual="/views/pics/hover/_pic_hover_03.html" -->
+                </div>
+                <!-- **************** separator line ****************  -->
+                <h3>
+                	<span class="num">4</span>效果四
+                </h3>
+                <p>兼容性：<kbd>IE6+</kbd></p>
+                <div class="pic-hover-warp ph-04">
+                <!--#include virtual="/views/pics/hover/_pic_hover_04.html" -->
+                </div>
+            </div>
+            <div class="col-md-3" id="side">
+            	<div class="fix-side-nav">
+                    <p class="toTop"><a href="#"><i class="icon-circle-arrow-up"></i>TOP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

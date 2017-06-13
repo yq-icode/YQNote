@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TAB切换</title>
+<script type="text/javascript" src="jquery-1.6.1.js"></script>
+<script type="text/javascript" src="tab_switch.js"></script>
+<link href="tab_switch.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div class="tabWrap">
+	<ul class="tab">
+		<li>
+			<a id="tab1" class="on" href="#">請求書発行詳細</a>
+		</li>
+		<li>
+			<a id="tab2" href="#">請求書発行履歴</a>
+		</li>
+        <li>
+			<a id="tab3" href="#">業績概況</a>
+		</li>
+	</ul>
+	<div class="tabContent">
+		<div id="tc1" class="tabConBody">
+        	tabConBody01
+		</div>
+		<div id="tc2" style="display: none;" class="tabConBody">
+        	tabConBody02
+		</div>
+        <div id="tc3" style="display: none;" class="tabConBody">
+        	tabConBody03
+		</div>
+	</div>
+    <div class="tab_bottom"></div>
+</div>
+<script type="text/javascript">
+tabSwitch();
+</script>
+</body>
+</html>

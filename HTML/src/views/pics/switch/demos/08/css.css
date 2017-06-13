@@ -1,0 +1,51 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+@import url(common.css);
+/* ------------------------------------------------------- *
+ * 【scrollWrap】
+ * ------------------------------------------------------- */
+.scrollWrap{
+	position:relative;
+	width:300px;
+	height:100px;
+	overflow:hidden;
+}
+.scrollWrap ul{
+	position:relative;
+	height:100px;
+}
+.scrollWrap li{
+	float:left;
+	width:100px;
+	height:100px;
+}
+.scrollWrap .btn-left, .scrollWrap .btn-right{
+	position:absolute;
+	top:48%;
+	display:block;
+}
+.scrollWrap .btn-left span, .scrollWrap .btn-right span{
+	display:block;
+	border:1px solid #fff;
+	padding:2px 10px;
+	background-color:#0099cc;
+	color:#fff;
+	text-decoration:none;
+}
+.scrollWrap .btn-left span.disable, .scrollWrap .btn-right span.disable{
+	background-color:#999;
+	color:#ccc;
+}
+.scrollWrap .btn-left:hover, .scrollWrap .btn-right:hover{
+	text-decoration:none;
+}
+.scrollWrap .btn-left:visited, .scrollWrap .btn-right:visited{
+	color:#fff;
+}
+.scrollWrap .btn-left{
+	left:10px;
+}
+.scrollWrap .btn-right{
+	right:10px;
+}

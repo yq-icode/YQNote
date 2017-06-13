@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Simple Slide Panel</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	$(".btn-slide").click(function(){
+		$(".panel").slideToggle("slow");
+		$(this).toggleClass("active"); return false;
+	});
+});
+</script>
+<link href="style.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+<div class="panel_wrap">
+	<div class="panel">
+		<p>站酷（www.zcool.com.cn）诞生于2006年8月。站酷（ZCOOL）以分享最新最实用的素材资源，和提供最贴心的交流学习及自我推荐的平台为主要内容，以“为设计师及设计爱好者服务”为宗旨。站酷（www.zcool.com.cn）诞生于2006年8月。站酷（ZCOOL）以分享最新最实用的素材资源，和提供最贴心的交流学习及自我推荐的平台为主要内容，以“为设计师及设计爱好者服务”为宗旨。站酷（www.zcool.com.cn）诞生于2006年8月。站酷（ZCOOL）以分享最新最实用的素材资源，和提供最贴心的交流学习及自我推荐的平台为主要内容，以“为设计师及设计爱好者服务”为宗旨。站酷（www.zcool.com.cn）诞生于2006年8月。站酷（ZCOOL）以分享最新最实用的素材资源，和提供最贴心的交流学习及自我推荐的平台为主要内容，以“为设计师及设计爱好者服务”为宗旨。</p>
+	</div>
+	<p class="slide"><a href="#" class="btn-slide">了解站酷</a></p>
+</div>
+
+
+</body>
+</html>

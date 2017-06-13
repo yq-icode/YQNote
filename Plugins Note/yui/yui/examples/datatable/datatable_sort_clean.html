@@ -1,0 +1,76 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Column Sorting</title>
+
+<style type="text/css">
+/*margin and padding on body element
+  can introduce errors in determining
+  element position and are not recommended;
+  we turn them off as a foundation for YUI
+  CSS treatments. */
+body {
+	margin:0;
+	padding:0;
+}
+</style>
+
+<link type="text/css" rel="stylesheet" href="../../build/cssfonts/fonts-min.css" />
+<script type="text/javascript" src="../../build/yui/yui-min.js"></script>
+
+
+<!--begin custom header content for this example-->
+<style type="text/css">
+/* custom styles for this example */
+.example {margin:1em;}
+</style>
+<!--end custom header content for this example-->
+
+</head>
+
+<body class="yui3-skin-sam  yui-skin-sam">
+
+<h1>Column Sorting</h1>
+
+<div class="exampleIntro">
+	The <code>Y.Plugin.DataTableSort</code> plugin adds column sorting functionality to a basic DataTable.			
+</div>
+
+<!--BEGIN SOURCE CODE FOR EXAMPLE =============================== -->
+
+<div id="sort" class="example"></div>
+
+<div id="mouseenter" class="example"></div>
+
+<script type="text/javascript">
+YUI().use("datatable-sort", function (Y) {
+    var cols = [
+        {key:"a", label:"Sortable Column A", sortable:true},
+        {key:"b", label:"Not Sortable Column B"},
+        {key:"c", label:"Sortable Column C", sortable:true}
+    ],
+    trigger = [
+        {key:"a", label:"Mouseenter to Sort A", sortable:true},
+        {key:"b", label:"Not Sortable Column B"},
+        {key:"c", label:"Mouseenter to Sort C", sortable:true}
+    ],
+    data = [
+        {a:"1A", b:"1B", c:"1C"},
+        {a:"2A", b:"2B", c:"2C"},
+        {a:"3A", b:"3B", c:"3C"}
+    ],
+
+    dt1 = new Y.DataTable.Base({columnset:cols, recordset:data}).plug(Y.Plugin.DataTableSort).render("#sort"),
+    
+    dt2 = new Y.DataTable.Base({columnset:trigger, recordset:data}).plug(Y.Plugin.DataTableSort, {trigger:"theadCellMouseenter", template:"{value}"}).render("#mouseenter");
+        
+});
+
+</script>
+
+<!--END SOURCE CODE FOR EXAMPLE =============================== -->
+
+</body>
+</html>

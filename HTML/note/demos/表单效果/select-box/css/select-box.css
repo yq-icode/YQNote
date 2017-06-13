@@ -1,0 +1,54 @@
+﻿@charset "utf-8";
+/* CSS Document */
+@import url(common.css);
+
+/* ------------------------------------------------------- *
+ * select-box
+ * ------------------------------------------------------- */
+.select-box{
+	position:relative;
+	float:left;
+	margin-right:5px;
+}
+.sb-zIndex{z-index:10;}
+.select-box .select-vbox{
+	border:1px solid #c8c8c8;
+	height:24px;
+	line-height:24px;
+}
+.select-box .select-value{
+	display:block;
+	height:24px;
+	padding:0 30px 0 5px;
+	cursor:default;
+	background:#fff url(../images/job_icon_db.gif) right top no-repeat;
+	color:#333;
+}
+.select-box .select-optionBox{
+	display:none;
+	position:absolute;
+	left:0;
+	top:25px;
+	border:1px solid #c8c8c8;
+	background:#fff;
+	font-size:12px;
+	z-index:1000;
+}
+/* sb1
+ * ---------------------------------- */
+.select-box .select-optionBox .sb1{
+	padding:0;	
+}
+.select-box .select-optionBox .sb1 li{
+	float:none;
+	margin:0;
+}
+.select-box .select-optionBox .sb1 li a{
+	display:block;
+	_height:20px;
+	padding:5px 10px;
+}
+.select-box .select-optionBox .sb1 li a:hover{
+	background-color:#5CBEFF;
+	color:#fff;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片切换-组3</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="js.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div class="picSwitch clearfix">
+        <ul class="fr">
+            <li>
+                <a class="on" href="images/img1-lg.jpg" title="img1">
+                    <img src="images/img1-thumb.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="images/img2-lg.jpg" title="img2">
+                    <img src="images/img2-thumb.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="images/img1-lg.jpg" title="img1">
+                    <img src="images/img1-thumb.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="images/img1-lg.jpg" title="img1">
+                    <img src="images/img1-thumb.jpg" alt="" />
+                </a>
+            </li>
+            <li class="last">
+                <a href="images/img1-lg.jpg" title="img1">
+                    <img src="images/img1-thumb.jpg" alt="" />
+                </a>
+            </li>
+        </ul>
+        <div class="largeImg">
+        	<!-- 此处的链接在IE6/7/8中都起作用 -->
+            <a href="http://www.baidu.com" class="imgbox">
+                <img src="images/img1-lg.jpg" alt="" />
+                <span class="imgbg">&nbsp;</span>
+                <p class="imgtxt">
+                	<span>img1</span>
+                </p>
+            </a>
+        </div>
+    </div>
+            
+	<script type="text/javascript">	
+		picSwitch();
+	</script>
+</body>
+</html>

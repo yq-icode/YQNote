@@ -1,0 +1,16 @@
+【滑动展开与收缩-使用JQuery类库】
+
+■使用说明：
+1  引用JQuery类库jquery.js
+
+
+
+■浏览器兼容：
+IE6/IE7/IE8/FF/Safari/Chrome
+
+■注意点：
+.units .item{padding-bottom:10px;}
+这里间距的设置一定要用padding，不能写成margin，如果写成margin，在IE8中收缩时间距会消失，IE7 FF正常，原因不明。
+
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>仿shadowbox</title>
+<script type="text/javascript" src="jquery-1.7.2-min.js"></script>
+<script type="text/javascript" src="shadowbox.js"></script>
+<link href="shadowbox.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div style="height:1200px;">
+	<p>
+		<a href="#" onclick="shadboxFun('pw01')">pw01弹出框</a>
+	</p>
+	<p style="margin-top:500px;">
+		<a href="javascript:void(0)" onclick="shadboxFun('pw02')">pw02弹出框</a>
+	</p>
+</div>
+
+<div class="popbox-container">
+	<div class="popbox-overlay"></div>
+	<!-- pw01弹出框[from] -->
+    <div class="popbox-wrapper" id="pw01">
+    	<img class="popbox-close" src="images/close.jpg" alt="" />
+        <div class="popbox-body">
+        	<p align="center">
+                <img src="images/loading.gif" alt="" />
+                <span>pw01弹出框</span>
+            </p>
+        </div>
+	</div>
+	<!-- pw01弹出框[end] -->
+	<!-- pw02弹出框[from] -->
+    <div class="popbox-wrapper" id="pw02">
+    	<img class="popbox-close" src="images/close.jpg" alt="" />
+        <div class="popbox-body">
+        	<p align="center">
+                <img src="images/loading.gif" alt="" />
+                <span>pw02弹出框</span>
+            </p>
+        </div>
+	</div>
+	<!-- pw02弹出框[end] -->
+</div>
+
+</body>
+</html>

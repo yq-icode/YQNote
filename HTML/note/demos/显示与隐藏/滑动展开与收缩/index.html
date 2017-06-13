@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>滑动展开与收缩</title>
+<script type="text/javascript" src="jquery.js" ></script>
+<link href="style.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("h4.item_head:first").addClass("active");
+		$(".units .item_body:gt(0)").hide();
+		
+		$("h4.item_head").click(function(){
+			$(this).next(".item_body").slideToggle(500);
+			$(this).toggleClass("active");
+			return false;
+		});
+		$(".showAll").click(function(){
+			$(".item_body").slideDown(500);
+			$("h4.item_head").addClass("active");
+			return false;
+		});
+		$(".hiddenAll").click(function(){
+			$(".item_body").slideUp(500);
+			$("h4.item_head").removeClass("active");
+			return false;
+		});
+	});
+</script>
+	<div class="units">
+		<div class="item">
+			<h4 class="item_head">国語　（5閲覧/20教材）</h4>
+			<div class="item_body">
+				<table class="tlist">
+					<tr>
+						<th>教材名</th>
+						<th>教材・お気に入り</th>
+						<th>最終閲覧</th>
+					</tr>
+					<tr class="yellow">
+						<td>【古文】第１回　古典へのアプローチ</td>
+						<td class="ac">
+							<a href="#">動画</a>
+							<a href="#">教材</a>
+							<a href="#">お気入り追加</a>
+						</td>
+						<td class="ac">2011/04/11(月) 17:00</td>
+					</tr>
+					<tr class="yellow">
+						<td>【古文】第２回　動詞</td>
+						<td class="ac">
+							<a href="#">動画</a>
+							<a href="#">教材</a>
+							<a href="#">お気入り追加</a>
+						</td>
+						<td class="ac">2011/04/11(月) 17:00</td>
+					</tr>
+					<tr class="yellow">
+						<td>【古文】第３回　助動詞　き・けり</td>
+						<td class="ac">
+							<a href="#">動画</a>
+							<a href="#">教材</a>
+							<a href="#">お気入り追加</a>
+						</td>
+						<td class="ac">2011/04/11(月) 17:00</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="item">
+			<h4 class="item_head">数学　（0閲覧/20教材）</h4>
+			<div class="item_body">
+				<table class="tlist">
+					<tr>
+						<th>教材名</th>
+						<th>教材・お気に入り</th>
+						<th>最終閲覧</th>
+					</tr>
+					<tr class="yellow">
+						<td>【古文】第１回　古典へのアプローチ</td>
+						<td class="ac">
+							<a href="#">動画</a>
+							<a href="#">教材</a>
+							<a href="#">お気入り追加</a>
+						</td>
+						<td class="ac">2011/04/11(月) 17:00</td>
+					</tr>
+					<tr class="yellow">
+						<td>【古文】第２回　動詞</td>
+						<td class="ac">
+							<a href="#">動画</a>
+							<a href="#">教材</a>
+							<a href="#">お気入り追加</a>
+						</td>
+						<td class="ac">2011/04/11(月) 17:00</td>
+					</tr>
+					<tr class="yellow">
+						<td>【古文】第３回　助動詞　き・けり</td>
+						<td class="ac">
+							<a href="#">動画</a>
+							<a href="#">教材</a>
+							<a href="#">お気入り追加</a>
+						</td>
+						<td class="ac">2011/04/11(月) 17:00</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

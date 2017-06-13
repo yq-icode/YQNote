@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>notebook</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+
+
+<link type="text/css" rel="stylesheet" href="/css/javascript.css" media="all" />
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="javascript" -->
+</head>
+
+<body id="javascript">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		
+		
+		<!--#include virtual="/include/lnJavascript.html" -->
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<div class="pgTitle"><h2>缓冲返回页面顶部</h2></div>
+		<div class="section">
+		缓冲效果的JS返回页首（网页顶部）特效，不是用的锚点技术，是用JS判断出来的，越出高度后会出现返回顶部的按钮，点击后页面由快到慢返回到网页顶端.<br />
+		IE7,IE8,FF运行正常，IE6中缓冲效果也正常，只是返回顶部的按钮不会隐藏，会一直在页面底部。<br />
+		注意：JS代码要写在&lt;div id="gotopbtn"&gt;goTop&lt;/div&gt;之后，否则无法取到其ID。
+		</div>
+		<blockquote class="codebox">
+			<pre>
+&lt;div id="gotopbtn"&gt;goTop&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+backTop=function (btnId){
+	var btn=document.getElementById(btnId);
+	var d=document.documentElement;
+	window.onscroll=set;
+	btn.onclick=function (){
+		btn.style.display="none";
+		window.onscroll=null;
+		this.timer=setInterval(function(){
+			d.scrollTop-=Math.ceil(d.scrollTop*0.1);
+			if(d.scrollTop==0) clearInterval(btn.timer,window.onscroll=set);
+		},10);
+	};
+	function set(){btn.style.display=d.scrollTop?'block':"none"}
+};
+backTop('gotopbtn');
+&lt;/script&gt;
+
+&lt;style type="text/css"&gt;
+#gotopbtn {
+	width:100px;
+	height:30px;
+	background:#fff;
+	position:fixed;
+	bottom:100px;
+	right:20px;
+	display:none;
+	cursor:pointer;
+	font-size:14px;
+	line-height:30px;
+	border:1px solid #aaa; 
+}
+&lt;/style&gt;
+&lt;!--[if lt IE 7]&gt;
+&lt;style type="text/css"&gt;
+#gotopbtn{position:absolute;top:expression(eval(document.documentElement.scrollTop + 50));}
+&lt;/style&gt;
+&lt;![endif]--&gt;	
+			</pre>
+		</blockquote>
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

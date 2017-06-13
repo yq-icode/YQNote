@@ -1,0 +1,66 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* === common === */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,p{
+	margin:0;
+	padding:0;
+	font-size:12px;
+}
+
+table{border-collapse:collapse;border-spacing:0;}
+
+
+/* === table === */
+table.tlist{
+	width:100%;
+	border:1px solid #cccccc;
+}
+table.tlist tr.yellow{
+	background-color:#fffde5;
+}
+table.tlist td.yellow{
+	background-color:#fff9ef;
+}
+table.tlist th{
+	background-color:#ffe0a9;
+}
+table.tlist th,table.tlist td{
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	padding:5px 8px;
+}
+table.tlist td.tdate{
+	width:100px;
+	white-space:nowrap;
+	text-align:center;
+}
+table.tlist td.taction{
+	text-align:center;
+}
+
+
+/* === unit ==== */
+.units{
+	margin:100px;
+}
+.units .item{
+	display:block;
+	padding-bottom:10px;
+}
+.units .item h4{
+	background:#efefef url(images/open.jpg) no-repeat 98% 50%;;
+	padding:5px 15px;
+	cursor:pointer;
+}
+.units .item h4.active{
+	background:#efefef url(images/close.jpg) no-repeat 98% 50%;;
+}
+.units item .item_body{
+
+}
+.units .item table.tlist{
+	margin-left:0px;
+	width:100%;
+}
+

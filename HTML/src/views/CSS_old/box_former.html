@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>无标题文档</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+
+<link type="text/css" rel="stylesheet" href="/css/css.css" media="all" />
+
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="css" -->
+</head>
+
+<body id="css">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		
+		<!--#include virtual="/include/lnCss.html" -->
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<div class="pgTitle"><h2>盒模型</h2></div>
+		<div class="section">
+			<dl>
+				<dt> 对象的实际高度</dt>
+				<dd>
+				margin-top + border-top + padding-top + height + padding-bottom + border-bottom + margin-bottom
+				</dd>
+				<dt> 边距碰撞</dt>
+				<dd>
+				当元素的下边距碰到了另一个元素的上边距时，浏览器不是把这两个值相加，而是会使用最大的那个边距；
+				</dd>
+				<dt> 浏览器显示差别</dt>
+				<dd>
+				FF: 设置 padding和border 后, div 会增加 height 和 width, 但 IE 不会, 故需要用 !important 多设一个 height 和 width, 即在IE中width包括paddig与border , 因此增加与减少padding 与 border都不影响DIV的宽度；<br />p标签亦有此属性;
+				</dd>
+				<dt> 按钮是唯一 一个不遵守盒模型的元素</dt>
+			</dl>
+		</div>
+		<h3>表单元素</h3>
+		<div class="section">
+			<table class="list">
+				<tr>
+					<th></th>
+					<th colspan="3">IE6</th>
+					<th colspan="3">IE7</th>
+					<th colspan="3">IE8</th>
+					<th colspan="3">FF</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th>padding</th>
+					<th>border</th>
+					<th>margin</th>
+					<th>padding</th>
+					<th>border</th>
+					<th>margin</th>
+					<th>padding</th>
+					<th>border</th>
+					<th>margin</th>
+					<th>padding</th>
+					<th>border</th>
+					<th>margin</th>
+				</tr>
+				<tr>
+					<th>inputbox</th>
+					<td>1</td>
+					<td>2</td>
+					<td>auto</td>
+					<td>1</td>
+					<td>2</td>
+					<td>auto</td>
+					<td>1</td>
+					<td>2</td>
+					<td>auto</td>
+					<td>1,0</td>
+					<td>2</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<th>textarea</th>
+					<td>1</td>
+					<td>2</td>
+					<td>auto</td>
+					<td>2</td>
+					<td>2</td>
+					<td>auto</td>
+					<td>2</td>
+					<td>1</td>
+					<td>auto</td>
+					<td>0</td>
+					<td>2</td>
+					<td>1,0</td>
+				</tr>
+				<tr>
+					<th>select</th>
+					<td>0</td>
+					<td>2</td>
+					<td>auto</td>
+					<td>0</td>
+					<td>2</td>
+					<td>auto</td>
+					<td>0</td>
+					<td>1</td>
+					<td>auto</td>
+					<td>0</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+			</table>
+			<dl>
+				<dt>总结：</dt>
+				<dd>inputbox,textarea遵守盒模型，即：占用的实际范围 = padding + border + width(css中设置的宽度值)<br />IE6,IF7,IE8,FF都遵从此效果。</dd>
+				<dd>select不遵守盒模型，即：占用的实际范围（=css中设置的宽度） = border + padding + width(实际宽度)<br />E6,IF7,IE8,FF都遵从此效果。</dd>
+			</dl>
+		</div>
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SVG</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="css/svg.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+    <!--#include virtual="/include/_header.html" -->
+    <div class="cblock">
+    	<div class="bg-under">
+        	<div class="shape1"></div>
+        </div>
+        <div class="container content-area">
+        	<h1>SVG</h1>
+        </div>
+    </div>
+    <div class="container">
+    	<div class="row">
+        	<div class="col-md-9" role="main">
+            	<h3>理解SVG的viewport,viewBox,preserveAspectRatio</h3>
+                <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/html5/svg-viewport-viewbox-preserveaspectratio.html">http://www.w3cplus.com/html5/svg-viewport-viewbox-preserveaspectratio.html</a></p>
+                <h3>关于单位</h3>
+                <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/html5/svg-coordinates.html">http://www.w3cplus.com/html5/svg-coordinates.html</a></p>
+                <ul class="list lst-decimal">
+                	<li>无论是&lt;svg&gt;还是其子元素，当没有指定单位时，默认单位均为像素PX</li>
+                    <li>无论&lt;svg&gt;是否设置了单位，都不会影响其子元素，即&lt;svg&gt;和其子元素可以同时设置不同的单位，亦可同时都不设置单位（此时默认都为PX），亦可或只子元素设置单位，或只父元素&lt;svg&gt;设置单位。</li>
+                </ul>
+                <h3>在Web浏览器中显示SVG</h3>
+                <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/html5/svg-introduction-and-embedded-html-page.html">http://www.w3cplus.com/html5/svg-introduction-and-embedded-html-page.html</a></p>
+                <p>SVG文件是纯粹的XML，或许大家更为关心的是如何在Web浏览器中让SVG显示。要在浏览器中显示（前提是浏览器支持），可以通过几种方法来实现：</p>
+                <ul class="list lst-decimal">
+                	<li>指向SVG文件地址</li>
+                    <li>指向SVG文件地址</li>
+                </ul>
+                <p>而将SVG图像嵌入到HTML文件有多种方法：</p>
+                <ul class="list-group">
+                	<li class="list-group-item">使用&lt;iframe&gt;元素来嵌入SVG图像</li>
+                    <li class="list-group-item">使用&lt;img&gt;元素来嵌入SVG图像</li>
+                    <li class="list-group-item">将SVG图像作为背景图像嵌入</li>
+                    <li class="list-group-item">直接使用&lt;svg&gt;元素</li>
+                    <li class="list-group-item">使用&lt;embed&gt;元素来嵌入SVG图像</li>
+                    <li class="list-group-item">使用&lt;object&gt;元素来嵌入SVG图像</li>
+                </ul>
+                <div class="code-box">
+                	<pre class="language-svg line-numbers">
+                    	<code>
+                        
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-3" id="side">
+            	<div class="fix-side-nav">
+                	<ul>
+                    	<li><a href="shape.html">SVG形状</a></li>
+                    </ul>
+                	<p class="toTop"><a href="#"><i class="icon-circle-arrow-up"></i>TOP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

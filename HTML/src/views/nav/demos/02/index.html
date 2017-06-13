@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>横向二级菜单</title>
+<script type="text/javascript" src="jquery-1.6.1.js" ></script>
+<link href="style.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+	<div class="catMenu">
+    	<ul>
+            <li>
+            	<a class="catBig" href="#">服装内衣</a>
+                <dl>
+                	<dd>
+                    	<a href="#">针织开衫</a>
+                        <a href="#">羊绒衫</a>
+                        <a href="#">毛衣</a>
+                        <a href="#">长袖T恤</a>
+                        <a href="#">针织开衫</a>
+                        <a href="#">羊绒衫</a>
+                        <a href="#">毛衣</a>
+                        <a href="#">长袖T恤</a>
+                        <a href="#">针织开衫</a>
+                        <a href="#">羊绒衫</a>
+                        <a href="#">毛衣</a>
+                        <a href="#">长袖T恤</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+            	<a class="catBig" href="#">手机数码</a>
+                <dl>
+                	<dd>
+                    	<a href="#">iPhone5s</a>
+                        <a href="#">Galaxy Note3</a>
+                        <a href="#">小米3</a>
+                        <a href="#">苹果</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+            	<a class="catBig" href="#">护肤彩妆</a>
+                <dl>
+                	<dd>
+                    	<a href="#">花水纯露</a>
+                        <a href="#">洗面奶</a>
+                        <a href="#">乳液</a>
+                        <a href="#">面膜</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+            	<a class="catBig" href="#">家纺居家</a>
+                <dl>
+                	<dd>
+                    	<a href="#">四件套</a>
+                        <a href="#">纯棉四件套</a>
+                        <a href="#">珊瑚绒四件套</a>
+                        <a href="#">磨毛四件套</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+            	<a class="catBig" href="#">美食特产</a>
+                <dl>
+                	<dd>
+                    	<a href="#">四件套</a>
+                        <a href="#">纯棉四件套</a>
+                        <a href="#">珊瑚绒四件套</a>
+                        <a href="#">磨毛四件套</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+            	<a class="catBig" href="#">日用百货</a>
+                <dl>
+                	<dd>
+                    	<a href="#">四件套</a>
+                        <a href="#">纯棉四件套</a>
+                        <a href="#">珊瑚绒四件套</a>
+                        <a href="#">磨毛四件套</a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+	
+    <script type="text/javascript">
+		$('.catMenu').find('li').hover(
+			function(){
+				$(this).addClass('on');
+				$(this).prev('li').addClass('on_prev');
+				$(this).next('li').addClass('on_next');
+			},
+			function(){
+				$(this).removeClass('on');
+				$(this).prev('li').removeClass('on_prev');
+				$(this).next('li').removeClass('on_next');
+			}
+		);
+	</script>
+</body>
+</html>

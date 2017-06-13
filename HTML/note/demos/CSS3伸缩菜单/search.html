@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="all" href="add.css"/>
+<title>无标题文档</title>
+<Style>
+
+body{ background:#fff}
+/* Forms */
+input[type=text],
+input[type=password],
+textarea {
+	background: #fafafa;
+	-moz-box-shadow: inset 1px 1px 10px rgba(0,0,0,0.1);
+	-webkit-box-shadow: inset 1px 1px 10px rgba(0,0,0,0.1);
+	box-shadow: inset 1px 1px 10px rgba(0,0,0,0.1);
+	border: 1px solid #ddd;
+	color: #888;
+}
+input[type=text]:focus,
+textarea:focus {
+	color: #373737;
+	border:1px red solid;
+}
+input#s {
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	font-size: 14px;
+	height: 22px;
+	line-height: 1.2em;
+	padding: 4px 10px 4px 28px;
+}
+
+/* Assistive text */
+.assistive-text {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+/* Search Form */
+#nav-bottom-menu #searchform {
+	position: absolute;
+	top: 19px;
+	right: 20px;
+	text-align: right;
+}
+#branding #searchform {
+	position: relative;
+	top: -7.6em;
+	text-align: right;
+}
+#branding #searchform div, #nav-bottom-menu #searchform div  {
+	margin: 0;
+}
+#branding #s, #nav-bottom-menu #s {
+	background-color: #f9f9f9;
+	-webkit-transition-duration: 400ms;
+	-webkit-transition-property: width, background;
+	-webkit-transition-timing-function: ease;
+	-moz-transition-duration: 400ms;
+	-moz-transition-property: width, background;
+	-moz-transition-timing-function: ease;
+	-o-transition-duration: 400ms;
+	-o-transition-property: width, background;
+	-o-transition-timing-function: ease;
+	width: 80px;
+}
+#branding #s:focus, #nav-bottom-menu #s:focus {
+	background-color: #f9f9f9;
+	width: 160px;
+}
+#branding #searchsubmit, #nav-bottom-menu #searchsubmit {
+	display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+		<div id="nav-bottom-menu">
+	    <form method="get" id="searchform" action="http://open.cnmsdn.com/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+	</div>	
+
+</body>
+</html>

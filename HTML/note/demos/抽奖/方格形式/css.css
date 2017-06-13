@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(common.css);
+
+.grid-game-wrap{
+	position:relative;
+	width:608px;
+	height:320px;
+}
+.grid-game-wrap ul li{position:absolute;width:120px;height:106px;}
+.grid-game-wrap ul li.n01{left:121px;top:0px;}
+.grid-game-wrap ul li.n02{left:242px;top:0px;}
+.grid-game-wrap ul li.n03{left:363px;top:0px;}
+.grid-game-wrap ul li.n04{left:484px;top:0px;}
+.grid-game-wrap ul li.n05{left:484px;top:107px;}
+.grid-game-wrap ul li.n06{left:484px;top:214px;}
+.grid-game-wrap ul li.n07{left:363px;top:214px;}
+.grid-game-wrap ul li.n08{left:242px;top:214px;}
+.grid-game-wrap ul li.n09{left:121px;top:214px;}
+.grid-game-wrap ul li.n10{left:0px;top:214px;}
+.grid-game-wrap ul li.n11{left:0px;top:107px;}
+.grid-game-wrap ul li.n12{left:0px;top:0px;}
+
+.grid-game-wrap .btn input{
+	position:absolute;
+	left:121px;
+	top:107px;
+	width:362px;
+	height:106px;
+	border:0;
+	background:url(images/btn.gif) no-repeat;
+	cursor:pointer;
+	text-indent:-9999px;
+	overflow:hidden;
+}

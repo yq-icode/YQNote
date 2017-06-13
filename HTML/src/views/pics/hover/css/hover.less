@@ -1,0 +1,185 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "../../css/pics.less";
+
+h3{
+	@color:#666;
+	height:40px;line-height:40px;font-size:20px;font-family:"幼圆";
+	background-color:rgba(0,0,0,0.2);
+	color:lighten(@color,65%);
+	.num{
+		margin:10px 5px 0 -5px;height:20px;padding:0 15px;line-height:20px;vertical-align:top;color:#fc0;
+		background-color:darken(@color,40%);
+		.box-shadow(-3px,2px,3px,0,rgba(0,0,0,.2));
+		.transform-skew-only(10deg,0);
+	}
+}
+kbd{background-color:#AFC91F;}
+.pic-hover-warp{}
+/******************* ph-01 *******************/
+.ph-01{
+	@color:rgba(255,255,255,.9);
+	.picbox ul{margin-left:-1px;overflow:hidden;}
+	.picbox ul li{position:relative;float:left; display:inline; width:199px;height:149px;margin:1px 0 0 1px;overflow:hidden; }
+	.picbox ul li .hidbox{position:absolute;width:199px;height:149px;top:149px;left:0;background-color:rgba(0,0,0,.6);}
+	.picbox ul li .hidbox label{display:inline-block;padding:5px 15px;background-color:rgba(0,0,0,.8);color:#fff;font-size:14px;font-weight:bold;}
+	.picbox ul li .hidbox p{padding:20px;font-size:14px;line-height:24px; }
+	.picbox ul li .hidbox a{color:#ddd;text-decoration:none;}
+}
+/******************* ph-02 *******************/
+.ph-02{
+	.thumbnailWrapper ul li {
+		float:left;
+		position:relative;
+		overflow:hidden;
+	}
+	.thumbnailWrapper ul li a{
+		border:0;	
+	}
+	.thumbnailWrapper ul li a img {
+		width:200px;
+		position:relative;
+		border:none;
+	}
+	.thumbnailWrapper ul li .caption {
+		position:absolute;
+		bottom:0px;
+		left:0px;
+		width:100%;
+		display:none;
+		background:#0c4b62;
+		color:#ffffff;
+		opacity:0.9;
+	}
+	.thumbnailWrapper ul li .caption .captionInside {
+		padding:10px;
+		text-align:center;
+		line-height:16px;
+	}
+}
+/******************* ph-03 *******************/
+.ph-03{
+	ul li{
+		position:relative;
+		float:left;
+		margin-right:10px;
+		margin-bottom:10px;
+		display:inline;
+		width:270px;
+		height:290px;
+		overflow:hidden;
+	}
+	ul li .photo{
+		width:270px;
+		height:290px;
+		overflow:hidden;
+	}
+	ul li .photo img{max-width:100%;}
+	ul li .rsp{
+		position: absolute;
+		top:0px;
+		left:0px;
+		width:270px;
+		height:290px;
+		background:#000;
+		overflow:hidden;
+	}
+	ul li .text{
+		position:absolute;
+		left:-270px;
+		top:0px;
+		width:270px;
+		height:290px;
+		overflow:hidden;
+	}
+	ul li .text a{
+		text-decoration:none;
+	}
+	ul li .text h3{
+		margin-top:130px;
+		width:270px;
+		height:55px;
+		line-height:55px;
+		text-align:center;
+		color:#FFFFFF;
+		background:#000000;
+		font-family:"microsoft yahei";
+		font-size:26px;
+		cursor:pointer;
+	}
+}
+/******************* ph-04 *******************/
+.mbx1 .imgbox{
+	float:left;
+	margin-right:10px;
+	width:210px;
+	height:150px;
+	overflow:hidden;
+}
+.mbx1 .imgbox .imgbg,
+.mbx1 .imgbox .imgtxt{
+	display:block;
+	height:30px;
+}
+.mbx1 .active .imgbg{
+	background-color:#666;
+}
+.mbx1 .imgtxt{
+	line-height:30px;
+}
+.mbx1 .imgtxt span{
+	margin-left:5px;
+}
+
+.mbx2 .imgbox{
+	float:left;
+	margin-right:10px;
+	width:210px;
+	height:230px;
+	overflow:hidden;
+}
+.mbx2 .active .imgbg,
+.mbx2 .active .imgtxt{
+	display:block;
+}
+.mbx2 .imgbox .imgtxt table{
+	table-layout:fixed;
+	width:100%;
+	height:100%;
+	border-collapse:collapse;
+	cursor:pointer;
+}
+.mbx2 .imgbox .imgtxt table td h6{margin:10px;font-size:18px;}
+.mbx2 .imgbox .imgtxt table td p{
+	margin:10px;
+	line-height:22px;
+}
+
+.imgbox{
+	position:relative;
+	display:block;
+	overflow:hidden;
+	cursor:pointer;
+}
+.imgbox .imgbg{
+	position:absolute;
+	bottom:0;
+	left:0;
+	display:none;
+	width:100%;
+	height:100%;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+	background-color:#000;
+	cursor:pointer;
+}
+.imgbox .imgtxt{
+	position:absolute;
+	bottom:0;
+	left:0;
+	display:none;
+	width:100%;
+	height:100%;
+	color:#fff;
+}

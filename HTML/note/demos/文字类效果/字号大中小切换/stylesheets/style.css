@@ -1,0 +1,37 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{
+	line-height:20px;
+	font-size:14px;
+}
+/* ========== font setting ========== */
+.fontBox{
+	margin:0 0 20px 0;
+	height: 26px;
+	border: 1px solid #1C50A1;
+	padding: 5px 10px;
+	color: #1C50A1;
+}
+.fontBox li{
+	float: left;
+    height: 26px;
+    margin-left: 6px;
+    list-style-type:none;
+    line-height: 26px;
+}
+.fontBox li a{
+	display: block;
+	width: 26px;
+    height: 26px;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+/* ========== rec ========== */
+.rec{
+	border-collapse:collapse;
+}
+.rec th, .rec td{
+	border:1px solid #eee;
+	padding:5px;
+}

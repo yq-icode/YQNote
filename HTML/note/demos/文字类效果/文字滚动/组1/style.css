@@ -1,0 +1,37 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body,h1,h2,h3,h4,h5,h6,div,p,ul,ol,li,dl,dt,dd,hr,form{margin:0; padding:0;}
+li{list-style-type:none;}
+img{border:0;}
+body {
+	font:12px/180% Arial, Lucida, Verdana, "宋体", Helvetica, sans-serif;
+	color:#333;
+	background:#fff;
+}
+/* ------------------------------------------------------- *
+ * 【scrolltext】
+ * ------------------------------------------------------- */
+.scrolltext {
+	width:230px;
+	height:287px;
+	overflow:hidden;
+	background:url(images/123aafa.png) no-repeat;
+}
+#quotation {
+	width:190px;
+	height:237px;
+	overflow:hidden;
+	margin:44px auto 0 auto;
+}
+#quotation li {
+	line-height:28px;
+	padding-bottom:35px;
+}
+#quotation li .a-r {
+	text-align:right;
+}
+#quotation li span {
+	color:#999;
+	margin:0 0 0 10px;
+}

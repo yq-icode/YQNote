@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+/* ========== to page top ========== */
+p.img{
+	border:1px solid #ccccff;
+	padding:4px;
+	background-color:#f8f8f8;
+	overflow:hidden;
+}
+/* ========== to page top ========== */
+#content h3 a.top{
+	display:none;
+}
+
+/* ========== code box ========== */
+blockquote.codebox{
+	border:1px solid #eee;
+	padding:10px;
+	margin-bottom:1em;
+	background-color:#f8f8f8;
+}
+blockquote.codebox pre{
+	font-family:"Courier New", Courier, monospace;
+}
+blockquote.codebox em{
+	background-color:#fcc;
+	font-style:normal;
+}
+/* ========== section ========== */
+#content .section{
+	margin-bottom:2em;
+	padding-left:5px;
+}
+#content h3{
+	position:relative;
+	margin-bottom:0.5em;
+	padding-left:5px;
+	border-bottom:1px solid #666;
+	font-size:115%;
+	font-family:"微软雅黑";
+}
+#content h4{
+	margin-bottom:0.5em;
+	padding-left:5px;
+}
+#content .section p{
+	margin-bottom:1em;
+}
+
+/* ========== dl ========== */
+#content dl dt{
+	margin-bottom:0.5em;
+	padding-left:12px;
+	font-family:"微软雅黑";
+	color:#000000;
+	background:url(/images_old/common/arrow3.gif) no-repeat left 7px;
+}
+#content dl dd{
+	margin-bottom:0.5em;
+	padding-left:12px;
+}
+
+/* ========== table list ========== */
+table.list{
+	width:100%;
+	margin-bottom:1.5em;
+}
+table.list caption{
+	padding:0 0 2px 23px;
+	font-weight:bold;
+	text-align:left;
+	background:url(/images_old/common/win1.png) no-repeat left center;
+}
+table.list th,table.list td{
+	padding:5px;
+	border:1px solid #ccc;
+}
+table.list th{
+	background-color:#ddd;
+}

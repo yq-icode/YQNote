@@ -1,0 +1,67 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* -----------------------------------------
+ * ＜方法一＞
+ *【浏览器兼容】IE6 IE7 IE8 FF chrome safari
+ *【说明】
+ * ----------------------------------------- */
+
+/* 这是对Firefox进行的处理，因为Firefox支持生成元素，而IE所有版本都不支持生成元素 */
+.clearfix:after{
+  content: ".";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+/* 这是对 Mac 上的IE浏览器进行的处理 */
+.clearfix{
+  display: inline-block;
+}
+/* Hides from IE-mac \*/
+* html .clearfix{height: 1%;}  /* 这是对 win 上的IE浏览器进行的处理 */
+.clearfix{display: block;}     /* 这是对display: inline-block;进行的修改，重置为区块元素*/
+/* End hide from IE-mac */
+
+
+/* -----------------------------------------
+ * ＜方法二＞
+ *【浏览器兼容】IE6 IE7 IE8 FF chrome safari
+ *【说明】在需要清除浮动的父级元素内部的所有浮动元素后添加一个标签清除浮动
+ *【缺点】增加了无意义的结构元素。
+ * ----------------------------------------- */
+
+/* div.cb应用的很好，目前没有发现任何负作用 */
+div.cb{
+	visibility:hidden;
+	height:0;
+	border:none;
+	clear:both;
+	font-size:0;
+	line-height:0;
+	overflow:hidden;
+}
+/* hr.cb在IE6/IE7中会莫名的增加hr与其底部元素的间距;原因不明 */
+hr.cb{
+	visibility:hidden;
+	height:0;
+	border:none;
+	clear:both;
+	font-size:0;
+	line-height:0;
+	overflow:hidden;
+}
+/* br.cb有时会使间距无法显示出来；原因不明 */
+br.cb{
+	visibility:hidden;
+	height:0;
+	border:none;
+	clear:both;
+	font-size:0;
+	line-height:0;
+	overflow:hidden;
+}
+
+
+

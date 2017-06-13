@@ -1,0 +1,10 @@
+【textbox默认值】
+
+■使用说明：
+
+
+
+■浏览器兼容：
+IE6/IE7/IE8/FF/open/Chrome
+
+■优点：

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>仿shadowbox</title>
+<script type="text/javascript" src="jquery.js"></script>
+<link href="css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div style="height:1200px;">
+	<p>
+		<a class="showbox" href="#">显示弹出框</a>
+	</p>
+</div>
+
+<div class="popbox-container">
+	<div class="popbox-overlay"></div>
+    <div class="popbox-wrapper">
+    	<img class="popbox-close" src="images/close.jpg" alt="" />
+        <div class="popbox-body">
+        	<p align="center">
+                <img src="images/loading.gif" alt="" />
+                <span>留言保存中...</span>
+            </p>
+        </div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	if(document.all){//IE浏览器会返回1，非IE会返回0
+		if(navigator.appVersion.match(/6./i)!="6."){//如果是非IE6
+			$('.popbox-wrapper').css({
+				"top": (window.screen.height - 100)/2 - 100 + 'px'
+			});
+		}
+	}
+	else{
+		$('.popbox-wrapper').css({
+			"top": (window.screen.height - 100)/2 - 100 + 'px'
+		});
+	};
+	$('.popbox-wrapper').css({
+		"left": (window.screen.width - 300)/2 + 'px'
+	})
+	$('.popbox-close').click(function(){
+		$('.popbox-container').hide();						
+	})
+	
+	$('.showbox').click(function(){
+		$('.popbox-container').show();						   
+	})
+</script>
+
+<!--[if IE 6]>
+    <style type="text/css">
+    	html {  
+            background: url(about:black) no-repeat fixed;
+        } 
+        .popbox-wrapper{
+            top: expression(offsetParent.scrollTop + 100);
+        }
+    </style>
+<![endif]-->
+	 
+</body>
+</html>

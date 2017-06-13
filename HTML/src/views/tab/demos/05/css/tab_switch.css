@@ -1,0 +1,32 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+#scrollWrapper{position:relative;width:959px;margin:40px auto;background-color:white;}
+#scrollWrapper .scrollBorder{padding:3px 0;margin:0 auto;width:917px;border:1px solid #dedede;}
+#scrollWrapper .scroll{position:relative;overflow:hidden;width:911px;height:324px;background:url(../images/slidebg.jpg) no-repeat;margin:0 auto;}
+
+#scrollWrapper .boards{width:9999em;position:absolute;}
+#scrollWrapper .board{width:911px;height:324px;float:left;}
+#scrollWrapper .board h2{border:0;font:0/0 a;text-shadow:none;color:transparent;background-color:transparent;}
+#scrollWrapper .board p{margin-left:325px;margin-top:142px;width:542px;font-size:13px;line-height:19px;color:#1d1d1d;font-family:Arial, sans-serif;}
+
+#scrollWrapper #b1{background:url(../images/billboard1.png) no-repeat;}
+#scrollWrapper #b2{background:url(../images/billboard2.png) no-repeat;}
+#scrollWrapper #b3{background:url(../images/billboard3.png) no-repeat;}
+#scrollWrapper #b4{background:url(../images/billboard4.png) no-repeat;}
+
+#scrollWrapper .board a.GlobalButton span{display:block;padding:7px 0 6px 20px;background:transparent url('../images/btn_left.png') no-repeat 0 0;line-height:18px;color:#252525;}
+#scrollWrapper .board a.GlobalButton{display:block;float:left;margin-top:20px;height:31px;padding-right:20px;background:transparent url('../images/btn_right.png') no-repeat top right;text-decoration:none;font-family:Arial, Helvetica, sans-serif;font-size:13px;font-weight:bold;}
+#scrollWrapper .board a.GlobalButton:hover span{background-position:0 -31px;}
+#scrollWrapper .board a.GlobalButton:hover{background-position:right -31px;}
+
+#scrollWrapper .thumbs{position:absolute;bottom:0;padding:0 !important;border:0 !important;}
+#scrollWrapper .thumbs a{display:block;float:left;width:227px;height:50px;border-right:1px solid none;cursor:pointer;color:white;text-align:center;line-height:50px;font-size:18px;font-family:Arial, sans-serif;}
+#scrollWrapper .thumbs a.active{cursor:default !important;text-shadow:1px 1px 1px #374f10;filter:dropshadow(color=#374f10, offx=1, offy=1);}
+#scrollWrapper .thumbs a.noborder{border-right-width:0px;	}
+
+#scrollWrapper .btn_arrow a{display:block;width:41px;height:41px;cursor:pointer;z-index:1;position:absolute;top:143px;}
+#scrollWrapper .btn_arrow .prev{background:url(../images/arrows.png) no-repeat 0 0;left:0;}
+#scrollWrapper .btn_arrow .next{background:url(../images/arrows.png) no-repeat -41px 0px;right:0;}
+#scrollWrapper .btn_arrow .prev:hover,
+#scrollWrapper .btn_arrow .next:hover{background-position-y:-41px;}

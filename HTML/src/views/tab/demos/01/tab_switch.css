@@ -1,0 +1,62 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* ========== tabWrap ========== */
+.tabWrap {
+	position:relative;
+	margin:0 auto;
+	width:1200px;
+}
+.tabWrap .tab {
+	margin:0;
+	padding:0;
+	clear:both;
+	border-bottom:5px solid #7ab9ff;
+	height:47px;
+	overflow:hidden;
+}
+.tabWrap .tab li {
+	display:block;
+	float:left;
+}
+.tabWrap .tab li a {
+	display:block;
+	float:left;
+	text-decoration:none;
+	background:url(images/tab_02.gif) no-repeat;
+	width:147px;
+	height:47px;
+	line-height:47px;
+	color:#fff;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+}
+.tabWrap .tab li a.on, .tabWrap .tab li a:hover {
+	background:url(images/tab_01.gif) no-repeat;
+	color:#fff;
+}
+.tabWrap .tabContent {
+	padding:10px 10px 5px;
+	clear:both;
+	background:url(images/tab_middle.gif) repeat-y;
+}
+
+.tabWrap .tabContent .section h3{
+	font-size:12px;
+	font-weight:normal;
+	padding:5px 0;
+}
+
+.tabWrap .tab_bottom{
+	height:11px;
+	background:url(images/tab_bottom.gif) no-repeat;
+	overflow:hidden;
+}
+
+
+
+
+
+
+

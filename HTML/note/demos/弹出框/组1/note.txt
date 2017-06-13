@@ -1,0 +1,12 @@
+【select-box】
+
+■使用说明：
+可以实现一行放多个select-box；
+必须要给select-box加宽度，宽度要加在select-vbox 和 select-optionBox这两个上面；
+当页面中有多个select-box时，要确保当前展开的不被其它覆盖；需要给当前展开的加sb-zIndex；
+
+
+■浏览器兼容：
+IE6/7/8/9/10 chrome firefox
+
+

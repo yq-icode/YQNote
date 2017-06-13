@@ -1,0 +1,16 @@
+flash帮助文档
+http://help.adobe.com/zh_CN/flash/cs/using/index.html
+
+
+ActionScript 3.0
+http://help.adobe.com/zh_CN/as3/dev/index.html
+
+
+影片剪辑过渡效果：
+http://www.360doc.com/content/11/0616/06/2267264_127262073.shtml
+
+
+各种播放器代码：
+http://chokee.iteye.com/blog/1194483
+http://www.wangyeba.com/Article/web02/wytx/200903/20090307091132.shtml
+

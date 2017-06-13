@@ -1,0 +1,19 @@
+【菜单的选中效果】
+
+■使用说明：
+1  一级和二级菜单，都可以使用此方法
+2   在模板中定义：
+	<!-- TemplateParam name="bmn" type="text" value="default" -->  //bmn决定一级菜单
+	<!-- TemplateParam name="bsn" type="text" value="default" -->  //bsn决定二级菜单
+	<body id="@@(bmn)@@" class="@@(bsn)@@">  //通过在BODY中定义这两个变量，就可以判断出是哪个页面，进而可以设置菜单的选中效果
+3  根据一级菜单来选择显示哪个二级菜单
+	<!-- TemplateBeginIf cond="bmn=='bmn01'" --><!--#include virtual="/admin02/include/_sn01.html" --><!-- TemplateEndIf -->
+        <!-- TemplateBeginIf cond="bmn=='bmn02'" --><!--#include virtual="/admin02/include/_sn02.html" --><!-- TemplateEndIf -->
+
+
+
+■浏览器兼容：
+IE6/IE7/IE8/FF/Safari/Chrome
+
+
+

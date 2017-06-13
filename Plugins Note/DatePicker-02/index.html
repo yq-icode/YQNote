@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DatePicker-02</title>
+<script type="text/javascript" src="datepicker/WdatePicker.js"></script>
+<style type="text/css">
+#wrap{
+	margin:0 auto;
+	width:600px;
+	height:300px;
+	font-size:12px;
+}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+<p style="margin-bottom:20px;">
+	只可以选择日期：<br />
+	<input class="Wdate" type="text" onfocus="WdatePicker()"/>
+</p>
+<p style="margin-bottom:20px;">
+	可以选择日期和时间：<br />
+	<input class="Wdate" id="time01" onfocus="WdatePicker({autoPickDate:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})" type="text" />
+</p>
+<p style="margin-bottom:20px;">
+	可以选择日期和时间段：<br />
+	<input class="Wdate" id="finish_time1" onfocus="WdatePicker({autoPickDate:true,dateFmt:'yyyy-MM-dd HH:mm:ss',onpicked:function(){$dp.$('finish_time2').focus();},maxDate:'#F{$dp.$D(\'finish_time2\')}'})" type="text" />
+	～
+	<input class="Wdate" id="finish_time2" onfocus="WdatePicker({autoPickDate:true,dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'finish_time1\')}'})" type="text" />
+	<br />
+	<small>说明：当选择了第一个日历框后，会自动跳转到第二个日历框</small>
+</p>
+</div>
+</body>
+</html>

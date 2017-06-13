@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单效果</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="js.js"></script>
+<link href="css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h4>
+	<label>textbox默认值</label>
+	<span>兼容：IE6/IE7/IE8/FF/open/Chrome</span>
+</h4>
+<input class="textbox" type="text" value="默认值" onfocus="javascript:if(this.value==defaultValue){this.value='';this.style.color='#000';}" onblur="javascript:if(this.value==''){this.value=defaultValue;this.style.color='#ccc';}" />
+
+<h4>
+	<label>textbox与password默认值</label>
+	<span>兼容：IE6/IE7/IE8/FF/open/Chrome</span>
+</h4>
+<div class="descbox">
+	<p>js修改input的type属性有些限制。当input元素还未插入文档流之前，是可以修改它的值的，在ie和ff下都没问题。但如果input已经存在于页面，其type属性在ie下就成了只读属性了，不可以修改。在ff下仍是可读写属性。</p>
+	<p>今天遇到个问题，输入框有默认值“密码”，但获得焦点时，“密码”两字会去掉，输入时直接变成”****“的password类型。很明显，一开始的时候，input的类型是text，后来变成了password类型。直观的思路是用js修改input的type类型。但ie下这么做不可行，所以只能换个思路，写两个input，一个text类型，一个password类型，分别监听onfocus和onblur事件。</p>
+</div>
+<div class="logbox">
+	<div class="ewbox account">
+	    <input type="text" value="请输入账户名/手机号" />
+	</div>
+	<div class="ewbox pw">
+	    <input type="text" value="请输入密码" id="pw1" />
+	    <input type="password" id="pw2" style="display:none;" />
+	</div>
+</div>
+
+<h4>
+	<label>让默认为非可编辑的标签变成可编辑状态</label>
+	<span>兼容：IE6/IE7/IE8/FF/open/Chrome</span>
+</h4>
+<div class="editbox" contenteditable="true"></div>
+
+<h4>
+	<label>textarea效果</label>
+</h4>
+<textarea cols="50" rows="3"></textarea>
+<ul>
+	<li>去除google中的focus效果</li>
+	<li>目前只有Webkit内核的浏览器才支持这个css3属性resize，因此textarea在Webkit内核的浏览器中可以缩放，可以利用此属性来控制其缩放</li>
+</ul>
+    
+</body>
+</html>

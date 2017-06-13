@@ -1,0 +1,50 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* === common === */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,p{
+	margin:0;
+	padding:0;
+	font-size:12px;
+}
+
+/* === panel === */
+.panel_wrap{
+	margin:0 auto;
+	width:500px;
+}
+a:focus {
+	outline: none;
+}
+.panel_wrap .panel {
+	display: none;
+}
+.panel_wrap .panel p{
+	height:180px;
+	padding:10px;
+	background-color: #754c24;
+	color:#ffffff;
+	line-height:20px;
+	overflow:hidden;
+}
+.panel_wrap .slide {
+	margin: 0;
+	padding: 0;
+	border-top: solid 4px #422410;
+	background: url(images/btn-slide.gif) no-repeat center top;
+}
+.panel_wrap .btn-slide {
+	display: block;
+	margin: 0 auto;
+	width: 154px;
+	height: 40px;
+	line-height:40px;
+	background: url(images/white-arrow.gif) no-repeat right -50px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	font-weight:bold;
+}
+.panel_wrap .active {
+	background-position: right 12px;
+}

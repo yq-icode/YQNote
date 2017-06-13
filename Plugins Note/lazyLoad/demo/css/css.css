@@ -1,0 +1,49 @@
+﻿@charset "utf-8";
+/* CSS Document */
+@import url(common.css);
+
+#main{
+	margin:0 auto;
+	width:980px;
+}
+#foot{
+	height:200px;
+	background-color:#eee;
+}
+/* ------------------------------------------------------- *
+ * S_FixedNav
+ * ------------------------------------------------------- */
+.S_FixedNav{
+	position:absolute;
+	top:200px;
+	left:50%;/*先将位置移到浏览器一半的宽度，再向左偏移页面一半的宽度*/
+	margin-left:500px;
+	width:120px;
+	z-index:999;
+	border-bottom:1px solid #ddd;
+	background-color:#f3f3f3;
+}
+.S_FixedNav ul li a{
+	display:block;
+	border-top:1px solid #ddd;
+	padding:10px;
+}
+.S_FixedNav ul li a.on{
+	background-color:#c00;
+	color:#fff;
+}
+.floor{
+	position:relative;
+	height:500px;	
+}
+.floor h3{
+	border-bottom:2px solid #999;
+	padding:5px 0;
+	font-weight:bold;
+	font-family:"微软雅黑";
+	font-size:16px;
+}
+
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DatePicker-03</title>
+<script type="text/javascript" src="prototype-1.6.0.3.js" ></script>
+<script type="text/javascript" src="calendar_date_select/calendar_date_select.js"></script>
+<script type="text/javascript" src="calendar_date_select/format_my_type.js" ></script> 
+<script type="text/javascript" src="calendar_date_select/locale/jp.js"></script>
+<script type="text/javascript" src="common.js" ></script>
+<link type="text/css" rel="stylesheet" href="calendar.css" />
+<style type="text/css">
+#wrap{
+	margin:0 auto;
+	width:600px;
+	height:300px;
+}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+	<!-- 【日期段】 -->
+	<label style='cursor:pointer'>
+    	<input class="date" id="to_date" onfocus="genearteDateSelect(this, null, 'to_date', 'to_date2')" readonly="readonly" style="cursor:pointer" type="text" />
+        <img  src="images/calendar.png" alt="" align="absmiddle"/>
+    </label>
+    <label style='cursor:pointer'>
+    	<input class="date" id="to_date2" onfocus="genearteDateSelect(this, null, 'to_date', 'to_date2')" readonly="readonly" style="cursor:pointer" type="text" />
+        <img  src="images/calendar.png" alt="" align="absmiddle"/>
+    </label>
+    <br /><br />
+    <!-- 【单个日期】 -->
+    <label style='cursor:pointer'>
+    	<input class="date" id="single" onfocus="genearteDateSelect(this, null, 'single')" readonly="readonly" style="cursor:pointer" type="text" />
+        <img  src="images/calendar.png" alt="" align="absmiddle"/>
+    </label>
+</div>
+</body>
+</html>

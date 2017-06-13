@@ -1,0 +1,51 @@
+body {
+	background: rgb(249, 249, 249); color: rgb(110, 110, 110);
+}
+a {
+	color: rgb(240, 176, 40);
+}
+a:visited {
+	color: rgb(240, 176, 40);
+}
+.colortext {
+	color: rgb(240, 176, 40);
+}
+.sf-menu a {
+	color: rgb(48, 48, 48);
+}
+.sf-menu a:hover {
+	color: rgb(240, 176, 40);
+}
+.sfHover a {
+	color: rgb(240, 176, 40);
+}
+.sfHover a.sf-with-ul {
+	color: rgb(240, 176, 40);
+}
+.sf-menu li a.current {
+	color: rgb(240, 176, 40);
+}
+h1 {
+	color: rgb(57, 57, 57);
+}
+h2 {
+	color: rgb(57, 57, 57);
+}
+h3 {
+	color: rgb(57, 57, 57);
+}
+h4 {
+	color: rgb(57, 57, 57);
+}
+h5 {
+	color: rgb(57, 57, 57);
+}
+h6 {
+	color: rgb(57, 57, 57);
+}
+.dropcap2 {
+	background-color: rgb(240, 176, 40);
+}
+.dropcap3 {
+	background-color: rgb(240, 176, 40);
+}

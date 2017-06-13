@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url(common.css);
+body{background:url(../images/bg.jpg) repeat;}
+/* ------------------------------------------------------- *
+ * 【iconG01】
+ * ------------------------------------------------------- */
+#content{margin:10px auto;width:800px;}
+.column_main{float:left;width:500px;}
+.column_side{float:right;width:280px;}
+
+.cbox{margin-top:15px;background-color:#fff;box-shadow:3px 3px 3px #ccc;}
+.cbox .cbox_tbar{padding:5px 10px;background-color:#333;}
+.cbox .cbox_tbar h3{font:18px "Microsoft yahei";color:#fff;}
+.cbox .cbox_body{padding:10px;}
+
+.column_main dl dt{margin:10px 0;}
+.column_main dl dt label{display:inline-block;border-bottom:2px solid #c00;padding:5px 15px;font:16px bold "Microsoft yahei";background-color:#f3f3f3;color:#c00;}
+.column_main dl dd ul li{margin:5px 0;}
+
+.column_side dl dt{margin:10px 0;padding:5px 10px;font:14px "Microsoft yahei";background-color:#eee;color:#000;}
+.column_side dl dd{padding:10px;}
+.column_side dl dd ol li{margin:5px 0;}

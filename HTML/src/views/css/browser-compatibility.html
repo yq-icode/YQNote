@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>YQ-Note 浏览器兼容</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+    <style type="text/css">
+	body{background-color:#fff;}
+	</style>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+    <div class="cblock">
+    	<div class="bg-under">
+        	<div class="shape1"></div>
+        </div>
+        <div class="container content-area">
+        	<h1>浏览器兼容</h1>
+            <p>CSS属性在各个浏览器中的兼容性</p>
+        </div>
+    </div>
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-9" role="main">
+            	<section>
+                    <h3>CSS属性在各个浏览器中兼容</h3>
+                    <table class="table-1" width="100%">
+                        <caption>说明：IE6+ 意思是兼容IE6及IE6以上</caption>
+                        <tr>
+                            <th width="10%" rowspan="3">display</th>
+                            <td width="40%">inline-block</td>
+                            <td>当应用于行内元素时：<em>IE6+</em> ，当应用于块元素时：<em>IE8+</em></td>
+                        </tr>
+                        <tr>
+                            <td>list-item</td>
+                            <td><em>IE6+</em></td>
+                        </tr>
+                        <tr>
+                            <td>table inline-table table-row table-cell table-column table-column-group table-row-group inherit</td>
+                            <td><em>IE8+</em></td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+            <div class="col-md-3" id="side">
+            	<div class="fix-side-nav">
+                	<!--#include virtual="_common_nav.html" -->
+                    <p class="toTop"><a href="#"><i class="icon-circle-arrow-up"></i>TOP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

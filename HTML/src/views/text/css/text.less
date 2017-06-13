@@ -1,0 +1,157 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "/css/global.less";
+
+body{background:url(../images/bg01.jpg) repeat;}
+.topbar{
+	margin-bottom:20px;background-color:rgba(255,255,255,.7);
+	h2{background-color:transparent;}
+}
+ul.row li{border:5px solid #fff;padding:15px;}
+
+.sample-text{
+	overflow:hidden;text-align:center;
+	span{
+		white-space:nowrap;
+		line-height:1.5em;
+		font-family:"Britannic Bold", "Comic Sans MS", "迷你简中倩", cursive;
+		font-size:100px;
+	}
+}
+.text-wrap{
+	@color:#fff;
+	dt,dd{padding:10px 15px;}
+	dt{
+		background-color:fade(@color,60%);font-weight:normal;
+		h5{font-size:20px;}
+		.browser-support{color:#B9D15D;}
+	}
+	dd{
+		background-color:fade(@color,30%);
+		text-align:center;
+		span{font-size:180px;overflow:hidden;}
+	}
+}
+/*************************** text-01 ***************************/
+.text-01 span{
+	background:url('../images/img01.jpg') repeat-x;
+    text-transform:uppercase;
+    -webkit-font-smoothing:antialiased;
+    -webkit-background-clip:text;
+    -moz-background-clip:text;
+    background-clip:text;
+	color:transparent;
+    -webkit-text-fill-color:transparent;
+	.animation(text-01-animate,15s,linear,0,infinite);
+	&:hover{.animation-none;}
+}
+@keyframes text-01-animate {
+    from {background-position:0 0;}
+    to   {background-position:100% 0;}
+}
+@-webkit-keyframes text-01-animate {
+    from {background-position:0 0;}
+    to   {background-position:100% 0;}
+}
+@-ms-keyframes text-01-animate {    
+    from {background-position:0 0;}
+    to   {background-position:100% 0;}
+}
+@-moz-keyframes text-01-animate {
+    from {background-position:0 0;}
+    to   {background-position:100% 0;}
+}
+/*************************** text-02 ***************************/
+.text-02{
+	span{
+		color:#FFAF00;
+		.text-shadow(7px,7px,0,rgba(0,0,0,.2));
+		text-transform: uppercase;
+		-webkit-mask-image: url('../images/img03.png');
+		.transition(all,1s);
+		&:hover{
+			-webkit-mask-image: url('../images/img01.jpg');
+			color:#4BCEFF;
+		}
+	}
+}
+/*************************** text-03 ***************************/
+.text-03 dd{padding:50px;}
+.successCase{
+	height:34px;
+	background-color:#89D9FF;
+	overflow:hidden;
+}
+.successCase label{
+	float:left;
+	display:block;
+	margin:0 10px 0 0;
+	width:72px;
+	height:34px;
+	background-color:#0d9ef9;
+	font-weight:bold;
+	color:#fff;
+	line-height:34px;
+	text-align:center;
+}
+.successCase .scrollbox{
+	position:relative;
+	margin:0 10px;
+	height:34px;
+	font-size:12px;
+	overflow:hidden;
+	line-height:34px;
+}
+.successCase .scrollbox ul{
+	position:absolute;
+	left:0;
+}
+.successCase .scrollbox ul li{
+	float:left;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.successCase .scrollbox ul li a{padding-right:15px;color:#fff;}
+.successCase .scrollbox ul li.first a{color:#036;}
+/*************************** text-04 ***************************/
+.text-04 dd{padding:50px;}
+.text-04{
+	.notice{
+		height:32px;
+		padding:0 15px;
+		overflow:hidden;
+		line-height:32px;
+		background-color:#B5C94C;
+		text-align:left;
+	}
+	.notice ul li{
+		font-size:12px;
+		white-space:nowrap;
+		overflow:hidden;
+	}
+	.notice ul li a{color:#fff;}
+}
+/*************************** text-05 ***************************/
+.text-05{
+	.list{padding:15px;background-color:#ddd;}
+	.list ul{margin-bottom:0;line-height:30px;}
+	.list li{position:relative;height:30px;text-align:left;}
+	.list li p{position:absolute;left:0;top:0;width:100%;height:30px;margin-bottom:0;background-color:#fff;opacity:0;filter:alpha(opacity=0);}
+	.list li div{position:absolute;left:0;top:0;width:100%;height:30px;z-index:1;}
+	.list li div span{float:right;font-size:12px;color:#999;}
+	.list li div a{margin-right:100px;color:#666;}
+}
+/*************************** text-06 ***************************/
+.text-06{
+	.list{padding:15px;background-color:#EACFCF;}
+	.list ul{margin-bottom:0;}
+	.list li{
+		padding:5px 10px;text-align:left;
+		background-color:rgba(255,255,255,0);
+		.transition(background-color,1s);
+		&:hover{background-color:rgba(255,255,255,1);}
+	}
+	.list li span{float:right;font-size:12px;color:#CF9494;}
+	.list li a{margin-right:100px;color:#7F5454;}
+}

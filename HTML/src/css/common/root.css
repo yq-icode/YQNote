@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+/* ========== import ========== */
+@import url('layout.css');
+@import url('activate.css');
+@import url('content.css');
+
+/* ========== common setting ========== */
+body{
+	font-family:"Courier New", "宋体";
+	line-height:20px;
+	color:#333333;
+	background:url(/images_old/common/header_bg.jpg) repeat-x left top;
+}
+
+body,h1,h2,h3,h4,h5,h5,div,p,ul,ol,li,dl,dt,dd,hr,fieldset,blockquote,pre{margin:0; padding:0; font-size:13px;}
+ul{list-style-type:none;}
+ol{margin-left:23px;}
+ol li{margin-bottom:10px;}
+table{border-collapse:collapse;}
+
+hr.cb{
+	visibility:hidden;
+	height:1px;
+	clear:both;
+}

@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>几种图片替换文本的CSS方法</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+    <style type="text/css">
+	body{background-color:#fff;}
+	</style>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-9 col-xs-12" role="main">
+            	<h2>几种图片替换文本的CSS方法</h2>
+            	<p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/ten-image-replace-text-with-css">http://www.w3cplus.com/css/ten-image-replace-text-with-css</a></p>
+
+            	<h3><span class="num">1</span>利用text-indent属性</h3>
+                <p>这是是目前使用图片替换文本最常用的方法。</p>
+                <div class="code-box">
+                	<pre class="language-html line-numbers">
+                    	<code>
+&lt;h1 class="technique-three"&gt;w3cplus&lt;/h1&gt;                        
+                        </code>
+                    </pre>
+                </div>
+                <div class="code-box">
+                	<pre class="language-css line-numbers">
+                    	<code>
+.technique-three {
+  width: 329px;
+  height: 79px;
+  background: url(images/w3cplus-logo.png);
+  text-indent: -9999px;
+}                        
+                        </code>
+                    </pre>
+                </div>
+                <h3><span class="num">2</span>利用空的gif透明的图片</h3>
+                <p>这种方法有一个特别之处我们此处使用一个透明的gif图片，通过在img标签中的“alt”属性来弥补display:none。这样阅读器之类的就能阅读到所替换的文本是什么。</p>
+                <div class="code-box">
+                	<pre class="language-html line-numbers">
+                    	<code>
+&lt;h1 class="technique-five"&gt;
+  &lt;img src="images/blank.gif" alt="w3cplus" /&gt;
+  &lt;span>w3cplus&lt;/span&gt;
+&lt;/h1&gt;                        
+                        </code>
+                    </pre>
+                </div>
+                <div class="code-box">
+                	<pre class="language-css line-numbers">
+                    	<code>
+.technique-five {
+  width: 329px;
+  height: 79px;
+  background: url(images/w3cplus-logo.png);
+}
+.technique-five span {
+  display: none;
+}                        
+                        </code>
+                    </pre>
+                </div>
+                <h3><span class="num">3</span>控制height和padding实现</h3>
+                <p>使用零高度来隐藏文本，但为了显示背景图片，需要设置一个与替换图片一样的大小的padding值。</p>
+                <div class="code-box">
+                	<pre class="language-html line-numbers">
+                    	<code>
+&lt;h1 class="technique-six"&gt;w3cplus&lt;/h1&gt;                        
+                        </code>
+                    </pre>
+                </div>
+                <div class="code-box">
+                	<pre class="language-css line-numbers">
+                    	<code>
+.technique-six {
+  width: 329px;
+  padding: 79px 0 0 0;
+  height: 0px;
+  font-size: 0;
+  background: url(images/w3cplus-logo.png);
+  overflow: hidden;
+}                        
+                        </code>
+                    </pre>
+                </div>
+                <h3><span class="num">4</span>将包含文本的标签大小设置为0</h3>
+                <p>通过把span的大小都设置为“0”，来达到隐藏文本效果，这样阅读器就能完全阅读到，而且又达到了图片替换文本的效果。真是好方法。</p>
+                <div class="code-box">
+                	<pre class="language-html line-numbers">
+                    	<code>
+&lt;h1 class="technique-seven"&gt;
+    &lt;span&gt;w3cplus&lt;/span&gt;
+&lt;/h1&gt;                        
+                        </code>
+                    </pre>
+                </div>
+                <div class="code-box">
+                	<pre class="language-css line-numbers">
+                    	<code>
+.technique-seven {
+  width: 329px;
+  height: 79px;
+  background: url(images/w3cplus-logo.png);
+}
+.technique-seven span {
+  display: block;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  overflow: hidden;
+}                        
+                        </code>
+                    </pre>
+                </div>
+                <h3><span class="num">5</span>空白标签覆盖文本的方法</h3>
+                <p>这种方法在利用一个空白的span标签来放置背景图片，并对其进行绝对定位，使用覆盖文本，达到隐藏替换文本的效果。</p>
+                <div class="code-box">
+                	<pre class="language-html line-numbers">
+                    	<code>
+&lt;h1 class="technique-eight"&gt;
+  &lt;span&gt;&lt;/span&gt;w3cplus
+&lt;/h1&gt;                        
+                        </code>
+                    </pre>
+                </div>
+                <div class="code-box">
+                	<pre class="language-css line-numbers">
+                    	<code>
+.technique-eight {
+  width: 329px;
+  height: 79px;
+  position: relative;
+}
+.technique-eight span {
+  background: url(images/w3cplus-logo.png);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}                        
+                        </code>
+                    </pre>
+                </div>
+                <h3><span class="num">6</span>控制背景色与字号</h3>
+                <p>这种方法很独特，设置字体为微小值，但这里需要注意一点不能忘了设置字体色和替换图片色一样，不然会有一个小点显示出来。</p>
+                <div class="code-box">
+                	<pre class="language-html line-numbers">
+                    	<code>
+&lt;h1 class="technique-nine"&gt;w3cplus&gt;/h1&gt;                        
+                        </code>
+                    </pre>
+                </div>
+                <div class="code-box">
+                	<pre class="language-css line-numbers">
+                    	<code>
+.technique-nine {
+  width: 329px;
+  height: 79px;
+  background: url(images/w3cplus-logo.png);
+  font-size: 1px;
+  color: white;
+}                        
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12" id="side">
+            	<div class="fix-side-nav">
+                	<!--#include virtual="_common_nav.html" -->
+                	<p class="toTop">
+                        <a href="#"><i class="icon-circle-arrow-up"></i> TOP</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

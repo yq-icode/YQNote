@@ -1,0 +1,105 @@
+﻿@charset "utf-8";
+/* CSS Document */
+@import url(common.css);
+
+/* ------------------------------------------------------- *
+ * select-box
+ * ------------------------------------------------------- */
+.select-box{
+	position:relative;
+	float:left;
+	margin-right:5px;
+}
+.sb-zIndex{z-index:10;}
+.select-box .select-vbox{
+	border:1px solid #c8c8c8;
+	height:24px;
+	line-height:24px;
+}
+.select-box .select-value{
+	display:block;
+	height:24px;
+	padding:0 30px 0 5px;
+	cursor:default;
+	background:#fff url(../images/job_icon_db.gif) right top no-repeat;
+	color:#333;
+}
+.select-box .select-optionBox{
+	display:none;
+	position:absolute;
+	left:0;
+	top:25px;
+	border:1px solid #c8c8c8;
+	background:#fff;
+	font-size:12px;
+	z-index:1000;
+}
+/* jobSort
+ * ---------------------------------- */
+.jobSort .select-vbox{
+	width:150px;
+}
+.jobSort .select-optionBox{
+	width:500px;
+	padding:10px;
+}
+.jobSort .jobSortCon h5{
+	margin:5px 0;
+	font-weight:bold;	
+}
+.jobSort .jobSortCon dl{
+	line-height:20px;
+}
+.jobSort .jobSortCon dl dt{
+	position:relative;
+	display:inline;
+	margin-right:10px;
+	color:#003366;
+	cursor:pointer;
+}
+.jobSort .jobSortCon dl dt span{
+	display:inline-block;
+	padding:5px;
+}
+.jobSort .jobSortCon dl dt.current{
+	position:relative;
+	z-index:100;	
+}
+.jobSort .jobSortCon dl dt.current span{
+	position:relative;
+	border:1px solid #eee;
+	padding:4px;
+	border-bottom-color:#f3f3f3;
+	background-color:#f3f3f3;
+	z-index:20;
+}
+.jobSort .jobSortCon dl dt.current dd ul{
+	z-index:10;	
+}
+.jobSort .jobSortCon dl dt.pos_r ul{right:0;}
+.jobSort .jobSortCon dl dt ul{
+	position:absolute;
+	left:0;
+	top:20px;
+	display:none;
+	width:300px;
+	border:1px solid #eee;
+	padding:10px;
+	background-color:#f3f3f3;
+}
+.jobSort .jobSortCon dl dt ul li{
+	display:block;
+	float:left;
+	width:100px;
+}
+.jobSort .jobSortCon dl ul a{
+	margin:0 5px 5px 0;
+	padding:2px 5px;
+	color:#333;
+	cursor:pointer;	
+}
+.jobSort .jobSortCon dl ul a:hover{
+	background-color:#5CBEFF;
+	color:#fff;
+	cursor:pointer;	
+}

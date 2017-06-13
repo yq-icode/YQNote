@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>无标题文档</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+
+<link type="text/css" rel="stylesheet" href="/css/css.css" media="all" />
+
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="css" -->
+</head>
+
+<body id="css">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		
+		<!--#include virtual="/include/lnCss.html" -->
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<div class="pgTitle"><h2>浏览器显示模式</h2></div>
+		<h3>1.	标准模式、怪异模式与几乎标准的模式<a href="#header" class="top">Top</a></h3>
+		<div class="section">
+			<p>当浏览器厂商开始创建与标准兼容的浏览器时，他们希望确保向后兼容性。为了实现这一点，他们创建了两种表现模式：标准模式和怪异模式（quirks mode）。在标准模式中，浏览器根据W3C规范表现页面；在怪异模式中，页面以一种比较宽松的向后兼容的方式显示,它通常模拟老式浏览器（比如Microsoft IE 4和Netscape Navigator 4）的行为以防止老站点无法工作。</p>
+			<dl>
+				<dt>标准模式与怪异模式最大的区别就是对盒模型解析的差异</dt>
+				<dd>在IE 6出现时，在标准模式中使用正确的盒模型，在怪异模式中使用老式的盒模型。为了维持对IE 5和更低版本的向后兼容性，Opera 7和更高版本也在怪异模式中使用老式的盒模型。</dd>
+				<dt>其它差别</dt>
+				<dd>表现方面的其他差异比较小，而且是与特定浏览器相关的，包括对于十六进制颜色值不需要#号、假设CSS中没有指定单位的长度的单位是像素，以及在使用关键字时将字号增加一级。</dd>
+				<dt>几乎标准的模式</dt>
+				<dd>Mozilla和Safari还有第三种模式，称为“几乎标准的模式（almost standards mode）”，除了在处理表格的方式方面有一些细微的差异之外，这种模式与标准模式相同。</dd>
+			</dl>
+		</div>
+		<h3>2.	DOCTYPE切换<a href="#header" class="top">Top</a></h3>
+		<div class="section">
+			<p>浏览器根据DOCTYPE是否存在以及使用的DTD来选择要使用的表现方法。如果XHTML文档包含形式完整DOCTYPE，那么它一般以标准模式表现。对于HTML 4.01文档，包含严格DTD的DOCTYPE常常导致页面以标准模式表现。包含过渡DTD和URI的DOCTYPE也导致页面以标准模式表现，但是有过渡DTD而没有URI会导致页面以怪异模式表现。DOCTYPE不存在或形式不正确会导致HTML和XHTML文档以怪异模式表现。</p>
+			<p>根据DOCTYPE是否存在选择表现方法的效果被称为DOCTYPE切换（DOCTYPE switching）或DOCTYPE侦测（DOCTYPE sniffing）。并非所有浏览器都采用这些规则，但是这些规则很好地说明了DOCTYPE切换的工作方式。Eric Meyer深入研究了这个主题，并且制作了一张图表（http://meyerweb.com/eric/dom/dtype/dtype-grid.html）来说明不同的浏览器如何根据DOCTYPE声明选择表现方法。</p>
+			<p>DOCTYPE切换是浏览器用来区分遗留文档和符合标准的文档的手段。无论是否编写了有效的CSS，如果选择了错误的DOCTYPE，那么页面就将以怪异模式表现，其表现就可能会有错误或不可预测。因此，一定要在站点的每个页面上包含形式完整的DOCTYPE声明，并且在使用HTML时选择严格的DTD。</p>
+			<p>许多HTML编辑器会自动添加DOCTYPE声明。如果创建XHTML文档，它们还可能在DOCTYPE声明前面添加XML声明：<br />
+			<img src="/images_old/CSS/img_001.gif" alt="img_001" /><br />XML声明是XML文件使用的可选声明，它定义使用的XML版本和字符编码类型等设置。不幸的是，如果DOCTYPE声明不是页面上的第一个元素，那么IE 6会自动切换到怪异模式。因此，除非要将页面用做XML文档，否则最好避免使用XML声明。</p>
+		</div>
+
+
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

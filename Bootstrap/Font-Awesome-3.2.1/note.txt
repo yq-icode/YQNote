@@ -1,0 +1,6 @@
+
+专为Bootstrap设计的字体图标
+
+Font Awesome是完全从头设计的整套图标，完全和Bootstrap 2.2.2版本兼容.
+
+http://www.bootcss.com/p/font-awesome/

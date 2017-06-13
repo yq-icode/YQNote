@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ========== global navi ========== */
+body#html #header ul li#gnHtml{background-color:#999;}
+body#css #header ul li#gnCss{background-color:#999;}
+body#javascript #header ul li#gnJavascript{background-color:#999;}
+body#flash #header ul li#gnFlash{background-color:#999;}
+body#photoshop #header ul li#gnPhotoshop{background-color:#999;}
+body#office #header ul li#gnOffice{background-color:#999;}
+body#english #header ul li#gnEnglish{background-color:#999;}
+body#japanese #header ul li#gnJapanese{background-color:#999;}
+body#computer #header ul li#gnComputer{background-color:#999;}
+body#tools #header ul li#gnTools{background-color:#999;}
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>无标题文档</title>
+<!-- TemplateEndEditable -->
+<link type="text/css" rel="stylesheet" href="/admin02/stylesheets/navi.css" />
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<!-- TemplateParam name="bmn" type="text" value="default" -->
+<!-- TemplateParam name="bsn" type="text" value="default" -->
+</head>
+
+<body id="@@(bmn)@@" class="@@(bsn)@@">
+<div id="wrap">
+	<div id="head">
+	  	<!--#include virtual="/admin02/include/_mainNavi.html" -->
+		<!-- TemplateBeginIf cond="bmn=='bmn01'" --><!--#include virtual="/admin02/include/_sn01.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn02'" --><!--#include virtual="/admin02/include/_sn02.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn03'" --><!--#include virtual="/admin02/include/_sn03.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn04'" --><!--#include virtual="/admin02/include/_sn04.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn05'" --><!--#include virtual="/admin02/include/_sn05.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn06'" --><!--#include virtual="/admin02/include/_sn06.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn07'" --><!--#include virtual="/admin02/include/_sn07.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn08'" --><!--#include virtual="/admin02/include/_sn08.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn09'" --><!--#include virtual="/admin02/include/_sn09.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn10'" --><!--#include virtual="/admin02/include/_sn10.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn11'" --><!--#include virtual="/admin02/include/_sn11.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn12'" --><!--#include virtual="/admin02/include/_sn12.html" --><!-- TemplateEndIf -->
+	        <!-- TemplateBeginIf cond="bmn=='bmn13'" --><!--#include virtual="/admin02/include/_sn13.html" --><!-- TemplateEndIf -->
+  	</div>
+	<div id="content">
+	<!--#include virtual="/admin02/include/_corp_info.html" -->
+	<!-- TemplateBeginEditable name="content" -->content<!-- TemplateEndEditable -->
+	</div>
+	<div id="foot">
+	<!--#include virtual="/admin01/include/_footer.html" -->
+	</div>
+</div>
+</body>
+</html>

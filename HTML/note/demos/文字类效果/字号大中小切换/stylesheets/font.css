@@ -1,0 +1,18 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* ========== font setting ========== */
+.fontBox li.f_large a{
+	background:url(../images/large.gif) no-repeat left top;
+}
+.fontBox li.f_medium a{
+	background:url(../images/medium_on.gif) no-repeat left top;
+}
+.fontBox li.f_small a{
+	background:url(../images/small.gif) no-repeat left top;
+}
+
+/* ========== font reset ========== */
+.rec{
+	font-size:14px;
+}

@@ -1,0 +1,68 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* common
+ * ------------------------------- */
+body{
+	font-family:Arial, Helvetica, sans-serif, "宋体";
+	line-height:16px;
+	color:#333;
+	font-size:12px;
+}
+body,h1,h2,h3,h4,h5,h6,div,p,ul,ol,li,dl,dt,dd,hr,form{margin:0; padding:0;}
+li{list-style-type:none;}
+
+/* myMenu
+ * ------------------------------- */
+.catMenu{
+	margin:100px 0 0 100px;
+	width:100px;
+}
+.catMenu li{
+	position:relative;
+}
+.catMenu li .catBig{
+	display:block;
+	margin-top:-1px;
+	border:1px solid #eee;
+	padding:5px 15px 5px 5px;
+	background:url(images/arrow1_1.gif) no-repeat 80px 8px;
+	text-decoration:none;
+	color:#333;
+}
+.catMenu li.on_prev .catBig{
+	border-bottom-color:#F69920;	
+}
+.catMenu li.on_next .catBig{
+	border-top-color:#F69920;	
+}
+.catMenu li.on .catBig{
+	position:relative;
+	z-index:10;
+	border-color:#F69920;
+	border-right-color:#fff;
+	background:url(images/arrow1_2.gif) no-repeat 80px 8px;
+}
+.catMenu li.on dl{
+	display:block;
+}
+.catMenu li dl{
+	display:none;
+	position:absolute;
+	top:-20px;
+	left:99px;
+	z-index:5;
+	width:150px;
+	border:1px solid #F69920;
+	padding:10px;
+	line-height:20px;
+	background-color:#fff;
+}
+.catMenu li dl a{
+	padding-right:3px;
+	text-decoration:none;
+	color:#333;
+}
+.catMenu li dl a:hover{
+	color:#0099ff;
+}

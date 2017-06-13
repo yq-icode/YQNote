@@ -1,0 +1,16 @@
+http://momdo.s35.xrea.com/web-html-test/CSS3-memo/-ms-interpolation-mode.html
+
+/* 品質重視 */
+img.high {
+ -ms-interpolation-mode:bicubic;   /* IE 7+ */
+ image-rendering: optimizeQuality; /* Fx, (Gecko 1.9.2) */
+}
+/* 速度重視 */
+img.low {
+ -ms-interpolation-mode:nearest-neighbor; /* IE 7+ */
+ image-rendering: -moz-crisp-edges;       /* Fx, (Gecko 1.9.2) */
+}
+
+
+
+

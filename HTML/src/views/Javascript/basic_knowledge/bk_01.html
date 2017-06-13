@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>notebook</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+
+
+<link type="text/css" rel="stylesheet" href="/css/javascript.css" media="all" />
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="javascript" -->
+</head>
+
+<body id="javascript">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		
+		
+		<!--#include virtual="/include/lnJavascript.html" -->
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<div class="pgTitle"><h2>item one</h2></div>
+		<h3>history.go()与history.back()的区别</h3>
+		<div class="section">
+			<blockquote class="codebox">
+				<pre>
+刷新:&lt;input type="button" value="刷新" onclick="window.location.reload()" /&gt;
+前进:&lt;input type="button" value="前进" onclick="window.history.go(1)" /&gt;
+后退:&lt;input type="button" value="后退" onclick="window.history.go(-1)" /&gt;
+前进:&lt;input type="button" value="前进" onclick="window.history.forward()" /&gt;
+后退:&lt;input type="button" value="后退" onclick="window.history.back()" /&gt;
+后退+刷新:
+&lt;input type="button" value="后退+刷新" onclick="window.history.go(-1);window.location.reload()" /&gt;
+history.go(i)去指定的某页
+history.go(0)刷新当前页
+				</pre>
+			</blockquote>
+		</div>
+		
+		<h3>获取浏览器信息</h3>
+		<div class="section">
+浏览器的类型window.navigator.appName<br />
+IE版本window.navigator.appVersion<br />
+客户端分辨率window.screen.height; window.screen.width;<br />
+appCodeName：获取浏览器代码名称 <br />
+userAgent：包含appName以及appVersion的所有信息 <br />
+platform：获取运行浏览器的平台信息<br /> 
+language：获取浏览器支持的语言版本信息
+			<blockquote class="codebox">
+				<pre>
+function checkIE(){
+   var   X,V,N;   
+   V=navigator.appVersion;   
+   N=navigator.appName;   
+   if(N=="Microsoft Internet Explorer")     
+        X=parseFloat(V.substring(V.indexOf("MSIE")+5,V.lastIndexOf("Wind    ows")));
+   else   
+        X=parseFloat(V);   
+   if(X<6.0){   
+        alert("你的浏览器是：" + N + "\n" + "版本号：" + X + ".0");
+  }
+}
+				</pre>			
+			</blockquote>
+			<p class="img">
+				IE-appVersion<br /><img src="/images_old/Javascript/image001.png" alt="" /><br /><br />
+				IE-appName<br /><img src="/images_old/Javascript/image002.png" alt="" /><br /><br />
+				FF-appName<br /><img src="/images_old/Javascript/image003.png" alt="" /><br /><br />
+				FF-appVersion<br /><img src="/images_old/Javascript/image004.png" alt="" />
+			</p>
+		</div>
+		
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

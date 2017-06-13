@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>notebook</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+<link type="text/css" rel="stylesheet" href="/css/html.css" media="all" />
+
+
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="html" -->
+</head>
+
+<body id="html">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		<!--#include virtual="/include/lnHtml.html" -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<div class="pgTitle">
+			<h2>table属性详解</h2>
+		</div>
+		<h3>tbody属性说明</h3>
+		<div class="section">		
+			<ol>
+				<li>只有FF支持tbody的overflow:auto属性,即内容过多会出现滚动条，E6 IE7 IE8 safari均不支持<br />
+			而且如果为tbody设置宽度和高度后，在IE6 IE7中还会影响到单元格的宽度和高度，使单元格的宽高不能正常显示，即使用CSS为单元格强制设置宽高也无效果，原因不明。
+				</li>
+				<li>
+			用JS创建table时,在IE6/IE7里不允许将tr直接附加到table里，而要先将tr附加到tbody中，然后再将tbody附加到table下。IE8/FireFox/Safari中不存在这个问题。需要注意的是显性的利用HTML构造table时，tbody元素不是必须的， IE6/IE7会在解析的时候会自动加入tbody
+				</li>
+			</dl>
+		</div>
+		
+		<h3>关于单元格的宽度</h3>
+		<div class="section">
+			<p>以下在IE6 IE7 IE8 FF Safari中测试通过</p>
+			<ol>
+				<li>
+				单元格的宽度取决于其内容，如果内容较多，即使设置单元格的宽度也不起作用（设置后有时完全不起作用，有时设置的值和实际值相差悬殊），
+如果内容较少，可以根据内容调节。
+				</li>
+				<li>
+				没有设置TABLE的宽度的情况下，TABLE的宽度内容少时随内容改变，内容多时，默认下等于父容器的宽度，如果只有文字（非连续英文字符串），TABLE的宽度不会超过其父容器，如果有表单元素或连续英文字符串撑大单元格，IE7 IE8 FF Safari中TABLE的宽度会超过其父容器。IE6中会撑大父容器。
+				</li>
+				<li>
+					<strong>table-layout:fixed</strong><br />
+					<u>a.固定布局的算法。</u><br />
+					在这种算法中，表格和列的宽度取决于 col 对象的宽度总和，假如没有指定，则会取决于第一行每个单元格的宽度。假如表格没有指定宽度( width )属性，则表格被呈递的默认宽度为 100% 。<br /><br />
+					<u>b.此属性依据此下顺序使用其中一种方式布置表格栏宽度：</u><br />
+					使用 col 或 colGroup 对象的宽度( width )属性信息。<br />
+					使用表格第一行内的单元格的宽度( width )信息。<br /><br />
+					<u>c.依据表格列数等分表格宽度。而不考虑表格内容的实际宽度。</u><br />
+					假如单元格的内容超过了列宽度，内容将会被换行。假如无法换行，则内容会被裁切。假如此属性被设置为 fixed ，则 overflow 能够被用于控制处理溢出单元格( td )宽度的内容。假如表格行高度被指定了，那么换行的内容如果超出了指定表格行高度也会在纵向上被裁切。
+				</li>
+			</ol>
+		</div>
+		
+		<h3>在TD中放DIV，固定DIV的宽度和高度，将内容放在DIV中，这样如果内容过多，在不同浏览器中的表现是</h3>
+		<div class="section">
+			<dl>
+				<dt>div未加overflow属性时</dt>
+				<dd>
+					<table class="list">
+						<tr>
+							<th width="25%">IE8 FF safari：</th>
+							<td>内容溢出DIV，亦溢出TD，不会撑大TD</td>
+						</tr>
+						<tr>
+							<th>IE7：</th>
+							<td>内容溢出DIV，不会溢出TD，不会撑大TD</td>
+						</tr>
+						<tr>
+							<th>IE6：</th>
+							<td>内容不会溢出DIV，不会溢出TD，会撑大DIV，会撑大TD</td>
+						</tr>
+					</table>
+				</dd>
+				<dt>div加上overflow:hidden属性时</dt>
+				<dd>
+					所有浏览器显示都一致（IE6 IE7 IE8 FF safari）：多余内容隐藏于DIV
+				</dd>
+				<dt>div加上overflow:visible属性时</dt>
+				<dd>
+					<table class="list">
+						<tr>
+							<th width="25%">IE8 FF safari：</th>
+							<td>内容溢出DIV，亦溢出TD，不会撑大TD</td>
+						</tr>
+						<tr>
+							<th>IE7：</th>
+							<td>内容溢出DIV，不会溢出TD，不会撑大TD</td>
+						</tr>
+						<tr>
+							<th>IE6：</th>
+							<td>内容不会溢出DIV，不会溢出TD，会撑大DIV，会撑大TD</td>
+						</tr>
+					</table>
+				</dd>
+			</dl>		
+		</div>
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

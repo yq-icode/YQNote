@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>notebook</title>
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+<!-- TemplateBeginIf cond="bodyid=='html'" --><link type="text/css" rel="stylesheet" href="/css/html.css" media="all" /><!-- TemplateEndIf -->
+<!-- TemplateBeginIf cond="bodyid=='css'" --><link type="text/css" rel="stylesheet" href="/css/css.css" media="all" /><!-- TemplateEndIf -->
+<!-- TemplateBeginIf cond="bodyid=='javascript'" --><link type="text/css" rel="stylesheet" href="/css/javascript.css" media="all" /><!-- TemplateEndIf -->
+<!-- TemplateBeginIf cond="bodyid=='flash'" --><link type="text/css" rel="stylesheet" href="/css/flash.css" media="all" /><!-- TemplateEndIf -->
+<!-- TemplateBeginIf cond="bodyid=='photoshop'" --><link type="text/css" rel="stylesheet" href="/css/photoshop.css" media="all" /><!-- TemplateEndIf -->
+<!-- TemplateBeginIf cond="bodyid=='office'" --><link type="text/css" rel="stylesheet" href="/css/office.css" media="all" /><!-- TemplateEndIf -->
+<!-- TemplateBeginIf cond="bodyid=='english'" --><link type="text/css" rel="stylesheet" href="/css/english.css" media="all" /><!-- TemplateEndIf -->
+<!-- TemplateBeginIf cond="bodyid=='japanese'" --><link type="text/css" rel="stylesheet" href="/css/japanese.css" media="all" /><!-- TemplateEndIf -->
+<!-- TemplateBeginIf cond="bodyid=='computer'" --><link type="text/css" rel="stylesheet" href="/css/computer.css" media="all" /><!-- TemplateEndIf -->
+<!-- TemplateBeginIf cond="bodyid=='tools'" --><link type="text/css" rel="stylesheet" href="/css/tools.css" media="all" /><!-- TemplateEndIf -->
+
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<!-- TemplateParam name="bodyid" type="text" value="default" -->
+</head>
+
+<body id="@@(bodyid)@@">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		<!-- TemplateBeginIf cond="bodyid=='html'" --><!--#include virtual="/include/lnHtml.html" --><!-- TemplateEndIf -->
+		<!-- TemplateBeginIf cond="bodyid=='css'" --><!--#include virtual="/include/lnCss.html" --><!-- TemplateEndIf -->
+		<!-- TemplateBeginIf cond="bodyid=='javascript'" --><!--#include virtual="/include/lnJavascript.html" --><!-- TemplateEndIf -->
+		<!-- TemplateBeginIf cond="bodyid=='flash'" --><!--#include virtual="/include/lnFlash.html" --><!-- TemplateEndIf -->
+		<!-- TemplateBeginIf cond="bodyid=='photoshop'" --><!--#include virtual="/include/lnPhotoshop.html" --><!-- TemplateEndIf -->
+		<!-- TemplateBeginIf cond="bodyid=='office'" --><!--#include virtual="/include/lnOffice.html" --><!-- TemplateEndIf -->
+		<!-- TemplateBeginIf cond="bodyid=='english'" --><!--#include virtual="/include/lnEnglish.html" --><!-- TemplateEndIf -->
+		<!-- TemplateBeginIf cond="bodyid=='japanese'" --><!--#include virtual="/include/InJapanese.html" --><!-- TemplateEndIf -->
+		<!-- TemplateBeginIf cond="bodyid=='computer'" --><!--#include virtual="/include/InComputer.html" --><!-- TemplateEndIf -->
+		<!-- TemplateBeginIf cond="bodyid=='tools'" --><!--#include virtual="/include/lnTools.html" --><!-- TemplateEndIf -->
+		</div>
+		<div id="content">
+		<!-- TemplateBeginEditable name="content" -->
+		content
+		<!-- TemplateEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+</html>

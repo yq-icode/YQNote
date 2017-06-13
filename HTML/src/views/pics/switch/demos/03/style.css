@@ -1,0 +1,116 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body,h1,h2,h3,h4,h5,h6,div,p,ul,ol,li,dl,dt,dd,hr,form{margin:0; padding:0;}
+li{list-style-type:none;}
+.fr{float:right;}
+img{border:0;}
+/* ------------------------------------------------------- *
+ * 【picSwitch】
+ * ------------------------------------------------------- */
+.picSwitch{
+	width:680px;
+}
+.picSwitch a{
+	text-decoration:none;
+	outline:none;
+}
+.picSwitch .largeImg{
+	position:relative;
+	float:left;
+}
+.picSwitch .largeImg a{
+	display:block;
+	width:590px;
+	height:310px;
+	border:1px solid #d6d6d6;
+	padding:4px;
+	background-color:#fff;
+	overflow:hidden;
+}
+.picSwitch ul li{
+	margin-bottom:5px;
+}
+.picSwitch ul li a{
+	display:block;
+	width:60px;
+	height:50px;
+	border:1px solid #d6d6d6;
+	padding:4px;
+	background-color:#fff;
+	overflow:hidden;
+}
+.picSwitch ul li a.on{
+	border:1px solid #000;
+	background-color:#fff9bb;
+}
+.picSwitch ul li a:hover{
+	border:1px solid #666;
+}
+.picSwitch ul li.last{
+	margin-bottom:0;	
+}
+.picSwitch .imgbox .imgbg{
+	display:block;
+	left:4px;
+	bottom:4px;
+	width:590px;
+	height:40px;
+}
+.picSwitch .imgbox .imgtxt{
+	display:block;
+	left:4px;
+	bottom:4px;
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+}
+.picSwitch .imgbox .imgtxt span{
+	margin-left:5px;
+}
+/* ------------------------------------------------------- *
+ * 【imgbox】
+ * ------------------------------------------------------- */
+.imgbox{
+	position:relative;
+	display:block;
+	overflow:hidden;
+	cursor:pointer;
+}
+.imgbox .imgbg{
+	position:absolute;
+	bottom:0;
+	left:0;
+	display:none;
+	width:100%;
+	height:100%;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+	background-color:#000;
+	cursor:pointer;
+}
+.imgbox .imgtxt{
+	position:absolute;
+	bottom:0;
+	left:0;
+	display:none;
+	width:100%;
+	height:100%;
+	color:#fff;
+}
+/* ------------------------------------------------------- *
+ * clearfix
+ * ------------------------------------------------------- */
+.clearfix:after{
+  content: ".";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+.clearfix{
+  display: inline-block;
+  overflow:hidden;
+}
+* html .clearfix{height: 1%;}
+.clearfix{display: block;}

@@ -1,0 +1,64 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+h4{
+	margin:20px 0 10px 0;
+	border-top:1px solid #eee;
+	padding:20px 0 0 0;
+}
+h4 label{
+	font-size:16px;
+}
+h4 span{
+	margin-left:20px;
+	color:#999;
+	font-size:11px;
+	font-weight:normal;
+}
+.descbox{font-size:12px;color:#666;line-height:20px;}
+.editbox{
+	width:300px;
+	height:50px;
+	border:1px solid #ccc;
+	padding:3px;
+}
+.textbox{
+	color:#999;
+}
+textarea{
+	outline:none;
+	resize:vertical;
+}
+ul{
+	margin:10px 0 0 10px;
+	padding:0 0 0 5px;
+	font-size:12px;
+	color:#666;
+}
+ul li{
+	padding:3px 0;
+	list-style-position:outside;
+}
+/* ------------------------------------------------------- *
+ * logbox
+ * ------------------------------------------------------- */
+.logbox{width:260px;padding:20px;background-color:#f3f3f3;}
+.logbox .ewbox{position:relative;margin:5px 0;height:42px;background-color:#fff;}
+.logbox .ewbox i{position:absolute;display:inline-block;background: url("../../images/iconG11.png") no-repeat;}
+.logbox .account i{left:10px;top:10px;width:21px;height:23px;background-position:0 0;}
+.logbox .pw i{left:10px;top:10px;width:19px;height:23px;background-position:-32px 0;}
+.logbox .ewbox span.right,
+.logbox .ewbox span.wrong{position:absolute;display:inline-block;right:10px;top:15px;width:15px;height:15px;background: url("../../images/iconG05.jpg") no-repeat;}
+.logbox .ewbox span.right{background-position:-65px -37px;}
+.logbox .ewbox span.wrong{background-position:-89px -37px;}
+.logbox .ewbox input{
+	margin:0 5px 0 5px;
+	width:250px;
+	height:32px;
+	border:0;
+	padding:5px 0;
+	line-height:32px;
+	outline:none;
+	color:#ccc;
+}
+.logbox .ewbox #pw2{color:#333;}

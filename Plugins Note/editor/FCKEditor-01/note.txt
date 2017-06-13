@@ -1,0 +1,12 @@
+【FCKEditor-01】
+
+■使用说明：
+1  如果同一个页面中需放多个FCK,textarea的name名称要不一致。（textarea的ID好像可以去掉）
+
+
+
+■浏览器兼容：
+IE6/IE7/IE8/FF/Safari/Chrome
+
+
+

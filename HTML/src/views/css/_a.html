@@ -1,0 +1,49 @@
+<section id="selecter-a" class="collapse">
+    <div class="title-bar">
+		<h3>a与a:link、a:visited、a:hover、a:active详解</h3>
+    </div>
+    <p class="reference">摘自：<a target="_blank" href="http://www.cnblogs.com/exmyth/p/3226654.html">http://www.cnblogs.com/exmyth/p/3226654.html</a></p>
+    <div class="box">
+        <dl class="list lst-square">
+            <dt>属性说明</dt>
+            <dd>
+                <ul class="list lst-decimal">
+                    <li>:link 选择器设置未访问过的链接的样式。</li>
+                    <li>:visited 选择器对指向已访问页面的链接设置样式</li>
+                    <li>:hover 选择器用于设置鼠标指针浮动到链接上时的样式</li>
+                    <li>:active 选择器用于设置点击链接时的样式。</li>
+                </ul>
+                <p class="emphasis valignMid">
+                    <strong>注意：</strong><span>这四个的顺序不能变，一定要按这个顺序来写。</span>
+                </p>
+            </dd>
+            <dt>若存在a{……}的定义</dt>
+            <dd>
+                <ul class="list lst-decimal">
+                    <li>如果a:link{}也存在，那么不管a{}放到哪里，a{}和a:link{}冲突的属性都会采用a:link{}的，不冲突的属性若存在a{}中，会被a:link{}、 a:visited{} 、a:hover{} 、a:active{}都继承；如果存在a:link{}中，只会被a:link{} 、a:hover{} 和a:active{}继承，a:visited{}不继承。</li>
+                    <li>如果没写a:link，只有其余三个，那么a:link会继 承a{}的所有属性，其余三个会保持自己的已有属性并从a{}中继承没有的属性。</li>
+                    <li>如果没写a:hover，只有其余三个，那么a:hover{}会继承a:link{}中的所有属性，并从a{}中继承自己没有的属性；a:link{}会保持自己已有属性并从a{} 中继承没有的属性；a:active{}会保持自己已有属性先从a:link{}中继承没有的属性，再从a{}中继承至此前还没有的属 性；a:visited{}会保持自己已有属性并直接从a{}中继承没有的属性。</li>
+                    <li>如果没写a:active{}，只有其余三个，那么a:active{}会继承a:hover{}的所有属性，之后上溯到a:link{}中继承至此之前 自己还没有的属性，再从a{}中继承自己至此仍没有的属性；a:hover{}会保持自己已有属性先从a:link{}中继承自己没有 的属性，再从a{}中继承至此仍没有的属性；a:visited{}会直接从a{}中继承自己没有的属性。</li>
+                    <li>如果没写a:visited{}，只有其余三个，那么a:visited{}会继承a{}的所有属性。其余三个都是保持自己已有属性先从上一级（分级看上面的须知②，其中 a:link的上级是a）中继承没有的属性，再从a{}中继承至此自己没有的属性。</li>
+                </ul>
+            </dd>
+            <dt>若没有a{……}的定义</dt>
+            <dd>
+                <ul class="list lst-decimal">
+                    <li>如果没写a:link{}，a:link{}将采用默认的字体大小（无）和颜色（蓝色）</li>
+                    <li>如果没写a:hover{}，a:hover{}将继承a:link{}的所有属性。如果有a:hover{}，它将从a:link{}中继承自己没有的属性。</li>
+                    <li>如果没写a:active{}，a:active{}将先继承a:hover{}中 的所有属性，然后从a:link{}中继承至此仍没有的属性。</li>
+                    <li>如果没写a:visited{}，a:visited{}将采用默认的字体大小（无）和颜色（紫色）。</li>
+                </ul>
+            </dd>
+            <dt>最后经验补充</dt>
+            <dd>
+                <ul class="list lst-decimal">
+                    <li>鼠标经过的“未访问链接”同时拥有a:link、a:hover两种属性，后面的属性会覆盖前面的属性定义；</li>
+                    <li>鼠标经过的“已访问链接”同时拥有a:visited、a:hover两种属性，后面的属性会覆盖前面的属性定义；</li>
+                    <li>所以说，a:hover定义一定要放在a:link、a:visited的后面</li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+</section>

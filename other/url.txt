@@ -1,0 +1,94 @@
+方法一:
+页面提交数据一般有两种方法：get,post。post就是所谓的form提交，使用视图；get是通过url提交。
+      
+       Get方法一般用后台代码（如asp,asp.net）获得参数，代码很简单：Request.QueryString["id"];即可获取。
+
+       有些时候需要直接在前台获取url参数，要用到javascript，js没有直接获取url参数的方法，那么，我们如何通过js获取url参数呢？
+
+function GetUrlParms()    
+{
+     var args=new Object();   
+     var query=location.search.substring(1);//获取查询串   
+     var pairs=query.split("&");//在逗号处断开   
+     for(var    i=0;i<pairs.length;i++)   
+     {   
+         var pos=pairs[i].indexOf('=');//查找name=value   
+            if(pos==-1)   continue;//如果没有找到就跳过   
+             var argname=pairs[i].substring(0,pos);//提取name   
+            var value=pairs[i].substring(pos+1);//提取value   
+            args[argname]=unescape(value);//存为属性   
+    }
+     return args;
+}
+
+使用方法：
+var args = new Object();
+args = GetUrlParms();
+如果要查找参数key:
+value = args[key]
+方法二:
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>javascript获取URL参数和参数值</title>
+<script type="text/javascript">
+<!--
+var url = "http://www.baidu.com/?age=25&k=1&site=asp&abc=123;"
+
+//javascript获取指定参数及其对应的值
+function getParameter(paraStr, url)
+{
+    var result = "";
+    //获取URL中全部参数列表数据
+    var str = "&" + url.split("?")[1];
+    var paraName = paraStr + "=";
+    //判断要获取的参数是否存在
+    if(str.indexOf("&"+paraName)!=-1)
+    {
+        //如果要获取的参数到结尾是否还包含“&”
+        if(str.substring(str.indexOf(paraName),str.length).indexOf("&")!=-1)
+        {
+            //得到要获取的参数到结尾的字符串
+            var TmpStr=str.substring(str.indexOf(paraName),str.length);
+            //截取从参数开始到最近的“&”出现位置间的字符
+            result=TmpStr.substr(TmpStr.indexOf(paraName),TmpStr.indexOf("&")-TmpStr.indexOf(paraName));  
+        }
+        else
+        {  
+            result=str.substring(str.indexOf(paraName),str.length);  
+        }
+    }  
+    else
+    {  
+        result="无此参数";  
+    }  
+    return (result.replace("&",""));  
+}
+
+//调用方法：var 变量名 = getParameter("要获取的参数名", URL地址)
+var r = getParameter("age",url);
+
+//测试输出，结果是：site=popasp
+alert(r);
+//根据得到的结果可以使用
+var pName = r.split("=")[0]; //获取参数名
+var pValue = r.split("=")[1]; //获取参数值
+
+//测试输出：
+alert("参数名：" + pName + "\n\n" + "参数值：" + pValue);
+
+//其他实际应用：
+//可以根据需要，配合以下方法实现自己要实现的功能；
+//var hostname = location.hostname; //获取当前域名(不包含http://)
+//var localurl = location.href;   //获取当前完整的URL地址信息(包含http://，域名，路径，具体文件和全部传递参数)
+//var referurl = document.referrer; //获取上一页完整的URL信息(包含http://，域名，路径，具体文件和全部传递参数)
+
+//-->
+</script>
+</head>
+
+<body>
+</body>
+</html>

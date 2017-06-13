@@ -1,0 +1,91 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Scrolling DataTable</title>
+
+<style type="text/css">
+/*margin and padding on body element
+  can introduce errors in determining
+  element position and are not recommended;
+  we turn them off as a foundation for YUI
+  CSS treatments. */
+body {
+	margin:0;
+	padding:0;
+}
+</style>
+
+<link type="text/css" rel="stylesheet" href="../../build/cssfonts/fonts-min.css" />
+<script type="text/javascript" src="../../build/yui/yui-min.js"></script>
+
+
+<!--begin custom header content for this example-->
+<style type="text/css">
+/* custom styles for this example */
+#demo .output {margin-bottom:1em; padding:10px; border:1px solid #D9D9D9;}
+.tableDemo {margin: 15px 0;}
+</style>
+
+<!--end custom header content for this example-->
+
+</head>
+
+<body class="yui3-skin-sam  yui-skin-sam">
+
+<h1>Scrolling DataTable</h1>
+
+<div class="exampleIntro">
+	Datatables can be made to scroll along the x, y, or xy-axes. The Scrolling Datatable plugin enables this functionality. The width, height, and scrolling axes of the table can be passed into the plugin. It is recommended that at least, a width is provided for y-scrolling datatables, and a height is provided for x-scrolling datatables. If no scrolling direction is provided, the table defaults to a y-scrolling table.			
+</div>
+
+<!--BEGIN SOURCE CODE FOR EXAMPLE =============================== -->
+
+<h4>xy-Scrolling Datatable</h4>
+<p>The following is a standard xy-scrolling datatable. The width, height and scroll direction are passed into the plugin.</p>
+<div id="scrolling-xy" class="tableDemo"></div>
+
+<h4>x-Scrolling Datatable</h4>
+<p>The following is a standard x-scrolling datatable. The width and scroll direction are passed into the plugin. The height is automatically set to the entire table height.</p>
+<div id="scrolling-x" class="tableDemo"></div>
+
+<h4>y-Scrolling Datatable</h4>
+<p>The following is a standard y-scrolling datatable. The height and scroll direction are passed into the plugin. The width is automatically set to width of the container.</p>
+
+<div id="scrolling-y" class="tableDemo"></div>
+
+<script type="text/javascript">
+YUI(null,{/*filter:"debug",*/filters:{"datatable":"debug"}}).use("dump", "substitute", "intl", "plugin", "datatable", "datatable-sort", function (Y) {
+
+	 	var sampleCols = [{key:"a", label:"ID", width:'75px'},{key:"b", label:"Field2", abbr:"2", className:"myClass", width:'75px'},{key:"c", label:"Field3", width:'65px'},{key:"d", label:"Field4", width:'75px'},{key:"e", label:"Field5", width:'45px'},{key:"f", label:"Field6"},{key:"g", label:"Field7", width:'150px'}],
+		
+					
+		sampleData = [{a:3, b:"Bob", c:115.34, d:623.63, e:"bananas", f:"http://www.yahoo.com", g:1234.56}, {a:4, b:"Charlie", c:75.21, d:63.7316, e:"gooseberries", f:"http://www.yahoo.com", g:1234.56}, 
+					{a:6, b:"Edgar", c:37.32, d:636.12, e:"cherries", f:"http://www.yahoo.com", g:1234.56}, {a:17, b:"Ann", c:17.99, d:174.42, e:"raspberries", f:"http://www.yahoo.com", g:1234.56}, 
+					{a:23, b:"Diane", c:71.67, d:634.63, e:"apples", f:"http://www.yahoo.com", g:1234.56}, {a:5, b:"Hannah", c:3346.232, d:63.2457, e:"oranges", f:"http://www.yahoo.com", g:1234.56},
+					{a:17, b:"Igor", c:13452.262, d:23.87, e:"pears", f:"http://www.yahoo.com", g:1234.56}, {a:11, b:"Julie", c:7523.23, d:61.6372, e:"grapes", f:"http://www.yahoo.com", g:1234.56}, 
+					{a:1, b:"Francine", c:3.39, d:64.123, e:"plums", f:"http://www.yahoo.com", g:1234.56}];
+
+
+	
+	var dtScrollingXY = new Y.DataTable.Base({columnset:sampleCols, recordset:sampleData});
+	dtScrollingXY.plug(Y.Plugin.DataTableScroll, {width:"300px", height:"85px", scroll:"xy"});    
+	dtScrollingXY.render("#scrolling-xy");
+
+	var dtScrollingX = new Y.DataTable.Base({columnset:sampleCols, recordset:sampleData});
+	dtScrollingX.plug(Y.Plugin.DataTableScroll, {width:"150px", scroll:"x"});
+	dtScrollingX.render("#scrolling-x");
+	
+	
+	var dtScrollingY = new Y.DataTable.Base({columnset:sampleCols, recordset:sampleData});
+	dtScrollingY.plug(Y.Plugin.DataTableScroll, {height:"100px", scroll:"y"});    
+	dtScrollingY.render("#scrolling-y");
+});
+
+</script>
+
+<!--END SOURCE CODE FOR EXAMPLE =============================== -->
+
+</body>
+</html>

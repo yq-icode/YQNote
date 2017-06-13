@@ -1,0 +1,15 @@
+【TAB-01：TAB切换效果-使用JQuery类库】
+
+■使用说明：
+1  引用JQuery类库jquery-1.6.1.js
+2  调用tab_switch.js中的tabSwitch()函数
+
+
+■浏览器兼容：
+IE6/IE7/IE8/FF/Safari/Chrome
+
+■优点：
+1  当点击TAB的title时，就可以将该页面的title切换成TAB的title;
+
+
+【TAB切换：TAB切换效果-使用prototype.js类库(这个还没总结)】

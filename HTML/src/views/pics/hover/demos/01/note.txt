@@ -1,0 +1,13 @@
+【图片HOVER效果】
+
+■使用说明：
+1  为图片统一命名：img_name.gif    img_name_over.gif;
+2  对于<input>类型，可以将其换成:<input type=”image” src=”” />
+
+
+
+■浏览器兼容：
+IE6/IE7/IE8/FF/Safari/Chrome
+
+
+

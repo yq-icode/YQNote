@@ -1,0 +1,108 @@
+﻿@charset "utf-8";
+/* CSS Document */
+@import url(common.css);
+
+/* ------------------------------------------------------- *
+ * select-box
+ * ------------------------------------------------------- */
+.select-box{
+	position:relative;
+	float:left;
+	margin-right:5px;
+}
+.sb-zIndex{z-index:10;}
+.select-box .select-vbox{
+	border:1px solid #c8c8c8;
+	height:24px;
+	line-height:24px;
+}
+.select-box .select-value{
+	display:block;
+	height:24px;
+	padding:0 30px 0 5px;
+	cursor:default;
+	background:#fff url(../images/job_icon_db.gif) right top no-repeat;
+	color:#333;
+}
+.select-box .select-optionBox{
+	display:none;
+	position:absolute;
+	left:0;
+	top:25px;
+	border:1px solid #c8c8c8;
+	background:#fff;
+	font-size:12px;
+	z-index:1000;
+}
+/* ------------------------------------------------------- *
+ * address
+ * ------------------------------------------------------- */
+.address .select-vbox{
+	width:120px;
+}
+.address .select-optionBox{
+	width:529px;
+}
+.address a{
+	white-space:nowrap;	
+}
+.address .hotCity{
+	padding:10px;
+	line-height:25px;
+}
+.address .hotCity p{
+	margin-left:70px;
+}
+.address .hotCity a{
+	padding:3px;
+	color:#0099ff;
+}
+.address .letter li{
+	float:left;	
+}
+.address .letter a{
+	display:inline-block;
+	border-right:1px solid #fff;
+	padding:5px 6px;
+	font-size:16px;
+	background-color:#eee;
+	color:#666;
+}
+.address .letter a.on{
+	border-top:2px solid #ff6600;
+	padding-top:3px;
+	color:#ff6600;
+}
+.address dl dd{
+	display:none;
+	padding:10px;
+}
+.address .city,
+.address .region{
+	line-height:30px;	
+}
+.address .city a{
+	padding:2px 5px;
+}
+.address .city a.on{
+	background-color:#ff9966;
+}
+.address .region{
+		
+}
+.address .region .item{
+	display:none;
+	margin-top:5px;
+	border-top:1px solid #eee;
+	padding-top:5px;
+}
+.address .region strong{
+	margin-right:5px;	
+}
+.address .region a{
+	padding:2px 8px;
+}
+.address .region a.on{
+	padding:2px 11px 2px 5px;
+	background:#ffd1ba url(../images/icon-delete.png) no-repeat right top;
+}

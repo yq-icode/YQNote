@@ -1,0 +1,9 @@
+http://www.jqcool.net/jquery-scrollify.html
+
+http://www.jqcool.net/demo/201406/jquery-scrollify/#home
+
+前两个兼容性好
+
+http://www.jq22.com/jquery-info465
+
+http://www.jq22.com/Demo465

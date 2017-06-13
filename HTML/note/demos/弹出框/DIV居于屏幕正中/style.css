@@ -1,0 +1,19 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+#wrap{
+	height:1200px;
+}
+#ajax-indicator {
+	position:fixed;
+    *position: absolute; /* fixed not supported by IE */
+    background-color: #eee;
+    border: 1px solid #bbb;
+    width: 200px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    z-index: 100;
+    filter: alpha( opacity = 50 );
+    opacity: 0.5;
+}

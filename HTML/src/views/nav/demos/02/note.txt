@@ -1,0 +1,15 @@
+【下拉菜单】
+
+■使用说明：
+1  引用JQuery类库jquery.js
+
+
+
+■浏览器兼容：
+IE6/IE7/IE8/FF/Safari/Chrome
+
+■注意点：
+
+
+
+

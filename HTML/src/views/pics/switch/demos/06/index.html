@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>组6</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="content.css" />
+</head>
+<body>
+<div class="i_focus">
+	<!--i_focus_btn 这里可以放文字，也可以放缩略图-->
+	<ul class="i_focus_btn">
+		<li class="i_cur" id="p0">电子备课</li>
+		<li id="p1">电子书包</li>
+		<li id="p2">教务管理</li>
+		<li id="p3">速学课堂</li>
+		<li id="p4">互动学习</li>
+	</ul>
+	<div class="i_focus_pic">
+		<ul class="i_focus_piclist" style="left:0;top:0;">
+			<li><a href="#" target="_blank"><img  src="images/pic01.jpg" alt=""></a></li>
+			<li><a href="#" target="_blank"><img  src="images/pic02.jpg" alt=""></a></li>
+			<li><a href="#" target="_blank"><img  src="images/pic03.jpg" alt=""></a></li>
+			<li><a href="#" target="_blank"><img  src="images/pic04.jpg" alt=""></a></li>
+			<li><a href="#" target="_blank"><img  src="images/pic05.jpg" alt=""></a></li>
+		</ul>
+		<div class="i_focus_opdiv"></div>
+		<!--i_focus_tx放图片上的文字-->
+		<ul class="i_focus_tx">
+			<li class="normal"><span>Springs Best Accessories</span>The 7 key trends for the season b2</li>
+			<li class="normal"><span>HAHAHAHAAH HAHA haha OHOH</span>THINK EVERY DAY</li>
+			<li class="normal"><span>Okay okay okay okay</span>scrip jquery ue seo</li>
+			<li class="normal"><span>adsa adsa adsa adsa</span>adsaadsa</li>
+			<li class="normal"><span>five five</span>five five ue five</li>
+		</ul>
+	</div>
+</div>
+
+<script language="javascript">
+$(document).ready(function() {
+    var i_curIndex = 0;
+    var beauBeauSlide;//函数对象
+    var i_curID = 0;//取得鼠标下方的对象ID
+    var pictureID = 0;//索引ID
+    var picNum = $(".i_focus_piclist li").length;//切换的图片总数
+    $(".i_focus_piclist li").eq(0).show();//默认
+    autoScroll();
+    $(".i_focus_btn li").hover(function() {
+        StopScrolll();
+        $(".i_focus_btn li").removeClass("i_cur")//所有的li去掉当前的样式加上正常的样式
+        $(this).addClass("i_cur");//而本身则加上当前的样式去掉正常的样式
+        i_curID = $(this).attr("id");//取当前元素的ID
+        pictureID = i_curID.substring(i_curID.length - 1);//取最后一个字符
+        $(".i_focus_piclist li").eq(pictureID).show();//本身显示
+        $(".i_focus_piclist li").not($(".i_focus_piclist li")[pictureID]).hide();//除了自身别的全部隐藏
+        $(".i_focus_tx li").hide();
+        $(".i_focus_tx li").eq(pictureID).show();
+
+    },
+    function() {
+       //当鼠标离开对象的时候获得当前的对象的ID以便能在启动自动时与其同步
+        i_curID = $(this).attr("id");//取当前元素的ID
+        pictureID = i_curID.substring(i_curID.length - 1);//取最后一个字符
+        i_curIndex = pictureID;
+        autoScroll();
+    });
+   //自动滚动
+    function autoScroll() {
+        $(".i_focus_btn li:last").removeClass("i_cur");
+        $(".i_focus_tx li:last").hide();
+        $(".i_focus_btn li").eq(i_curIndex).addClass("i_cur");
+        $(".i_focus_btn li").eq(i_curIndex - 1).removeClass("i_cur");
+        $(".i_focus_tx li").eq(i_curIndex).show();
+        $(".i_focus_tx li").eq(i_curIndex - 1).hide();
+        $(".i_focus_piclist li").eq(i_curIndex).show();
+        $(".i_focus_piclist li").eq(i_curIndex - 1).hide();
+        i_curIndex++;
+        i_curIndex = i_curIndex >= picNum ? 0 : i_curIndex;//此处picNum为切换的图片总数
+        beauBeauSlide = setTimeout(autoScroll, 2000);
+    }
+    function StopScrolll()//当鼠标移动到对象上面的时候停止自动滚动
+    {
+        clearTimeout(beauBeauSlide);
+    }
+});
+</script>
+</body>
+</html>

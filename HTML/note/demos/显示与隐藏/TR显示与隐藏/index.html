@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TR显示与隐藏</title>
+<script type="text/javascript" src="jquery-1.6.1.js"></script>
+<style type="text/css">
+td, th{border:1px solid #B9CBDF;padding:5px; font-size:12px;}
+th{background-color:#EBFFF1;}
+table{border:1px solid #B9CBDF;border-collapse:collapse;background-color:#fff;}
+
+
+.show_div{cursor:pointer;color:#00f;}
+.dis_none{display:none;}
+
+</style>
+</head>
+<body id="bmn09" class="bsn08">
+<div id="wrap">
+ <script type="text/javascript">
+		$(document).ready(function(){$(".show_div").click(function(){
+		$(this).parent("td").parent("tr").next("tr").show();
+	})
+	$(".inline-adapter-close").click(function(){$(this).parent("td").parent("tr").hide();})})
+
+    </script>
+        <table class="tlist" width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <th nowrap="nowrap">顧客会社コード</th>
+            <th width="150">顧客会社名</th>
+            <th width="150">短縮会社名</th>
+            <th width="100">郵便番号</th>
+            <th width="100">電話番号</th>
+            <th>不動産割戻しの有無</th>
+            <th>提携先紹介料の有無</th>
+            <th>提携先顧客会社</th>
+            <th class="action">操作</th>
+          </tr>
+          <tr>
+            <td><a href="/admin01/views/customer/detail.html">001</a></td>
+            <td><a href="/admin01/views/customer/detail.html">株式会社エイブル</a></td>
+            <td>㈱エイブル</td>
+            <td align="right" nowrap="nowrap">107-0051</td>
+            <td align="right" nowrap="nowrap">03-5786-9245</td>
+            <td>有</td>
+            <td>有</td>
+            <td>有</td>
+            <td align="center" class="action"><a class="show_div">展开</a></td>
+          </tr>
+          <tr class="dis_none" id="shop_active_1">
+            <td colspan="9" style="background-color:#DAFFCD">
+              株式会社エイブルの営業店
+              <input type="button" class="inline-adapter-close" value="閉じる" />
+              
+              
+              <table class="tlist" width="100%">
+                <tr>
+                  <th nowrap="nowrap">営業店名</th>
+                  <th nowrap="nowrap">短縮営業店名</th>
+                  <th nowrap="nowrap">郵便番号</th>
+                  <th nowrap="nowrap">住所1</th>
+                  <th nowrap="nowrap">住所2</th>
+                  <th nowrap="nowrap">電話番号</th>
+                  <th nowrap="nowrap">FAX</th>
+                  <th nowrap="nowrap">メールアドレス</th>
+                  <th nowrap="nowrap">メール送信</th>
+                  <th nowrap="nowrap" class="action">操作</th>
+                </tr>
+                <tr>
+                  <td>仮見積</td>
+                  <td>仮見積</td>
+                  <td></td>
+                  <td>仮住所</td>
+                  <td></td>
+                  <td align="right" nowrap="nowrap">0120-000-000</td>
+                  <td align="right" nowrap="nowrap">0120-000-002</td>
+                  <td>test@test.com</td>
+                  <td>送信しない</td>
+                  <td align="center" class="action"><a class="show_div">展开</a></td>
+                </tr>
+                <tr class="dis_none" style="background-color:#E6F2FF">
+                  <td colspan="10">仮見積の担当者<input type="button" class="inline-adapter-close" value="閉じる" /></td>
+                </tr>
+              </table>
+              
+              
+            </td>
+          </tr>
+        </table>
+</div>
+</body>
+</html>

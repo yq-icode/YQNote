@@ -1,0 +1,81 @@
+﻿@charset "utf-8";
+/* CSS Document */
+@import url(common.css);
+
+/* ------------------------------------------------------- *
+ * banner
+ * ------------------------------------------------------- */
+.i_focus{
+	position:relative;
+	margin:20px auto;
+	width:720px;
+	height:265px;
+}
+.i_focus .i_focus_pic{
+	position:relative;
+	margin-left:120px;
+	width:600px;
+	height:265px;
+	overflow:hidden;
+}
+.i_focus .i_focus_piclist{
+	position:absolute;
+}
+.i_focus .i_focus_piclist li{
+	width:600px;
+	height:265px;
+	overflow:hidden;
+	display:none;
+}
+.i_focus .i_focus_piclist img{
+	width:600px;
+	height:265px;
+}
+.i_focus .i_focus_btn {
+	position: absolute;
+	left:0;
+	top:24px;
+	z-index:10;
+	width:135px;
+}
+.i_focus .i_focus_btn li{
+	display:block;
+	margin-bottom:5px;
+	height:28px;
+	padding-left:25px;
+	line-height:28px;
+	font-weight:bold;
+	font-size:13px;
+	color:#6699ff;
+	cursor:pointer;
+	overflow:hidden;
+}
+.i_focus .i_focus_btn li.i_cur{
+	background:url(images/tabBg1.jpg) no-repeat left top;
+	color:#333;
+	cursor:default;
+}
+.i_focus .i_focus_opdiv{
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:600px;
+	height:40px;
+	background:#000;
+	opacity:0.5;
+	-moz-opacity:0.5;
+	filter:alpha(opacity=50);
+}
+.i_focus .i_focus_tx{
+	position:absolute;
+	left:8px;
+	bottom:2px;
+	color:#FFF;
+}
+.i_focus .i_focus_tx span{
+	display:block;
+	line-height:22px;
+}
+.i_focus .i_focus_tx .normal{
+	display:none;
+}

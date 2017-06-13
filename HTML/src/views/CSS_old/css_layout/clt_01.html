@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>notebook</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+
+<link type="text/css" rel="stylesheet" href="/css/css.css" media="all" />
+
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="css" -->
+</head>
+
+<body id="css">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		
+		<!--#include virtual="/include/lnCss.html" -->
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<div class="pgTitle"><h2>图片的圆角及垂直居中</h2></div>
+		<h4>说明</h4>
+		<div class="section">实现图片居中最好的容器就是表格，如果用其它容器实现的方法就比较复杂，再加上圆角效果，二者结合实现方法就更复杂了，因此我用了以下方法CSS+JS来实现图片的垂直居中以及圆角效果。</div>
+		<h4>HTML</h4>
+		<blockquote class="codebox">
+			<pre>
+&lt;div class="cornerBox"&gt;
+  &lt;table&gt;
+    &lt;tr&gt;
+	  &lt;td class="cornerBox_td"&gt;
+		&lt;img src="/images/css/3.jpg" alt="mainImg" /&gt;
+	  &lt;/td&gt;
+	&lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="cornerBox"&gt;
+  &lt;table&gt;
+	&lt;tr&gt;
+	  &lt;td class="cornerBox_td"&gt;
+		&lt;img src="/images/css/4.jpg" alt="mainImg" /&gt;
+	  &lt;/td&gt;
+	&lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="cornerBox"&gt;
+  &lt;table&gt;
+	&lt;tr&gt;
+	  &lt;td class="cornerBox_td"&gt;
+		&lt;img src="/images/css/5.jpg" alt="mainImg" /&gt;
+	  &lt;/td&gt;
+	&lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+			</pre>
+		</blockquote>
+		<h4>CSS</h4>
+		<blockquote class="codebox">
+			<pre>
+.cornerBox{
+	position:relative;
+	float:left;
+	margin-right:10px;
+	width:100px;
+	height:88px;
+	background-color:#000
+}
+.cornerBox table{
+	padding:0;
+	border-collapse:collapse;
+	width:100%;
+	height:100%;
+}
+.cornerBox table td.cornerBox_td{
+	padding:0;
+	vertical-align:middle;
+	text-align:center;
+}
+.cornerBox table td.cornerBox_td .cornerImg.tl{position:absolute;top:0;left:0;}
+.cornerBox table td.cornerBox_td .cornerImg.tr{position:absolute;top:0;right:0;}
+.cornerBox table td.cornerBox_td .cornerImg.bl{position:absolute;bottom:0;left:0;}
+.cornerBox table td.cornerBox_td .cornerImg.br{position:absolute;bottom:0;right:0;}
+/*IE6中cornerBox的背景颜色会在图片底部多出一部分，因此通过图片下移的方法解决这个BUG，原因不明*/
+* html .mainImg{margin-bottom:-4px;}
+			</pre>
+		</blockquote>
+		<h4>JS</h4>
+		<blockquote class="codebox">
+			<pre>
+&lt;script type="text/javascript"&gt;
+  window.onload = function(){
+    var cornerBox = document.getElementsByClassName('cornerBox');
+    for(i=0;i&lt;cornerBox.length;i++){
+      var cBox_td = cornerBox[i].getElementsByClassName('co0rnerBox_td');
+      var corner_tl = document.createElement('span');
+      var corner_tr = document.createElement('span');
+      var corner_bl = document.createElement('span');
+      var corner_br = document.createElement('span');
+      corner_tl.innerHTML = '&lt;img src="/images/css/corner_tl.gif" class="cornerImg tl" alt="cornerImg" /&gt;';
+      corner_tr.innerHTML = '&lt;img src="/images/css/corner_tr.gif" class="cornerImg tr" alt="cornerImg" /&gt;';
+      corner_bl.innerHTML = '&lt;img src="/images/css/corner_bl.gif" class="cornerImg bl" alt="cornerImg" /&gt;';
+      corner_br.innerHTML = '&lt;img src="/images/css/corner_br.gif" class="cornerImg br" alt="cornerImg" /&gt;';
+      cBox_td[0].appendChild(corner_tl);
+      cBox_td[0].appendChild(corner_tr);
+      cBox_td[0].appendChild(corner_bl);
+      cBox_td[0].appendChild(corner_br);
+  }
+}
+&lt;/script&gt;
+			</pre>
+		</blockquote>
+		<h4>效果图</h4>
+		<p>
+			<img src="/images_old/CSS/img_002.gif" alt="" />
+		</p>
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

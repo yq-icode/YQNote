@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>notebook</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+
+<link type="text/css" rel="stylesheet" href="/css/css.css" media="all" />
+
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="css" -->
+</head>
+
+<body id="css">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		
+		<!--#include virtual="/include/lnCss.html" -->
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<div class="pgTitle"><h2>两栏高度问题</h2></div>
+		<h3>1.	二列自适应高度</h3>
+		<div class="section">
+			<blockquote class="codebox">
+				<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;div屏幕自适应宽度+两列中间栏等高&lt;/title&gt;
+&lt;style type="text/css"&gt;
+body{
+padding:0;
+margin:0;
+text-align:center;
+}
+#wrapper{
+width:90%;
+height:auto;
+margin:0 auto;
+}
+#header{width:100%;height:100px;background-color:red;float:left;clear:both;text-align:left;}
+#main{width:100%;height:auto;float:left;clear:both;text-align:left;overflow:hidden;}
+#left{width:30%;height:auto;float:left;text-align:left;background-color:yellow;}
+#right{width:70%;height:auto;float:right;text-align:left;background-color:blue;}
+#footer{width:100%;height:100px;float:left;clear:both;text-align:left;background-color:006600;}
+<strong>#left,#right{padding-bottom:32767px;margin-bottom:-32767px;}</strong>
+<em>此值不能设置太大，否则在IE6  IE7中布局会完全错乱，表象是#main的高度很小，但是为#main设置固定高度，就可正常显示，如果
+设置百分比高度就不能正常显示，原因不明。</em>
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="wrapper"&gt;
+&lt;div id="header"&gt;HEADER&lt;br /&gt;HEADER&lt;br /&gt;HEADER&lt;br /&gt;&lt;/div&gt;
+&lt;div id="main"&gt;
+    &lt;div id="left"&gt;LEFT&lt;br /&gt;LEFT&lt;br /&gt;LEFT&lt;br /&gt;LEFT&lt;br /&gt;LEFT&lt;br /&gt;LEFT&lt;br /&gt;&lt;/div&gt;
+    &lt;div id="right"&gt;RIGHT&lt;br /&gt;RIGHT&lt;br /&gt;RIGHT&lt;br /&gt;
+    &lt;br /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="footer"&gt;FOOTER&lt;br /&gt;FOOTER&lt;br /&gt;FOOTER&lt;br /&gt;FOOTER&lt;br /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+				</pre>
+			</blockquote>
+			<p>此种布局当为#left 或 #right设置边框时，边框不可见，背景颜色可见，原因不明。</p>
+		</div>
+		<h3>2.不同高度的两列间的分隔线</h3>
+		<div class="section">
+			<blockquote class="codebox">
+				<pre>
+&lt;style&gt;
+div{border:1px solid red;width:100px;height:80px;float:left;}
+&lt;/style&gt;
+&lt;div style="height:50px"&gt;454545&lt;/div&gt;
+&lt;div style="margin-left:-1px;"&gt;454545&lt;/div&gt;
+				</pre>
+			</blockquote>
+			<p>原理：两个DIV都设置边框，然后让两个边框重叠；</p>
+		</div>
+		<h3>3.侧栏高度问题</h3>
+		<div class="section">
+			<p>当我们在布局时，往往碰到左/右侧栏内容过少时，高度不能占满整个屏幕，而我们又需要这种效果，此时我们可以制作一张背景图片，将其作为body的背景图，并将侧栏的位置摆放在背景图中对应的位置，因为body的背景图是占满整个屏幕高度的，所以这种效果就实现了。</p>
+			<p>以obayashi为例，它的右侧栏的两条线就是通过在body中设置背景图片实现的。</p>
+			<p class="img"><img src="/images_old/CSS/img_003.gif" alt="" width="860" /></p>
+		</div>
+		<h3>4.利用body进行页面布局</h3>
+		<div class="section">
+			<blockquote class="codebox">
+				<pre>
+<% if  params[:action]=='index' %>
+&lt;body id="index"&gt;
+<% elsif params[:controller]=='harika' %>
+&lt;body id="category" class="search column-3"&gt;
+<%else%>
+&lt;body&gt;
+<% end %>
+				</pre>
+			</blockquote>
+			<p>column-3即表示页面为三列.<br />可利用&lt;hr class=’cb’ /&gt;清除浮动，比使用div更能使结构显得清晰。</p>
+		</div>
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

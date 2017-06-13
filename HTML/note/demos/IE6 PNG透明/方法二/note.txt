@@ -1,0 +1,29 @@
+【IE6 PNG透明/方法二】
+
+■使用说明：
+在head里面加上以下的代码：
+<!--[if IE 6]>
+<script src="js/DD_belatedPNG_0.0.8a-min.js" type="text/javascript"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('.pngfix');
+</script>
+<![endif]-->
+
+
+■备注：
+JS文件是在此网站下载的：www.dillerdesign.com/experiment/DD_belatedPNG/
+引用DD_belatedPNG_0.0.8a-min.js或DD_belatedPNG_0.0.8a.js都可以；
+
+DD_belatedPNG.fix('包含透明PNG图片的标签或class名'); 多个标签之间用英文逗号隔开，
+如：DD_belatedPNG.fix('div, ul, img, li, input, i, a');
+或写成DD_belatedPNG.fix('.pngfix');
+
+■缺点：
+1  你的CPU在打开页面的时候可能会飙升;
+2  链接的hover的手型会变成指针，但是链接是存在的。解决方法：只要在css里加一条a{cursor:pointer}就行了。
+3  有的背景图片会显示不全,宽度和高度会少一个像素,原因不明,目前的解决方法是将图片的宽度多加一个像素;
+4  还会引发其它奇怪的样式问题，因此用这种方法时，一定要在IE6中测试下样式；
+5  如果HTML文件放在框架里不起作用，单独打开则正常，原因不明；
+
+■优点：
+既支持img标签形式的，也支持background形式的，还支持把很多图做成一张图，作为背景图片，即亦支持background-position.

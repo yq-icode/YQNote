@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>notebook</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+
+<link type="text/css" rel="stylesheet" href="/css/css.css" media="all" />
+
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="css" -->
+</head>
+
+<body id="css">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		
+		<!--#include virtual="/include/lnCss.html" -->
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<h3>1.	属性说明</h3>
+		<div class="section">
+ 			<dl>
+				<dt>absolute</dt>
+				<dd>绝对定位的元素被完全与页面流分离，不会占据任何位置,换句话说，网页上的其它东西甚至不知道这个绝对定位的元素的存在；
+它的参考点是其设置了position:relative的父元素.</dd>
+ 				<dt>relative</dt>
+				<dd>设置了position:relative的元素,其相对位置是相对于其原本应该所在位置,而不是相对于其父元素,无论其父元素是否设置了position:relative.<br />
+相对定位的主要好处不是移动一个元素，而是给在它内部的绝对定位元素设定一个新的参考点；<br />
+<strong>Riskmap教训：</strong><br />
+最好不要对整体应用position:relative（即#content{  position:relative } ）这样容易引发一系列奇怪的问题，应该详细分析，是相对哪个元素，然后再对这部分应用position:relative.</dd>
+ 				<dt>static</dt>
+				<dd>常规的定位方法，因此除非要使一个前面已经创建了的absolute、relative、fixed的定位样式失效，否则不需要指定static；</dd>
+ 				<dt>fixed</dt>
+				<dd>IE6不识别固定设置；此属性是相对于body的，而不是相对于任何设置了relative/absolute的元素。</dd>
+			</dl>
+		</div>
+		<h3>2.	只设置了position而未设置left top bottom right等值的排序</h3>
+		<div class="section">
+			<p>A:父div  	B:设置了relative的子div		C:未设置relative/absolute的子div
+D:设置了absolute的子div</p>
+			<dl>
+ 				<dt>说明</dt>
+				<dd>无论A是否设置了relative, B C都按HTML里的页面流排序, 而D则不根据页面流排序, 假设A的页面流顺序为: B1 C1 B2 D1 B3 D2 C2, 则A的height=B1+C1+B2+B3+C2,B C的顺序就按它们在HTML页面流的顺序排列,而D1则位于B2之后与B3重叠,且被B3覆盖,D2则位于B3之后与C2重叠,但D2会覆盖C2。</dd>
+				<dt>解析：</dt>
+				<dd>因为绝对定位会脱离页面流, 不会占据任何位置, 而相对定位和未设置定位的元素会在页面中占有实际位置, D1之前已有B1 C1 B2,所以它只能在B2之后,又由于D1不占位置,所以才导致D1 B3重叠,假设D1之后的排序是D1 D2 C2,那这三个元素会重叠在一起.
+				<br />
+记住以下规律:<br />
+B3(设置了relative)覆盖D1, D2覆盖C2(未设置relative/absolute)</dd>
+		</div>
+		
+		<h3>3. 应用</h3>
+		<div class="section">
+ 			<ol>
+				<li>如果一个标签有一个绝对的位置，并且它不在任何其他应用了absolute、relative或者fixed 定位的标签里面，那么它是相对于浏览器窗口进行定位的；</li>
+ 				<li>何时何处使用相对定位
+从相对另一个标签来定位元素获得的一个大好处是：如果这个标签移动了，定位元素也随之移动；（例P333《CSS实战手册》）</li>
+ 				<li>为了防止一个负定位的元素探出浏览器窗口，要添加足够的边距或者填充给主体元素或包围元素；（P340《CSS实战手册》）</li>
+ 				<li>使用绝对定位最有效的方式之一就是把小项目相对网页上的其它元素来放置（P339《CSS实战手册》）</li>
+ 				<li>若子元素设置了absolute,无论父元素是否设置了相对/绝对位置,子元素的高度都不会影响父元素的高度.父元素的高度只由未设置absolute的子元素的高度决定。</li>
+			</ol>
+		</div>
+		<h3>4.	NOTICE</h3>
+ 		<div class="section">
+			<ol>
+				<li>不要试图给同一个样式既应用float属性又应用任何一种定位，除了静态或者相对定位外。浮动和绝对或者固定的定位不可能同时作用在同一个元素上。</li>
+ 				<li>IE有时把用bottom或者right属性定位的元素放错地方；</li>
+ 				<li>当利用百分比来指定上下距离时，这个距离是以浏览器窗口宽度而不是高度的百分比来计算的；</li>
+ 				<li>可以指定left和right两个定位属性，并让浏览器决定元素的宽度，但是所有IE版本无法识别这一点，它只是根据内容的宽度来设定方框的宽度，但FF可以；</li>
+			</ol>
+		</div>
+		<h3>5.TD元素的position属性</h3>
+		<div class="section">
+		TD,TH的position:relative属性:IE6 IE7 IE8支持，FF Safari不支持<br />
+		TR的position:relative属性:IE6 IE7支持，IE8 FF Safari不支持<br />
+		table的父级DIV其ID为：wrap
+		<table class="list">
+			<caption>td/th与其内部DIV元素的位置</caption>
+			<tr>
+				<th width="80"></th>
+				<th colspan="4">td/th</th>
+			</tr>
+			<tr>
+				<th>cellInnerDIV</th>
+				<th>未设置</th>
+				<th>relative</th>
+				<th>absolute</th>
+				<th>display:block</th>
+			</tr>
+			<tr>
+				<th align="left">relative</th>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<th align="left">absolute</th>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<th align="left">relative<br />left<br />top</th>
+				<td>
+					<dl>
+						<dt>当wrap未设置position属性时:</dt>
+						<dd>cellInnerDIV以th/td为参考点，IE6 IE7 IE8 FF Safari显示一致；</dd>
+						<dt>当wrap设置position:relative属性时:</dt>
+						<dd>IE7 IE8 FF Safari:cellInnerDIV以th/td为参考点；<br />
+					IE6:cellInnerDIV以wrap为参考点；</dd>
+					</dl>
+				</td>
+				<td>
+					<dl>
+						<dt>当wrap未设置position属性时:</dt>
+						<dd>cellInnerDIV以th/td为参考点，IE6 IE7 IE8 FF Safari显示一致；</dd>
+						<dt>当wrap设置position:relative属性时:</dt>
+						<dd>IE7 IE8 FF Safari:cellInnerDIV以th/td为参考点；<br />
+					IE6:cellInnerDIV以th/td为参考点,但th/td的位置错乱了，脱离了表格，就像是th/td以wrap为参考点重新定位的。</dd>
+					</dl>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<th align="left">absolute<br />left<br />top</th>
+				<td>
+					<p>前提：wrap设置了position:relative;<br />一般规则：cellInnerDIV以wrap为参考点</p>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td>只有当wrap设置了宽度和高度后，才遵循一般规则</td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td>遵循一般规则</td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td>遵循一般规则</td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td>遵循一般规则</td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td>遵循一般规则</td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>IE6</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE7</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>IE8</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>FF</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>Safari</th>
+							<td></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		</div>
+
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

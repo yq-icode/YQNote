@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>notebook</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+
+
+<link type="text/css" rel="stylesheet" href="/css/javascript.css" media="all" />
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="javascript" -->
+</head>
+
+<body id="javascript">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		
+		
+		<!--#include virtual="/include/lnJavascript.html" -->
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<div class="pgTitle"><h2>图片切换</h2></div>
+		<h3>HOVER效果</h3>
+		<div class="section">
+			<blockquote class="codebox">
+				<pre>
+function switchImg(){
+  try{
+	var obj = document.getElementsByClassName('Hover');
+	for(i=0;i&lt;obj.length;i++){
+	  obj[i].onmouseover = function(){
+	    this.src = this.src.replace(/(.+?)(\.gif|\.png|\.jpg)/g,"$1_over$2")
+	  }
+	  obj[i].onmouseout = function(){
+	    this.src = this.src.replace(/_over/g,"");
+	  }
+	}
+  }
+  catch(e){}
+}			
+				</pre>			
+			</blockquote>
+			<p>为图片统一命名：img_name.gif    img_name_over.gif;<br />对于&lt;input&gt;类型，可以将其换成:&lt;input type=”image” src=”” /&gt;
+</p>
+		</div>
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

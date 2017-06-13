@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>YQ-Note CSS3</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+    <div class="cblock">
+    	<div class="bg-under">
+        	<div class="shape1"></div>
+        </div>
+        <div class="container content-area">
+        	<h1>CSS3</h1>
+        </div>
+    </div>
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-9" role="main">
+                <h3>关于firefox下transition下失效的原因</h3>
+                <p>一般属性值0时，我们都会省略单位，但是这种写法却让transition效果在firefox下失效了。</p>
+                <strong class="code-title">这种写法在firefox下无过渡效果</strong>
+                <div class="code-box">
+                    <pre class="language-css"><code>transition:all .15s ease-in 0;</code></pre>
+                </div>
+                <strong class="code-title">给值为0的参数加上单位才能在firefox下正常</strong>
+                <div class="code-box">
+                    <pre class="language-css"><code>transition:all .15s ease-in 0s;</code></pre>
+                </div>
+            </div>
+            <div class="col-md-3" id="side">
+            	<div class="fix-side-nav">
+                    <ul>
+                        <li>
+                        <a href="property.html">CSS3 属性详解</a>
+                        </li>
+                    </ul>
+                    <p class="toTop"><a href="#"><i class="icon-circle-arrow-up"></i>TOP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

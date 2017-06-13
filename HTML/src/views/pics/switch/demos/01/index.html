@@ -1,0 +1,107 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://demo.templatesquare.com/html/unioncorp/ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><HTML 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><LINK rel="shortcut icon" href="images/content/favicon.ico">
+<META content="text/javascript" http-equiv="Content-Script-Type">
+<META content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<META name="robots" content="index, follow">
+<META name="keywords" content="">
+<META name="title" content="">
+<META name="description" content=""><TITLE>Union Corp</TITLE><LINK rel="shortcut icon" 
+href="images/favicon.ico"><!-- ////////////////////////////////// --><!-- //      Start Stylesheets       // --><!-- ////////////////////////////////// -->
+<LINK rel="stylesheet" type="text/css" href="images/style.css" 
+media="screen"><LINK rel="stylesheet" type="text/css" href="images/color.css" 
+media="screen"><LINK rel="stylesheet" type="text/css" href="images/nivo-slider.css" 
+media="screen"><!-- ////////////////////////////////// --><!-- //      Javascript Files        // --><!-- ////////////////////////////////// -->
+<SCRIPT type="text/javascript" src="images/jquery-1.6.4.min.js"></SCRIPT>
+
+<SCRIPT type="text/javascript" src="images/jquery.easing.1.3.js"></SCRIPT>
+
+<SCRIPT type="text/javascript" src="images/jquery.nivo.slider.pack.js"></SCRIPT>
+
+<SCRIPT type="text/javascript">
+jQuery(document).ready(function(){
+	//Menu
+	jQuery("ul.sf-menu").supersubs({ 
+	minWidth		: 12,		// requires em unit.
+	maxWidth		: 27,		// requires em unit.
+	extraWidth		: 1	// extra width can ensure lines don't sometimes turn over due to slight browser differences in how they round-off values
+						   // due to slight rounding differences and font-family 
+	}).superfish();  // call supersubs first, then superfish, so that subs are 
+					 // not display:none when measuring. Call before initialising 
+					 // containing tabs for same reason. 
+});
+//Slider
+jQuery(window).load(function() {
+	jQuery('#slider').nivoSlider({
+	effect: 'fold',
+	slices:15,
+	animSpeed:500, //Slide transition speed
+	pauseTime:5000,
+	controlNav: false,
+	directionNavHide: false,
+	prevText: 'prev',
+	nextText: 'next',
+	startSlide:0, //Set starting Slide (0 index)
+	directionNav:true, //Next &amp; Prev
+	afterLoad: function(){
+		jQuery(".nivo-caption").animate({top:"60"}, {easing:"easeOutBack", duration: 500})
+		},
+		beforeChange: function(){
+		jQuery(".nivo-caption").animate({top:"-300"}, {easing:"easeInBack", duration: 500})
+		},
+		afterChange: function(){
+		jQuery(".nivo-caption").animate({top:"60"}, {easing:"easeOutBack", duration: 500})
+		}
+	});
+	
+});
+
+</SCRIPT>
+
+<META name="GENERATOR" content="MSHTML 9.00.8112.16437"></HEAD>
+<BODY>
+<DIV id="wrapper"><!-- end #wrapper-top -->
+<DIV id="wrapper-content">
+<DIV class="container">
+<DIV class="twelve columns">
+<DIV id="header">
+<DIV id="slider-container">
+<DIV id="slider" class="nivoSlider"><IMG title="#htmlcaption1" alt="" src="images/slider1.jpg"><IMG 
+title="#htmlcaption2" alt="" src="images/slider2.jpg"><IMG title="#htmlcaption3" 
+alt="" src="images/slider3.jpg"><IMG title="#htmlcaption4" alt="" 
+src="images/slider4.jpg"></DIV><!-- #slider -->
+<DIV id="htmlcaption1" class="nivo-html-caption"><SPAN class="sdate">December 
+01, 2011</SPAN>
+<H1>Let´s create your company growth faster...</H1>
+<HR>
+
+<P>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur 
+ridiculus mus. In sapien lorem, placerat ac imperdiet a, volutpat et risus. 
+</P></DIV>
+<DIV id="htmlcaption2" class="nivo-html-caption"><SPAN class="sdate">December 
+05, 2011</SPAN>
+<H1>We can help to solve your company problem...</H1>
+<HR>
+
+<P>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur 
+ridiculus mus. In sapien lorem, placerat ac imperdiet a, volutpat et risus. 
+</P></DIV>
+<DIV id="htmlcaption3" class="nivo-html-caption"><SPAN class="sdate">December 
+07, 2011</SPAN>
+<H1>We always smile to help you...</H1>
+<HR>
+
+<P>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur 
+ridiculus mus. In sapien lorem, placerat ac imperdiet a, volutpat et risus. 
+</P></DIV>
+<DIV id="htmlcaption4" class="nivo-html-caption"><SPAN class="sdate">December 
+07, 2011</SPAN>
+<H1>Discover the places you´ve never been before...</H1>
+<HR>
+
+<P>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur 
+ridiculus mus. In sapien lorem, placerat ac imperdiet a, volutpat et risus. 
+</P></DIV></DIV><!-- #slider-container --></DIV><!-- #header -->
+<DIV id="content"></DIV><!-- #content --></DIV></DIV></DIV><!-- end #wrapper-content -->
+<!-- end #wrapper-footer --></DIV><!-- end #wrapper --></BODY></HTML>

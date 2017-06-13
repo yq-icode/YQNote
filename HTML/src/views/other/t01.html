@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>YQ-Note Text Launcher</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+    <style type="text/css">
+	ol li{display:list-item;list-style-type:decimal;margin:2em 0 0 2em;}
+	ol li img{margin:10px 0;border:1px solid #ccccff;padding:10px;background-color:#f8f8f8;overflow:hidden;}
+	.section{margin-bottom:2em;padding-left:5px;}
+	h3{
+		margin:2em 0 0.5em 0;
+		padding:0 0 .5em 0;
+		border-bottom:1px solid #666;
+		font-size:20px;
+		font-family:"微软雅黑";
+	}
+	</style>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+    <div class="cblock">
+    	<div class="bg-under">
+        	<div class="shape1"></div>
+        </div>
+        <div class="content-area">Text Launcher</div>
+    </div>
+	<div class="container">
+    	<h3>说明</h3>
+		<div class="section">
+			<p>这是一款小型软件，主要用来方便启动文件。比如，我想启动电脑中的某个软件，或者是打开一个文本文件，如果它们不在桌面上，我们必须打开相应的文件夹，找到路径，才能打开。但现在，我们只要在该软件中输入软件名，或者是文件的路径，就会自动找出，只要轻轻点击“回车”键，就可以时分快捷地打开。</p>
+		</div>
+		<h3>安装</h3>
+		<div class="section">
+			<p>直接解压缩</p>
+		</div>
+		<h3>使用</h3>
+		<div class="section">
+			<ol>
+				<li>打开该软件所在的文件夹，有以下几个.exe文件 <br />ccalc.exe   clnch.exe   clnchcmd.exe   clnchopt.exe</li>
+				<li>点击“clnch.exe”，打开如图一个小东西<br /><img src="/images_old/tools/text_launcher/1.png" alt="1" /></li>
+				<li>默认情况下，是显示系统时间（当然我们可以自定义设置）<br /><img src="/images_old/tools/text_launcher/1 (1).png" alt="1 (1)" /></li>
+				<li>试着在输入框中输入一些文字，比如，输入P，如图<br /><img src="/images_old/tools/text_launcher/1 (2).png" alt="1 (2)" /></li>
+				<li>此时显示系统内部软件，选中某一个，按“回车”即可打开</li>
+				<li>你也可以输入一个“！”，此时会列出所有磁盘<br /><img src="/images_old/tools/text_launcher/1 (8).png" alt="1 (8)" /></li>
+				<li>鼠标双击磁盘名，一直选择下去，直到指向某个文件<br /><img src="/images_old/tools/text_launcher/1 (9).png" alt="1 (9)" /></li>
+				<li>按回车键，即可打开该文件（注意：也有可能打不开，不要着急，这是因为没有将该类型文件的后缀设置进去，下面一步会教的）</li>
+			</ol>
+		</div>
+		<h3>设置</h3>
+		<div class="section">
+			<p>假如上面有些文件输入后，按“回车”键，打不开，是因为我们没有将其后缀名设置进去。下面是如何来设置。</p>
+			<ol>
+				<li>打开clnchopt.exe文件，看到红线标注的地方<br /><img src="/images_old/tools/text_launcher/1 (3).png" alt="1 (3)" /></li>
+				<li>在里面添加所要打开的文件后缀名，比如：*.xls<br /><img src="/images_old/tools/text_launcher/1 (10).png" alt="1 (10)" /></li>
+				<li>此时，你就可以通过输入栏打开此类文件。</li>
+			</ol>
+		</div>
+		<h3>添加软件command</h3>
+		<div class="section">
+			<p>我们在输入框中输入一些字母时，会自动列出以该字母打头的所有软件命令，但是，这些命令需要自己来添加。现在所看到的，是吴总电脑里的设置，但我们电脑里并没有这些软件。所以，需要自己将需要的软件添加进去。下面就举个例子，以添加Fast Stone软件为例。</p>
+			<ol>
+				<li>打开clnchcmd.exe文件，如图<br /><img src="/images_old/tools/text_launcher/1 (11).png" alt="1 (11)" /></li>
+				<li>点击“New”，弹出一个对话框，点击“OpenFile?”<br /><img src="/images_old/tools/text_launcher/1 (12).png" alt="1 (12)" /></li>
+				<li>选中FSCapture.exe文件，确定<br /><img src="/images_old/tools/text_launcher/1 (4).png" alt="1 (4)" /></li>
+				<li>此时，看到软件的相关信息自动写到了对话框中，点击“OK”<br /><img src="/images_old/tools/text_launcher/1 (5).png" alt="1 (5)" /></li>
+				<li>此时，我们可以看到已经将Fast Stone添加进了列表<br /><img src="/images_old/tools/text_launcher/1 (6).png" alt="1 (6)" /></li>
+				<li>现在在输入框中输入“F”，我们可以看到此列表中也有了Fast Stone<br /><img src="/images_old/tools/text_launcher/1 (7).png" alt="1 (7)" /></li>
+				<li>双击“Fast Stone”，再按“回车”键，即可打开该软件。</li>
+			</ol>
+		</div>
+    </div>
+</body>
+</html>

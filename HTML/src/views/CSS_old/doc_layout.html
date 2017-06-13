@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/note.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>无标题文档</title>
+<!-- InstanceEndEditable -->
+<link rel="shortcut icon" href="/images_old/common/favicon.ico" />
+<script type="text/javascript" language="javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/common.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/common/root.css" media="all" />
+
+<link type="text/css" rel="stylesheet" href="/css/css.css" media="all" />
+
+
+
+
+
+
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="bodyid" type="text" value="css" -->
+</head>
+
+<body id="css">
+	<div id="header">
+	<!--#include virtual="/include/common/header.html" -->
+	</div>
+	<div id="wrap">
+		<div id="sideNavi">
+		
+		<!--#include virtual="/include/lnCss.html" -->
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		<div id="content">
+		<!-- InstanceBeginEditable name="content" -->
+		<div class="pgTitle"><h2>CSS文档统筹</h2></div>
+		<h3>1.	合理地分离样式表文件<a href="#header" class="top">Top</a></h3>
+		<div class="section">
+ 			<dl>
+				<dt>根据页面类型分离文件</dt>
+				<dd>例如根据网站的首页、频道页面和详细页面设计不同的样式表文件,当网站的页面类型比较单一,显示样式又比较统一时,适合选用这种方案.</dd>
+			 	<dt>根据功能模块分离文件</dt>
+				<dd>根据页眉、页脚、导航条、功能块等设计不同的CSS文件.
+				缺点：会产生很多个很小的CSS文件,因为每个页面可能包含很多模块,导致每个页面都包含一堆CSS文件,给管理带来一定麻烦.
+				</dd>
+			 	<dt>根据标签类型分离文件</dt>
+				<dd>根据HTML标签的不同类型来分离CSS文件,如把与FORM表单相关的样式代码放在一个文件中,把与A相关的链接样式放在另一个文件中.如果一个网站中有50个页面,其中12个页面含有FORM,就适合使用这种方案.
+缺点：会使样式表文件变得很细碎,一个页面有时会导入很多个样式表文件.</dd>
+			 	<dt>根据设备类型分离文件</dt>
+				<dd>根据打印、手提设备和屏幕等多种媒体类型设计不同的样式文件.</dd>
+			 	<dt>@import</dt>
+				<dd>@import可以在一个CSS文件或HTML文档中包含很多其它样式表文件,因此设计师可以细致分离样式文件,再通过组合并用@import把需要的文件导入到一个新的CSS文件中,这样就只需把这个新的包含文件导入到不同的网页中就可以实现统一管理,用这种方法可以创建网站的主CSS文件或实现CSS文件的多种组合,实现代码的充分利用.当网站中每个页面都导入很多个不同的CSS文件时,应该考虑使用这种方法.</dd>
+			 	<dt>根据代码规模分离文件</dt>
+				<dd>这种方法是对前面几种方法的综合,设计师可以根据代码规模和意图,综合利用上面介绍的方法,实现CSS代码的有机分离.</dd>
+			</dl>
+		</div>
+		<h3>2.	规则的组织<a href="#header" class="top">Top</a></h3>
+		<div class="section">即先定义哪些样式,后定义哪些样式,选择符之间如何分离等.
+先定义基本元素属性,然后设计布局属性.在布局时先定义总体结构,然后再分块详细定义.</div>
+		<h3>3.	属性的组织<a href="#header" class="top">Top</a></h3>
+		<div class="section">
+			<p>按主次关系组织：先声明布局属性,然后定义盒模型属性,最后再定义排版属性.</p>
+		 	<dl>
+				<dt>布局属性：</dt>
+				<dd>display  list-style  position  float  clear</dd>
+			 	<dt>盒模型属性</dt>
+				<dd>width  height  margin  padding  border  background</dd>
+			 	<dt>排版属性</dt>
+				<dd>color  font-size  text-align text-decoration  white-space等</dd>
+			</dl>
+		</div>
+		<h3>4.	CSS命名方法<a href="#header" class="top">Top</a></h3>
+		<div class="section">
+			<dl>
+			 	<dt>语义化命名：使用可以描述元素所在位置的语义词汇来对其命名</dt>
+				<dd>id=”left-side”  id=”center-column”<br />
+使用颜色名称命名颜色:<br />
+.blue{color:blue;}  .f00{color:#f00;}  .abc123{color:#abc123;}<br />
+使用”font+字体大小”命名字体大小:<br />
+.font12px{ font-size:12px;} font9pt{font-size:9pt;}<br />
+使用英文名称命名:<br />
+.left{float:left;}
+				</dd>
+		 		<dt>结构化命名：根据文档结构来命名</dt>
+				<dd>id=”main_nav”  id=”sub_nav”  id=”main_content”</dd>
+			 	<dt>常用命名</dt>
+				<dd>
+					<table class="list">
+						<caption>布局常用名称</caption>
+						<colgroup>
+							<col width="20%" />
+							<col width="30%" />
+							<col width="20%" />
+							<col width="30%" />
+						</colgroup>
+						<tr>
+							<th>名称</th>
+							<th>说明</th>
+							<th>名称</th>
+							<th>说明</th>
+						</tr>
+						<tr>
+							<td>wrap/wrapper</td>
+							<td>外套</td>
+							<td>container</td>
+							<td>容器</td>
+						</tr>
+						<tr>
+							<td>site</td>
+							<td>站点</td>
+							<td>content/container</td>
+							<td>内容块</td>
+						</tr>
+						<tr>
+							<td>nav</td>
+							<td>导航</td>
+							<td>column</td>
+							<td>栏</td>
+						</tr>
+						<tr>
+							<td>main</td>
+							<td>主体</td>
+							<td>left</td>
+							<td>左</td>
+						</tr>
+						<tr>
+							<td>layout</td>
+							<td>布局</td>
+							<td>center</td>
+							<td>中</td>
+						</tr>
+						<tr>
+							<td>sidebar</td>
+							<td>侧栏</td>
+							<td>right</td>
+							<td>右</td>
+						</tr>					
+					</table>
+					<table class="list">
+						<caption>模块常用名称</caption>
+						<colgroup>
+							<col width="20%" />
+							<col width="30%" />
+							<col width="20%" />
+							<col width="30%" />
+						</colgroup>
+						<tr>
+							<th>名称</th>
+							<th>说明</th>
+							<th>名称</th>
+							<th>说明</th>
+						</tr>
+						<tr>
+							<td>logo</td>
+							<td>标志</td>
+							<td>banner</td>
+							<td>广告条</td>
+						</tr>
+						<tr>
+							<td>login</td>
+							<td>登录</td>
+							<td>loginbar</td>
+							<td>登录条</td>
+						</tr>
+						<tr>
+							<td>register</td>
+							<td>注册</td>
+							<td>search</td>
+							<td>搜索</td>
+						</tr>
+						<tr>
+							<td>shop</td>
+							<td>购物车</td>
+							<td>list</td>
+							<td>列表</td>
+						</tr>
+						<tr>
+							<td>tool/toolbar</td>
+							<td>工具条</td>
+							<td>service</td>
+							<td>服务</td>
+						</tr>
+						<tr>
+							<td>tab</td>
+							<td>标签页</td>
+							<td>hot</td>
+							<td>热点</td>
+						</tr>
+						<tr>
+							<td>source</td>
+							<td>资源</td>
+							<td>news</td>
+							<td>新闻</td>
+						</tr>
+						<tr>
+							<td>site_map</td>
+							<td>网站地图</td>
+							<td>download</td>
+							<td>下载</td>
+						</tr>
+						<tr>
+							<td>about_us</td>
+							<td>关于我们</td>
+							<td>copyright</td>
+							<td>版权</td>
+						</tr>
+						<tr>
+							<td>partner</td>
+							<td>合作伙伴</td>
+							<td>friendlink</td>
+							<td>友情链接</td>
+						</tr>
+						<tr>
+							<td>guide</td>
+							<td>指南</td>
+							<td>vote</td>
+							<td>投票</td>
+						</tr>
+						<tr>
+							<td>joinus</td>
+							<td>加入</td>
+							<td>tab</td>
+							<td>标签</td>
+						</tr>
+						<tr>
+							<td>header</td>
+							<td>页眉</td>
+							<td>footer</td>
+							<td>页脚</td>
+						</tr>
+						<tr>
+							<td>homepage</td>
+							<td>首页</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+					<table class="list">
+						<caption>类常用名称</caption>
+						<colgroup>
+							<col width="20%" />
+							<col width="30%" />
+							<col width="20%" />
+							<col width="30%" />
+						</colgroup>
+						<tr>
+							<th>名称</th>
+							<th>说明</th>
+							<th>名称</th>
+							<th>说明</th>
+						</tr>
+						<tr>
+							<td>title</td>
+							<td>标题</td>
+							<td>current</td>
+							<td>当前</td>
+						</tr>
+						<tr>
+							<td>label</td>
+							<td>标签</td>
+							<td>spec</td>
+							<td>特别</td>
+						</tr>
+						<tr>
+							<td>note</td>
+							<td>注释</td>
+							<td>red</td>
+							<td>红色</td>
+						</tr>
+						<tr>
+							<td>summary</td>
+							<td>摘要</td>
+							<td>submit</td>
+							<td>提交</td>
+						</tr>
+						<tr>
+							<td>msg</td>
+							<td>提示信息</td>
+							<td>textbox</td>
+							<td>文本框</td>
+						</tr>
+						<tr>
+							<td>status</td>
+							<td>状态</td>
+							<td>drop</td>
+							<td>下拉</td>
+						</tr>
+						<tr>
+							<td>tips</td>
+							<td>小技巧</td>
+							<td>btn</td>
+							<td>按钮</td>
+						</tr>
+						<tr>
+							<td>scroll</td>
+							<td>滚动</td>
+							<td>form</td>
+							<td>表单</td>
+						</tr>
+						<tr>
+							<td>icon</td>
+							<td>图标</td>
+							<td>count</td>
+							<td>统计</td>
+						</tr>
+						<tr>
+							<td>arr/arrow</td>
+							<td>箭头</td>
+							<td>crumb</td>
+							<td>导航</td>
+						</tr>
+						<tr>
+							<td>cor/corner</td>
+							<td>转角/圆角	</td>
+							<td>breadcrumb</td>
+							<td>导航提示</td>
+						</tr>
+					</table>
+					<table class="list">
+						<caption>导航常用名称</caption>
+						<colgroup>
+							<col width="20%" />
+							<col width="30%" />
+							<col width="20%" />
+							<col width="30%" />
+						</colgroup>
+						<tr>
+							<th>名称</th>
+							<th>说明</th>
+							<th>名称</th>
+							<th>说明</th>
+						</tr>
+						<tr>
+							<td>nav</td>
+							<td>导航</td>
+							<td>menu</td>
+							<td>菜单</td>
+						</tr>
+						<tr>
+							<td>mainnav/globalnav</td>
+							<td>主导航</td>
+							<td>topnav</td>
+							<td>顶导航</td>
+						</tr>
+						<tr>
+							<td>subnav</td>
+							<td>子导航</td>
+							<td>sidebar</td>
+							<td>边导航</td>
+						</tr>
+						<tr>
+							<td>leftsidebar</td>
+							<td>左导航</td>
+							<td>rightsidebar</td>
+							<td>右导航</td>
+						</tr>
+						<tr>
+							<td>submenu</td>
+							<td>子菜单</td>
+							<td>dropmenu</td>
+							<td>下拉菜单</td>
+						</tr>
+						<tr>
+							<td>sidebaricon</td>
+							<td>边导航图标</td>
+							<td>menucontainer</td>
+							<td>菜单容器</td>
+						</tr>
+					</table>				
+					<table class="list">
+						<caption>样式文件常用名称</caption>
+						<colgroup>
+							<col width="20%" />
+							<col width="30%" />
+							<col width="20%" />
+							<col width="30%" />
+						</colgroup>
+						<tr>
+							<th>名称</th>
+							<th>说明</th>
+							<th>名称</th>
+							<th>说明</th>
+						</tr>
+						<tr>
+							<td>master.css</td>
+							<td>主要文件</td>
+							<td>themes.css</td>
+							<td>主题文件</td>
+						</tr>
+						<tr>
+							<td>layout.css</td>
+							<td>布局、版面文件</td>
+							<td>base.css</td>
+							<td>基本公共文件</td>
+						</tr>
+						<tr>
+							<td>columns.css</td>
+							<td>专栏文件</td>
+							<td>module.css</td>
+							<td>模块文件</td>
+						</tr>
+						<tr>
+							<td>font.css</td>
+							<td>文字样式文件</td>
+							<td>forms.css</td>
+							<td>表单文件</td>
+						</tr>
+						<tr>
+							<td>print.css</td>
+							<td>打印样式文件</td>
+							<td>mend.css</td>
+							<td>补丁文件</td>
+						</tr>
+						<tr>
+							<td>common.css</td>
+							<td>公共样式文件</td>
+							<td>default.css</td>
+							<td>默认样式文件</td>
+						</tr>
+					</table>
+				</dd>
+			</dl>
+		</div>
+			
+
+		<!-- InstanceEndEditable -->
+		</div>
+		<hr class="cb" />
+	</div>
+	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
+</body>
+<!-- InstanceEnd --></html>

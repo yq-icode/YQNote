@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery鼠标滑动星星打分</title>
+<script type="text/javascript" src="jquery.min.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<script type="text/javascript">
+$(function(){
+	
+	$('.star_ul a').hover(function(){
+		$(this).addClass('active-star');
+		$(this).parents('.starbox').find('.s_result').css('color','#c00').html($(this).attr('title'))
+	},function(){
+		$(this).removeClass('active-star');
+		$('.s_result').css('color','#333').html('请打分')
+	});
+	
+	$('.square_ul a').hover(function(){
+		$(this).addClass('active-square');
+		$(this).parents('.starbox').find('.s_result').css('color','#c00').html($(this).attr('title'))
+	},function(){
+		$(this).removeClass('active-square');
+		$(this).parents('.starbox').find('.s_result').css('color','#333').html('请打分')
+	});
+	
+})
+</script>
+
+<div class="starbox clearfix">
+	<span class="s_name">总体评价：</span>
+	<ul class="star_ul clearfix">
+		<li><a class="one-star" title="很差" href="#"></a></li>
+		<li><a class="two-star" title="差" href="#"></a></li>
+		<li><a class="three-star" title="还行" href="#"></a></li>
+		<li><a class="four-star" title="好" href="#"></a></li>
+		<li><a class="five-star" title="很好" href="#"></a></li>
+	</ul>
+	<span class="s_result">请打分</span>
+</div>
+
+<div class="starbox">
+	<span class="s_name">口味：</span>
+	<ul class="square_ul">
+		<li><a class="square-1" title="差" href="#"></a></li>
+		<li><a class="square-2" title="一般" href="#"></a></li>
+		<li><a class="square-3" title="好" href="#"></a></li>
+		<li><a class="square-4" title="很好" href="#"></a></li>
+		<li><a class="square-5" title="非常好" href="#"></a></li>
+	</ul>
+	<span class="s_result">请打分</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+【SlideToggle-使用JQuery类库】
+
+■使用说明：
+1  引用JQuery类库jquery.js
+
+
+
+■浏览器兼容：
+IE6/IE7/IE8/FF/Safari/Chrome
+
+
+■注意点：
+一定要给盛放内容的滑动区域（即.panel_wrap .panel p）设置高度，设置此高度后，IE6/IE7/IE8/FF/Safari/Chrome滑动得都很好，没任何问题；
+如果不设置此高度，IE6中滑动得很好，没任何问题，但是IE7/IE8/FF/Safari/Chrome在滑动到一定区域后，剩下的部分会瞬间出现，不再在滑动的效果，原因不明。
+
+
+

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>YQ-Note rusty knowledge</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="css/rustyknowledge.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+    <div class="cblock">
+    	<div class="bg-under">
+        	<div class="shape1"></div>
+        </div>
+        <div class="container content-area">
+        	<h1>rusty knowledge</h1>
+        </div>
+    </div>
+	<div class="container">
+    	<p class="mt20">以下是很实用但我却不常用的，以后要多多练习并在实际项目中应用。</p>
+        <section>
+            <h3 class="title-sec">CSS3 选择器</h3>
+            <dl class="list lst-square">
+                <dt>UI元素状态伪类</dt>
+                <dd>":enabled",":disabled",":checked主要针对HTML中的Form元素</dd>
+                <dt>:selection</dt>
+                <dd>选中文本的样式 <a target="_blank" href="http://www.w3cplus.com/content/css-selection">css-selection详解</a></dd>
+                <dt>CSS3的:nth选择器</dt>
+                <dd>
+                    <pre class="language-css line-numbers">
+                        <code>
+                            :first-child 
+                            :last-child 
+                            :nth-child()
+                            :nth-last-child()
+                            :nth-of-type()
+                            :nth-last-of-type()
+                            :first-of-type
+                            :last-of-type
+                            :only-child
+                            :only-of-type
+                            :empty			
+                        </code>
+                    </pre>
+                </dd>
+                <dt>否定选择器（:not）</dt>
+                <dd></dd>
+                <dt>伪元素</dt>
+                <dd>
+                    :first-line  :first-letter  :before  :after
+                    <a target="_blank" href="http://www.w3cplus.com/css3/learning-to-use-the-before-and-after-pseudo-elements-in-css.html">查看详解</a>
+                    <a target="_blank" href="http://www.w3cplus.com/css3/pseudo-class-selector">查看详解</a>
+                </dd>
+                <dt>CSS3 属性选择器</dt>
+                <dd>
+                    <pre class="language-css line-numbers">
+                        <code>
+                            E[attr]
+                            E[attr="value"]
+                            E[attr~="value"]
+                            E[attr^="value"]
+                            E[attr$="value"]
+                            E[attr*="value"]
+                            E[attr|="value"]
+                        </code>
+                    </pre>
+                    <a target="_blank" href="http://www.w3cplus.com/css3/attribute-selectors">查看详解</a>
+                </dd>
+            </dl>
+        </section>
+        <!-- **************** separator line ****************  -->
+        
+    </div>
+</body>
+</html>

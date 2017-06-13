@@ -1,0 +1,10 @@
+﻿@charset "utf-8";
+/* CSS Document */
+html {  
+    /*这个可以让IE6下滚动时无抖动*/  
+    background: url(about:black) no-repeat fixed;
+} 
+#toTB{
+	position:absolute;
+	top: expression(offsetParent.scrollTop + 500);
+}
