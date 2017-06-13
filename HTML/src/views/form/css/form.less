@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "/css/global.less";
+
+body{background:url(../images/bg01.jpg) repeat;}
+.topbar{
+	margin-bottom:20px;background-color:rgba(255,255,255,.7);
+	h2{background-color:transparent;}
+}
+.form-wrap{
+	@color:#fff;
+	dt,dd{padding:10px 15px;}
+	dt{
+		background-color:fade(@color,60%);font-weight:normal;
+		h5{font-size:20px;}
+		.browser-support{color:#B9D15D;}
+	}
+	dd{
+		background-color:fade(@color,30%);
+	}
+	dd.desc{
+		color:#666;	
+	}
+}
+/*************************** form-01 ***************************/
+.form-01 span{
+	display:inline-block;
+	width:14px;
+	height:14px;
+}
+.form-01 label{margin:0 10px 0 0;}
+.form-01 span.s_checkbox{background:url(../images/checkbox-off.png) no-repeat;}
+.form-01 span.s_checkbox.ckd{background:url(../images/checkbox-on.png) no-repeat;}
+.form-01 span.s_radio{background:url(../images/radio-off.png) no-repeat;}
+.form-01 span.s_radio.ckd{background:url(../images/radio-on.png) no-repeat;}
+
+.form-01 span input{margin:0;opacity:0;filter:alpha(opacity=0);}

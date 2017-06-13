@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>播放器进度条控制</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="css/player-progress-control.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+	<div class="topbar">
+		<div class="container">
+			<h2>播放器进度条控制</h2>
+		</div>
+	</div>
+	<div class="container">
+    	<div class="row">
+    		<div class="col-md-9" role="main">
+            	<div class="controlBar">
+                    <div class="cbbtn">
+                        <a class="b_back" href="javascript:void(0)"></a>
+                        <a class="b_play" href="javascript:void(0)"></a>
+                        <a class="b_go" href="javascript:void(0)"></a>
+                    </div>
+                    <div class="barCon">
+                        <div class="bars">
+                            <p class="bar1"><i></i></p>
+                            <p class="bar2"></p>
+                        </div>
+                        <span>01:23:56/01:55:30</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" id="side">
+                <div class="fix-side-nav">
+                    <p class="toTop"><a href="#"><i class="icon-circle-arrow-up"></i>TOP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $(function ()
+        {
+			var dis;
+            var o_bars = $('.controlBar .bars');
+            var o_bar1 = $('.controlBar .bars .bar1');
+            var o_block = $('.controlBar .bars i');
+
+            $(o_bars).click(function (e) {
+                dis = e.pageX - $(this).offset().left;
+                $(o_bar1).css("width", dis + "px");
+                $(o_block).css("left", dis + 'px');
+            })
+
+            $(o_block).on({
+                mousedown: function (e) {
+                    $(o_bars).on('mousemove', function (e) {
+						
+                        dis = e.pageX - $(this).offset().left;
+                        if (dis >= 0 && dis <= 560) {
+                            $(o_bar1).css("width", dis + "px");
+                            $(o_block).css("left", dis + 'px');
+                        }
+                        else if (dis > 560) {
+                            $(o_bar1).css("width", "560px");
+                            $(o_block).css("left", "560px");
+                        }
+                        else {
+                            $(o_bar1).css("width", "0");
+                            $(o_block).css("left", "0");
+                        }
+                    });
+                },
+                mouseup: function (e) { $(o_bars).off('mousemove'); }
+            });
+
+            $(document).on('mouseup', function () { $(o_bars).off('mousemove');})
+        })
+    </script>
+</body>
+</html>

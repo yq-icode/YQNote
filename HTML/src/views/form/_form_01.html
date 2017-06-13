@@ -1,0 +1,18 @@
+<dl class="form-wrap form-01">
+    <dt>
+        <h5>radio checkbox 美化</h5>
+        <p class="browser-support">兼容性：IE6+</p>
+    </dt>
+    <dd class="valignMid">
+        <span class="s_checkbox"><input id="ck1" type="checkbox" value="" /></span>
+        <label for="ck1">复选框</label>
+        <span class="s_radio"><input id="rad1" type="radio" value="" /></span>
+        <label for="rad1">单选框</label>
+    </dd>
+    <dd class="desc">注意点：将点击事件加在checkbox/radio上，因为label已经和chekcbox/radio关联，所以无论点击checkbox/radio还是label都有效果</dd>
+</dl>
+<script type="text/javascript">
+	$('.form-01 span input').click(function(){
+		$(this).parent('span').toggleClass('ckd');
+	})
+</script>
