@@ -1,2 +1,0 @@
-dmxLessCompiler-1.0.1.mxp
-less插件，可以让dreamweaver编辑*.less文件

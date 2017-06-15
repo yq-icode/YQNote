@@ -8,6 +8,7 @@
     <!--#include virtual="/include/_head_import_file.html" -->
     <link rel="stylesheet/less" href="css/player-progress-control.less">
     <script src="/js/less-2.5.3.min.js"></script>
+    <script src="js/player-progress-control.js"></script>
 </head>
 <body>
 	<!--#include virtual="/include/_header.html" -->
@@ -23,7 +24,7 @@
                     <div class="cbbtn">
                         <a class="b_back" href="javascript:void(0)"></a>
                         <a class="b_play" href="javascript:void(0)"></a>
-                        <a class="b_go" href="javascript:void(0)"></a>
+                        <a class="b_forward" href="javascript:void(0)"></a>
                     </div>
                     <div class="barCon">
                         <div class="bars">
@@ -45,40 +46,114 @@
     <script>
         $(function ()
         {
-			var dis;
+			var dis = 0;
+			
+			var o_play = $('.controlBar .b_play');
+			var o_back = $('.controlBar .b_back');
+			var o_forward = $('.controlBar .b_forward');
             var o_bars = $('.controlBar .bars');
             var o_bar1 = $('.controlBar .bars .bar1');
             var o_block = $('.controlBar .bars i');
+			
+			
+			var state = 1;//默认播放
+			var barsLength = $(o_bars).width();//播放条的长度
+			var timer1;
+			
+			//播放与暂停
+			$(o_play).click(function(){
+				if(dis >= barsLength){
+					dis = 0;
+				}
+				if(state==1)
+				{
+					timer1=setInterval(pos_current,200);
+					state=0;
+				}
+				else{
+					clearInterval(timer1);//暂停
+					state=1;
+				}
+				$(this).toggleClass('b_pause');
+			})
+			
+			//播放状态时设置滑块位置
+			function pos_current()
+			{	
+				if(dis >= barsLength){
+					dis = barsLength;
+				}
+				else{
+					dis++;
+				}
+				$(o_block).animate({left:  dis + "px"},200)
+				$(o_bar1).animate({width:  dis + "px", overflow: 'visible'},200)
+			}
+			
+			//快进
+			$(o_forward).click(function(){
+				dis = dis + 10;
+				set();
+			})
+			//快退
+			$(o_back).click(function(){
+				dis = dis - 10;
+				set();
+			})
 
-            $(o_bars).click(function (e) {
-                dis = e.pageX - $(this).offset().left;
-                $(o_bar1).css("width", dis + "px");
-                $(o_block).css("left", dis + 'px');
-            })
-
+			//点击移动滑块
+			$(o_bars).on({
+				mousedown: function(e){
+					dis = e.pageX - $(this).offset().left;
+					$(o_bar1).css("width", dis + "px");
+					$(o_block).css("left", dis + 'px');
+				},
+				mousemove: function(e){ //鼠标移动显示当前距离
+					dis = e.pageX - $(this).offset().left;
+					$(this).attr('title',dis);
+					alert(e.pageX);
+				},
+				mouseup: function(){
+					$(o_bars).off('mousemove');
+				}
+			})
+			
+			//拖动滑块
             $(o_block).on({
                 mousedown: function (e) {
                     $(o_bars).on('mousemove', function (e) {
-						
                         dis = e.pageX - $(this).offset().left;
-                        if (dis >= 0 && dis <= 560) {
-                            $(o_bar1).css("width", dis + "px");
-                            $(o_block).css("left", dis + 'px');
-                        }
-                        else if (dis > 560) {
-                            $(o_bar1).css("width", "560px");
-                            $(o_block).css("left", "560px");
-                        }
-                        else {
-                            $(o_bar1).css("width", "0");
-                            $(o_block).css("left", "0");
-                        }
+                        set();
                     });
                 },
                 mouseup: function (e) { $(o_bars).off('mousemove'); }
             });
 
             $(document).on('mouseup', function () { $(o_bars).off('mousemove');})
+			
+			//设置滑块$(o_block)的位置及$(o_bar1)的宽度
+			function set(){
+				if (dis >= 0 && dis <= barsLength) {
+					$(o_bar1).css("width", dis + "px");
+					$(o_block).css("left", dis + 'px');
+				}
+				else if (dis > barsLength) {
+					$(o_bar1).css("width", barsLength + "px");
+					$(o_block).css("left", barsLength + "px");
+				}
+				else {
+					$(o_bar1).css("width", "0");
+					$(o_block).css("left", "0");
+				}
+			}
+			
+//			function getMX(){
+//				$(o_bars).hover(
+//					function(e){dis = e.pageX - $(this).offset().left;},
+//					function(){}
+//				)
+//			}
+			
         })
     </script>
 </body>

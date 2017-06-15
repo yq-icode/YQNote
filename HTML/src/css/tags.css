@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 /* CSS Document */
+/* CSS Document */
 /* ------------------------------------------------------- *
  * 
  * ------------------------------------------------------- */
@@ -639,4 +640,15 @@ table.table-1 td em {
 .tag-group a.color-8:hover {
   background-color: #ff79b2;
   color: #c60054;
+}
+.yq-tags dt,
+.yq-tags dd {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.yq-tags dt label {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666;
+  font-weight: normal;
 }
