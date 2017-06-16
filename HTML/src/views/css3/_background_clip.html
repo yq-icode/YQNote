@@ -1,26 +1,29 @@
 <div id="background-clip" class="collapse">
-    <div class="title-bar">
-        <h3>background-clip</h3>
+    <div class="titLevel-1">
+        <label>background-clip</label>
     </div>
     <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/content/css3-background-clip">http://www.w3cplus.com/content/css3-background-clip</a></p>
-    <p class="browser-support">兼容性：******</p>
-    <div class="code-box">
-        <pre class="language-css">
-            <code>
-    background-clip：border-box || padding-box || content-box || text   
-            </code>
-        </pre>
+    <div class="block">
+    	<div class="titLevel-2"><label>概况</label></div>
+        <p class="browser-support">兼容性：******</p>
+        <div class="code-box">
+            <pre class="language-css">
+                <code>
+        background-clip：border-box || padding-box || content-box || text   
+                </code>
+            </pre>
+        </div>
+        <div class="box detail">
+            <ul class="list lst-decimal">
+                <li>border-box: 此值为默认值，背景从border区域向外裁剪，也就是超出部分将被裁剪掉；</li>
+                <li>padding-box：背景从padding区域向外裁剪，超过padding区域的背景将被裁剪掉；</li>
+                <li>context-box：背景从content区域向外裁剪，超过context区域的背景将被裁剪掉；</li>
+                <li>text: </li>
+            </ul>
+        </div>
     </div>
-    <div class="box detail">
-        <ul class="list lst-decimal">
-            <li>border-box: 此值为默认值，背景从border区域向外裁剪，也就是超出部分将被裁剪掉；</li>
-            <li>padding-box：背景从padding区域向外裁剪，超过padding区域的背景将被裁剪掉；</li>
-            <li>context-box：背景从content区域向外裁剪，超过context区域的背景将被裁剪掉；</li>
-            <li>text: </li>
-        </ul>
-    </div>
-    <div class="box example">
-        <h4><label>实例应用一</label></h4>
+    <div class="block">
+        <div class="titLevel-2"><label>实例应用一</label></div>
         <p>webkit下background-clip还有一个更神奇的效果，就是可以让图片填充文本，那就是background-clip:text配合其私有属性-webkit-text-fill-color: transparent.</p>
         <div class="code-box">
             <pre class="language-css">

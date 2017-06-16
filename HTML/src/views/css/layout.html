@@ -201,26 +201,34 @@ position:absolute;left:0;top:0;width:200px;
                 </div>
                 <p>注意：中间列一定要放在左右两列的后面</p>
                 <!-- **************** separator line ****************  -->
-                <h3><span class="num">7</span>多个块元素不换行</h3>
+                <h3><span class="num">7</span>多个块元素不换行 - 法一</h3>
                 <p>兼容性：<kbd>IE6+</kbd></p>
-                <div class="code-box">
-                	<pre class="language-html line-numbers">
-                    	<code>
-                        
-                        </code>
-                    </pre>
-                </div>
                 <div class="code-box">
                 	<pre class="language-css line-numbers">
                     	<code>
 .wrap { white-space:nowrap; }
 .wrap div {display:inline-block; height:100px; overflow:hidden; width:100px; }  
-.wrap div { *display:inline; }                        
+.wrap div { *display:inline; }
+.wrap div p { white-space:normal; }                        
                         </code>
                     </pre>
                 </div>
+                <p>此种方法比较简单，但是由于对源代码中的空格浏览器处理方法不一样，会造成内部div之间的间距不等，产生此间距的原因，是标签之间的空格——元素标签间的空格和制表符会被压缩为1个空格显示，而对于这些空格的处理，浏览器存在差异。删除内部div之间的空格，可以解决问题。</p>
                 <!-- **************** separator line ****************  -->
-                <h3><span class="num">8</span></h3>
+                <h3><span class="num">8</span>多个块元素不换行 - 法二</h3>
+                <p>兼容性：<kbd>IE8+</kbd></p>
+                <div class="code-box">
+                	<pre class="language-css line-numbers">
+                    	<code>
+.wrap { display:table; }
+.wrap div { border:1px solid; display:table-cell;}
+.wrap div p{ height:100px; margin:0; padding:0; width:100px; }                        
+                        </code>
+                    </pre>
+                </div>
+                <p>此种方法对于支持display:table-cell的浏览器，效果是统一的，但是对于table-cell类型的元素，在css的应用上有很多限制，例如margin无效、宽度和高度受同行和同列的其他单元格影响等。但是此方法可以实现内部div的等高，即不设定高度，高度由内容决定，同一行的div等高。同时，此方法对于 IE7- 无效，因此针对 IE7- 还是要使用上面的方法。</p>
+                <!-- **************** separator line ****************  -->
+                <h3><span class="num">9</span></h3>
                 <p>兼容性：<kbd>IE6+</kbd></p>
                 <div class="code-box">
                 	<pre class="language-html line-numbers">

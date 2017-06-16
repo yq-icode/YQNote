@@ -1,0 +1,30 @@
+<div id="box-sizing" class="collapse">
+    <div class="titLevel-1">
+        <label>box-sizing</label>
+    </div>
+    <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/content/css3-box-sizing">http://www.w3cplus.com/content/css3-box-sizing</a></p>
+    <div class="block">
+    	<div class="titLevel-2"><label>浏览器兼容</label></div>
+        <div class="code-box">
+            <pre class="language-css">
+                <code>
+        box-sizing ： content-box || border-box || inherit   
+                </code>
+            </pre>
+        </div>
+        <p>兼容性：IE>=IE8 其它浏览器也需加前缀 -webkit-  -moz-  -ms- -o-</p>
+        <p>box-sizing现代浏览器都支持，但IE家族只有IE8版本以上才支持，虽然现代浏览器支持box-sizing，但有些浏览器还是需要加上自己的前缀，Mozilla需要加上-moz-，Webkit内核需要加上-webkit-，Presto内核-o-, IE8-ms-，所以box-sizing兼容浏览器时需要加上各自的前缀。</p>
+        <div class="code-box">
+            <pre class="language-css">
+                <code>
+    Element {
+        -moz-box-sizing: content-box;  /*Firefox3.5+*/
+        -webkit-box-sizing: content-box; /*Safari3.2+*/
+        -o-box-sizing: content-box; /*Opera9.6*/
+        -ms-box-sizing: content-box; /*IE8*/
+        box-sizing: content-box; /*W3C标准(IE9+，Safari5.1+,Chrome10.0+,Opera10.6+都符合box-sizing的w3c标准语法)*/
+    }           </code>
+            </pre>
+        </div>
+    </div>
+</div>
