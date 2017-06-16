@@ -201,7 +201,26 @@ position:absolute;left:0;top:0;width:200px;
                 </div>
                 <p>注意：中间列一定要放在左右两列的后面</p>
                 <!-- **************** separator line ****************  -->
-                <h3><span class="num">7</span></h3>
+                <h3><span class="num">7</span>多个块元素不换行</h3>
+                <p>兼容性：<kbd>IE6+</kbd></p>
+                <div class="code-box">
+                	<pre class="language-html line-numbers">
+                    	<code>
+                        
+                        </code>
+                    </pre>
+                </div>
+                <div class="code-box">
+                	<pre class="language-css line-numbers">
+                    	<code>
+.wrap { white-space:nowrap; }
+.wrap div {display:inline-block; height:100px; overflow:hidden; width:100px; }  
+.wrap div { *display:inline; }                        
+                        </code>
+                    </pre>
+                </div>
+                <!-- **************** separator line ****************  -->
+                <h3><span class="num">8</span></h3>
                 <p>兼容性：<kbd>IE6+</kbd></p>
                 <div class="code-box">
                 	<pre class="language-html line-numbers">

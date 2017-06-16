@@ -146,6 +146,9 @@ h1.article-title {
 .ttBlock-list-media {
   margin-top: 20px;
 }
+.ttBlock-list-media img {
+  width: 100%;
+}
 .smlist {
   margin-left: 20px;
 }
