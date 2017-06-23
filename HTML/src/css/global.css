@@ -1,3 +1,6 @@
+/* Compiled Less CSS File */
+/* Generated from "global.css" */
+
 @charset "utf-8";
 /* CSS Document */
 /* CSS Document */
@@ -119,12 +122,7 @@ body {
 /* ------------------------------------------------------- *
  * global
  * ------------------------------------------------------- */
-h2 {
-  margin: 0 0 10px;
-  padding: 30px 10px 15px;
-  background-color: #769E0F;
-  color: #fc0;
-}
+/*h2{margin:0 0 10px;padding:30px 10px 15px;background-color:#769E0F;color:#fc0;}*/
 h3 {
   margin-top: 2em;
 }
@@ -424,6 +422,7 @@ ul.list.lst-decimal-leading-zero li {
 dl.list {
   margin-left: 2em;
   /*- 字体图标 -*/
+
 }
 dl.list dt {
   margin: 1.5em 0 .5em 0;
@@ -437,7 +436,9 @@ dl.list.lst-star dt::before {
 ul.list {
   margin-left: 2em;
   /*- 字体图标 -*/
+
   /*- list-stype-type自带 -*/
+
 }
 ul.list li {
   margin: 10px 0;
