@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>移动web开发之像素和DPR</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/css/tutorial.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<article>
+        <h1 class="article-title">移动web开发之像素和DPR</h1>
+        <p>摘自：<a target="_blank" href="http://www.cnblogs.com/xiaohuochai/p/5494624.html">http://www.cnblogs.com/xiaohuochai/p/5494624.html</a></p>
+        
+        
+        <div class="ttBlock">
+            <h2 class="ttBlock_head">定义</h2>
+            <div class="ttBlock_body">
+                <p>像素，又称画素，是图像显示的基本单位，译自英文“pixel”，pix是英语单词picture的常用简写，加上英语单词“元素”element，就得到pixel，故“像素”表示“图像元素”之意，有时亦被称为pel(picture element)</p>
+                <p>像素是网页布局的基础。一个像素就是计算机能够显示一种特定颜色的最小区域。当设备尺寸相同但像素变得更密集时，屏幕能显示的画面的过渡更细致，网站看起来更明快。</p>
+                <p>//ppi是指屏幕上每英寸可以显示的像素点的数量，即屏幕像素密度</p>
+                <img src="images/740839-20160515092318852-818619954.jpg">
+            </div>
+        </div>
+        
+        <div class="ttBlock">
+        	<h2 class="ttBlock_head">分类</h2>
+            <div class="ttBlock_body">
+            	<p>实际上像素分为两种：设备像素和CSS像素</p>
+            	<ul class="smlist">
+                	<li>设备像素(device independent pixels): 设备屏幕的物理像素，任何设备的物理像素的数量都是固定的</li>
+                    <li>CSS像素(CSS pixels): 又称为逻辑像素，是为web开发者创造的，在CSS和javascript中使用的一个抽象的层</li>
+                </ul>
+                <p>每一个CSS声明和几乎所有的javascript属性都使用CSS像素，因此实际上从来用不上设备像素 ，唯一的例外是screen.width/height</p>
+            </div>
+        </div>
+        
+    </article>
+</body>
+</html>
