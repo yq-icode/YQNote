@@ -96,13 +96,23 @@ a:focus {
   font-size: 12px;
   font-weight: 700;
 }
+body {
+  line-height: 1.5em;
+  color: #666;
+}
 article {
   margin-left: 30px;
   width: 800px;
-  color: #333;
+}
+p {
+  margin-top: 20px;
+}
+.code-box {
+  margin-left: -50px;
 }
 h1.article-title {
   font-size: 30px;
+  color: #000;
 }
 .ttBlock {
   margin-top: 40px;
@@ -111,7 +121,10 @@ h1.article-title {
   border-bottom: 1px solid #ccc;
   padding-bottom: 8px;
   font-size: 22px;
+  color: #000;
 }
+/*- ttBlock-list
+*********************************************/
 .ttBlock-list {
   position: relative;
   margin: 1px 0 0 15px;
@@ -149,6 +162,8 @@ h1.article-title {
 .ttBlock-list-media img {
   width: 100%;
 }
+/*- smlist
+*********************************************/
 .smlist {
   margin-left: 20px;
 }
