@@ -1,0 +1,44 @@
+<div id="gradient" class="collapse">
+    <div class="titLevel-1">
+        <label>gradient</label>
+    </div>
+    <p class="reference">摘自：<a target="_blank" href="https://www.w3cplus.com/content/css3-gradient">https://www.w3cplus.com/content/css3-gradient</a></p>
+    <div class="block">
+        <div class="titLevel-2"><label>webkit老式写法</label></div>
+        <div class="code-box">
+            <pre class="language-css">
+                <code>
+background: -webkit-gradient(linear,top,from(#ccc), to(#000));                
+background: -webkit-gradient(linear,center top,center bottom,from(#ccc), to(#000));
+background: -webkit-gradient(linear,50% 0,50% 100%,from(#ccc), to(#000));
+background: -webkit-gradient(linear, left top, right top, from(#ace), color-stop(0.05, #f96), color-stop(0.5, #ace), color-stop(0.95, #f96), to(#ace));
+background: -webkit-gradient(linear, 0 0, 100% 100%, from(#ace),to(#f96));
+                </code>
+            </pre>
+        </div>
+        <div class="titLevel-2"><label>webkit新式写法</label></div>
+        <div class="code-box">
+            <pre class="language-css">
+                <code>
+background: -webkit-linear-gradient(top,#ccc,#000);
+background: -webkit-linear-gradient(left, #ace, #f96, #ace, #f96, #ace);
+background: -webkit-linear-gradient(left, #ace, #f96 5%, #ace, #f96 95%, #ace);
+background: -webkit-linear-gradient(left 30deg, #ace, #f96);
+                </code>
+            </pre>
+        </div>
+        <p>指定的角度，是一个由水平线与渐变线产生的的角度，逆时针方向。因此，使用0deg将产生一个左到右横向梯度，而90度将创建一个从底部到顶部的垂直渐变。</p>
+    </div>
+    <div class="block">
+        <div class="titLevel-2"><label>针对IE的写法</label></div>
+        <div class="code-box">
+            <pre class="language-css">
+                <code>
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#1471da, endColorstr=#1C85FB);/*IE<9>*/
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#1471da, endColorstr=#1C85FB)";/*IE8+*/
+                </code>
+            </pre>
+        </div>
+        <p>IE依靠滤镜实现渐变。startColorstr表示起点的颜色，endColorstr表示终点颜色。GradientType表示渐变类型，0为缺省值，表示垂直渐变，1表示水平渐变。</p>
+    </div>
+</div>
