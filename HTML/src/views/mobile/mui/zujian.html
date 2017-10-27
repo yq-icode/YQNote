@@ -34,7 +34,7 @@
         
         <h3>用mui给元素绑定事件</h3>
         <p>mui不支持当前元素绑定，只支持对其子元素的绑定，当前元素绑定请直接使用addEventListener,removeEventListener</p>
-        <strong>对当前元素的绑定</strong>
+        <strong>对当前元素的绑定（即单个元素上的事件监听）</strong>
         <div class="code-box">
             <pre class="language-js line-numbers">
                 <code>
@@ -47,7 +47,7 @@ document.getElementById('info').addEventListener('tap', function() {
                 </code>
             </pre>
         </div>
-        <strong>对子元素的绑定</strong>
+        <strong>对子元素的绑定（即多个元素上的事件监听）</strong>
         <div class="code-box">
             <pre class="language-js line-numbers">
                 <code>
