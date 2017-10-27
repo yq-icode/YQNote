@@ -31,6 +31,34 @@
             </pre>
         </div>
         <p>你当然可以通过自定义CSS的方式实现如上类似效果，但为了使用简便，建议将除固定栏之外的所有内容，全部放在.mui-content中。</p>
+        
+        <h3>用mui给元素绑定事件</h3>
+        <p>mui不支持当前元素绑定，只支持对其子元素的绑定，当前元素绑定请直接使用addEventListener,removeEventListener</p>
+        <strong>对当前元素的绑定</strong>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+document.getElementById('info').addEventListener('tap', function() {
+  mui.openWindow({
+    url: 'examples/info.html', 
+    id:'info'
+  });
+});
+                </code>
+            </pre>
+        </div>
+        <strong>对子元素的绑定</strong>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+mui(".mui-table-view").on('tap','.mui-table-view-cell',function(){
+  mui.openWindow({
+    url:'detail.html',
+    id:'detail'
+  });
+})                 </code>
+            </pre>
+        </div>
     </div>
 </body>
 </html>

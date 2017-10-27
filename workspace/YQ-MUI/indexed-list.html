@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>索引列表</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						if(clientWidth >= 640) {
+							docEl.style.fontSize = '100px';
+						} else {
+							docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+						}
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/mui.indexedlist.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/mui.indexedlist.css" rel="stylesheet">
+		<link href="css/default.css" rel="stylesheet" />
+		<style>
+			html,/*此部分样式是必须的*/
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">indexed list</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-indexed-list" id="list">
+				<!--此部分必须添加，否则会无法正常运行-->
+				<div class="mui-indexed-list-search mui-input-row mui-search">
+					<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="search" />
+				</div>
+				<div class="mui-indexed-list-bar letterList" id="letterList">
+		            <a href="">A</a>
+		            <a href="">B</a>
+		            <a href="">C</a>
+		            <a href="">D</a>
+		            <a href="">E</a>
+		            <a href="">F</a>
+		            <a href="">G</a>
+		            <a href="">H</a>
+		            <a href="">I</a>
+		            <a href="">J</a>
+		            <a href="">K</a>
+		            <a href="">L</a>
+		            <a href="">M</a>
+		            <a href="">N</a>
+		            <a href="">O</a>
+		            <a href="">P</a>
+		            <a href="">Q</a>
+		            <a href="">R</a>
+		            <a href="">S</a>
+		            <a href="">T</a>
+		            <a href="">U</a>
+		            <a href="">V</a>
+		            <a href="">W</a>
+		            <a href="">X</a>
+		            <a href="">Y</a>
+		            <a href="">Z</a>
+		            <a href="">#</a>
+				</div>
+				<div class="mui-indexed-list-alert"></div>
+				<div class="mui-indexed-list-inner">
+					<div class="mui-indexed-list-empty-alert">data empty</div>
+					<ul class="mui-table-view perList" id="perList">
+					</ul>
+				</div>
+			</div>
+			<div id="actionBox" class="mui-popover mui-popover-action mui-popover-bottom">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="">Send Message</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="tel:13078951236">Call</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href="">UnFollow</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//学员列表
+			var perInfo = [
+				{"photoUrl":"http://placehold.it/30x30", "name":"fInstructor1", "tel":"13256987456", "starNum":"4", "pId":"1"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"qInstructor2", "tel":"13056256986", "starNum":"3", "pId":"2"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"bInstructor1", "tel":"13056987456", "starNum":"2", "pId":"3"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"pInstructor2", "tel":"15256987456", "starNum":"5", "pId":"4"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"wInstructor1", "tel":"13654897456", "starNum":"1", "pId":"5"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"xInstructor2", "tel":"13056980214", "starNum":"3", "pId":"6"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"aInstructor2", "tel":"13056987456", "starNum":"2", "pId":"7"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"sInstructor2", "tel":"13695487456", "starNum":"4", "pId":"8"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"dInstructor2", "tel":"13365478956", "starNum":"1", "pId":"9"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"gInstructor2", "tel":"15214587456", "starNum":"5", "pId":"10"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"kInstructor2", "tel":"13984587456", "starNum":"2", "pId":"11"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"xInstructor2", "tel":"13056987456", "starNum":"3", "pId":"12"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"yInstructor2", "tel":"13056012556", "starNum":"3", "pId":"13"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"zInstructor2", "tel":"13098757456", "starNum":"2", "pId":"14"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"oInstructor2", "tel":"13021545456", "starNum":"3", "pId":"15"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"rInstructor2", "tel":"13654478856", "starNum":"4", "pId":"16"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"rInstructor2", "tel":"15845566456", "starNum":"3", "pId":"17"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"uInstructor2", "tel":"13654487456", "starNum":"5", "pId":"18"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"vInstructor2", "tel":"13051256556", "starNum":"3", "pId":"19"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"eInstructor2", "tel":"13956987456", "starNum":"3", "pId":"20"}
+			]
+			var _html="";
+			for(i=0; i<perInfo.length; i++){
+				var _per = perInfo[i];
+				_html += "<li class='mui-table-view-cell mui-indexed-list-item' pId='" + _per.pId + "' tel='" + _per.tel + "'>";
+				_html += "<img class='mui-pull-left' src='" + _per.photoUrl + "' />";
+				_html += "<label>" + _per.name + "</label>";
+				for(j=0; j<_per.starNum; j++){
+					_html += "<span class='mui-icon mui-icon-star-filled'></span>"
+				}
+				_html += "</li>"
+			}
+			$('#perList').html($('#perList').html() + _html);
+			
+			//字母排序
+			zimusort(false);
+			function zimusort(desc) {
+				var lis = $('#perList').find('li');
+				lis.sort(function(a, b) {
+					var comp = $(a).find('label').text()[0] > $(b).find('label').text()[0] ? 1 : -1;
+					return !desc ? comp : !comp;
+				})
+				
+				$('#perList').empty().append(lis); //不需要empty应该也可以
+				
+				//拖动字母检索list，是根据data-group值来检索的
+				var _tzm = "";
+				$(lis).each(function(){
+					var tzm = $(this).find('label').text()[0].toUpperCase();
+					if(tzm != _tzm){//当data-group值重复时，只为第一个赋值；
+						$(this).attr('data-group',tzm);
+					}
+					_tzm = tzm;
+				})
+			}
+			
+			mui.init({
+				gestureConfig: {
+					longtap: true
+				}
+			});
+			mui.ready(function() {
+				var header = document.querySelector('header.mui-bar');
+				var list = document.getElementById('list');
+				//calc hieght
+				list.style.height = (document.body.offsetHeight - header.offsetHeight) + 'px';
+				//create
+				window.indexedList = new mui.IndexedList(list);
+			});
+			
+			//当前页操作菜单
+			var perCur_idx, perCur_tel;
+			mui('.mui-table-view').on('longtap','.mui-indexed-list-item',function(){
+				perCur_idx = $(this).index();
+				perCur_tel = $(this).attr('tel');
+			  	mui('#actionBox').popover('toggle');
+			})
+			mui('#actionBox').on('tap','li',function(){
+				var idx = $(this).index();
+				mui('#actionBox').popover('toggle');
+				//发消息
+				if(idx == '0'){
+					mui.openWindow({
+						url: 'SendMessage.html',
+						id: 'SendMessage'
+					})
+				}
+				//打电话
+				if(idx == '1'){
+					plus.device.dial(perCur_tel,false);
+				}
+				//取消关注
+				if(idx == '2'){
+					var btnArray = ['NO', 'YES'];
+					mui.confirm('Do you confirm to unFollow？', ' ', btnArray, function(e) {
+						if (e.index == 1) {//当点击YES时，从列表中删除该人物
+							$('.mui-table-view').find('li').eq(perCur_idx).remove();
+						} else {
+						}
+					})
+				}
+			})
+			
+			//跳转到详情页
+			mui('.mui-table-view').on('tap','.mui-indexed-list-item',function(){
+				var _pId = $(this).attr('pId');
+			  	mui.openWindow({
+			  		url: 'detail.html',
+			  		id: 'detail',
+			  		extra: {stdId: _pId}
+			  	})
+			})
+		</script>
+	</body>
+</html>

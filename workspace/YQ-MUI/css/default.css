@@ -1,0 +1,72 @@
+/*- 设定星级 -*/
+.PJ-star{
+	color: #666;
+}
+.PJ-star span{
+	color: #666666;
+}
+.PJ-star span.mui-icon:hover,
+.PJ-star span.mui-icon.mui-icon-star-filled{
+	color: #FF6600;
+}
+.PJ-star .mui-icon-star-filled{
+	font-size: 0.48rem;
+}
+.mui-icon-star-filled{
+	color: #FF6600;
+	font-size: 0.2rem;
+}
+/*- 评价标签 -*/
+.PJ-tags span{
+	display: inline-block;
+	margin: 0.1rem 0 0 0;
+	border: 1px solid #ddd;
+	padding: 1px 5px;
+	color: #996600;
+	font-size: 0.24rem;
+	background-color: #ffffff;
+}
+.PJ-tags span.selected{
+	border-color: #FFFFFF;
+	color: #FFFFFF;
+}
+.PJ-tags .color-1{color: #996600;}
+.PJ-tags .color-1.selected{background-color: #996600;}
+.PJ-tags .color-2{color: #339900;}
+.PJ-tags .color-2.selected{background-color: #339900;}
+.PJ-tags .color-3{color: #4686E5}
+.PJ-tags .color-3.selected{background-color: #4686E5;}
+.PJ-tags .color-4{color: #CE50D3;}
+.PJ-tags .color-4.selected{background-color: #CE50D3;}
+.PJ-tags .color-5{color: #9DCB00;}
+.PJ-tags .color-5.selected{background-color: #9DCB00;}
+.PJ-tags .color-6{color: #FFCE4B;}
+.PJ-tags .color-6.selected{background-color: #FFCE4B;}
+
+/*- letterList -*/
+.letterList,
+.letterList.active{
+	background-color: transparent;
+}
+.letterList a,
+.letterList.active a{
+	color: #CCCCCC;
+	font-size: 10px;
+}
+.letterList a.active,
+.letterList.active a.active{
+	color: #FF6600;
+	font-weight: bold;
+}
+
+/*- 人物列表 -*/
+.mui-content .perList:first-child{
+	margin-top: 0;
+}
+.perList li label{
+	display: inline-block;
+	line-height: 30px;
+	margin-left: 10px;
+	color: #333333;
+	font-size: 0.3rem;
+}

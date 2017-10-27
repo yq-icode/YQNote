@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>效果列表</title>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/default.css" rel="stylesheet"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">效果</h1>
+	</header>
+	<div class="mui-content">
+	    <ul class="mui-table-view" id="p-list">
+        </ul>
+	</div>
+	<script type="text/javascript">
+		//列表内容
+		var pages = [
+			{"pName":"评论", "pId":"p1"},
+			{"pName":"列表与详情", "pId":"p2"},
+			{"pName":"索引列表", "pId":"p3"}
+		]
+		var _html_pl = "";
+		for(i=0; i<pages.length; i++){
+			var _p = pages[i];
+			_html_pl += "<li class='mui-table-view-cell' id='" + _p.pId + "'>";
+			_html_pl += "<a class='mui-navigate-right'>" + _p.pName + "</a>";
+			_html_pl += "</li>"
+		}
+		$('#p-list').html($('#p-list').html()+_html_pl);
+		
+		//点击不同的列表进入不同的页面
+		mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
+			var cid = $(this).attr('id');
+			if(cid == 'p1'){
+				mui.openWindow({
+					url: 'comment.html',
+					id: 'comment'
+				})
+			}
+			if(cid == 'p2'){
+				mui.openWindow({
+					url: 'list.html',
+					id: 'list'
+				})
+			}
+			if(cid == 'p3'){
+				mui.openWindow({
+					url: 'indexed-list.html',
+					id: 'indexed-list'
+				})
+			}
+		})
+	</script>
+</body>
+</html>

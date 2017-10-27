@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						if(clientWidth >= 640) {
+							docEl.style.fontSize = '100px';
+						} else {
+							docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+						}
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/default.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">列表</h1>
+		</header>
+		<div class="mui-content">
+		    <ul class="mui-table-view perList" id="perList">
+			</ul>
+		</div>
+		<script type="text/javascript">
+			//学员列表
+			var perInfo = [
+				{"photoUrl":"http://placehold.it/30x30", "name":"aStudent1", "pId":"1"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"aStudent2", "pId":"2"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"bStudent1", "pId":"3"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"bStudent2", "pId":"4"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"cStudent1", "pId":"5"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"cStudent2", "pId":"6"}
+			]
+			var _html="";
+			for(i=0; i<perInfo.length; i++){
+				var _per = perInfo[i];
+				_html += "<li class='mui-table-view-cell' pId='" + _per.pId + "'>";
+				_html += "<img class='mui-pull-left' src='" + _per.photoUrl + "' />";
+				_html += "<label>" + _per.name + "</label>";
+				_html += "</li>"
+			}
+			$('#perList').html($('#perList').html() + _html);
+			
+			//打开学员详情页面
+			mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
+				mui.openWindow({
+					url: 'stDetail.html',
+					id: 'stDetail',
+					extras: {
+						perId: $(this).attr('pId'),
+						perName: $(this).find('label').html(),
+						perPhotoUrl :$(this).find('img').attr('src')
+					}
+				})
+			})
+		</script>
+	</body>
+</html>
