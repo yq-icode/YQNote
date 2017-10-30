@@ -23,7 +23,8 @@
 		var pages = [
 			{"pName":"评论", "pId":"p1"},
 			{"pName":"列表与详情", "pId":"p2"},
-			{"pName":"索引列表", "pId":"p3"}
+			{"pName":"索引列表", "pId":"p3"},
+			{"pName":"上拉刷新", "pId":"p4"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
@@ -53,6 +54,12 @@
 				mui.openWindow({
 					url: 'indexed-list.html',
 					id: 'indexed-list'
+				})
+			}
+			if(cid == 'p4'){
+				mui.openWindow({
+					url: 'pullrefresh.html',
+					id: 'pullrefresh'
 				})
 			}
 		})
