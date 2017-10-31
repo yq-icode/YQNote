@@ -1,21 +1,24 @@
-/*- 设定星级 -*/
-.PJ-star{
-	color: #666;
+/*- 确认消息框 -*/
+.mui-popup-title{ /* 也可以用 display:none 实现 */
+	height: 0;
+	overflow: hidden;
 }
-.PJ-star span{
-	color: #666666;
-}
-.PJ-star span.mui-icon:hover,
-.PJ-star span.mui-icon.mui-icon-star-filled{
-	color: #FF6600;
-}
-.PJ-star .mui-icon-star-filled{
-	font-size: 0.48rem;
-}
+/*- 星级 -*/
 .mui-icon-star-filled{
 	color: #FF6600;
 	font-size: 0.2rem;
 }
+.PJ-star .mui-icon-star{
+	color: #666666;
+}
+.PJ-star .mui-icon.mui-icon-star-filled{
+	color: #FF6600;
+}
+.PJ-star .mui-icon-star,
+.PJ-star .mui-icon-star-filled{
+	font-size: 0.48rem;
+}
+
 /*- 评价标签 -*/
 .PJ-tags span{
 	display: inline-block;

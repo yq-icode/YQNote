@@ -59,8 +59,8 @@
 			//打开学员详情页面
 			mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
 				mui.openWindow({
-					url: 'stDetail.html',
-					id: 'stDetail',
+					url: 'detail.html',
+					id: 'detail',
 					extras: {
 						perId: $(this).attr('pId'),
 						perName: $(this).find('label').html(),

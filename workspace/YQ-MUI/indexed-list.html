@@ -194,9 +194,10 @@
 				//取消关注
 				if(idx == '2'){
 					var btnArray = ['NO', 'YES'];
-					mui.confirm('Do you confirm to unFollow？', ' ', btnArray, function(e) {
+					mui.confirm('Do you confirm to unFollow？', '', btnArray, function(e) {
 						if (e.index == 1) {//当点击YES时，从列表中删除该人物
 							$('.mui-table-view').find('li').eq(perCur_idx).remove();
+							mui.toast('delete success!',{duration:1000});
 						} else {
 						}
 					})

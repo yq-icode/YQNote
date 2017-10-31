@@ -22,10 +22,10 @@
 				doc.addEventListener('DOMContentLoaded', recalc, false);
 			})(document, window);
 		</script>
-		<script src="js/jquery-1.11.3.min.js"></script>
-		<script src="js/mui.min.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/default.css" rel="stylesheet"/>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/mui.min.js"></script>
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav">
@@ -39,38 +39,58 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			//学员列表
+			
 			var perInfo = [
 				{"photoUrl":"http://placehold.it/30x30", "name":"aStudent1", "pId":"1"},
 				{"photoUrl":"http://placehold.it/30x30", "name":"aStudent2", "pId":"2"},
-				{"photoUrl":"http://placehold.it/30x30", "name":"bStudent1", "pId":"3"},
-				{"photoUrl":"http://placehold.it/30x30", "name":"bStudent2", "pId":"4"},
-				{"photoUrl":"http://placehold.it/30x30", "name":"cStudent1", "pId":"5"},
-				{"photoUrl":"http://placehold.it/30x30", "name":"cStudent2", "pId":"6"}
+				{"photoUrl":"http://placehold.it/30x30", "name":"bStudent3", "pId":"3"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"bStudent4", "pId":"4"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"cStudent5", "pId":"5"},
+				{"photoUrl":"http://placehold.it/30x30", "name":"cStudent6", "pId":"6"}
 			]
+			//初始载入时的列表
 			var _html="";
 			for(i=0; i<perInfo.length; i++){
 				var _per = perInfo[i];
 				_html += "<li class='mui-table-view-cell' pId='" + _per.pId + "'>";
 				_html += "<img class='mui-pull-left' src='" + _per.photoUrl + "' />";
 				_html += "<label>" + _per.name + "</label>";
-				_html += "</li>"
+				_html += "</li>";
 			}
-			$('#perList').html($('#perList').html() + _html);
+			$('#perList').append(_html);
 			
-			//上拉加载
+			//上拉加载与下拉刷新时加载的数据
+			var _html_add = "";
+			_html_add += "<li class='mui-table-view-cell' pId='" + perInfo[0].pId + "'>";
+			_html_add += "<img class='mui-pull-left' src='" + perInfo[0].photoUrl + "' />";
+			_html_add += "<label>" + perInfo[0].name + "</label>";
+			_html_add += "</li>";
+			
 			mui.init({
 				pullRefresh : {
 					container: "#refreshContainer",//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
 					down :{
+						style:'circle',//必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+					  	color:'#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+					  	height:'50',//可选,默认50px下拉刷新控件的高度
+					  	range:'100px', //可选 默认100px,控件可下拉拖拽的范围
+					  	offset:'0px', //可选 默认0px,下拉刷新控件的起始位置
+					  	auto: false,//可选,默认false.首次加载自动上拉刷新一次
+						contentdown: "下拉可以刷新", //可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+						contentover: "释放立即刷新", //可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+						contentrefresh: "正在刷新...", //可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+						callback: function(){
+							downRefresh(); //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+						}
 					},
 					up : {
-						auto: false,//可选,默认false.自动上拉加载一次
+						height:'50px',//可选.默认50.触发上拉加载拖动距离
+      					auto:false,//可选,默认false.自动上拉加载一次
 						contentinit: "show more",
-						contentdown: "pull to load more",
-						contentover: "release to load",
-						contentrefresh: "loading",//可选，正在加载状态时，上拉加载控件上显示的标题内容
-						contentnomore: "no data",//可选，请求完毕若没有更多数据时显示的提醒内容；
+						contentdown: "下拉可以加载",
+						contentover: "释放立即加载",
+						contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+						contentnomore: "没有更多数据了", //可选，请求完毕若没有更多数据时显示的提醒内容；
 						callback: function(){
 							var self = this;
 							loadMoreCmt(self);
@@ -78,10 +98,17 @@
 					}
 				}
 			});
-			
+			//上拉加载
 			function loadMoreCmt(obj){
-				$('#perList').append(_html);
-				obj.endPullupToRefresh(false);
+				$('#perList').append(_html_add);
+				obj.endPullupToRefresh(false); //当值为false时，表示还有数据可以加载；当值为true时，表示没有数据可以加载了，会显示contentnomore中定义的内容；
+			}
+			//下拉刷新
+			function downRefresh(){
+				setTimeout(function(){
+					$('#perList').prepend(_html_add);
+					mui('#refreshContainer').pullRefresh().endPulldownToRefresh(true); //结束刷新
+				},1000)
 			}
 			
 		</script>

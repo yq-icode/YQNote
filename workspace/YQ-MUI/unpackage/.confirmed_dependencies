@@ -1,0 +1,69 @@
+{
+	"index.html": {
+		"resources": [
+			"css/default.css",
+			"js/jquery-1.11.3.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"list.html",
+			"comment.html",
+			"indexed-list.html",
+			"pullrefresh.html"
+		]
+	},
+	"comment.html": {
+		"resources": [
+			"css/default.css",
+			"js/jquery-1.11.3.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"indexed-list.html": {
+		"resources": [
+			"css/default.css",
+			"js/jquery-1.11.3.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/mui.indexedlist.css",
+			"js/mui.indexedlist.js"
+		]
+	},
+	"pullrefresh.html": {
+		"resources": [
+			"css/default.css",
+			"js/jquery-1.11.3.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"detail.html": {
+		"resources": [
+			"css/iconfont.css",
+			"fonts/iconfont.ttf",
+			"css/default.css",
+			"js/jquery-1.11.3.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"list.html": {
+		"resources": [
+			"css/default.css",
+			"js/jquery-1.11.3.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"detail.html"
+		]
+	}
+}
