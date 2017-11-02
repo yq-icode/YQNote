@@ -265,7 +265,8 @@
 					"css/mui.min.css"
 				],
 				"refer": [
-					"detail.html"
+					"detail.html",
+					"comment.html"
 				],
 				"priority": 0
 			}

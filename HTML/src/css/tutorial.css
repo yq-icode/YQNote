@@ -160,7 +160,8 @@ h1.article-title {
   margin-top: 20px;
 }
 .ttBlock-list-media img {
-  width: 100%;
+  display: block;
+  max-width: 100%;
 }
 /*- smlist
 *********************************************/

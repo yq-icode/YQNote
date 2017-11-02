@@ -68,6 +68,21 @@
 					}
 				})
 			})
+			mui.ready(function(){
+				//删除一条数据
+				function notiDel(e){
+					var aa = e.detail.ssid; //获取从detail页面传过来的值，注意：e.detail中的detail是固定变量，不是指detail页面；
+					var obj = $('#perList').find('li');
+					for(i=0; i<$(obj).length; i++){
+						var bb = $(obj).eq(i).attr('pId');//此处不能写成$(obj)[i].attr('pId')，原因不明
+						if(aa == bb){
+							$(obj).eq(i).remove(); //从列表中删除detail页面执行删除操作后所对应的数据
+						}
+					}
+				}
+				window.addEventListener('delAct',notiDel);
+			})
+			
 		</script>
 	</body>
 </html>

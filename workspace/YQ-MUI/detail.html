@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>详情</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<script type="text/javascript">
 			(function(doc, win) {
@@ -40,15 +40,30 @@
 					<label id="st-name"></label>
 					<a id="st-phone" class="tel" href=""><span class="iconfont icon-icon31"></span></a>
 				</p>
-				<p id="st-addr" class="addr"></p>
+				<p id="st-addr" class="addr">sssss</p>
 			</div>
+			<button type="button" class="mui-btn mui-btn-block" id="btn_delete">删除</button>
 		</div>
 		<script type="text/javascript">
-			//获取从list页面传递过来的参数
 			mui.plusReady(function(){
 				var self = plus.webview.currentWebview();
+				//获取从list页面传递过来的参数
 				$('#st-photo').attr('src', 'images/' + self.perPhotoUrl);
 				$('#st-name').html(self.perName);
+				
+				//删除此条信息
+				document.getElementById("btn_delete").addEventListener('tap', function() {
+					var btnArray = ['NO', 'YES'];
+					mui.confirm('do you confirm to delete？', '', btnArray, function(e) {
+						if (e.index == 1) {
+							var pg_list = plus.webview.getWebviewById('list');
+							mui.fire(pg_list, 'delAct', {ssid:self.perId}); //触发pg_list页面的自定义事件delAct并传递参数
+							mui.back(); //关闭当前页面
+						} else {
+							
+						}
+					})
+				});
 			})
 			
 		</script>
