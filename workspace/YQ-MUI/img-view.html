@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/imageview.css" rel="stylesheet" />
+    <link href="css/default.css" rel="stylesheet"/>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/mui.zoom.js"></script>
+    <script src="js/mui.previewimage.js"></script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">图片预览</h1>
+	</header>
+	<div class="mui-content">
+	    <ul class="mui-table-view imgVWrap" id="imgVWrap">
+        </ul>
+	</div>
+	<script type="text/javascript">
+		var imgvData = [
+			{"ivUrl":"http://placehold.it/300x200", "dPreSrc":"", "dGroup":"1", "dCon":"组1－图片1"},
+			{"ivUrl":"http://placehold.it/300x200", "dPreSrc":"", "dGroup":"2", "dCon":"组2－图片1"},
+			{"ivUrl":"http://placehold.it/300x200", "dPreSrc":"", "dGroup":"2", "dCon":"组2－图片2"},
+			{"ivUrl":"http://placehold.it/300x200", "dPreSrc":"", "dGroup":"2", "dCon":"组2－图片3"}
+		]
+		var _html = "";
+		for(i=0;i<imgvData.length;i++){
+			_iv = imgvData[i];
+			_html += "<li class='mui-table-view-cell'>";
+			_html += "<a class='mui-navigate-right'>";
+			_html += "<img src='" + _iv.ivUrl + "' data-preview-src='" + _iv.dPreSrc + "' data-preview-group='" + _iv.dGroup + "' data-content='" + _iv.dCon + "' />";
+			_html += "</a>";
+			_html += "</li>";
+		}
+		var ivw = $('#imgVWrap');
+		$(ivw).html(_html);
+		mui.previewImage();
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/default.css" rel="stylesheet"/>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">折叠面板</h1>
+		</header>
+		<div class="mui-content">
+		    <ul class="mui-table-view" id="mbWrap">
+		    </ul>
+		</div>
+		<script type="text/javascript">
+			var mbData = [
+				{"mbTit":"面板1", "mbCon":"面板1子内容"},
+				{"mbTit":"面板2", "mbCon":"面板2子内容"},
+				{"mbTit":"面板3", "mbCon":"面板3子内容"}
+			]
+			var _html = "";
+			for(i=0;i<mbData.length;i++){
+				var _mb = mbData[i];
+				_html += "<li class='mui-table-view-cell mui-collapse'>";
+				_html += "<a class='mui-navigate-right'>" + _mb.mbTit + "</a>";
+				_html += "<div class='mui-collapse-content'>";
+				_html += "<p>" + _mb.mbCon + "</p>";
+				_html += "</div>";
+				_html += "</li>";
+			}
+			var mbw = $('#mbWrap');
+			$(mbw).html(_html);
+			$(mbw).find('li').first().addClass('mui-active');//第一个默认展开
+		</script>
+	</body>
+</html>

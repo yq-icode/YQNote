@@ -11,7 +11,10 @@
 			"list.html",
 			"comment.html",
 			"indexed-list.html",
-			"pullrefresh.html"
+			"pullrefresh.html",
+			"gallery.html",
+			"accordion.html",
+			"setting.html"
 		]
 	},
 	"comment.html": {

@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title>效果列表</title>
-    <script src="js/mui.min.js"></script>
-    <script src="js/jquery-1.11.3.min.js"></script>
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link href="css/default.css" rel="stylesheet"/>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 	<header class="mui-bar mui-bar-nav">
@@ -25,7 +25,11 @@
 			{"pName":"列表与详情", "pId":"p2"},
 			{"pName":"索引列表", "pId":"p3"},
 			{"pName":"上拉刷新与下拉刷新", "pId":"p4"},
-			{"pName":"窗体切换", "pId":"p5"}
+			{"pName":"窗体切换", "pId":"p5"},
+			{"pName":"折叠面板", "pId":"p6"},
+			{"pName":"图片轮播", "pId":"p7"},
+			{"pName":"图片预览", "pId":"p8"},
+			{"pName":"侧滑菜单", "pId":"p9"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
@@ -67,6 +71,30 @@
 				mui.openWindow({
 					url: 'setting.html',
 					id: 'setting'
+				})
+			}
+			if(cid == 'p6'){
+				mui.openWindow({
+					url: 'accordion.html',
+					id: 'accordion'
+				})
+			}
+			if(cid == 'p7'){
+				mui.openWindow({
+					url: 'gallery.html',
+					id: 'gallery'
+				})
+			}
+			if(cid == 'p8'){
+				mui.openWindow({
+					url: 'img-view.html',
+					id: 'img-view'
+				})
+			}
+			if(cid == 'p9'){
+				mui.openWindow({
+					url: 'offcanvas.html',
+					id: 'offcanvas'
 				})
 			}
 		})

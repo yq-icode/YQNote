@@ -1,8 +1,27 @@
+body{
+	font-family: "microsoft yahei";
+}
+
 /*- 确认消息框 -*/
 .mui-popup-title{ /* 也可以用 display:none 实现 */
 	height: 0;
 	overflow: hidden;
 }
+
+/*- 人物列表 -*/
+.mui-content .perList:first-child{
+	margin-top: 0;
+}
+.perList li label{
+	display: inline-block;
+	line-height: 30px;
+	margin-left: 10px;
+	color: #333333;
+	font-size: 0.3rem;
+}
+/******************************************************
+ * 评论
+ */
 /*- 星级 -*/
 .mui-icon-star-filled{
 	color: #FF6600;
@@ -18,7 +37,6 @@
 .PJ-star .mui-icon-star-filled{
 	font-size: 0.48rem;
 }
-
 /*- 评价标签 -*/
 .PJ-tags span{
 	display: inline-block;
@@ -45,7 +63,13 @@
 .PJ-tags .color-5.selected{background-color: #9DCB00;}
 .PJ-tags .color-6{color: #FFCE4B;}
 .PJ-tags .color-6.selected{background-color: #FFCE4B;}
+/******************************************************
+ * 列表与详情
+ */
 
+/******************************************************
+ * 索引列表
+ */
 /*- letterList -*/
 .letterList,
 .letterList.active{
@@ -61,15 +85,31 @@
 	color: #FF6600;
 	font-weight: bold;
 }
+/******************************************************
+ * 上拉刷新与下拉刷新
+ */
 
-/*- 人物列表 -*/
-.mui-content .perList:first-child{
-	margin-top: 0;
+/******************************************************
+ * 窗体切换
+ */
+
+/******************************************************
+ * 折叠面板
+ */
+
+
+/******************************************************
+ * 图片轮播
+ */
+
+
+/******************************************************
+ * 图片预览
+ */
+.imgVWrap li img{
+	width: 50px;
 }
-.perList li label{
-	display: inline-block;
-	line-height: 30px;
-	margin-left: 10px;
-	color: #333333;
-	font-size: 0.3rem;
-}
+
+/******************************************************
+ * 侧滑菜单
+ */
