@@ -1,0 +1,32 @@
+<section>
+    <p>jquery对象带$，jquery对象才能调用jquery函数与方法, 原生JS对象，只能调用原生函数与方法</p>
+    <div class="code-box">
+        <pre class="language-js line-numbers">
+            <code>   
+var obj = $('#slider');
+
+jquery写法：$(obj).eq(i)
+原生写法：obj[i]
+
+所以$(obj)[i]这种写法是错误的
+
+MUI对象，只能调用MUI函数与方法
+mui('#slider').slider({
+interval:1000
+})
+以下写法均是错误的
+$(obj).slider({
+interval:1000
+})
+$('#slider').slider({
+interval:1000
+})
+obj.slider({
+interval:1000
+})
+
+
+            </code>
+        </pre>
+    </div>
+</section>

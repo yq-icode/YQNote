@@ -12,39 +12,10 @@
 <body>
 	<!--#include virtual="/include/_header.html" -->
     <div class="container">
-    	<strong class="title-sec">原生JS jquery muiJs区别</strong>
-    	<section>
-            <p>jquery对象带$，jquery对象才能调用jquery函数与方法, 原生JS对象，只能调用原生函数与方法</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>   
-    var obj = $('#slider');
-    
-    jquery写法：$(obj).eq(i)
-    原生写法：obj[i]
-    
-    所以$(obj)[i]这种写法是错误的
-    
-    MUI对象，只能调用MUI函数与方法
-    mui('#slider').slider({
-        interval:1000
-    })
-    以下写法均是错误的
-    $(obj).slider({
-        interval:1000
-    })
-    $('#slider').slider({
-        interval:1000
-    })
-    obj.slider({
-        interval:1000
-    })
-    
-    
-                    </code>
-                </pre>
-            </div>
-        </section>
+    	<a target="_blank" href="_djs1.html">时间倒计时</a>
+        <a target="_blank" href="_djs2.html">数字倒计时</a>
+    	<h3 class="title-sec">原生JS jquery muiJs区别</h3>
+    	<!--#include file="_qb.html" -->
     </div>
 </body>
 </html>
