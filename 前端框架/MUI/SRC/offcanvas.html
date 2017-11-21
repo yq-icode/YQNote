@@ -10,11 +10,72 @@
     <script src="js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-	<header class="mui-bar mui-bar-nav">
-	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-	    <h1 class="mui-title">侧滑菜单</h1>
-	</header>
-	<div class="mui-content">
+	<!-- 主界面移动、菜单不动 -->
+	<div class="mui-off-canvas-wrap mui-draggable">
+	  	<!-- 菜单容器 -->
+	  	<aside class="mui-off-canvas-left" id="offCanvasSide">
+	    	<div class="mui-scroll-wrapper">
+	      		<div class="mui-scroll">
+	        		<!-- 菜单具体展示内容 -->
+	        		<ul class="mui-table-view" id="p-list"></ul>
+	      		</div>
+	    	</div>
+	  	</aside>
+	  	<!-- 主页面容器 -->
+	  	<div class="mui-inner-wrap">
+	    	<!-- 主页面标题 -->
+	    	<header class="mui-bar mui-bar-nav">
+	      		<a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"  href="#offCanvasSide" ></a>
+	      		<h1 class="mui-title">侧滑菜单</h1>
+	    	</header>
+	    	<nav class="mui-bar mui-bar-tab">
+			    <a class="mui-tab-item mui-active">
+			        <span class="mui-icon mui-icon-home"></span>
+			        <span class="mui-tab-label">首页</span>
+			    </a>
+			    <a class="mui-tab-item">
+			        <span class="mui-icon mui-icon-phone"></span>
+			        <span class="mui-tab-label">电话</span>
+			    </a>
+			    <a class="mui-tab-item">
+			        <span class="mui-icon mui-icon-email"></span>
+			        <span class="mui-tab-label">邮件</span>
+			    </a>
+			    <a class="mui-tab-item">
+			        <span class="mui-icon mui-icon-gear"></span>
+			        <span class="mui-tab-label">设置</span>
+			    </a>
+			</nav>
+	    	<div class="mui-content mui-scroll-wrapper">
+	      		<div class="mui-scroll">
+	        	<!-- 主界面具体展示内容 -->
+	         	
+	      		</div>
+	    	</div> 
+	    	<div class="mui-off-canvas-backdrop"></div>
+	  	</div> 
 	</div>
+	<script type="text/javascript">
+		//列表内容
+		var pages = [
+			{"pName":"评论", "pId":"p1"},
+			{"pName":"列表与详情", "pId":"p2"},
+			{"pName":"索引列表", "pId":"p3"},
+			{"pName":"上拉刷新与下拉刷新", "pId":"p4"},
+			{"pName":"窗体切换", "pId":"p5"},
+			{"pName":"折叠面板", "pId":"p6"},
+			{"pName":"图片轮播", "pId":"p7"},
+			{"pName":"图片预览", "pId":"p8"},
+			{"pName":"侧滑菜单", "pId":"p9"}
+		]
+		var _html_pl = "";
+		for(i=0; i<pages.length; i++){
+			var _p = pages[i];
+			_html_pl += "<li class='mui-table-view-cell' id='" + _p.pId + "'>";
+			_html_pl += "<a class='mui-navigate-right'>" + _p.pName + "</a>";
+			_html_pl += "</li>"
+		}
+		$('#p-list').html($('#p-list').html()+_html_pl);
+	</script>
 </body>
 </html>

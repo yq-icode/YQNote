@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/default.css" rel="stylesheet"/>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<nav class="mui-bar mui-bar-tab">
+	    <a class="mui-tab-item mui-active">
+	        <span class="mui-tab-label">numbox</span>
+	    </a>
+	    <a class="mui-tab-item">
+	        <span class="mui-tab-label">range</span>
+	    </a>
+	    <a class="mui-tab-item">
+	        <span class="mui-tab-label">switch</span>
+	    </a>
+	    <a class="mui-tab-item">
+	        <span class="mui-tab-label">设置</span>
+	    </a>
+	</nav>
+	<script type="text/javascript">
+		mui.init();
+		var subpages = ['_numbox.html', '_range.html', '_switch.html'];
+		var subpages_style = {
+            top: '45px',
+            bottom: '51px'
+        };
+        var anishow = {};
+		mui.plusReady(function() {
+	        var self = plus.webview.currentWebview();
+	        for(var i = 0; i < subpages.length; i++) {
+	            var temp = {};
+	            var sub = plus.webview.create(subpages[i], subpages[i], subpages_style);
+	            if(i > 0) {
+	                sub.hide();
+	            } else {
+	                temp[subpages[i]] = 'true';
+	                mui.extend(anishow, temp);
+	            }
+	            self.append(sub);
+	        }
+	    })
+		mui('.mui-bar-tab').on('tap','.mui-tab-item',function(){
+			var idx = $(this).index();
+			if(idx == 0){
+				mui.openWindow({
+					"url": "_numbox.html",
+					"id": "_numbox"
+				})
+			}
+			else if(idx == 1){
+				mui.openWindow({
+					"url": "_range.html",
+					"id": "_range"
+				})
+			}
+			else if(idx == 2){
+				mui.openWindow({
+					"url": "_switch.html",
+					"id": "_switch"
+				})
+			}
+		})
+	</script>
+</body>
+</html>
