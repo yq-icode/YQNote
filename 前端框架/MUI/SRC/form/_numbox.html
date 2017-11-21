@@ -14,12 +14,25 @@
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 	    <h1 class="mui-title">数字输入框</h1>
 	</header>
-	<div class="mui-content">
-	    <div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='10'>
+	<div class="mui-content mui-content-padded">
+	    <div class="mui-numbox mui-block" data-numbox-step='1' data-numbox-min='0' data-numbox-max='10'>
 	        <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
 	        <input class="mui-input-numbox" type="number" />
 	        <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 	    </div>
+	    <button type="button" class="mui-btn" id="munbox-value-current">取当前值</button>
+	    <button type="button" class="mui-btn" id="numbox-value-set">设置新值</button>
+	    <button type="button" class="mui-btn" id="numbox-step-set">更新步长</button>
 	</div>
+	<script type="text/javascript">
+		mui('.mui-numbox').on('tap','.mui-btn-numbox-minus',function(){
+			var curNum = mui('.mui-numbox').numbox().getValue();
+			console.log(curNum);
+		})
+		mui('.mui-numbox').on('tap','.mui-btn-numbox-plus',function(){
+			var curNum = mui('.mui-numbox').numbox().getValue();
+			console.log(curNum);
+		})
+	</script>
 </body>
 </html>
