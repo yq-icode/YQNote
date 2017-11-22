@@ -9,18 +9,53 @@
     <script src="../js/mui.min.js"></script>
     <script src="../js/jquery-1.11.3.min.js"></script>
 </head>
-<body>
+<body class="pg-switch">
 	<header class="mui-bar mui-bar-nav">
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 	    <h1 class="mui-title">switch开关</h1>
 	</header>
 	<div class="mui-content">
-	    <div class="mui-input-row">
-	        <label>Switch</label>
-	        <div class="mui-switch mui-active">
-	            <div class="mui-switch-handle"></div>
-	        </div>
-	    </div>
+	    <ul class="mui-table-view">
+	        <li class="mui-table-view-cell">
+	            <label>默认开</label><span></span>
+		        <div class="mui-switch mui-active">
+		            <div class="mui-switch-handle"></div>
+		        </div>
+	        </li>
+	        <li class="mui-table-view-cell">
+	            <label>默认关</label><span></span>
+		        <div class="mui-switch">
+		            <div class="mui-switch-handle"></div>
+		        </div>
+	        </li>
+	        <li class="mui-table-view-cell">
+	            <label>默认开</label><span></span>
+		        <div class="mui-switch mui-switch-mini mui-active">
+		            <div class="mui-switch-handle"></div>
+		        </div>
+	        </li>
+	        <li class="mui-table-view-cell">
+	            <label>默认关</label><span></span>
+		        <div class="mui-switch mui-switch-mini">
+		            <div class="mui-switch-handle"></div>
+		        </div>
+	        </li>
+	    </ul>
 	</div>
+	<script type="text/javascript">
+		mui('.mui-switch').each(function(){
+			var state = this.classList.contains('mui-active'); //识别toggle开关状态
+			if(state){
+				this.parentNode.querySelector('span').innerHTML = 'true';
+			}
+			else{
+				this.parentNode.querySelector('span').innerHTML = 'false';
+			}
+			this.addEventListener('toggle', function(event) {
+				//event.detail.isActive 可直接获取当前状态
+				this.parentNode.querySelector('span').innerHTML = '状态：' + (event.detail.isActive ? 'true' : 'false');
+			});
+		})
+	</script>
 </body>
 </html>

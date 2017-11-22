@@ -29,7 +29,9 @@
 			{"pName":"折叠面板", "pId":"p6"},
 			{"pName":"图片轮播", "pId":"p7"},
 			{"pName":"图片预览", "pId":"p8"},
-			{"pName":"侧滑菜单", "pId":"p9"}
+			{"pName":"侧滑菜单", "pId":"p9"},
+			{"pName":"表单", "pId":"p10"},
+			{"pName":"日期选择器", "pId":"p11"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
@@ -95,6 +97,18 @@
 				mui.openWindow({
 					url: 'offcanvas.html',
 					id: 'offcanvas'
+				})
+			}
+			if(cid == 'p10'){
+				mui.openWindow({
+					url: 'form/index.html',
+					id: 'form_index'
+				})
+			}
+			if(cid == 'p11'){
+				mui.openWindow({
+					url: 'dtpicker.html',
+					id: 'dtpicker'
 				})
 			}
 		})

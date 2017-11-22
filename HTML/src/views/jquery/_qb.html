@@ -1,32 +1,265 @@
-<section>
-    <p>jquery对象带$，jquery对象才能调用jquery函数与方法, 原生JS对象，只能调用原生函数与方法</p>
-    <div class="code-box">
-        <pre class="language-js line-numbers">
-            <code>   
-var obj = $('#slider');
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="css/js.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title-sec">原生JS Jquery操作DOM的区别</h2>
+        <section>
+            <p>jquery对象带$，jquery对象才能调用jquery函数与方法, 原生JS对象，只能调用原生函数与方法</p>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>   
+        var obj = $('#slider');
+        
+        jquery写法：$(obj).eq(i)
+        原生写法：obj[i]
+        
+        所以$(obj)[i]这种写法是错误的
+        
+        MUI对象，只能调用MUI函数与方法
+        mui('#slider').slider({
+        interval:1000
+        })
+        以下写法均是错误的
+        $(obj).slider({
+        interval:1000
+        })
+        $('#slider').slider({
+        interval:1000
+        })
+        obj.slider({
+        interval:1000
+        })
+        
+        
+                    </code>
+                </pre>
+            </div>
+        </section>
+        <section>
+        	<strong>选择元素</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+                    //jq
+$('.el');
+//js   
+document.querySelector("div");
+div.querySelectorAll('.el');
+//mui
+mui(".el")[0];
+                    </code>
+                </pre>
+            </div>
+            <strong>父、兄弟元素</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+                    //jq
+$('.el').parent();
+$('.el').prev();
+$('.el').next();
+$('.el').last();
+$('.el').first();
+//js
+document.querySelector('.el').parentNode;
+document.querySelector('.el').previousElementSibling;
+document.querySelector('.el').nextElementSibling; 
+document.querySelector(".el").lastElementChild;
+document.querySelector(".el").children[0];
+                    </code>
+                </pre>
+            </div>
+            <strong>获取元素文本</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+                    //jq
+$('.el').html();
+$('.el').val();
+$('.el').text();
+$(el).replaceWith(string);
+//js
+document.getElementById('el').innerHTML;
+document.getElementById('el').value;
+document.getElementById('el').textContent
+document.getElementById('el').outerHTML = string;
+                    </code>
+                </pre>
+            </div>
+            <strong>创建元素</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+                    //jq
+var newEl = $('&lt;div/&gt;');
+//js
+var newEl = document.createElement('div');
+                    </code>
+                </pre>
+            </div>
+            <strong>Set/get属性</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+                    //jq
+$('.el').filter(':first').attr('key', 'value');
+$('.el').filter(':first').attr('key');
+$('.el').addClass('class');
+$('.el').removeClass('class');
+$('.el').toggleClass('class');
+$(el).css('border-width', '20px');
+//js
+document.querySelector('.el').setAttribute('key', 'value');
+document.querySelector('.el').getAttribute('key');
+document.querySelector('.el').classList.add('class');
+document.querySelector('.el').classList.remove('class');
+document.querySelector('.el').classList.toggle('class');
+document.querySelector('.el').style.borderWidth = '20px';
+                    </code>
+                </pre>
+            </div>
+            <strong>附加</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+                    //jq
+$('.el').append($('&lt;div/&gt;'));
+//js 
+document.querySelector('.el').appendChild(document.createElement('div'));
+                    </code>
+                </pre>
+            </div>
+            <strong>克隆</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+               //jq
+var clonedEl = $('.el').clone();
+//js
+var clonedEl = document.querySelector('.el').cloneNode(true);     
+                    </code>
+                </pre>
+            </div>
+            <strong>移除</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+                    //jq
+$('.el').remove();
+// js
+var toRemove = document.querySelector(el);
+toRemove.parentNode.removeChild(toRemove);
+                    </code>
+                </pre>
+            </div>
+            <strong>显示和隐藏</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+             //jq
+$(el).show();
+$(el).hide();
+//js
+el.style.display = '';
+el.style.display = 'none';       
+                    </code>
+                </pre>
+            </div>
+            <strong>是否包含某个 class</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+                    //jq
+$(el).hasClass(className);
+//js
+if (el.classList)
+  el.classList.contains(className);
+else
+  new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+                    </code>
+                </pre>
+            </div>
+            <strong>添加 Class</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+                    //jq
+$(el).addClass(className);
+//js
+if (el.classList)
+  el.classList.add(className);
+else
+  el.className += ' ' + className;
+                    </code>
+                </pre>
+            </div>
+            <strong>移除class</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+             //jq
+$(el).removeClass(className);
+//js
+// removeClass, takes two params: element and classname
+function removeClass(el, cls) {
+  var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
+  el.className = el.className.replace(reg, " ").replace(/(^\s*)|(\s*$)/g,"");
+}
 
-jquery写法：$(obj).eq(i)
-原生写法：obj[i]
-
-所以$(obj)[i]这种写法是错误的
-
-MUI对象，只能调用MUI函数与方法
-mui('#slider').slider({
-interval:1000
-})
-以下写法均是错误的
-$(obj).slider({
-interval:1000
-})
-$('#slider').slider({
-interval:1000
-})
-obj.slider({
-interval:1000
-})
-
-
-            </code>
-        </pre>
+如果你只需要支持像IE10+,Chrome,FireFox,Opera和Safari这样较现代的浏览器，那么你可以开始使用HTML5的classList功能，它让增加和删除类变得更简单
+el.classList.add(className);
+el.classList.remove("foo")
+el.classList.contains("foo");
+el.classList.toggle("active");       
+                    </code>
+                </pre>
+            </div>
+            <strong>插入 HTML</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+                   //jq
+$(el).before(htmlString);
+$(parent).append(el);
+$(el).after(htmlString);
+//js
+el.insertAdjacentHTML('beforebegin', htmlString);
+parent.appendChild(el);
+el.insertAdjacentHTML('afterend', htmlString); 
+                    </code>
+                </pre>
+            </div>
+            <strong>获取子节点</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+                  //jq
+$(el).children();
+//js
+el.children  
+                    </code>
+                </pre>
+            </div>
+            <strong>全选复制</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+            //jq
+$.trim(string);
+//js
+string.trim();         
+                    </code>
+                </pre>
+            </div>
+        </section>
     </div>
-</section>
+</body>

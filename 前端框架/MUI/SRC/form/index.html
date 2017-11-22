@@ -20,16 +20,13 @@
 	    <a class="mui-tab-item" href="_switch.html">
 	        <span class="mui-tab-label">switch</span>
 	    </a>
-	    <a class="mui-tab-item">
-	        <span class="mui-tab-label">设置</span>
-	    </a>
 	</nav>
 	<script type="text/javascript">
 		mui.init();
 		//子页面
 		var subpages = ['_numbox.html', '_range.html', '_switch.html'];
 		var subpages_style = {
-            top: '45px',
+            top: '0',
             bottom: '51px'
         };
         //创建子页面，首个选项卡页面显示，其它均隐藏；
@@ -52,12 +49,9 @@
 			if (targetTab == activeTab) {
 				return;
 			}
-			//显示目标选项卡
-			plus.webview.show(targetTab);
-			//隐藏当前;
-			plus.webview.hide(activeTab);
-			//更改当前活跃的选项卡
-			activeTab = targetTab;
+			plus.webview.show(targetTab); //显示目标选项卡
+			plus.webview.hide(activeTab); //隐藏当前;
+			activeTab = targetTab; //更改当前活跃的选项卡
 		})
 	</script>
 </body>

@@ -14,7 +14,9 @@
 			"pullrefresh.html",
 			"gallery.html",
 			"accordion.html",
-			"setting.html"
+			"setting.html",
+			"form/index.html",
+			"offcanvas.html"
 		]
 	},
 	"comment.html": {
@@ -68,6 +70,16 @@
 		"refer": [
 			"detail.html",
 			"comment.html"
+		]
+	},
+	"form/index.html": {
+		"resources": [
+			"form/_numbox.html"
+		],
+		"refer": [
+			"form/_range.html",
+			"form/_numbox.html",
+			"form/_switch.html"
 		]
 	}
 }

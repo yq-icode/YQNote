@@ -207,7 +207,9 @@
 					"pullrefresh.html",
 					"gallery.html",
 					"accordion.html",
-					"setting.html"
+					"setting.html",
+					"form/index.html",
+					"offcanvas.html"
 				],
 				"priority": 0
 			},
@@ -270,6 +272,16 @@
 				"refer": [
 					"detail.html",
 					"comment.html"
+				],
+				"priority": 0
+			},
+			"form/index.html": {
+				"resources": [
+					"form/_numbox.html"
+				],
+				"refer": [
+					"form/_range.html",
+					"form/_switch.html"
 				],
 				"priority": 0
 			}

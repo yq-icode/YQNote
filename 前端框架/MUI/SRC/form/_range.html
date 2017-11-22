@@ -14,19 +14,48 @@
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 	    <h1 class="mui-title">滑块</h1>
 	</header>
-	<div class="mui-content">
-	    <div class="mui-input-row mui-input-range" style="margin-top: 100px;">
-	        <label>Range</label>
-	        <input type="range" min="0" max="100" value="50" id="aa">
+	<div class="mui-content mui-content-padded">
+		<h5 class="mt20">label+输入框+滑块</h5>
+	    <div class="mui-input-row mui-input-range">
+	    	<div class="mui-pull-left">
+	    		<label>Range</label>
+	        	<input type="text" value="50" />
+	    	</div>
+	    	<div  style="margin-left: 120px;">
+	    		<input type="range" min="0" max="100" value="50" id="field-range">
+	    	</div>
+	    </div>
+	    
+	    <h5 class="mt20">label+滑块<span class="range-value">50</span></h5>
+	    <div class="mui-input-row mui-input-range mui-clearfix">
+	    	<label>Range</label>
+	        <input type="range" min="0" max="100" value="50" id="inline-range">
+	    </div>
+	    
+	    <h5 class="mt20">整行滑块<span class="range-value">50</span></h5>
+	    <div class="mui-input-row mui-input-range">
+	    	<input type="range" min="0" max="100" value="50" id="block-range">
 	    </div>
 	</div>
 	<script type="text/javascript">
-		mui.init();
-		mui('.mui-input-range').on('drag','#aa',function(){
-			var rangeValue = $('span').index(0).text();
-			console.log(rangeValue);
-			$('.mui-input-range label').text(rangeValue);
-		})
+		var rangeList = document.querySelectorAll('input[type="range"]');
+	    for(var i=0,len=rangeList.length;i<len;i++){
+	        rangeList[i].addEventListener('input',function(){
+	            if(this.id.indexOf('field')>=0){ //将滑块的值赋给输入框
+	                document.querySelector(".mui-input-range input[type='text']").value = this.value;
+	            }
+	            else if(this.id.indexOf('inline')>=0){ //显示内联滑块的值
+	                document.querySelectorAll('.range-value')[0].innerHTML = this.value;
+	            }
+	            else if(this.id.indexOf('block')>=0){ //显示整行滑块的值
+	                document.querySelectorAll('.range-value')[1].innerHTML = this.value;
+	            }
+	        });
+	    }
+	    //将输入框中的值赋给滑块
+	    document.querySelector(".mui-input-range input[type='text']").addEventListener('input',function(){
+	        document.getElementById('field-range').value = this.value;
+	    });
 	</script>
 </body>
 </html>

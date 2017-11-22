@@ -1,6 +1,8 @@
 body{
 	font-family: "microsoft yahei";
 }
+.mt10{margin-top: 10px;}
+.mt20{margin-top: 20px;}
 
 /*- 确认消息框 -*/
 .mui-popup-title{ /* 也可以用 display:none 实现 */
@@ -117,13 +119,81 @@ body{
 /******************************************************
  * 滑块range
  */
+.mui-input-range label{
+	width: auto;
+	padding-right: 10px;
+	padding-left: 0;
+}
+.mui-input-range input[type='text']{ /*滑块值输入框*/
+	float: none;
+	margin-top: 8px;
+	width: 40px;
+	height: 22px;
+	border: 1px solid #CCCCCC;
+	padding: 2px 0;
+	background-color: #FFFFE8;
+	text-align: center;
+	font-size: 12px;
+}
 .mui-input-range input[type='range']::-webkit-slider-thumb /*修改滑块的样式*/
 {
-	width: 28px;
-	height: 28px;
+	width: 22px;
+	height: 22px;
 	border: 1px solid #666;
 	border-radius: 50%;
 	background-color: #FFCE4B;
 	background-clip: padding-box;
 	-webkit-appearance: none !important;
 }
+.mui-input-range .mui-tooltip{
+	top: -30px;
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+}
+.range-value{
+	display: inline-block;
+	margin-left: 10px;
+	width: 40px;
+	height: 22px;
+	padding: 2px 0;
+	border-radius: 3px;
+	background-color: #ccc;
+	color: #000000;
+	text-align: center;
+	line-height: 20px;
+	font-size: 12px;
+}
+/******************************************************
+ * 数字输入框numbox
+ */
+.mui-numbox [class*=btn-numbox],
+.mui-numbox [class*=btn-numbox]:active{
+	font-size: 30px;
+	color: #0062CC;
+	background-color: #FAFAFA;
+}
+.mui-numbox [class*=btn-numbox][disabled]{
+	background-color: #FAFAFA;
+	color: #ccc;
+}
+.pg-numbox .mui-row span{
+	display: block;
+	margin-top: 5px;
+	color: #666666;
+	font-size: 20px;
+}
+/******************************************************
+ * switch开关
+ */
+.pg-switch li span{
+	margin-left: 10px;
+	color: #996600;
+}
+
+/******************************************************
+ * 消失提示框toast
+ */
+
+

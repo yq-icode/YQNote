@@ -14,17 +14,17 @@
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 	    <h1 class="mui-title">toast消息提示框</h1>
 	</header>
-	<div class="mui-content">
-	    
+	<div class="mui-content mui-content-padded">
+	    <button type="button" id="btn-toast">消失提示框</button>
 	</div>
 	<script type="text/javascript">
 		var toast_text = "toast message";
 		var _toast_html = "";
-		_toast_html += "<div class='mui-toast-container'>";
-		_toast_html += "<div class='mui-toast-message'>" + toast_text + "</div>";
-		_toast_html += "</div>";
-		console.log(_toast_html);
-		mui.toast('_toast_html',{ duration:'90000'});
+		_toast_html += "<div class='toast-body'>" + toast_text + "</div>";
+		
+		document.querySelector('#btn-toast').addEventListener('tap',function(){
+			mui.toast(_toast_html,{ duration:200000}); /*如果是整数值，则不要放在引号中，即不要写成此种形式 duration:'3000'，这种形式不起作用*/
+		})
 	</script>
 </body>
 </html>

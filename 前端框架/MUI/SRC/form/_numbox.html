@@ -9,7 +9,7 @@
     <script src="../js/mui.min.js"></script>
     <script src="../js/jquery-1.11.3.min.js"></script>
 </head>
-<body>
+<body class="pg-numbox">
 	<header class="mui-bar mui-bar-nav">
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 	    <h1 class="mui-title">数字输入框</h1>
@@ -20,18 +20,38 @@
 	        <input class="mui-input-numbox" type="number" />
 	        <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 	    </div>
-	    <button type="button" class="mui-btn" id="munbox-value-current">取当前值</button>
-	    <button type="button" class="mui-btn" id="numbox-value-set">设置新值</button>
-	    <button type="button" class="mui-btn" id="numbox-step-set">更新步长</button>
+	    <div class="mui-row mt10">
+	    	<div class="mui-col-sm-4 mui-col-xs-4">
+	    		<button type="button" class="mui-btn" id="numbox-value-current">取当前值</button>
+	    		<span></span>
+	    	</div>
+	    	<div class="mui-col-sm-4 mui-col-xs-4">
+	    		<button type="button" class="mui-btn" id="numbox-value-set">设置新值</button>
+	    		<span></span>
+	    	</div>
+	    	<div class="mui-col-sm-4 mui-col-xs-4">
+	    		<button type="button" class="mui-btn" id="numbox-step-set">更新步长</button>
+	    		<span></span>
+	    	</div>
+	    </div>
 	</div>
 	<script type="text/javascript">
-		mui('.mui-numbox').on('tap','.mui-btn-numbox-minus',function(){
+		//获取当前值
+		document.querySelector('#numbox-value-current').addEventListener('tap',function(){
 			var curNum = mui('.mui-numbox').numbox().getValue();
-			console.log(curNum);
+			$(this).next('span').html(curNum);
 		})
-		mui('.mui-numbox').on('tap','.mui-btn-numbox-plus',function(){
-			var curNum = mui('.mui-numbox').numbox().getValue();
-			console.log(curNum);
+		//设置新值
+		document.querySelector('#numbox-value-set').addEventListener('tap',function(){
+			var newValue = 5;
+			mui('.mui-numbox').numbox().setValue(newValue);
+			$(this).next('span').html(newValue);
+		})
+		//获取当前值
+		document.querySelector('#numbox-step-set').addEventListener('tap',function(){
+			var newStep = 3;
+			mui('.mui-numbox').numbox().setOption('step',newStep);
+			$(this).next('span').html(newStep);
 		})
 	</script>
 </body>
