@@ -31,7 +31,9 @@
 			{"pName":"图片预览", "pId":"p8"},
 			{"pName":"侧滑菜单", "pId":"p9"},
 			{"pName":"表单", "pId":"p10"},
-			{"pName":"日期选择器", "pId":"p11"}
+			{"pName":"日期选择器", "pId":"p11"},
+			{"pName":"消息框", "pId":"p12"},
+			{"pName":"DIV窗体切换", "pId":"p13"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
@@ -109,6 +111,18 @@
 				mui.openWindow({
 					url: 'dtpicker.html',
 					id: 'dtpicker'
+				})
+			}
+			if(cid == 'p12'){
+				mui.openWindow({
+					url: 'dialog/index.html',
+					id: 'dialog_index'
+				})
+			}
+			if(cid == 'p13'){
+				mui.openWindow({
+					url: 'div-window.html',
+					id: 'div-window'
 				})
 			}
 		})
