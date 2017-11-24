@@ -1,17 +1,61 @@
 @charset "utf-8";
 /* CSS Document */
-
+body{
+	background-color: #F3F3F3;
+	font-size: 14px;
+	color: #333333;
+	line-height: 1.6;
+}
+#wrap{
+	margin:0 20px;
+}
+#wside, #wmain{
+	padding: 20px;
+	background-color: #FFFFFF;
+}
+#wside{
+	float:left;
+	width:200px;	
+}
+#wmain{
+	margin-left:220px;
+	margin-right:220px
+}
 /* 左侧边栏为菜单，中间为主内容，右边为其它信息（如广告） */
 
 /* ******************************************************* *
  * 左侧边栏
  * ******************************************************* */
-
+#wside dl a{
+	display: block;
+	padding: 5px;
+	color: #0066CC;
+}
+#wside dl a.on{
+	background-color: #F3F3F3;
+}
+#wside dl dt:nth-child(n+2){
+	margin-top: 15px;
+}
+#wside dl dt a{
+	margin:5px 0;
+	font-size: 14px;
+	color: #333333;
+	font-weight: normal;
+	
+}
+#wside dl dd a{
+	margin-left: 10px;
+	font-size: 12px;
+	line-height: 1.8;
+	color: #666;
+}
 
 /* ******************************************************* *
  * 左侧边栏
  * ******************************************************* */
 /*标题等级*/
+.title-r1, .title-r2, .title-r3, .title-r4{color: #000000;}
 .title-r1{}
 .title-r2{
 	border-bottom:1px solid #eee;
@@ -22,11 +66,24 @@
 }
 
 /*浏览器兼容*/
-.browser-support{}
-
+.browser-support{
+	font-size: 12px;
+	line-height: 1;
+	color: #666666;
+}
+.browser-support mark{
+	padding: 2px 5px;
+	background-color:#95C900;
+	color: #fff;
+}
 /*引用(即文章摘取的URL地址)*/
-.reference{}
-
+.reference{
+	color: #666666;
+	font-size: 12px;
+}
+.reference a{
+	color: #0066CC;
+}
 /*实例容器（即实例演示）*/
 .example-wrap{}
 

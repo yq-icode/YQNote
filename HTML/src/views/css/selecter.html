@@ -5,15 +5,55 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-   <link rel="stylesheet" href="/css/prism.css">
+   	<link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link href="/css/default.css" rel="stylesheet" />
     <script src="/js/jquery-1.11.3.min.js"></script>
     <script src="/js/prism.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h2 class="title-r2">选择器</h2>
-    
-    <aside></aside>
-    <!--#include virtual="_selector01.html" -->
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside">
+    	<dl>
+    		<dt><a href="#">属性选择器</a></dt>
+    		<dd>
+    			<a href="">动态伪类</a>
+    			<a href="">UI元素状态伪类</a>
+    			<a href="">CSS3的:nth选择器</a>
+    			<a href="">否定选择器（:not）</a>
+    		</dd>
+    		<dt><a href="#">伪类选择器</a></dt>
+    		<dd>
+    			
+    		</dd>
+    		<dt><a href="#">::Selection</a></dt>
+    		<dd>
+    			
+    		</dd>
+    		<dt><a href="#">伪元素 :before和:after</a></dt>
+    		<dd>
+    			
+    		</dd>
+    		<dt><a href="#">选择器级别</a></dt>
+    		<dd>
+    			
+    		</dd>
+    	</dl>
+    </div>
+    <div id="wmain">
+        <h2 class="title-r2">选择器</h2>
+        <!--#include virtual="_selector01.html" -->
+        <!--#include virtual="_selector02.html" -->
+        <!--#include virtual="_selector03.html" -->
+        <!--#include virtual="_selector04.html" -->
+    </div>
+    <script type="text/javascript">
+    	$('#wside a').on('click', function(){
+    		$(this).toggleClass('on');
+    	})
+    </script>
+</div>
 </body>
 </html>
