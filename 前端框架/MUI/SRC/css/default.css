@@ -21,50 +21,7 @@ body{
 	color: #333333;
 	font-size: 0.3rem;
 }
-/******************************************************
- * 评论
- */
-/*- 星级 -*/
-.mui-icon-star-filled{
-	color: #FF6600;
-	font-size: 0.2rem;
-}
-.PJ-star .mui-icon-star{
-	color: #666666;
-}
-.PJ-star .mui-icon.mui-icon-star-filled{
-	color: #FF6600;
-}
-.PJ-star .mui-icon-star,
-.PJ-star .mui-icon-star-filled{
-	font-size: 0.48rem;
-}
-/*- 评价标签 -*/
-.PJ-tags span{
-	display: inline-block;
-	margin: 0.1rem 0 0 0;
-	border: 1px solid #ddd;
-	padding: 1px 5px;
-	color: #996600;
-	font-size: 0.24rem;
-	background-color: #ffffff;
-}
-.PJ-tags span.selected{
-	border-color: #FFFFFF;
-	color: #FFFFFF;
-}
-.PJ-tags .color-1{color: #996600;}
-.PJ-tags .color-1.selected{background-color: #996600;}
-.PJ-tags .color-2{color: #339900;}
-.PJ-tags .color-2.selected{background-color: #339900;}
-.PJ-tags .color-3{color: #4686E5}
-.PJ-tags .color-3.selected{background-color: #4686E5;}
-.PJ-tags .color-4{color: #CE50D3;}
-.PJ-tags .color-4.selected{background-color: #CE50D3;}
-.PJ-tags .color-5{color: #9DCB00;}
-.PJ-tags .color-5.selected{background-color: #9DCB00;}
-.PJ-tags .color-6{color: #FFCE4B;}
-.PJ-tags .color-6.selected{background-color: #FFCE4B;}
+
 /******************************************************
  * 列表与详情
  */
@@ -101,24 +58,28 @@ body{
 
 
 /******************************************************
- * 图片轮播
- */
-
-
-/******************************************************
- * 图片预览
- */
-.imgVWrap li img{
-	width: 50px;
-}
-
-/******************************************************
  * 侧滑菜单
  */
 
 /******************************************************
- * 滑块range
- */
+ * 图片类效果
+ ******************************************************/
+
+/* 图片预览
+ * ************************/
+.imgVWrap li img{
+	width: 50px;
+}
+
+/* 图片轮播
+ * ************************/
+
+/******************************************************
+ * 表单form
+ ******************************************************/
+
+/* 滑块range
+ * ************************/
 .mui-input-range label{
 	width: auto;
 	padding-right: 10px;
@@ -165,9 +126,9 @@ body{
 	line-height: 20px;
 	font-size: 12px;
 }
-/******************************************************
- * 数字输入框numbox
- */
+
+/* 数字输入框numbox
+ * ************************/
 .mui-numbox [class*=btn-numbox],
 .mui-numbox [class*=btn-numbox]:active{
 	font-size: 30px;
@@ -184,16 +145,82 @@ body{
 	color: #666666;
 	font-size: 20px;
 }
-/******************************************************
- * switch开关
- */
+
+/* switch开关
+ * ************************/
 .pg-switch li span{
 	margin-left: 10px;
 	color: #996600;
 }
 
+/* 星级star
+ * ************************/
+.mui-icon-star-filled{
+	color: #FF6600;
+	font-size: 0.2rem;
+}
+.PJ-star .mui-icon-star{
+	color: #666666;
+}
+.PJ-star .mui-icon.mui-icon-star-filled{
+	color: #FF6600;
+}
+.PJ-star .mui-icon-star,
+.PJ-star .mui-icon-star-filled{
+	font-size: 24px;
+}
+/* 标签tags
+ * ************************/
+.PJ-tags span{
+	display: inline-block;
+	margin: 5px 0 0 0;
+	border: 1px solid #ddd;
+	padding: 1px 5px;
+	color: #996600;
+	font-size: 12px;
+	background-color: #ffffff;
+}
+.PJ-tags span.selected{
+	border-color: #FFFFFF;
+	color: #FFFFFF;
+}
+.PJ-tags .color-1{color: #996600;}
+.PJ-tags .color-1.selected{background-color: #996600;}
+.PJ-tags .color-2{color: #339900;}
+.PJ-tags .color-2.selected{background-color: #339900;}
+.PJ-tags .color-3{color: #4686E5}
+.PJ-tags .color-3.selected{background-color: #4686E5;}
+.PJ-tags .color-4{color: #CE50D3;}
+.PJ-tags .color-4.selected{background-color: #CE50D3;}
+.PJ-tags .color-5{color: #9DCB00;}
+.PJ-tags .color-5.selected{background-color: #9DCB00;}
+.PJ-tags .color-6{color: #FFCE4B;}
+.PJ-tags .color-6.selected{background-color: #FFCE4B;}
+
 /******************************************************
- * 消失提示框toast
- */
+ * 消息框dialog
+ ******************************************************/
 
 
+
+/******************************************************
+ * 选项卡tab
+ ******************************************************/
+
+/* 侧面选项卡-div模式
+ * ************************/
+.mui-row.mui-fullscreen>[class*="mui-col-"] {
+	height: 100%;
+}
+.mui-col-xs-3,
+.mui-control-content {
+	overflow-y: auto;
+	height: 100%;
+}
+.mui-segmented-control .mui-control-item {
+	line-height: 50px;
+	width: 100%;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+	background-color: #fff;
+}

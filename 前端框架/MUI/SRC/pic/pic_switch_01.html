@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 	    <title></title>
-	    <link href="css/mui.min.css" rel="stylesheet"/>
-	    <link href="css/default.css" rel="stylesheet"/>
-	    <script src="js/mui.min.js"></script>
-	    <script src="js/jquery-1.11.3.min.js"></script>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link href="../css/default.css" rel="stylesheet"/>
+	    <script src="../js/mui.min.js"></script>
+	    <script src="../js/jquery-1.11.3.min.js"></script>
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav">
@@ -20,15 +20,15 @@
 		</div>
 		<script type="text/javascript">
 			var gyData = [ //轮播图片URL
-				{"gyUrl":"http://placehold.it/400x300"},
-				{"gyUrl":"http://placehold.it/400x300"},
-				{"gyUrl":"http://placehold.it/400x300"},
-				{"gyUrl":"http://placehold.it/400x300"}
+				{"gyUrl":"../images/cbd.jpg"},
+				{"gyUrl":"../images/yuantiao.jpg"},
+				{"gyUrl":"../images/shuijiao.jpg"},
+				{"gyUrl":"../images/muwu.jpg"}
 			]
 			var _html = "";
 			_html += "<div class='mui-slider-group mui-slider-loop'>";
 			//额外增加的一个节点(循环轮播：第一个节点是最后一张轮播)
-			_html += "<div class='mui-slider-item mui-slider-item-duplicate'><a href='#'><img src ='" + gyData[0].gyUrl + "' /></a></div>";
+			_html += "<div class='mui-slider-item mui-slider-item-duplicate'><a href='#'><img src ='" + gyData[gyData.length-1].gyUrl + "' /></a></div>";
 			for(i=0;i<gyData.length;i++){ //轮播图片DOM
 				var _gyd = gyData[i];
 				_html += "<div class='mui-slider-item'>";
@@ -38,7 +38,7 @@
 				_html += "</div>";
 			}
 			//额外增加的一个节点(循环轮播：最后一个节点是第一张轮播)
-			_html += "<div class='mui-slider-item mui-slider-item-duplicate'><a href='#'><img src ='" + gyData[gyData.length-1].gyUrl + "' /></a></div>";
+			_html += "<div class='mui-slider-item mui-slider-item-duplicate'><a href='#'><img src ='" + gyData[0].gyUrl + "' /></a></div>";
 			_html += "</div>";
 			_html += "<div class='mui-slider-indicator'>";
 			for(i=0;i<gyData.length;i++){ //轮播图片点

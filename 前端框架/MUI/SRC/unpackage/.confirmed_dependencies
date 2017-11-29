@@ -16,7 +16,10 @@
 			"accordion.html",
 			"setting.html",
 			"form/index.html",
-			"offcanvas.html"
+			"offcanvas.html",
+			"windowSwitch/index.html",
+			"pic/index.html",
+			"dialog/index.html"
 		]
 	},
 	"comment.html": {
@@ -79,7 +82,68 @@
 		"refer": [
 			"form/_range.html",
 			"form/_numbox.html",
-			"form/_switch.html"
+			"form/_switch.html",
+			"form/_star.html",
+			"form/_dtpicker.html",
+			"form/_input.html",
+			"form/_tags.html"
+		]
+	},
+	"windowSwitch/index.html": {
+		"refer": [
+			"windowSwitch/winS1.html",
+			"windowSwitch/winS2.html"
+		]
+	},
+	"windowSwitch/winS1.html": {
+		"resources": [
+			"windowSwitch/_sample_page1.html"
+		],
+		"refer": [
+			"windowSwitch/_sample_page1.html",
+			"windowSwitch/_sample_page3.html",
+			"windowSwitch/_sample_page2.html",
+			"windowSwitch/index.html"
+		]
+	},
+	"pic/index.html": {
+		"refer": [
+			"pic/pic_switch_01.html",
+			"pic/pic_switch_02.html",
+			"pic/pic_view_01.html"
+		]
+	},
+	"dialog/index.html": {
+		"refer": [
+			"dialog/alert.html",
+			"dialog/confirm.html",
+			"dialog/prompt.html",
+			"dialog/toast.html"
+		]
+	},
+	"dialog/alert.html": {
+		"refer": [
+			"dialog/index.html"
+		]
+	},
+	"dialog/prompt.html": {
+		"refer": [
+			"dialog/index.html"
+		]
+	},
+	"dialog/confirm.html": {
+		"refer": [
+			"dialog/index.html"
+		]
+	},
+	"dialog/toast.html": {
+		"refer": [
+			"dialog/index.html"
+		]
+	},
+	"windowSwitch/winS2.html": {
+		"refer": [
+			"windowSwitch/index.html"
 		]
 	}
 }

@@ -12,29 +12,27 @@
 <body>
 	<header class="mui-bar mui-bar-nav">
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-	    <h1 class="mui-title">输入对话框</h1>
+	    <h1 class="mui-title">标签</h1>
 	</header>
 	<div class="mui-content mui-content-padded">
-	    <button type="button" id="btn-prompt">输入对话框</button>
+	    <div class="PJ-tags">
+			<span>Good attitute</span>
+			<span>Good sence of responsibility</span>
+			<span>Low cost</span>
+			<span>Very carefully</span>
+			<span>High technology</span>
+		</div>
 	</div>
 	<script type="text/javascript">
-		document.getElementById("btn-prompt").addEventListener('tap', function(e) {
-			e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
-			
-			var btnArray = ['取消', '确定'];
-			mui.prompt('请输入你对MUI的评语：', '性能好', 'Hello MUI', btnArray, function(e) {
-				if (e.index == 1) {
-					
-				} else {
-					
-				}
-			})
-		});
+		//评定标签随机颜色设置
+		var pgTags = $('.PJ-tags');	
+		$(pgTags).find('span').each(function(index, element) {
+			var num = Math.round(Math.random()*5+1);
+			$(this).addClass('color-'+num);
+	    });
+	    mui('.PJ-tags').on('tap','span',function(){
+	    	$(this).toggleClass('selected');
+	    })
 	</script>
-	<!-- 【说明】
-		.prompt( message, placeholder, title, btnValue, callback[, type] )
-		1> 
-		2> 
-	-->
 </body>
 </html>

@@ -15,25 +15,23 @@
 	    <h1 class="mui-title">效果</h1>
 	</header>
 	<div class="mui-content">
-	    <ul class="mui-table-view" id="p-list">
-        </ul>
+	    <ul class="mui-table-view" id="p-list"></ul>
 	</div>
 	<script type="text/javascript">
 		//列表内容
 		var pages = [
-			{"pName":"评论", "pId":"p1"},
+			{"pName":"选项卡tab", "pId":"p1"},
 			{"pName":"列表与详情", "pId":"p2"},
 			{"pName":"索引列表", "pId":"p3"},
 			{"pName":"上拉刷新与下拉刷新", "pId":"p4"},
 			{"pName":"窗体切换", "pId":"p5"},
 			{"pName":"折叠面板", "pId":"p6"},
-			{"pName":"图片轮播", "pId":"p7"},
-			{"pName":"图片预览", "pId":"p8"},
+			{"pName":"图片类效果", "pId":"p7"},
+//			{"pName":"图片预览", "pId":"p8"},
 			{"pName":"侧滑菜单", "pId":"p9"},
 			{"pName":"表单", "pId":"p10"},
-			{"pName":"日期选择器", "pId":"p11"},
+//			{"pName":"日期选择器", "pId":"p11"},
 			{"pName":"消息框", "pId":"p12"},
-			{"pName":"DIV窗体切换", "pId":"p13"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
@@ -49,8 +47,8 @@
 			var cid = $(this).attr('id');
 			if(cid == 'p1'){
 				mui.openWindow({
-					url: 'comment.html',
-					id: 'comment'
+					url: 'tab/index.html',
+					id: 'tab_index'
 				})
 			}
 			if(cid == 'p2'){
@@ -73,8 +71,8 @@
 			}
 			if(cid == 'p5'){
 				mui.openWindow({
-					url: 'setting.html',
-					id: 'setting'
+					url: 'windowSwitch/index.html',
+					id: 'windowSwitch_idx'
 				})
 			}
 			if(cid == 'p6'){
@@ -85,16 +83,16 @@
 			}
 			if(cid == 'p7'){
 				mui.openWindow({
-					url: 'gallery.html',
-					id: 'gallery'
+					url: 'pic/index.html',
+					id: 'pic_index'
 				})
 			}
-			if(cid == 'p8'){
-				mui.openWindow({
-					url: 'img-view.html',
-					id: 'img-view'
-				})
-			}
+//			if(cid == 'p8'){
+//				mui.openWindow({
+//					url: 'img-view.html',
+//					id: 'img-view'
+//				})
+//			}
 			if(cid == 'p9'){
 				mui.openWindow({
 					url: 'offcanvas.html',
@@ -107,22 +105,16 @@
 					id: 'form_index'
 				})
 			}
-			if(cid == 'p11'){
-				mui.openWindow({
-					url: 'dtpicker.html',
-					id: 'dtpicker'
-				})
-			}
+//			if(cid == 'p11'){
+//				mui.openWindow({
+//					url: 'dtpicker.html',
+//					id: 'dtpicker'
+//				})
+//			}
 			if(cid == 'p12'){
 				mui.openWindow({
 					url: 'dialog/index.html',
 					id: 'dialog_index'
-				})
-			}
-			if(cid == 'p13'){
-				mui.openWindow({
-					url: 'div-window.html',
-					id: 'div-window'
 				})
 			}
 		})

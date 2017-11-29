@@ -209,7 +209,10 @@
 					"accordion.html",
 					"setting.html",
 					"form/index.html",
-					"offcanvas.html"
+					"offcanvas.html",
+					"windowSwitch/index.html",
+					"pic/index.html",
+					"dialog/index.html"
 				],
 				"priority": 0
 			},
@@ -281,7 +284,84 @@
 				],
 				"refer": [
 					"form/_range.html",
-					"form/_switch.html"
+					"form/_switch.html",
+					"form/_star.html",
+					"form/_dtpicker.html",
+					"form/_input.html",
+					"form/_tags.html"
+				],
+				"priority": 0
+			},
+			"windowSwitch/index.html": {
+				"resources": [],
+				"refer": [
+					"windowSwitch/winS1.html",
+					"windowSwitch/winS2.html"
+				],
+				"priority": 0
+			},
+			"windowSwitch/winS1.html": {
+				"resources": [
+					"windowSwitch/_sample_page1.html"
+				],
+				"refer": [
+					"windowSwitch/_sample_page3.html",
+					"windowSwitch/_sample_page2.html",
+					"windowSwitch/index.html"
+				],
+				"priority": 0
+			},
+			"pic/index.html": {
+				"resources": [],
+				"refer": [
+					"pic/pic_switch_01.html",
+					"pic/pic_switch_02.html",
+					"pic/pic_view_01.html"
+				],
+				"priority": 0
+			},
+			"dialog/index.html": {
+				"resources": [],
+				"refer": [
+					"dialog/alert.html",
+					"dialog/confirm.html",
+					"dialog/prompt.html",
+					"dialog/toast.html"
+				],
+				"priority": 0
+			},
+			"dialog/alert.html": {
+				"resources": [],
+				"refer": [
+					"dialog/index.html"
+				],
+				"priority": 0
+			},
+			"dialog/prompt.html": {
+				"resources": [],
+				"refer": [
+					"dialog/index.html"
+				],
+				"priority": 0
+			},
+			"dialog/confirm.html": {
+				"resources": [],
+				"refer": [
+					"dialog/index.html"
+				],
+				"priority": 0
+			},
+			"dialog/toast.html": {
+				"resources": [],
+				"refer": [
+					"dialog/index.html"
+				],
+				"priority": 0
+			},
+			"windowSwitch/winS2.html": {
+				"resources": [],
+				"refer": [
+					"windowSwitch/index.html"
 				],
 				"priority": 0
 			}

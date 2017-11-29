@@ -12,17 +12,15 @@
 <body>
 	<header class="mui-bar mui-bar-nav">
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-	    <h1 class="mui-title">输入对话框</h1>
+	    <h1 class="mui-title">确认消息框</h1>
 	</header>
 	<div class="mui-content mui-content-padded">
-	    <button type="button" id="btn-prompt">输入对话框</button>
+	    <button type="button" id="btn-confirm">确认消息框</button>
 	</div>
 	<script type="text/javascript">
-		document.getElementById("btn-prompt").addEventListener('tap', function(e) {
-			e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
-			
-			var btnArray = ['取消', '确定'];
-			mui.prompt('请输入你对MUI的评语：', '性能好', 'Hello MUI', btnArray, function(e) {
+		document.getElementById("btn-confirm").addEventListener('tap', function() {
+			var btnArray = ['否', '是'];
+			mui.confirm('MUI是个好框架，确认？', 'Hello MUI', btnArray, function(e) {
 				if (e.index == 1) {
 					
 				} else {
@@ -32,7 +30,7 @@
 		});
 	</script>
 	<!-- 【说明】
-		.prompt( message, placeholder, title, btnValue, callback[, type] )
+		.confirm( message, title, btnValue, callback [, type] )
 		1> 
 		2> 
 	-->

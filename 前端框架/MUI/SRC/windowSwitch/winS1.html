@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/default.css" rel="stylesheet"/>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<nav class="mui-bar mui-bar-tab">
+	    <a class="mui-tab-item mui-active" href="_sample_page1.html">
+	        <span class="mui-tab-label">页面一</span>
+	    </a>
+	    <a class="mui-tab-item" href="_sample_page2.html">
+	        <span class="mui-tab-label">页面二</span>
+	    </a>
+	    <a class="mui-tab-item" href="_sample_page3.html">
+	        <span class="mui-tab-label">页面三</span>
+	    </a>
+	</nav>
+	<script type="text/javascript">
+		mui.init();
+		//子页面
+		var subpages = ['_sample_page1.html', '_sample_page2.html', '_sample_page3.html'];
+		var subpages_style = {
+            top: '0',
+            bottom: '51px'
+        };
+        //创建子页面，首个选项卡页面显示，其它均隐藏；
+		mui.plusReady(function() {
+	        var self = plus.webview.currentWebview();
+	        for(var i = 0; i < subpages.length; i++) {
+	            var temp = {};
+	            var sub = plus.webview.create(subpages[i], subpages[i], subpages_style);
+	            if(i > 0) {
+	                sub.hide();
+	            }
+	            self.append(sub);
+	        }
+	    })
+		//当前激活选项
+		var activeTab = subpages[0];
+		//选项卡点击事件
+		mui('.mui-bar-tab').on('tap','.mui-tab-item',function(){
+			var targetTab = $(this).attr('href');
+			if (targetTab == activeTab) {
+				return;
+			}
+			plus.webview.show(targetTab); //显示目标选项卡
+			plus.webview.hide(activeTab); //隐藏当前;
+			activeTab = targetTab; //更改当前活跃的选项卡
+		})
+	</script>
+</body>
+</html>

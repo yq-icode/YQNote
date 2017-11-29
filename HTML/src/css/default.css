@@ -78,11 +78,11 @@ body{
 }
 /*引用(即文章摘取的URL地址)*/
 .reference{
-	color: #666666;
+	color: #aaa;
 	font-size: 12px;
 }
 .reference a{
-	color: #0066CC;
+	color: #aaa;
 }
 /*实例容器（即实例演示）*/
 .example-wrap{}

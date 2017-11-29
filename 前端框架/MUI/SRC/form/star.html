@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/default.css" rel="stylesheet"/>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">星级</h1>
+	</header>
+	<div class="mui-content mui-content-padded">
+	    <div class="PJ-star">
+	        <span data-index="1" class="mui-icon mui-icon-star"></span>
+	        <span data-index="2" class="mui-icon mui-icon-star"></span>
+	        <span data-index="3" class="mui-icon mui-icon-star"></span>
+	        <span data-index="4" class="mui-icon mui-icon-star"></span>
+	        <span data-index="5" class="mui-icon mui-icon-star"></span>
+	        <label></label>
+	    </div>
+	</div>
+	<script type="text/javascript">
+		mui.init();
+		//设置星星
+		mui('.PJ-star').on('tap','span',function(){
+            var index = parseInt(this.getAttribute("data-index"));//获取当前元素的索引值
+            var parent = this.parentNode;//获取当前元素的父节点 
+            var children = parent.children;//获取父节点下所有子元素
+            if(this.classList.contains("mui-icon-star")){//判断当前节点列表中是否含有.mui-icon-star元素
+                for(var i=0;i<index;i++){//亮星
+                    children[i].classList.remove('mui-icon-star');
+                    children[i].classList.add('mui-icon-star-filled');
+                }
+
+            }else{//重置已经亮星的元素 
+                for (var i = index; i < 5; i++) {
+                    children[i].classList.add('mui-icon-star')
+                    children[i].classList.remove('mui-icon-star-filled')
+                }
+            }
+            //点亮星星的数量
+            $(this).siblings('label').text(index + '星');
+      	})
+	</script>
+</body>
+</html>
