@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+		#djs{
+			font-size:30px;
+			color:#999;
+		}
+	</style>
+</head>
+<body>
+	<h3>时间倒计时</h3>
+	<span id="djs"></span>
+	
+	<script type="text/javascript">
+	    var qTime, tHour, tMin, tSec;
+	    qTime = "542";//总时间（秒为最小单位）
+	    
+	    function countDown(){
+	        if(qTime > 0){
+	            qTime--;
+	            tHour = Math.floor(qTime/(60*60))%24;
+	            tMin = Math.floor(qTime/60)%60;
+	            tSec = Math.floor(qTime/1)%60;
+	            if(tHour <= 0) tHour = 0;
+	            if(tMin <= 0) tMin = 0;
+	            if(tSec <= 0) tSec = 0;
+	            //当'时分秒'值小于10时让其显示为两位数
+	            if(tHour >= 0 & tHour < 10) tHour = "0" + tHour;
+	            if(tMin >= 0 & tMin < 10) tMin = "0" + tMin;
+	            if(tSec >= 0 & tSec < 10) tSec = "0" + tSec;
+	            var _html_djs
+	            //当不足1小时时，只显示分钟和秒
+	            if(tHour == 0){
+	                _html_djs = tMin + ":" + tSec;
+	            }
+	            //当大于1小时时，显示时分秒
+	            else{
+	                _html_djs = tHour + ":" + tMin + ":" + tSec;
+	            }
+	            $('#djs').html(_html_djs);
+	        }
+	    }
+	    setInterval("countDown()", 1000);
+	</script>
+</body>
+</html>

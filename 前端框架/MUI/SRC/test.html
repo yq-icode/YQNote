@@ -1,1 +1,121 @@
-aaaaaaaaaaaaaaaaa
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/iconfont.css" rel="stylesheet"/>
+    <link href="css/default.css" rel="stylesheet"/>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <style>
+    	.pg-scoreBd {line-height: 1;}
+    	.pg-scoreBd, .pg-scoreBd .mui-content{background-color: #FFFFFF;}
+		.pg-scoreBd header{
+			box-shadow: none;
+			background-color: #FFFFFF;
+			border-bottom: 1px solid #EEEEEE;
+		}
+		.scoreBd{
+			margin: 0 10px;
+		}
+		.scoreBd li {
+			margin: 10px 0;
+			font-size: 16px;
+			color: #00cc99;
+		}
+		.scoreBd li em{
+			display: inline-block;
+			width: 30px;
+		}
+		.scoreBd li.s3 em{color: #ff9900;}
+		
+		.scoreBd li img{
+			width: 40px;
+			height: 40px;
+			border: 2px solid #eee;
+			box-shadow: 0 0 3px 3px #rgba(0,0,0,0.2);
+			border-radius: 100px;
+		}
+		.scoreBd li label{
+			display: inline-block;
+			margin: 0 15px 0 10px;
+			padding: 2px 5px;
+			background-color: #eee;
+			font-size: 12px;
+			color: #666;
+		}
+		.scoreBd li .iconfont{
+			font-size: 24px;
+			color: #00cc99;
+			line-height: 30px;
+		}
+		.scoreBd li i{
+			display:inline-block;
+			width: 30px;
+			color: #00CC99;
+			line-height: 40px;
+			font-style: normal;
+		}
+		
+		.scoreBd li:nth-child(1) i,
+		.scoreBd li:nth-child(1) .iconfont{color: #ff3300;}
+		
+		.scoreBd li:nth-child(2) i,
+		.scoreBd li:nth-child(2) .iconfont{color: #ff9900;}
+		
+		.scoreBd li:nth-child(3) i,
+		.scoreBd li:nth-child(3) .iconfont{color: #ffcc00;}
+    </style>
+</head>
+<body class="pg-scoreBd">
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">效果</h1>
+	</header>
+	<div class="mui-content">
+	    <ul id="sBd" class="scoreBd mui-list-unstyled"></ul>
+	</div>
+	<script type="text/javascript">
+		var lb = [
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"Jack", "win":"6", "score":"32"},
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"Neely", "win":"12", "score":"22"},
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"tracy", "win":"20", "score":"66"},
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"wendiy", "win":"53", "score":"80"},
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"Amy", "win":"38", "score":"69"},
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"Boryesd", "win":"11", "score":"45"}
+		]
+		_html = "";
+		for(i=0;i<6;i++){
+			var _lb = lb[i];
+			if(i < 3) { //为前三名设置不名的颜色
+				_html += "<li class='s3 valignMid'>";
+			} else {
+				_html += "<li class='valignMid'>";
+			}
+			_html += "<span class='iconfont icon-xingxing1 mui-pull-right'></span>";
+			_html += "<i class='mui-pull-right'>" + _lb.score + "</i>";
+			_html += "<em>" + (i + 1) + "</em>";
+			_html += "<img src='" + _lb.sPhotoUrl + "' />";
+			_html += "<label style='width:" + Number(_lb.score) * 1.3 + "px'>" + _lb.sName + "</label>";
+			_html += "</li>";
+		}
+		
+		var lbL = $('#sBd');
+		$(lbL).append(_html);
+		
+		//计算胜率
+		for(i = 0; i < $(lbL).find('li').length; i++) {
+			var cb = $(lbL).find('li').eq(i);
+			if(i < 3) { //为前三名设置不名的颜色
+				$(cb).addClass('f3');
+			}
+			//计算bar2的宽度
+			//console.log("win:" + $(cb).find('.bar2 em').text() + "   sun:" + $(cb).find('.bar1').next().text() + "   bar1w:" + $(cb).find('.bar1').width())
+			_b2w = $(cb).find('.bar2 em').text() / $(cb).find('.bar1').next('em').text() * $(cb).find('.bar1').width();
+			$(cb).find('.bar2 i').css({"width":_b2w, "-webkit-transition":"all 1s ease 0.5s"});
+		}
+	</script>
+</body>
+</html>

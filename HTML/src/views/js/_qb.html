@@ -5,52 +5,23 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-    <!--#include virtual="/include/_head_import_file.html" -->
-    <link rel="stylesheet/less" href="css/js.less">
-    <script src="/js/less-2.5.3.min.js"></script>
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<!--#include virtual="/include/_header.html" -->
     <div class="container">
-        <h2 class="title-sec">原生JS Jquery操作DOM的区别</h2>
+        <h2 class="title-r2">原生JS Jquery操作DOM的区别</h2>
         <section>
-            <p>jquery对象带$，jquery对象才能调用jquery函数与方法, 原生JS对象，只能调用原生函数与方法</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>   
-        var obj = $('#slider');
-        
-        jquery写法：$(obj).eq(i)
-        原生写法：obj[i]
-        
-        所以$(obj)[i]这种写法是错误的
-        
-        MUI对象，只能调用MUI函数与方法
-        mui('#slider').slider({
-        interval:1000
-        })
-        以下写法均是错误的
-        $(obj).slider({
-        interval:1000
-        })
-        $('#slider').slider({
-        interval:1000
-        })
-        obj.slider({
-        interval:1000
-        })
-        
-        
-                    </code>
-                </pre>
-            </div>
-        </section>
-        <section>
-        	<strong>选择元素</strong>
+        	<strong>选择元素－按DOM标签、class、id</strong>
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-                    //jq
+//jq
 $('.el');
 //js   
 document.querySelector("div");
@@ -60,11 +31,24 @@ mui(".el")[0];
                     </code>
                 </pre>
             </div>
+            <strong>选择元素－按索引</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+//jq
+$('.el').eq(index);
+//js   
+document.querySelectorAll('.el')[index];
+//mui
+mui(".el")[index];
+                    </code>
+                </pre>
+            </div>
             <strong>父、兄弟元素</strong>
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-                    //jq
+//jq
 $('.el').parent();
 $('.el').prev();
 $('.el').next();
@@ -83,7 +67,7 @@ document.querySelector(".el").children[0];
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-                    //jq
+//jq
 $('.el').html();
 $('.el').val();
 $('.el').text();
@@ -100,7 +84,7 @@ document.getElementById('el').outerHTML = string;
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-                    //jq
+//jq
 var newEl = $('&lt;div/&gt;');
 //js
 var newEl = document.createElement('div');
@@ -111,7 +95,7 @@ var newEl = document.createElement('div');
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-                    //jq
+//jq
 $('.el').filter(':first').attr('key', 'value');
 $('.el').filter(':first').attr('key');
 $('.el').addClass('class');
@@ -132,8 +116,9 @@ document.querySelector('.el').style.borderWidth = '20px';
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-                    //jq
+//jq
 $('.el').append($('&lt;div/&gt;'));
+$('.el').prepend($('&lt;div/&gt;'));
 //js 
 document.querySelector('.el').appendChild(document.createElement('div'));
                     </code>
@@ -143,7 +128,7 @@ document.querySelector('.el').appendChild(document.createElement('div'));
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-               //jq
+//jq
 var clonedEl = $('.el').clone();
 //js
 var clonedEl = document.querySelector('.el').cloneNode(true);     
@@ -154,7 +139,7 @@ var clonedEl = document.querySelector('.el').cloneNode(true);
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-                    //jq
+//jq
 $('.el').remove();
 // js
 var toRemove = document.querySelector(el);
@@ -166,7 +151,7 @@ toRemove.parentNode.removeChild(toRemove);
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-             //jq
+//jq
 $(el).show();
 $(el).hide();
 //js
@@ -179,7 +164,7 @@ el.style.display = 'none';
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-                    //jq
+//jq
 $(el).hasClass(className);
 //js
 if (el.classList)
@@ -193,7 +178,7 @@ else
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-                    //jq
+//jq
 $(el).addClass(className);
 //js
 if (el.classList)
@@ -207,7 +192,7 @@ else
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-             //jq
+//jq
 $(el).removeClass(className);
 //js
 // removeClass, takes two params: element and classname
@@ -228,7 +213,7 @@ el.classList.toggle("active");
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-                   //jq
+//jq
 $(el).before(htmlString);
 $(parent).append(el);
 $(el).after(htmlString);
@@ -243,7 +228,7 @@ el.insertAdjacentHTML('afterend', htmlString);
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-                  //jq
+//jq
 $(el).children();
 //js
 el.children  
@@ -254,7 +239,7 @@ el.children
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
-            //jq
+//jq
 $.trim(string);
 //js
 string.trim();         

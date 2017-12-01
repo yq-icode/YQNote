@@ -19,7 +19,8 @@
 			"offcanvas.html",
 			"windowSwitch/index.html",
 			"pic/index.html",
-			"dialog/index.html"
+			"dialog/index.html",
+			"tab/index.html"
 		]
 	},
 	"comment.html": {
@@ -86,7 +87,9 @@
 			"form/_star.html",
 			"form/_dtpicker.html",
 			"form/_input.html",
-			"form/_tags.html"
+			"form/_tags.html",
+			"form/input.html",
+			"form/star.html"
 		]
 	},
 	"windowSwitch/index.html": {
@@ -144,6 +147,28 @@
 	"windowSwitch/winS2.html": {
 		"refer": [
 			"windowSwitch/index.html"
+		]
+	},
+	"tab/index.html": {
+		"refer": [
+			"tab/tab1.html",
+			"tab/tab2.html",
+			"tab/tab3.html"
+		]
+	},
+	"tab/tab1.html": {
+		"refer": [
+			"tab/index.html"
+		]
+	},
+	"tab/tab2.html": {
+		"refer": [
+			"tab/index.html"
+		]
+	},
+	"tab/tab3.html": {
+		"refer": [
+			"tab/index.html"
 		]
 	}
 }

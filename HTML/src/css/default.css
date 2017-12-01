@@ -1,5 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
+
+ul,li{margin: 0;padding: 0;}
 body{
 	background-color: #F3F3F3;
 	font-size: 14px;
@@ -75,6 +77,14 @@ body{
 	padding: 2px 5px;
 	background-color:#95C900;
 	color: #fff;
+}
+.browser-support ul{
+	margin: 15px 0;
+}
+.browser-support ul li{
+	margin: 8px 0;
+	list-style-position: inside;
+	color: #666;
 }
 /*引用(即文章摘取的URL地址)*/
 .reference{

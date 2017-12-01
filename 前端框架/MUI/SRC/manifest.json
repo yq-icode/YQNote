@@ -212,7 +212,8 @@
 					"offcanvas.html",
 					"windowSwitch/index.html",
 					"pic/index.html",
-					"dialog/index.html"
+					"dialog/index.html",
+					"tab/index.html"
 				],
 				"priority": 0
 			},
@@ -288,7 +289,9 @@
 					"form/_star.html",
 					"form/_dtpicker.html",
 					"form/_input.html",
-					"form/_tags.html"
+					"form/_tags.html",
+					"form/input.html",
+					"form/star.html"
 				],
 				"priority": 0
 			},
@@ -362,6 +365,36 @@
 				"resources": [],
 				"refer": [
 					"windowSwitch/index.html"
+				],
+				"priority": 0
+			},
+			"tab/index.html": {
+				"resources": [],
+				"refer": [
+					"tab/tab1.html",
+					"tab/tab2.html",
+					"tab/tab3.html"
+				],
+				"priority": 0
+			},
+			"tab/tab1.html": {
+				"resources": [],
+				"refer": [
+					"tab/index.html"
+				],
+				"priority": 0
+			},
+			"tab/tab2.html": {
+				"resources": [],
+				"refer": [
+					"tab/index.html"
+				],
+				"priority": 0
+			},
+			"tab/tab3.html": {
+				"resources": [],
+				"refer": [
+					"tab/index.html"
 				],
 				"priority": 0
 			}
