@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <style>
+        input,
+        button,
+        .mui-btn {
+            margin: 5px 15px 10px 5px;
+            
+        }
+        .mui-spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            -webkit-transform-origin: 50%;
+            transform-origin: 50%;
+            -webkit-animation: spinner-spin 1s step-end infinite;
+            animation: spinner-spin 1s step-end infinite;
+        }
+        .mui-spinner:after {
+            display: block;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-position: 50%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .mui-spinner-custom:after {
+            background-image: url("data:image/svg+xml;charset=utf-8,<svg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><line id='l' x1='60' x2='60' y1='7' y2='27' stroke='red' stroke-width='11' stroke-linecap='round'/></defs><g><use xlink:href='%23l' opacity='.27'/><use xlink:href='%23l' opacity='.27' transform='rotate(30 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(60 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(90 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(120 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(150 60,60)'/><use xlink:href='%23l' opacity='.37' transform='rotate(180 60,60)'/><use xlink:href='%23l' opacity='.46' transform='rotate(210 60,60)'/><use xlink:href='%23l' opacity='.56' transform='rotate(240 60,60)'/><use xlink:href='%23l' opacity='.66' transform='rotate(270 60,60)'/><use xlink:href='%23l' opacity='.75' transform='rotate(300 60,60)'/><use xlink:href='%23l' opacity='.85' transform='rotate(330 60,60)'/></g></svg>");
+        }
+    </style>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">按钮</h1>
+    </header>
+    <div class="mui-content">
+        <div class="mui-card">
+        	<div class="mui-card-header">加载中按钮</div>
+        	<div class="mui-card-content">
+        		<div class="mui-card-content-inner">
+		            <h5>左侧loading图标：</h5>
+		            <button type="button" class="mui-btn mui-btn-primary loadingBtn" >确认</button>
+		            <h5>右侧loading图标：</h5>
+		            <button type="button" class="mui-btn mui-btn-primary loadingBtn" data-loading-text = "提交中" data-loading-icon-position="right">确认</button>
+		            <h5>无loading图标：</h5>
+		            <button type="button" class="mui-btn mui-btn-primary loadingBtn" data-loading-icon="">确认</button>
+		            <h5>自定义loading图标：</h5>
+		            <button type="button" class="mui-btn mui-btn-primary loadingBtn" data-loading-icon="mui-spinner mui-spinner-custom">确认</button>
+	            </div>
+        	</div>
+        </div>
+        <div class="mui-card">
+        	<div class="mui-card-header">带数字的按钮</div>
+        	<div class="mui-card-content">
+        		<div class="mui-card-content-inner">
+	        		<button type="button" class="mui-btn">Badge button <span class="mui-badge">1</span></button>
+			        <button type="button" class="mui-btn mui-btn-primary">Badge button <span class="mui-badge mui-badge-primary">2</span></button>
+			        <button type="button" class="mui-btn mui-btn-success">Badge button <span class="mui-badge mui-badge-success">12</span></button>
+			        <button type="button" class="mui-btn mui-btn-warning">Badge button <span class="mui-badge mui-badge-warning">121</span></button>
+			        <button type="button" class="mui-btn mui-btn-danger">Badge button <span class="mui-badge mui-badge-danger">999</span></button>
+			        <button type="button" class="mui-btn mui-btn-royal">Badge button <span class="mui-badge mui-badge-royal">999</span></button>
+        		</div>
+        	</div>
+        </div>
+        <div class="mui-card">
+        	<div class="mui-card-header">带图标按钮</div>
+        	<div class="mui-card-content">
+        		<div class="mui-card-content-inner">
+	        		<h5>图标居左：</h5>
+			        <button type="button" class="mui-btn mui-icon mui-icon-home">首页</button>
+			        <button type="button" class="mui-btn mui-btn-primary mui-icon mui-icon-search">搜索</button>
+			        <button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">
+			            <span class="mui-icon mui-icon-trash"></span>删除	
+			        </button>
+			        <button type="button" class="mui-btn mui-btn-link">
+			            <span class="mui-icon mui-icon-back"></span>返回
+			        </button>
+			        <h5>图标居右：</h5>
+			        <button type="button" class="mui-btn mui-icon mui-icon-home mui-right">首页</button>
+			        <button type="button" class="mui-btn mui-btn-primary mui-icon mui-icon-search mui-right">搜索</button>
+			        <button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">
+			        	删除	<span class="mui-icon mui-icon-trash"></span>
+			        </button>
+			        <button type="button" class="mui-btn mui-btn-link">
+			        	下一步<span class="mui-icon mui-icon-forward"></span>
+			        </button>
+			    </div>
+        	</div>
+        </div>
+        <div class="mui-card">
+        	<div class="mui-card-header">块级按钮</div>
+        	<div class="mui-card-content">
+        		<div class="mui-card-content-inner">
+	        		<h5>有底色：</h5>
+			        <button type="button" class="mui-btn mui-btn-primary mui-btn-block">Block button</button>
+			        <h5>无底色：</h5>
+			        <button type="button" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined">Block button</button>
+			    </div>
+        	</div>
+        </div>
+    </div>
+</body>
+<script src="../js/mui.min.js"></script>
+<script>
+    mui.init({
+        swipeBack: true //启用右滑关闭功能
+    });
+    //加载中按钮
+    mui(document.body).on('tap', '.loadingBtn', function(e) {
+        mui(this).button('loading');
+        setTimeout(function() {
+            mui(this).button('reset');
+        }.bind(this), 2000);
+    });
+</script>
+</html>

@@ -213,7 +213,8 @@
 					"windowSwitch/index.html",
 					"pic/index.html",
 					"dialog/index.html",
-					"tab/index.html"
+					"tab/index.html",
+					"popup/index.html"
 				],
 				"priority": 0
 			},
@@ -291,7 +292,8 @@
 					"form/_input.html",
 					"form/_tags.html",
 					"form/input.html",
-					"form/star.html"
+					"form/star.html",
+					"form/button.html"
 				],
 				"priority": 0
 			},
@@ -299,7 +301,8 @@
 				"resources": [],
 				"refer": [
 					"windowSwitch/winS1.html",
-					"windowSwitch/winS2.html"
+					"windowSwitch/winS2.html",
+					"windowSwitch/winS3.html"
 				],
 				"priority": 0
 			},
@@ -395,6 +398,32 @@
 				"resources": [],
 				"refer": [
 					"tab/index.html"
+				],
+				"priority": 0
+			},
+			"windowSwitch/winS3.html": {
+				"resources": [
+					"windowSwitch/_sample_page1.html"
+				],
+				"refer": [
+					"windowSwitch/_sample_page3.html",
+					"windowSwitch/_sample_page2.html",
+					"windowSwitch/index.html",
+					"windowSwitch/offcanvas_menu.html"
+				],
+				"priority": 0
+			},
+			"popup/index.html": {
+				"resources": [],
+				"refer": [
+					"popup/popup1.html"
+				],
+				"priority": 0
+			},
+			"popup/popup1.html": {
+				"resources": [],
+				"refer": [
+					"popup/index.html"
 				],
 				"priority": 0
 			}

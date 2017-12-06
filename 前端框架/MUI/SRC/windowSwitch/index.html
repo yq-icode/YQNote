@@ -15,14 +15,52 @@
 	    <h1 class="mui-title">窗体切换</h1>
 	</header>
 	<div class="mui-content">
-	    <ul class="mui-table-view">
-            <li class="mui-table-view-cell">
-                <a class="mui-navigate-right" href="winS1.html">形式一</a>
-            </li>
-            <li class="mui-table-view-cell">
-                <a class="mui-navigate-right" href="winS2.html">DIV窗体切换</a>
-            </li>
-        </ul>
+	    <ul class="mui-table-view" id="p-list"></ul>
 	</div>
+	<script type="text/javascript">
+		var pages = [
+			{"pName":"TAB窗体切换"},
+			{"pName":"DIV窗体切换"},
+			{"pName":"侧滑导航"},
+			{"pName":"顶部选项卡-可左右拖动"}
+		]
+		var _html_pl = "";
+		for(i=0; i<pages.length; i++){
+			var _p = pages[i];
+			_html_pl += "<li class='mui-table-view-cell'>";
+			_html_pl += "<a class='mui-navigate-right'>" + _p.pName + "</a>";
+			_html_pl += "</li>"
+		}
+		$('#p-list').html($('#p-list').html()+_html_pl);
+		
+		//点击不同的列表进入不同的页面
+		mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
+			var idx = $(this).index();
+			if(idx == 0){
+				mui.openWindow({
+					url: 'winS1.html',
+					id: 'winS1'
+				})
+			}
+			if(idx == 1){
+				mui.openWindow({
+					url: 'winS2.html',
+					id: 'winS2'
+				})
+			}
+			if(idx == 2){
+				mui.openWindow({
+					url: 'winS3.html',
+					id: 'winS3'
+				})
+			}
+			if(idx == 3){
+				mui.openWindow({
+					url: 'winS4.html',
+					id: 'winS4'
+				})
+			}
+		})
+	</script>
 </body>
 </html>

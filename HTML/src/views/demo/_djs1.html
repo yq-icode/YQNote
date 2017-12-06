@@ -27,9 +27,6 @@
 	            tHour = Math.floor(qTime/(60*60))%24;
 	            tMin = Math.floor(qTime/60)%60;
 	            tSec = Math.floor(qTime/1)%60;
-	            if(tHour <= 0) tHour = 0;
-	            if(tMin <= 0) tMin = 0;
-	            if(tSec <= 0) tSec = 0;
 	            //当'时分秒'值小于10时让其显示为两位数
 	            if(tHour >= 0 & tHour < 10) tHour = "0" + tHour;
 	            if(tMin >= 0 & tMin < 10) tMin = "0" + tMin;

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>播放器进度条控制</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="css/player-progress-control.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+    <script src="js/player-progress-control.js"></script>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+	<div class="topbar">
+		<div class="container">
+			<h2>播放器进度条控制</h2>
+		</div>
+	</div>
+	<div class="container">
+    	<div class="row">
+    		<div class="col-md-9" role="main">
+            	<div class="controlBar">
+                    <div class="cbbtn">
+                        <a class="b_back" href="javascript:void(0)"></a>
+                        <a class="b_play" href="javascript:void(0)"></a>
+                        <a class="b_forward" href="javascript:void(0)"></a>
+                    </div>
+                    <div class="barCon">
+                        <div class="bars">
+                            <p class="bar1"></p><i></i>
+                            <p class="bar2"></p>
+                        </div>
+                        <span><em class="time-current">00:00:00</em>/<em class="time-sum">00:30:30</em></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

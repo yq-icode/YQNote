@@ -19,20 +19,22 @@
 	</div>
 	<script type="text/javascript">
 		var pages = [
-			{"pName":"数字输入框numbox", "pId":"p1"},
-			{"pName":"滑块range", "pId":"p2"},
-			{"pName":"开关switch", "pId":"p3"},
-			{"pName":"星级star", "pId":"p4"},
-			{"pName":"日期时间选择器", "pId":"p5"},
-			{"pName":"输入框input", "pId":"p6"},
-			{"pName":"标签tag", "pId":"p7"},
-			{"pName":"单选框", "pId":"p8"},
-			{"pName":"复选框", "pId":"p9"}
+			{"pName":"数字输入框numbox"},
+			{"pName":"滑块range"},
+			{"pName":"开关switch"},
+			{"pName":"星级star"},
+			{"pName":"日期时间选择器"},
+			{"pName":"输入框input"},
+			{"pName":"标签tag"},
+			{"pName":"单选框"},
+			{"pName":"复选框"},
+			{"pName":"按钮"},
+			{"pName":"滑动触发列表项菜单"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
 			var _p = pages[i];
-			_html_pl += "<li class='mui-table-view-cell' id='" + _p.pId + "'>";
+			_html_pl += "<li class='mui-table-view-cell'>";
 			_html_pl += "<a class='mui-navigate-right'>" + _p.pName + "</a>";
 			_html_pl += "</li>"
 		}
@@ -40,59 +42,71 @@
 		
 		//点击不同的列表进入不同的页面
 		mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
-			var cid = $(this).attr('id');
-			if(cid == 'p1'){
+			var idx = $(this).index();
+			if(idx == 0){
 				mui.openWindow({
 					url: 'numbox.html',
 					id: 'numbox'
 				})
 			}
-			if(cid == 'p2'){
+			if(idx == 1){
 				mui.openWindow({
 					url: 'range.html',
 					id: 'range'
 				})
 			}
-			if(cid == 'p3'){
+			if(idx == 2){
 				mui.openWindow({
 					url: 'switch.html',
 					id: 'switch'
 				})
 			}
-			if(cid == 'p4'){
+			if(idx == 3){
 				mui.openWindow({
 					url: 'star.html',
 					id: 'star'
 				})
 			}
-			if(cid == 'p5'){
+			if(idx == 4){
 				mui.openWindow({
 					url: 'dtpicker.html',
 					id: 'dtpicker'
 				})
 			}
-			if(cid == 'p6'){
+			if(idx == 5){
 				mui.openWindow({
 					url: 'input.html',
 					id: 'input'
 				})
 			}
-			if(cid == 'p7'){
+			if(idx == 6){
 				mui.openWindow({
 					url: 'tags.html',
 					id: 'tags'
 				})
 			}
-			if(cid == 'p8'){
+			if(idx == 7){
 				mui.openWindow({
 					url: 'radio.html',
 					id: 'radio'
 				})
 			}
-			if(cid == 'p9'){
+			if(idx == 8){
 				mui.openWindow({
 					url: 'checkbox.html',
 					id: 'checkbox'
+				})
+			}
+			if(idx == 9){
+				mui.openWindow({
+					url: 'button.html',
+					id: 'button'
+				})
+			}
+			if(idx == 10){
+				mui.openWindow({
+					url: 'tableviews-with-swipe.html',
+					id: 'tableviews-with-swipe'
 				})
 			}
 		})

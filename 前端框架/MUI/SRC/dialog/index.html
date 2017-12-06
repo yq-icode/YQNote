@@ -15,20 +15,52 @@
 	    <h1 class="mui-title">消息框</h1>
 	</header>
 	<div class="mui-content">
-	    <ul class="mui-table-view">
-            <li class="mui-table-view-cell">
-                <a href="alert.html" class="mui-navigate-right">警告消息框</a>
-            </li>
-            <li class="mui-table-view-cell">
-                <a href="confirm.html" class="mui-navigate-right">确认消息框</a>
-            </li>
-            <li class="mui-table-view-cell">
-                <a href="prompt.html" class="mui-navigate-right">输入对话框</a>
-            </li>
-            <li class="mui-table-view-cell">
-                <a href="toast.html" class="mui-navigate-right">自动消失提示框</a>
-            </li>
-        </ul>
+        <ul class="mui-table-view" id="p-list"></ul>
 	</div>
+	<script type="text/javascript">
+		var pages = [
+			{"pName":"警告消息框"},
+			{"pName":"确认消息框"},
+			{"pName":"输入对话框"},
+			{"pName":"自动消失提示框"}
+		]
+		var _html_pl = "";
+		for(i=0; i<pages.length; i++){
+			var _p = pages[i];
+			_html_pl += "<li class='mui-table-view-cell'>";
+			_html_pl += "<a class='mui-navigate-right'>" + _p.pName + "</a>";
+			_html_pl += "</li>"
+		}
+		$('#p-list').html($('#p-list').html()+_html_pl);
+		
+		//点击不同的列表进入不同的页面
+		mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
+			var idx = $(this).index();
+			if(idx == 0){
+				mui.openWindow({
+					url: 'alert.html',
+					id: 'alert'
+				})
+			}
+			if(idx == 1){
+				mui.openWindow({
+					url: 'confirm.html',
+					id: 'confirm'
+				})
+			}
+			if(idx == 2){
+				mui.openWindow({
+					url: 'prompt.html',
+					id: 'prompt'
+				})
+			}
+			if(idx == 3){
+				mui.openWindow({
+					url: 'toast.html',
+					id: 'toast'
+				})
+			}
+		})
+	</script>
 </body>
 </html>

@@ -18,16 +18,15 @@
 	    <ul class="mui-table-view" id="p-list"></ul>
 	</div>
 	<script type="text/javascript">
-		//列表内容
 		var pages = [
-			{"pName":"单图片切换", "pId":"p1"},
-			{"pName":"双图片切换", "pId":"p2"},
-			{"pName":"图片预览", "pId":"p3"}
+			{"pName":"单图片切换"},
+			{"pName":"双图片切换"},
+			{"pName":"图片预览"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
 			var _p = pages[i];
-			_html_pl += "<li class='mui-table-view-cell' id='" + _p.pId + "'>";
+			_html_pl += "<li class='mui-table-view-cell'>";
 			_html_pl += "<a class='mui-navigate-right'>" + _p.pName + "</a>";
 			_html_pl += "</li>"
 		}
@@ -35,20 +34,20 @@
 		
 		//点击不同的列表进入不同的页面
 		mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
-			var cid = $(this).attr('id');
-			if(cid == 'p1'){
+			var idx = $(this).index();
+			if(idx == 0){
 				mui.openWindow({
 					url: 'pic_switch_01.html',
 					id: 'pic_switch_01'
 				})
 			}
-			if(cid == 'p2'){
+			if(idx == 1){
 				mui.openWindow({
 					url: 'pic_switch_02.html',
 					id: 'pic_switch_02'
 				})
 			}
-			if(cid == 'p3'){
+			if(idx == 2){
 				mui.openWindow({
 					url: 'pic_view_01.html',
 					id: 'pic_view_01'
