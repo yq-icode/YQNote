@@ -22,7 +22,6 @@ $(function ()
     m = Math.round($(t_sum).html().substring(3,5));
     s = Math.round($(t_sum).html().substring(6,8));
     t_sum_toSecond = Math.round(h*3600 + m*60 + s);
-    
 	
 	var state = 1;//默认播放
 	var barsLength = $(o_bars).width();//播放条总长度
@@ -42,6 +41,12 @@ $(function ()
 		else{
 			clearInterval(timer1);//暂停
 			state=1;
+			$(o_bars).on({
+				mousemove: function(e){ //暂停状态下：鼠标悬停时显示当前时间
+					var dis1 = e.pageX - $(this).offset().left;
+					$(this).attr('title',toTime(dis1));
+				}
+			})
 		}
 		$(this).toggleClass('b_pause');
 	})
@@ -56,6 +61,13 @@ $(function ()
 			dis += dis2;
 		}
 		set();
+		
+		$(o_bars).on({
+			mousemove: function(e){ //播放状态下：鼠标悬停时显示当前时间
+				var dis1 = e.pageX - $(this).offset().left;
+				$(this).attr('title',toTime(dis1));
+			}
+		})
 	}
 	
 	//快进
@@ -68,16 +80,11 @@ $(function ()
 		dis = dis - 10;
 		set();
 	})
-
 	
 	$(o_bars).on({
-		mousedown: function(e){//点击移动滑块
+		mousedown: function(e){//点击播放条设置播放进度
 			dis = e.pageX - $(this).offset().left;
 			set();
-		},
-		mousemove: function(e){ //鼠标悬停时显示当前时间
-			var dis1 = e.pageX - $(this).offset().left;
-			$(this).attr('title',toTime(dis1));
 		},
 		mouseup: function(){
 			$(o_bars).off('mousemove');
@@ -114,7 +121,6 @@ $(function ()
 			$(o_bar1).css("width", "0");
 			$(o_block).css("left", "0");
 		}
-		
 		$(t_cur).html(toTime(dis));
 	}
 	//将当前播放进度转化成时分秒格式
@@ -133,9 +139,6 @@ $(function ()
         if(t_cur_s >= 0 & t_cur_s < 10) t_cur_s = "0" + t_cur_s;
         
         var t_cur_time = t_cur_h + ':' + t_cur_m + ':' + t_cur_s;
-
 		return t_cur_time;
 	}
-	
-	
 })

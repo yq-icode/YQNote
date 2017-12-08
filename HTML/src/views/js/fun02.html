@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+    <div class="container">
+    	<h3 class="title-r1">Math 对象方法</h3>
+    	<section>
+    		<h4 class="title-r4">Math.floor(x)</h4>
+	    	<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Math.floor(x)
+//example
+Math.floor(0.60) --> 0
+Math.floor(0.40) --> 0
+Math.floor(-5.1) --> -6
+Math.floor(-5.9) --> -6
+	
+	                </code>
+	            </pre>
+	        </div>
+			<p>floor()方法执行的是向下取整计算，它的返回值是：小于等于 x，且与 x 最接近的整数。</p>
+	    </section>
+	    
+	    <section>
+	    	<h4 class="title-r4">Math.ceil(x)</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Math.ceil(x)
+//example
+Math.ceil(0.60) --> 1
+Math.ceil(0.40) --> 1
+Math.ceil(-5.1) --> -5
+Math.ceil(-5.9) --> -5
+	                </code>
+	            </pre>
+	        </div>
+	        <p>ceil()方法执行的是向上取整计算，它的返回值是：大于等于 x，并且与它最接近的整数。</p>
+	    </section>
+	    
+	    <section>
+	    	<h4 class="title-r4">Math.round(x)</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Math.round(x)
+//example
+Math.round(0.60) --> 1
+Math.round(0.40) --> 0
+Math.round(-5.1) --> -5
+Math.round(-5.9) --> -6
+	                </code>
+	            </pre>
+	        </div>
+	        <p>round()方法可把一个数字舍入为最接近的整数。对于 0.5，该方法将进行上舍入。例如，3.5 将舍入为 4，而 -3.5 将舍入为 -3。</p>
+	    </section>
+	    
+	    <section>
+	    	<h4 class="title-r4">Math.abs(x)</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Math.abs(x)
+	                </code>
+	            </pre>
+	        </div>
+	        <p>abs()方法可返回数的绝对值。</p>
+	    </section>
+	    
+	    <section>
+	    	<h4 class="title-r4">Math.max(x...)</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Math.max(x...)
+//example
+Math.max(7.25,7.30) --> 7.3
+Math.max(5,8,6,-5,-6) --> 8
+Math.max() --> Infinity
+Math.max("dreamdu",8) --> NaN
+Math.max(NaN,0) --> NaN
+	                </code>
+	            </pre>
+	        </div>
+	        <strong>x : 0 或多个值。在 ECMASCript v3 之前，该方法只有两个参数。</strong>
+	        <p>max()方法可返回参数中最大的值。如果没有参数，则返回 Infinity。如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN。</p>
+	    </section>
+	    
+	    <section>
+	    	<h4 class="title-r4">Math.min(x...)</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Math.min(x...)
+//example
+Math.min(7.25,7.30) --> 7.25
+Math.min(5,8,6,-5,-6) --> -6
+Math.min() --> Infinity
+Math.min("dreamdu",8) --> NaN
+Math.min(NaN,0) --> NaN
+	                </code>
+	            </pre>
+	        </div>
+	        <strong>x : 0 或多个值。在 ECMASCript v3 之前，该方法只有两个参数。</strong>
+	        <p>min()方法可返回参数中最小的值。如果没有参数，则返回 Infinity。如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN。</p>
+	    </section>
+	    
+	    <section>
+	    	<h4 class="title-r4">Math.random()</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Math.random()
+	                </code>
+	            </pre>
+	        </div>
+	        <p>random() 方法可返回介于 0 ~ 1 之间的一个随机数。</p>
+	    </section>
+	    
+	    <section>
+	    	<h4 class="title-r4">Math.pow(x,y)</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Math.pow(x,y)
+//example
+Math.pow(0,1) --> 0
+Math.pow(1,10) --> 1
+Math.pow(9,0.5) --> 3
+Math.pow(-2,3) --> -8
+Math.pow(2,4) --> 16
+Math.pow(-2,4) --> 16
+	                </code>
+	            </pre>
+	        </div>
+	        <p>pow()方法可返回 x 的 y 次幂的值。如果结果是虚数或负数，则该方法将返回 NaN。如果由于指数过大而引起浮点溢出，则该方法将返回 Infinity。</p>
+	    </section>
+	    
+	    <section>
+	    	<h4 class="title-r4">Math.sqrt(x)</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Math.sqrt(x)
+//example
+Math.sqrt(0) --> 0
+Math.sqrt(1) --> 1
+Math.sqrt(9) --> 3
+Math.sqrt(0.64) --> 0.8
+Math.sqrt(-9) --> NaN
+	                </code>
+	            </pre>
+	        </div>
+	        <strong>Math.pow()方法可以计算一个数的任意次根</strong>
+	        <p>sqrt()方法可返回一个数的平方根。x 必须是大于等于 0 的数,如果 x 小于 0，则返回 NaN。</p>
+	    </section>
+	    
+	    <section>
+	    	<h4 class="title-r4"></h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+
+	                </code>
+	            </pre>
+	        </div>
+	        <p></p>
+	    </section>
+    </div>
+</body>
+</html>

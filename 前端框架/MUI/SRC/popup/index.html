@@ -15,17 +15,52 @@
 	    <h1 class="mui-title">弹出菜单</h1>
 	</header>
 	<div class="mui-content">
-	    <ul class="mui-table-view">
-            <li class="mui-table-view-cell">
-                <a class="mui-navigate-right" href="popup1.html">DIV全屏弹出效果</a>
-            </li>
-            <li class="mui-table-view-cell">
-                <a class="mui-navigate-right" href="actionsheet.html">操作表</a>
-            </li>
-            <li class="mui-table-view-cell">
-                <a class="mui-navigate-right" href="tabbar-with-submenus.html">底部选项卡-二级菜单(div)</a>
-            </li>
-        </ul>
+		<ul class="mui-table-view" id="p-list"></ul>
 	</div>
+	<script type="text/javascript">
+		var pages = [
+			{"pName":"DIV全屏弹出效果"},
+			{"pName":"操作表"},
+			{"pName":"底部选项卡-二级菜单(div)"},
+			{"pName":"popover（弹出菜单）"}
+		]
+		var _html_pl = "";
+		for(i=0; i<pages.length; i++){
+			var _p = pages[i];
+			_html_pl += "<li class='mui-table-view-cell'>";
+			_html_pl += "<a class='mui-navigate-right'>" + _p.pName + "</a>";
+			_html_pl += "</li>"
+		}
+		$('#p-list').html($('#p-list').html()+_html_pl);
+		
+		//点击不同的列表进入不同的页面
+		mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
+			var idx = $(this).index();
+			if(idx == 0){
+				mui.openWindow({
+					url: 'popup1.html',
+					id: 'popup1'
+				})
+			}
+			if(idx == 1){
+				mui.openWindow({
+					url: 'actionsheet.html',
+					id: 'actionsheet'
+				})
+			}
+			if(idx == 2){
+				mui.openWindow({
+					url: 'tabbar-with-submenus.html',
+					id: 'tabbar-with-submenus'
+				})
+			}
+			if(idx == 3){
+				mui.openWindow({
+					url: 'popup2.html',
+					id: 'popup2'
+				})
+			}
+		})
+	</script>
 </body>
 </html>

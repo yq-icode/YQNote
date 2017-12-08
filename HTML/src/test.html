@@ -5,21 +5,49 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>测试</title>
-    <!--#include virtual="/include/_head_import_file.html" -->
-    <link rel="stylesheet/less" href="/css/global.less">
-    <script src="/js/less-2.5.3.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+    	#num{
+    		width: 100px;
+    		height: 30px;
+    		background-color: #666666;
+    		text-align: center;
+    		color: #FFFFFF;
+    		line-height: 30px;
+    	}
+    </style>
 </head>
 <body>
-    <!--#include virtual="/include/_header.html" -->
-    <div class="cblock">
-    	<div class="bg-under">
-        	<div class="shape1"></div>
-        </div>
-        <div class="container content-area">
-        	<h1>测试</h1>
-        </div>
-    </div>
-    <div class="container">
-    </div>
+	<div id="num">0</div>
+	<button id="btn-start">开始</button>
+	<button id="btn-pause">暂停</button>
+    <script type="text/javascript">
+    	var no = 0;
+    	var timer;
+    	$('#btn-start').on({
+    		click: function(){
+    			timer = setInterval(resetHtml,1000);
+    		}
+    	})
+    	$('#btn-pause').on({
+    		click: function(){
+    			clearInterval(timer);
+    		}
+    	})
+    	$('#num').on({
+    		mousemove: function(e){
+    			//alert('1');
+    			var dis1 = e.pageX - $(this).offset().left;
+    			$(this).attr('title',numAdd(dis1));
+    		}
+    	})
+    	function resetHtml(){
+    		$('#num').html(numAdd());
+    	}
+    	function numAdd(obj){
+    		no += obj;
+    		return no;
+    	}
+    </script>
 </body>
 </html>

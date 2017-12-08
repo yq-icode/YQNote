@@ -20,23 +20,21 @@
 	<script type="text/javascript">
 		//列表内容
 		var pages = [
-			{"pName":"选项卡tab"},
-			{"pName":"列表与详情"},
-			{"pName":"索引列表"},
-			{"pName":"上拉刷新与下拉刷新"},
-			{"pName":"窗体切换"},
-			{"pName":"折叠面板"},
-			{"pName":"图片类效果"},
-			{"pName":"分页"},
-			{"pName":"侧滑菜单"},
-			{"pName":"表单"},
-			{"pName":"弹出菜单"},
-			{"pName":"消息框"}
+			{"pName":"选项卡tab", "pId":"0"},
+			{"pName":"列表与详情", "pId":"1"},
+			{"pName":"窗体切换", "pId":"2"},
+			{"pName":"图片类效果", "pId":"3"},
+			{"pName":"侧滑菜单", "pId":"4"},
+			{"pName":"表单", "pId":"5"},
+			{"pName":"弹出菜单", "pId":"6"},
+			{"pName":"消息框", "pId":"7"},
+			{"pName":"图表", "pId":"8"},
+			{"pName":"排版布局", "pId":"9"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
 			var _p = pages[i];
-			_html_pl += "<li class='mui-table-view-cell'>";
+			_html_pl += "<li class='mui-table-view-cell' pId='" + _p.pId + "'>";
 			_html_pl += "<a class='mui-navigate-right'>" + _p.pName + "</a>";
 			_html_pl += "</li>"
 		}
@@ -44,77 +42,65 @@
 		
 		//点击不同的列表进入不同的页面
 		mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
-			var idx = $(this).index();
-			if(idx == 0){
+			var pId = $(this).attr('pId');
+			if(pId == 0){
 				mui.openWindow({
 					url: 'tab/index.html',
 					id: 'tab_index'
 				})
 			}
-			if(idx == 1){
+			if(pId == 1){
 				mui.openWindow({
 					url: 'list.html',
 					id: 'list'
 				})
 			}
-			if(idx == 2){
-				mui.openWindow({
-					url: 'indexed-list.html',
-					id: 'indexed-list'
-				})
-			}
-			if(idx == 3){
-				mui.openWindow({
-					url: 'pullrefresh.html',
-					id: 'pullrefresh'
-				})
-			}
-			if(idx == 4){
+			if(pId == 2){
 				mui.openWindow({
 					url: 'windowSwitch/index.html',
 					id: 'windowSwitch_idx'
 				})
 			}
-			if(idx == 5){
-				mui.openWindow({
-					url: 'accordion.html',
-					id: 'accordion'
-				})
-			}
-			if(idx == 6){
+			if(pId == 3){
 				mui.openWindow({
 					url: 'pic/index.html',
 					id: 'pic_index'
 				})
 			}
-			if(idx == 7){
-				mui.openWindow({
-					url: 'pagination.html',
-					id: 'pagination'
-				})
-			}
-			if(idx == 8){
+			if(pId == 4){
 				mui.openWindow({
 					url: 'offcanvas.html',
 					id: 'offcanvas'
 				})
 			}
-			if(idx == 9){
+			if(pId == 5){
 				mui.openWindow({
 					url: 'form/index.html',
 					id: 'form_index'
 				})
 			}
-			if(idx == 10){
+			if(pId == 6){
 				mui.openWindow({
 					url: 'popup/index.html',
 					id: 'popup'
 				})
 			}
-			if(idx == 11){
+			if(pId == 7){
 				mui.openWindow({
 					url: 'dialog/index.html',
 					id: 'dialog_index'
+				})
+			}
+			if(pId == 8){
+				mui.openWindow({
+					url: 'chart/index.html',
+					id: 'chart_index'
+				})
+			}
+			if(pId == 9){
+				mui.openWindow({
+					url: 'layout/index.html',
+					id: 'layout_index'
 				})
 			}
 		})

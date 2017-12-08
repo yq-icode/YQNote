@@ -1,13 +1,20 @@
 @charset "utf-8";
 /* CSS Document */
 
-ul,li{margin: 0;padding: 0;}
 body{
 	background-color: #F3F3F3;
 	font-size: 14px;
 	color: #333333;
 	line-height: 1.6;
 }
+ul,li{margin: 0;padding: 0;}
+li{list-style-type: none;}
+
+.mt20{margin-top: 20px;}
+
+.dis-block{display: block;}
+.dis-inline{display: inline;}
+
 #wrap{
 	margin:0 20px;
 }
@@ -57,14 +64,23 @@ body{
  * 左侧边栏
  * ******************************************************* */
 /*标题等级*/
-.title-r1, .title-r2, .title-r3, .title-r4{color: #000000;}
-.title-r1{}
-.title-r2{
-	border-bottom:1px solid #eee;
-	padding-bottom:10px;
+.title-r1, .title-r2, .title-r3, .title-r4{
+	margin: 25px 0 5px;
+	color: #000000;
 }
+.title-r1{font-size: 30px;}
+.title-r2{
+	margin: 30px 0 15px 0;
+	border-bottom:1px solid #ddd;
+	padding-bottom:10px;
+	font-size: 26px;
+}
+.title-r2:first-child{margin-top: 0;}
 .title-r3{
-	
+	font-size: 22px;
+}
+.title-r4{
+	font-size: 18px;
 }
 
 /*浏览器兼容*/
@@ -97,4 +113,19 @@ body{
 /*实例容器（即实例演示）*/
 .example-wrap{}
 
-/*列表*/
+/*白色盒子*/
+.wbox{
+	padding: 30px;
+	background-color: #FFFFFF;
+}
+
+/*
+ * 列表
+ */
+
+/*数字标号列表*/
+.list-decimal li{
+	margin: 5px 0;
+	list-style-type: decimal;
+	list-style-position: inside;
+}

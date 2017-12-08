@@ -1,0 +1,27 @@
+/****************************************************/
+ *SRC结构
+/****************************************************/
+【TAGS-全局索引】
+整站的快捷索引
+DEMO效果目录：src/views/demo/
+
+【FRAME-前端框架】src/views/frame/
+目前包括的框架：MUI、BootStrap、jquerymobile
+
+MUI: src/views/frame/mui/
+BootStrap: src/views/frame/bootstrap/
+jquerymobile: src/views/frame/jquerymobile/
+
+【CSS】src/views/css/
+包括CSS2、CSS3、LESS
+
+LESS: src/views/css/less/
+
+【JS】src/views/js/
+包括jquery和原生JS
+
+【axure】
+所在目录：src/views/axure/
+
+【other】src/views/other/
+无法归类到上面分类的部分放到此处

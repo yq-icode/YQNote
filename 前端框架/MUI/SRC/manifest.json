@@ -214,7 +214,8 @@
 					"pic/index.html",
 					"dialog/index.html",
 					"tab/index.html",
-					"popup/index.html"
+					"popup/index.html",
+					"layout/index.html"
 				],
 				"priority": 0
 			},
@@ -293,7 +294,11 @@
 					"form/_tags.html",
 					"form/input.html",
 					"form/star.html",
-					"form/button.html"
+					"form/button.html",
+					"form/picker.html",
+					"form/progressbar.html",
+					"form/checkbox.html",
+					"form/tableviews-with-swipe.html"
 				],
 				"priority": 0
 			},
@@ -302,7 +307,8 @@
 				"refer": [
 					"windowSwitch/winS1.html",
 					"windowSwitch/winS2.html",
-					"windowSwitch/winS3.html"
+					"windowSwitch/winS3.html",
+					"windowSwitch/winS4.html"
 				],
 				"priority": 0
 			},
@@ -416,7 +422,10 @@
 			"popup/index.html": {
 				"resources": [],
 				"refer": [
-					"popup/popup1.html"
+					"popup/popup1.html",
+					"popup/popup2.html",
+					"popup/tabbar-with-submenus.html",
+					"popup/actionsheet.html"
 				],
 				"priority": 0
 			},
@@ -424,6 +433,29 @@
 				"resources": [],
 				"refer": [
 					"popup/index.html"
+				],
+				"priority": 0
+			},
+			"windowSwitch/winS4.html": {
+				"resources": [
+					"windowSwitch/_sample_page1.html"
+				],
+				"refer": [
+					"windowSwitch/_sample_page3.html",
+					"windowSwitch/_sample_page2.html",
+					"windowSwitch/_sample_page4.html",
+					"windowSwitch/_sample_page5.html",
+					"windowSwitch/_sample_page6.html"
+				],
+				"priority": 0
+			},
+			"layout/index.html": {
+				"resources": [],
+				"refer": [
+					"layout/grid-pagination.html",
+					"layout/message-bottom.html",
+					"layout/accordion.html",
+					"layout/tableviews-with-collapses.html"
 				],
 				"priority": 0
 			}

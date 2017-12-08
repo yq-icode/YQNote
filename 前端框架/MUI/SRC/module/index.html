@@ -12,15 +12,20 @@
 <body>
 	<header class="mui-bar mui-bar-nav">
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-	    <h1 class="mui-title">图表</h1>
+	    <h1 class="mui-title">模块组件</h1>
 	</header>
 	<div class="mui-content">
         <ul class="mui-table-view" id="p-list"></ul>
 	</div>
 	<script type="text/javascript">
 		var pages = [
-			{"pName":"水平柱图"},
-			{"pName":"EChart图表"}
+			{"pName":"chat (聊天窗口)"},
+			{"pName":"索引列表-展示模式"},
+			{"pName":"索引列表-选择模式"},
+			{"pName":"上拉刷新与下拉刷新"},
+			{"pName":"lazyload（延迟加载）"},
+			{"pName":"手势锁屏示例"},
+			{"pName":"引导页"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
@@ -36,14 +41,44 @@
 			var idx = $(this).index();
 			if(idx == 0){
 				mui.openWindow({
-					url: 'chart1.html',
-					id: 'chart1'
+					url: 'im-chat.html',
+					id: 'im-chat'
 				})
 			}
 			if(idx == 1){
 				mui.openWindow({
-					url: 'chart2.html',
-					id: 'chart2'
+					url: 'indexed-list.html',
+					id: 'indexed-list'
+				})
+			}
+			if(idx == 2){
+				mui.openWindow({
+					url: 'indexed-list-select.html',
+					id: 'indexed-list-select'
+				})
+			}
+			if(idx == 3){
+				mui.openWindow({
+					url: 'pullrefresh.html',
+					id: 'pullrefresh'
+				})
+			}
+			if(idx == 4){
+				mui.openWindow({
+					url: 'lazyload-image.html',
+					id: 'lazyload-image'
+				})
+			}
+			if(idx == 5){
+				mui.openWindow({
+					url: 'locker-dom.html',
+					id: 'locker-dom'
+				})
+			}
+			if(idx == 6){
+				mui.openWindow({
+					url: 'guide.html',
+					id: 'guide'
 				})
 			}
 		})

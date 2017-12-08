@@ -12,26 +12,25 @@
 <body>
 	<header class="mui-bar mui-bar-nav">
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-	    <h1 class="mui-title">表单</h1>
+	    <h1 class="mui-title">排版布局</h1>
 	</header>
 	<div class="mui-content">
-	    <ul class="mui-table-view" id="p-list"></ul>
+        <ul class="mui-table-view" id="p-list"></ul>
 	</div>
 	<script type="text/javascript">
 		var pages = [
-			{"pName":"数字输入框numbox", "pId":"0"},
-			{"pName":"滑块range", "pId":"1"},
-			{"pName":"开关switch", "pId":"2"},
-			{"pName":"星级star", "pId":"3"},
-			{"pName":"输入框input", "pId":"4"},
-			{"pName":"标签tag", "pId":"5"},
-			{"pName":"单选框", "pId":"6"},
-			{"pName":"复选框", "pId":"7"},
-			{"pName":"按钮", "pId":"8"},
-			{"pName":"滑动触发列表项菜单", "pId":"9"},
-			{"pName":"日期时间选择器", "pId":"10"},
-			{"pName":"picker（选择器）", "pId":"11"},
-			{"pName":"progress bar（进度条）", "pId":"12"}
+			{"pName":"卡片", "pId":"1"},
+			{"pName":"折叠面板", "pId":"2"},
+			{"pName":"二级列表", "pId":"3"},
+			{"pName":"9宫格默认样式", "pId":"4"},
+			{"pName":"左右拖动分页9宫格", "pId":"5"},
+			{"pName":"分页", "pId":"6"},
+			{"pName":"普通列表", "pId":"7"},
+			{"pName":"三行列表", "pId":"8"},
+			{"pName":"右侧带数字角标", "pId":"9"},
+			{"pName":"列表带input类控件", "pId":"10"},
+			{"pName":"media list（图文列表）", "pId":"11"},
+			{"pName":"底部提醒消息控件", "pId":"12"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
@@ -44,83 +43,77 @@
 		
 		//点击不同的列表进入不同的页面
 		mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
-			var pId = $(this).index();
-			if(pId == 0){
-				mui.openWindow({
-					url: 'numbox.html',
-					id: 'numbox'
-				})
-			}
+			var pId = $(this).attr('pId');
 			if(pId == 1){
 				mui.openWindow({
-					url: 'range.html',
-					id: 'range'
+					url: 'card.html',
+					id: 'card'
 				})
 			}
 			if(pId == 2){
 				mui.openWindow({
-					url: 'switch.html',
-					id: 'switch'
+					url: 'accordion.html',
+					id: 'accordion'
 				})
 			}
 			if(pId == 3){
 				mui.openWindow({
-					url: 'star.html',
-					id: 'star'
+					url: 'tableviews-with-collapses.html',
+					id: 'tableviews-with-collapses'
 				})
 			}
 			if(pId == 4){
 				mui.openWindow({
-					url: 'input.html',
-					id: 'input'
+					url: 'grid-default.html',
+					id: 'grid-default'
 				})
 			}
 			if(pId == 5){
 				mui.openWindow({
-					url: 'tags.html',
-					id: 'tags'
+					url: 'grid-pagination.html',
+					id: 'grid-pagination'
 				})
 			}
 			if(pId == 6){
 				mui.openWindow({
-					url: 'radio.html',
-					id: 'radio'
+					url: 'pagination.html',
+					id: 'pagination'
 				})
 			}
 			if(pId == 7){
 				mui.openWindow({
-					url: 'checkbox.html',
-					id: 'checkbox'
+					url: 'tableviews.html',
+					id: 'tableviews'
 				})
 			}
 			if(pId == 8){
 				mui.openWindow({
-					url: 'button.html',
-					id: 'button'
+					url: 'list-triplex-row.html',
+					id: 'list-triplex-row'
 				})
 			}
 			if(pId == 9){
 				mui.openWindow({
-					url: 'tableviews-with-swipe.html',
-					id: 'tableviews-with-swipe'
+					url: 'tableviews-with-badges.html',
+					id: 'tableviews-with-badges'
 				})
 			}
 			if(pId == 10){
 				mui.openWindow({
-					url: 'dtpicker.html',
-					id: 'dtpicker'
+					url: 'list-with-input.html',
+					id: 'list-with-input'
 				})
 			}
 			if(pId == 11){
 				mui.openWindow({
-					url: 'picker.html',
-					id: 'picker'
+					url: 'media-list.html',
+					id: 'media-list'
 				})
 			}
 			if(pId == 12){
 				mui.openWindow({
-					url: 'progressbar.html',
-					id: 'progressbar'
+					url: 'message-bottom.html',
+					id: 'message-bottom'
 				})
 			}
 		})

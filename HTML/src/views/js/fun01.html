@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+    <div class="container">
+    	<h1 class="title-r1">setInterval() clearInterval() setTimeout()区别</h1>
+    	<h3 class="title-r2">setInterval() clearInterval()</h3>
+    	<p>clearInterval() 方法可取消由 setInterval() 设置的 timeout。clearInterval() 方法的参数必须是由 setInterval() 返回的 ID 值。</p>
+    	<div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>   
+var int=self.setInterval("clock()",50);
+function clock()
+{
+  	var t=new Date();
+  	document.getElementById("clock").value=t;
+}
+clearInterval(int);
+                </code>
+            </pre>
+        </div>
+        <h3 class="title-r2">setTimeout()</h3>
+        <p>setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。</p>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>   
+setTimeout(code,millisec)
+//code 	必需。要调用的函数后要执行的 JavaScript 代码串。
+//millisec 	必需。在执行代码前需等待的毫秒数。
+                </code>
+            </pre>
+        </div>
+        <p>setTimeout()只执行 code 一次。如果要多次调用，请使用 setInterval()或者让 code自身再次调用 setTimeout()。</p>
+    </div>
+</body>
+</html>
