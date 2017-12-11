@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<script src="../js/jquery-1.12.4.min.js"></script>
+	<script src="../js/tooltip.js"></script>
+	<script src="../js/popover.js"></script>
+</head>
+<body>
+	<div style="margin:100px 0 0 300px;">
+		<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+		  Popover on 左侧
+		</button>
+		<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+		  Popover on 顶部
+		</button>
+
+		<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+		sagittis lacus vel augue laoreet rutrum faucibus.">
+		  Popover on 底部
+		</button>
+
+		<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+		  Popover on 右侧
+		</button>
+	</div>
+	<script>
+		$(function () {
+		  	$('[data-toggle="popover"]').popover()
+		})
+	</script>
+</body>
+</html>

@@ -19,18 +19,19 @@
 	</div>
 	<script type="text/javascript">
 		var pages = [
-			{"pName":"chat (聊天窗口)"},
-			{"pName":"索引列表-展示模式"},
-			{"pName":"索引列表-选择模式"},
-			{"pName":"上拉刷新与下拉刷新"},
-			{"pName":"lazyload（延迟加载）"},
-			{"pName":"手势锁屏示例"},
-			{"pName":"引导页"}
+			{"pName":"chat (聊天窗口)", "pId":"0"},
+			{"pName":"索引列表-展示模式", "pId":"1"},
+			{"pName":"索引列表-选择模式", "pId":"2"},
+			{"pName":"上拉刷新与下拉刷新", "pId":"3"},
+			{"pName":"lazyload（延迟加载）", "pId":"4"},
+			{"pName":"手势锁屏示例", "pId":"5"},
+			{"pName":"引导页", "pId":"6"},
+			{"pName":"区域滚动", "pId":"7"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
 			var _p = pages[i];
-			_html_pl += "<li class='mui-table-view-cell'>";
+			_html_pl += "<li class='mui-table-view-cell' pId='" + _p.pId + "'>";
 			_html_pl += "<a class='mui-navigate-right'>" + _p.pName + "</a>";
 			_html_pl += "</li>"
 		}
@@ -38,47 +39,53 @@
 		
 		//点击不同的列表进入不同的页面
 		mui('.mui-table-view').on('tap','.mui-table-view-cell',function(){
-			var idx = $(this).index();
-			if(idx == 0){
+			var pId = $(this).attr('pId');
+			if(pId == 0){
 				mui.openWindow({
 					url: 'im-chat.html',
 					id: 'im-chat'
 				})
 			}
-			if(idx == 1){
+			if(pId == 1){
 				mui.openWindow({
 					url: 'indexed-list.html',
 					id: 'indexed-list'
 				})
 			}
-			if(idx == 2){
+			if(pId == 2){
 				mui.openWindow({
 					url: 'indexed-list-select.html',
 					id: 'indexed-list-select'
 				})
 			}
-			if(idx == 3){
+			if(pId == 3){
 				mui.openWindow({
 					url: 'pullrefresh.html',
 					id: 'pullrefresh'
 				})
 			}
-			if(idx == 4){
+			if(pId == 4){
 				mui.openWindow({
 					url: 'lazyload-image.html',
 					id: 'lazyload-image'
 				})
 			}
-			if(idx == 5){
+			if(pId == 5){
 				mui.openWindow({
 					url: 'locker-dom.html',
 					id: 'locker-dom'
 				})
 			}
-			if(idx == 6){
+			if(pId == 6){
 				mui.openWindow({
 					url: 'guide.html',
 					id: 'guide'
+				})
+			}
+			if(pId == 7){
+				mui.openWindow({
+					url: 'scroll.html',
+					id: 'scroll'
 				})
 			}
 		})
