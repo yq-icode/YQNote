@@ -66,7 +66,7 @@ li{list-style-type: none;}
 /*标题等级*/
 .title-r1, .title-r2, .title-r3, .title-r4{
 	margin: 25px 0 5px;
-	color: #000000;
+	color: #333;
 }
 .title-r1{font-size: 30px;}
 .title-r2{
@@ -111,7 +111,11 @@ li{list-style-type: none;}
 	color: #aaa;
 }
 /*实例容器（即实例演示）*/
-.example-wrap{}
+.example-wrap{
+	border: 5px solid #EEEEEE;
+	padding: 30px;
+	background-color: #FAFAFA;
+}
 
 /*白色盒子*/
 .wbox{
@@ -125,7 +129,6 @@ li{list-style-type: none;}
 
 /*数字标号列表*/
 .list-decimal li{
-	margin: 5px 0;
+	margin: 5px 0 0 20px;
 	list-style-type: decimal;
-	list-style-position: inside;
 }

@@ -58,7 +58,7 @@ var rpAddr = e.detail.spAddr;
         
         <section>
         	<h3 class="title-sec">本地存储传参</h3>
-            <p>可以使用本地存储的方式，可以使用cookie、sessionStorage和localStorage。</p>
+            <p>可以使用本地存储的方式，可以使用cookie、sessionStorage和localStorage(HTML5自带本地存储)。</p>
             <p>A.html发送参数的页面</p>
             <div class="code-box">
                 <pre class="language-js line-numbers">
@@ -75,11 +75,19 @@ localStorage.getItem("tel");
     				</code>
                 </pre>
             </div>
-            <p>清除参数</p>
+            <p>删除参数</p>
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
 localStorage.removeItem("tel");
+    				</code>
+                </pre>
+            </div>
+            <p>清除</p>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+localStorage.clear();
     				</code>
                 </pre>
             </div>

@@ -7,47 +7,64 @@
 	<title>测试</title>
     <script src="js/jquery-1.11.3.min.js"></script>
     <style type="text/css">
-    	#num{
-    		width: 100px;
-    		height: 30px;
-    		background-color: #666666;
-    		text-align: center;
-    		color: #FFFFFF;
-    		line-height: 30px;
+    	body {
+    		counter-reset: section 5 heading 0;
     	}
+    	div {
+    		counter-increment: section 3;
+    		margin: 5px;
+    		cursor: pointer;
+    		background: orange;
+    	}
+    	div:before {
+			content: counter(section) '.';
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			line-height: 20px;
+			background: green;
+			color: #fff;
+			margin-right: 10px;
+			transition: all .28s ease;
+		}
+		div:hover:before {
+			transform: translateX(10px);
+		}
+    	h3 {
+    		counter-increment: section -3;
+    		margin: 5px;
+    		cursor: pointer;
+    		background: #f36;
+    		border-radius: 30px;
+    	}
+    	h3:before {
+			content: counter(section) '.';
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			line-height: 20px;
+			background: green;
+			border-radius: 100%;
+			color: #fff;
+			margin-right: 10px;
+			transition: all .28s ease;
+		}
+		h3:hover:before {
+			transform: translateX(10px);
+		}
     </style>
 </head>
 <body>
-	<div id="num">0</div>
-	<button id="btn-start">开始</button>
-	<button id="btn-pause">暂停</button>
-    <script type="text/javascript">
-    	var no = 0;
-    	var timer;
-    	$('#btn-start').on({
-    		click: function(){
-    			timer = setInterval(resetHtml,1000);
-    		}
-    	})
-    	$('#btn-pause').on({
-    		click: function(){
-    			clearInterval(timer);
-    		}
-    	})
-    	$('#num').on({
-    		mousemove: function(e){
-    			//alert('1');
-    			var dis1 = e.pageX - $(this).offset().left;
-    			$(this).attr('title',numAdd(dis1));
-    		}
-    	})
-    	function resetHtml(){
-    		$('#num').html(numAdd());
-    	}
-    	function numAdd(obj){
-    		no += obj;
-    		return no;
-    	}
-    </script>
+	<div class="section">section1</div>
+	<div class="section">section2</div>
+	<div class="section">section3</div>
+	<div class="section">section4</div>
+	<div class="section">section5</div>
+	<h3>header1</h3>
+	<h3>header2</h3>
+	<h3>header3</h3>
+	<h3>header4</h3>
 </body>
 </html>

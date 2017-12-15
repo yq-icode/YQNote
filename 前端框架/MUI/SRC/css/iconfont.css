@@ -1,6 +1,6 @@
 
 @font-face {font-family: "iconfont";
-  src:url('../fonts/iconfont.ttf') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  src: url('iconfont.ttf') format('truetype'); 
 }
 
 .iconfont {
@@ -12,6 +12,12 @@
 }
 
 .icon-icon31:before { content: "\e627"; }
+
+.icon-yonghu1:before { content: "\e69d"; }
+
+.icon-youxiang:before { content: "\e76a"; }
+
+.icon-mima:before { content: "\e63c"; }
 
 .icon-xingxing1:before { content: "\e611"; }
 
