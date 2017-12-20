@@ -12,6 +12,11 @@ li{list-style-type: none;}
 
 .mt20{margin-top: 20px;}
 
+.fontS12{font-size: 12px;}
+.fontS16{font-size: 16px;}
+.fontS18{font-size: 18px;}
+.fontS20{font-size: 20px;}
+
 .dis-block{display: block;}
 .dis-inline{display: inline;}
 
@@ -23,18 +28,22 @@ li{list-style-type: none;}
 	background-color: #FFFFFF;
 }
 #wside{
-	float:left;
+	position: fixed;
 	width:200px;	
 }
 #wmain{
 	margin-left:220px;
-	margin-right:220px
+	margin-right:220px;
+	overflow: hidden;
 }
 /* 左侧边栏为菜单，中间为主内容，右边为其它信息（如广告） */
 
 /* ******************************************************* *
  * 左侧边栏
  * ******************************************************* */
+#wside dl{
+	margin: 0;
+}
 #wside dl a{
 	display: block;
 	padding: 5px;
@@ -110,6 +119,7 @@ li{list-style-type: none;}
 .reference a{
 	color: #aaa;
 }
+.reference a:hover{color: #333;}
 /*实例容器（即实例演示）*/
 .example-wrap{
 	border: 5px solid #EEEEEE;
@@ -131,4 +141,11 @@ li{list-style-type: none;}
 .list-decimal li{
 	margin: 5px 0 0 20px;
 	list-style-type: decimal;
+}
+
+/*带背景的行内块元素*/
+.bgMark{
+	display: inline-block;
+	padding: 2px 5px;
+	background-color: #CCCCCC;
 }

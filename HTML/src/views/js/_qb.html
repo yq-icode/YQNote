@@ -25,12 +25,17 @@
 $('.el');
 //js   
 document.querySelector("div");
+document.querySelector("#test");
+document.querySelector("div.test>p:first-child");
+document.querySelectorAll("div.test>p:first-child")[0];
 div.querySelectorAll('.el');
 //mui
 mui(".el")[0];
                     </code>
                 </pre>
             </div>
+            <h4 class="bgMark">querySelector</h4>
+            <p>querySelector 接收的参数和 CSS 选择器完全一致。querySelector 和 querySelectorAll 的区别在于 querySelector 用来获取一个元素，而querySelectorAll 可以获取多个元素。querySelector 将返回匹配到的第一个元素，如果没有匹配的元素则返回 Null。querySelectorAll 返回一个包含匹配到的元素的数组，如果没有匹配的元素则返回的数组为空。这是原生方法，比起jquery速度快，缺点是IE6、7不支持。</p>
             <strong>选择元素－按索引</strong>
             <div class="code-box">
                 <pre class="language-js line-numbers">

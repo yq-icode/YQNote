@@ -11,6 +11,7 @@
     <script src="/js/jquery-1.11.3.min.js"></script>
     <script src="/js/prism.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/default.js"></script>
     <style>
     	.exp1 {
     		counter-reset: section 0;
@@ -66,70 +67,23 @@
 <body>
 <!--#include virtual="/include/_header.html" -->
 <div id="wrap">
-    <div id="wmain" style="width: 800px;">
-        <h1 class="title-r1">css计算器  counter</h1>
+	<div id="wside">
+    	<dl>
+    		<dt><a href="#">css计算器 counter</a></dt>
+    		<dd>
+    			<a href="#SEC1">属性讲解</a>
+    			<a href="#SEC2">实例</a>
+    		</dd>
+    	</dl>
+    </div>
+    <div id="wmain" style="width: 1000px;">
         <p class="reference">摘自：<a target="_blank" href="https://www.w3cplus.com/css3/css-counters.html">https://www.w3cplus.com/css3/css-counters.html</a></p>
-        <div class="browser-support">
-	    	<mark>浏览器兼容</mark>
-	    	<ul>
-	    		<li>IE8+</li>
-	    	</ul>
-	    </div>
-        <article>
-		    <h2 class="title-r2">属性讲解</h2>
-		    <h3 class="title-r3">counter-reset</h3>
-		    <figure class="code-box">
-		        <pre class="language-css line-numbers">
-		            <code>   
-counter-reset:[ identifier integer]
-//example
-counter-reset: item;
-counter-reset: item 5;
-counter-reset: section 0 heading 0;
-		            </code>
-		        </pre>
-		    </figure>
-		    <ul class="list-decimal">
-		    	<li>identifier 必须，用来定义计数器的名称，这个名称可以自定义,但不能是CSS的关键词，比如none、inherit之类</li>
-		    	<li>integer 可选，设置调用计算数器时起始值，默认值为0；如果设置的值为1，那么计数从2开始；如果设置的值是-5，那么计数从-4开始，依此类推。</li>
-		    	<li>identifier integer之间用空格分隔开来</li>
-		    	<li>counter-reset属性可以包含一个或者多个计数器标识符，每个后面都可以跟一个整数值,如section 0 heading 0;</li>
-		    </ul>
-		    
-		    <h3 class="title-r3">counter-increment</h3>
-		    <figure class="code-box">
-		        <pre class="language-css line-numbers">
-		            <code>   
-counter-increment:[ identifier integer]
-//example
-counter-increment: section 5;
-counter-increment: section -3;
-		            </code>
-		        </pre>
-		    </figure>
-		    <ul class="list-decimal">
-		    	<li>identifier 必须，计数器名称，调用counter-reset定义的计数器名称。</li>
-		    	<li>integer 可选，是一个整数值，可以是正整数，也可以是负整数。用来设置递增的值，如果取值为负值时，表示递减。默认值为1。</li>
-		    </ul>
-		    
-		    <h3 class="title-r3">counter(identifier,ltype)</h3>
-		    <figure class="code-box">
-		        <pre class="language-css line-numbers">
-		            <code>   
-counter(identifier,ltype)
-//example
-content:"Chapter" counter(Chapter) "." counter(section);
-		            </code>
-		        </pre>
-		    </figure>
-		    <ul class="list-decimal">
-		    	<li>counter()函数接受两个参数，而且两参数之间使用逗号(,)来分隔。</li>
-		    	<li>identifier:必须，第一个参数是counter-increment定义的属性值identifier</li>
-		    	<li>ltype:可选，第二个参数是用来设置计数器的风格，有点类似于list-style-type。默认情况之下取值为十制，但你也可以重置这个样式风格，比如upper-roman或者upper-alpha等。counter()函数第二个值与列表中的list-style-type值相等</li>
-		    </ul>
-		</article>
+	    
+	    <h2 class="title-r2" id="SEC1">属性讲解</h2>
+	    <img src="images/screenPics/CSS Counters 1.png" />
+	    <img src="images/screenPics/CSS Counters 2.png" />
 		
-		<h2 class="title-r2">实例</h2>
+		<h2 class="title-r2" id="SEC2">实例</h2>
 	    <div class="example-wrap exp1">
 	    	<dl>
 				<dt>term</dt>
