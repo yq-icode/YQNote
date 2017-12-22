@@ -29,7 +29,8 @@
 			{"pName":"弹出菜单", "pId":"6"},
 			{"pName":"消息框", "pId":"7"},
 			{"pName":"图表", "pId":"8"},
-			{"pName":"排版布局", "pId":"9"}
+			{"pName":"排版布局", "pId":"9"},
+			{"pName":"模块", "pId":"10"}
 		]
 		var _html_pl = "";
 		for(i=0; i<pages.length; i++){
@@ -101,6 +102,12 @@
 				mui.openWindow({
 					url: 'layout/index.html',
 					id: 'layout_index'
+				})
+			}
+			if(pId == 10){
+				mui.openWindow({
+					url: 'module/index.html',
+					id: 'module_index'
 				})
 			}
 		})

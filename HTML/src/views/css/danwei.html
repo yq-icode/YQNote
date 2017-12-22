@@ -21,8 +21,10 @@
     		<dt><a href="#">CSS单位 px em rem</a></dt>
     		<dd>
     			<a href="#SEC1">px</a>
-    			<a href="#SEC1">em</a>
-    			<a href="#SEC1">rem</a>
+    			<a href="#SEC2">em</a>
+    			<a href="#SEC3">rem</a>
+    			<a href="#SEC4">CSS3单位 vw vh</a>
+    			<a href="#SEC5">注意点</a>
     		</dd>
     	</dl>
     </div>
@@ -30,6 +32,27 @@
         <h2 class="title-r2" id="SEC1">CSS单位 px em rem讲解</h2>
         <p class="reference">摘自：<a target="_blank" href="http://www.mamicode.com/info-detail-655497.html">http://www.mamicode.com/info-detail-655497.html</a></p>
     	<img src="images/screenPics/css-danwei.png" />
+    	
+    	<h2 class="title-r2" id="SEC4">CSS3单位 vw vh</h2>
+    	<p class="reference">摘自：<a target="_blank" href="http://caibaojian.com/viewport-based-typography.html">http://caibaojian.com/viewport-based-typography.html</a></p>
+    	<ul>
+    		<li>
+    			<strong>vw：</strong>
+    			viewpoint width，视窗宽度，1vw等于视窗宽度的1%。
+    		</li>
+    		<li>
+    			<strong>vh：</strong>
+    			viewpoint height，视窗高度，1vh等于视窗高度的1%。</li>
+    		<li><strong>vmin：</strong>vw和vh中较小的那个。</li>
+    		<li><strong>vmax：</strong>vw和vh中较大的那个。</li>
+    	</ul>
+    	<div class="browser-support mt20">
+    		<mark>浏览器兼容</mark> vw, vh, vmin, vmax：IE9+局部支持，chrome/firefox/safari/opera支持，ios safari 8+支持，android browser4.4+支持，chrome for android39支持
+    	</div>
+    	
+    	
+    	<h2 class="title-r2" id="SEC5">注意点</h2>
+    	<p>需注意chrome强制最小字体为12号，即使设置成 10px 最终都会显示成 12px，当把html的font-size设置成10px,子节点rem的计算还是以12px为基准，所以网上很多文章提到的将html的font-size设为10方便计算不是那么可取</p>
     </div>
 </div>
 </body>

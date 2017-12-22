@@ -95,7 +95,7 @@ li{list-style-type: none;}
 /*浏览器兼容*/
 .browser-support{
 	font-size: 12px;
-	line-height: 1;
+	line-height: 1.8;
 	color: #666666;
 }
 .browser-support mark{
@@ -120,6 +120,7 @@ li{list-style-type: none;}
 	color: #aaa;
 }
 .reference a:hover{color: #333;}
+
 /*实例容器（即实例演示）*/
 .example-wrap{
 	border: 5px solid #EEEEEE;
@@ -136,6 +137,11 @@ li{list-style-type: none;}
 /*
  * 列表
  */
+.LT a{
+	display: inline-block;
+	width:250px;
+	padding: 5px 0;
+}
 
 /*数字标号列表*/
 .list-decimal li{
@@ -149,3 +155,5 @@ li{list-style-type: none;}
 	padding: 2px 5px;
 	background-color: #CCCCCC;
 }
+
+

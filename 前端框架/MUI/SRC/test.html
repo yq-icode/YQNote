@@ -67,6 +67,10 @@
 		
 		.scoreBd li:nth-child(3) i,
 		.scoreBd li:nth-child(3) .iconfont{color: #ffcc00;}
+		
+		.mui-bar-nav~.mui-content{
+			
+		}
     </style>
 </head>
 <body class="pg-scoreBd">
@@ -74,8 +78,17 @@
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 	    <h1 class="mui-title">效果</h1>
 	</header>
+	<div class="mui-bar" style="margin-top: 44px;">
+		<div class="mui-input-row mui-search">
+			<input type="search" class="mui-input-clear" id="namess" placeholder="search">
+		</div>
+	</div>
 	<div class="mui-content">
-	    <ul id="sBd" class="scoreBd mui-list-unstyled"></ul>
+		<div class="mui-scroll-wrapper" style="margin-top: 90px;">
+			<div class="mui-scroll">
+				<ul id="sBd" class="scoreBd mui-list-unstyled"></ul>
+			</div>
+		</div>
 	</div>
 	<script type="text/javascript">
 		var lb = [
@@ -84,16 +97,18 @@
 			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"tracy", "win":"20", "score":"66"},
 			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"wendiy", "win":"53", "score":"80"},
 			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"Amy", "win":"38", "score":"69"},
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"Boryesd", "win":"11", "score":"45"},
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"Jack", "win":"6", "score":"32"},
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"Neely", "win":"12", "score":"22"},
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"tracy", "win":"20", "score":"66"},
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"wendiy", "win":"53", "score":"80"},
+			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"Amy", "win":"38", "score":"69"},
 			{"sPhotoUrl":"images/shuijiao.jpg", "sName":"Boryesd", "win":"11", "score":"45"}
 		]
 		_html = "";
-		for(i=0;i<6;i++){
+		for(i=0;i<lb.length;i++){
 			var _lb = lb[i];
-			if(i < 3) { //为前三名设置不名的颜色
-				_html += "<li class='s3 valignMid'>";
-			} else {
-				_html += "<li class='valignMid'>";
-			}
+			_html += "<li class='valignMid'>";
 			_html += "<span class='iconfont icon-xingxing1 mui-pull-right'></span>";
 			_html += "<i class='mui-pull-right'>" + _lb.score + "</i>";
 			_html += "<em>" + (i + 1) + "</em>";
