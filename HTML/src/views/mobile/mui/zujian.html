@@ -5,19 +5,23 @@
     <title>MUI组件</title>
     <!--#include virtual="/include/_head_import_file.html" -->
     <link rel="stylesheet/less" href="/css/global.less">
+    <link rel="stylesheet/less" href="/css/default.css">
     <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/default.js"></script>
 </head>
 <body>
-	<!--#include virtual="/include/_header.html" -->
-    <div class="container">
-    	<h2>MUI开发注意事项</h2>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+        <h2 class="r2-title">MUI开发注意事项</h2>
         <h3>固定栏</h3>
         <p>所谓的固定栏，也就是带有.mui-bar属性的节点，都是基于fixed定位的元素；常见组件包括：顶部导航栏（.mui-bar-nav）、底部工具条(.mui-bar-footer)、底部选项卡（.mui-bar-tab）;这些元素使用时需遵循一个规则：放在.mui-content元素之前，即使是底部工具条和底部选项卡，也要放在.mui-content之前，否则固定栏会遮住部分主内容；</p>
         
         <h3>一切内容都要包裹在mui-content中</h3>
         <p>除了固定栏之外，其它内容都要包裹在.mui-content中，否则就有可能被固定栏遮罩，原因：固定栏基于Fixed定位，不受流式布局限制，普通内容依然会从top:0的位置开始布局，这样就会被固定栏遮罩，mui为了解决这个问题，定义了如下css代码：</p>
         <div class="code-box">
-            <pre class="language-html line-numbers">
+            <pre class="language-css line-numbers">
                 <code>
 .mui-bar-nav ~ .mui-content {
     padding-top: 44px;
@@ -32,7 +36,19 @@
         </div>
         <p>你当然可以通过自定义CSS的方式实现如上类似效果，但为了使用简便，建议将除固定栏之外的所有内容，全部放在.mui-content中。</p>
         
-        <h3>用mui给元素绑定事件</h3>
+        <h3>mui判断是ios还是安卓</h3>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+/* 检测是否为iOS或安卓系统版本是否小于4.4 */                	
+if(mui.os.ios||(mui.os.android&&parseFloat(mui.os.version)<4.4)){
+    //...操作
+}                
+                </code>
+            </pre>
+        </div>
+        
+        <h2 class="r2-title">用mui给元素绑定事件</h2>
         <p>mui不支持当前元素绑定，只支持对其子元素的绑定，当前元素绑定请直接使用addEventListener,removeEventListener</p>
         <strong>对当前元素的绑定（即单个元素上的事件监听）</strong>
         <div class="code-box">
@@ -60,7 +76,7 @@ mui(".mui-table-view").on('tap','.mui-table-view-cell',function(){
             </pre>
         </div>
         
-        <h3>上拉加载与下拉刷新注意点</h3>
+        <h2 class="r2-title">上拉加载与下拉刷新注意点</h2>
         <p>down{}中的height值必须为不带单位的数字，即“50”（可以加引号也可以不加），不能写成"50px"，否则不起作用，但是up{}中的height值无论是否带单位，都正常，原因不明；</p>
         <div class="code-box">
             <pre class="language-js line-numbers">
@@ -126,5 +142,6 @@ function downRefresh(){
             </pre>
         </div>
     </div>
+</div>
 </body>
 </html>

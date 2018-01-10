@@ -15,7 +15,7 @@
 <body>
 	<!--#include virtual="/include/_header.html" -->
     <div class="container">
-        <h2 class="title-r2">原生JS Jquery操作DOM的区别</h2>
+        <h2 class="r2-title">原生JS Jquery操作DOM的区别</h2>
         <section>
         	<strong>选择元素－按DOM标签、class、id</strong>
             <div class="code-box">
@@ -96,17 +96,7 @@ document.getElementById('el').outerHTML = string;
                     </code>
                 </pre>
             </div>
-            <strong>创建元素</strong>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>
-//jq
-var newEl = $('&lt;div/&gt;');
-//js
-var newEl = document.createElement('div');
-                    </code>
-                </pre>
-            </div>
+            
             <strong>Set/get属性</strong>
             <div class="code-box">
                 <pre class="language-js line-numbers">
@@ -128,15 +118,15 @@ document.querySelector('.el').style.borderWidth = '20px';
                     </code>
                 </pre>
             </div>
-            <strong>附加</strong>
+            
+            <strong>创建元素</strong>
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
 //jq
-$('.el').append($('&lt;div/&gt;'));
-$('.el').prepend($('&lt;div/&gt;'));
-//js 
-document.querySelector('.el').appendChild(document.createElement('div'));
+var newEl = $('&lt;div/&gt;');
+//js
+var newEl = document.createElement('div');
                     </code>
                 </pre>
             </div>
@@ -148,6 +138,18 @@ document.querySelector('.el').appendChild(document.createElement('div'));
 var clonedEl = $('.el').clone();
 //js
 var clonedEl = document.querySelector('.el').cloneNode(true);     
+                    </code>
+                </pre>
+            </div>
+            <strong>附加</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+//jq
+$('.el').append($('&lt;div/&gt;'));
+$('.el').prepend($('&lt;div/&gt;'));
+//js 
+document.querySelector('.el').appendChild(document.createElement('div'));
                     </code>
                 </pre>
             </div>
@@ -176,55 +178,60 @@ el.style.display = 'none';
                     </code>
                 </pre>
             </div>
-            <strong>是否包含某个 class</strong>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>
-//jq
-$(el).hasClass(className);
-//js
-if (el.classList)
-  el.classList.contains(className);
-else
-  new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
-                    </code>
-                </pre>
-            </div>
-            <strong>添加 Class</strong>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>
-//jq
-$(el).addClass(className);
-//js
-if (el.classList)
-  el.classList.add(className);
-else
-  el.className += ' ' + className;
-                    </code>
-                </pre>
-            </div>
-            <strong>移除class</strong>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>
-//jq
-$(el).removeClass(className);
-//js
-// removeClass, takes two params: element and classname
-function removeClass(el, cls) {
-  var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-  el.className = el.className.replace(reg, " ").replace(/(^\s*)|(\s*$)/g,"");
-}
-
-如果你只需要支持像IE10+,Chrome,FireFox,Opera和Safari这样较现代的浏览器，那么你可以开始使用HTML5的classList功能，它让增加和删除类变得更简单
-el.classList.add(className);
-el.classList.remove("foo")
-el.classList.contains("foo");
-el.classList.toggle("active");       
-                    </code>
-                </pre>
-            </div>
+            
+            <h2 class="r2-title">对class的操作</h2>
+            <section class="r2-body">
+	            <strong>是否包含某个 class</strong>
+	            <div class="code-box">
+	                <pre class="language-js line-numbers">
+	                    <code>
+	//jq
+	$(el).hasClass(className);
+	//js
+	if (el.classList)
+	  el.classList.contains(className);
+	else
+	  new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+	                    </code>
+	                </pre>
+	            </div>
+	            <strong>添加 Class</strong>
+	            <div class="code-box">
+	                <pre class="language-js line-numbers">
+	                    <code>
+	//jq
+	$(el).addClass(className);
+	//js
+	if (el.classList)
+	  el.classList.add(className);
+	else
+	  el.className += ' ' + className;
+	                    </code>
+	                </pre>
+	            </div>
+	            <strong>移除class</strong>
+	            <div class="code-box">
+	                <pre class="language-js line-numbers">
+	                    <code>
+	//jq
+	$(el).removeClass(className);
+	//js
+	// removeClass, takes two params: element and classname
+	function removeClass(el, cls) {
+	  var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
+	  el.className = el.className.replace(reg, " ").replace(/(^\s*)|(\s*$)/g,"");
+	}
+	
+	/* 如果你只需要支持像IE10+,Chrome,FireFox,Opera和Safari这样较现代的浏览器，那么你可以开始使用HTML5的classList功能，它让增加和删除类变得更简单 */
+	el.classList.add(className);
+	el.classList.remove("foo")
+	el.classList.contains("foo");
+	el.classList.toggle("active");       
+	                    </code>
+	                </pre>
+	            </div>
+	        </section>
+	        
             <strong>插入 HTML</strong>
             <div class="code-box">
                 <pre class="language-js line-numbers">

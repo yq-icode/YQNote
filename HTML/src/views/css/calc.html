@@ -17,28 +17,15 @@
 <!--#include virtual="/include/_header.html" -->
 <div id="wrap">
 	<div id="wside">
-		<dl>
-			<dt><a>calc</a></dt>
-			<dd>
-				<a href="#SEC1">属性讲解</a>
-				<a href="#SEC5">clac()嵌套</a>
-				<a href="#SEC3">使用CSS变量来嵌套calc()</a>
-			</dd>
-			<dt><a>应用实例</a></dt>
-			<dd>
-				<a href="#SEC2">元素居中</a>
-				<a href="#SEC6">与box-sizing:border-box相同的效果</a>
-				<a href="#SEC4">calc实现滚动条出现页面不跳动</a>
-			</dd>
-		</dl>
+		<h2>calc</h2>
 	</div>
     <div id="wmain" style="width: 1000px;">
-        <h2 class="title-r2" id="SEC1">属性讲解</h2>
+        <h2 class="r2-title">属性讲解</h2>
         <p class="reference">摘自：<a target="_blank" href="https://www.w3cplus.com/css3/how-to-use-css3-calc-function.html">https://www.w3cplus.com/css3/how-to-use-css3-calc-function.html</a></p>
         https://www.w3cplus.com/preprocessor/create-css-grid-using-calc.html
         <img src="images/screenPics/calc.png" />
         
-        <h2 class="title-r2" id="SEC5">clac()嵌套</h2>
+        <h2 class="r2-title">clac()嵌套</h2>
         <p>alc() 函数可以嵌套。在函数里边，会被视为简单的括号表达式，如下例所示。</p>
         <div class="code-box">
         	<pre class="language-css line-numbers">
@@ -54,7 +41,7 @@
             </pre>
         </div>
         
-        <h2 class="title-r2" id="SEC3">使用CSS变量来嵌套calc()</h2>
+        <h2 class="r2-title">使用CSS变量来嵌套calc()</h2>
         <div class="code-box">
         	<pre class="language-css line-numbers">
             	<code>
@@ -69,7 +56,7 @@
         </div>
         <p>在所有的变量都被展开后, widthC 的值就会变成 calc( calc( 100px / 2) / 2)，然后当它被赋值给 .foo 的 width属性 时，所有内部的这些calc()（无论嵌套的有多深）都将会直接被“拍”成一个括号（原文：be flattened to just parentheses），所以这个 width属性 的值就直接相当于 calc( ( 100px / 2) / 2)了，或者说就变成25px了。 简而言之：一个 calc() 里面的 calc() 就仅仅相当于是一个括号。</p>
         
-        <h2 class="title-r2" id="SEC2">元素居中</h2>
+        <h2 class="r2-title">元素居中</h2>
         <p>使用 calc() 给我们提供了另一个垂直居中元素的解决方案。如果我们知道元素的尺寸，仅仅通过 top 与 left 属性便能实现.</p>
     	<div class="code-box">
         	<pre class="language-css line-numbers">
@@ -84,7 +71,7 @@
             </pre>
         </div>
         
-        <h2 class="title-r2" id="SEC6">与box-sizing:border-box相同的效果</h2>
+        <h2 class="r2-title">与box-sizing:border-box相同的效果</h2>
         <p>使用 calc() 可以取得与box-sizing:border-box相同的效果。</p>
     	<div class="code-box">
         	<pre class="language-css line-numbers">
@@ -99,7 +86,7 @@
             </pre>
         </div>
         
-        <h2 class="title-r2" id="SEC4">calc实现滚动条出现页面不跳动</h2>
+        <h2 class="r2-title">calc实现滚动条出现页面不跳动</h2>
         <img src="images/screenPics/sc19.png" />
         
     </div>

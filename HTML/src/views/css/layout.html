@@ -7,276 +7,255 @@
 	<title>常用布局总结</title>
     <!--#include virtual="/include/_head_import_file.html" -->
     <link rel="stylesheet/less" href="/css/global.less">
+    <link href="/css/default.css" rel="stylesheet" />
     <script src="/js/less-2.5.3.min.js"></script>
     <script src="/js/common.js"></script>
+    <script src="/js/default.js"></script>
 </head>
 <body>
-	<!--#include virtual="/include/_header.html" -->
-    <div class="cblock">
-    	<div class="bg-under">
-        	<div class="shape1"></div>
-        </div>
-        <div class="container content-area">
-        	<h1>常用布局总结</h1>
-            <p>包括二列左列宽度自适应、二列右列宽度自适应、三列中间宽度自适应、三列中间宽度左右自适应等</p>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+		<a href="https://segmentfault.com/a/1190000010989110#articleHeader15">https://segmentfault.com/a/1190000010989110#articleHeader15</a>
+		此网站的布局可以总结到此
+		<h2 class="r2-title">两列，一列固定，一列自适应</h2>
+		<div class="r2-body">
+	    	<h3 class="r3-title">左列固定，右列自适应－浮动法</h3>
+	        <p>兼容性：<kbd>IE6+</kbd></p>
+	        <div class="code-box">
+	        	<pre class="language-html line-numbers">
+	            	<code>
+	&lt;div class=”leftSide”&gt;左列&lt;/div&gt;
+	&lt;div class=”rightSide”&gt;右列&lt;/div&gt;                        
+	                        </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	        	<pre class="language-css line-numbers">
+	            	<code>
+	.leftSide{
+	    float:left;
+	    width:200px;
+	}
+	.rightSide{
+	    margin-left:200px;
+	}                        
+	                        </code>
+	            </pre>
+	        </div>
+	        <p>＜说明＞<br>不需要再为right设置float:right属性，也不需要为其设置宽度，它会自动占满父元素的宽度。</p>
+	        <!-- **************** separator line ****************  -->
+	        <h3 class="r3-title">左列固定，右列自适应－绝对定位法</h3>
+	        <p>兼容性：<kbd>IE6+</kbd></p>
+	        <div class="code-box">
+	        	<pre class="language-html line-numbers">
+	            	<code>
+	&lt;div class=”leftSide”&gt;左列&lt;/div&gt;
+	&lt;div class=”rightSide”&gt;右列&lt;/div&gt;                         
+	                        </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	        	<pre class="language-css line-numbers">
+	            	<code>
+	.leftSide{
+	position:absolute;left:0;top:0;width:200px;
+	}
+	.rightSide{
+	    margin-left:200px;
+	}                        
+	                        </code>
+	            </pre>
+	        </div>
+	        <!-- **************** separator line ****************  -->
+	        <h3 class="r3-title">右列固定，左列自适应－浮动法</h3>
+	        <p>兼容性：<kbd>IE6+</kbd></p>
+	        <div class="code-box">
+	        	<pre class="language-html line-numbers">
+	            	<code>
+	&lt;div class=”rightSide”&gt;右列&lt;/div&gt;                        
+	&lt;div class=”leftSide”&gt;左列&lt;/div&gt;
+	                        </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	        	<pre class="language-css line-numbers">
+	            	<code>
+	.leftSide{
+		margin-right:200px;
+	}
+	.rightSide{
+	    float:right;
+	    width:180px;
+	}                        
+	                        </code>
+	            </pre>
+	        </div>
+	        <p>＜说明＞<br>“rightSide右列”一定要放在”leftSide左列”的前面，否则无法达到这种效果。而且这样写时不用清除浮动，如果清除浮动（clearfix）了，在IE6中反而有问题，其它浏览器IE7/IE8/GOOGLE即使清除浮动了也还都正常；</p>
+	        <!-- **************** separator line ****************  -->
+	        <h3 class="r3-title">右列固定，左列自适应－绝对定位法</h3>
+	        <p>兼容性：<kbd>IE6+</kbd></p>
+	        <div class="code-box">
+	        	<pre class="language-html line-numbers">
+	            	<code>
+	&lt;div class=”rightSide”&gt;右列&lt;/div&gt;                        
+	&lt;div class=”leftSide”&gt;左列&lt;/div&gt;                        
+	                        </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	        	<pre class="language-css line-numbers">
+	            	<code>
+	.leftSide {
+		margin-right:200px;
+	    background:#CCCCCC;
+	}
+	.rightSide {
+		position:absolute;
+	    right:0;
+	    top:0;
+	    width:200px;
+	    background:green;
+	}                        
+	                        </code>
+	            </pre>
+	        </div>
+	    </div>
+        <!-- **************** separator line ****************  -->
+        <h2 class="r2-title">三列</h2>
+        <div class="r2-body">
+	        <h3 class="r3-title">左右固定，中间自适应－绝对定位法</h3>
+	        <p>兼容性：<kbd>IE6+</kbd></p>
+	        <div class="code-box">
+	        	<pre class="language-html line-numbers">
+	            	<code>
+	&lt;div class=”leftSide”&gt;左列&lt;/div&gt;
+	&lt;div class=”center”&gt;中间列&lt;/div&gt;
+	&lt;div class=”rightSide”&gt;右列&lt;/div&gt;                         
+	                        </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	        	<pre class="language-css line-numbers">
+	            	<code>
+	.leftSide {
+		position:absolute;
+		top:0px;
+		left:0px;
+		width:100px;
+		height:300px;
+		border:2px solid #cccccc;
+	}
+	.rightSide{
+		position:absolute;
+		top:0px;
+		right:0px;
+		width:100px;
+		height:300px;
+		border:2px solid #cccccc;
+	}
+	.center{
+		margin-left:104px;
+		margin-right:104px;
+		height:300px;
+		border:2px solid #cccccc;
+	}                        
+	                        </code>
+	            </pre>
+	        </div>
+	        <!-- **************** separator line ****************  -->
+	        <h3 class="r3-title">左右固定，中间自适应－浮动法</h3>
+	        <p>兼容性：<kbd>IE6+</kbd></p>
+	        <div class="code-box">
+	        	<pre class="language-html line-numbers">
+	            	<code>
+	&lt;div class="wrap"&gt; 
+	   &lt;div class=”right”&gt;这是右侧的内容 固定宽度&lt;/div&gt;
+	   &lt;div class=”left”&gt;这是左侧的内容 固定宽度&lt;/div&gt;
+	   &lt;div class=”main”&gt;中间内容，自适应宽度&lt;/div&gt;
+	&lt;/div>                        
+	                        </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	        	<pre class="language-css line-numbers">
+	            	<code>
+	.right{ 
+	    width:200px;
+	    float:right; 
+	    background-color:#960;
+	}
+	.left{ 
+	    width:150px;
+	    float:left; 
+	    background:#6FF;
+	}
+	.main{ 
+	    margin-left:150px;
+	    margin-right:200px; 
+	    background-color:#9F3;
+	}                        
+	                        </code>
+	            </pre>
+	        </div>
+	        <p>注意：中间列一定要放在左右两列的后面</p>
+	    </div>
+        <!-- **************** separator line ****************  -->
+        <h2 class="r2-title">多个块元素不换行</h2>
+        <div class="r2-body">
+	        <h3 class="r3-title">法一</h3>
+	        <p>兼容性：<kbd>IE6+</kbd></p>
+	        <div class="code-box">
+	        	<pre class="language-css line-numbers">
+	            	<code>
+	.wrap { white-space:nowrap; }
+	.wrap div {display:inline-block; height:100px; overflow:hidden; width:100px; }  
+	.wrap div { *display:inline; }
+	.wrap div p { white-space:normal; }                        
+	                        </code>
+	            </pre>
+	        </div>
+	        <p>此种方法比较简单，但是由于对源代码中的空格浏览器处理方法不一样，会造成内部div之间的间距不等，产生此间距的原因，是标签之间的空格——元素标签间的空格和制表符会被压缩为1个空格显示，而对于这些空格的处理，浏览器存在差异。删除内部div之间的空格，可以解决问题。</p>
+	        <!-- **************** separator line ****************  -->
+	        <h3 class="r3-title">法二</h3>
+	        <p>兼容性：<kbd>IE8+</kbd></p>
+	        <div class="code-box">
+	        	<pre class="language-css line-numbers">
+	            	<code>
+	.wrap { display:table; }
+	.wrap div { border:1px solid; display:table-cell;}
+	.wrap div p{ height:100px; margin:0; padding:0; width:100px; }                        
+	                        </code>
+	            </pre>
+	        </div>
+	        <p>此种方法对于支持display:table-cell的浏览器，效果是统一的，但是对于table-cell类型的元素，在css的应用上有很多限制，例如margin无效、宽度和高度受同行和同列的其他单元格影响等。但是此方法可以实现内部div的等高，即不设定高度，高度由内容决定，同一行的div等高。同时，此方法对于 IE7- 无效，因此针对 IE7- 还是要使用上面的方法。</p>
+	        <!-- **************** separator line ****************  -->
+	        <h3 class="r3-title"></h3>
+	        <p>兼容性：<kbd>IE6+</kbd></p>
+	        <div class="code-box">
+	        	<pre class="language-html line-numbers">
+	            	<code>
+	                
+	                </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	        	<pre class="language-css line-numbers">
+	            	<code>
+	                
+	                </code>
+	            </pre>
+	        </div>
+	    </div>
+        <!-- **************** separator line ****************  -->
+        
+    </div>
+    <div class="col-md-3" id="side">
+    	<div class="fix-side-nav">
+        	<!--#include virtual="_common_nav.html" -->
         </div>
     </div>
-	<div class="container">
-    	<div class="row">
-        	<div class="col-md-9" role="main">
-            	<h3 id="sec-1"><span class="num">1</span>二列右列宽度自适应－浮动法</h3>
-                <p>兼容性：<kbd>IE6+</kbd></p>
-                <div class="code-box">
-                	<pre class="language-html line-numbers">
-                    	<code>
-&lt;div class=”leftSide”&gt;左列&lt;/div&gt;
-&lt;div class=”rightSide”&gt;右列&lt;/div&gt;                        
-                        </code>
-                    </pre>
-                </div>
-                <div class="code-box">
-                	<pre class="language-css line-numbers">
-                    	<code>
-.leftSide{
-    float:left;
-    width:200px;
-}
-.rightSide{
-    margin-left:200px;
-}                        
-                        </code>
-                    </pre>
-                </div>
-                <p>＜说明＞<br>不需要再为right设置float:right属性，也不需要为其设置宽度，它会自动占满父元素的宽度。</p>
-                <!-- **************** separator line ****************  -->
-                <h3 id="sec-2"><span class="num">2</span>二列右列宽度自适应－绝对定位法</h3>
-                <p>兼容性：<kbd>IE6+</kbd></p>
-                <div class="code-box">
-                	<pre class="language-html line-numbers">
-                    	<code>
-&lt;div class=”leftSide”&gt;左列&lt;/div&gt;
-&lt;div class=”rightSide”&gt;右列&lt;/div&gt;                         
-                        </code>
-                    </pre>
-                </div>
-                <div class="code-box">
-                	<pre class="language-css line-numbers">
-                    	<code>
-.leftSide{
-position:absolute;left:0;top:0;width:200px;
-}
-.rightSide{
-    margin-left:200px;
-}                        
-                        </code>
-                    </pre>
-                </div>
-                <!-- **************** separator line ****************  -->
-                <h3 id="sec-3"><span class="num">3</span>二列左列宽度自适应－浮动法</h3>
-                <p>兼容性：<kbd>IE6+</kbd></p>
-                <div class="code-box">
-                	<pre class="language-html line-numbers">
-                    	<code>
-&lt;div class=”rightSide”&gt;右列&lt;/div&gt;                        
-&lt;div class=”leftSide”&gt;左列&lt;/div&gt;
-                        </code>
-                    </pre>
-                </div>
-                <div class="code-box">
-                	<pre class="language-css line-numbers">
-                    	<code>
-.leftSide{
-	margin-right:200px;
-}
-.rightSide{
-    float:right;
-    width:180px;
-}                        
-                        </code>
-                    </pre>
-                </div>
-                <p>＜说明＞<br>“rightSide右列”一定要放在”leftSide左列”的前面，否则无法达到这种效果。而且这样写时不用清除浮动，如果清除浮动（clearfix）了，在IE6中反而有问题，其它浏览器IE7/IE8/GOOGLE即使清除浮动了也还都正常；</p>
-                <!-- **************** separator line ****************  -->
-                <h3 id="sec-4"><span class="num">4</span>二列左列宽度自适应－绝对定位法</h3>
-                <p>兼容性：<kbd>IE6+</kbd></p>
-                <div class="code-box">
-                	<pre class="language-html line-numbers">
-                    	<code>
-&lt;div class=”rightSide”&gt;右列&lt;/div&gt;                        
-&lt;div class=”leftSide”&gt;左列&lt;/div&gt;                        
-                        </code>
-                    </pre>
-                </div>
-                <div class="code-box">
-                	<pre class="language-css line-numbers">
-                    	<code>
-.leftSide {
-	margin-right:200px;
-    background:#CCCCCC;
-}
-.rightSide {
-	position:absolute;
-    right:0;
-    top:0;
-    width:200px;
-    background:green;
-}                        
-                        </code>
-                    </pre>
-                </div>
-                <!-- **************** separator line ****************  -->
-                <h3 id="sec-5"><span class="num">5</span>三列中间列宽度自适应－绝对定位法</h3>
-                <p>兼容性：<kbd>IE6+</kbd></p>
-                <div class="code-box">
-                	<pre class="language-html line-numbers">
-                    	<code>
-&lt;div class=”leftSide”&gt;左列&lt;/div&gt;
-&lt;div class=”center”&gt;中间列&lt;/div&gt;
-&lt;div class=”rightSide”&gt;右列&lt;/div&gt;                         
-                        </code>
-                    </pre>
-                </div>
-                <div class="code-box">
-                	<pre class="language-css line-numbers">
-                    	<code>
-.leftSide {
-	position:absolute;
-	top:0px;
-	left:0px;
-	width:100px;
-	height:300px;
-	border:2px solid #cccccc;
-}
-.rightSide{
-	position:absolute;
-	top:0px;
-	right:0px;
-	width:100px;
-	height:300px;
-	border:2px solid #cccccc;
-}
-.center{
-	margin-left:104px;
-	margin-right:104px;
-	height:300px;
-	border:2px solid #cccccc;
-}                        
-                        </code>
-                    </pre>
-                </div>
-                <!-- **************** separator line ****************  -->
-                <h3 id="sec-6"><span class="num">6</span>三列中间列宽度自适应－浮动法</h3>
-                <p>兼容性：<kbd>IE6+</kbd></p>
-                <div class="code-box">
-                	<pre class="language-html line-numbers">
-                    	<code>
-&lt;div class="wrap"&gt; 
-   &lt;div class=”right”&gt;这是右侧的内容 固定宽度&lt;/div&gt;
-   &lt;div class=”left”&gt;这是左侧的内容 固定宽度&lt;/div&gt;
-   &lt;div class=”main”&gt;中间内容，自适应宽度&lt;/div&gt;
-&lt;/div>                        
-                        </code>
-                    </pre>
-                </div>
-                <div class="code-box">
-                	<pre class="language-css line-numbers">
-                    	<code>
-.right{ 
-    width:200px;
-    float:right; 
-    background-color:#960;
-}
-.left{ 
-    width:150px;
-    float:left; 
-    background:#6FF;
-}
-.main{ 
-    margin-left:150px;
-    margin-right:200px; 
-    background-color:#9F3;
-}                        
-                        </code>
-                    </pre>
-                </div>
-                <p>注意：中间列一定要放在左右两列的后面</p>
-                <!-- **************** separator line ****************  -->
-                <h3><span class="num">7</span>多个块元素不换行 - 法一</h3>
-                <p>兼容性：<kbd>IE6+</kbd></p>
-                <div class="code-box">
-                	<pre class="language-css line-numbers">
-                    	<code>
-.wrap { white-space:nowrap; }
-.wrap div {display:inline-block; height:100px; overflow:hidden; width:100px; }  
-.wrap div { *display:inline; }
-.wrap div p { white-space:normal; }                        
-                        </code>
-                    </pre>
-                </div>
-                <p>此种方法比较简单，但是由于对源代码中的空格浏览器处理方法不一样，会造成内部div之间的间距不等，产生此间距的原因，是标签之间的空格——元素标签间的空格和制表符会被压缩为1个空格显示，而对于这些空格的处理，浏览器存在差异。删除内部div之间的空格，可以解决问题。</p>
-                <!-- **************** separator line ****************  -->
-                <h3><span class="num">8</span>多个块元素不换行 - 法二</h3>
-                <p>兼容性：<kbd>IE8+</kbd></p>
-                <div class="code-box">
-                	<pre class="language-css line-numbers">
-                    	<code>
-.wrap { display:table; }
-.wrap div { border:1px solid; display:table-cell;}
-.wrap div p{ height:100px; margin:0; padding:0; width:100px; }                        
-                        </code>
-                    </pre>
-                </div>
-                <p>此种方法对于支持display:table-cell的浏览器，效果是统一的，但是对于table-cell类型的元素，在css的应用上有很多限制，例如margin无效、宽度和高度受同行和同列的其他单元格影响等。但是此方法可以实现内部div的等高，即不设定高度，高度由内容决定，同一行的div等高。同时，此方法对于 IE7- 无效，因此针对 IE7- 还是要使用上面的方法。</p>
-                <!-- **************** separator line ****************  -->
-                <h3><span class="num">9</span></h3>
-                <p>兼容性：<kbd>IE6+</kbd></p>
-                <div class="code-box">
-                	<pre class="language-html line-numbers">
-                    	<code>
-                        
-                        </code>
-                    </pre>
-                </div>
-                <div class="code-box">
-                	<pre class="language-css line-numbers">
-                    	<code>
-                        
-                        </code>
-                    </pre>
-                </div>
-                <!-- **************** separator line ****************  -->
-                
-            </div>
-            <div class="col-md-3" id="side">
-            	<div class="fix-side-nav">
-                	<!--#include virtual="_common_nav.html" -->
-                    <dl>
-                        <dt>
-                            <a href="#sec-1">二列右列宽度自适应－浮动法</a>
-                        </dt>
-                        <dt>
-                            <a href="#sec-2">二列右列宽度自适应－绝对定位法</a>
-                        </dt>
-                        <dt>
-                            <a href="#sec-3">二列左列宽度自适应－浮动法</a>
-                        </dt>
-                        <dt>
-                            <a href="#sec-4">二列左列宽度自适应－绝对定位法</a>
-                        </dt>
-                        <dt>
-                        	<a href="#sec-5">三列中间列宽度自适应－绝对定位法</a>
-                        </dt>
-                        <dt>
-                        	<a href="#sec-6">三列中间列宽度自适应－浮动法</a>
-                        </dt>
-                        <dt>
-                        	<a href="#sec-7"></a>
-                        </dt>
-                    </dl>
-                    <p class="toTop"><a href="#"><i class="icon-circle-arrow-up"></i>TOP</a></p>
-                </div>
-            </div>
-        </div>
-	</div>
+</div>
 </body>
 </html>

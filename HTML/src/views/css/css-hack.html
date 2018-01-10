@@ -7,276 +7,269 @@
 	<title>YQ-Note CSS HACK</title>
     <!--#include virtual="/include/_head_import_file.html" -->
     <link rel="stylesheet/less" href="/css/global.less">
+    <link href="/css/default.css" rel="stylesheet" />
     <script src="/js/less-2.5.3.min.js"></script>
-    <style type="text/css">
-	body{background-color:#fff;}
-	</style>
+    <script src="/js/default.js"></script>
 </head>
 <body>
-	<!--#include virtual="/include/_header.html" -->
-    <div class="cblock">
-    	<div class="bg-under">
-        	<div class="shape1"></div>
-        </div>
-        <div class="container content-area">
-        	<h1>CSS HACK</h1>
-            <p>包含IE6-10 FIREFOX CHROME SAFARI OPERA等主流浏览器的选择器Hack、属性/属性值 Hack、媒体查询Hack、JavaScript Hack等</p>
-        </div>
-    </div>
-	<div class="container">
-    	<div class="row">
-        	<div class="col-md-9" role="main">
-            	<p class="mt20">主流浏览器的Hack写法,包括IE6-10 chrome firefox safari oprea.</p>
-            	<p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/browser-hacks.html">http://www.w3cplus.com/css/browser-hacks.html</a></p>
-            	<section>
-                    <h3>IE浏览器</h3>
-                    <h4 id="hack-ie-1">选择器Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="选择器Hack">
-                            <code>
-    /* IE 6 and below */
-    * html .selector  {
-     样式代码放这里		
-    } 
-    .suckyie6.selector {
-     样式代码放这里		
-    } /* .suckyie6 can be any unused class */
-    
-    /* IE 7 and below */
-    .selector, {
-     样式代码放这里		
-    }
-    
-    /* IE 7 */
-    *:first-child+html .selector {
-      样式代码放这里	
-    } 
-    .selector, x:-IE7 {
-     样式代码放这里		
-    } 
-    *+html .selector {
-     样式代码放这里		
-    } 
-    
-    /* Everything but IE 6 */
-    html > body .selector {
-     样式代码放这里		
-    }
-    
-    /* Everything but IE 6/7 */
-    html > /**/ body .selector {
-      样式代码放这里	
-    }
-    head ~ /* */ body .selector {
-     样式代码放这里		
-    }
-    
-    /* Everything but IE 6/7/8 */
-    :root *> .selector {
-     样式代码放这里		
-    } 
-    body:last-child .selector {
-     样式代码放这里		
-    } 
-    body:nth-of-type(1) .selector {
-     样式代码放这里		
-    } 
-    body:first-of-type .selector {
-     样式代码放这里		
-    }	                        </code>
-                        </pre>
-                    </div>
-                    <h4 id="hack-ie-2">属性/属性值 Hack</h4>
-                    <div class="code-box">
-                    	<pre class="language-css line-numbers" data-language="属性/属性值 Hack">
-                        	<code>
-    /* !important应用 */
-    .selector { height:auto !important; height:600px; min-height:600px; }
-                            </code>
-                        </pre>
-                    </div>
-                    <p>FF和IE7 IE8支持!important,IE6不支持,它会单纯地忽略这种优先权,而不会忽略样式，所以上面的写法才能实现自适应高度的效果。<br>!important的优先级是最大的，即大于JS赋予的，也大于直接加载在HTML标签上的。</p>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="属性/属性值 Hack">
-                            <code>
-    /* IE 6 */
-    .selector { _color: blue; } 
-    .selector { -color: blue; }
-    
-    /* IE 6/7 - any combination of these characters: 
-     ! $ & * ( ) = % + @ , . / ` [ ] # ~ ? : <  > | */
-    .selector { !color: blue; } 
-    .selector { $color: blue; } 
-    .selector { &color: blue; } 
-    .selector { *color: blue; } 
-    /* ... */
-    
-    /* IE 6/7 - acts as an !important */
-    .selector { color: blue !ie; } 
-    /* string after ! can be anything */
-    
-    /* IE 8/9 */
-    .selector { color: blue\0/; } 
-    /* must go at the END of all rules */
-    
-    /* IE 9/10 */
-    .selector:nth-of-type(1n) { color: blue\9; }
-    
-    /* IE 6/7/8/9/10 */
-    .selector { color: blue\9; } 
-    .selector { color/*\**/: blue\9; }
-    
-     /* Everything but IE 6 */
-    .selector { color/**/: blue; }                        
-                            </code>
-                        </pre>
-                    </div>
-                    <h4 id="hack-ie-3">媒体查询Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="媒体查询Hack">
-                            <code>
-    /* IE 6/7 */
-    @media screen\9 {
-     样式代码放这里		
-    }
-    
-    /* IE 6/7/8 */
-    @media \0screen\,screen\9 {
-     样式代码放这里		
-    }
-    
-    /* IE 8 */
-    @media \0screen {
-     样式代码放这里		
-    }
-    
-    /* IE 8/9/10 & Opera */
-    @media screen\0 {
-     样式代码放这里		
-    }
-    
-    /* IE 9/10, Firefox 3.5+, Opera */
-    @media screen and (min-resolution: +72dpi) {
-     样式代码放这里		
-    }
-    
-    /* IE 9/10 */
-    @media screen and (min-width:0\0) {
-     样式代码放这里		
-    }
-    
-    /* IE 10+ */
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-     样式代码放这里		
-    }
-    
-    /* Everything but IE 6/7/8 */
-    @media screen and (min-width: 400px) {
-     样式代码放这里		
-    }                        
-                            </code>
-                        </pre>
-                    </div>
-                    <h4 id="hack-ie-4">JavaScript Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE<=8">
-                            <code>
-    /* IE <= 8 */
-    var isIE = '\v'=='v';                        
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                        <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE6">
-                            <code>
-    /* IE 6 */
-    (checkIE = document.createElement("b")).innerHTML = "<!--[if IE 6]><i></i><![endif]-->"; 
-    var isIE = checkIE.getElementsByTagName("i").length == 1;                        
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                        <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE7">
-                            <code>
-    /* IE 7 */
-    (checkIE = document.createElement("b")).innerHTML = "<!--[if IE 7]><i></i><![endif]-->"; 
-    var isIE = checkIE.getElementsByTagName("i").length == 1;
-    navigator.appVersion.indexOf("MSIE 7.")!=-1                        
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                        <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE8">
-                            <code>
-    /* IE 8 */
-    (checkIE = document.createElement("b")).innerHTML = "<!--[if IE 8]><i></i><![endif]-->"; 
-    var isIE = checkIE.getElementsByTagName("i").length == 1;                        
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                        <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE9">
-                            <code>
-    /* IE 9 */
-    (checkIE = document.createElement("b")).innerHTML = "<!--[if IE 9]><i></i><![endif]-->"; 
-    var isIE = checkIE.getElementsByTagName("i").length == 1;                        
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                        <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE10">
-                            <code>
-    /* IE 10 */
-    var isIE = eval("/*@cc_on!@*/false") && document.documentMode === 10;	
-    
-    /* IE 10 */
-    var isIE = document.body.style.msTouchAction != undefined;                        
-                            </code>
-                        </pre>
-                    </div>
-                </section>
-                <!-- **************** separator line ****************  -->
-                <section>
-                	<h3>Chrome浏览器</h3>
-                    <h4 id="hack-chrome-1">选择器Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="选择器Hack">
-                            <code>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+		<h1 class="r1-title">CSS HACK</h1>
+    	<p class="mt20">主流浏览器的Hack写法,包括IE6-10 chrome firefox safari oprea.</p>
+    	<p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/browser-hacks.html">http://www.w3cplus.com/css/browser-hacks.html</a></p>
+        
+        <h2 class="r2-title">IE浏览器</h2>
+        <section class="r2-body">
+            <h3 class="r3-title">选择器Hack</h3>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="选择器Hack">
+                    <code>
+/* IE 6 and below */
+* html .selector  {
+ 样式代码放这里		
+} 
+.suckyie6.selector {
+ 样式代码放这里		
+} /* .suckyie6 can be any unused class */
+
+/* IE 7 and below */
+.selector, {
+ 样式代码放这里		
+}
+
+/* IE 7 */
+*:first-child+html .selector {
+  样式代码放这里	
+} 
+.selector, x:-IE7 {
+ 样式代码放这里		
+} 
+*+html .selector {
+ 样式代码放这里		
+} 
+
+/* Everything but IE 6 */
+html > body .selector {
+ 样式代码放这里		
+}
+
+/* Everything but IE 6/7 */
+html > /**/ body .selector {
+  样式代码放这里	
+}
+head ~ /* */ body .selector {
+ 样式代码放这里		
+}
+
+/* Everything but IE 6/7/8 */
+:root *> .selector {
+ 样式代码放这里		
+} 
+body:last-child .selector {
+ 样式代码放这里		
+} 
+body:nth-of-type(1) .selector {
+ 样式代码放这里		
+} 
+body:first-of-type .selector {
+ 样式代码放这里		
+}	                        </code>
+                </pre>
+            </div>
+            <h3 class="r3-title">属性/属性值 Hack</h3>
+            <div class="code-box">
+            	<pre class="language-css line-numbers" data-language="属性/属性值 Hack">
+                	<code>
+/* !important应用 */
+.selector { height:auto !important; height:600px; min-height:600px; }
+                        </code>
+                </pre>
+            </div>
+            <p>FF和IE7 IE8支持!important,IE6不支持,它会单纯地忽略这种优先权,而不会忽略样式，所以上面的写法才能实现自适应高度的效果。<br>!important的优先级是最大的，即大于JS赋予的，也大于直接加载在HTML标签上的。</p>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="属性/属性值 Hack">
+                    <code>
+/* IE 6 */
+.selector { _color: blue; } 
+.selector { -color: blue; }
+
+/* IE 6/7 - any combination of these characters: 
+ ! $ & * ( ) = % + @ , . / ` [ ] # ~ ? : <  > | */
+.selector { !color: blue; } 
+.selector { $color: blue; } 
+.selector { &color: blue; } 
+.selector { *color: blue; } 
+/* ... */
+
+/* IE 6/7 - acts as an !important */
+.selector { color: blue !ie; } 
+/* string after ! can be anything */
+
+/* IE 8/9 */
+.selector { color: blue\0/; } 
+/* must go at the END of all rules */
+
+/* IE 9/10 */
+.selector:nth-of-type(1n) { color: blue\9; }
+
+/* IE 6/7/8/9/10 */
+.selector { color: blue\9; } 
+.selector { color/*\**/: blue\9; }
+
+ /* Everything but IE 6 */
+.selector { color/**/: blue; }                        
+                        </code>
+                </pre>
+            </div>
+            <h3 class="r3-title">媒体查询Hack</h3>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="媒体查询Hack">
+                    <code>
+/* IE 6/7 */
+@media screen\9 {
+ 样式代码放这里		
+}
+
+/* IE 6/7/8 */
+@media \0screen\,screen\9 {
+ 样式代码放这里		
+}
+
+/* IE 8 */
+@media \0screen {
+ 样式代码放这里		
+}
+
+/* IE 8/9/10 & Opera */
+@media screen\0 {
+ 样式代码放这里		
+}
+
+/* IE 9/10, Firefox 3.5+, Opera */
+@media screen and (min-resolution: +72dpi) {
+ 样式代码放这里		
+}
+
+/* IE 9/10 */
+@media screen and (min-width:0\0) {
+ 样式代码放这里		
+}
+
+/* IE 10+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+ 样式代码放这里		
+}
+
+/* Everything but IE 6/7/8 */
+@media screen and (min-width: 400px) {
+ 样式代码放这里		
+}                        
+                        </code>
+                </pre>
+            </div>
+            <h3 class="r3-title">JavaScript Hack</h3>
+            <div class="code-box">
+                <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE<=8">
+                    <code>
+/* IE <= 8 */
+var isIE = '\v'=='v';                        
+                        </code>
+                </pre>
+            </div>
+            <div class="code-box">
+                <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE6">
+                    <code>
+/* IE 6 */
+(checkIE = document.createElement("b")).innerHTML = "<!--[if IE 6]><i></i><![endif]-->"; 
+var isIE = checkIE.getElementsByTagName("i").length == 1;                        
+                        </code>
+                </pre>
+            </div>
+            <div class="code-box">
+                <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE7">
+                    <code>
+/* IE 7 */
+(checkIE = document.createElement("b")).innerHTML = "<!--[if IE 7]><i></i><![endif]-->"; 
+var isIE = checkIE.getElementsByTagName("i").length == 1;
+navigator.appVersion.indexOf("MSIE 7.")!=-1                        
+                        </code>
+                </pre>
+            </div>
+            <div class="code-box">
+                <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE8">
+                    <code>
+/* IE 8 */
+(checkIE = document.createElement("b")).innerHTML = "<!--[if IE 8]><i></i><![endif]-->"; 
+var isIE = checkIE.getElementsByTagName("i").length == 1;                        
+                        </code>
+                </pre>
+            </div>
+            <div class="code-box">
+                <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE9">
+                    <code>
+/* IE 9 */
+(checkIE = document.createElement("b")).innerHTML = "<!--[if IE 9]><i></i><![endif]-->"; 
+var isIE = checkIE.getElementsByTagName("i").length == 1;                        
+                        </code>
+                </pre>
+            </div>
+            <div class="code-box">
+                <pre class="language-javascript line-numbers" data-language="JavaScript Hack / IE10">
+                    <code>
+/* IE 10 */
+var isIE = eval("/*@cc_on!@*/false") && document.documentMode === 10;	
+
+/* IE 10 */
+var isIE = document.body.style.msTouchAction != undefined;                        
+                        </code>
+                </pre>
+            </div>
+        </section>
+        
+        <!-- **************** separator line ****************  -->
+        <h2 class="r2-title">Chrome浏览器</h2>
+        <section class="r2-body">
+            <h3 class="r3-title">选择器Hack</h3>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="选择器Hack">
+                    <code>
 /* Chrome 24- and Safari 5- */
 ::made-up-pseudo-element, .selector {
   代码放在这里
 }
                             </code>
-                        </pre>
-                    </div>
-                    <h4 id="hack-chrome-2">媒体查询Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="媒体查询Hack">
-                            <code>
+                </pre>
+            </div>
+            <h3 class="r3-title">媒体查询Hack</h3>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="媒体查询Hack">
+                    <code>
 /* Chrome, Safari 3+ */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   代码放在这里	
 }                            
                             </code>
-                        </pre>
-                    </div>
-                    <h4 id="hack-chrome-3">JavaScript Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-javascript line-numbers" data-language="JavaScript Hack">
-                            <code>
+                </pre>
+            </div>
+            <h3 class="r3-title">JavaScript Hack</h3>
+            <div class="code-box">
+                <pre class="language-javascript line-numbers" data-language="JavaScript Hack">
+                    <code>
 /* Chrome */
 var isChrome = Boolean(window.chrome);                            
                             </code>
-                        </pre>
-                    </div>
-                </section>
-				<!-- **************** separator line ****************  -->
-                <section>
-                	<h3>firefox浏览器</h3>
-                    <h4 id="hack-firefox-1">属性选择器Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="属性选择器Hack">
-                            <code>
+                </pre>
+            </div>
+        </section>
+		<!-- **************** separator line ****************  -->
+        <h2 class="r2-title">firefox浏览器</h2>
+        <section class="r2-body">
+            <h3 class="r3-title">属性选择器Hack</h3>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="属性选择器Hack">
+                    <code>
 /* Firefox 1.5 */
 body:empty .selector {
  样式代码放这里
@@ -294,12 +287,12 @@ body:not(:-moz-handler-blocked) .selector {
  样式代码放这里	
 }                            
                             </code>
-                        </pre>
-                    </div>
-                    <h4 id="hack-firefox-2">媒体查询Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="媒体查询Hack">
-                            <code>
+                </pre>
+            </div>
+            <h3 class="r3-title">媒体查询Hack</h3>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="媒体查询Hack">
+                    <code>
 /* Firefox 3.5+, IE 9/10, Opera */
 @media screen and (min-resolution: +72dpi) {
  样式代码放这里		
@@ -313,12 +306,12 @@ body:not(:-moz-handler-blocked) .selector {
  样式代码放这里		
 }                            
                             </code>
-                        </pre>
-                    </div>
-                    <h4 id="hack-firefox-3">JavaScript Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-javascript line-numbers" data-language="JavaScript Hack">
-                            <code>
+                </pre>
+            </div>
+            <h3 class="r3-title">JavaScript Hack</h3>
+            <div class="code-box">
+                <pre class="language-javascript line-numbers" data-language="JavaScript Hack">
+                    <code>
 /* Firefox */
 var isFF = !!navigator.userAgent.match(/firefox/i);
 
@@ -331,27 +324,27 @@ var isFF = /a/[-1]=='a';
 /* Firefox 3 */
 var isFF = (function x(){})[-5]=='x';                            
                             </code>
-                        </pre>
-                    </div>
-                    <h4 id="hack-firefox-4">混合型Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="">
-                            <code>
+                </pre>
+            </div>
+            <h3 class="r3-title">混合型Hack</h3>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="">
+                    <code>
 /* Firefox 3+ */
 @-moz-document url-prefix() {
  样式代码放这里		
 }                            
                             </code>
-                        </pre>
-                    </div>
-                </section>
-                <!-- **************** separator line ****************  -->
-                <section>
-                	<h3>Opera浏览器</h3>
-                    <h4 id="hack-opera-1">属性选择器Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="属性选择器Hack">
-                            <code>
+                </pre>
+            </div>
+        </section>
+        <!-- **************** separator line ****************  -->
+        <h2 class="r2-title">Opera浏览器</h2>
+        <section class="r2-body">
+            <h3 class="r3-title">属性选择器Hack</h3>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="属性选择器Hack">
+                    <code>
 /* Opera 9.25, Safari 2/3.1 */
 *|html[xmlns*=""] .selector {
  样式代码放这里	
@@ -367,12 +360,12 @@ noindex:-o-prefocus, .selector {
  样式代码放这里	
 }                            
                             </code>
-                        </pre>
-                    </div>
-                    <h4 id="hack-opera-2">媒体查询Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="媒体查询Hack">
-                            <code>
+                </pre>
+            </div>
+            <h3 class="r3-title">媒体查询Hack</h3>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="媒体查询Hack">
+                    <code>
 /* Opera 7 */
 @media all and (min-width: 0px){
  样式代码放这里		
@@ -393,28 +386,28 @@ noindex:-o-prefocus, .selector {
  样式代码放这里		
 }                            
                             </code>
-                        </pre>
-                    </div>
-                    <h4 id="hack-opera-3">JavaScript Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-javascript line-numbers" data-language="">
-                            <code>
+                </pre>
+            </div>
+            <h3 class="r3-title">JavaScript Hack</h3>
+            <div class="code-box">
+                <pre class="language-javascript line-numbers" data-language="">
+                    <code>
 /* Opera 9.64- */
 var isOpera = /^function \(/.test([].sort);
 
 /* Opera 12- */
 var isOpera = Boolean(window.opera);                            
                             </code>
-                        </pre>
-                    </div>
-                </section>
-                <!-- **************** separator line ****************  -->
-                <section>
-                	<h3>Safari浏览器</h3>
-                    <h4 id="hack-safari-1">属性选择器Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="">
-                            <code>
+                </pre>
+            </div>
+        </section>
+        <!-- **************** separator line ****************  -->
+        <h2 class="r2-title">Safari浏览器</h2>
+        <section class="r2-body">
+            <h3 class="r3-title">属性选择器Hack</h3>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="">
+                    <code>
 /* Safari 2/3 */
 html[xmlns*=""] body:last-child .selector {
  样式代码放这里		
@@ -433,70 +426,25 @@ html[xmlns*=""]:root .selector  {
  样式代码放这里		
 }                            
                             </code>
-                        </pre>
-                    </div>
-                    <h4 id="hack-safari-2">媒体查询Hack</h4>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers" data-language="媒体查询Hack">
-                            <code>
+                </pre>
+            </div>
+            <h3 class="r3-title">媒体查询Hack</h3>
+            <div class="code-box">
+                <pre class="language-css line-numbers" data-language="媒体查询Hack">
+                    <code>
 /* Safari */
 var isSafari = /a/.__proto__=='//';                            
                             </code>
-                        </pre>
-                    </div>
-                </section>
-                <!-- **************** separator line ****************  -->
+                </pre>
             </div>
-            <div class="col-md-3" id="side">
-            	<div class="fix-side-nav">
-                	<!--#include virtual="_common_nav.html" -->
-                	<dl>
-                    	<dt>
-                        	<a href="#hack-ie" data-toggle="collapse" aria-expanded="false" aria-controls="hack-ie">IE浏览器</a>
-                        </dt>
-                        <dd id="hack-ie" class="collapse">
-                        	<a href="#hack-ie-1">选择器HACK</a><br>
-                            <a href="#hack-ie-2">属性/属性值 HACK</a><br>
-                            <a href="#hack-ie-3">媒体查询HACK</a><br>
-                            <a href="#hack-ie-4">JavaScript Hack</a>
-                        </dd>
-                        <dt>
-                        	<a href="#hack-chrome" data-toggle="collapse" aria-expanded="false" aria-controls="hack-webkit">chrome</a>
-                        </dt>
-                        <dd id="hack-chrome" class="collapse">
-                        	<a href="#hack-chrome-1">选择器HACK</a><br>
-                            <a href="#hack-chrome-2">媒体查询HACK</a><br>
-                            <a href="#hack-chrome-3">JavaScript Hack</a>
-                        </dd>
-                        <dt>
-                        	<a href="#hack-firefox" data-toggle="collapse" aria-expanded="false" aria-controls="hack-firefox">firefox</a>
-                        </dt>
-                        <dd id="hack-firefox" class="collapse">
-                        	<a href="#hack-firefox-1">属性选择器Hack</a><br>
-                            <a href="#hack-firefox-2">媒体查询HACK</a><br>
-                            <a href="#hack-firefox-3">JavaScript Hack</a><br>
-                            <a href="#hack-firefox-4">混合型Hack</a>
-                        </dd>
-                        <dt>
-                        	<a href="#hack-opera" data-toggle="collapse" aria-expanded="false" aria-controls="hack-firefox">opera</a>
-                        </dt>
-                        <dd id="hack-opera" class="collapse">
-                        	<a href="#hack-opera-1">属性选择器Hack</a><br>
-                            <a href="#hack-opera-2">媒体查询HACK</a><br>
-                            <a href="#hack-opera-3">JavaScript Hack</a><br>
-                        </dd>
-                        <dt>
-                        	<a href="#hack-safari" data-toggle="collapse" aria-expanded="false" aria-controls="hack-firefox">safari</a>
-                        </dt>
-                        <dd id="hack-safari" class="collapse">
-                        	<a href="#hack-safari-1">属性选择器Hack</a><br>
-                            <a href="#hack-safari-2">媒体查询HACK</a><br>
-                        </dd>
-                    </dl>
-                    <p class="toTop"><a href="#"><i class="icon-circle-arrow-up"></i>TOP</a></p>
-                </div>
-            </div>
+        </section>
+        <!-- **************** separator line ****************  -->
+    </div>
+    <div class="col-md-3" id="side">
+    	<div class="fix-side-nav">
+        	<!--#include virtual="_common_nav.html" -->
         </div>
     </div>
+</div>
 </body>
 </html>

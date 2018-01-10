@@ -7,394 +7,374 @@
 	<title>关于对齐</title>
     <!--#include virtual="/include/_head_import_file.html" -->
     <link rel="stylesheet/less" href="/css/global.less">
+    <link rel="stylesheet/less" href="/css/default.css">
     <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/default.js"></script>
 </head>
 <body>
-    <!--#include virtual="/include/_header.html" -->
-    <div class="cblock">
-    	<div class="bg-under">
-        	<div class="shape1"></div>
-        </div>
-        <div class="container content-area">
-        	<h1>关于居中对齐</h1>
-            <p>包括水平居中、垂直居中、水平垂直居中</p>
-        </div>
-    </div>
-    <div class="container">
-    	<div class="row">
-        	<div class="col-md-9" role="main">
-                <section id="sec-1">
-                    <h3><span class="num">1</span>单行文本/图片垂直居中对齐</h3>
-                    <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/vertically-center-content-with-css">http://www.w3cplus.com/css/vertically-center-content-with-css</a></p>
-                    <p>只要保证元素内容是单行，并且其高度是固定不变的，你只要将其“line-height”设置成和“height”值一样就Ok了。</p>
-                    <div class="code-box">
-                    	<pre class="language-html">
-                        	<code>
-&lt;div class="vertical"&gt;content&lt;/div&gt;                            
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                        <pre class="language-css">
-                            <code>
-        .vertical {
-            height: 100px;
-            line-height: 100px;/*值等于元素高度的值*/
-        }                    
-                            </code>
-                        </pre>
-                    </div>
-                    <p>这种方法对运用在小元素上是非常有用的，比如说让一个button、图片或者单行文本字段垂直居中。</p>
-                </section>
-                <!-- **************** separator line ****************  -->
-                <section id="sec-2">
-                    <h3><span class="num">2</span>利用绝对定位实现水平垂直居中</h3>
-                    <div class="code-box">
-                    	<pre class="language-html">
-                        	<code>
-&lt;div class="hvmiddle"&gt;test&lt;/div&gt;                            
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                        <pre class="language-css">
-                            <code>
-        .hvmiddle{
-            width: 200px;/*元素的宽度*/
-            height:200px;/*元素的高度*/
-            position: absolute;
-            left: 50%;/*配合margin-left的负值实现水平居中*/
-            margin-left: -100px;/*值的大小等于元素宽度的一半*/
-            top:50%;/*配合margin-top的负值实现垂直居中*/
-            margin-top: -100px;/*值的大小等于元素高度的一半*/
-        }
-                            
-                            </code>
-                        </pre>
-                    </div>
-                    <p>使用这种方法来实现垂直居中的效果，那么元素必须要有一个固定的高度。这样一来，你给元素设置了固定高度，如果你又给他设置了“overflow:auto”，那么当元素内容超过容器后，这样元素的就会出现滚动，如果设置了"overflow:hidden"，元素内容超出后，超出部分会被隐藏，而不会自适应内容的高度。</p>
-                </section>
-                <!-- **************** separator line ****************  -->
-                <section id="sec-2">
-                    <h3><span class="num">2</span>calc+绝对定位实现水平垂直居中</h3>
-                    <div class="code-box">
-                        <pre class="language-css">
-                            <code>
-/* .ele的宽度和高度为300px */    		
-.ele{
-	position: absolute
-	top: calc(50% - 150px);
-	left: calc(50% - 150px);
-}
-                            </code>
-                        </pre>
-                    </div>
-                    <p>使用这种方法来实现垂直居中的效果，那么元素必须要有一个固定的高度。这样一来，你给元素设置了固定高度，如果你又给他设置了“overflow:auto”，那么当元素内容超过容器后，这样元素的就会出现滚动，如果设置了"overflow:hidden"，元素内容超出后，超出部分会被隐藏，而不会自适应内容的高度。</p>
-                </section>
-                <!-- **************** separator line ****************  -->
-                <section id="sec-3">
-                    <h3><span class="num">3</span>通过display:table实现水平垂直居中</h3>
-                    <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/vertically-center-content-with-css">http://www.w3cplus.com/css/vertically-center-content-with-css</a></p>
-                    <div class="code-box">
-                        <pre class="language-html">
-                            <code>
-        &lt;div id="container"&gt;
-            &lt;div id="content"&gt;content&lt;/div&gt;
-        &lt;/div&gt;                    
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                        <pre class="language-css">
-                            <code>
-        #container {
-            height: 300px;
-            display: table;/*让元素以表格形式渲染*/
-        }
-        #content {
-            display:table-cell;/*让元素以表格的单元素格形式渲染*/
-            vertical-align: middle;/*使用元素的垂直对齐*/
-        }	                    
-                            </code>
-                        </pre>
-                    </div>
-                    <p>这种方法不会像前面的用绝对定位的方法一样，有高度的限制，此方法可以要据元素内容动态的改变高度，从而也就没有空间的限制，元素的内容不会因为没足够的空间而被切断或者出现难看的滚动条。</p>
-                    <p>这种方法在现代浏览器下是非常方便。但是在IE6-7中是不被支持的，因为display:table在IE6-7中不被支持，那么为了解决这种方法在IE6-7的兼容，需要额外增加一个div，并使用hack，下面我们一起来看看其解决办法。</p>
-                    <div class="code-box">
-                        <pre class="language-html">
-                            <code>
-        &lt;div class="table"&gt;
-            &lt;div class="tableCell"&gt;
-                &lt;div class="content"&gt;content&lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;                    
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                        <pre class="language-css line-numbers">
-                            <code>
-        .table {
-            height: 300px;/*高度值不能少*/
-            width: 300px;/*宽度值不能少*/
-            display: table;
-            position: relative;
-            float:left;
-        }		
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+		<h2 class="r2-title">水平居中</h2>
+		<div class="r2-body">
+			<section id="sec-4">
+	        	<h3 class="r3-title">margin:auto实现水平居中</h3>
+	            <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/vertically-center-content-with-css">http://www.w3cplus.com/css/vertically-center-content-with-css</a></p>
+	            <p>这种方法主要使用margin: auto配合元素的width来实现水平居中的效果</p>
+	            <div class="code-box">
+	            	<pre class="language-html">
+	                	<code>
+	&lt;div class="horizontal"&gt;content&lt;/div&gt;                           
+	                            </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	            	<pre class="language-css">
+	                	<code>
+	.horizontal {
+	    width: 200px;
+	    margin: 0 auto;
+	}                            
+	                            </code>
+	                </pre>
+	            </div>
+	            <p>使用上面方法实现元素水平居中一定要让元素满足两个条件：其一，元素需要有一个固定宽度值；其二元素的margin-left和margin-right都必须设置为auto，这两个条件少了任何一个都无法让元素达到水平居中的效果。此方法使用水平居中，支持所有浏览器运行，因此他也常用来实现Web页面水平居中的布局效果，如果用在布局，需要注意IE下的效果，换句话说，如果你的Web页面没有明确声明"!DOCTYPE"，那么在IE也会以怪异模式解析你的Web页面，此时上面这种办法将无法让你的页面实现水平居中，但你可以使用下面这种方法解决这个bug。</p>
+	            <div class="code-box">
+	            	<pre class="language-html">
+	                	<code>
+	&lt;div class="container"&gt;页面内容&lt;/div&gt;                            
+	                            </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	            	<pre class="language-css">
+	                	<code>
+	body {
+	    text-align: center;/*实现IE在怪异模式下页面水平居中*/
+	}
+	.container {
+	    text-align: left;/*让文本恢复到左对齐*/
+	    width: 960px;/*设置页面总宽度*/
+	    margin: 0 auto;/*使页面水平居中对齐*/
+	}                            
+	                            </code>
+	                </pre>
+	            </div>
+	        </section>
+	        <!-- **************** separator line ****************  -->
+		</div>
+		
+		<h2 class="r2-title">垂直居中</h2>
+		<div class="r2-body">
+	        <section id="sec-1">
+	            <h3 class="r3-title">单行文本/图片垂直居中</h3>
+	            <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/vertically-center-content-with-css">http://www.w3cplus.com/css/vertically-center-content-with-css</a></p>
+	            <p>只要保证元素内容是单行，并且其高度是固定不变的，你只要将其“line-height”设置成和“height”值一样就Ok了。</p>
+	            <div class="code-box">
+	            	<pre class="language-html">
+	                	<code>
+	&lt;div class="vertical"&gt;content&lt;/div&gt;                            
+	                            </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	                <pre class="language-css">
+	                    <code>
+	.vertical {
+	    height: 100px;
+	    line-height: 100px;/*值等于元素高度的值*/
+	}                    
+	                    </code>
+	                </pre>
+	            </div>
+	            <p>这种方法对运用在小元素上是非常有用的，比如说让一个button、图片或者单行文本字段垂直居中。</p>
+	        </section>
+	    </div>
+        <!-- **************** separator line ****************  -->
+        <h2 class="r2-title">水平垂直居中</h2>
+        <div class="r2-body">
+	        <section id="sec-2">
+	            <h3 class="r3-title">利用绝对定位实现水平垂直居中</h3>
+	            <div class="code-box">
+	            	<pre class="language-html">
+	                	<code>
+	&lt;div class="hvmiddle"&gt;test&lt;/div&gt;                            
+	                            </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	                <pre class="language-css">
+	                    <code>
+	.hvmiddle{
+	    width: 200px;/*元素的宽度*/
+	    height:200px;/*元素的高度*/
+	    position: absolute;
+	    left: 50%;/*配合margin-left的负值实现水平居中*/
+	    margin-left: -100px;/*值的大小等于元素宽度的一半*/
+	    top:50%;/*配合margin-top的负值实现垂直居中*/
+	    margin-top: -100px;/*值的大小等于元素高度的一半*/
+	}
+	                    
+	                    </code>
+	                </pre>
+	            </div>
+	            <p>使用这种方法来实现垂直居中的效果，那么元素必须要有一个固定的高度。这样一来，你给元素设置了固定高度，如果你又给他设置了“overflow:auto”，那么当元素内容超过容器后，这样元素的就会出现滚动，如果设置了"overflow:hidden"，元素内容超出后，超出部分会被隐藏，而不会自适应内容的高度。</p>
+	        </section>
+	        <!-- **************** separator line ****************  -->
+	        <section id="sec-2">
+	            <h3 class="r3-title">calc+绝对定位实现水平垂直居中</h3>
+	            <div class="code-box">
+	                <pre class="language-css">
+	                    <code>
+	/* .ele的宽度和高度为300px */    		
+	.ele{
+		position: absolute
+		top: calc(50% - 150px);
+		left: calc(50% - 150px);
+	}
+	                            </code>
+	                </pre>
+	            </div>
+	            <p>使用这种方法来实现垂直居中的效果，那么元素必须要有一个固定的高度。这样一来，你给元素设置了固定高度，如果你又给他设置了“overflow:auto”，那么当元素内容超过容器后，这样元素的就会出现滚动，如果设置了"overflow:hidden"，元素内容超出后，超出部分会被隐藏，而不会自适应内容的高度。</p>
+	        </section>
+	        <!-- **************** separator line ****************  -->
+	        <section id="sec-3">
+	            <h3 class="r3-title">通过display:table实现水平垂直居中</h3>
+	            <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/vertically-center-content-with-css">http://www.w3cplus.com/css/vertically-center-content-with-css</a></p>
+	            <div class="code-box">
+	                <pre class="language-html">
+	                    <code>
+	&lt;div id="container"&gt;
+	    &lt;div id="content"&gt;content&lt;/div&gt;
+	&lt;/div&gt;                    
+	                    </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	                <pre class="language-css">
+	                    <code>
+	#container {
+	    height: 300px;
+	    display: table;/*让元素以表格形式渲染*/
+	}
+	#content {
+	    display:table-cell;/*让元素以表格的单元素格形式渲染*/
+	    vertical-align: middle;/*使用元素的垂直对齐*/
+	}	                    
+	                    </code>
+	                </pre>
+	            </div>
+	            <p>这种方法不会像前面的用绝对定位的方法一样，有高度的限制，此方法可以要据元素内容动态的改变高度，从而也就没有空间的限制，元素的内容不会因为没足够的空间而被切断或者出现难看的滚动条。</p>
+	            <p>这种方法在现代浏览器下是非常方便。但是在IE6-7中是不被支持的，因为display:table在IE6-7中不被支持，那么为了解决这种方法在IE6-7的兼容，需要额外增加一个div，并使用hack，下面我们一起来看看其解决办法。</p>
+	            <div class="code-box">
+	                <pre class="language-html">
+	                    <code>
+	&lt;div class="table"&gt;
+	    &lt;div class="tableCell"&gt;
+	        &lt;div class="content"&gt;content&lt;/div&gt;
+	    &lt;/div&gt;
+	&lt;/div&gt;                    
+	                    </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	                <pre class="language-css line-numbers">
+	                    <code>
+	.table {
+	    height: 300px;/*高度值不能少*/
+	    width: 300px;/*宽度值不能少*/
+	    display: table;
+	    position: relative;
+	    float:left;
+	}		
+	
+	.tableCell {
+	    display: table-cell;
+	    vertical-align: middle;
+	    text-align: center;			
+	    padding: 10px;
+	    *position: absolute;
+	    *top: 50%;
+	    *left: 50%;
+	}
+	.content {
+	    *position:relative;
+	    *top: -50%;
+	    *left: -50%;
+	}                    
+	                    </code>
+	                </pre>
+	            </div>
+	        </section>
+	        <!-- **************** separator line ****************  -->
+	        
         
-        .tableCell {
-            display: table-cell;
-            vertical-align: middle;
-            text-align: center;			
-            padding: 10px;
-            *position: absolute;
-            *top: 50%;
-            *left: 50%;
-        }
-        .content {
-            *position:relative;
-            *top: -50%;
-            *left: -50%;
-        }                    
-                            </code>
-                        </pre>
-                    </div>
-                </section>
-                <!-- **************** separator line ****************  -->
-                <section id="sec-4">
-                	<h3><span class="num">4</span>margin:auto实现水平居中</h3>
-                    <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/vertically-center-content-with-css">http://www.w3cplus.com/css/vertically-center-content-with-css</a></p>
-                    <p>这种方法主要使用margin: auto配合元素的width来实现水平居中的效果</p>
-                    <div class="code-box">
-                    	<pre class="language-html">
-                        	<code>
-&lt;div class="horizontal"&gt;content&lt;/div&gt;                           
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                    	<pre class="language-css">
-                        	<code>
-.horizontal {
-    width: 200px;
-    margin: 0 auto;
-}                            
-                            </code>
-                        </pre>
-                    </div>
-                    <p>使用上面方法实现元素水平居中一定要让元素满足两个条件：其一，元素需要有一个固定宽度值；其二元素的margin-left和margin-right都必须设置为auto，这两个条件少了任何一个都无法让元素达到水平居中的效果。此方法使用水平居中，支持所有浏览器运行，因此他也常用来实现Web页面水平居中的布局效果，如果用在布局，需要注意IE下的效果，换句话说，如果你的Web页面没有明确声明"!DOCTYPE"，那么在IE也会以怪异模式解析你的Web页面，此时上面这种办法将无法让你的页面实现水平居中，但你可以使用下面这种方法解决这个bug。</p>
-                    <div class="code-box">
-                    	<pre class="language-html">
-                        	<code>
-&lt;div class="container"&gt;页面内容&lt;/div&gt;                            
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                    	<pre class="language-css">
-                        	<code>
-body {
-    text-align: center;/*实现IE在怪异模式下页面水平居中*/
-}
-.container {
-    text-align: left;/*让文本恢复到左对齐*/
-    width: 960px;/*设置页面总宽度*/
-    margin: 0 auto;/*使页面水平居中对齐*/
-}                            
-                            </code>
-                        </pre>
-                    </div>
-                </section>
-                <!-- **************** separator line ****************  -->
-                <section id="sec-5">
-                	<h3><span class="num">5</span>display:table + 线盒 实现水平垂直居中</h3>
-                    <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/vertically-center-content-with-css">http://www.w3cplus.com/css/vertically-center-content-with-css</a></p>
-                    <p>注意：&lt;span class="tableCell"&gt;&lt;/span&gt; &lt;b&gt;&lt;/b&gt; 一定要用行内标签，不要用块标签，因为display:inline-block应用在行内标签上，所有浏览器都支持，应用在块标签上，IE6-7是不支持的。</p>
-                    <p>创建线盒中有一个细节需要注意，在IE6-7中空的line-block元素默认宽度为“0”，这样在IE6-7下是没有效果的，此时我们需要给 b 加上“width:1px”，此时会给水平居中造成1px的误差，但这种bug你是可以接受得了的。</p>
-                    <div class="code-box">
-                    	<pre class="language-html line-numbers">
-                        	<code>
-&lt;p class="table"&gt;
-    &lt;span class="tableCell"&gt;Centering multiple lines &lt;br&gt;in a block container.&lt;/span&gt;
-    &lt;!--[if lte IE 7]&gt;&lt;b>&lt;/b&gt;&lt;![endif]--&gt;
-&lt;/p&gt;                            
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                    	<pre class="language-css line-numbers">
-                        	<code>
-.table{
-    border: 1px solid orange;
-    display: table;
-    height: 200px;
-    width: 200px;
-    text-align: center;
-}
-.table .tableCell {
-    display: table-cell;
-    vertical-align: middle;
-}     
-/* IE 7 and below */
-.table .tableCell, {
-	display: inline-block;
-}
-.table b, {
-	display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    width: 1px;
-}                       
-                            </code>
-                        </pre>
-                    </div>
-                </section>
-                <!-- **************** separator line ****************  -->
-                <section id="sec-6">
-                	<h3><span class="num">6</span>空行内元素+线盒 实现水平垂直居中</h3>
-                    <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css%2520/img-vertically-center-content-with-css">http://www.w3cplus.com/css%2520/img-vertically-center-content-with-css</a></p>
-                    <p>这种方法要比上面的〈display:table + 线盒 实现水平垂直居中〉要好，因为不用专门为了兼容IE写CSS HACK</p>
-                    <div class="code-box">
-                    	<pre class="language-html line-numbers">
-                        	<code>
-&lt;ul class="imgWrap clearfix">
-    &lt;li&gt;&lt;a href="#" class="imgBox"&gt;&lt;span&gt;&lt;/span&gt;&lt;img src="images/img1.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="#" class="imgBox"&gt;&lt;span&gt;&lt;/span&gt;&lt;img src="images/img2.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="#" class="imgBox"&gt;&lt;span&gt;&lt;/span&gt;&lt;img src="images/img3.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;                            
-                            </code>
-                        </pre>
-                     </div>
-                     <div class="code-box">
-                        <pre class="language-css line-numbers">
-                        	<code>
-.imgWrap li{ 
-    width: 219px;
-    height: 219px;
-    float: left;
-    border: solid 1px #666;
-    margin: 10px 10px 0 0;
-    list-style: none;
-    text-align: center;
-    font-size: 0;
-}
-
-.imgWrap a {
-    display: block;
-    height: 100%;
-}
-.imgWrap span {
-    display: inline-block;/*将行内元素改变为行内块元素显示*/
-    width: 1px;/*实现ＩＥ下可读效果*/
-    height: 100%;/*使用元素高度和图片容器高度一样*/
-    vertical-align: middle;/*垂直对齐*/
-}
-
-.imgWrap img {
-    vertical-align: middle;
-}                            
-                            </code>
-                        </pre>
-                    </div>
-                </section>
-                <!-- **************** separator line ****************  -->
-                <section id="sec-7">
-                	<h3><span class="num">7</span>JQUERY+绝对定位 实现水平垂直居中</h3>
-                    <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/vertically-center-content-with-css">http://www.w3cplus.com/css/vertically-center-content-with-css</a></p>
-                    <p>这里有一点需要特别注意，如果元素&lt;div class="wrap"&gt;的父元素不是body，那么需要为其父元素设置相对定位。</p>
-                    <div class="code-box">
-                    	<pre class="language-html line-numbers">
-                        	<code>
-&lt;div class="wrap"&gt;
-    &lt;p&gt;test jquery&lt;/p&gt;
-&lt;/div&gt;                            
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                    	<pre class="language-css line-numbers">
-                        	<code>
-.wrap{
-	position:absolute;
-    left:50%;
-    top:50%;
-}                            
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                    	<pre class="language-javascript line-numbers">
-                        	<code>
-(function($){
-    $.fn.vhAlign =  function(){
-        return this.each(function(i){
-          //获取元素的内容高度
-            var h = Math.ceil($(this).height());
-            //outerHeight=padding+border+height
-            var oh = Math.ceil($(this).outerHeight());
-            //取得margin-top值
-            var mt = Math.ceil(oh / 2);
-            //取得元素宽度
-            var w = Math.ceil($(this).width());
-            //outerWidth=padding+border+width
-            var ow = Math.ceil($(this).outerWidth());
-            //取得margin-left
-            var ml = Math.ceil(ow / 2);
-            //实现元素居中效果
-            $(this).css({
-                "margin-top": "-" + mt + "px",
-                "margin-left": "-" + ml + "px",
-                "width":w,
-                "height":h
-            }); 
-        });
-    };
-})(jQuery);                            
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                    	<pre class="language-javascript line-numbers">
-                        	<code>
-$(document).ready(function(){
-    $(".wrap").vhAlign();
-});                            
-                            </code>
-                        </pre>
-                    </div>
-                </section>
-                <!-- **************** separator line ****************  -->
-            </div>
-            <div class="col-md-3" id="side">
-            	<div class="fix-side-nav">
-                	<!--#include virtual="_common_nav.html" -->
-                    <dl>
-                        <dt>
-                            <a href="#sec-1">单行文本/图片垂直居中对齐</a>
-                        </dt>
-                        <dt>
-                            <a href="#sec-2">利用绝对定位实现水平垂直居中</a>
-                        </dt>
-                        <dt>
-                            <a href="#sec-3">通过display:table实现水平垂直居中</a>
-                        </dt>
-                        <dt>
-                            <a href="#sec-4">margin:auto实现水平居中</a>
-                        </dt>
-                        <dt>
-                        	<a href="#sec-5">display:table + 线盒 实现水平垂直居中</a>
-                        </dt>
-                        <dt>
-                        	<a href="#sec-6">空行内元素+线盒 实现水平垂直居中</a>
-                        </dt>
-                        <dt>
-                        	<a href="#sec-7">JQUERY+绝对定位 实现水平垂直居中</a>
-                        </dt>
-                    </dl>
-                    <p class="toTop"><a href="#"><i class="icon-circle-arrow-up"></i>TOP</a></p>
-                </div>
-            </div>
+	        <section id="sec-5">
+	        	<h3 class="r3-title">display:table + 线盒 实现水平垂直居中</h3>
+	            <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/vertically-center-content-with-css">http://www.w3cplus.com/css/vertically-center-content-with-css</a></p>
+	            <p>注意：&lt;span class="tableCell"&gt;&lt;/span&gt; &lt;b&gt;&lt;/b&gt; 一定要用行内标签，不要用块标签，因为display:inline-block应用在行内标签上，所有浏览器都支持，应用在块标签上，IE6-7是不支持的。</p>
+	            <p>创建线盒中有一个细节需要注意，在IE6-7中空的line-block元素默认宽度为“0”，这样在IE6-7下是没有效果的，此时我们需要给 b 加上“width:1px”，此时会给水平居中造成1px的误差，但这种bug你是可以接受得了的。</p>
+	            <div class="code-box">
+	            	<pre class="language-html line-numbers">
+	                	<code>
+	&lt;p class="table"&gt;
+	    &lt;span class="tableCell"&gt;Centering multiple lines &lt;br&gt;in a block container.&lt;/span&gt;
+	    &lt;!--[if lte IE 7]&gt;&lt;b>&lt;/b&gt;&lt;![endif]--&gt;
+	&lt;/p&gt;                            
+	                            </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	            	<pre class="language-css line-numbers">
+	                	<code>
+	.table{
+	    border: 1px solid orange;
+	    display: table;
+	    height: 200px;
+	    width: 200px;
+	    text-align: center;
+	}
+	.table .tableCell {
+	    display: table-cell;
+	    vertical-align: middle;
+	}     
+	/* IE 7 and below */
+	.table .tableCell, {
+		display: inline-block;
+	}
+	.table b, {
+		display: inline-block;
+	    height: 100%;
+	    vertical-align: middle;
+	    width: 1px;
+	}                       
+	                            </code>
+	                </pre>
+	            </div>
+	        </section>
+	        <!-- **************** separator line ****************  -->
+	        <section id="sec-6">
+	        	<h3 class="r3-title">空行内元素+线盒 实现水平垂直居中</h3>
+	            <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css%2520/img-vertically-center-content-with-css">http://www.w3cplus.com/css%2520/img-vertically-center-content-with-css</a></p>
+	            <p>这种方法要比上面的〈display:table + 线盒 实现水平垂直居中〉要好，因为不用专门为了兼容IE写CSS HACK</p>
+	            <div class="code-box">
+	            	<pre class="language-html line-numbers">
+	                	<code>
+	&lt;ul class="imgWrap clearfix">
+	    &lt;li&gt;&lt;a href="#" class="imgBox"&gt;&lt;span&gt;&lt;/span&gt;&lt;img src="images/img1.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+	    &lt;li&gt;&lt;a href="#" class="imgBox"&gt;&lt;span&gt;&lt;/span&gt;&lt;img src="images/img2.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+	    &lt;li&gt;&lt;a href="#" class="imgBox"&gt;&lt;span&gt;&lt;/span&gt;&lt;img src="images/img3.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;                            
+	                            </code>
+	                </pre>
+	             </div>
+	             <div class="code-box">
+	                <pre class="language-css line-numbers">
+	                	<code>
+	.imgWrap li{ 
+	    width: 219px;
+	    height: 219px;
+	    float: left;
+	    border: solid 1px #666;
+	    margin: 10px 10px 0 0;
+	    list-style: none;
+	    text-align: center;
+	    font-size: 0;
+	}
+	
+	.imgWrap a {
+	    display: block;
+	    height: 100%;
+	}
+	.imgWrap span {
+	    display: inline-block;/*将行内元素改变为行内块元素显示*/
+	    width: 1px;/*实现ＩＥ下可读效果*/
+	    height: 100%;/*使用元素高度和图片容器高度一样*/
+	    vertical-align: middle;/*垂直对齐*/
+	}
+	
+	.imgWrap img {
+	    vertical-align: middle;
+	}                            
+	                            </code>
+	                </pre>
+	            </div>
+	        </section>
+	        <!-- **************** separator line ****************  -->
+	        <section id="sec-7">
+	        	<h3 class="r3-title">JQUERY+绝对定位 实现水平垂直居中</h3>
+	            <p class="reference">摘自：<a target="_blank" href="http://www.w3cplus.com/css/vertically-center-content-with-css">http://www.w3cplus.com/css/vertically-center-content-with-css</a></p>
+	            <p>这里有一点需要特别注意，如果元素&lt;div class="wrap"&gt;的父元素不是body，那么需要为其父元素设置相对定位。</p>
+	            <div class="code-box">
+	            	<pre class="language-html line-numbers">
+	                	<code>
+	&lt;div class="wrap"&gt;
+	    &lt;p&gt;test jquery&lt;/p&gt;
+	&lt;/div&gt;                            
+	                            </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	            	<pre class="language-css line-numbers">
+	                	<code>
+	.wrap{
+		position:absolute;
+	    left:50%;
+	    top:50%;
+	}                            
+	                            </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	            	<pre class="language-javascript line-numbers">
+	                	<code>
+	(function($){
+	    $.fn.vhAlign =  function(){
+	        return this.each(function(i){
+	          //获取元素的内容高度
+	            var h = Math.ceil($(this).height());
+	            //outerHeight=padding+border+height
+	            var oh = Math.ceil($(this).outerHeight());
+	            //取得margin-top值
+	            var mt = Math.ceil(oh / 2);
+	            //取得元素宽度
+	            var w = Math.ceil($(this).width());
+	            //outerWidth=padding+border+width
+	            var ow = Math.ceil($(this).outerWidth());
+	            //取得margin-left
+	            var ml = Math.ceil(ow / 2);
+	            //实现元素居中效果
+	            $(this).css({
+	                "margin-top": "-" + mt + "px",
+	                "margin-left": "-" + ml + "px",
+	                "width":w,
+	                "height":h
+	            }); 
+	        });
+	    };
+	})(jQuery);                            
+	                            </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	            	<pre class="language-javascript line-numbers">
+	                	<code>
+	$(document).ready(function(){
+	    $(".wrap").vhAlign();
+	});                            
+	                            </code>
+	                </pre>
+	            </div>
+	        </section>
+	        <!-- **************** separator line ****************  -->
+	    </div>
+    </div>
+    <div class="col-md-3" id="side">
+    	<div class="fix-side-nav">
+        	<!--#include virtual="_common_nav.html" -->
         </div>
     </div>
+</div>
 </body>
 </html>

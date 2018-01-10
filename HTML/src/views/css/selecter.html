@@ -12,61 +12,80 @@
     <script src="/js/prism.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/default.js"></script>
+    <style type="text/css">
+    	.content-attr{
+    		display: inline-block;
+    		position: relative;
+    	}
+    	.content-attr::after{
+    		content: attr(title);
+    		position: absolute;
+    		left: 0;
+    		bottom: 0;
+    		width: 100%;
+    		background-color: #eee;
+    		text-align: center;
+    		color: #666;
+    	}
+    </style>
 </head>
 <body>
 <!--#include virtual="/include/_header.html" -->
 <div id="wrap">
-    <div id="wside">
-    	<dl>
-    		<dt><a href="">选择器</a></dt>
-    		<dd>
-    			<a href="#SEC1">属性选择器</a>
-    			<a href="#SEC2">UI元素状态伪类</a>
-    			<a href="#SEC3">CSS3的:nth选择器</a>
-    			<a href="#SEC4">否定选择器（:not）</a>
-    			<a href="#SEC5">::Selection</a>
-    		</dd>
-    		<dt><a href="">伪元素</a></dt>
-    		<dd>
-    			<a href="#SEC6">:before和:after</a>
-    			<a href="#SEC8">::first-line和::first-letter</a>
-    		</dd>
-    		<dt><a href="#SEC7">选择器类别</a></dt>
-    	</dl>
-    </div>
+    <div id="wside"></div>
     <div id="wmain" style="width: 1000px;">
-	    <h2 class="title-r2" id="SEC1">属性选择器</h2>
+	    <h2 class="r2-title">属性选择器</h2>
 	    <p class="reference">摘自：<a target="_blank" href="https://www.w3cplus.com/css3/attribute-selectors">https://www.w3cplus.com/css3/attribute-selectors</a></p>
 	    <img src="images/screenPics/sc09.png" />
 	    
-	    <h2 class="title-r2" id="SEC2">UI元素状态伪类</h2>
+	    <h2 class="r2-title">UI元素状态伪类</h2>
 	    <p class="reference">摘自：<a target="_blank" href="https://www.w3cplus.com/css3/pseudo-class-selector">https://www.w3cplus.com/css3/pseudo-class-selector</a></p>
 	    <img src="images/screenPics/sc10.png" />
 	    
-	    <h2 class="title-r2" id="SEC3">CSS3的:nth选择器</h2>
+	    <h2 class="r2-title">CSS3的:nth选择器</h2>
 	    <p class="reference">摘自：<a target="_blank" href="https://www.w3cplus.com/css3/pseudo-class-selector">https://www.w3cplus.com/css3/pseudo-class-selector</a></p>
 	    <img src="images/screenPics/sc11.png" />
 	    <img src="images/screenPics/sc12.png" />
 	    
-	    <h2 class="title-r2" id="SEC4">否定选择器（:not）</h2>
+	    <h2 class="r2-title">否定选择器（:not）</h2>
 	    <p class="reference">摘自：<a target="_blank" href="https://www.w3cplus.com/css3/pseudo-class-selector">https://www.w3cplus.com/css3/pseudo-class-selector</a></p>
 	    <img src="images/screenPics/sc13.png" />
+	    <div class="browser-support">
+	    	<mark>浏览器兼容</mark> IE9+ chorme1.0 firefox1.7 safari3.2 opera9.5
+	    </div>
+	    <div class="code-box">
+        	<pre class="language-css">
+            	<code>
+ele:not([class~='iconfont']){}
+div :not(p){}
+ele:not(:link):not(:visited){}
+                </code>
+            </pre>
+        </div>
 	    
-	    <h2 class="title-r2" id="SEC5">::Selection</h2>
+	    <h2 class="r2-title">::Selection</h2>
 	    <p class="reference">摘自：<a target="_blank" href="https://www.w3cplus.com/content/css-selection">https://www.w3cplus.com/content/css-selection</a></p>
 	    <img src="images/screenPics/sc14.png" />
 	    
-	    <h2 class="title-r2" id="SEC6">伪元素 :before和:after</h2>
+	    <h2 class="r2-title">伪元素 :before和:after</h2>
 	    <p class="reference">摘自：<a target="_blank" href="https://www.w3cplus.com/css3/learning-to-use-the-before-and-after-pseudo-elements-in-css.html">https://www.w3cplus.com/css3/learning-to-use-the-before-and-after-pseudo-elements-in-css.html</a></p>
 	    <img src="images/screenPics/sc15.png" />
-	    <h3 class="title-r3">清除浮动</h3>
-	    <img src="images/screenPics/sc18.png" />
+	    <div class="r2-body">
+	    	<h3 class="r3-title">清除浮动</h3>
+	    	<img src="images/screenPics/sc18.png" />
+	    	
+	    	<h3 class="r3-title">content应用</h3>
+	    	<a title="一个美女图片" class="content-attr">
+				<img src="images/img01.jpg" />
+			</a>
+	    </div>
 	    
-	    <h2 class="title-r2" id="SEC8">::first-line和::first-letter</h2>
+	    
+	    <h2 class="r2-title">::first-line和::first-letter</h2>
 	    <p class="reference">摘自：<a target="_blank" href="https://www.w3cplus.com/css3/pseudo-class-selector">https://www.w3cplus.com/css3/pseudo-class-selector</a></p>
 	    <img src="images/screenPics/sc17.png" />
 	    
-	    <h2 class="title-r2" id="SEC7">选择器类别</h2>
+	    <h2 class="r2-title">选择器类别</h2>
 	    <p class="reference">摘自：<a target="_blank" href="https://www.w3cplus.com/css3/basic-selectors">https://www.w3cplus.com/css3/basic-selectors</a></p>
 	    <img src="images/screenPics/sc16.png" />
     </div>

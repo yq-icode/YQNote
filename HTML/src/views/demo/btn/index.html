@@ -6,102 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>YQ-Note按钮的各种效果</title>
     <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/css/default.css">
     <link rel="stylesheet/less" href="btn.less">
     <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/default.js"></script>
 </head>
 <body>
-    <!--#include virtual="/include/_header.html" -->
-    <div class="container-fluid">
-    	<div class="row">
-            <div class="main col-md-9">
-            	<p class="mt20">为了体现按钮的互动性，可以对 :hover :active :visited 三个状态设置样式。</p>
-                <dl class="sec">
-                    <dt>效果一</dt>
-                    <dd class="row">
-                    	<div class="col-md-3">
-                        	<a class="btn1" href="javascript:void(0)">Love this tutorial!</a>
-                        </div>
-                    </dd>
-                </dl>
-                <dl class="sec">
-                    <dt>长阴影</dt>
-                    <dd>
-                    	<p>为按钮中的文字赋予扁平效果的阴影</p>
-                    	<div class="row">
-                            <div class="col-md-12">
-                                <a class="btn2" href="javascript:void(0)"><i class="glyphicon glyphicon-star"></i></a>
-                                <button type="button" class="btn2">
-                                    <i class="glyphicon glyphicon-music"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </dd>
-                </dl>
-                <dl class="sec">
-                    <dt>含字体图标的按钮</dt>
-                    <dd>
-                    	<p>包含以下几种形式：纯字体图标 LINK 形式，包含文字 LINK 形式，纯字体图标 BUTTON 形式，包含文字 BUTTON 形式</p>
-                        <div class="row">    
-                            <div class="col-md-12">
-                                <a class="btn3" href="javascript:void(0)"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i></a>
-                                <a class="btn3 btn3-1" href="javascript:void(0)">
-                                    <i class="glyphicon glyphicon-plus" aria-hidden="true"></i> contain text link
-                                </a>
-                                <button type="button" class="btn3">
-                                    <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
-                                </button>
-                                <button type="button" class="btn3 btn3-1">
-                                    <i class="glyphicon glyphicon-plus" aria-hidden="true"></i> contain text button
-                                </button>
-                            </div>
-                        </div>
-                        <p class="my-info mt10">
-                            ‘+’此字体图标在chrome firefox中显示外观不同，这是由于bootstrap自带的字体图标在两个浏览器中显示外观本就不同。<br>注意：bootstrap自带的字体图标Glyphicons有些在chrome firefox中显示外观不一致。
-                        </p>
-                    </dd>
-                </dl>
-                <dl class="sec">
-                    <dt>3D 按钮</dt>
-                    <dd class="row">
-                    	<div class="col-md-12">
-                        	<a class="btn4" href="javascript:void(0)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-                            <button type="button" class="btn4">
-                            	<i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i> contain text link
-                            </button>
-                        </div>
-                    </dd>
-                </dl>
-                <dl class="sec">
-                    <dt>光晕效果</dt>
-                    <dd class="row">
-                    	<div class="col-md-12">
-                        	<a class="btn5" href="javascript:void(0)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-                            <button type="button" class="btn5">
-                            	<i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i> contain text link
-                            </button>
-                        </div>
-                        <p style="color:#f00">firefox中无效，原因还未查明。</p>
-                    </dd>
-                </dl>
-                <dl class="sec">
-                    <dt>额外的环绕效果</dt>
-                    <dd class="row">
-                    	<div class="col-md-12">
-                        	<span class="btn6">
-                        		<a href="javascript:void(0)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-                            </span>
-                            <span class="btn6 btn6-1">
-                                <button type="button">
-                                    <i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i> contain text link
-                                </button>
-                            </span>
-                        </div>
-                    </dd>
-                </dl>
-            </div>
-            <div class="col-md-3" id="side">
-            </div>
-        </div>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+    <div id="wmain" style="width: 1000px;">
+    	<p class="mt20">为了体现按钮的互动性，可以对 :hover :active :visited 三个状态设置样式。</p>
+    	<h2 class="r2-title">效果一</h2>
+        <a class="btn1" href="javascript:void(0)">Love this tutorial!</a>
+        
+        <h2 class="r2-title">长阴影</h2>
+        <p>为按钮中的文字赋予扁平效果的阴影</p>
+        <a class="btn2" href="javascript:void(0)"><i class="glyphicon glyphicon-star"></i></a>
+        <button type="button" class="btn2">
+            <i class="glyphicon glyphicon-music"></i>
+        </button>
+        
+        <h2 class="r2-title">含字体图标的按钮</h2>
+    	<p>包含以下几种形式：纯字体图标 LINK 形式，包含文字 LINK 形式，纯字体图标 BUTTON 形式，包含文字 BUTTON 形式</p>
+        <a class="btn3" href="javascript:void(0)"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i></a>
+        <a class="btn3 btn3-1" href="javascript:void(0)">
+            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i> contain text link
+        </a>
+        <button type="button" class="btn3">
+            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="btn3 btn3-1">
+            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i> contain text button
+        </button>
+        <p class="my-info mt10">
+            ‘+’此字体图标在chrome firefox中显示外观不同，这是由于bootstrap自带的字体图标在两个浏览器中显示外观本就不同。<br>注意：bootstrap自带的字体图标Glyphicons有些在chrome firefox中显示外观不一致。
+        </p>
+        
+        <h2 class="r2-title">3D 按钮</h2>
+    	<a class="btn4" href="javascript:void(0)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+        <button type="button" class="btn4">
+        	<i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i> contain text link
+        </button>
+        
+        <h2 class="r2-title">光晕效果</h2>
+    	<a class="btn5" href="javascript:void(0)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+        <button type="button" class="btn5">
+        	<i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i> contain text link
+        </button>
+        <p style="color:#f00">firefox中无效，原因还未查明。</p>
+        
+        <h2 class="r2-title">额外的环绕效果</h2>
+    	<span class="btn6">
+    		<a href="javascript:void(0)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+        </span>
+        <span class="btn6 btn6-1">
+            <button type="button">
+                <i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i> contain text link
+            </button>
+        </span>
     </div>
+    <div class="col-md-3" id="side">
+    </div>
+</div>
 </body>
 </html>

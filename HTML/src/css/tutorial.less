@@ -6,6 +6,7 @@
 body{
 	line-height:1.5em;
 	color:#666;
+	counter-reset: LN1;
 }
 article{
 	margin-left:30px;
@@ -14,12 +15,22 @@ article{
 p{margin-top:20px;}
 .code-box{margin-left:-50px;}
 h1.article-title{font-size:30px;color:#000;}
-.ttBlock{margin-top:40px;}
+.ttBlock{
+    margin-top:40px;
+}
 .ttBlock_head{
 	border-bottom:1px solid #ccc;
 	padding-bottom:8px;
 	font-size:22px;
 	color:#000;
+	counter-increment: LN1;
+}
+.ttBlock_head::before{
+    content: counter(LN1, cjk-ideographic);
+    margin-right: 10px;
+}
+.ttBlock_body{
+    counter-reset: LN2;
 }
 /*- ttBlock-list
 *********************************************/
@@ -45,6 +56,10 @@ h1.article-title{font-size:30px;color:#000;}
 	color:#fff;
 	text-align:center;
 	line-height:30px;
+	counter-increment: LN2;
+}
+.ttBlock-list-icon::before{
+    content: counter(LN2);
 }
 .ttBlock-list:first-child .ttBlock-list-icon{
 	top:-7px;

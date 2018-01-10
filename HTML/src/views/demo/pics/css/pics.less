@@ -2,10 +2,31 @@
 /* CSS Document */
 @import "/css/global.less";
 
-body{background:url(../images/bg.jpg) repeat;color:#f8f8f8;}
+body{
+    background:url(../images/bg.jpg) repeat;
+    color:#f8f8f8;
+    counter-reset: PHNum;
+}
 .topbar{
 	background-color:rgba(0,0,0,.15);
 	h2{background-color:transparent;}
 }
 .code-box:hover, .code-box:hover pre{background-color:#333;}
 .fix-side-nav .toTop a{color:#000;}
+
+h3{
+    @color:#666;
+    height:40px;line-height:40px;font-size:20px;font-family:"幼圆";
+    background-color:rgba(0,0,0,0.2);
+    color:lighten(@color,65%);
+    .num{
+        margin:10px 5px 0 -5px;height:20px;padding:0 15px;line-height:20px;vertical-align:top;color:#fc0;font-size: 14px;
+        background-color:darken(@color,40%);
+        .box-shadow(-3px,2px,3px,0,rgba(0,0,0,.2));
+        .transform-skew-only(10deg,0);
+        counter-increment: PHNum;
+        &::before{
+            content: counter(PHNum);
+        }
+    }
+}

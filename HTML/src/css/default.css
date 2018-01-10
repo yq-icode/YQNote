@@ -3,9 +3,9 @@
 
 body{
 	background-color: #F3F3F3;
-	font-size: 14px;
-	color: #333333;
-	line-height: 1.6;
+	font-size: 16px;
+	color: #666;
+	line-height: 2;
 }
 ul,li{margin: 0;padding: 0;}
 li{list-style-type: none;}
@@ -24,71 +24,120 @@ li{list-style-type: none;}
 	margin:0 20px;
 }
 #wside, #wmain{
-	padding: 20px;
-	background-color: #FFFFFF;
+	box-sizing: border-box;
 }
 #wside{
 	position: fixed;
-	width:200px;	
+	top: 60px;
+	width:200px;
 }
 #wmain{
 	margin-left:220px;
 	margin-right:220px;
+	padding: 20px;
 	overflow: hidden;
+	counter-reset: secTR2;
+	background-color: #FFFFFF;
 }
 /* 左侧边栏为菜单，中间为主内容，右边为其它信息（如广告） */
 
 /* ******************************************************* *
  * 左侧边栏
  * ******************************************************* */
+#wside h2{
+	margin: 0 -10px;
+	padding: 8px 10px;
+	font-size: 16px;
+	background-color: #F8F8F8;
+	color: #aaa;
+	text-transform: uppercase;
+}
 #wside dl{
 	margin: 0;
+	counter-reset: secDT;
 }
 #wside dl a{
-	display: block;
 	padding: 5px;
 	color: #0066CC;
 }
 #wside dl a.on{
-	background-color: #F3F3F3;
+	color: #0D89B2;
+}
+#wside dl a:hover{
+	color: #000;
 }
 #wside dl dt:nth-child(n+2){
 	margin-top: 15px;
 }
 #wside dl dt a{
+	display: inline-block;
+	position: relative;
 	margin:5px 0;
-	font-size: 14px;
-	color: #333333;
+	padding:0 5px 0 20px;
+	font-size: 12px;
+	color: #fff;
 	font-weight: normal;
-	
+	counter-increment: secDT;
+	background-color: #6FDAFE;
+}
+#wside dl dt a::before{
+	position: absolute;
+	left: 0;
+	content: counter(secDT);/* dt的编号 */
+	padding-left: 5px;
+}
+#wside dl dd{
+	counter-reset: secDD;
 }
 #wside dl dd a{
-	margin-left: 10px;
+	display: block;
+	position: relative;
+	padding-left: 25px;
 	font-size: 12px;
-	line-height: 1.8;
 	color: #666;
+	counter-increment: secDD;
+}
+#wside dl dd a::before{
+	position: absolute;
+	left: 0;
+	content: counter(secDT) '.' counter(secDD);/* dd的编号 */
+	color: #ccc;
 }
 
-/* ******************************************************* *
- * 左侧边栏
- * ******************************************************* */
-/*标题等级*/
-.title-r1, .title-r2, .title-r3, .title-r4{
-	margin: 25px 0 5px;
+/*层级盒与层级标题*/
+.r1-title, .r2-title, .r3-title, .r4-title{
+	margin: 30px 0 10px;
 	color: #333;
 }
-.title-r1{font-size: 30px;}
-.title-r2{
+.r1-title{font-size: 30px;}
+.r2-title{
 	margin: 30px 0 15px 0;
 	border-bottom:1px solid #ddd;
 	padding-bottom:10px;
 	font-size: 26px;
+	counter-increment: secTR2;
 }
-.title-r2:first-child{margin-top: 0;}
-.title-r3{
+.r2-title::before{
+	margin-right: 10px;
+	content: counter(secTR2, cjk-ideographic);
+}
+.r2-title:first-child{margin-top: 0;}
+.r2-body{
+	counter-reset: secTR3;
+}
+.r3-title{
 	font-size: 22px;
+	counter-increment: secTR3;
 }
-.title-r4{
+.r3-title::before{
+	margin-right: 5px;
+	padding: 0 5px;
+	content: counter(secTR3);
+	border-radius: 50%;
+	background-color: #B3CF26;
+	color: #FFFFFF;
+}
+.r4-title{
 	font-size: 18px;
 }
 
@@ -123,7 +172,7 @@ li{list-style-type: none;}
 
 /*实例容器（即实例演示）*/
 .example-wrap{
-	border: 5px solid #EEEEEE;
+	border: 1px solid #666;
 	padding: 30px;
 	background-color: #FAFAFA;
 }
