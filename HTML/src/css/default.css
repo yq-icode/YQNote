@@ -199,6 +199,23 @@ li{list-style-type: none;}
 	list-style-type: decimal;
 }
 
+/*分标题和内容的双列形式列表*/
+.dlist dt, .dlist dd{
+	line-height: 2;
+}
+.dlist dt{
+	float: left;
+	width:180px;
+	clear: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-weight: normal;
+}
+.dlist dd{
+	margin-left: 190px;
+}
+
 /*带背景的行内块元素*/
 .bgMark{
 	display: inline-block;

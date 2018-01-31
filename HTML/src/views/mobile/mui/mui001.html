@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/css/global.less">
+    <link rel="stylesheet/less" href="/css/default.css">
+    <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+        <h2 class="r2-title">锁定屏幕方向</h2>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+plus.screen.lockOrientation( String orientation );
+
+//实例
+mui.plusReady(function(){
+	plus.screen.lockOrientation("landscape-primary");
+})
+
+				</code>
+            </pre>
+        </div>
+        <p>锁定屏幕方向后屏幕只能按锁定的屏幕方向显示，关闭当前页面后仍然有效。 可再次调用此方法修改屏幕锁定方向或调用unlockOrientation()方法恢复到应用的默认值。</p>
+        <strong>参数：</strong>
+        <p>orientation: ( String ) 必选， 要锁定的屏幕方向值。锁定屏幕方向可取以下值：</p>
+        <dl class="dlist">
+        	<dt>portrait-primary</dt>
+        	<dd>竖屏正方向</dd>
+        	<dt>portrait-secondary</dt>
+        	<dd>竖屏反方向，屏幕正方向按顺时针旋转180°；</dd>
+        	<dt>landscape-primary</dt>
+        	<dd>横屏正方向，屏幕正方向按顺时针旋转90°；</dd>
+        	<dt>landscape-secondary</dt>
+        	<dd>横屏方向，屏幕正方向按顺时针旋转270°；</dd>
+        </dl>
+        
+        
+        <h2 class="r2-title">mui 里如何去掉滚动条</h2>
+        <p>在样式里写overflow是没用的</p>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//如果用的mui的scroll控件，那么在初始化时，设置indicators为false即可：
+$('#scroll').scroll({indicators: false});
+
+//如果是5+环境下的webview的滚动条
+plus.webview.currentWebview().setStyle({scrollIndicator:'none'});
+
+				</code>
+            </pre>
+        </div>
+    </div>
+</div>
+</body>
+</html>
