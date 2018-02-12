@@ -1,229 +1,229 @@
 {
-	"index.html": {
-		"resources": [
-			"css/default.css",
-			"js/jquery-1.11.3.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"list.html",
-			"comment.html",
-			"indexed-list.html",
-			"pullrefresh.html",
-			"gallery.html",
-			"accordion.html",
-			"setting.html",
-			"form/index.html",
-			"offcanvas.html",
-			"windowSwitch/index.html",
-			"pic/index.html",
-			"dialog/index.html",
-			"tab/index.html",
-			"popup/index.html",
-			"layout/index.html"
-		]
-	},
-	"comment.html": {
-		"resources": [
-			"css/default.css",
-			"js/jquery-1.11.3.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		]
-	},
-	"indexed-list.html": {
-		"resources": [
-			"css/default.css",
-			"js/jquery-1.11.3.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/mui.indexedlist.css",
-			"js/mui.indexedlist.js"
-		]
-	},
-	"pullrefresh.html": {
-		"resources": [
-			"css/default.css",
-			"js/jquery-1.11.3.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		]
-	},
-	"detail.html": {
-		"resources": [
-			"css/iconfont.css",
-			"fonts/iconfont.ttf",
-			"css/default.css",
-			"js/jquery-1.11.3.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		]
-	},
-	"list.html": {
-		"resources": [
-			"css/default.css",
-			"js/jquery-1.11.3.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"detail.html",
-			"comment.html"
-		]
-	},
-	"form/index.html": {
-		"resources": [
-			"form/_numbox.html"
-		],
-		"refer": [
-			"form/_range.html",
-			"form/_numbox.html",
-			"form/_switch.html",
-			"form/_star.html",
-			"form/_dtpicker.html",
-			"form/_input.html",
-			"form/_tags.html",
-			"form/input.html",
-			"form/star.html",
-			"form/button.html",
-			"form/picker.html",
-			"form/progressbar.html",
-			"form/checkbox.html",
-			"form/tableviews-with-swipe.html"
-		]
-	},
-	"windowSwitch/index.html": {
-		"refer": [
-			"windowSwitch/winS1.html",
-			"windowSwitch/winS2.html",
-			"windowSwitch/winS3.html",
-			"windowSwitch/winS4.html"
-		]
-	},
-	"windowSwitch/winS1.html": {
-		"resources": [
-			"windowSwitch/_sample_page1.html"
-		],
-		"refer": [
-			"windowSwitch/_sample_page1.html",
-			"windowSwitch/_sample_page3.html",
-			"windowSwitch/_sample_page2.html",
-			"windowSwitch/index.html"
-		]
-	},
-	"pic/index.html": {
-		"refer": [
-			"pic/pic_switch_01.html",
-			"pic/pic_switch_02.html",
-			"pic/pic_view_01.html"
-		]
-	},
-	"dialog/index.html": {
-		"refer": [
-			"dialog/alert.html",
-			"dialog/confirm.html",
-			"dialog/prompt.html",
-			"dialog/toast.html"
-		]
-	},
-	"dialog/alert.html": {
-		"refer": [
-			"dialog/index.html"
-		]
-	},
-	"dialog/prompt.html": {
-		"refer": [
-			"dialog/index.html"
-		]
-	},
-	"dialog/confirm.html": {
-		"refer": [
-			"dialog/index.html"
-		]
-	},
-	"dialog/toast.html": {
-		"refer": [
-			"dialog/index.html"
-		]
-	},
-	"windowSwitch/winS2.html": {
-		"refer": [
-			"windowSwitch/index.html"
-		]
-	},
-	"tab/index.html": {
-		"refer": [
-			"tab/tab1.html",
-			"tab/tab2.html",
-			"tab/tab3.html"
-		]
-	},
-	"tab/tab1.html": {
-		"refer": [
-			"tab/index.html"
-		]
-	},
-	"tab/tab2.html": {
-		"refer": [
-			"tab/index.html"
-		]
-	},
-	"tab/tab3.html": {
-		"refer": [
-			"tab/index.html"
-		]
-	},
-	"windowSwitch/winS3.html": {
-		"resources": [
-			"windowSwitch/_sample_page1.html"
-		],
-		"refer": [
-			"windowSwitch/_sample_page1.html",
-			"windowSwitch/_sample_page3.html",
-			"windowSwitch/_sample_page2.html",
-			"windowSwitch/index.html",
-			"windowSwitch/offcanvas_menu.html"
-		]
-	},
-	"popup/index.html": {
-		"refer": [
-			"popup/popup1.html",
-			"popup/popup2.html",
-			"popup/tabbar-with-submenus.html",
-			"popup/actionsheet.html"
-		]
-	},
-	"popup/popup1.html": {
-		"refer": [
-			"popup/index.html"
-		]
-	},
-	"windowSwitch/winS4.html": {
-		"resources": [
-			"windowSwitch/_sample_page1.html"
-		],
-		"refer": [
-			"windowSwitch/_sample_page1.html",
-			"windowSwitch/_sample_page3.html",
-			"windowSwitch/_sample_page2.html",
-			"windowSwitch/_sample_page4.html",
-			"windowSwitch/_sample_page5.html",
-			"windowSwitch/_sample_page6.html"
-		]
-	},
-	"layout/index.html": {
-		"refer": [
-			"layout/grid-pagination.html",
-			"layout/message-bottom.html",
-			"layout/accordion.html",
-			"layout/tableviews-with-collapses.html"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "css/default.css",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "list.html",
+      "comment.html",
+      "indexed-list.html",
+      "pullrefresh.html",
+      "gallery.html",
+      "accordion.html",
+      "setting.html",
+      "form/index.html",
+      "offcanvas.html",
+      "windowSwitch/index.html",
+      "pic/index.html",
+      "dialog/index.html",
+      "tab/index.html",
+      "popup/index.html",
+      "layout/index.html"
+    ]
+  },
+  "comment.html": {
+    "resources": [
+      "css/default.css",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  },
+  "indexed-list.html": {
+    "resources": [
+      "css/default.css",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/mui.indexedlist.css",
+      "js/mui.indexedlist.js"
+    ]
+  },
+  "pullrefresh.html": {
+    "resources": [
+      "css/default.css",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  },
+  "detail.html": {
+    "resources": [
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "css/default.css",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  },
+  "list.html": {
+    "resources": [
+      "css/default.css",
+      "js/jquery-1.11.3.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "detail.html",
+      "comment.html"
+    ]
+  },
+  "form/index.html": {
+    "resources": [
+      "form/_numbox.html"
+    ],
+    "refer": [
+      "form/_range.html",
+      "form/_numbox.html",
+      "form/_switch.html",
+      "form/_star.html",
+      "form/_dtpicker.html",
+      "form/_input.html",
+      "form/_tags.html",
+      "form/input.html",
+      "form/star.html",
+      "form/button.html",
+      "form/picker.html",
+      "form/progressbar.html",
+      "form/checkbox.html",
+      "form/tableviews-with-swipe.html"
+    ]
+  },
+  "windowSwitch/index.html": {
+    "refer": [
+      "windowSwitch/winS1.html",
+      "windowSwitch/winS2.html",
+      "windowSwitch/winS3.html",
+      "windowSwitch/winS4.html"
+    ]
+  },
+  "windowSwitch/winS1.html": {
+    "resources": [
+      "windowSwitch/_sample_page1.html"
+    ],
+    "refer": [
+      "windowSwitch/_sample_page1.html",
+      "windowSwitch/_sample_page3.html",
+      "windowSwitch/_sample_page2.html",
+      "windowSwitch/index.html"
+    ]
+  },
+  "pic/index.html": {
+    "refer": [
+      "pic/pic_switch_01.html",
+      "pic/pic_switch_02.html",
+      "pic/pic_view_01.html"
+    ]
+  },
+  "dialog/index.html": {
+    "refer": [
+      "dialog/alert.html",
+      "dialog/confirm.html",
+      "dialog/prompt.html",
+      "dialog/toast.html"
+    ]
+  },
+  "dialog/alert.html": {
+    "refer": [
+      "dialog/index.html"
+    ]
+  },
+  "dialog/prompt.html": {
+    "refer": [
+      "dialog/index.html"
+    ]
+  },
+  "dialog/confirm.html": {
+    "refer": [
+      "dialog/index.html"
+    ]
+  },
+  "dialog/toast.html": {
+    "refer": [
+      "dialog/index.html"
+    ]
+  },
+  "windowSwitch/winS2.html": {
+    "refer": [
+      "windowSwitch/index.html"
+    ]
+  },
+  "tab/index.html": {
+    "refer": [
+      "tab/tab1.html",
+      "tab/tab2.html",
+      "tab/tab3.html"
+    ]
+  },
+  "tab/tab1.html": {
+    "refer": [
+      "tab/index.html"
+    ]
+  },
+  "tab/tab2.html": {
+    "refer": [
+      "tab/index.html"
+    ]
+  },
+  "tab/tab3.html": {
+    "refer": [
+      "tab/index.html"
+    ]
+  },
+  "windowSwitch/winS3.html": {
+    "resources": [
+      "windowSwitch/_sample_page1.html"
+    ],
+    "refer": [
+      "windowSwitch/_sample_page1.html",
+      "windowSwitch/_sample_page3.html",
+      "windowSwitch/_sample_page2.html",
+      "windowSwitch/index.html",
+      "windowSwitch/offcanvas_menu.html"
+    ]
+  },
+  "popup/index.html": {
+    "refer": [
+      "popup/popup1.html",
+      "popup/popup2.html",
+      "popup/tabbar-with-submenus.html",
+      "popup/actionsheet.html"
+    ]
+  },
+  "popup/popup1.html": {
+    "refer": [
+      "popup/index.html"
+    ]
+  },
+  "windowSwitch/winS4.html": {
+    "resources": [
+      "windowSwitch/_sample_page1.html"
+    ],
+    "refer": [
+      "windowSwitch/_sample_page1.html",
+      "windowSwitch/_sample_page3.html",
+      "windowSwitch/_sample_page2.html",
+      "windowSwitch/_sample_page4.html",
+      "windowSwitch/_sample_page5.html",
+      "windowSwitch/_sample_page6.html"
+    ]
+  },
+  "layout/index.html": {
+    "refer": [
+      "layout/grid-pagination.html",
+      "layout/message-bottom.html",
+      "layout/accordion.html",
+      "layout/tableviews-with-collapses.html"
+    ]
+  }
 }

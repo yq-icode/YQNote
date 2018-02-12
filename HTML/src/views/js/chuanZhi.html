@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+		<h1 class="r1-title">HTML静态页面传值</h1>
+		<h2 class="r2-title">利用cookie传值</h2>
+		<p>JavaScript是运行在客户端的脚本，因此一般是不能够设置Session的，因为Session是运行在服务器端的。而cookie是运行在客户端的，所以可以用JS来设置cookie.</p>
+    	<p>cookie的结构：cookie是以键值对的形式保存的，即key=value的格式。各个cookie之间一般是以“;”分隔。</p>
+    	<strong>A.html设置cookie</strong>
+    	<div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//设置cookie法一                	
+var pNo = "3", pName = "刘军", pSex = "男";                	
+document.cookie = "pNo=" + pNo; //设置序号
+document.cookie = "pName=" + pName; //设置姓名
+document.cookie = "pSex=" + pSex; //设置性别
+
+console.log(document.cookie); //输出的是：pNo=3; pName=刘军; pSex=男
+	            </code>
+            </pre>
+        </div>
+		<div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//设置cookie法二
+function setCookie(name,value)  
+{  
+	var Days = 30; //此 cookie 将被保存 30 天  
+　　var exp　= new Date();  
+	exp.setTime(exp.getTime() + Days*24*60*60*1000);  
+	document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();  
+	location.href = "B.htm"; //接收页面.  
+} 
+setCookie('pNo','3');
+setCookie('pName','刘军');
+setCookie('pSex','男');
+	            </code>
+            </pre>
+        </div>        
+        <strong>B.html读取cookie</strong>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//读取cookie法一                	
+var pNo = document.cookie.split(";")[0].split("=")[1]; //获取序号
+var pName = document.cookie.split(";")[1].split("=")[1]; //获取姓名
+var pSex = document.cookie.split(";")[2].split("=")[1]; //获取性别
+	            </code>
+            </pre>
+        </div>
+	    <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code> 
+//读取cookie法二                	
+function getCookie(name)  
+{  
+	var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));  
+	if(arr !=null)
+		return unescape(arr[2]);
+	else
+		return null;  
+}  
+alert(getCookie("pName"));
+	            </code>
+            </pre>
+        </div>
+        <strong>删除cookie</strong>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//删除cookie                	
+function delCookie(name)
+{
+	var exp = new Date();
+	exp.setTime(exp.getTime() - 1);
+	var cval=getCookie(name);
+	if(cval!=null)
+	document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+}
+	            </code>
+            </pre>
+        </div>
+	    <!------------------------------------------------>
+	    <h2 class="r2-title">利用URL链接传值</h2>
+	    <strong>A.html设置URL参数</strong>
+	    <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+window.location.href = "main3.html?id=" + vid;
+	            </code>
+            </pre>
+        </div>
+        <strong>B.html接收URL参数</strong>
+	    <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var wls = window.location.search; //设置或返回从问号 (?) 开始的 URL
+var vid = wls.substring(4,wls.length);
+	            </code>
+            </pre>
+        </div>
+        <!--******************************************-->
+        <h2 class="r2-title">localStorage本地存储传参</h2>
+        <strong>A.html发送参数的页面</strong>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+localStorage.setItem("tel", "13652654878");
+    				</code>
+            </pre>
+        </div>
+        <strong>B.html接收参数的页面</strong>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+localStorage.getItem("tel");
+    				</code>
+            </pre>
+        </div>
+        <strong>删除参数</strong>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+localStorage.removeItem("tel");
+    				</code>
+            </pre>
+        </div>
+        <strong>清除</strong>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+localStorage.clear();
+    				</code>
+            </pre>
+        </div>
+	</div>
+</div>
+</body>
+</html>

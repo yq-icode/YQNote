@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+		<h2 class="r2-title">从文件路径中截取文件名</h2>
+    	<div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//以从图片路径SRC中截取图片名为例                	
+var fpath, fname;
+fpath = "../images/pic/clip.jpg";
+
+if(fpath.indexOf("/")>0){ //当SRC中包含路径时
+	fname = fpath.substring(fpath.lastIndexOf("/")+1, fpath.length - 4);
+}
+else{ //当SRC中不含路径时
+	fname = fpath.substring(0,fpath.length - 4);
+}
+	            </code>
+            </pre>
+        </div>
+	    <!************************************************->
+        
+        
+	</div>
+</div>
+</body>
+</html>

@@ -11,12 +11,15 @@
     <script src="/js/jquery-1.11.3.min.js"></script>
     <script src="/js/prism.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/default.js"></script>
 </head>
 <body>
 	<!--#include virtual="/include/_header.html" -->
-    <div class="container">
+<div class="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+    	<h2 class="r2-title">自定义事件传参</h3>
     	<section>
-        	<h3 class="title-sec">自定义事件传参</h3>
             <div class="code-box">
                 <pre class="language-js line-numbers">
                     <code>
@@ -56,42 +59,28 @@ var rpAddr = e.detail.spAddr;
             </div>
         </section>
         
-        <section>
-        	<h3 class="title-sec">本地存储传参</h3>
-            <p>可以使用本地存储的方式，可以使用cookie、sessionStorage和localStorage(HTML5自带本地存储)。</p>
-            <p>A.html发送参数的页面</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>
-localStorage.setItem("tel", "13652654878");
+        <h2 class="r2-title">extras</h2>
+        <p>extras:{}自定义扩展参数，可以用来处理页面间传值</p>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var webview = mui.openWindow({
+	url:'info.html',
+	extras:{
+		name:'mui'  //扩展参数
+	}
+});
+console.log(webview.name);//输出mui字符串
     				</code>
-                </pre>
-            </div>
-            <p>B.html接收参数的页面</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>
-localStorage.getItem("tel");
-    				</code>
-                </pre>
-            </div>
-            <p>删除参数</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>
-localStorage.removeItem("tel");
-    				</code>
-                </pre>
-            </div>
-            <p>清除</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>
-localStorage.clear();
-    				</code>
-                </pre>
-            </div>
-        </section>
-    </div>
+            </pre>
+        </div>
+        <p><b>注意：</b>扩展参数仅在打开新窗口时有效，若目标窗口为预加载页面，则通过mui.openWindow方法打开时传递的extras参数无效。</p>
+        
+        
+        
+        <h2 class="r2-title">mui页面传值的几种方式</h2>
+        <img src="../images/screenPics/mui001.png" />
+   </div>
+</div>
 </body>
 </html>

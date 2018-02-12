@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+		<h1 class="r1-title">video</h1>
+		<div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+&lt;video id="video" src="clip.mp4" type="audio/mp4"&gt;&lt;/video&gt;
+var video = document.querySelector('#video');
+                </code>
+            </pre>
+        </div>
+        
+    	<h2 class="r2-title">基本操作</h2>
+    	<h3 class="r3-title">播放、暂停</h3>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//paused设置或返回音频/视频是否暂停                	
+if(video.paused){
+	video.play();
+}
+else{
+	video.pause();
+}
+                </code>
+            </pre>
+        </div>
+        <h3 class="r3-title">指定播放时间</h3>
+        <p>currentTime设置或返回音频/视频中的当前播放位置（以秒计）</p>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+video.currentTime = 20
+video.currentTime = video.duration //结束视频（duration返回当前音频/视频的长度（以秒计））
+                </code>
+            </pre>
+        </div>
+        
+        <h3 class="r3-title">当前视频的 URL</h3>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>   
+//返回当前音频/视频的 URL                	
+video.currentSrc
+                </code>
+            </pre>
+        </div>
+        
+        <h3 class="r2-title"></h3>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>   
+
+                </code>
+            </pre>
+        </div>
+	</div>
+</div>
+</body>
+</html>
