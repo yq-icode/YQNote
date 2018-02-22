@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/prism.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+		<h1 class="r1-title">JSON</h1>
+		<h2 class="r2-title">清空数组</h2>
+		<h3 class="r3-title">法一：splice</h3>
+		<p>删除元素并添加新元素，直接对数组进行修改，返回含有被删除元素的数组。</p>
+		<p>arrayObject.splice(index,howmany,element1,.....,elementX)</p>
+		<dl class="dlist">
+			<dt>index</dt>
+			<dd>必选，规定从何处添加/删除元素。</dd>
+			<dt>howmany</dt>
+			<dd>必选，规定应该删除多少元素。未规定此参数，则删除从 index 开始到原数组结尾的所有元素。</dd>
+			<dt>element1</dt>
+			<dd>可选，规定要添加到数组的新元素。</dd>
+		</dl>
+    	<div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var arr = [1,2,3,4]; //"1,2,3,4"
+arr.splice(0,arr.length); //""
+arr.splice(0,arr.length,5,6); //"5,6"
+	            </code>
+            </pre>
+        </div>
+	    <!************************************************->
+        <h3 class="r3-title">法二：length赋值为0</h3>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var arr = [1,2,3,4]; //"1,2,3,4"
+arr.length = 0; //""
+	            </code>
+            </pre>
+        </div>
+        <!************************************************->
+        <h3 class="r3-title">法三：赋值为[]</h3>
+        <p>赋值为一个空数组以达到清空原数组</p>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var arr = [1,2,3,4]; //"1,2,3,4"
+arr = []; //""
+	            </code>
+            </pre>
+        </div>
+        <!************************************************->
+        <h2 class="r2-title">向数组中添加数据</h2>
+        
+        <!************************************************->
+        <h2 class="r2-title">stringify</h2>
+        <p>JSON.stringify()方法用于将 JavaScript值转换为 JSON 字符串。</p>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var str = {"name":"菜鸟教程", "site":"http://www.runoob.com"};
+str_pretty1 = JSON.stringify(str);
+str_pretty2 = JSON.stringify(str, null, 4); //使用四个空格缩进
+
+//console.log(str_pretty1);
+//{"name":"菜鸟教程","site":"http://www.runoob.com"}
+
+//console.log(str_pretty2);
+//{
+//    "name": "菜鸟教程",
+//    "site": "http://www.runoob.com"
+//}
+	            </code>
+            </pre>
+        </div>
+	</div>
+</div>
+</body>
+</html>

@@ -106,7 +106,9 @@ p{margin-bottom: 1.5em;}
 	color: #ccc;
 }
 
-/*层级盒与层级标题*/
+/* ******************************************************* *
+ * 层级盒与层级标题
+ * ******************************************************* */
 .r1-title, .r2-title, .r3-title, .r4-title{
 	margin: 30px 0 10px;
 	color: #333;
@@ -134,18 +136,29 @@ p{margin-bottom: 1.5em;}
 .r3-title::before{
 	display: inline-block;
 	margin-right: 5px;
-	width: 22px;
-	height: 22px;
+	width: 36px;
+	height: 20px;
 	content: counter(secTR3);
-	border-radius: 50%;
+	border-radius: 10px;
 	background-color: #B3CF26;
 	color: #FFFFFF;
 	text-align: center;
 	font-size: 16px;
-	line-height: 22px;
+	line-height: 20px;
 }
 .r4-title{
 	font-size: 18px;
+}
+.r3-title mark{ /*标题中的标签*/
+	display: inline-block;
+	margin-left: 5px;
+	height: 12px;
+	padding: 0 3px;
+	border-radius: 3px;
+	background-color: #0AB5C9;
+	line-height: 12px;
+	font-size: 10px;
+	color: #fff;
 }
 
 /*浏览器兼容*/
@@ -190,9 +203,9 @@ p{margin-bottom: 1.5em;}
 	background-color: #FFFFFF;
 }
 
-/*
+/* ******************************************************* *
  * 列表
- */
+ * ******************************************************* */
 .LT a{
 	display: inline-block;
 	width:250px;
@@ -207,19 +220,13 @@ p{margin-bottom: 1.5em;}
 
 /*分标题和内容的双列形式列表*/
 .dlist dt, .dlist dd{
-	line-height: 2;
+	font-size: 14px;
+	color: #666;
 }
 .dlist dt{
-	float: left;
-	width:180px;
-	clear: left;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	font-weight: normal;
 }
 .dlist dd{
-	margin-left: 190px;
+	margin-bottom: 15px;
 }
 
 /*带背景的行内块元素*/
