@@ -11,42 +11,32 @@
                 <a class="navbar-brand" href="#">YQ</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/views/html/index.html">HTML</a>
-                    </li>
-                    <li>
-                        <a href="/views/html5/index.html">HTML5</a>
-                    </li>
-                    <li>
-                        <a href="/views/css/index.html">CSS</a>
-                    </li>
-                    <li>
-                        <a href="/views/css3/index.html">CSS3</a>
-                    </li>
-                    <li>
-                        <a href="/views/less/index.html">LESS</a>
-                    </li>
-                    <li>
-                        <a href="/views/js/index.html">JS</a>
-                    </li>
-                    <li>
-                        <a href="/views/mobile/index.html">MOBILE</a>
-                    </li>
-                    <li>
-                        <a href="/views/bootstrap/index.html">BOOTSTRAP</a>
-                    </li>
-                    <li>
-                        <a href="/views/axure/index.html">AXURE</a>
-                    </li>
-                    <li>
-                        <a href="/views/svg/index.html">SVG</a>
-                    </li>
-                    <li>
-                        <a href="/views/tags.html">TAGS</a>
-                    </li>
-                </ul>
+                <ul class="nav navbar-nav"></ul>
             </div>
         </div>
     </nav>
 </header>
+
+<script type="text/javascript">
+	var globalNav = [
+		{name:"HTML", url:"/views/html/index.html"},
+		{name:"HTML5", url:"/views/html5/index.html"},
+		{name:"CSS", url:"/views/css/index.html"},
+		{name:"CSS3", url:"/views/css3/index.html"},
+		{name:"LESS", url:"/views/less/index.html"},
+		{name:"JS", url:"/views/js/index.html"},
+		{name:"MOBILE", url:"/views/mobile/index.html"},
+		{name:"BOOTSTRAP", url:"/views/bootstrap/index.html"},
+		{name:"AXURE", url:"/views/axure/index.html"},
+		{name:"SVG", url:"/views/svg/index.html"},
+		{name:"TAGS", url:"/views/tags.html"}
+	]
+	var gNavHtml = "";
+	for(i=0;i<globalNav.length;i++){
+		var gn = globalNav[i];
+		gNavHtml += "<li>";
+		gNavHtml += "<a href='" + gn.url + "'>" + gn.name + "</a>";
+		gNavHtml += "</li>";
+	}
+	document.querySelector('.navbar-nav').innerHTML = gNavHtml;
+</script>

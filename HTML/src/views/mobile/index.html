@@ -14,22 +14,56 @@
 </head>
 <body>
 	<!--#include virtual="/include/_header.html" -->
-    <div class="container">
-        <a href="_article01.html">移动web开发之像素和DPR</a><br />
-        <a href="mob1.html">手机端页面自适应解决方案</a><br />
-        <a href="mob2.html">手机分辨率</a>
-        
-        <h3>jquerymobile</h3>
-        <a href="jquerymobile/index.html">jquerymobile</a><br />
-        
-        <h3>MUI</h3>
-        <a href="HBuilder/_article01.html">HBuilder导入项目</a><br />
-        <a href="mui/winAct.html">对页面/窗口的操作</a><br />
-        <a href="mui/winPara.html">页面传参</a><br />
-        <a href="mui/zujian.html">MUI组件</a><br />
-        <a href="mui/zjCCss.html">mui组件通用CSS类</a><br />
-        <a href="mui/mui001.html">屏幕旋转、如何去掉滚动条、返回到指定页面</a><br />
-        <a href="mui/mui002.html">奇怪的问题</a><br />
-    </div>
+    <div class="container" id="list"></div>
+    <script type="text/javascript">
+    	var xmlhttp;
+		if (window.XMLHttpRequest){
+	  		xmlhttp=new XMLHttpRequest(); //code for IE7+, Firefox, Chrome, Opera, Safari
+	  	}
+		else{	
+	  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); //code for IE6, IE5
+	  	}
+		xmlhttp.open("GET","/include/fileList.xml",false);
+		xmlhttp.send();
+		xmlDoc=xmlhttp.responseXML;
+		
+		var _html = "",
+			NMainS, //xml结点<main>
+			NMain,
+			NCategoryS, //xml结点<category>
+			NCategory,
+			NFileS, //xml结点<file>
+			FPath, //file文件路径
+			FName, //file文件名
+			FTitle; //file文件标题
+			
+		NMainS = xmlDoc.getElementsByTagName("main");
+		for(var i=0;i<NMainS.length;i++){
+			NMain = NMainS[i];
+			if(NMain.getAttribute("sort") == 'mobile'){
+				NCategorys = NMain.getElementsByTagName("category");
+				for(var k=0;k<NCategorys.length;k++){
+					NCategory = NCategorys[k];
+					console.log("*********category title: " + NCategory.getAttribute("title"));
+					_html += "<h3>" + NCategory.getAttribute("title") + "</h3>";
+					_html += "<ul>";
+					NFileS = NCategory.getElementsByTagName("file");
+					for(var j=0;j<NFileS.length;j++){
+						console.log("file " + j + " : " + FTitle);
+						FPath = NFileS[j].getElementsByTagName("path")[0].childNodes[0].nodeValue; //文件路径
+						FName = NFileS[j].getElementsByTagName("name")[0].childNodes[0].nodeValue; //文件名
+						FTitle = NFileS[j].getElementsByTagName("title")[0].childNodes[0].nodeValue; //文件标题
+					
+						_html += "<li>";
+						_html += "<a href='" + FPath + FName + ".html'>" + FTitle + "</a>";
+						_html += "</li>";
+					}
+					_html += "</ul>";
+				}
+				
+			}
+		}
+		$('#list').prepend(_html);
+	</script>
 </body>
 </html>

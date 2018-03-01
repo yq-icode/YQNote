@@ -31,4 +31,46 @@ $(function(){
 	 */
 	var LNHtml = "<span class='ttBlock-list-icon'></span>";
 	$('.ttBlock-list').prepend(LNHtml)
+	
+	/* 【浏览器兼容 browser-support】为浏览器兼容添加固定内容和标签
+	 */
+	var b_support = document.querySelectorAll('.browser-support');
+	var b_num = b_support.length;
+	console.log("browser-support num: " + b_num);
+	if(b_num > 0){
+		$(b_support).each(function(){
+			var b_summary = $(this).find('.summary').html();
+			var addspan = b_summary.replace(/; /g,'</span><span>');/*用分号分隔浏览器*/
+			$(this).prepend("<mark>兼容性</mark>");
+			$(this).find('.summary').html("<span>" + addspan + "</span>");
+		})
+	}
+	
+	
+	/* 【引用 reference】
+	 */
+	var reference = document.querySelectorAll('.reference');
+	var reference_num = reference.length;
+	console.log("reference num: " + reference_num);
+	if(reference_num > 0){
+		$(reference).each(function(){
+			$(this).prepend("摘自：");
+		})
+	}
+	
+	$('#footer').load('_footer.html');
+	
 })
+
+/* 【article页面添加TOP】
+*/
+function addArticleTop(){
+	var _topHtml = "";
+	_topHtml += "<div id='top'>";
+	_topHtml += "<a href='' class='iconfont icon-bijiben logo'><span>YQ-NOTE</span></a>"
+	_topHtml += "<a class='iconfont icon-shangyige back' onclick='history.go(-1)'><span>" + $('.article-title').html() + "</span></a>"
+	_topHtml += "</div>";
+	$('body').prepend(_topHtml);
+}
+
+

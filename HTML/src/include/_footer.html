@@ -1,40 +1,29 @@
-<footer id="footer" class="container_fluid">
-	<ul>
-    	<li>
-        	<a target="_blank" href="http://www.bootcss.com">Bootstrap</a>
-        </li>
-        <li>
-        	<a target="_blank" href="http://www.w3cplus.com">W3CPlus</a>
-        </li>
-        <li>
-        	<a target="_blank" href="http://www.w3school.com.cn">w3school</a>
-        </li>
-        <li>
-        	<a target="_blank" href="http://www.lesscss.net">less</a>
-        </li>
-        <li>
-        	<a target="_blank" href="http://lesscss.cn">less中文网</a>
-        </li>
-        <li>
-        	<a target="_blank" href="http://www.w3school.com.cn/jquerymobile">Jquery Mobile</a>
-        </li>
-        <li>
-        	<a target="_blank" href="http://plugins.jquery.com">jQuery Plugin Registry 插件汇总</a>
-        </li>
-        <li>
-        	<a target="_blank" href="http://jqueryui.com/demos">Query UI</a>
-        </li>
-        <li>
-        	<a target="_blank" href="http://jquery.cuishifeng.cn/index.html">jQuery API 1.11 中文文档</a>
-        </li>
-        <li>
-        	<a target="_blank" href="http://www.zcool.com.cn">站酷ZCOOL</a>
-        </li>
-        <li>
-        	<a target="_blank" href="http://www.makewing.com/lanren">懒人素材</a>
-        </li>
-        <li>
-        	<a target="_blank" href="http://www.zhubajie.com">猪八戒</a>
-        </li>
-    </ul>
-</footer>
+<ul></ul>
+
+<script type="text/javascript">
+	var JFoot = [
+		{name:"Bootstrap", url:"http://www.bootcss.com"},
+		{name:"W3CPlus", url:"http://www.w3cplus.com"},
+		{name:"w3school", url:"http://www.w3school.com.cn"},
+		{name:"less", url:"http://www.lesscss.net"},
+		{name:"less中文网", url:"http://lesscss.cn"},
+		{name:"Jquery Mobile", url:"http://www.w3school.com.cn/jquerymobile"},
+		{name:"jQuery Plugin Registry 插件汇总", url:"http://plugins.jquery.com"},
+		{name:"Query UI", url:"http://jqueryui.com/demos"},
+		{name:"jQuery API 1.11 中文文档", url:"http://jquery.cuishifeng.cn/index.html"},
+		{name:"站酷ZCOOL", url:"http://www.zcool.com.cn"},
+		{name:"懒人素材", url:"http://www.makewing.com/lanren"},
+		{name:"猪八戒", url:"http://www.zhubajie.com"}
+	]
+	var footHtml = "";
+	for(i=0;i<JFoot.length;i++){
+		var gn = JFoot[i];
+		footHtml += "<li>";
+		footHtml += "<a href='" + gn.url + "'>" + gn.name + "</a>";
+		footHtml += "</li>";
+	}
+	console.log(document.querySelector('ul').innerHTML);
+	document.querySelector('ul').innerHTML = footHtml;
+	console.log(document.querySelector('ul').innerHTML);
+	
+</script>

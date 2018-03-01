@@ -19,12 +19,35 @@
 	<div id="wside"></div>
 	<div id="wmain" style="width: 1000px;">
 		<h1 class="r1-title">HTML5本地存储IndexedDB数据库</h1>
-		<div class="code-box">
-            <pre class="language-js line-numbers">
-                <code>
-
-                </code>
-            </pre>
+		<h2 class="r2-title">方法或属性讲解</h2>
+		<section class="r2-body wbox">
+			<h3 class="r3-title">cursor.continue</h3>
+			<p>cursor.continue的作用在于使游标移动到结果集的下一项，默认情况下游标只发起一次请求，要想发起另一次请求使游标继续查找，则需调用continue(key)方法，该方法中参数可选，不指定参数，移到下一项，指定该参数，移到指定键的位置。</p>
+			<p>如果不加cursor.continue则会只出现第一条数据</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+	cursor.continue
+	                </code>
+	            </pre>
+	        </div>
+	        <!--*********************************-->
+	        <h3 class="r3-title">e.target.result == this.result</h3>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+e.target.result == this.result //这二者是等价的
+	                </code>
+	            </pre>
+	        </div>
+	   </section>
+	   
+        <h2 class="r2-title">常见错误</h2>
+        <div class="r2-body wbox">
+        	<div class="reference">
+        		<a target="_blank" href="http://blog.csdn.net/a214161398a/article/details/54947991">http://blog.csdn.net/a214161398a/article/details/54947991</a>
+        	</div>
+        	<img src="images/screenPics/sc001.png" />
         </div>
         
 	</div>

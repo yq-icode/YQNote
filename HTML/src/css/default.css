@@ -30,16 +30,14 @@ p{margin-bottom: 1.5em;}
 }
 #wside{
 	position: fixed;
-	top: 60px;
+	top: 86px;
 	width:200px;
 }
 #wmain{
 	margin-left:220px;
 	margin-right:220px;
-	padding: 20px 30px;
 	overflow: hidden;
 	counter-reset: secTR2;
-	background-color: #FFFFFF;
 }
 /* 左侧边栏为菜单，中间为主内容，右边为其它信息（如广告） */
 
@@ -62,12 +60,13 @@ p{margin-bottom: 1.5em;}
 	padding: 5px;
 	color: #0066CC;
 }
-#wside dl a.on{
-	color: #0D89B2;
-}
-#wside dl a:hover{
-	color: #000;
-}
+
+#wside dl dt a.on{background-color: #0F93BF;}
+#wside dl dd a.on{color: #0D89B2;text-decoration: underline;}
+
+#wside dl dt a:hover{background-color: #0F93BF;text-decoration: none;}
+#wside dl dd a:hover{color: #000;}
+
 #wside dl dt:nth-child(n+2){
 	margin-top: 15px;
 }
@@ -113,7 +112,12 @@ p{margin-bottom: 1.5em;}
 	margin: 30px 0 10px;
 	color: #333;
 }
-.r1-title{font-size: 30px;}
+.r1-title{
+	margin: 10px 0 50px;
+	font-size: 30px;
+	text-shadow: -1px -1px 0 #fff, 2px 2px 0 #fff;
+	color: #118AB3;
+}
 .r2-title{
 	margin: 30px 0 15px 0;
 	border-bottom:1px solid #ddd;
@@ -133,7 +137,11 @@ p{margin-bottom: 1.5em;}
 	font-size: 22px;
 	counter-increment: secTR3;
 }
+.wbox .r3-title:first-child{margin-top: 0;}/* 设置wbox中的首个r3-title的margin-top为0 */
+
 .r3-title::before{
+	position: relative;
+	top: -1px;
 	display: inline-block;
 	margin-right: 5px;
 	width: 36px;
@@ -159,8 +167,11 @@ p{margin-bottom: 1.5em;}
 	line-height: 12px;
 	font-size: 10px;
 	color: #fff;
+	text-transform: uppercase;
 }
-
+/* ******************************************************* *
+ * 小模块样式
+ * ******************************************************* */
 /*浏览器兼容*/
 .browser-support{
 	font-size: 12px;
@@ -172,18 +183,28 @@ p{margin-bottom: 1.5em;}
 	background-color:#95C900;
 	color: #fff;
 }
-.browser-support ul{
+.browser-support .summary span{
+	display: inline-block;
+	margin: 5px 5px 5px 0;
+	padding: 0 5px;
+	border: 1px solid #E1E1E8;
+	background-color: #F7F7F9;
+	color: #79A204;
+	font-family: "comic sans ms";
+}
+/*.browser-support ul{
 	margin: 15px 0;
 }
 .browser-support ul li{
 	margin: 8px 0;
 	list-style-position: inside;
 	color: #666;
-}
+}*/
 /*引用(即文章摘取的URL地址)*/
 .reference{
 	color: #aaa;
 	font-size: 12px;
+	font-family: "comic sans ms";
 }
 .reference a{
 	color: #aaa;
@@ -202,7 +223,12 @@ p{margin-bottom: 1.5em;}
 	padding: 30px;
 	background-color: #FFFFFF;
 }
-
+/*带背景的行内块元素*/
+.bgMark{
+	display: inline-block;
+	padding: 2px 5px;
+	background-color: #CCCCCC;
+}
 /* ******************************************************* *
  * 列表
  * ******************************************************* */
@@ -229,11 +255,38 @@ p{margin-bottom: 1.5em;}
 	margin-bottom: 15px;
 }
 
-/*带背景的行内块元素*/
-.bgMark{
-	display: inline-block;
-	padding: 2px 5px;
-	background-color: #CCCCCC;
+/* ******************************************************* *
+ * article
+ * ******************************************************* */
+#top{
+	height: 45px;
+	padding: 0 20px;
+	background-color: #2DBE60;
+	color: #fff;
+	line-height: 45px;
+	box-sizing: border-box;
 }
-
-
+#top .logo{
+	float: right;
+	color: #000;
+	font-size: 24px;
+	line-height: 45px;
+}
+#top .logo span{
+	position: relative;
+	top: -3px;
+	padding-left:5px;
+	font-size: 12px;
+	text-shadow: 1px 1px 0 #4BDE7E;
+}
+#top .back{
+	font-size: 24px;
+	line-height: 45px;
+	color: #F3F3F3;
+	cursor: pointer;
+}
+#top .back span{
+	padding-left: 10px;
+	font-size: 16px;
+	vertical-align: middle;
+}
