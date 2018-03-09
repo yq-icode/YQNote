@@ -1,4 +1,4 @@
-<ul></ul>
+<footer id="footer"></footer>
 
 <script type="text/javascript">
 	var JFoot = [
@@ -16,14 +16,13 @@
 		{name:"猪八戒", url:"http://www.zhubajie.com"}
 	]
 	var footHtml = "";
+	footHtml += "<ul>";
 	for(i=0;i<JFoot.length;i++){
 		var gn = JFoot[i];
 		footHtml += "<li>";
-		footHtml += "<a href='" + gn.url + "'>" + gn.name + "</a>";
+		footHtml += "<a target='_blank' href='" + gn.url + "'>" + gn.name + "</a>";
 		footHtml += "</li>";
 	}
-	console.log(document.querySelector('ul').innerHTML);
-	document.querySelector('ul').innerHTML = footHtml;
-	console.log(document.querySelector('ul').innerHTML);
-	
+	footHtml += "</ul>";
+	document.querySelector('footer').innerHTML = footHtml;
 </script>

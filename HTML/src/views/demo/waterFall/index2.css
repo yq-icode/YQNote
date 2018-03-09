@@ -1,0 +1,17 @@
+body{
+	
+}
+#main{
+	position: relative;
+    -webkit-column-width:202px;
+    -moz-column-width:202px;
+    column-width:202px;
+    column-gap:10px;
+    overflow-y: hidden;
+	overflow-x: scroll;
+}
+.pic{overflow: hidden;}
+
+.pic img{
+	width: 100%;
+}

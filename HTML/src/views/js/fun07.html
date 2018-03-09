@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 800px;">
+		<!************************************************->
+        <h2 class="r2-title">onwheel</h2>
+        <ul class="list-decimal">
+        	<li>onwheel 事件在鼠标滚轮在元素上下滚动时触发。</li>
+        	<li>onwheel 事件同样可以在触摸板上滚动或放大缩小区域时触发（如笔记本上的触摸板）。</li>
+        	<li>onmousewheel已废弃，使用 onwheel事件替代</li>
+        	<li>在 IE 浏览器中，只能通过 addEventListener() 方法支持 wheel 事件。 在 DOM 对象中没有 onwheel 属性。</li>
+        </ul>
+        <div class="browser-support mt20">
+        	<div class="summary">IE 9.0+; chrome 31.0+; firefox 17.0+; Opera 18.0+; safari不支持</div>
+        </div>
+    	<div class="code-box mt20">
+            <pre class="language-js line-numbers">
+                <code>
+//HTML
+&lt;element onwheel="myScript"&gt;
+//JavaScript 
+object.onwheel=function(){myScript};
+object.addEventListener("wheel", myScript);
+//Internet Explorer 8及更早 IE 版本不支持 addEventListener()方法
+
+	            </code>
+            </pre>
+        </div>
+        
+        <!************************************************->
+        <h2 class="r2-title">鼠标滚轮的兼容写法</h2>
+        <div class="code-box mt20">
+            <pre class="language-html line-numbers">
+                <code>
+//为#main添加鼠标滚轮事件
+&lt;div id="main"&gt;&lt;/div&gt;
+	            </code>
+            </pre>
+        </div>
+        <div class="code-box mt20">
+            <pre class="language-js line-numbers">
+                <code>
+var outDiv = document.getElementById('main');
+
+var addMouseWheelHandler = function(){
+    if(document.addEventListener){
+        document.addEventListener('mousewheel', MouseWheelHandler, false); //IE9, Chrome, Safari, Oper
+        document.addEventListener('wheel', MouseWheelHandler, false); //Firefox
+        document.addEventListener('DOMMouseScroll', MouseWheelHandler, false); //Old Firefox
+    }
+    else{
+        document.attachEvent('onmousewheel', MouseWheelHandler); //IE 6/7/8
+    }
+},
+removeMouseWheelHandler = function(){
+    if(document.addEventListener){
+        document.removeEventListener('mousewheel', MouseWheelHandler, false); //IE9, Chrome, Safari, Oper
+        document.removeEventListener('wheel', MouseWheelHandler, false); //Firefox
+        document.removeEventListener('DOMMouseScroll', MouseWheelHandler, false); //old Firefox
+    }
+    else{
+        document.detachEvent('onmousewheel', MouseWheelHandler); //IE 6/7/8
+    }
+},
+stopDefault = function(e){
+    //W3C
+    if (e && e.preventDefault)
+        e.preventDefault();
+    //IE
+    else
+        window.event.returnValue = false;
+    return false;
+},
+
+//滚动后的处理函数 
+MouseWheelHandler = function(e){
+    stopDefault(e);
+    var step = 50; //滚动的距离
+    var e = e || window.event,
+        value = e.wheelDelta || -e.deltaY || -e.detail,
+        delta = Math.max(-1, Math.min(1, value));
+        
+    if(delta < 0){//向下滚动鼠标滚轮,屏幕滚动条右移 
+         outDiv.scrollLeft += step;  
+    }
+    else{//向上滚动鼠标滚轮,屏幕滚动条左移
+        outDiv.scrollLeft -= step;
+    }
+};
+   
+//调用
+addMouseWheelHandler();
+	            </code>
+            </pre>
+        </div>
+        <!************************************************->
+        <h2 class="r2-title">鼠标滚轮插件jquery.mousewheel.js详解</h2>
+        <p class="reference">
+        	<a href="http://www.hangge.com/blog/cache/detail_1863.html"></a>
+        </p>
+        <img src="images/screenPics/sc003.png" />
+	</div>
+</div>
+</body>
+</html>

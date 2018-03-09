@@ -7,24 +7,66 @@
 	<title>测试</title>
     <script src="js/jquery-1.11.3.min.js"></script>
     <style type="text/css">
-    	.container{
-    		display: grid;
-    		display: -moz-grid;
-	        grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];
-	        width: 800px;
-	        height: 800px;
-	        background-color: #999;
-	    }
     </style>
 </head>
 <body>
-	<div class="container">
-		<div class="item">
-			<img src="images/common/icon-chrome.gif" />
-		</div>
-		<div>A</div>
-		<div>B</div>
-		<div>C</div>
-	</div>
+	<script type="text/javascript">
+		
+		var arr1 = [ "one", "two", "three"]; //一维数组
+		var arr2 = [[1, 4, 3], [4, 6, 6], [7, 20, 9]]; //二维数组
+		var obj = { one:"win1", two:2, three:3}; //JSON
+		
+		/* 遍历数组(没有附加参数)
+		 * 
+		 * $.each(Array, function(i, value) {
+		 * 		this;  //this指向当前元素
+		 * 		i;     //i表示Array当前下标
+		 * 		value; //value表示Array当前元素
+		 * })
+		 */
+		
+		//遍历一维数组
+		$.each(arr1, function(){
+			console.log(this);
+		});
+		console.log("-----------");
+		$.each(arr1, function(i){
+			console.log(i + ":" + this);
+		});
+		
+		//遍历二维数组
+		console.log("****************************************");
+		
+		$.each(arr2, function(){
+			console.log(this[0]);
+		});
+		
+		console.log("-----------");
+		
+		$.each(arr2, function(i){
+			console.log(i + ":" + this[0]);
+		});
+		
+		console.log("-----------");
+		
+		$.each(arr2, function(i,item){
+			console.log(i + ":" + item[0]);
+			console.log(i + ":" + this[0]); //item[0]等同于this[0]
+		});
+		
+		/* 遍历对象(没有附加参数)
+		 * $.each(Object, function(name, value) {
+		 * 		this;  //this指向当前属性的值
+		 * 		name;  //name表示Object当前属性的名称
+		 * 		value; //value表示Object当前属性的值
+		 * })
+		 */
+		
+		//遍历JSON
+		console.log("****************************************");
+		$.each(obj, function(key,val){
+			console.log(key + ":" + obj[key]);
+		});
+	</script>
 </body>
 </html>

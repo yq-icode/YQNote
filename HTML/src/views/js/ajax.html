@@ -5,13 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-    <link rel="stylesheet" href="/css/prism.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link href="/css/default.css" rel="stylesheet" />
-    <script src="/js/jquery-1.11.3.min.js"></script>
-    <script src="/js/prism.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/default.js"></script>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
 <!--#include virtual="/include/_header.html" -->
@@ -19,15 +14,36 @@
 	<div id="wside"></div>
 	<div id="wmain" style="width: 1000px;">
 		<h1 class="r1-title">AJAX</h1>
-		<h2 class="r2-title"></h2>
+		<h2 class="r2-title">基础</h2>
+		<h3 class="r3-title">异步与主线程</h3>
+		<img src="images/screenPics/sc001.png" />
+		<h3 class="r3-title">清除缓存</h3>
     	<div class="code-box">
             <pre class="language-js line-numbers">
                 <code>
-
+xmlhttp.open("GET","demo_get.asp",true);
+//在上面的例子中，您可能得到的是缓存的结果，为了避免这种情况，请向 URL添加一个唯一的 ID，如：
+xmlhttp.open("GET","demo_get.asp?t=" + Math.random(),true);
+xmlhttp.send();
 	            </code>
             </pre>
         </div>
 	    <!************************************************->
+	    <h3 class="r3-title">通过 GET 方法发送信息</h3>
+    	<div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//如果您希望通过 GET 方法发送信息，请向 URL 添加信息：                	
+xmlhttp.open("GET","demo_get2.asp?fname=Bill&lname=Gates",true);
+xmlhttp.send();
+	            </code>
+            </pre>
+        </div>
+	    <!************************************************->
+	    <h2 class="r2-title">疑问</h2>
+	    <ul>
+	    	<li>“主线程中同步的 XMLHttpRequest 已不推荐使用”的解决办法</li>
+	    </ul>
 	</div>
 </div>
 </body>

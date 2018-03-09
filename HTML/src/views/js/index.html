@@ -5,70 +5,26 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>JS</title>
-    <link rel="stylesheet" href="/css/prism.css">
     <!--#include virtual="/include/_head_import_file.html" -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link href="/css/default.css" rel="stylesheet" />
-    <script src="/js/jquery-1.11.3.min.js"></script>
-    <script src="/js/prism.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/less-2.5.3.min.js"></script>
     <link rel="import" href="/include/_footer.html"/>
 </head>
 <body>
 	<!--#include virtual="/include/_header.html" -->
     <div class="container" id="list">
-    	<ul></ul>
     </div>
     <footer id="footer" class="container_fluid"></footer>
     
     <script type="text/javascript">
-    	var xmlhttp;
-		if (window.XMLHttpRequest){
-	  		xmlhttp=new XMLHttpRequest(); //code for IE7+, Firefox, Chrome, Opera, Safari
-	  	}
-		else{	
-	  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); //code for IE6, IE5
-	  	}
-		xmlhttp.open("GET","/include/fileList.xml",false);
-		xmlhttp.send();
-		xmlDoc=xmlhttp.responseXML;
-		
-		var _html = "",
-			NMainS, //xml结点<main>
-			NMain,
-			NFileS, //xml结点<file>
-			FPath, //file文件路径
-			FName, //file文件名
-			FTitle; //file文件标题
-			
-		var NMainS = xmlDoc.getElementsByTagName("main");
-		for(var i=0;i<NMainS.length;i++){
-			var NMain = NMainS[i];
-			if(NMain.getAttribute("sort") == 'js'){
-				var NFileS,FPath,FName,FTitle;
-				NFileS = NMain.getElementsByTagName("file");
-				for(var j=0;j<NFileS.length;j++){
-					console.log(j + " : " + FTitle);
-					FPath = NFileS[j].getElementsByTagName("path")[0].childNodes[0].nodeValue; //文件路径
-					FName = NFileS[j].getElementsByTagName("name")[0].childNodes[0].nodeValue; //文件名
-					FTitle = NFileS[j].getElementsByTagName("title")[0].childNodes[0].nodeValue; //文件标题
-				
-					_html += "<li>";
-					_html += "<a href='" + FPath + FName + ".html'>" + FTitle + "</a>";
-					_html += "</li>";
-				}
-			}
-		}
-		document.querySelector('#list.container ul').innerHTML = _html;
-		
-		
-		var post = document.querySelector("link[rel='import']").import;
-		console.log("post: " + document.querySelector("link[rel='import']"));
-	    var con = post.querySelector("footer");
-	    document.querySelector("#footer").appendChild(con.cloneNode(true));
-	
-	    var clone = document.importNode(con,true);
-	    document.querySelector("#footer").appendChild(clone);
+//		
+//		var post = document.querySelector("link[rel='import']").import;
+//		console.log("post: " + document.querySelector("link[rel='import']"));
+//	    var con = post.querySelector("footer");
+//	    document.querySelector("#footer").appendChild(con.cloneNode(true));
+//	
+//	    var clone = document.importNode(con,true);
+//	    document.querySelector("#footer").appendChild(clone);
+		loadXMLDoc("/include/fileList.xml","js","#list.container");
 	</script>
 </body>
 </html>

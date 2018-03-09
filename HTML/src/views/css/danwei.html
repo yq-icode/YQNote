@@ -5,13 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-   	<link rel="stylesheet" href="/css/prism.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link href="/css/default.css" rel="stylesheet" />
-    <script src="/js/jquery-1.11.3.min.js"></script>
-    <script src="/js/prism.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/default.js"></script>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
 <!--#include virtual="/include/_header.html" -->
@@ -19,11 +14,19 @@
     <div id="wside"></div>
     <div id="wmain" style="width: 800px;">
         <h2 class="r2-title">CSS单位 px em rem讲解</h2>
-        <p class="reference"><a target="_blank" href="http://www.mamicode.com/info-detail-655497.html">http://www.mamicode.com/info-detail-655497.html</a></p>
+        <p class="reference"><a target="_blank" href="http://www.mamicode.com/info-detail-655497.html"></a></p>
     	<img src="images/screenPics/css-danwei.png" />
     	
+    	<h2 class="r2-title">CSS3单位 rem</h2>
+    	<p>rem是css3中新增加的一个相对长度单位，相对于根元素html元素字体大小的单位。</p>
+    	<div class="browser-support">
+    		<div class="summary">
+    			IE9-IE10部分支持; IE11+; Edge 12+; FF 3.6+; chrome 4+; safari 5+; Opera 12.1+; IOS Safari 2.1+; android 2.1+
+    		</div> 
+    	</div>
+    	
     	<h2 class="r2-title">CSS3单位 vw vh</h2>
-    	<p class="reference"><a target="_blank" href="http://caibaojian.com/viewport-based-typography.html">http://caibaojian.com/viewport-based-typography.html</a></p>
+    	<p class="reference"><a target="_blank" href="http://caibaojian.com/viewport-based-typography.html"></a></p>
     	<ul>
     		<li>
     			<strong>vw：</strong>
@@ -36,7 +39,7 @@
     		<li><strong>vmax：</strong>vw和vh中较大的那个。</li>
     	</ul>
     	<div class="browser-support mt20">
-    		<div class="summary">vw vh vmin vmax：IE9+局部支持，chrome/firefox/safari/opera支持，ios safari 8+支持，android browser4.4+支持，chrome for android39支持</div>
+    		<div class="summary">IE9+局部支持; chrome/firefox/safari/opera支持; ios safari 8+; android browser 4.4+; chrome for android 39</div>
     	</div>
     	
     	

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 800px;">
+		<!************************************************->
+        <h2 class="r2-title">jQuery.inArray</h2>
+        <p>确定第一个参数在数组中的位置，从0开始计数(如果没有找到则返回 -1 )。</p>
+        <dl class="dlist">
+        	<dt>value</dt>
+        	<dd>用于在数组中查找是否存在</dd>
+        	<dt>array</dt>
+        	<dd>待处理数组</dd>
+        	<dt>fromIndex</dt>
+        	<dd>用来搜索数组队列，默认值为0</dd>
+        </dl>
+    	<div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+jQuery.inArray(value,array,[fromIndex])
+$.inArray(value,array,[fromIndex])
+
+var arr = [ 4, "Pete", 8, "John" ];
+
+jQuery.inArray("John", arr);  //3
+jQuery.inArray(4, arr);  //0
+$.inArray("David", arr);  //-1
+$.inArray("Pete", arr, 2);  //-1
+	            </code>
+            </pre>
+        </div>
+        <img src="images/screenPics/sc002.jpg" />
+	</div>
+</div>
+</body>
+</html>

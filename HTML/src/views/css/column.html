@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+    <div id="wmain" style="width: 1000px;">
+    	<div class="reference">
+    		<a href="https://www.jianshu.com/p/87d1862f88c6"></a>
+    	</div>
+    	<div class="browser-support">
+    		<div class="summary">IE 10+; chrome 50+; chrome 49- 需加前缀-webkit-; safari 10+; safari 9.1- 需加前缀-webkit-; opera 37+; opera 36- 需加前缀-o-; FF 需加前缀-moz-</div>
+    	</div>
+    	
+        <h2 class="r2-title">属性讲解</h2>
+        <dl class="dlist">
+        	<dt>column-width</dt>
+        	<dd>给列定义个最小的宽度。默认值为auto表示将根据column-count列的数量自动调整列宽。</dd>
+        	<dt>column-count</dt>
+        	<dd>最大列数</dd>
+        	<dt>column-gap</dt>
+        	<dd>是列间距，默认值normal，相当于1em。需要注意的是，如果column-gap与column-width加起来大于总宽度的话，就无法显示column-count指定的列数，会被浏览器自动调整列数和列宽</dd>
+        	<dt>column-rule</dt>
+        	<dd>用于设置列的边框，类似于border，区别是不占用任何空间，因此设了column-rule不会导致列宽的变化。另外如果边框宽度大于column-gap列间距，将不会显示边框。语法和border类似，例如column-rule: 1px solid #000;</dd>
+        	<dt>column-span</dt>
+        	<dd>用于跨列，默认值none表示不跨列，all表示跨越所有列。例如文章标题可以设成all来跨列。</dd>
+        	<dt>column-fill</dt>
+        	<dd>用于统一列高。默认值auto各列的高度随内容自动调整，balance所有列高都设为最高的列高</dd>
+        </dl>
+        <div class="code-box mt20">
+            <pre class="language-css line-numbers">
+                <code>
+.wrapper {
+    -moz-columns: auto 4;
+    -webkit-columns: auto 4;
+    columns: auto 4;
+}
+	            </code>
+            </pre>
+        </div>
+    </div>
+</div>
+</body>
+</html>

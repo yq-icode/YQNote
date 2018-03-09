@@ -5,24 +5,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>JS</title>
-    <link rel="stylesheet" href="/css/prism.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link href="/css/default.css" rel="stylesheet" />
-    <script src="/js/jquery-1.11.3.min.js"></script>
-    <script src="/js/prism.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
 	<!--#include virtual="/include/_header.html" -->
     <div class="container">
-    	<ul>
-            <li>
-            	<a href="video.html">video</a>
-            </li>
-            <li>
-            	<a href="idxDB.html">HTML5本地存储IndexedDB数据库</a>
-            </li>
-        </ul>
+    	<div id="list"></div>
     </div>
+    <script type="text/javascript">
+		loadXMLDoc("/include/fileList.xml","html","#list");
+	</script>
 </body>
 </html>

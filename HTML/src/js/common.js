@@ -55,13 +55,6 @@ $(document).ready(function() {
 			$(this).css({'padding-left':'50px'});
 		}
     });
-    
-	// set random color for tag group
-	var tag_group = $('.tag-group');	
-	$(tag_group).find('a').each(function(index, element) {
-		var num = Math.round(Math.random()*7+1);
-		$(this).removeClass().addClass('color-'+num);
-    });
 });
 //show tooltip
 $(function () {

@@ -1,0 +1,366 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "common.less";
+
+html{font-size: 10px;}
+body{
+	background-color: #F3F3F3;
+	font-size: 16px;
+	color: #333;
+	line-height: 1.8;
+}
+ul,li{margin: 0;padding: 0;}
+li{list-style-type: none;}
+p{margin-bottom: 1.5em;}
+
+.mt20{margin-top: 20px;}
+.ml20{margin-left: 20px;}
+
+.fontS12{font-size: 12px;}
+.fontS16{font-size: 16px;}
+.fontS18{font-size: 18px;}
+.fontS20{font-size: 20px;}
+
+.dis-block{display: block;}
+.dis-inline{display: inline;}
+
+#wrap{
+	margin:0 20px;
+}
+#wside, #wmain{
+	box-sizing: border-box;
+}
+#wside{
+	position: fixed;
+	top: 86px;
+	width:200px;
+}
+#wmain{
+	margin-left:220px;
+	margin-right:220px;
+	overflow: hidden;
+	counter-reset: secTR2;
+}
+#toTop{
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	font-size: 2.2rem;
+}
+/* 左侧边栏为菜单，中间为主内容，右边为其它信息（如广告） */
+
+/* ******************************************************* *
+ * 左侧边栏
+ * ******************************************************* */
+#wside{
+	h2{
+		margin: 0 -10px;
+		padding: 8px 10px;
+		font-size: 16px;
+		background-color: #F8F8F8;
+		color: #aaa;
+		text-transform: uppercase;
+	}
+	dl{
+		margin: 0;
+		counter-reset: secDT;
+	}
+}
+#wside dl a{
+	padding: 5px;
+	color: #0066CC;
+}
+
+#wside dl dt a.on{background-color: #0F93BF;}
+#wside dl dd a.on{color: #0D89B2;text-decoration: underline;}
+
+#wside dl dt a:hover{background-color: #0F93BF;text-decoration: none;}
+#wside dl dd a:hover{color: #000;}
+
+#wside dl dt:nth-child(n+2){
+	margin-top: 15px;
+}
+#wside dl dt a{
+	display: inline-block;
+	position: relative;
+	margin:5px 0;
+	padding:0 5px 0 20px;
+	font-size: 12px;
+	color: #fff;
+	font-weight: normal;
+	counter-increment: secDT;
+	background-color: #6FDAFE;
+}
+#wside dl dt a::before{
+	position: absolute;
+	left: 0;
+	content: counter(secDT);/* dt的编号 */
+	padding-left: 5px;
+}
+#wside dl dd{
+	counter-reset: secDD;
+}
+#wside dl dd a{
+	display: block;
+	position: relative;
+	padding-left: 25px;
+	font-size: 12px;
+	color: #666;
+	counter-increment: secDD;
+}
+#wside dl dd a::before{
+	position: absolute;
+	left: 0;
+	content: counter(secDT) '.' counter(secDD);/* dd的编号 */
+	color: #ccc;
+}
+
+/* ******************************************************* *
+ * 层级盒与层级标题
+ * ******************************************************* */
+.r1-title, .r2-title, .r3-title, .r4-title{
+	margin: 30px 0 10px;
+	color: #333;
+}
+.r1-title{
+	margin: 10px 0 50px;
+	font-size: 30px;
+	text-shadow: -1px -1px 0 #fff, 2px 2px 0 #fff;
+	color: #118AB3;
+}
+.r2-title{
+	margin: 30px 0 15px 0;
+	border-bottom:1px solid #ddd;
+	padding-bottom:10px;
+	font-size: 26px;
+	counter-increment: secTR2;
+	&::before{
+		margin-right: 10px;
+		content: counter(secTR2, cjk-ideographic);
+	}
+	&:first-child{margin-top: 0;}
+}
+.r2-body{
+	counter-reset: secTR3;
+	.r3-title{
+		font-size: 22px;
+		counter-increment: secTR3;
+		&::before{
+			position: relative;
+			top: -1px;
+			display: inline-block;
+			margin-right: 5px;
+			width: 36px;
+			height: 20px;
+			content: counter(secTR3);
+			border-radius: 10px;
+			background-color: #B3CF26;
+			color: #FFFFFF;
+			text-align: center;
+			font-size: 16px;
+			line-height: 20px;
+		}
+	}
+}
+
+.wbox .r3-title:first-child{margin-top: 0;}/* 设置wbox中的首个r3-title的margin-top为0 */
+
+.r4-title{
+	font-size: 18px;
+}
+.r3-title mark{ /*标题中的标签*/
+	display: inline-block;
+	margin-left: 5px;
+	height: 12px;
+	padding: 0 3px;
+	border-radius: 3px;
+	background-color: #0AB5C9;
+	line-height: 12px;
+	font-size: 10px;
+	color: #fff;
+	text-transform: uppercase;
+}
+/* ******************************************************* *
+ * 小模块样式
+ * ******************************************************* */
+/*浏览器兼容*/
+.browser-support{
+	font-size: 12px;
+	line-height: 1.8;
+	color: #666666;
+}
+.browser-support mark{
+	padding: 2px 5px;
+	background-color:#95C900;
+	color: #fff;
+}
+.browser-support .summary span{
+	display: inline-block;
+	margin: 5px 5px 5px 0;
+	padding: 0 5px;
+	border: 1px solid #E1E1E8;
+	background-color: #F7F7F9;
+	color: #79A204;
+	font-family: "comic sans ms";
+}
+/*.browser-support ul{
+	margin: 15px 0;
+}
+.browser-support ul li{
+	margin: 8px 0;
+	list-style-position: inside;
+	color: #666;
+}*/
+/*引用(即文章摘取的URL地址)*/
+.reference{
+	color: #aaa;
+	font-size: 12px;
+	font-family: "comic sans ms";
+}
+.reference a{
+	color: #aaa;
+}
+.reference a:nth-child(n+2){margin-left: 15px;}
+.reference a:hover{color: #333;}
+
+/*实例容器（即实例演示）*/
+.example-wrap{
+	border: 1px solid #666;
+	padding: 30px;
+	background-color: #FAFAFA;
+}
+
+/*白色盒子*/
+.wbox{
+	padding: 30px;
+	background-color: #FFFFFF;
+}
+/*带背景的行内块元素*/
+.bgMark{
+	display: inline-block;
+	padding: 2px 5px;
+	background-color: #CCCCCC;
+}
+/*屏幕截图*/
+.screenPics{
+	max-width: 100%;
+}
+/* ******************************************************* *
+ * 列表
+ * ******************************************************* */
+.LT a{
+	display: inline-block;
+	width:250px;
+	padding: 5px 0;
+}
+
+/*数字标号列表*/
+.list-decimal li{
+	margin: 5px 0 0 20px;
+	list-style-type: decimal;
+}
+
+/*分标题和内容的双列形式列表*/
+.dlist{
+	counter-reset: dlNum;
+	dt{
+		margin-bottom: 5px;
+		background-color: #FAFAFA;
+		counter-increment: dlNum;
+		&:before{
+			content: counter(dlNum,upper-roman) ". ";
+		}
+	}
+	dd{
+		margin-bottom: 15px;
+	}
+}
+.dlist dt, .dlist dd{
+	font-size: 14px;
+	color: #666;
+}
+
+/*菜单主页面的列表*/
+#list{
+	h3{
+		font-size: 1.6rem;
+	}
+	li{
+		display: inline-block;
+		a{
+			display: inline-block;
+			margin: 0 30px 10px 0;
+			min-width: 120px;
+			border: 1px solid #fff;
+			padding: 0 10px;
+			font-size: 1.4rem;
+			text-align: center;
+			color: #666;
+			.b-radius(5px);
+			&:hover{border-color: #ddd;color: #06c;background-color: #fafafa;}
+		}
+	}
+}
+/* ******************************************************* *
+ * 代理块
+ * ******************************************************* */
+.code-box{
+	@color:#000;
+	margin-bottom:10px;
+	padding:10px 20px;
+	background-color:@color;
+	.b-radius(5px);
+	.transition(background-color,.5s);
+	pre{
+		margin:0;border:0;background-color:@color;.transition(background-color,.5s);
+		&.line-numbers{margin:0 0 0 -30px;}
+		code{
+			font-size:14px;text-shadow:0 1px 0 rgba(255,255,255,.3);color:#fff;
+			.token.comment{.text-shadow-none;}
+		}
+	}
+	.annotation{display:inline-block;color:#aaa;font-size:12px;}
+	&:hover,&:hover pre{background-color:#333;}
+}
+
+/* ******************************************************* *
+ * article文章及DEMO页面TOP
+ * ******************************************************* */
+#top{
+	position: fixed;
+	top:0;
+	width: 100%;
+	z-index: 1000;
+	height: 45px;
+	padding: 0 20px;
+	background-color: #2DBE60;
+	color: #fff;
+	line-height: 45px;
+	box-sizing: border-box;
+}
+#top .logo{
+	float: right;
+	color: #000;
+	font-size: 24px;
+	line-height: 45px;
+	text-decoration: none;
+}
+#top .logo span{
+	position: relative;
+	top: -3px;
+	padding-left:5px;
+	font-size: 12px;
+	text-shadow: 1px 1px 0 #4BDE7E;
+}
+#top .back{
+	font-size: 24px;
+	line-height: 45px;
+	color: #F3F3F3;
+	cursor: pointer;
+}
+#top .back span{
+	padding-left: 10px;
+	font-size: 16px;
+	vertical-align: middle;
+}

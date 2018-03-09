@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+		<h2 class="r2-title">$.each 和 $(selector).each()的区别详解</h2>
+		<div class="reference">
+			<a target="_blank" href="https://www.cnblogs.com/qq313462961/p/6111446.html"></a>
+		</div>
+		<p class="mt20">jQuery提供的each方法$.each是对参数一提供的对象的中所有的子元素逐一进行方法调用。而jQuery对象提供的each方法$(selector).each()则是对jQuery内 部的子元素进行逐个调用。</p>
+		<div class="r2-body">
+			<h3 class="r3-title">$(selector).each()</h3>
+			<p>这个方法主要用于DOM遍历</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+$("input[type='text']").each(function(i){
+	
+})
+		            </code>
+	            </pre>
+	        </div>
+	        
+			<!************************************************->
+			<h3 class="r3-title">$.each</h3>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//遍历对象(有附加参数)	                	
+$.each(Object, function(p1, p2) {
+    this;       //这里的this指向每次遍历中Object的当前属性值
+    p1; p2;     //访问附加参数
+}, ['参数1', '参数2']);
+
+//遍历数组(有附件参数)
+$.each(Array, function(p1, p2){
+    this;       //这里的this指向每次遍历中Array的当前元素
+    p1; p2;     //访问附加参数
+}, ['参数1', '参数2']);
+
+//遍历对象(没有附加参数)
+$.each(Object, function(name, value) {
+    this;      //this指向当前属性的值
+    name;      //name表示Object当前属性的名称
+    value;     //value表示Object当前属性的值
+});
+
+//遍历数组(没有附加参数)
+$.each(Array, function(i, value) {
+    this;      //this指向当前元素
+    i;         //i表示Array当前下标
+    value;     //value表示Array当前元素
+});
+		            </code>
+	            </pre>
+	        </div>
+	        <p>下面为实例</p>
+	    	<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+var arr1 = [ "one", "two", "three"]; //一维数组
+var arr2 = [[1, 4, 3], [4, 6, 6], [7, 20, 9]]; //二维数组
+var obj = { one:"win1", two:2, three:3}; //JSON
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+/* 遍历数组(没有附加参数)
+ * $.each(Array, function(i, value) {
+ * 		this;  //this指向当前元素
+ * 		i;     //i表示Array当前下标
+ * 		value; //value表示Array当前元素
+ * })
+ */
+
+//遍历一维数组
+$.each(arr1, function(){
+	console.log(this);
+});
+//输出结果：one  two  three
+
+$.each(arr1, function(i){
+	console.log(i + ":" + this);
+});
+//输出结果：0:one  1:two  2:three
+
+//遍历二维数组
+$.each(arr2, function(){
+	console.log(this[0]);
+});
+//输出结果：1  4  7
+
+$.each(arr2, function(i){
+	console.log(i + ":" + this[0]);
+});
+//输出结果：0:1  1:4  2:7
+
+$.each(arr2, function(i,item){
+	console.log(i + ":" + item[0]); //还可以写成 console.log(i + ":" + this[0]);
+});
+//输出结果：0:1  1:4  2:7
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+/* 遍历对象(没有附加参数)
+ * $.each(Object, function(name, value) {
+ * 		this;  //this指向当前属性的值
+ * 		name;  //name表示Object当前属性的名称
+ * 		value; //value表示Object当前属性的值
+ * })
+ */
+
+//遍历JSON
+$.each(obj, function(key,val){
+	console.log(key + ":" + obj[key]);
+});
+//输出结果：one:win1  two:2  three:3
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+
+		            </code>
+	            </pre>
+	        </div>
+		    <!************************************************->
+        
+        
+	</div>
+</div>
+</body>
+</html>
