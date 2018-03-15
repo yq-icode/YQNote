@@ -5,14 +5,14 @@
 
 html{font-size: 10px;}
 body{
-	background-color: #F3F3F3;
-	font-size: 16px;
+	background-color: #FCFFFA;
+	font-size: 14px;
 	color: #333;
 	line-height: 1.8;
 }
 ul,li{margin: 0;padding: 0;}
 li{list-style-type: none;}
-p{margin-bottom: 1.5em;}
+p{margin: 1em 0;}
 
 .mt20{margin-top: 20px;}
 .ml20{margin-left: 20px;}
@@ -45,8 +45,8 @@ p{margin-bottom: 1.5em;}
 #toTop{
 	position: fixed;
 	right: 20px;
-	bottom: 20px;
-	font-size: 2.2rem;
+	bottom: 50%;
+	font-size: 2.6rem;
 }
 /* 左侧边栏为菜单，中间为主内容，右边为其它信息（如广告） */
 
@@ -114,6 +114,25 @@ p{margin-bottom: 1.5em;}
 	left: 0;
 	content: counter(secDT) '.' counter(secDD);/* dd的编号 */
 	color: #ccc;
+}
+/* ******************************************************* *
+ * 页尾
+ * ******************************************************* */
+#footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	margin-top:20px;
+	padding:5px 20px;
+	background-color:#F7FAF5;
+	li{
+		display:inline-block;
+		margin:0 10px;
+		a{
+			color:#999;font-size:12px;font-family:"Courier New";
+			&:hover{color:#333;}
+		}
+	}
 }
 
 /* ******************************************************* *
@@ -244,7 +263,11 @@ p{margin-bottom: 1.5em;}
 }
 /*屏幕截图*/
 .screenPics{
+	margin: 1em 0;
 	max-width: 100%;
+	border: 10px solid #F2F5EA;
+	padding: 30px;
+	background-color: #fff;
 }
 /* ******************************************************* *
  * 列表
@@ -283,27 +306,38 @@ p{margin-bottom: 1.5em;}
 
 /*菜单主页面的列表*/
 #list{
+	font-family: "微软雅黑";
+	color: #555;
+	counter-reset: xuHao;
 	h3{
-		font-size: 1.6rem;
-	}
-	li{
-		display: inline-block;
-		a{
-			display: inline-block;
-			margin: 0 30px 10px 0;
-			min-width: 120px;
-			border: 1px solid #fff;
-			padding: 0 10px;
-			font-size: 1.4rem;
-			text-align: center;
-			color: #666;
-			.b-radius(5px);
-			&:hover{border-color: #ddd;color: #06c;background-color: #fafafa;}
+		padding: 5px;
+		background-color: #F2F7EA;
+		font-size: 2rem;
+		color: #444;
+		.text-shadow(1px,1px,0,#fff);
+		counter-increment: xuHao;
+		&:before{
+			content: "(" counter(xuHao,cjk-ideographic) ") ";
 		}
+	}
+	dt{
+		font-size: 1.4rem;
+	}
+	a{
+		display: inline-block;
+		margin: 0 10px 10px 0;
+		min-width: 120px;
+		border: 1px solid #CFD2C6;
+		padding: 3px 10px;
+		font-size: 1.4rem;
+		text-align: center;
+		color: #666;
+		.b-radius(5px);
+		&:hover{border-color: #ddd;color: #06c;background-color: #fafafa;}
 	}
 }
 /* ******************************************************* *
- * 代理块
+ * 代码块
  * ******************************************************* */
 .code-box{
 	@color:#000;
@@ -316,7 +350,7 @@ p{margin-bottom: 1.5em;}
 		margin:0;border:0;background-color:@color;.transition(background-color,.5s);
 		&.line-numbers{margin:0 0 0 -30px;}
 		code{
-			font-size:14px;text-shadow:0 1px 0 rgba(255,255,255,.3);color:#fff;
+			font-size:12px;text-shadow:0 1px 0 rgba(255,255,255,.3);color:#fff;
 			.token.comment{.text-shadow-none;}
 		}
 	}

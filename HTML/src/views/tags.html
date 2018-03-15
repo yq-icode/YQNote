@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>YQ-Note标签集</title>
     <!--#include virtual="/include/_head_import_file.html" -->
-    <link rel="stylesheet/less" href="/css/tags.less">
+    <link rel="stylesheet/less" href="/css/global.less">
     <script src="/js/less-2.5.3.min.js"></script>
     <script src="/js/common.js"></script>
 </head>
@@ -14,74 +14,12 @@
 	<!--#include virtual="/include/_header.html" -->
 	<div class="container">
     	<div class="yq-tags">
-        	<h3>CSS属性讲解</h3>
-            <p class="tag-group">
-            	<a target="_blank" href="/views/css/css-hack.html">CSS HACK</a>
-                <a target="_blank" href="/views/css/browser-compatibility.html">浏览器兼容</a>
-                <a target="_blank" href="/views/css/property.html">CSS 属性详解</a>
-                <a target="_blank" href="/views/css3/property.html">CSS3 属性详解</a>
-            </p>
-            <h3>DEMO效果</h3>
-            <dl class="dl-horizontal demoxml"></dl>
-        	<dl class="dl-horizontal">
-                <dt><label>文本</label></dt>
-                <dd class="tag-group">
-                	<a target="_blank" href="demo/text/index.html">文本的各种效果 </a>
-                	<a target="_blank" href="demo/text/txt1.html">多行文本溢出显示省略号</a>
-                </dd>
-                <dt><label>loading</label></dt>
-                <dd class="tag-group">
-                    <a target="_blank" href="/views/loading/index.html">loading</a>
-                </dd>
-                <dt><label>导航navigation</label></dt>
-                <dd class="tag-group">
-                    <a target="_blank" href="demo/nav/index.html">导航navigation</a>
-                </dd>
-                <dt><label>抽奖</label></dt>
-                <dd class="tag-group">
-                	<a target="_blank" href="demo/draw/index.html">抽奖</a>
-                </dd>
-                <dt><label>动态效果</label></dt>
-                <dd class="tag-group">
-                	<a target="_blank" href="demo/_djs1.html">时间倒计时</a>
-	                <a target="_blank" href="demo/_djs2.html">数字倒计时</a>
-	                <a target="_blank" href="demo/player-progress-control.html">播放器进度条控制</a>
-                </dd>
-                <dt><label>其它效果</label></dt>
-                <dd class="tag-group">
-                    <a target="_blank" href="/views/bg/index.html">纯CSS制作图形背景</a>
-                    <a target="_blank" href="/views/shape/index.html">纯CSS实现的形状</a>
-                    <a target="_blank" href="/views/css/img-replace-text-with-css.html">图片替换文本的CSS方法</a>
-                </dd>
-            </dl>
-            <!-- **************** separator line ****************  -->
-            <h3>小插件</h3>
-            <p class="tag-group">
-            	<a target="_blank" href="/plugIn/ladda/index.html">基于Bootstrap 3内置loading指示器的提交按钮特效 </a>
-            	<a target="_blank" href="/plugIn/Messenger/index.html">Messenger弹框组件</a>
-            </p>
-            <!-- **************** separator line ****************  -->
-            <h3>其它</h3>
-            <p class="tag-group">
-            	<a target="_blank" href="/views/other/tools.html">tools</a>
-                <a target="_blank" href="/views/other/_article01.html">开放端口，让其它电脑可以访问</a>
-                <a href="/views/other/_article02.html">IIS中添加html对include的引用</a>
-                <a target="_blank" href="/views/other/_article03.html">设置IIS，使之支持less</a>
-            </p>
-            <!-- **************** separator line ****************  -->
-            <h3>移动开发</h3>
-            <p class="tag-group">
-            	<a target="_blank" href="/views/mobile/_article01.html">移动web开发之像素和DPR</a>
-                <a target="_blank" href="/views/mobile/mui/zujian.html">MUI组件</a>
-                <a target="_blank" href="/views/mobile/mui/zjCCss.html">mui组件通用CSS类</a>
-            </p>
-            <!-- **************** separator line ****************  -->
+            <div id="list"></div>
         </div>
     </div>
-    <!--#include virtual="/include/_footer.html" -->
     
     <script type="text/javascript">
-		loadXMLDoc("/include/fileList.xml","demo",".demoxml");
+		loadXML("/include/FL-DEMO.xml","#list");
 	</script>
 </body>
 </html>

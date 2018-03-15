@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="html5">
+		<file>
+			<title>video</title>
+			<name>video</name>
+			<path>/views/html5/</path>
+		</file>
+		<file>
+			<title>HTML5本地存储IndexedDB数据库</title>
+			<name>idxDB</name>
+			<path>/views/html5/</path>
+		</file>
+	</main>
+</fileList>

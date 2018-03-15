@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="JS">
+		<sub title="方法&amp;函数深入了解">
+			<file>
+				<title>Math 对象方法</title>
+				<name>fun02</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>常用函数</title>
+				<name>fun03</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>操作字符串和数组的函数</title>
+				<name>fun04</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>this探讨</title>
+				<name>_jsP01</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>监听函数</title>
+				<name>_jsP01</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>异步、回调、闭包、事件监听等详解</title>
+				<name>fun09</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+		<sub title="相似方法&amp;函数区别">
+			<file>
+				<title>addEventListener、removeEventListener、addEventListener和on的区别</title>
+				<name>_jsP01</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>(function($){})(jQuery)、$(function(){})、$(document).ready(function(){})三者的区别讲解</title>
+				<name>_jsP03</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>计时器 setInterval() clearInterval() setTimeout()区别</title>
+				<name>fun01</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+		<sub title="便捷小方法">
+			<file>
+				<title>获取数组中的最小/大值</title>
+				<name>method01</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>取消事件的默认动作</title>
+				<name>method01</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>截取文件名</title>
+				<name>method01</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>js编码与解码</title>
+				<name>method01</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+		<sub title="">
+			<file>
+				<title>原生JS Jquery操作DOM</title>
+				<name>_qb</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>页面传参</title>
+				<name>chuanZhi</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>页面前进、后退、刷新</title>
+				<name>method01</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>鼠标滚轮事件</title>
+				<name>fun07</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>表单相关操作</title>
+				<name>fun08</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+	</main>
+	<main title="JQUERY">
+		<file>
+			<title>$.each 和 $(selector).each()的区别详解</title>
+			<name>fun05</name>
+			<path>/views/js/</path>
+		</file>
+		<file>
+			<title>bind()、trigger()、on()</title>
+			<name>fun06</name>
+			<path>/views/js/</path>
+		</file>
+		<file>
+			<title>索引相关的操作</title>
+			<name>fun06</name>
+			<path>/views/js/</path>
+		</file>
+		<file>
+			<title>jQuery AJAX $.get() $.post() $(selector).load()</title>
+			<name>fun06</name>
+			<path>/views/js/</path>
+		</file>
+	</main>
+	<main title="JSON">
+		<file>
+			<title>JSON</title>
+			<name>json</name>
+			<path>/views/js/</path>
+		</file>
+	</main>
+	<main title="AJAX">
+		<file>
+			<title>AJAX</title>
+			<name>ajax</name>
+			<path>/views/js/</path>
+		</file>
+		<file>
+			<title>同步（Synchronous）和异步（Asychronous）</title>
+			<name>asy</name>
+			<path>/views/js/</path>
+		</file>
+	</main>
+	<main title="VUE">
+		<file>
+			<title>Vue.js</title>
+			<name>vue</name>
+			<path>/views/js/</path>
+		</file>
+	</main>
+</fileList>

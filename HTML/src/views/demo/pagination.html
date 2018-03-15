@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+    <style type="text/css">
+    	#dataShow{
+    		margin: 0 auto;
+    		width: 450px;
+    	}
+        .table {
+        	font-size: 12px;
+        	line-height: 21px;
+        	text-align: center;
+        	border-collapse: collapse;
+        }
+        .table th, table td{
+        	border: 1px solid #ccc;
+        	padding: 2px 5px;
+        }
+        .table thead th {
+        	background-color: #ccc;
+        }
+        #page a{
+        	padding: 0 5px;
+        	font-size: 12px;
+        	color: #0066CC;
+        }
+        #page a.on {
+        	color: #FF5C00;
+        }
+        #page .pre.disable, #page .next.disable{
+        	color: #aaa;
+        	cursor: inherit;
+        	cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <div id="dataShow">
+        <table class="table" id="table" width="100%"></table>
+        <div id="page"></div>
+    </div>
+	<script type="text/javascript">
+		//表头
+		var head=
+		    '<thead>'+
+		    '<tr>'+
+		    '<th> 姓  名 </th>'+
+		    '<th> 年  龄 </th>'+
+		    '<th> 彦  值* </th>'+
+		    '<th> 成  绩 </th>'+
+		    '<th> 身 高cm </th>'+
+		    '</tr>'+
+		    '</thead>'+
+		    '<tbody>';
+		//表内容，后台返回的内容可以封装到这里，随时取用，但是如果数据量很大估计会相当耗资源。
+		var pageData=[];
+		for(var i=1;i<=100;i++){
+		    var data=
+		    '<tr>'+
+		    '<td>学生'+i+'</td>'+
+		    '<td>'+Math.round(Math.random()*20)+'</td>'+
+		    '<td>'+Math.round(Math.random()*5)+' 颗星</td>'+
+		    '<td>'+Math.round(Math.random()*100)+'</td>'+
+		    '<td>'+Math.round(Math.random()*200)+'cm</td>'+
+		    '</tr>';
+		    pageData.push(data);
+		}
+		//表结尾
+		var end='</tbody>';
+
+		$(function(){
+		    var Count = pageData.length;//记录条数
+		    var PageSize=10;//设置每页示数目
+		    var PageCount=Math.ceil(Count/PageSize);//计算总页数
+		    var currentPage=1;//当前页，默认为1
+		    
+		    //分页部分
+		    var pageN;
+		    pageN = '<a class="pre" href="#">PRE</a>';//上一页
+		    for(var i=1;i<=PageCount;i++){
+		    	pageN += '<a class="nb" href="#" selectPage="'+i+'">第'+i+'页</a>';
+		    }
+		    pageN += '<a class="next" href="#">NEXT</a>';//下一页
+		    $('#page').append(pageN);
+		    
+		    $('#page .pre').addClass('disable');//初载入时:默认显示第1页，pre按钮不可点击
+		    $('#page a:nth-child(2)').addClass('on');//初载入时第1页高亮显示
+		    if(PageCount == 1){//初载入时:当总共只有一页时，next按钮不可点击
+		    	$('#page .next').addClass('disable');
+		    }
+		    
+		    //默认显示第一页
+		    $('#table').empty().append(head);
+		    for(i=(currentPage-1)*PageSize;i<PageSize*currentPage;i++){
+		        $('#table').append(pageData[i]);
+		    }
+		    $('#table').append(end);
+
+		    //显示选择页的内容
+		    $('#page a').click(function(){
+		    	//点击上一页、下一页及某页数时，取当前页码
+		    	if($(this).hasClass('pre') && currentPage > 1){
+		    		currentPage = currentPage - 1;
+		    	}
+		    	if($(this).hasClass('next') && currentPage < PageCount){
+		    		currentPage = currentPage + 1;
+		    	}
+		    	if($(this).hasClass('nb')){
+		    		currentPage = parseInt($(this).attr('selectPage'));
+		    	}
+		    	//当前页码为首页和尾页时，为pre next添加disable
+		    	if(currentPage == 1){
+		    		$('.pre').addClass('disable');
+		    	}
+		    	else if(currentPage == PageCount){
+		    		$('.next').addClass('disable');
+		    	}
+		    	else{
+		    		$('.pre').removeClass('disable');
+		    		$('.next').removeClass('disable');
+		    	}
+		    	
+		    	//为当前页码添加样式on
+		     	$('#page a').removeClass('on');
+		     	$('#page a').eq(Math.ceil(currentPage)).addClass('on');
+		     	
+		     	$('#table').html('');
+		        $('#table').append(head);
+		        
+		        //为当前页添加数据
+		        for(i=(currentPage-1)*PageSize;i<PageSize*currentPage;i++){
+		            $('#table').append(pageData[i]);
+		        }
+		        $('#table').append(end);
+		    });
+		});
+		
+		//添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

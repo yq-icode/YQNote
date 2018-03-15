@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+    <style type="text/css">
+    	#dataShow{
+    		margin: 0 auto;
+    		width: 450px;
+    	}
+        .table {
+        	font-size: 12px;
+        	line-height: 21px;
+        	text-align: center;
+        	border-collapse: collapse;
+        }
+        .table th, table td{
+        	border: 1px solid #ccc;
+        	padding: 2px 5px;
+        }
+        .table thead th {
+        	background-color: #ccc;
+        }
+        #page a{
+        	padding: 0 5px;
+        	font-size: 12px;
+        	color: #0066CC;
+        }
+        #page a.on {
+        	color: #FF5C00;
+        }
+        #page .pre.disable, #page .next.disable{
+        	color: #aaa;
+        	cursor: inherit;
+        	cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <div id="dataShow">
+        <table class="table" id="table" width="100%"></table>
+        <div id="page">
+        	<a class="pre" href="#">PRE</a>
+        	<a class="next" href="#">NEXT</a>
+        	<select class='selPage' onchange='psch(this)'></select>
+        </div>
+    </div>
+	<script type="text/javascript">
+		//表头
+		var head=
+		    '<thead>'+
+		    '<tr>'+
+		    '<th> 姓  名 </th>'+
+		    '<th> 年  龄 </th>'+
+		    '<th> 彦  值* </th>'+
+		    '<th> 成  绩 </th>'+
+		    '<th> 身 高cm </th>'+
+		    '</tr>'+
+		    '</thead>'+
+		    '<tbody>';
+		//表内容，后台返回的内容可以封装到这里，随时取用，但是如果数据量很大估计会相当耗资源。
+		var pageData=[];
+		for(var i=1;i<=100;i++){
+		    var data=
+		    '<tr>'+
+		    '<td>学生'+i+'</td>'+
+		    '<td>'+Math.round(Math.random()*20)+'</td>'+
+		    '<td>'+Math.round(Math.random()*5)+' 颗星</td>'+
+		    '<td>'+Math.round(Math.random()*100)+'</td>'+
+		    '<td>'+Math.round(Math.random()*200)+'cm</td>'+
+		    '</tr>';
+		    pageData.push(data);
+		}
+		//表结尾
+		var end='</tbody>';
+		
+		var Count = pageData.length;//记录条数
+	    var PageSize=10;//设置每页示数目
+	    var PageCount=Math.ceil(Count/PageSize);//计算总页数
+	    var currentPage=1;//当前页，默认为1
+		    
+		$(function(){
+		    
+		    var pageN;//select分页部分
+		    for(var i=1;i<=PageCount;i++){
+		    	pageN += '<option value=' + i + '>第' + i + '页</option>';
+		    }
+		    $('#page .selPage').html(pageN);
+		    
+		    $('#page .pre').addClass('disable');//初载入时:默认显示第1页，pre按钮不可点击
+		    if(PageCount == 1){//初载入时:当总共只有一页时，next按钮不可点击
+		    	$('#page .next').addClass('disable');
+		    }
+		    
+		    //默认显示第一页
+		    $('#table').empty().append(head);
+		    for(i=(currentPage-1)*PageSize;i<PageSize*currentPage;i++){
+		        $('#table').append(pageData[i]);
+		    }
+		    $('#table').append(end);
+
+		    //点击上一页、下一页时
+		    $('#page a').click(function(){
+		    	
+		    	//取当前页码
+		    	if($(this).hasClass('pre') && currentPage > 1){
+		    		currentPage = currentPage - 1;
+		    	}
+		    	if($(this).hasClass('next') && currentPage < PageCount){
+		    		currentPage = currentPage + 1;
+		    	}
+		    	
+		    	console.log(currentPage);
+		    	getData();//显示当前页码对应的数据
+		    	chs();//改变select的选中值
+		     	
+		    });
+		});
+		
+		//显示当前页码对应的数据
+		function getData(){
+			//当前页码为首页和尾页时，为pre next添加disable
+	    	if(currentPage == 1){
+	    		$('.pre').addClass('disable');
+	    	}
+	    	if(currentPage > 1 && PageCount > 1){
+	    		$('.pre').removeClass('disable');
+	    	}
+	    	if(currentPage < PageCount && PageCount > 1){
+	    		$('.next').removeClass('disable');
+	    	}
+	    	if(currentPage == PageCount){
+	    		$('.next').addClass('disable');
+	    	}
+	    	
+			$('#table').html('');
+	        $('#table').append(head);
+	        
+	        //为当前页添加数据
+	        for(i=(currentPage-1)*PageSize;i<PageSize*currentPage;i++){
+	            $('#table').append(pageData[i]);
+	        }
+	        $('#table').append(end);
+		}
+		
+		//select改变时，判断选中页码
+		function psch(e){
+	    	var objV = parseInt(e.options[e.selectedIndex].value);
+	    	currentPage = objV;
+	    	console.log(currentPage);
+	    	getData();
+	    }
+		
+		//点击pre next时，改变select的选中值
+		function chs(){
+			var obj = document.getElementsByClassName('selPage')[0].options;
+			for(var i=0;i<obj.length;i++){
+				var v = obj[i].value;
+				if(v == currentPage){
+					obj[i].selected = true;
+				}
+			}
+		}
+		//添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

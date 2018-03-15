@@ -9,14 +9,16 @@
     <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
-	<!--#include virtual="/include/_header.html" -->
-    <div class="container">
-    	<h1 class="r1-title">setInterval() clearInterval() setTimeout()区别</h1>
-    	<h3 class="r2-title">setInterval() clearInterval()</h3>
-    	<p>clearInterval() 方法可取消由 setInterval() 设置的 timeout。clearInterval() 方法的参数必须是由 setInterval() 返回的 ID 值。</p>
-    	<div class="code-box">
-            <pre class="language-js line-numbers">
-                <code>   
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 800px;">
+    	<h2 class="r2-title">setInterval()与clearInterval()</h2>
+    	<section class="r2-body">
+	    	<p>clearInterval() 方法可取消由 setInterval() 设置的 timeout。clearInterval() 方法的参数必须是由 setInterval() 返回的 ID 值。</p>
+	    	<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
 var int=self.setInterval("clock()",50);
 function clock()
 {
@@ -24,21 +26,30 @@ function clock()
   	document.getElementById("clock").value=t;
 }
 clearInterval(int);
-                </code>
-            </pre>
-        </div>
-        <h3 class="r2-title">setTimeout()</h3>
-        <p>setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。</p>
-        <div class="code-box">
-            <pre class="language-js line-numbers">
-                <code>   
+	                </code>
+	            </pre>
+	        </div>
+	    </section>
+	    
+        <h2 class="r2-title">setTimeout()与clearTimeout()</h2>
+        <section class="r2-body">
+	        <p>setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。</p>
+	        <p>clearTimeout() 方法可取消由 setTimeout() 方法设置的 timeout。</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
 setTimeout(code,millisec)
-//code 	必需。要调用的函数后要执行的 JavaScript 代码串。
+//code 	必需。要调用的函数后要执行的 JavaScript代码串。
 //millisec 	必需。在执行代码前需等待的毫秒数。
-                </code>
-            </pre>
-        </div>
-        <p>setTimeout()只执行 code 一次。如果要多次调用，请使用 setInterval()或者让 code自身再次调用 setTimeout()。</p>
+
+clearTimeout(id_of_settimeout)
+//id_of_settimeout 	由setTimeout()返回的ID值。该值标识要取消的延迟执行代码块。
+	                </code>
+	            </pre>
+	        </div>
+	        <p>setTimeout()只执行 code 一次。如果要多次调用，请使用 setInterval()或者让 code自身再次调用 setTimeout()。</p>
+	    </section>
     </div>
+</div>
 </body>
 </html>

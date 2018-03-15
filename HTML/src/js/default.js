@@ -9,12 +9,12 @@ $(function(){
 	
 	for(i=0;i<r2.length;i++){
 		$(r2).eq(i).attr('id',('r2-' + i));//给二级标题赋ID
-		_wsHtml += "<dt><a href='#" + $(r2).eq(i).attr('id') + "'>" + $(r2).eq(i).text() + "</a></dt>";
+		_wsHtml += "<dt><a href='#" + $(r2).eq(i).attr('id') + "'>" + $(r2).eq(i).html() + "</a></dt>";
 		_wsHtml += "<dd>";
 		var r3 = $(r2).eq(i).next('.r2-body').find('.r3-title');//层级2下的层级3
 		for(j=0;j<r3.length;j++){
 			$(r3).eq(j).attr('id',('r3-' + i + '-' + j));//给三级标题赋ID
-			_wsHtml += "<a href='#" + $(r3).eq(j).attr('id') + "'>" + $(r3).eq(j).text() + "</a>";
+			_wsHtml += "<a href='#" + $(r3).eq(j).attr('id') + "'>" + $(r3).eq(j).html() + "</a>";
 		}
 		_wsHtml += "</dd>";
 	}
@@ -87,6 +87,11 @@ $(function(){
 	
 	$('#footer').load('_footer.html');
 	
+	/* 添加footer
+	 */
+	var footWrap = "<footer id='footer'></footer>";
+	$("body").append(footWrap);
+	$("#footer").load("/include/_footer.html #one");
 })
 
 /* 【article文章及DEMO页面自动添加fixed TOP】
@@ -104,21 +109,20 @@ function addArticleTop(){
 	
 	_topHtml += "<div id='top'>";
 	_topHtml += "<a href='' class='iconfont icon-bijiben logo'><span>YQ-NOTE</span></a>"
-	_topHtml += "<a class='iconfont icon-shangyige back' onclick='history.go(-1)'><span>" + pgTitle + "</span></a>"
+	_topHtml += "<a class='iconfont icon-shangyige back' onclick='window.history.back(-1)'><span>" + pgTitle + "</span></a>"
 	_topHtml += "</div>";
 	$('body').prepend(_topHtml);
 	$('body').css("padding-top","60px");//因TOP固定，添加内容距浏览器顶端的边距
 }
 
-/* 读取fileList.xml文件
- * 参数xmlUrl:  xml文件的路径
- * 参数sort:    菜单类别，即css|js|mobile|axure等
+/* 读取XML文件
+ * 参数xmlUrl:  xml文件的路径及名称
  * 参数ele:     菜单列表最外层的HTML元素
  */
-function loadXMLDoc(xmlUrl,sort,ele){
-	request(xmlUrl,sort,ele);
+function loadXML(xmlUrl,ele){
+	requestXML(xmlUrl,ele);
 }
-function request(xmlUrl,sort,ele){
+function requestXML(xmlUrl,ele){
 	var xmlhttp = GetXmlHttpObject();
 	if (xmlhttp == null){
     	alert ("您的浏览器不支持AJAX!");
@@ -126,7 +130,7 @@ function request(xmlUrl,sort,ele){
     }
 	xmlhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
-			processData(this.responseXML,sort,ele);//读取XML数据
+			processData(this.responseXML,ele);//读取XML数据
 		}
 	}
 	xmlhttp.open("GET",xmlUrl,true);
@@ -151,21 +155,16 @@ function request(xmlUrl,sort,ele){
 	}
 }
 //读取XML数据
-function processData(data,sort,ele){
+function processData(data,ele){
 	var xmlDoc = data; //xml数据
 	
-	//各菜单列表的HTML结构
-	var _H_HTML   = "",
-		_H_CSS    = "",
-		_H_JS     = "",
-		_H_MOBILE = "",
-		_H_AXURE  = "",
-		_H_DEMO   = "";
+	//菜单列表的HTML结构
+	var _HTML   = "";
 	
 	var NMainS, //xml结点<main>
 		NMain,
-		NCategoryS, //xml结点<category>
-		NCategory,
+		NSubS, //xml结点<sub>
+		NSub,
 		NFileS, //xml结点<file>
 		FPath, //file文件路径
 		FName, //file文件名
@@ -174,193 +173,50 @@ function processData(data,sort,ele){
 	NMainS = xmlDoc.getElementsByTagName("main");
 	for(var i=0;i<NMainS.length;i++){
 		NMain = NMainS[i];
-		//HTML
-		if(NMain.getAttribute("sort") == 'HTML'){
-			NCategorys = NMain.getElementsByTagName("category");
-			for(var k=0;k<NCategorys.length;k++){
-				NCategory = NCategorys[k];
-				console.log("*********category title: " + NCategory.getAttribute("title"));
-				_H_HTML += "<h3>" + NCategory.getAttribute("title") + "</h3>";
-				_H_HTML += "<ul>";
-				NFileS = NCategory.getElementsByTagName("file");
-				for(var j=0;j<NFileS.length;j++){
-					FPath = NFileS[j].getElementsByTagName("path")[0].childNodes[0].nodeValue; //文件路径
-					FName = NFileS[j].getElementsByTagName("name")[0].childNodes[0].nodeValue; //文件名
-					FTitle = NFileS[j].getElementsByTagName("title")[0].childNodes[0].nodeValue; //文件标题
-					console.log("file " + j + " : " + FTitle);
-					_H_HTML += "<li>";
-					if(FPath.indexOf("https://") > -1){
-						_H_HTML += "<a target='_blank' href='" + FPath + "'>" + FTitle + "</a>";
-					}
-					else{
-						_H_HTML += "<a href='" + FPath + FName + ".html?tit=" + FTitle + "'>" + FTitle + "</a>";
-					}
-					_H_HTML += "</li>";
-				}
-				_H_HTML += "</ul>";
+		_HTML += "<h3>" + NMain.getAttribute("title") + "</h3>";
+		
+		NSubS = NMain.getElementsByTagName("sub");
+		
+		//当<main>下包含<sub>时
+		if(NSubS.length > 0){ 
+			for(var k=0;k<NSubS.length;k++){
+				NSub = NSubS[k];
+				console.log("*********NSub title: " + NSub.getAttribute("title"));
+				NFileS = NSub.getElementsByTagName("file");
+				_HTML += "<dl class='dl-horizontal'>";
+				_HTML += "<dt>" + NSub.getAttribute("title") + "</dt>";
+				_HTML += "<dd>";
+				_HTML += getFileHtml(NFileS);
+				_HTML += "</dd>";
+				_HTML += "</dl>";
 			}
 		}
-		//CSS
-		if(NMain.getAttribute("sort") == 'CSS'){
-			NCategorys = NMain.getElementsByTagName("category");
-			for(var k=0;k<NCategorys.length;k++){
-				NCategory = NCategorys[k];
-				console.log("*********category title: " + NCategory.getAttribute("title"));
-				_H_CSS += "<h3>" + NCategory.getAttribute("title") + "</h3>";
-				_H_CSS += "<ul>";
-				NFileS = NCategory.getElementsByTagName("file");
-				for(var j=0;j<NFileS.length;j++){
-					FPath = NFileS[j].getElementsByTagName("path")[0].childNodes[0].nodeValue; //文件路径
-					FName = NFileS[j].getElementsByTagName("name")[0].childNodes[0].nodeValue; //文件名
-					FTitle = NFileS[j].getElementsByTagName("title")[0].childNodes[0].nodeValue; //文件标题
-					console.log("file " + j + " : " + FTitle);
-					_H_CSS += "<li>";
-					if(FPath.indexOf("https://") > -1){
-						_H_CSS += "<a target='_blank' href='" + FPath + "'>" + FTitle + "</a>";
-					}
-					else{
-						_H_CSS += "<a href='" + FPath + FName + ".html?tit=" + FTitle + "'>" + FTitle + "</a>";
-					}
-					_H_CSS += "</li>";
-				}
-				_H_CSS += "</ul>";
-			}
-		}
-		//JS
-		if(NMain.getAttribute("sort") == 'JS'){
-			NCategorys = NMain.getElementsByTagName("category");
-			for(var k=0;k<NCategorys.length;k++){
-				NCategory = NCategorys[k];
-				console.log("*********category title: " + NCategory.getAttribute("title"));
-				_H_JS += "<h3>" + NCategory.getAttribute("title") + "</h3>";
-				_H_JS += "<ul>";
-				
-				NFileS = NCategory.getElementsByTagName("file");
-				for(var j=0;j<NFileS.length;j++){
-					FPath = NFileS[j].getElementsByTagName("path")[0].childNodes[0].nodeValue; //文件路径
-					FName = NFileS[j].getElementsByTagName("name")[0].childNodes[0].nodeValue; //文件名
-					FTitle = NFileS[j].getElementsByTagName("title")[0].childNodes[0].nodeValue; //文件标题
-					console.log(j + " : " + FTitle);
-					_H_JS += "<li>";
-					if(FPath.indexOf("https://") > -1){
-						_H_JS += "<a target='_blank' href='" + FPath + "'>" + FTitle + "</a>";
-					}
-					else{
-						_H_JS += "<a href='" + FPath + FName + ".html?tit=" + FTitle + "'>" + FTitle + "</a>";
-					}
-					_H_JS += "</li>";
-				}
-				_H_JS += "</ul>";
-			}
-		}
-		//MOBILE
-		if(NMain.getAttribute("sort") == 'MOBILE'){
-			NCategorys = NMain.getElementsByTagName("category");
-			for(var k=0;k<NCategorys.length;k++){
-				NCategory = NCategorys[k];
-				console.log("*********category title: " + NCategory.getAttribute("title"));
-				_H_MOBILE += "<h3>" + NCategory.getAttribute("title") + "</h3>";
-				_H_MOBILE += "<ul>";
-				NFileS = NCategory.getElementsByTagName("file");
-				for(var j=0;j<NFileS.length;j++){
-					FPath = NFileS[j].getElementsByTagName("path")[0].childNodes[0].nodeValue; //文件路径
-					FName = NFileS[j].getElementsByTagName("name")[0].childNodes[0].nodeValue; //文件名
-					FTitle = NFileS[j].getElementsByTagName("title")[0].childNodes[0].nodeValue; //文件标题
-					console.log("file " + j + " : " + FTitle);
-					_H_MOBILE += "<li>";
-					if(FPath.indexOf("https://") > -1){
-						_H_MOBILE += "<a target='_blank' href='" + FPath + "'>" + FTitle + "</a>";
-					}
-					else{
-						_H_MOBILE += "<a href='" + FPath + FName + ".html?tit=" + FTitle + "'>" + FTitle + "</a>";
-					}
-					_H_MOBILE += "</li>";
-				}
-				_H_MOBILE += "</ul>";
-			}
-		}
-		//AXURE
-		if(NMain.getAttribute("sort") == 'AXURE'){
-			NCategorys = NMain.getElementsByTagName("category");
-			for(var k=0;k<NCategorys.length;k++){
-				NCategory = NCategorys[k];
-				console.log("*********category title: " + NCategory.getAttribute("title"));
-				_H_AXURE += "<h3>" + NCategory.getAttribute("title") + "</h3>";
-				_H_AXURE += "<ul>";
-				NFileS = NCategory.getElementsByTagName("file");
-				for(var j=0;j<NFileS.length;j++){
-					FPath = NFileS[j].getElementsByTagName("path")[0].childNodes[0].nodeValue; //文件路径
-					FName = NFileS[j].getElementsByTagName("name")[0].childNodes[0].nodeValue; //文件名
-					FTitle = NFileS[j].getElementsByTagName("title")[0].childNodes[0].nodeValue; //文件标题
-					console.log("file " + j + " : " + FTitle);
-					_H_AXURE += "<li>";
-					if(FPath.indexOf("https://") > -1){
-						_H_AXURE += "<a target='_blank' href='" + FPath + "'>" + FTitle + "</a>";
-					}
-					else{
-						_H_AXURE += "<a href='" + FPath + FName + ".html?tit=" + FTitle + "'>" + FTitle + "</a>";
-					}
-					_H_AXURE += "</li>";
-				}
-				_H_AXURE += "</ul>";
-			}
-		}
-		//DEMO
-		if(NMain.getAttribute("sort") == 'DEMO'){
-			NCategorys = NMain.getElementsByTagName("category");
-			for(var k=0;k<NCategorys.length;k++){
-				NCategory = NCategorys[k];
-				console.log("*********category title: " + NCategory.getAttribute("title"));
-				_H_DEMO += "<dt><label>" + NCategory.getAttribute("title") + "</label></dt>";
-				_H_DEMO += "<dd class='tag-group'>";
-				NFileS = NCategory.getElementsByTagName("file");
-				for(var j=0;j<NFileS.length;j++){
-					FPath = NFileS[j].getElementsByTagName("path")[0].childNodes[0].nodeValue; //文件路径
-					FName = NFileS[j].getElementsByTagName("name")[0].childNodes[0].nodeValue; //文件名
-					FTitle = NFileS[j].getElementsByTagName("title")[0].childNodes[0].nodeValue; //文件标题
-					console.log("file " + j + " : " + FTitle);
-					if(FPath.indexOf("https://") > -1){
-						_H_DEMO += "<a target='_blank' href='" + FPath + "'>" + FTitle + "</a>";
-					}
-					else{
-						_H_DEMO += "<a href='" + FPath + FName + ".html?tit=" + FTitle + "'>" + FTitle + "</a>";
-					}
-				}
-				_H_DEMO += "</dd>";
-			}
+		//当<main>下不包含<sub>时
+		else{ 
+			NFileS = NMain.getElementsByTagName("file");
+			_HTML += "<p>";
+			_HTML += getFileHtml(NFileS);
+			_HTML += "</p>";
 		}
 	}
-	//在对应的菜单下显示各自的菜单列表
-	switch (sort){
-		case "html":
-			$(ele).prepend(_H_HTML);
-			break;
-		case "css":
-			$(ele).prepend(_H_CSS);
-			break;
-		case "js":
-			$(ele).prepend(_H_JS);
-			break;
-		case "mobile":
-			$(ele).prepend(_H_MOBILE);
-			break;
-		case "axure":
-			$(ele).prepend(_H_AXURE);
-			break;
-		case "demo":
-			$(ele).prepend(_H_DEMO);
-			aded();//为标签设置随机颜色
-			break;	
-		default:
-			break;
+	//读取取<file>部分
+	function getFileHtml(e){
+		var _html = "";
+		for(var j=0;j<e.length;j++){
+			FPath = e[j].getElementsByTagName("path")[0].childNodes[0].nodeValue; //文件路径
+			FName = e[j].getElementsByTagName("name")[0].childNodes[0].nodeValue; //文件名
+			FTitle = e[j].getElementsByTagName("title")[0].childNodes[0].nodeValue; //文件标题
+			if(FPath.indexOf("https://") > -1){
+				_html += "<a target='_blank' href='" + FPath + "'>" + FTitle + "</a>";
+			}
+			else{
+				_html += "<a href='" + FPath + FName + ".html?tit=" + FTitle + "'>" + FTitle + "</a>";
+			}
+		}
+		return _html;
 	}
+	
+	$(ele).prepend(_HTML);
 }
-/* 为TAGS页面的标签设置随机颜色
- */
-function aded(){
-	var tag_group = $('.tag-group');	
-	$(tag_group).find('a').each(function(index, element) {
-		var num = Math.round(Math.random()*7+1);
-		$(this).removeClass().addClass('color-'+num);
-    });
-}
+
+

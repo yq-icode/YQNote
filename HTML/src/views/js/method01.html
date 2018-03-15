@@ -98,6 +98,25 @@ stopDefault = function(e){
 	            </pre>
 	        </div>
 	    </section>
+	    <!************************************************->
+        <h2 class="r2-title">页面前进、后退、刷新</h2>
+        <p>history.back(-1)和history.go(-1)的区别</p>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+history.back(-1)//直接返回当前页的上一页，数据全部消失，是个新页面
+history.go(-1)//也是返回当前页的上一页，不过表单里的数据全部还在
+
+
+window.location.reload()//刷新
+window.history.go(1)//前进
+window.history.go(-1)//后退
+window.history.forward()//前进
+window.history.back() 
+
+		        </code>
+            </pre>
+        </div>
 	</div>
 </div>
 </body>

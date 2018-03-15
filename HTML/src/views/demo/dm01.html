@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 800px;">
+        <h2 class="r2-title">jQuery ajax - load() 方法</h2>
+        <p class="reference">
+        	<a href="http://blog.csdn.net/liuyan19891230/article/details/51003067"></a>
+        </p>
+        <section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+$(function(){
+    $("selector1").load("page1.html");
+    $("selector2").load("page2.html");
+    $("selector3").load("page3.html");
+});
+
+//加载页面片段
+$("#result").load("ajax/test.html #container");
+		            </code>
+	            </pre>
+	        </div>
+	        <ul class="list-decimal">
+	        	<li>通过js追加进来的DOM结构，对SEO（搜索引擎优化）有影响，类似百度蜘蛛是无法抓取的！一般情况下不到万不得已的时候，不推荐使用。</li>
+	        	<li>因为是load进来的，也就是异步加载，在需要获取page1.html等页面的元素时，可以结合setTimeout使用，确保页面被加载进来。</li>
+	        	<li>page1.html/page2.html/page3.html写需要的Html片段即可；</li>
+	        </ul>
+	        <h3 class="r3-title">加载页面片段</h3>
+	        <p class="reference">
+	        	<a href="http://www.w3school.com.cn/jquery/ajax_load.asp"></a>
+	        </p>
+	        <p>load() 方法，与 $.get() 不同，允许我们规定要插入的远程文档的某个部分。这一点是通过 url 参数的特殊语法实现的。如果该字符串中包含一个或多个空格，紧接第一个空格的字符串则是决定所加载内容的 jQuery 选择器。</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+$("#result").load("ajax/test.html #container");
+		            </code>
+	            </pre>
+	        </div>
+	        <p>如果执行该方法，则会取回 ajax/test.html 的内容，不过然后，jQuery 会解析被返回的文档，来查找带有容器 ID 的元素。该元素，连同其内容，会被插入带有结果 ID 的元素中，所取回文档的其余部分会被丢弃。</p>
+			<p>jQuery 使用浏览器的 .innerHTML 属性来解析被取回的文档，并把它插入当前文档。在此过程中，浏览器常会从文档中过滤掉元素，比如 <html>, <title> 或 <head> 元素。结果是，由 .load() 取回的元素可能与由浏览器直接取回的文档不完全相同。</p>
+        </section>
+        
+	</div>
+</div>
+</body>
+</html>

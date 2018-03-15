@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 800px;">
+		<!************************************************->
+        <h2 class="r2-title">select</h2>
+        <div class="r2-body">
+	        <div class="code-box mt20">
+	            <pre class="language-html line-numbers">
+	                <code>
+	&lt;select id="eSelect" class="eSel"&gt;
+		&lt;option value="1"&gt;&lt;/option&gt;
+		&lt;option value="2"&gt;&lt;/option&gt;
+		&lt;option value="3"&gt;&lt;/option&gt;
+	&lt;/select&gt;
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box mt20">
+	            <pre class="language-js line-numbers">
+	                <code>
+var e = document.getElementById("eSelect");
+
+//取option
+var eOpts = e.options;
+
+//option数量
+e.options.length
+
+$(e).options.length
+
+//索引
+e.selectedIndex;
+
+$(e).selectedIndex;
+$(e).find("option:selected").selectedIndex;
+
+//选中项的值
+e.options[e.selectedIndex].value;
+
+$(e).val();
+$('#eSelect option:selected').val();
+$(e).find("option:selected").val();
+
+//选中项的文本
+e.options[e.selectedIndex].text;
+
+$('#eSelect option:selected').text();
+$(e).find("option:selected").text();
+
+//设置选中状态
+e.options[i].selected = true;
+
+//赋值
+$("#eSelect option:["value='1']").val("0");
+	
+//删除选项
+$(e).remove(i);//i为option索引
+$(e).remove($(e).selectedIndex);
+
+//清空
+$(e).empty();
+$(e).options.length = 0;
+
+		            </code>
+	            </pre>
+	        </div>
+	        
+	    </div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-<dl class="form-wrap">
+<dl class="form-wrap form-02">
     <dt>
         <h5>input[type=file]美化</h5>
         <div class="browser-support">
@@ -11,3 +11,27 @@
     	</a>
     </dd>
 </dl>
+
+<dl class="form-wrap form-03">
+    <dt>
+        <h5>input[type=file]美化</h5>
+        <div class="browser-support">
+        	<div class="summary">IE6+</div>
+        </div>
+    </dt>
+    <dd>
+    	<span class="btn-upload">
+    		<a>点击这里上传文件</a>
+    		<span>
+    			<input type="file" value="uploadFile" />
+    		</span>
+    	</span>
+    	<p>注意：因为 IE<=8 中 less-2.5.3.min.js 报错,导致效果无法正常查看,只要注释掉 less-2.5.3.min.js 文件并将样式文件 .less 文件改成 .css 即可。</p>
+    </dd>
+    
+</dl>
+<script type="text/javascript">
+	$('.form-03 .btn-upload a').click(function(){
+		$('.form-03 input').trigger('click');
+	})
+</script>

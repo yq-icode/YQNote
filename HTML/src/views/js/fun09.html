@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 800px;">
+		<h2 class="r2-title">异步</h2>
+		<section class="r2-body">
+			<p>js里面最基础的异步实现就是调用setTimeout,setInterval。</p>
+			<p>异步回调产生的结果就是，函数的调用并不直接返回结果，而往往是交给回调函数进行异步处理。</p>
+			<p>因此在异步编程当中，需要注意几个地方：</p>
+			<ul class="list-decimal">
+				<li>需要把依赖于异步函数(需要其执行结果或者达到某种状态)的代码放在对应的回调函数中</li>
+				<li>异步函数后面的代码会立即执行(因此需要知道某段代码是否为异步的)</li>
+			</ul>
+			<h3 class="r3-title">异步编程方法：回调函数</h3>
+			<p class="reference">
+				<a href="https://www.cnblogs.com/zuobaiquan01/p/8477322.html"></a>
+			</p>
+			<dl class="dlist">
+				<dt>优点</dt>
+				<dd>简单、容易理解和部署</dd>
+				<dt>缺点</dt>
+				<dd>不利于代码的阅读和维护，各个部分之间高度耦合（Coupling），流程会很混乱，而且每个任务只能指定一个回调函数。</dd>
+			</dl>
+			<p>回调并不一定就是异步。它们之间并没有直接关系。简单区分 同步回调 和 异步回调</p>
+			<img src="images/screenPics/sc007.png" />
+			
+			<h3 class="r3-title">异步编程方法：事件监听</h3>
+			<p class="reference">
+				<a href="https://www.cnblogs.com/zuobaiquan01/p/8477322.html"></a>
+			</p>
+			<p>采用事件驱动模式。任务的执行不取决代码的顺序，而取决于某一个事件是否发生。</p>
+			<dl class="dlist">
+				<dt>优点</dt>
+				<dd>比较容易理解，可以绑定多个事件，每一个事件可以指定多个回调函数，而且可以去耦合，有利于实现模块化。</dd>
+				<dt>缺点</dt>
+				<dd>整个程序都要变成事件驱动型，运行流程会变得不清晰。</dd>
+			</dl>
+			
+		</section>
+		
+		<h2 class="r2-title">回调</h2>
+		<section class="r2-body">
+			<p>回调是一个函数被作为一个参数传递到另一个函数里，在那个函数执行完后再执行。（ 也即：B函数被作为参数传递到A函数里，在A函数执行完后再执行B ）</p>
+			<p>回调并不一定就是异步。他们自己并没有直接关系</p>
+		</section>
+		
+		<h2 class="r2-title">&lt;script&gt;标签异步加载</h2>
+        <section class="r2-body">
+			<img src="images/screenPics/sc006.png" />
+		</section>
+		
+        <h2 class="r2-title">其它</h2>
+        <section class="r2-body">
+			<img src="images/screenPics/sc005.png" />
+		</section>
+        
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="">
+		<file>
+			<title>移动web开发之像素和DPR</title>
+			<name>_article01</name>
+			<path>/views/mobile/</path>
+		</file>
+		<file>
+			<title>手机端页面自适应解决方案</title>
+			<name>mob1</name>
+			<path>/views/mobile/</path>
+		</file>
+		<file>
+			<title>手机分辨率</title>
+			<name>mob2</name>
+			<path>/views/mobile/</path>
+		</file>
+	</main>
+	<main title="jquerymobile">
+		<file>
+			<title>jquerymobile</title>
+			<name>index</name>
+			<path>/views/mobile/jquerymobile/</path>
+		</file>
+	</main>
+	<main title="MUI">
+		<file>
+			<title>HBuilder导入项目</title>
+			<name>_article01</name>
+			<path>/views/mobile/HBuilder/</path>
+		</file>
+		<file>
+			<title>对页面/窗口的操作</title>
+			<name>winAct</name>
+			<path>/views/mobile/mui/</path>
+		</file>
+		<file>
+			<title>页面传参</title>
+			<name>winPara</name>
+			<path>/views/mobile/mui/</path>
+		</file>
+		<file>
+			<title>MUI组件</title>
+			<name>zujian</name>
+			<path>/views/mobile/mui/</path>
+		</file>
+		<file>
+			<title>mui组件通用CSS类</title>
+			<name>zjCCss</name>
+			<path>/views/mobile/mui/</path>
+		</file>
+		<file>
+			<title>屏幕旋转、如何去掉滚动条、返回到指定页面</title>
+			<name>mui001</name>
+			<path>/views/mobile/mui/</path>
+		</file>
+		<file>
+			<title>奇怪的问题</title>
+			<name>mui002</name>
+			<path>/views/mobile/mui/</path>
+		</file>
+	</main>
+</fileList>

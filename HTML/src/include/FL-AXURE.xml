@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="">
+		<file>
+			<title>抽屉式菜单</title>
+			<name>_article01</name>
+			<path>/views/axure/</path>
+		</file>
+		<file>
+			<title>小知识点</title>
+			<name>_article02</name>
+			<path>/views/axure/</path>
+		</file>
+		<file>
+			<title>中继器自增效果</title>
+			<name>_article03</name>
+			<path>/views/axure/</path>
+		</file>
+		<file>
+			<title>变量与函数</title>
+			<name>_article04</name>
+			<path>/views/axure/</path>
+		</file>
+	</main>
+</fileList>

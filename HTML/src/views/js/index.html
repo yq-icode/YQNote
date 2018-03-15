@@ -7,24 +7,14 @@
 	<title>JS</title>
     <!--#include virtual="/include/_head_import_file.html" -->
     <script src="/js/less-2.5.3.min.js"></script>
-    <link rel="import" href="/include/_footer.html"/>
 </head>
 <body>
 	<!--#include virtual="/include/_header.html" -->
     <div class="container" id="list">
     </div>
-    <footer id="footer" class="container_fluid"></footer>
     
     <script type="text/javascript">
-//		
-//		var post = document.querySelector("link[rel='import']").import;
-//		console.log("post: " + document.querySelector("link[rel='import']"));
-//	    var con = post.querySelector("footer");
-//	    document.querySelector("#footer").appendChild(con.cloneNode(true));
-//	
-//	    var clone = document.importNode(con,true);
-//	    document.querySelector("#footer").appendChild(clone);
-		loadXMLDoc("/include/fileList.xml","js","#list.container");
+		loadXML("/include/FL-JS.xml","#list.container");
 	</script>
 </body>
 </html>

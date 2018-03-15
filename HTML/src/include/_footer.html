@@ -1,5 +1,4 @@
-<footer id="footer"></footer>
-
+<ul class="ftNav"></ul>
 <script type="text/javascript">
 	var JFoot = [
 		{name:"Bootstrap", url:"http://www.bootcss.com"},
@@ -16,13 +15,11 @@
 		{name:"猪八戒", url:"http://www.zhubajie.com"}
 	]
 	var footHtml = "";
-	footHtml += "<ul>";
 	for(i=0;i<JFoot.length;i++){
 		var gn = JFoot[i];
 		footHtml += "<li>";
 		footHtml += "<a target='_blank' href='" + gn.url + "'>" + gn.name + "</a>";
 		footHtml += "</li>";
 	}
-	footHtml += "</ul>";
-	document.querySelector('footer').innerHTML = footHtml;
+	document.querySelector('.ftNav').innerHTML = footHtml;
 </script>

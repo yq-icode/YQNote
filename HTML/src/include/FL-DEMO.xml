@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="DEMO">
+		<sub title="布局">
+			<file>
+				<title>Jquery实现的瀑布流</title>
+				<name>index</name>
+				<path>/views/demo/waterFall/</path>
+			</file>
+			<file>
+				<title>column+js实现的水平瀑布流</title>
+				<name>index2</name>
+				<path>/views/demo/waterFall/</path>
+			</file>
+			<file>
+				<title>HTML中引入外部文件</title>
+				<name>dm01</name>
+				<path>/views/demo/</path>
+			</file>
+		</sub>
+		<sub title="按钮">
+			<file>
+				<title>按钮的各种效果</title>
+				<name>index</name>
+				<path>demo/btn/</path>
+			</file>
+		</sub>
+		<sub title="表单">
+			<file>
+				<title>表单类效果</title>
+				<name>index</name>
+				<path>demo/form/</path>
+			</file>
+		</sub>
+		<sub title="tab切换">
+			<file>
+				<title>tab切换</title>
+				<name>index</name>
+				<path>demo/tab/</path>
+			</file>
+		</sub>
+		<sub title="分页">
+			<file>
+				<title>用JS实现前端分页一</title>
+				<name>pagination</name>
+				<path>demo/</path>
+			</file>
+			<file>
+				<title>用JS实现前端分页二</title>
+				<name>pagination2</name>
+				<path>demo/</path>
+			</file>
+			<file>
+				<title>用JS实现前端分页三</title>
+				<name>pagination3</name>
+				<path>demo/</path>
+			</file>
+		</sub>
+		<sub title="图片类效果">
+			<file>
+				<title>图片HOVER效果</title>
+				<name>index</name>
+				<path>demo/pics/hover/</path>
+			</file>
+			<file>
+				<title>图片缩放效果</title>
+				<name>index</name>
+				<path>demo/pics/zoom/</path>
+			</file>
+			<file>
+				<title>图片切换效果</title>
+				<name>index</name>
+				<path>demo/pics/switch/</path>
+			</file>
+			<file>
+				<title>图片加载效果</title>
+				<name>index</name>
+				<path>demo/pics/load/</path>
+			</file>
+			<file>
+				<title>图片类效果(未整理)</title>
+				<name>index</name>
+				<path>demo/pics/</path>
+			</file>
+		</sub>
+		<sub title="文本">
+			<file>
+				<title>文本的各种效果</title>
+				<name>index</name>
+				<path>demo/text/</path>
+			</file>
+			<file>
+				<title>多行文本溢出显示省略号</title>
+				<name>txt1</name>
+				<path>demo/text/</path>
+			</file>
+		</sub>
+		<sub title="loading">
+			<file>
+				<title>loading</title>
+				<name>index</name>
+				<path>/views/loading/</path>
+			</file>
+		</sub>
+		<sub title="导航navigation">
+			<file>
+				<title>导航navigation</title>
+				<name>index</name>
+				<path>demo/nav/</path>
+			</file>
+		</sub>
+		<sub title="抽奖">
+			<file>
+				<title>抽奖</title>
+				<name>index</name>
+				<path>demo/draw/</path>
+			</file>
+		</sub>
+		<sub title="动态效果">
+			<file>
+				<title>时间倒计时</title>
+				<name>_djs1</name>
+				<path>demo/</path>
+			</file>
+			<file>
+				<title>数字倒计时</title>
+				<name>_djs2</name>
+				<path>demo/</path>
+			</file>
+			<file>
+				<title>播放器进度条控制</title>
+				<name>player-progress-control</name>
+				<path>demo/</path>
+			</file>
+		</sub>
+		<sub title="其它效果">
+			<file>
+				<title>纯CSS制作图形背景</title>
+				<name>index</name>
+				<path>/views/bg/</path>
+			</file>
+			<file>
+				<title>纯CSS实现的形状</title>
+				<name>index</name>
+				<path>/views/shape/</path>
+			</file>
+			<file>
+				<title>图片替换文本的CSS方法</title>
+				<name>img-replace-text-with-css</name>
+				<path>/views/css/</path>
+			</file>
+		</sub>
+	</main>
+	<main title="小插件">
+		<file>
+			<title>基于Bootstrap 3内置loading指示器的提交按钮特效</title>
+			<name>index</name>
+			<path>/plugIn/ladda/</path>
+		</file>
+		<file>
+			<title>Messenger弹框组件</title>
+			<name>index</name>
+			<path>/plugIn/Messenger/</path>
+		</file>
+	</main>
+	<main title="其它">
+		<file>
+			<title>tools</title>
+			<name>tools</name>
+			<path>/views/other/</path>
+		</file>
+		<file>
+			<title>开放端口，让其它电脑可以访问</title>
+			<name>_article01</name>
+			<path>/views/other/</path>
+		</file>
+		<file>
+			<title>IIS中添加html对include的引用</title>
+			<name>_article02</name>
+			<path>/views/other/</path>
+		</file>
+		<file>
+			<title>设置IIS，使之支持less</title>
+			<name>_article03</name>
+			<path>/views/other/</path>
+		</file>
+	</main>
+	<main title="移动开发">
+		<file>
+			<title>移动web开发之像素和DPR</title>
+			<name>_article01</name>
+			<path>/views/mobile/</path>
+		</file>
+		<file>
+			<title>MUI组件</title>
+			<name>zujian</name>
+			<path>/views/mobile/mui/</path>
+		</file>
+		<file>
+			<title>mui组件通用CSS类</title>
+			<name>zjCCss</name>
+			<path>/views/mobile/mui/</path>
+		</file>
+	</main>
+</fileList>
