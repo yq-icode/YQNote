@@ -13,7 +13,7 @@
     <style type="text/css">
     	#dataShow{
     		margin: 0 auto;
-    		width: 450px;
+    		width: 600px;
     	}
         .table {
         	font-size: 12px;
@@ -28,30 +28,50 @@
         .table thead th {
         	background-color: #ccc;
         }
+        #page{
+        	margin-top: 10px;
+        	line-height: 18px;
+        }
         #page a{
+        	display: inline-block;
         	margin: 0 2px;
-        	padding: 2px 5px;
+        	border: 1px solid #eee;
+        	padding: 0 8px;
         	background-color: #fff;
         	font-size: 12px;
         	color: #06c;
+        	text-align: center;
+        	color: #666;
+        }
+        #page a:hover{
+        	background-color: #eee;
+        	color: #333;
         }
         #page a.on {
-        	color: #FF5C00;
+        	background-color: #333;
+        	color: #fff;
         }
         #page .pre.disable, #page .next.disable{
+        	color: #aaa;
+        	cursor: default;
+        }
+        #page .pre.disable:hover, #page .next.disable:hover{
+        	background-color: #fff;
         	color: #aaa;
         	cursor: default;
         }
     </style>
 </head>
 <body>
-    <div id="dataShow">
-        <table class="table" id="table" width="100%"></table>
-        <div id="page"></div>
-    </div>
+	<div id="wrap">
+	    <div id="dataShow">
+	        <table class="table" id="table" width="100%"></table>
+	        <div id="page"></div>
+	    </div>
+   </div>
 	<script type="text/javascript">
 		//表头
-		var head=
+		var tHead=
 		    '<thead>'+
 		    '<tr>'+
 		    '<th> 姓  名 </th>'+
@@ -64,7 +84,7 @@
 		    '<tbody>';
 		//表内容，后台返回的内容可以封装到这里，随时取用，但是如果数据量很大估计会相当耗资源。
 		var pageData=[];
-		for(var i=1;i<=200;i++){
+		for(var i=1;i<=310;i++){
 		    var data=
 		    '<tr>'+
 		    '<td>学生'+i+'</td>'+
@@ -78,106 +98,156 @@
 		//表结尾
 		var end='</tbody>';
 		
-		var Count = pageData.length;//记录条数
-	    var PageSize=10;//设置每页示数目
-	    var PageCount=Math.ceil(Count/PageSize);//计算总页数
-	    var currentPage=1;//当前页，默认为1
+		var Count = pageData.length;//总条数
+	    var PageSize = 10;//每页默认显示的数据条数
+	    var PageCount = Math.ceil(Count/PageSize);//计算总页数
+	    var currentPage = 1;//当前页，默认为1
+	    var limit = 10//显示的页码总数限制
 	    
-		$(function(){
+	    //构建分页部分
+	    function setPage(currentPage){
+	    	console.log("currentPage: " + currentPage)
+	    	var pagiDom = $("<div></div>");
+	    	//当前页/总页数
+	    	pagiDom.append($("<span>当前 " + currentPage + "/" + PageCount + "</span>"));
+	    	
+	    	//重新设置每页显示的数据条数
+	    	pagiDom.append($("<select id='pgSize'><option>" + PageSize + "</option><option>10<option>20</option><option>30</option></select>").change(function(){
+	    		var e = document.getElementById('pgSize');
+	    			
+    			PageSize = e.options[e.selectedIndex].text;
+	    		PageCount = Math.ceil(Count/PageSize);//重新计算总页数
+	    		
+	    		if(currentPage*PageSize > Count){
+	    			currentPage = PageCount;
+	    		}
+	    		
+//	    		for(i=0; i < e.options.length; i++){
+//	    			console.log("text" + i + ":" + e.options[i].text);
+//	    			console.log("PageSize: " + PageSize);
+//	    			console.log(e.options[i].text == PageSize)
+//	    			if(e.options[i].text == PageSize){
+//	    				e.options[i].selected = true;
+//	    			}
+//	    		}
+	    		setPage(currentPage);
+	    	}));
+	    	
+	    	//上一页
+	    	pagiDom.append($('<a class="pre" href="#">PRE</a>').click(function(){
+	    		if(currentPage > 1){
+		    		currentPage = currentPage - 1;
+		    		setPage(currentPage);
+		    	}
+	    	}));
 		    
-		    $('#page .pre').addClass('disable');//初载入时:默认显示第1页，pre按钮不可点击
-		    $('#page a:nth-child(2)').addClass('on');//初载入时第1页高亮显示
-		    if(PageCount == 1){//初载入时:当总共只有一页时，next按钮不可点击
-		    	$('#page .next').addClass('disable');
+		    //当总页数小于等于显示的页码总数限制limit时
+		    if(PageCount <= limit){
+		    	for(var i=1; i<=PageCount; i++){
+		    		pagiDom.append($('<a class="nb" href="#">' + i + '</a>').click(function(){
+		    			currentPage = $(this).text();
+		    			setPage(currentPage);
+		    		}));
+			    }
+		    }
+		    //当总页数大于显示的页码总数限制limit时
+		    else{
+		    	//首页
+		    	pagiDom.append($('<a class="nb" href="#">1</a>').click(function(){
+		    		currentPage = $(this).text();
+		    		setPage(currentPage);
+		    	}));
+		    	
+		    	if(currentPage < limit/2){
+		    		for(var i = 2; i < limit; i++){
+				    	pagiDom.append($('<a class="nb" href="#">' + i + '</a>').click(function(){
+				    		currentPage = $(this).text();
+		    				setPage(currentPage);
+				    	}));
+				    }
+		    		pagiDom.append($("<span>...</span>"));
+		    		//尾页
+		    		pagiDom.append($('<a class="nb" href="#">' + PageCount + '</a>').click(function(){
+		    			currentPage = $(this).text();
+		    			setPage(currentPage);
+		    		}));
+		    	}
+		    	
+		    	if(currentPage >= limit/2){
+		    		pagiDom.append($("<span>...</span>"));
+		    		
+		    		if(currentPage < (PageCount-(limit-2)/2)){
+			    		//limit-2是为了减去首页和尾页
+				    	for(var i = currentPage-(limit-2)/2+1, j = (limit-2)-1; j > 0 && i < PageCount; i++,j--){
+				    		pagiDom.append($('<a class="nb" href="#">' + i + '</a>').click(function(){
+				    			currentPage = $(this).text();
+			    				setPage(currentPage);
+				    		}));
+					    }
+				    	//当前页接近尾页时，省略省略号
+				    	if(currentPage < (PageCount-(limit-2)/2)){
+				    		pagiDom.append($("<span>...</span>"));
+				    	}
+		    		}
+			    	else{
+			    		for(var i = PageCount-limit + 3;i < PageCount; i++){
+				    		pagiDom.append($('<a class="nb" href="#">' + i + '</a>').click(function(){
+				    			currentPage = $(this).text();
+			    				setPage(currentPage);
+				    		}));
+					    }
+			    	}
+			    	
+			    	//尾页
+			    	pagiDom.append($('<a class="nb" href="#">' + PageCount + '</a>').click(function(){
+			    		currentPage = $(this).text();
+		    			setPage(currentPage);
+			    	}));
+			    }
+		    }
+		    //下一页
+		    pagiDom.append($('<a class="next" href="#">NEXT</a>').click(function(){
+		    	if(currentPage < PageCount){
+		    		currentPage = parseInt(currentPage) + 1;
+		    		setPage(currentPage);
+		    	}
+		    }));
+		    
+		    $('#page').html(pagiDom);
+		    
+		    //为当前页添加数据
+		    getTData(currentPage);
+		    
+		    //高亮显示当前页
+		    $("#page a").each(function(){
+		    	$(this).removeClass('on');
+		    	if($(this).text() == currentPage){
+		    		$(this).addClass('on');
+		    	}
+		    })
+		    
+		    //当前页为首页时pre按钮不可点击
+		    if(currentPage == 1){
+		    	$('#page .pre').addClass('disable');
 		    }
 		    
-		    //默认显示第一页
-		    $('#table').empty().append(head);
-		    for(i=(currentPage-1)*PageSize;i<PageSize*currentPage;i++){
+		    //当前页为尾页时next按钮不可点击
+		    if(currentPage == PageCount){
+		    	$('#page .next').addClass('disable');
+		    }
+	    }
+	    
+	    setPage(currentPage);
+	    
+	    //为当前页添加数据
+	    function getTData(currentPage){
+	    	$('#table').empty().append(tHead);
+		    for(i = (currentPage-1)*PageSize; i < PageSize*currentPage; i++){
 		        $('#table').append(pageData[i]);
 		    }
 		    $('#table').append(end);
-		    
-		    //分页部分
-		    var setPage = function (){
-		    	console.log(currentPage);
-		    	var pageN;
-			    pageN = '<a class="pre" href="#">PRE</a>';//上一页
-			    pageN += '<a class="nb" href="#" selectPage="1">1</a>';//首页
-			    if(currentPage <= 5){
-			    	for(var i=2; i<8; i++){
-				    	pageN += '<a class="nb" href="#" selectPage="'+i+'">'+i+'</a>';
-				    }
-			    	pageN += "<span>...</span>";
-			    }
-			    if(currentPage > 5){
-			    	
-				    pageN += "<span>...</span>";
-				    for(var i=currentPage-3,n=3; n>0 && PageCount>7; i++,n--){
-				    	pageN += '<a class="nb" href="#" selectPage="'+i+'">'+i+'</a>';
-				    }
-				    pageN += '<a class="nb" href="#" selectPage="'+currentPage+'">'+currentPage+'</a>';
-				    
-				    for(var i=currentPage+1,n=3; n>0 && PageCount>7; i++,n--){
-				    	pageN += '<a class="nb" href="#" selectPage="'+i+'">'+i+'</a>';
-				    }
-				    pageN += "<span>...</span>";
-				    
-			    }
-			    
-			    pageN += '<a class="nb" href="#" selectPage="'+PageCount+'">' + PageCount + '</a>';//尾页
-			    pageN += '<a class="next" href="#">NEXT</a>';//下一页
-			    
-			    return pageN;
-		    }
-			
-			$('#page').html(setPage);
-			
-		    //显示选择页的内容
-		    $('#page a').click(function(){
-		    	console.log("**");
-		    	//点击上一页、下一页及某页数时，取当前页码
-		    	if($(this).hasClass('pre') && currentPage > 1){
-		    		currentPage = currentPage - 1;
-		    	}
-		    	if($(this).hasClass('next') && currentPage < PageCount){
-		    		currentPage = currentPage + 1;
-		    	}
-		    	if($(this).hasClass('nb')){
-		    		currentPage = parseInt($(this).attr('selectPage'));
-		    	}
-		    	//当前页码为首页和尾页时，为pre next添加disable
-		    	if(currentPage == 1){
-		    		$('.pre').addClass('disable');
-		    	}
-		    	else if(currentPage == PageCount){
-		    		$('.next').addClass('disable');
-		    	}
-		    	else{
-		    		$('.pre').removeClass('disable');
-		    		$('.next').removeClass('disable');
-		    	}
-		    	$('#page').html(setPage);
-		    	
-		    	//为当前页码添加样式on
-		     	$('#page a').removeClass('on');
-		     	$('#page a').each(function(){
-		     		if($(this).attr('selectPage') == currentPage){
-		     			$(this).addClass('on');
-		     		}
-		     	})
-		     	
-		     	$('#table').html('');
-		        $('#table').append(head);
-		        
-		        //为当前页添加数据
-		        for(i=(currentPage-1)*PageSize;i<PageSize*currentPage;i++){
-		            $('#table').append(pageData[i]);
-		        }
-		        $('#table').append(end);
-		    })
-		});
-		
+	    }
+	    
 		
 		//添加TOP
 		addArticleTop();

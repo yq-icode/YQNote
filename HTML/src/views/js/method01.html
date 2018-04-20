@@ -12,7 +12,7 @@
 <!--#include virtual="/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
-	<div id="wmain" style="width: 1000px;">
+	<div id="wmain">
 		<h2 class="r2-title">从文件路径中截取文件名</h2>
     	<div class="code-box">
             <pre class="language-js line-numbers">
@@ -117,6 +117,102 @@ window.history.back()
 		        </code>
             </pre>
         </div>
+        <!************************************************->
+        <h2 class="r2-title">判断图片是否加载完成</h2>
+        <div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>
+&lt;img id="picNo" src="pic.gif" alt="pic" /&gt;
+		        </code>
+            </pre>
+        </div>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//complete 属性可返回浏览器是否已完成对图像的加载。如果加载完成，则返回 true，否则返回 fasle。                	
+function alertComplete(){
+	alert(document.getElementById("picNo").complete)
+}
+		        </code>
+            </pre>
+        </div>
+        
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var l =5;
+var Images = new Array(l);
+var ImgLoaded =0;
+
+//设置加载队列
+function LoadImgs(){
+    for(var i=0;i < Images.length; i++){
+        Images[i] = new Image();
+        downloadImage(i);
+    }
+}
+//加载单个图片文件
+function downloadImage(i){
+    var imageIndex = i + 1; //图片以1开始
+    Images[i].src = "images/" + imageIndex + ".jpg";
+    Images[i].onLoad = validateImages(i);
+}
+
+//验证是否成功加载完成，如不成功则重新加载
+function validateImages(i){
+    if (!Images[i].complete){
+        window.setTimeout('downloadImage('+i+')',200);
+    }
+    else if (typeof Images[i].naturalWidth != "undefined" && Images[i].naturalWidth == 0){
+        window.setTimeout('downloadImage('+i+')',200);
+    }
+    else{
+        ImgLoaded++
+        if(ImgLoaded == l){
+            alert('图片加载完毕！');
+        }
+    }
+}
+
+LoadImgs();
+		        </code>
+            </pre>
+        </div>
+        
+        <!************************************************->
+        <h2 class="r2-title">获取图片的原始尺寸</h2>
+        <p class="reference">
+        	<a href="https://segmentfault.com/a/1190000007664778"></a>
+        </p>
+        <dl class="dlist">
+        	<dt>naturalWidth naturalHeight</dt>
+        	<dd>naturalWidth和naturalHeight是html5新增的属性，它们可以直接获取图片的原始宽高。</dd>
+        	<dt>原因</dt>
+        	<dd>页面中的img元素想要获取图片的原始尺寸通常使用innerWidths属性或者使用jQuery的width()方法，但是如果给图片添加了width样式，那么用innerWidth或width()获得宽度是不是你想要的，因为innerWidth或width()获取的是元素盒模型的实际渲染的宽度，而不是图片的原始宽度。</dd>
+        	<dt>结果</dt>
+        	<dd>可以使用naturalWidth和naturalHeight去获取图片的原始尺寸，考虑的兼容问题，可以采用new Image()去获得图片的原始尺寸：代码如下：</dd>
+        </dl>
+        <p>使用该方法可以获取图片的原始尺寸，通常在图片放大缩小，动态生成图片处需要用到该方法！</p>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+function  getNaturalSize(img){
+    var naturalSize ={};
+    if(window.naturalWidth && window.naturalHeight){
+        naturalSize.width = img.width;
+            naturalSize.height = img.height;
+    }else{
+        var image = new Image();
+        image.src = img.src;
+        naturalSize.width = image.width;
+        naturalSize.height = image.height;
+    }
+    return naturalSize;
+}
+		        </code>
+            </pre>
+        </div>
+        
 	</div>
 </div>
 </body>

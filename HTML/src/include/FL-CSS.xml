@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <fileList>
-	<main title="">
+	<main title="基础">
 		<file>
 			<title>选择器</title>
 			<name>selecter</name>
@@ -12,18 +12,8 @@
 			<path>/views/css/</path>
 		</file>
 		<file>
-			<title>FLEX</title>
-			<name>index</name>
-			<path>/views/css/flex/</path>
-		</file>
-		<file>
 			<title>CSS 变量</title>
 			<name>css-variables</name>
-			<path>/views/css/</path>
-		</file>
-		<file>
-			<title>Grid布局</title>
-			<name>grid</name>
 			<path>/views/css/</path>
 		</file>
 		<file>
@@ -78,11 +68,40 @@
 			<name>column</name>
 			<path>/views/css/</path>
 		</file>
+		<file>
+			<title>关于firefox下transition下失效的原因</title>
+			<name>index</name>
+			<path>/views/css3/</path>
+		</file>
+		<file>
+			<title>pointer-events</title>
+			<name>pointerEvents</name>
+			<path>/views/css/</path>
+		</file>
 	</main>
 	<main title="LESS">
-		
+		<file>
+			<title>box-shadow</title>
+			<name>index</name>
+			<path>/views/less/</path>
+		</file>
+		<file>
+			<title>extend</title>
+			<name>extend</name>
+			<path>/views/less/</path>
+		</file>
 	</main>
 	<main title="布局">
+		<file>
+			<title>FLEX</title>
+			<name>index</name>
+			<path>/views/css/flex/</path>
+		</file>
+		<file>
+			<title>Grid布局</title>
+			<name>grid</name>
+			<path>/views/css/</path>
+		</file>
 		<file>
 			<title>关于居中对齐</title>
 			<name>alignment</name>
@@ -96,6 +115,11 @@
 		<file>
 			<title>常用布局总结</title>
 			<name>layout</name>
+			<path>/views/css/</path>
+		</file>
+		<file>
+			<title>DIV固定在底部</title>
+			<name>fixed1</name>
 			<path>/views/css/</path>
 		</file>
 	</main>

@@ -26,6 +26,18 @@ $(function(){
 		$(this).addClass('on');
 	})
 	
+	/* 添加全局top按钮
+	 */
+	var toTop = "<a id='toTop' href='#' class='iconfont icon-ico-top'></a>";
+	$('#wside').append(toTop);
+	
+	
+	/* 添加footer
+	 */
+	var footWrap = "<footer id='footer'></footer>";
+	$("body").append(footWrap);
+	$("#footer").load("/include/_footer.html");
+	
 	/*
 	 * 动态生成文章数字
 	 */
@@ -80,21 +92,9 @@ $(function(){
 		}
 	}
 	
-	/* 添加全局top按钮
-	 */
-	var toTop = "<a id='toTop' href='#' class='iconfont icon-ico-top'></a>";
-	$('body').append(toTop);
-	
-	$('#footer').load('_footer.html');
-	
-	/* 添加footer
-	 */
-	var footWrap = "<footer id='footer'></footer>";
-	$("body").append(footWrap);
-	$("#footer").load("/include/_footer.html #one");
 })
 
-/* 【article文章及DEMO页面自动添加fixed TOP】
+/* 【article文章及DEMO页面自动添加fixed TOP及标题】
 */
 function addArticleTop(){
 	var pgTitle, //页面标题
@@ -112,10 +112,11 @@ function addArticleTop(){
 	_topHtml += "<a class='iconfont icon-shangyige back' onclick='window.history.back(-1)'><span>" + pgTitle + "</span></a>"
 	_topHtml += "</div>";
 	$('body').prepend(_topHtml);
-	$('body').css("padding-top","60px");//因TOP固定，添加内容距浏览器顶端的边距
+	$('#wrap').prepend("<h1 class='article-title'>" + pgTitle + "</h1>");
+	$('#wrap').css("padding-top","60px");//因TOP固定，添加内容距浏览器顶端的边距
 }
 
-/* 读取XML文件
+/* 读取XML文件(菜单主页面的列表)
  * 参数xmlUrl:  xml文件的路径及名称
  * 参数ele:     菜单列表最外层的HTML元素
  */
@@ -210,7 +211,7 @@ function processData(data,ele){
 				_html += "<a target='_blank' href='" + FPath + "'>" + FTitle + "</a>";
 			}
 			else{
-				_html += "<a href='" + FPath + FName + ".html?tit=" + FTitle + "'>" + FTitle + "</a>";
+				_html += "<a href='" + FPath + FName + ".html?tit=" + FTitle + "' title='" + FTitle + "'>" + FTitle + "</a>";
 			}
 		}
 		return _html;

@@ -5,10 +5,14 @@
 
 html{font-size: 10px;}
 body{
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 	background-color: #FCFFFA;
 	font-size: 14px;
 	color: #333;
-	line-height: 1.8;
+	line-height: 1.8em;
+	font-family:"Microsoft yahei","Courier New",monospace;
 }
 ul,li{margin: 0;padding: 0;}
 li{list-style-type: none;}
@@ -27,6 +31,7 @@ p{margin: 1em 0;}
 
 #wrap{
 	margin:0 20px;
+	flex: 1;
 }
 #wside, #wmain{
 	box-sizing: border-box;
@@ -35,20 +40,42 @@ p{margin: 1em 0;}
 	position: fixed;
 	top: 86px;
 	width:200px;
+	line-height: 1.5em;
 }
 #wmain{
 	margin-left:220px;
-	margin-right:220px;
+	max-width: 1000px;
 	overflow: hidden;
 	counter-reset: secTR2;
 }
 #toTop{
-	position: fixed;
-	right: 20px;
-	bottom: 50%;
-	font-size: 2.6rem;
+	display: inline-block;
+	margin-top: 10px;
+	font-size: 2rem;
 }
 /* 左侧边栏为菜单，中间为主内容，右边为其它信息（如广告） */
+
+/* ******************************************************* *
+ * header
+ * ******************************************************* */
+#header{
+	margin-bottom: 10px;
+	background-color:#000;
+	font-family:"Comic Sans MS";
+	ul{
+		margin-left: 10px;
+		li{
+			display:inline-block;
+			a{
+				display:inline-block;
+				padding:8px 10px;
+				color:#ccc;
+				font-size:1.2rem;
+				&:hover{color: #fff;}	
+			}	
+		}
+	}
+}
 
 /* ******************************************************* *
  * 左侧边栏
@@ -72,7 +99,7 @@ p{margin: 1em 0;}
 	color: #0066CC;
 }
 
-#wside dl dt a.on{background-color: #0F93BF;}
+#wside dl dt a.on{background-color: #002731;}
 #wside dl dd a.on{color: #0D89B2;text-decoration: underline;}
 
 #wside dl dt a:hover{background-color: #0F93BF;text-decoration: none;}
@@ -119,9 +146,6 @@ p{margin: 1em 0;}
  * 页尾
  * ******************************************************* */
 #footer{
-	position: absolute;
-	bottom: 0;
-	width: 100%;
 	margin-top:20px;
 	padding:5px 20px;
 	background-color:#F7FAF5;
@@ -141,6 +165,7 @@ p{margin: 1em 0;}
 .r1-title, .r2-title, .r3-title, .r4-title{
 	margin: 30px 0 10px;
 	color: #333;
+	font-weight: normal;
 }
 .r1-title{
 	margin: 10px 0 50px;
@@ -158,7 +183,6 @@ p{margin: 1em 0;}
 		margin-right: 10px;
 		content: counter(secTR2, cjk-ideographic);
 	}
-	&:first-child{margin-top: 0;}
 }
 .r2-body{
 	counter-reset: secTR3;
@@ -205,21 +229,26 @@ p{margin: 1em 0;}
  * ******************************************************* */
 /*浏览器兼容*/
 .browser-support{
+	display: flex;
+	flex-direction: row;
 	font-size: 12px;
 	line-height: 1.8;
 	color: #666666;
 }
 .browser-support mark{
-	padding: 2px 5px;
+	display: inline-block;
+	margin: 5px 2px 5px 0;
+	padding: 1px 5px;
+	white-space: nowrap;
 	background-color:#95C900;
 	color: #fff;
 }
 .browser-support .summary span{
 	display: inline-block;
-	margin: 5px 5px 5px 0;
+	margin:5px 2px;
 	padding: 0 5px;
 	border: 1px solid #E1E1E8;
-	background-color: #F7F7F9;
+	background-color: #FFFFED;
 	color: #79A204;
 	font-family: "comic sans ms";
 }
@@ -250,7 +279,7 @@ p{margin: 1em 0;}
 	background-color: #FAFAFA;
 }
 
-/*白色盒子*/
+/*白色盒子（可去掉）*/
 .wbox{
 	padding: 30px;
 	background-color: #FFFFFF;
@@ -272,6 +301,14 @@ p{margin: 1em 0;}
 /* ******************************************************* *
  * 列表
  * ******************************************************* */
+/*列表标题*/
+.listTit{
+	display: inline-block;
+	margin-bottom: 1px;
+	padding: 0 10px;
+	background-color: #EAF6E2;
+	font-size: 1.6rem;
+}
 .LT a{
 	display: inline-block;
 	width:250px;
@@ -286,27 +323,37 @@ p{margin: 1em 0;}
 
 /*分标题和内容的双列形式列表*/
 .dlist{
+	margin: 10px 0;
+	border: 1px dotted #ccc;
+	padding: 10px 10px 0;
+	font-size: 14px;
 	counter-reset: dlNum;
 	dt{
+		display: inline;
 		margin-bottom: 5px;
-		background-color: #FAFAFA;
+		padding: 0 10px 0 5px;
+		background-color: #EAF6E2;
 		counter-increment: dlNum;
+		.text-shadow(1px,1px,0,#fff);
 		&:before{
-			content: counter(dlNum,upper-roman) ". ";
+			margin-right: 10px;
+			content: counter(dlNum,decimal) ".";
+			color: #999;
+			font-size: 12px;
 		}
+		font-family: "comic sans ms";
+		font-weight: normal;
+		color: #666;
 	}
 	dd{
 		margin-bottom: 15px;
 	}
 }
-.dlist dt, .dlist dd{
-	font-size: 14px;
-	color: #666;
-}
 
-/*菜单主页面的列表*/
+/* ******************************************************* *
+ * 菜单主页面的列表
+ * ******************************************************* */
 #list{
-	font-family: "微软雅黑";
 	color: #555;
 	counter-reset: xuHao;
 	h3{
@@ -320,15 +367,28 @@ p{margin: 1em 0;}
 			content: "(" counter(xuHao,cjk-ideographic) ") ";
 		}
 	}
-	dt{
-		font-size: 1.4rem;
+	dl{
+		display: flex;
+		margin: 15px 0;
+		dt{
+			width: 200px;
+			font-size: 1.4rem;
+			font-weight: bold;
+		}
+		dd{
+			flex: 1;
+		}
 	}
+	
 	a{
 		display: inline-block;
 		margin: 0 10px 10px 0;
-		min-width: 120px;
+		width: 120px;
 		border: 1px solid #CFD2C6;
 		padding: 3px 10px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		font-size: 1.4rem;
 		text-align: center;
 		color: #666;
@@ -348,9 +408,9 @@ p{margin: 1em 0;}
 	.transition(background-color,.5s);
 	pre{
 		margin:0;border:0;background-color:@color;.transition(background-color,.5s);
-		&.line-numbers{margin:0 0 0 -30px;}
+		&.line-numbers{margin:0 0 0 -30px;line-height: 1.35;}
 		code{
-			font-size:12px;text-shadow:0 1px 0 rgba(255,255,255,.3);color:#fff;
+			font-size:13px;text-shadow:0 1px 0 rgba(255,255,255,.3);color:#fff;
 			.token.comment{.text-shadow-none;}
 		}
 	}

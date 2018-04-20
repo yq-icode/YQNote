@@ -10,85 +10,68 @@
     <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
-	<!--#include virtual="/include/_header.html" -->
-    <div class="cblock">
-    	<div class="bg-under">
-        	<div class="shape1"></div>
-        </div>
-        <div class="container content-area">
-        	<h1>LESS</h1>
-        </div>
-    </div>
-	<div class="container">
-    	<div class="row">
-        	<div class="col-md-9" role="main">
-                <section>
-                    <h3 class="title-sec">多参数通用写法<time>编辑日期：2016-7-2</time></h3>
-                    <p>以下以box-shadow为例。</p>
-                    <strong class="code-title">此写法只适合一组参数</strong>
-                    <div class="code-box">
-                        <pre class="language-less line-numbers">
-                            <code>
-            .box-shadow(@x:0; @y:0; @blur-radius:0; @spread-radius:0; @color:#ccc; @rest…){
-                -webkit-box-shadow:@arguments;
-                -moz-box-shadow:@arguments;
-                box-shadow:@arguments;
-            }
-                            </code>
-                        </pre>
-                        <span class="annotation">// 参数间用‘分号’间隔</span>
-                    </div>
-                    <p class="mt20"><strong>注意：</strong>因为外阴影是默认投影方式，而且没有默认值；只有是内阴影时才会加上inset，所以关于投影方式这个变量不能随便起个变量名，只能用@rest...，而且必须得放在最后。内阴影参数值也必须得相应的放在最后，这样参数值和变量才是一一对应的。</p>
-                    <div class="code-box">
-                        <pre class="language-less line-numbers">
-                            <code>
-            .btn4{.box-shadow(0,3px);}
-            .btn4{.box-shadow(0,3px,0,0,#ccc);}
-            .btn4{.box-shadow(0,3px,0,0,#ccc,inset);}
-                            </code>
-                        </pre>
-                        <span class="annotation">// 参数值用‘逗号’间隔；参数变量设置了默认值的可以省略不写；</span>
-                    </div>
-                    <strong class="code-title">此写法适用于一组及以上参数</strong>
-                    <div class="code-box">
-                        <pre class="language-less line-numbers">
-                            <code>
-            .box-shadow-multiple(@shadow){
-                @shadow-double:@shadow;
-                -webkit-box-shadow:@shadow;
-                -moz-box-shadow:@shadow;
-                box-shadow:@shadow;
-            }            
-                            </code>
-                        </pre>
-                    </div>
-                    <div class="code-box">
-                        <pre class="language-less line-numbers">
-                            <code>
-            .btn4{
-                ……
-                @shadow:0 7px 0 0 #ccc, inset 0 8px 3px 0 rgba(0,0,0,.2);
-                .box-shadow-multiple(@shadow);
-            }            
-                            </code>
-                        </pre>
-                    </div>
-                </section>
-                <!-- **************** separator line ****************  -->
-                <h3 class="title-sec">同系列颜色的定义</h3>
-                <p>对于同系列颜色，如蓝色，不论是深蓝还是浅蓝，无论是字体颜色还是背景、边框等颜色，只需要定义一个颜色变量 @color:blue ，则其它的颜色可以通过 Color Operation Functions 来实现，如： darken(@color,20%),lighten(@color,50%)，这样的便利即是当需要将该蓝色系改成红色系时，只需要改 @color 的值就可以了，即：@color:red ，一步即完成转换。</p>
-                <!-- **************** separator line ****************  -->
-                <div class="note-itme">
-                    <h3><a href="extend.html">Extend详解与实例</a></h3>
-                    <div class="note-body">
-                    
-                    </div>
-                </div>
-                <h3 class="title-sec">loop实现text-shadow长阴影效果</h3>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+    <div id="wmain">
+        <section>
+            <h2 class="r2-title">box-shadow</h2>
+            <p>以下以box-shadow为例。</p>
+            <strong class="code-title">此写法只适合一组参数</strong>
+            <div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+    .box-shadow(@x:0; @y:0; @blur-radius:0; @spread-radius:0; @color:#ccc; @rest…){
+        -webkit-box-shadow:@arguments;
+        -moz-box-shadow:@arguments;
+        box-shadow:@arguments;
+    }
+                    </code>
+                </pre>
+                <span class="annotation">// 参数间用‘分号’间隔</span>
             </div>
-            <div class="col-md-3" id="side">
+            <p class="mt20"><strong>注意：</strong>因为外阴影是默认投影方式，而且没有默认值；只有是内阴影时才会加上inset，所以关于投影方式这个变量不能随便起个变量名，只能用@rest...，而且必须得放在最后。内阴影参数值也必须得相应的放在最后，这样参数值和变量才是一一对应的。</p>
+            <div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+    .btn4{.box-shadow(0,3px);}
+    .btn4{.box-shadow(0,3px,0,0,#ccc);}
+    .btn4{.box-shadow(0,3px,0,0,#ccc,inset);}
+                    </code>
+                </pre>
+                <span class="annotation">// 参数值用‘逗号’间隔；参数变量设置了默认值的可以省略不写；</span>
             </div>
-        </div>
+            <strong class="code-title">此写法适用于一组及以上参数</strong>
+            <div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+    .box-shadow-multiple(@shadow){
+        @shadow-double:@shadow;
+        -webkit-box-shadow:@shadow;
+        -moz-box-shadow:@shadow;
+        box-shadow:@shadow;
+    }            
+                    </code>
+                </pre>
+            </div>
+            <div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+    .btn4{
+        ……
+        @shadow:0 7px 0 0 #ccc, inset 0 8px 3px 0 rgba(0,0,0,.2);
+        .box-shadow-multiple(@shadow);
+    }            
+                    </code>
+                </pre>
+            </div>
+        </section>
+        <!-- **************** separator line ****************  -->
+        <h2 class="r2-title">同系列颜色的定义</h2>
+        <p>对于同系列颜色，如蓝色，不论是深蓝还是浅蓝，无论是字体颜色还是背景、边框等颜色，只需要定义一个颜色变量 @color:blue ，则其它的颜色可以通过 Color Operation Functions 来实现，如： darken(@color,20%),lighten(@color,50%)，这样的便利即是当需要将该蓝色系改成红色系时，只需要改 @color 的值就可以了，即：@color:red ，一步即完成转换。</p>
+        <!-- **************** separator line ****************  -->
+        <h2 class="r2-title">loop实现text-shadow长阴影效果</h2>
     </div>
+</div>
 </body>
 </html>

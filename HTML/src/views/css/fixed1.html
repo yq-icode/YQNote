@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+    <div id="wmain">
+        <h2 class="r2-title">全局增加一个负值下边距等于底部高度</h2>
+        <p>有一个全局的元素包含除了底部之外的所有内容。它有一个负值下边距等于底部的高度</p>
+        <p>这个代码需要一个额外的元素.push等于底部的高度，来防止内容覆盖到底部的元素。这个push元素是智能的，它并没有占用到底部的利用，而是通过全局加了一个负边距来填充。</p>
+        <div class="code-box">
+        	<pre class="language-html line-numbers">
+            	<code>
+&lt;body&gt;
+  	&lt;div class="wrapper"&gt;
+      	content
+    	&lt;div class="push"&gt;&lt;/div&gt;
+  	&lt;/div&gt;
+  	&lt;footer class="footer"&gt;&lt;/footer&gt;
+&lt;/body&gt;
+                </code>
+            </pre>
+        </div>
+        <div class="code-box">
+        	<pre class="language-css line-numbers">
+            	<code>
+html, body {
+  	height: 100%;
+  	margin: 0;
+}
+.wrapper {
+  	min-height: 100%;
+  	margin-bottom: -50px;
+}
+.footer,.push {
+  	height: 50px;
+}
+                </code>
+            </pre>
+        </div>
+        
+        <h2 class="r2-title">底部元素增加负值上边距</h2>
+        <p>虽然这个代码减少了一个.push的元素，但还是需要增加多一层的元素包裹内容，并给他一个内边距使其等于底部的高度，防止内容覆盖到底部的内容。</p>
+        <div class="code-box">
+        	<pre class="language-html line-numbers">
+            	<code>
+&lt;body&gt;
+  	&lt;div class="content"&gt;
+    	&lt;div class="content-inside"&gt;
+    		content
+    	&lt;/div&gt;
+  	&lt;/div&gt;
+  	&lt;footer class="footer"&gt;&lt;/footer&gt;
+&lt;/body&gt;
+                </code>
+            </pre>
+        </div>
+        <div class="code-box">
+        	<pre class="language-css line-numbers">
+            	<code>
+html, body {
+  	height: 100%;
+  	margin: 0;
+}
+.content {
+  	min-height: 100%;
+}
+.content-inside {
+  	padding: 20px;
+  	padding-bottom: 50px;
+}
+.footer {
+  	height: 50px;
+  	margin-top: -50px;
+}
+                </code>
+            </pre>
+        </div>
+        
+        <h2 class="r2-title">使用calc()计算内容的高度</h2>
+        <div class="code-box">
+        	<pre class="language-html line-numbers">
+            	<code>
+&lt;body&gt;
+  	&lt;div class="content"&gt;
+    	content
+  	&lt;/div&gt;
+  	&lt;footer class="footer"&gt;&lt;/footer&gt;
+&lt;/body&gt;
+                </code>
+            </pre>
+        </div>
+        <div class="code-box">
+        	<pre class="language-css line-numbers">
+            	<code>
+.content{
+  	min-height: calc(100vh - 50px);
+}
+.footer{
+  	height: 50px;
+}
+                </code>
+            </pre>
+        </div>
+        
+        <h2 class="r2-title">使用flexbox</h2>
+        <div class="code-box">
+        	<pre class="language-html line-numbers">
+            	<code>
+&lt;body&gt;
+  	&lt;div class="content"&gt;
+    	content
+  	&lt;/div&gt;
+  	&lt;footer class="footer"&gt;&lt;/footer&gt;
+&lt;/body&gt;
+                </code>
+            </pre>
+        </div>
+        <div class="code-box">
+        	<pre class="language-css line-numbers">
+            	<code>
+html {
+  	height: 100%;
+}
+body {
+  	min-height: 100%;
+  	display: flex;
+  	flex-direction: column;
+}
+.content {
+  	flex: 1;
+}
+                </code>
+            </pre>
+        </div>
+        
+        <h2 class="r2-title">使用grid布局</h2>
+        <div class="code-box">
+        	<pre class="language-html line-numbers">
+            	<code>
+&lt;body&gt;
+  	&lt;div class="content"&gt;
+    	content
+  	&lt;/div&gt;
+  	&lt;footer class="footer"&gt;&lt;/footer&gt;
+&lt;/body&gt;
+                </code>
+            </pre>
+        </div>
+        <div class="code-box">
+        	<pre class="language-css line-numbers">
+            	<code>
+html {
+  	height: 100%;
+}
+body {
+  	min-height: 100%;
+  	display: grid;
+  	grid-template-rows: 1fr auto;
+}
+.footer {
+  	grid-row-start: 2;
+  	grid-row-end: 3;
+}
+                </code>
+            </pre>
+        </div>
+        
+        
+    </div>
+</div>
+</body>
+</html>

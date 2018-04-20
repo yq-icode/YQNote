@@ -5,20 +5,21 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>表单类效果</title>
-    <!--#include virtual="/include/_head_import_file.html" -->
-    <link rel="stylesheet/less" href="css/form.less">
-    <script src="/js/less-2.5.3.min.js"></script>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<link href="css/form.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
-	<!--#include virtual="/include/_header.html" -->
-	<div class="container">
-    	<div class="row">
-    		<div class="col-md-9" role="main">
-            	<!--#include virtual="_form_01.html" -->
-            	<!--#include virtual="_form_02.html" -->
-                <!-- **************** separator line ****************  -->
-            </div>
-        </div>
+	<div id="wrap">
+    	<!--#include virtual="_form_01.html" -->
+    	<!--#include virtual="_form_02.html" -->
     </div>
+    <script type="text/javascript">
+	    //添加TOP
+		addArticleTop();
+	</script>
 </body>
 </html>

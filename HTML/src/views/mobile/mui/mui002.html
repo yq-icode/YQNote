@@ -11,8 +11,7 @@
 <!--#include virtual="/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
-	<div id="wmain" style="width: 1000px;">
-		<h1 class="r1-title">奇怪的问题</h1>
+	<div id="wmain">
         <h2 class="r2-title">关闭视频播放页面后，video继续播放的问题</h2>
         <p>视频video在videoPlay.html中播放，如果通过mui.openWindow方式打开videoPlay.html，则退出该页面后，视频仍在播放，但是如果通过plus.webview.create形式打开videoPlay.html，则不会出现这种问题。原因请看：<a href="http://ask.dcloud.net.cn/question/6514">http://ask.dcloud.net.cn/question/6514</a></p>
         <p>此外，无论是mui.openWindow还是plus.webview.create，附带的传递的参数vidName都无法传递到videoPlay.html中，但是通过本地存储localStorage可以正常传递参数。</p>
@@ -55,7 +54,6 @@ $(eVideo).attr('src', "../images/" + vn + ".mp4");
             </pre>
         </div>
         
-        <!-- ######################## -->
         
         <!-- ######################## -->
     </div>

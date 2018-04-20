@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="MVC">
+		<file>
+			<title>MVC基础</title>
+			<name>index</name>
+			<path>/views/mvc/</path>
+		</file>
+	</main>
+	<main title="SVG">
+		<file>
+			<title>SVG基础</title>
+			<name>index</name>
+			<path>/views/svg/</path>
+		</file>
+	</main>
+</fileList>

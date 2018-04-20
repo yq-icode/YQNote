@@ -27,8 +27,18 @@
 		</sub>
 		<sub title="表单">
 			<file>
-				<title>表单类效果</title>
+				<title>自定义表单外观</title>
 				<name>index</name>
+				<path>demo/form/</path>
+			</file>
+			<file>
+				<title>提交表单</title>
+				<name>form01</name>
+				<path>demo/form/</path>
+			</file>
+			<file>
+				<title>数字增减框</title>
+				<name>numbox</name>
 				<path>demo/form/</path>
 			</file>
 		</sub>

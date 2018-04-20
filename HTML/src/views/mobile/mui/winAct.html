@@ -10,8 +10,9 @@
 </head>
 <body>
 	<!--#include virtual="/include/_header.html" -->
-    <div class="container">
-    	<section>
+    <div id="wrap">
+		<div id="wside"></div>
+		<div id="wmain">
         	<h3 class="title-sec">关于页面/窗口的一些知识</h3>
             <div class="code-box">
                 <pre class="language-js line-numbers">
@@ -29,7 +30,6 @@ plus.webview.getWebviewById('list.html')
     				</code>
                 </pre>
             </div>
-        </section>
         
     	<section>
         	<h3 class="title-sec">关闭页面</h3>
@@ -169,6 +169,7 @@ mui.init({
                 </pre>
             </div>
         </section>
+    </div>
     </div>
 </body>
 </html>

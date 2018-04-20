@@ -44,13 +44,15 @@
     </style>
 </head>
 <body>
-    <div id="dataShow">
-        <table class="table" id="table" width="100%"></table>
-        <div id="page"></div>
-    </div>
+	<div id="wrap">
+	    <div id="dataShow">
+	        <table class="table" id="table" width="100%"></table>
+	        <div id="page"></div>
+	    </div>
+   </div>
 	<script type="text/javascript">
 		//表头
-		var head=
+		var tHead=
 		    '<thead>'+
 		    '<tr>'+
 		    '<th> 姓  名 </th>'+
@@ -84,13 +86,13 @@
 		    var currentPage=1;//当前页，默认为1
 		    
 		    //分页部分
-		    var pageN;
-		    pageN = '<a class="pre" href="#">PRE</a>';//上一页
+		    var pagiHTML;
+		    pagiHTML = '<a class="pre" href="#">PRE</a>';//上一页
 		    for(var i=1;i<=PageCount;i++){
-		    	pageN += '<a class="nb" href="#" selectPage="'+i+'">第'+i+'页</a>';
+		    	pagiHTML += '<a class="nb" href="#" selectPage="'+i+'">第'+i+'页</a>';
 		    }
-		    pageN += '<a class="next" href="#">NEXT</a>';//下一页
-		    $('#page').append(pageN);
+		    pagiHTML += '<a class="next" href="#">NEXT</a>';//下一页
+		    $('#page').append(pagiHTML);
 		    
 		    $('#page .pre').addClass('disable');//初载入时:默认显示第1页，pre按钮不可点击
 		    $('#page a:nth-child(2)').addClass('on');//初载入时第1页高亮显示
@@ -99,7 +101,7 @@
 		    }
 		    
 		    //默认显示第一页
-		    $('#table').empty().append(head);
+		    $('#table').empty().append(tHead);
 		    for(i=(currentPage-1)*PageSize;i<PageSize*currentPage;i++){
 		        $('#table').append(pageData[i]);
 		    }
@@ -134,7 +136,7 @@
 		     	$('#page a').eq(Math.ceil(currentPage)).addClass('on');
 		     	
 		     	$('#table').html('');
-		        $('#table').append(head);
+		        $('#table').append(tHead);
 		        
 		        //为当前页添加数据
 		        for(i=(currentPage-1)*PageSize;i<PageSize*currentPage;i++){

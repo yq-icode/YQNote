@@ -11,143 +11,131 @@
     <script src="/js/common.js"></script>
 </head>
 <body>
-	<!--#include virtual="/include/_header.html" -->
-    <div class="cblock">
-    	<div class="bg-under">
-        	<div class="shape1"></div>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+    <div id="wmain">
+    	<h2 class="r2-title">经典用例一：避免添加基础类</h2>
+        <div class="code-box">
+            <pre class="language-css">
+                <code>
+                .animal {
+                  background-color: black;
+                  color: white;
+                }
+                </code>
+            </pre>
         </div>
-        <div class="container content-area">
-        	<h1>关于Extend</h1>
-            <p>包括语法详解、实例应用等</p>
+        <p>如果你想有一个animal子类型，并且要重写背景颜色。那么你有两个选择，首先改变你的HTML</p>
+        <div class="code-box">
+            <pre class="language-html">
+                <code>
+                &lt;a class="animal bear"&gt;Bear&lt;/a&gt;
+                </code>
+            </pre>
         </div>
+        <div class="code-box">
+            <pre class="language-css">
+                <code>
+                .animal {
+                  background-color: black;
+                  color: white;
+                }
+                .bear {
+                  background-color: brown;
+                }
+                </code>
+            </pre>
+        </div>
+        <p>或者简化HTML，然后在你的less中使用extend，比如：</p>
+        <div class="code-box">
+            <pre class="language-html">
+                <code>
+                &lt;a class="bear"&gt;Bear&lt;/a&gt;
+                </code>
+            </pre>
+        </div>
+        <div class="code-box">
+            <pre class="language-less">
+                <code>
+                .animal {
+                  background-color: black;
+                  color: white;
+                }
+                .bear {
+                  &:extend(.animal);
+                  background-color: brown;
+                }
+                </code>
+            </pre>
+        </div>
+        <!-- **************** separator line ****************  -->
+        <h2 class="r2-title">经典用例二：CSS尺寸归并</h2>
+        <p>Mixins会复制所有的属性到选择器中，这可能导致不必要的重复。因此你可以使用extend来代替mixin将你要用的属性移过去，这样就会生成更少的CSS。</p>
+        <p>mixin示例：</p>
+        <div class="code-box">
+        	<pre class="language-less">
+            	<code>
+                .my-inline-block() {
+                    display: inline-block;
+                  font-size: 0;
+                }
+                .thing1 {
+                  .my-inline-block;
+                }
+                .thing2 {
+                  .my-inline-block;
+                }
+                </code>
+            </pre>
+        </div>
+        <p>输出：</p>
+        <div class="code-box">
+        	<pre class="language-css">
+            	<code>
+                .thing1 {
+                  display: inline-block;
+                  font-size: 0;
+                }
+                .thing2 {
+                  display: inline-block;
+                  font-size: 0;
+                }
+                </code>
+            </pre>
+        </div>
+        <p>extend示例：</p>
+        <div class="code-box">
+        	<pre class="language-less">
+            	<code>
+                .my-inline-block {
+                  display: inline-block;
+                  font-size: 0;
+                }
+                .thing1 {
+                  &:extend(.my-inline-block);
+                }
+                .thing2 {
+                  &:extend(.my-inline-block);
+                }
+                </code>
+            </pre>
+        </div>
+        <p>输出：</p>
+        <div class="code-box">
+        	<pre class="language-css">
+            	<code>
+                .my-inline-block,
+                .thing1,
+                .thing2 {
+                  display: inline-block;
+                  font-size: 0;
+                }
+                </code>
+            </pre>
+        </div>
+        <!-- **************** separator line ****************  -->
     </div>
-    <div class="container">
-    	<div class="row">
-        	<div class="col-md-9" role="main">
-            	<h3 id="sec-1"><span class="num">1</span>经典用例一：避免添加基础类</h3>
-                <div class="code-box">
-                    <pre class="language-css">
-                        <code>
-                        .animal {
-                          background-color: black;
-                          color: white;
-                        }
-                        </code>
-                    </pre>
-                </div>
-                <p>如果你想有一个animal子类型，并且要重写背景颜色。那么你有两个选择，首先改变你的HTML</p>
-                <div class="code-box">
-                    <pre class="language-html">
-                        <code>
-                        &lt;a class="animal bear"&gt;Bear&lt;/a&gt;
-                        </code>
-                    </pre>
-                </div>
-                <div class="code-box">
-                    <pre class="language-css">
-                        <code>
-                        .animal {
-                          background-color: black;
-                          color: white;
-                        }
-                        .bear {
-                          background-color: brown;
-                        }
-                        </code>
-                    </pre>
-                </div>
-                <p>或者简化HTML，然后在你的less中使用extend，比如：</p>
-                <div class="code-box">
-                    <pre class="language-html">
-                        <code>
-                        &lt;a class="bear"&gt;Bear&lt;/a&gt;
-                        </code>
-                    </pre>
-                </div>
-                <div class="code-box">
-                    <pre class="language-less">
-                        <code>
-                        .animal {
-                          background-color: black;
-                          color: white;
-                        }
-                        .bear {
-                          &:extend(.animal);
-                          background-color: brown;
-                        }
-                        </code>
-                    </pre>
-                </div>
-                <!-- **************** separator line ****************  -->
-                <h3 id="sec-2"><span class="num">2</span>经典用例二：CSS尺寸归并</h3>
-                <p>Mixins会复制所有的属性到选择器中，这可能导致不必要的重复。因此你可以使用extend来代替mixin将你要用的属性移过去，这样就会生成更少的CSS。</p>
-                <p>mixin示例：</p>
-                <div class="code-box">
-                	<pre class="language-less">
-                    	<code>
-                        .my-inline-block() {
-                            display: inline-block;
-                          font-size: 0;
-                        }
-                        .thing1 {
-                          .my-inline-block;
-                        }
-                        .thing2 {
-                          .my-inline-block;
-                        }
-                        </code>
-                    </pre>
-                </div>
-                <p>输出：</p>
-                <div class="code-box">
-                	<pre class="language-css">
-                    	<code>
-                        .thing1 {
-                          display: inline-block;
-                          font-size: 0;
-                        }
-                        .thing2 {
-                          display: inline-block;
-                          font-size: 0;
-                        }
-                        </code>
-                    </pre>
-                </div>
-                <p>extend示例：</p>
-                <div class="code-box">
-                	<pre class="language-less">
-                    	<code>
-                        .my-inline-block {
-                          display: inline-block;
-                          font-size: 0;
-                        }
-                        .thing1 {
-                          &:extend(.my-inline-block);
-                        }
-                        .thing2 {
-                          &:extend(.my-inline-block);
-                        }
-                        </code>
-                    </pre>
-                </div>
-                <p>输出：</p>
-                <div class="code-box">
-                	<pre class="language-css">
-                    	<code>
-                        .my-inline-block,
-                        .thing1,
-                        .thing2 {
-                          display: inline-block;
-                          font-size: 0;
-                        }
-                        </code>
-                    </pre>
-                </div>
-                <!-- **************** separator line ****************  -->
-            </div>
-            <div class="col-md-3" id="side">
-            </div>
-        </div>
-    </div>
+</div>
 </body>
 </html>

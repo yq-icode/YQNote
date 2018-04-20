@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MVC</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+    <div id="wmain">
+    	<h2 class="r2-title">文件引用</h2>
+    	<div class="r2-body">
+    		<dl class="dlist">
+    			<dt>@RenderBody()</dt>
+    			<dd>@RenderBody()一般放在layout文件中，用于引用主体文件，只能在layout中出现一次</dd>
+    			<dt>@Html.Partial("_foot1")</dt>
+    			<dd>@Html.Partial()即可放在layout中，也可以放在一般文件中，用于引用其它文件</dd>
+    			<dt>_ViewStart.cshtml</dt>
+    			<dd>View根目录下的_ViewStart.cshtml 先执行 然后再执行对应文件夹下的_ViewStart.cshtml 最后执行访问的cshtml页面</dd>
+    		</dl>
+    	</div>
+    	<h2 class="r2-title">设置当前菜单</h2>
+    	<strong>视图页</strong>
+    	<div class="code-box">
+        	<pre class="language-html line-numbers">
+            	<code>
+//首页            		
+@{
+    ViewBag.Title = "首页";
+    ViewBag.Num = "1";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+//产品与服务            		
+@{
+    ViewBag.Title = "产品与服务";
+    ViewBag.Num = "2";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+//投资者关系            		
+@{
+    ViewBag.Title = "投资者关系";
+    ViewBag.Num = "3";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+                </code>
+            </pre>
+        </div>
+        <strong>layout页</strong>
+        <div class="code-box">
+        	<pre class="language-html line-numbers">
+            	<code>
+&lt;input type="hidden" value="@ViewBag.Num" id="navNum" /&gt;
+&lt;div class="nav"&gt;
+    &lt;a name="1" href="/Home/Index" class="on">首页&lt;/a&gt;
+    &lt;a name="2" href="/ProSer/Index">产品与服务&lt;/a&gt;
+    &lt;a name="3" href="/tzRea/Index">投资者关系&lt;/a&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+        </div>
+        <div class="code-box">
+        	<pre class="language-js line-numbers">
+            	<code>
+$(".nav a").each(function () {
+    if ($(this).attr('name') == $('#navNum').val()) {
+        $(this).addClass('on').siblings().removeClass('on');
+    }
+})
+                </code>
+            </pre>
+        </div>
+        
+        <h2 class="r2-title">layout引用</h2>
+        <strong>视图页</strong>
+    	<div class="code-box">
+        	<pre class="language-html line-numbers">
+            	<code>
+//如果想引用模板，按以下设置（_Layout2.cshtml为模板所在页）            		
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+//如果不想引用模板，以下两种写法都可        		
+@{
+    Layout = null;
+}
+@{
+    Layout = string.Empty;
+}
+                </code>
+            </pre>
+        </div>
+        
+        <h2 class="r2-title">视图View与控制器Controller</h2>
+        
+
+    </div>
+</div>
+</body>
+</html>

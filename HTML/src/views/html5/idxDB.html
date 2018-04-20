@@ -12,10 +12,9 @@
 <!--#include virtual="/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
-	<div id="wmain" style="width: 1000px;">
-		<h1 class="r1-title">HTML5本地存储IndexedDB数据库</h1>
+	<div id="wmain">
 		<h2 class="r2-title">方法或属性讲解</h2>
-		<section class="r2-body wbox">
+		<section class="r2-body">
 			<h3 class="r3-title">cursor.continue</h3>
 			<p>cursor.continue的作用在于使游标移动到结果集的下一项，默认情况下游标只发起一次请求，要想发起另一次请求使游标继续查找，则需调用continue(key)方法，该方法中参数可选，不指定参数，移到下一项，指定该参数，移到指定键的位置。</p>
 			<p>如果不加cursor.continue则会只出现第一条数据</p>
@@ -35,10 +34,45 @@ e.target.result == this.result //这二者是等价的
 	                </code>
 	            </pre>
 	        </div>
+	        <!--*********************************-->
+	        <h3 class="r3-title">object store</h3>
+	        <p>有了数据库后我们自然希望创建一个表用来存储数据，但indexedDB中没有表的概念，而是objectStore，一个数据库中可以包含多个objectStore，objectStore是一个灵活的数据结构，可以存放多种类型数据。也就是说一个objectStore相当于一张表，里面存储的每条数据和一个键相关联。</p>
+	        <p>我们可以使用每条记录中的某个指定字段作为键值（keyPath），也可以使用自动生成的递增数字作为键值（keyGenerator），也可以不指定。选择键的类型不同，objectStore可以存储的数据结构也有差异</p>
+	        <dl class="dlist">
+	        	<dt>键类型</dt>
+	        	<dd>存储数据</dd>
+	        	<dt>不使用</dt>
+	        	<dd>任意值，但是没添加一条数据的时候需要指定键参数</dd>
+	        	<dt>keyPath</dt>
+	        	<dd>Javascript对象，对象必须有一属性作为键值</dd>
+	        	<dt>keyGenerator</dt>
+	        	<dd>任意值</dd>
+	        	<dt>都使用</dt>
+	        	<dd>Javascript对象，如果对象中有keyPath指定的属性则不生成新的键值，如果没有自动生成递增键值，填充keyPath指定属性</dd>
+	        </dl>
+	        <!--*********************************-->
+	        <h3 class="r3-title">createIndex</h3>
+	        <p>在建立存储空间时，指定的存储键可以有两种，一种是通过keyPath指定存储键，另一种是通过autoIncrement使记录自增，如果我们想为存储空间指定多个键要怎么办呢？IndexedDB提供了创建索引的方式，下面我们看一下如何创建索引以及索引的作用。
+要创建索引，首先要引用对象存储空间，然后调用createIndex()方法，如下示例：</p>
+	        <dl class="dlist">
+	        	<dt>createIndex()</dt>
+	        	<dd>第一个参数是建立的索引的名字，第二个参数是索引的属性的名字，第三个参数是一个包含unique属性的选项的对象，表示这个索引的键在记录中是否唯一。</dd>
+	        	<dt>注意点</dt>
+	        	<dd>测demo的时候发现创建索引应该和创建存储空间一起，如果先创建存储空间然后再获得存储空间创建索引会报错。</dd>
+	        </dl>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+var store = db.createObjectStore("teachers",{keyPath:id});
+var index = store.createIndex("age","age",{unique:false});
+	                </code>
+	            </pre>
+	        </div>
+	        
 	   </section>
 	   
         <h2 class="r2-title">常见错误</h2>
-        <div class="r2-body wbox">
+        <div class="r2-body">
         	<div class="reference">
         		<a target="_blank" href="http://blog.csdn.net/a214161398a/article/details/54947991"></a>
         	</div>

@@ -60,5 +60,10 @@
 			<name>mui002</name>
 			<path>/views/mobile/mui/</path>
 		</file>
+		<file>
+			<title>瀑布流</title>
+			<name>mui003</name>
+			<path>/views/mobile/mui/</path>
+		</file>
 	</main>
 </fileList>

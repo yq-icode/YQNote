@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<form>
+			<input type="text" name="userName" placeholder="userName" value="" />
+			<label>
+				<input type="radio" name="sex" value="" checked="checked" /> man
+			</label>
+			<label>
+				<input type="radio" name="sex" value="" /> woman
+			</label>
+			<input type="text" name="addr" placeholder="address" value="" />
+			<button type="button">submit</button>
+		</form>
+	</div>
+	<script type="text/javascript">
+		var eleForm = document.querySelector("form");
+		
+		var dbName = 'project';
+		var tName = "user";
+		var version = 1;
+		var db;
+		var DBOpenRequest = window.indexedDB.open(dbName, version);
+		// 如果数据库打开失败
+	    DBOpenRequest.onerror = function(event) {
+	        logError('数据库打开失败');
+	    };
+	    
+	    DBOpenRequest.onupgradeneeded = function(event) {
+	        db = event.target.result;
+	     
+	        db.onerror = function(event) {
+	            logError('数据库打开失败');
+	        };
+	    
+	        // 创建一个数据库存储对象
+	        var objectStore = db.createObjectStore(tName,{keyPath:"id", autoIncrement:true});
+	    
+	        // 定义存储对象的数据项
+	        objectStore.createIndex('name', 'name');
+	        objectStore.createIndex('sex', 'sex');
+	        objectStore.createIndex('addr', 'addr');
+
+	    };
+	    
+	    DBOpenRequest.onsuccess = function(event) {
+	        // 存储数据结果
+	        db = event.target.result;
+	        var transaction = db.transaction(tName, "readwrite");
+	        // 打开已经存储的数据对象
+		    var objectStore = transaction.objectStore(tName);
+		            
+	        var method = {
+		        add: function (newItem) {
+		            objectStore.add(newItem);
+		        }
+		    }
+		    
+		    // 表单提交新增数据
+		    $(eleForm).click(function(){
+		    	console.log("***");
+		        var utd = [];
+				var utd = $(eleForm).serializeArray();
+				console.log(utd);
+				$.each(utd, function(key,val) {
+					console.log(val.name + " : " + val.value)
+				});
+		            
+		        method.add(utd);
+		    })
+	    };
+		
+		
+		//添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

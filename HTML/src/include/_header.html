@@ -1,20 +1,5 @@
 <header id="header">
-	<nav class="navbar navbar-inverse">
-    	<div class="container">
-        	<div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>	
-                </button>
-                <a class="navbar-brand" href="#">YQ</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                <ul class="nav navbar-nav"></ul>
-            </div>
-        </div>
-    </nav>
+	<ul></ul>
 </header>
 
 <script type="text/javascript">
@@ -22,13 +7,11 @@
 		{name:"HTML", url:"/views/html/index.html"},
 		{name:"HTML5", url:"/views/html5/index.html"},
 		{name:"CSS", url:"/views/css/index.html"},
-		{name:"CSS3", url:"/views/css3/index.html"},
-		{name:"LESS", url:"/views/less/index.html"},
 		{name:"JS", url:"/views/js/index.html"},
 		{name:"MOBILE", url:"/views/mobile/index.html"},
 		{name:"BOOTSTRAP", url:"/views/bootstrap/index.html"},
 		{name:"AXURE", url:"/views/axure/index.html"},
-		{name:"SVG", url:"/views/svg/index.html"},
+		{name:"框架", url:"/views/index.html"},
 		{name:"TAGS", url:"/views/tags.html"}
 	]
 	var gNavHtml = "";
@@ -38,5 +21,5 @@
 		gNavHtml += "<a href='" + gn.url + "'>" + gn.name + "</a>";
 		gNavHtml += "</li>";
 	}
-	document.querySelector('.navbar-nav').innerHTML = gNavHtml;
+	document.querySelector('ul').innerHTML = gNavHtml;
 </script>

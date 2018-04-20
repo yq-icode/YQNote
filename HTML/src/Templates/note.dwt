@@ -49,6 +49,5 @@
 		</div>
 		<hr class="cb" />
 	</div>
-	<div id="footer"><!--#include virtual="/include/common/footer.html" --></div>
 </body>
 </html>

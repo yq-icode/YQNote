@@ -9,9 +9,11 @@
     <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
-	<!--#include virtual="/include/_header.html" -->
-    <div class="container">
-    	<h2>(function($){})(jQuery)、$(function(){})、$(document).ready(function(){})三者的区别讲解</h2>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">(function($){})(jQuery)、$(function(){})、$(document).ready(function(){})三者的区别讲解</h2>
         <div class="code-box">
             <pre class="language-js line-numbers">
                 <code>   
@@ -33,5 +35,6 @@ $(document).ready(function(){})
 		</p>
 		<p>$(function(){})是$(document).ready(function(){})的简写，这种方法在使用时页面的Dom对象已经加载完毕了。</p>
     </div>
+</div>
 </body>
 </html>

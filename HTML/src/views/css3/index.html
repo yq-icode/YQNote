@@ -10,22 +10,21 @@
     <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
-	<!--#include virtual="/include/_header.html" -->
-	<div class="container">
-    	<div class="row">
-        	<div class="col-md-9" role="main">
-                <h3>关于firefox下transition下失效的原因</h3>
-                <p>一般属性值0时，我们都会省略单位，但是这种写法却让transition效果在firefox下失效了。</p>
-                <strong class="code-title">这种写法在firefox下无过渡效果</strong>
-                <div class="code-box">
-                    <pre class="language-css"><code>transition:all .15s ease-in 0;</code></pre>
-                </div>
-                <strong class="code-title">给值为0的参数加上单位才能在firefox下正常</strong>
-                <div class="code-box">
-                    <pre class="language-css"><code>transition:all .15s ease-in 0s;</code></pre>
-                </div>
-            </div>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+    <div id="wmain">
+        <h3>关于firefox下transition下失效的原因</h3>
+        <p>一般属性值0时，我们都会省略单位，但是这种写法却让transition效果在firefox下失效了。</p>
+        <strong class="code-title">这种写法在firefox下无过渡效果</strong>
+        <div class="code-box">
+            <pre class="language-css"><code>transition:all .15s ease-in 0;</code></pre>
+        </div>
+        <strong class="code-title">给值为0的参数加上单位才能在firefox下正常</strong>
+        <div class="code-box">
+            <pre class="language-css"><code>transition:all .15s ease-in 0s;</code></pre>
         </div>
     </div>
+</div>
 </body>
 </html>

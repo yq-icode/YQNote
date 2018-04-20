@@ -44,17 +44,20 @@
     </style>
 </head>
 <body>
-    <div id="dataShow">
-        <table class="table" id="table" width="100%"></table>
-        <div id="page">
-        	<a class="pre" href="#">PRE</a>
-        	<a class="next" href="#">NEXT</a>
-        	<select class='selPage' onchange='psch(this)'></select>
-        </div>
-    </div>
+	<div id="wrap">
+		<div id="dataShow">
+	        <table class="table" id="table" width="100%"></table>
+	        <div id="page">
+	        	<a class="pre" href="#">PRE</a>
+	        	<a class="next" href="#">NEXT</a>
+	        	<select class='selPage' onchange='psch(this)'></select>
+	        </div>
+	    </div>
+	</div>
+    
 	<script type="text/javascript">
 		//表头
-		var head=
+		var tHead=
 		    '<thead>'+
 		    '<tr>'+
 		    '<th> 姓  名 </th>'+
@@ -100,7 +103,7 @@
 		    }
 		    
 		    //默认显示第一页
-		    $('#table').empty().append(head);
+		    $('#table').empty().append(tHead);
 		    for(i=(currentPage-1)*PageSize;i<PageSize*currentPage;i++){
 		        $('#table').append(pageData[i]);
 		    }
@@ -141,7 +144,7 @@
 	    	}
 	    	
 			$('#table').html('');
-	        $('#table').append(head);
+	        $('#table').append(tHead);
 	        
 	        //为当前页添加数据
 	        for(i=(currentPage-1)*PageSize;i<PageSize*currentPage;i++){

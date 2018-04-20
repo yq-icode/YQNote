@@ -11,5 +11,10 @@
 			<name>idxDB</name>
 			<path>/views/html5/</path>
 		</file>
+		<file>
+			<title>HTML5标签</title>
+			<name>h5tag</name>
+			<path>/views/html5/</path>
+		</file>
 	</main>
 </fileList>

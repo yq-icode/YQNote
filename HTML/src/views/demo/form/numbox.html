@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<link href="css/form.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<div class="spinner">
+            <input type="text" value="22" min="5" max="30" onkeyup="value=value.replace(/[^\d]/g,'')">
+            <div class="vgbtn">
+                <button type="button"><i class="iconfont icon-triangle-top"></i></button>
+                <button type="button"><i class="iconfont icon-triangle-bottom"></i></button>
+            </div>
+        </div>
+	</div>
+	<script type="text/javascript">
+		/*数字增减框*/
+	    var nbBox, nbVal, nbMin, nbMax;
+	
+	    nbBox = $('.spinner input');
+	    nbVal = $(nbBox).val();/*当前值*/
+	    nbMin = parseInt($(nbBox).attr('min'));/*最小值*/
+	    nbMax = parseInt($(nbBox).attr('max'));/*最大值*/
+	
+	    $('.spinner button:first-of-type').on('click', function () {
+	        nbVal = $(nbBox).val();
+	        if(nbVal < nbMax){
+	            $(nbBox).val( parseInt(nbVal) + 1);
+	        }
+	    });
+	    $('.spinner button:last-of-type').on('click', function () {
+	        nbVal = $(nbBox).val();
+	        if(nbVal > nbMin){
+	            $(nbBox).val( parseInt(nbVal) - 1);
+	        }
+	    });
+	    /*当输入的数字超出允许的最大最小值时*/
+	    $(nbBox).on('keyup', function () {
+	        nbVal = $(this).val();
+	        /*当输入值大于最大值时，设定为最大值*/
+	        if (nbVal > nbMax) {
+	            $(this).val(nbMax);
+	        }
+	        /*当输入值小于最小值时，设定为最小值*/
+	        if (nbVal < nbMin) {
+	            $(this).val(nbMin);
+	        }
+	    })
+	    
+	    //添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

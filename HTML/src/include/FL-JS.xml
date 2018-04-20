@@ -28,6 +28,11 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
+				<title>网页、屏幕尺寸</title>
+				<name>fun10</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
 				<title>异步、回调、闭包、事件监听等详解</title>
 				<name>fun09</name>
 				<path>/views/js/</path>
@@ -63,6 +68,16 @@
 			</file>
 			<file>
 				<title>截取文件名</title>
+				<name>method01</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>判断图片是否加载完成</title>
+				<name>method01</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>获取图片的原始尺寸</title>
 				<name>method01</name>
 				<path>/views/js/</path>
 			</file>
@@ -116,11 +131,6 @@
 			<name>fun06</name>
 			<path>/views/js/</path>
 		</file>
-		<file>
-			<title>jQuery AJAX $.get() $.post() $(selector).load()</title>
-			<name>fun06</name>
-			<path>/views/js/</path>
-		</file>
 	</main>
 	<main title="JSON">
 		<file>
@@ -130,16 +140,25 @@
 		</file>
 	</main>
 	<main title="AJAX">
-		<file>
-			<title>AJAX</title>
-			<name>ajax</name>
-			<path>/views/js/</path>
-		</file>
-		<file>
-			<title>同步（Synchronous）和异步（Asychronous）</title>
-			<name>asy</name>
-			<path>/views/js/</path>
-		</file>
+		<sub title="">
+			<file>
+				<title>AJAX</title>
+				<name>ajax</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>同步（Synchronous）和异步（Asychronous）</title>
+				<name>asy</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+		<sub title="jQuery ajax">
+			<file>
+				<title>jQuery AJAX 操作函数</title>
+				<name>ajax2</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
 	</main>
 	<main title="VUE">
 		<file>
