@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+    <style type="text/css">
+    	table{
+    		border-collapse: collapse;
+    	}
+    	th,td{
+    		border: 1px solid #eee;
+    		padding: 5px 10px;
+    	}
+    </style>
+</head>
+<body>
+	<div id="wrap">
+	    <table class="table" id='tabletest'>
+		    <tr>
+		        <th>名字</th>
+		        <th>开始时间</th>
+		        <th>是否真实</th>
+		        <th>设备</th>
+		    </tr>
+		 </table>
+   	</div>
+	<script type="text/javascript">
+	    $(function(){
+            $.ajax({
+	            url:'JData1.json',
+	            type:'get',
+	            dataType:'json',
+	            success:function(data){
+	                $.each(data.dse,function(index,item){
+	                    var tr;
+	                    tr = '<td>' + item.name + '</td>' + 
+	                    	 '<td>' + item.startTime + '</td>' + 
+	                    	 '<td>' + item.is_true + '</td>' + 
+	                    	 '<td>' + item.device + '</td>';
+	                    $("#tabletest").append('<tr>' + tr + '</tr>');
+	                })
+	            }
+			})
+        })
+		
+		//添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

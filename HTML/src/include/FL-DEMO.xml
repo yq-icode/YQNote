@@ -51,18 +51,33 @@
 		</sub>
 		<sub title="分页">
 			<file>
-				<title>用JS实现前端分页一</title>
+				<title>前端分页一</title>
 				<name>pagination</name>
 				<path>demo/</path>
 			</file>
 			<file>
-				<title>用JS实现前端分页二</title>
+				<title>前端分页二</title>
 				<name>pagination2</name>
 				<path>demo/</path>
 			</file>
 			<file>
-				<title>用JS实现前端分页三</title>
+				<title>前端分页三</title>
 				<name>pagination3</name>
+				<path>demo/</path>
+			</file>
+			<file>
+				<title>前端分页四</title>
+				<name>pagination4</name>
+				<path>demo/</path>
+			</file>
+			<file>
+				<title>Ajax获取数据然后显示在页面的实现方法</title>
+				<name>pagination5</name>
+				<path>demo/</path>
+			</file>
+			<file>
+				<title>Ajax获取数据然后显示在页面的实现方法2</title>
+				<name>pagination6</name>
 				<path>demo/</path>
 			</file>
 		</sub>
@@ -171,6 +186,11 @@
 			<title>Messenger弹框组件</title>
 			<name>index</name>
 			<path>/plugIn/Messenger/</path>
+		</file>
+		<file>
+			<title>artDialog网页对话框组件</title>
+			<name>index</name>
+			<path>/plugIn/artDialog/</path>
 		</file>
 	</main>
 	<main title="其它">

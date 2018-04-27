@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<p class="reference">
+			<a href="http://www.runoob.com/jquery/misc_data.html"></a>
+			<a href="http://www.w3school.com.cn/jquery/data_data.asp"></a>
+			<a href="http://www.w3school.com.cn/jquery/data_jquery_data.asp"></a>
+		</p>
+		<h2 class="r2-title">$.data() $.removeData()讲解</h2>
+		<h3 class="listTit">$.data( element, key ) <span class="ml20">$.data( element, key, value )</span></h3>
+		<dl class="dlist">
+			<dt>element</dt>
+			<dd>Element类型 要存储数据的DOM对象</dd>
+			<dt>key</dt>
+			<dd>可选。String类型 指定的键名字符串。</dd>
+			<dt>value</dt>
+			<dd>可选。 Object类型 需要存储的任意类型的数据。</dd>
+			<dt>注意</dt>
+			<dd>
+				<p>通过 data() 函数存取的数据都是临时数据，一旦页面刷新，之前存放的数据都将被移除。</p>
+				<p>undefined 是一个没有被识别数据值。调用 jQuery.data( el, "name", undefined ) 将返回对应的 "name" 数据，等价于 jQuery.data(el, "name" ) 。</p>
+				<p>该方法目前并不提供在XML文档上跨平台设置，Internet Explorer不允许在XML文档中通过自定义属性附加数据。</p>
+			</dd>
+		</dl>
+		<h3 class="listTit">$(selector).removeData(name)</h3>
+		<dl class="dlist">
+			<dt>name</dt>
+			<dd>
+				可选。规定要删除的数据的名称。<br>
+				如果没有规定名称，该方法将从被选元素中删除所有已存储的数据。
+			</dd>
+		</dl>
+		
+		<h2 class="r2-title">$.data()存储与匹配元素相关的任意数据</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">直接向元素附加数据</h3>
+			<p>可以在一个元素上设置不同的值，并获取这些值</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//附加数据	                	
+$("div").data("greeting1", "Hello World1");
+$("div").data("greeting2", "Hello World2");
+
+//返回数据
+$("div").data("greeting1")//返回Hello World1
+$("div").data("greeting2")//返回Hello World2
+
+//删除数据
+$("div").removeData("greeting1");
+$("div").removeData();
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">使用对象向元素附加数据</h3>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+testObj = new Object();
+testObj.greetingMorn = "Good Morning!";
+testObj.greetingEve = "Good Evening!";
+
+$("div").data(testObj);//把数据添加到div元素
+$("div").data("greetingEve")//获取已添加到div元素的数据： 返回Good Evening!	
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        
+	        
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+	
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		
+		<h2 class="r2-title">$.data( element, key, value )</h2>
+        <div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>   
+&lt;div&gt;
+	存储的值为&lt;span&gt;&lt;/span&gt;和&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;	
+		            </code>
+            </pre>
+        </div>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>   
+$(function () { 
+	var div = $( "div" )[ 0 ];
+	jQuery.data( div, "test", {
+		first: 16,
+		last: "pizza!"
+	});
+	$( "span:first" ).text( jQuery.data( div, "test" ).first );
+	$( "span:last" ).text( jQuery.data( div, "test" ).last );
+})
+//运行结果：存储的值为 16 和 pizza!
+		            </code>
+            </pre>
+        </div>
+        
+	</div>
+</div>
+</body>
+</html>

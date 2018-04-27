@@ -35,7 +35,6 @@
         #page a{
         	display: inline-block;
         	margin: 0 2px;
-        	min-width: 15px;
         	border: 1px solid #eee;
         	padding: 0 8px;
         	background-color: #fff;
@@ -72,21 +71,21 @@
    </div>
 	<script type="text/javascript">
 		//表头
-		var tHead=
+		var tHead =
 		    '<thead>' +
 		    '<tr>' +
-		    '<th>姓  名</th>' +
-		    '<th>年  龄</th>' +
-		    '<th>彦  值*</th>' +
-		    '<th>成  绩</th>' +
-		    '<th>身 高cm</th>' +
+		    '<th> 姓  名 </th>' +
+		    '<th> 年  龄 </th>' +
+		    '<th> 彦  值* </th>' +
+		    '<th> 成  绩 </th>' +
+		    '<th> 身 高cm </th>' +
 		    '</tr>' +
 		    '</thead>' +
 		    '<tbody>';
 		//表内容，后台返回的内容可以封装到这里，随时取用，但是如果数据量很大估计会相当耗资源。
 		var pageData=[];
-		for(var i=1;i<=310;i++){
-		    var data=
+		for(var i=1; i<=310; i++){
+		    var data =
 		    '<tr>' +
 		    '<td>学生' + i + '</td>' +
 		    '<td>' + Math.round(Math.random()*20) + '</td>' +
@@ -97,17 +96,32 @@
 		    pageData.push(data);
 		}
 		//表结尾
-		var end='</tbody>';
+		var end = '</tbody>';
 		
-		var Count = pageData.length;//总条数
+	    /* 构建分页部分
+	     * -------------------------------------
+	     * PBox        : 包含分页的HMTL元素
+	     * currentPage : 当前页
+	     * PageSize    : 每页默认显示的数据条数
+	     * dataCount   : 总条数
+	     * PageCount   : 总页数
+	     * limit       : 显示的页码总数限制
+	     */
+	    
+	    var PBox = $('#page'); //包含分页的HMTL元素
+	    var dataCount = pageData.length;//总条数
 	    var PageSize = 10;//每页默认显示的数据条数
-	    var PageCount = Math.ceil(Count/PageSize);//计算总页数
+	    var PageCount = Math.ceil(dataCount/PageSize);//计算总页数
 	    var currentPage = 1;//当前页，默认为1
 	    var limit = 10//显示的页码总数限制
 	    
-	    //构建分页部分
+	    makePagi(currentPage, PageSize, dataCount, PageCount, limit);
+	    
+	    function makePagi(currentPage, PageSize, dataCount, PageCount, limit){
+	    	setPage(currentPage);
+	    }
+	    
 	    function setPage(currentPage){
-	    	console.log("currentPage: " + currentPage)
 	    	var pagiDom = $("<div></div>");
 	    	//当前页/总页数
 	    	pagiDom.append($("<span>当前 " + currentPage + "/" + PageCount + "</span>"));
@@ -117,9 +131,9 @@
 	    		var e = this;
 	    			
     			PageSize = e.options[e.selectedIndex].text;
-	    		PageCount = Math.ceil(Count/PageSize);//重新计算总页数
+	    		PageCount = Math.ceil(dataCount/PageSize);//重新计算总页数
 	    		
-	    		if(currentPage*PageSize > Count){
+	    		if(currentPage*PageSize > dataCount){
 	    			currentPage = PageCount;
 	    		}
 	    		setPage(currentPage);
@@ -205,13 +219,13 @@
 		    	}
 		    }));
 		    
-		    $('#page').html(pagiDom);
+		    $(PBox).html(pagiDom);
 		    
 		    //为当前页添加数据
 		    getTData(currentPage);
 		    
 		    //高亮显示当前页
-		    $("#page a").each(function(){
+		    $(PBox).find('a').each(function(){
 		    	$(this).removeClass('on');
 		    	if($(this).text() == currentPage){
 		    		$(this).addClass('on');
@@ -220,16 +234,15 @@
 		    
 		    //当前页为首页时pre按钮不可点击
 		    if(currentPage == 1){
-		    	$('#page .pre').addClass('disable');
+		    	$(PBox).find('.pre').addClass('disable');
 		    }
 		    
 		    //当前页为尾页时next按钮不可点击
 		    if(currentPage == PageCount){
-		    	$('#page .next').addClass('disable');
+		    	$(PBox).find('.next').addClass('disable');
 		    }
 	    }
 	    
-	    setPage(currentPage);
 	    
 	    //为当前页添加数据
 	    function getTData(currentPage){

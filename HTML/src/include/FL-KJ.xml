@@ -6,6 +6,11 @@
 			<name>index</name>
 			<path>/views/mvc/</path>
 		</file>
+		<file>
+			<title>创建ASP.NET MVC WEB项目</title>
+			<name>mvc001</name>
+			<path>/views/mvc/</path>
+		</file>
 	</main>
 	<main title="SVG">
 		<file>

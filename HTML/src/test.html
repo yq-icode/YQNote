@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>测试</title>
     <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="test.js"></script>
+    <!--<script src="test.js"></script>-->
     <style type="text/css">  
     </style>
 </head>
@@ -19,7 +19,6 @@
 	    <p>补充说明：<textarea rows="5" placeholder="非必填" name="remark"></textarea></p>
 	    <p><input type="submit" value="确定创建"></p>
 	</form>
-	
 	<div id="result" class="result">
 	    <table>
 	        <thead>
@@ -31,21 +30,23 @@
 	                <th>补充说明</th>
 	                <th width="30">操作</th>
 	            </tr>
+	            <tr>
+				    <td data-key-sa="name" data-id="$id$" contenteditable="plaintext-only">$name$</td>
+				    <td data-key="begin" data-id="$id$" contenteditable="plaintext-only">$begin$</td>
+				    <td data-key="end" data-id="$id$" contenteditable="plaintext-only">$end$</td>
+				    <td data-key="person" data-id="$id$" contenteditable="plaintext-only">$person$</td>
+				    <td data-key="remark" data-id="$id$" contenteditable="plaintext-only">$remark$</td>
+				    <td><a href="javascript:" role="button" class="jsListDel" data-id="$id$">删除</a></td>
+				</tr>
 	        </thead>
 	        <tbody></tbody>
 	    </table>
 	    <div id="status" class="status">加载中...</div>
 	</div>
 	<!-- 列表数据模板 -->
-	<script id="tplList" type="text/template">
-		<tr>
-		    <td data-key="name" data-id="$id$" contenteditable="plaintext-only">$name$</td>
-		    <td data-key="begin" data-id="$id$" contenteditable="plaintext-only">$begin$</td>
-		    <td data-key="end" data-id="$id$" contenteditable="plaintext-only">$end$</td>
-		    <td data-key="person" data-id="$id$" contenteditable="plaintext-only">$person$</td>
-		    <td data-key="remark" data-id="$id$" contenteditable="plaintext-only">$remark$</td>
-		    <td><a href="javascript:" role="button" class="jsListDel" data-id="$id$">删除</a></td>
-		</tr>
+	<script>
+		var dKey = $('#result').find('td').eq(0).dataset();
+		console.log('data-key:' + dKey);
 	</script>
 </body>
 </html>

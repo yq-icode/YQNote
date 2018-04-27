@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">IE8及以下jquery.html()的BUG</h2>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var _PicHtml = "&lt;li&gt;A&lt;/li&gt;";
+
+//以下写法正常（ul标签中必须加空格）
+&lt;div class="KSPics"&gt;
+    &lt;ul&gt;&nbsp;&lt;/ul&gt;
+&lt;/div&gt;
+$('.KSPics ul').html(_PicHtml);
+
+//以下写法IE8及以下$('.KSPics ul')中的内容为空
+&lt;div class="KSPics"&gt;
+    &lt;ul&gt;&lt;/ul&gt;
+&lt;/div&gt;
+$('.KSPics ul').html(_PicHtml);
+                </code>
+            </pre>
+        </div>
+        
+    </div>
+</div>
+</body>
+</html>

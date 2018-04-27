@@ -112,7 +112,7 @@ function addArticleTop(){
 	_topHtml += "<a class='iconfont icon-shangyige back' onclick='window.history.back(-1)'><span>" + pgTitle + "</span></a>"
 	_topHtml += "</div>";
 	$('body').prepend(_topHtml);
-	$('#wrap').prepend("<h1 class='article-title'>" + pgTitle + "</h1>");
+//	$('#wrap').prepend("<h1 class='article-title'>" + pgTitle + "</h1>");
 	$('#wrap').css("padding-top","60px");//因TOP固定，添加内容距浏览器顶端的边距
 }
 
