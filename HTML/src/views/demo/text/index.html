@@ -5,31 +5,26 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>文本类效果</title>
-    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/css/iconfont.css">
+	<link rel="stylesheet/less" href="/css/default.less">
     <link rel="stylesheet/less" href="css/text.less">
+    <script src="/js/jquery-1.11.3.min.js"></script>
     <script src="/js/less-2.5.3.min.js"></script>
-    <script src="/js/common.js"></script>
+    <script src="/js/default.js"></script>
     <script src="js/text.js"></script>
 </head>
 <body>
-	<!--#include virtual="/include/_header.html" -->
-	<div class="container">
-    	<div class="row">
-    		<div class="col-md-9" role="main">
-            	<!--#include virtual="_text_01.html" -->
-                <!--#include virtual="_text_02.html" -->
-                <!--#include virtual="_text_03.html" -->
-                <!--#include virtual="_text_04.html" -->
-                <!--#include virtual="_text_05.html" -->
-                <!--#include virtual="_text_06.html" -->
-                <!-- **************** separator line ****************  -->
-            </div>
-            <div class="col-md-3" id="side">
-                <div class="fix-side-nav">
-                    <p class="toTop"><a href="#"><i class="icon-circle-arrow-up"></i>TOP</a></p>
-                </div>
-            </div>
-        </div>
+	<div id="wrap" style="margin-left: auto;margin-right: auto;width: 800px;">
+    	<!--#include virtual="_text_01.html" -->
+        <!--#include virtual="_text_02.html" -->
+        <!--#include virtual="_text_03.html" -->
+        <!--#include virtual="_text_04.html" -->
+        <!--#include virtual="_text_05.html" -->
+        <!--#include virtual="_text_06.html" -->
     </div>
+    
+    <script type="text/javascript">
+		addArticleTop();//添加TOP
+    </script>
 </body>
 </html>

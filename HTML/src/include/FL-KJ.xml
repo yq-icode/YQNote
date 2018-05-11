@@ -18,5 +18,17 @@
 			<name>index</name>
 			<path>/views/svg/</path>
 		</file>
+		<file>
+			<title>常用属性讲解</title>
+			<name>svg1</name>
+			<path>/views/svg/</path>
+		</file>
+	</main>
+	<main title="BOOTSTRAP">
+		<file>
+			<title>栅格布局不支持IE8该如何解决？</title>
+			<name>bs1</name>
+			<path>/views/bootstrap/</path>
+		</file>
 	</main>
 </fileList>

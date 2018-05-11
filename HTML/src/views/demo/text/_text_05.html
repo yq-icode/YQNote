@@ -6,7 +6,7 @@ window.onload=function()
 	var i=0;
 	for(i=0;i<aLi.length;i++)
 	{
-		var oP=aLi[i].getElementsByTagName('p')[0];
+		var oP=aLi[i].getElementsByTagName('p');
 		oP.iAlpha=0;
 		oP.time=null;
 		aLi[i].onmouseover=function()
@@ -48,7 +48,9 @@ function domove(obj)
 <dl class="text-wrap text-05">
     <dt>
         <h5>文字列表淡入淡出效果－JS实现方法</h5>
-        <p class="browser-support">兼容性：<kbd>IE6+</kbd></p>
+        <div class="browser-support">
+        	<div class="summary">IE6+</div>
+        </div>
     </dt>
     <dd>
         <div class="list">

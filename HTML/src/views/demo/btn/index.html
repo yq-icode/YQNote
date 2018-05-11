@@ -5,9 +5,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>YQ-Note按钮的各种效果</title>
-    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/css/iconfont.css">
+	<link rel="stylesheet/less" href="/css/default.less">
     <link rel="stylesheet/less" href="btn.less">
+    <script src="/js/jquery-1.11.3.min.js"></script>
     <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/default.js"></script>
 </head>
 <body>
 <!--#include virtual="/include/_header.html" -->
@@ -20,47 +23,47 @@
         
         <h2 class="r2-title">长阴影</h2>
         <p>为按钮中的文字赋予扁平效果的阴影</p>
-        <a class="btn2" href="javascript:void(0)"><i class="glyphicon glyphicon-star"></i></a>
+        <a class="btn2" href="javascript:void(0)"><i class="iconfont icon-xiaoguo"></i></a>
         <button type="button" class="btn2">
-            <i class="glyphicon glyphicon-music"></i>
+            <i class="iconfont icon-xiaoguo"></i>
         </button>
         
         <h2 class="r2-title">含字体图标的按钮</h2>
     	<p>包含以下几种形式：纯字体图标 LINK 形式，包含文字 LINK 形式，纯字体图标 BUTTON 形式，包含文字 BUTTON 形式</p>
-        <a class="btn3" href="javascript:void(0)"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i></a>
+        <a class="btn3" href="javascript:void(0)"><i class="iconfont icon-triangle-top" aria-hidden="true"></i></a>
         <a class="btn3 btn3-1" href="javascript:void(0)">
-            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i> contain text link
+            <i class="iconfont icon-triangle-top" aria-hidden="true"></i> contain text link
         </a>
         <button type="button" class="btn3">
-            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+            <i class="iconfont icon-triangle-top" aria-hidden="true"></i>
         </button>
         <button type="button" class="btn3 btn3-1">
-            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i> contain text button
+            <i class="iconfont icon-triangle-top" aria-hidden="true"></i> contain text button
         </button>
         <p class="my-info mt10">
             ‘+’此字体图标在chrome firefox中显示外观不同，这是由于bootstrap自带的字体图标在两个浏览器中显示外观本就不同。<br>注意：bootstrap自带的字体图标Glyphicons有些在chrome firefox中显示外观不一致。
         </p>
         
         <h2 class="r2-title">3D 按钮</h2>
-    	<a class="btn4" href="javascript:void(0)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+    	<a class="btn4" href="javascript:void(0)"><i class="iconfont icon-liulanqi"></i></a>
         <button type="button" class="btn4">
-        	<i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i> contain text link
+        	<i class="iconfont icon-liulanqi" aria-hidden="true"></i> contain text link
         </button>
         
         <h2 class="r2-title">光晕效果</h2>
-    	<a class="btn5" href="javascript:void(0)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+    	<a class="btn5" href="javascript:void(0)"><i class="iconfont icon-liulanqi"></i></a>
         <button type="button" class="btn5">
-        	<i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i> contain text link
+        	<i class="iconfont icon-liulanqi" aria-hidden="true"></i> contain text link
         </button>
         <p style="color:#f00">firefox中无效，原因还未查明。</p>
         
         <h2 class="r2-title">额外的环绕效果</h2>
     	<span class="btn6">
-    		<a href="javascript:void(0)"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+    		<a href="javascript:void(0)"><i class="iconfont icon-liulanqi"></i></a>
         </span>
         <span class="btn6 btn6-1">
             <button type="button">
-                <i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i> contain text link
+                <i class="iconfont icon-liulanqi" aria-hidden="true"></i> contain text link
             </button>
         </span>
     </div>

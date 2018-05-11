@@ -65,5 +65,10 @@
 			<name>mui003</name>
 			<path>/views/mobile/mui/</path>
 		</file>
+		<file>
+			<title>滚动</title>
+			<name>mui004</name>
+			<path>/views/mobile/mui/</path>
+		</file>
 	</main>
 </fileList>

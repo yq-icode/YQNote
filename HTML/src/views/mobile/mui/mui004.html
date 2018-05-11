@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MOBILE</title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<!--#include virtual="/include/_header.html" -->
+<div class="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+    	<h2 class="r2-title">滚动</h3>
+    	<dl class="dlist">
+    		<dt>自定义滚动区域</dt>
+    		<dd>自定义滚动区域垂直滚动时，需要为滚动区域设置高度；<br>自定义滚动区域水平滚动时，需要为滚动区域设置宽度；</dd>
+    		<dt>自定义滚动区域 = mui-content区域 时</dt>
+    		<dd>如果你的自定义区域就是mui-content区域，那么使用的时候，把mui-content和mui-scroll-wrapper放在一起就可以了。这样就不需要设置高度了。</dd>
+    	</dl>
+    	<div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>
+//自定义滚动区域 != mui-content区域 时                	
+&lt;div id="scroll" class="mui-scroll-wrapper" style="min-height: 480px;"&gt;
+    &lt;div class="mui-scroll"&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+
+//自定义滚动区域 = mui-content区域 时                	
+&lt;div id="scroll" class="mui-content mui-scroll-wrapper"&gt;
+    &lt;div class="mui-scroll"&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+				</code>
+            </pre>
+        </div>
+        
+        <h2 class="r2-title">含有侧滑菜单的页面的滚动</h2>
+        <p>当页面中包含侧滑菜单时，主页面的滚动会和侧滑菜单中的滚动有冲突，导致主页面无法实现滚动效果，此时为主页面的滚动添加以下代码即可解决：</p>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+mui('#manPg').scroll({
+	deceleration: 0.0005
+});
+				</code>
+            </pre>
+        </div>
+        <div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>
+&lt;div class="mui-off-canvas-wrap mui-draggable"&gt;
+  	&lt;aside class="mui-off-canvas-left" id="offCanvasSide"&gt;
+    	&lt;div class="mui-scroll-wrapper"&gt;
+      		&lt;div class="mui-scroll"&gt;
+        		&lt;ul class="mui-table-view" id="p-list"&gt;&lt;/ul&gt;
+      		&lt;/div&gt;
+    	&lt;/div&gt;
+  	&lt;/aside&gt;
+  	&lt;div class="mui-inner-wrap"&gt;
+    	&lt;header class="mui-bar mui-bar-nav"&gt;
+      		&lt;a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"  href="#offCanvasSide" &gt;&lt;/a&gt;
+      		&lt;h1 class="mui-title"&gt;侧滑菜单&lt;/h1&gt;
+    	&lt;/header&gt;
+    	&lt;div class="mui-content mui-scroll-wrapper" id="manPg"&gt;
+      		&lt;div class="mui-scroll"&gt;
+        		&lt;div style="height: 2000px;"&gt;主界面具体展示内容&lt;/div&gt;
+      		&lt;/div&gt;
+    	&lt;/div&gt; 
+    	&lt;div class="mui-off-canvas-backdrop"&gt;&lt;/div&gt;
+  	&lt;/div&gt; 
+&lt;/div&gt;
+				</code>
+            </pre>
+        </div>
+        
+        <h2 class="r2-title">获取 scroll 控件当前位置的两种方式</h2>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//一、                	
+var scrolly = mui('.mui-scroll-wrapper').scroll().y;
+
+//二、添加事件监听scroll滚动时会触发该事件，监听事件需要放在mui.plusReady(function()内
+document.querySelector('.mui-scroll-wrapper').addEventListener('scroll', function(e) {
+	if(e.detail.y <= e.detail.maxScrollY){ //滚动到底部
+	}
+	if(e.detail.y >= 0){ //滚动到顶部
+	}
+});
+
+//scroll控件中内容更新后，深度并不会随之更新，触发更新可以是手动滑动一下或者使用函数更新。（静态内容不存在该问题）
+mui('.mui-scroll-wrapper').scroll().reLayout();
+				</code>
+            </pre>
+        </div>
+   </div>
+</div>
+</body>
+</html>

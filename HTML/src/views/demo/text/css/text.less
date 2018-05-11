@@ -34,7 +34,7 @@ ul.row li{border:5px solid #fff;padding:15px;}
 	}
 }
 /*************************** text-01 ***************************/
-.text-01 span{
+.text-01 dd span{
 	background:url('../images/img01.jpg') repeat-x;
     text-transform:uppercase;
     -webkit-font-smoothing:antialiased;
@@ -44,7 +44,8 @@ ul.row li{border:5px solid #fff;padding:15px;}
 	color:transparent;
     -webkit-text-fill-color:transparent;
 	.animation(text-01-animate,15s,linear,0,infinite);
-	&:hover{.animation-none;}
+	&:hover{.animation-none;};
+	line-height:200px;
 }
 @keyframes text-01-animate {
     from {background-position:0 0;}
@@ -64,7 +65,7 @@ ul.row li{border:5px solid #fff;padding:15px;}
 }
 /*************************** text-02 ***************************/
 .text-02{
-	span{
+	dd span{
 		color:#FFAF00;
 		.text-shadow(7px,7px,0,rgba(0,0,0,.2));
 		text-transform: uppercase;
@@ -74,6 +75,7 @@ ul.row li{border:5px solid #fff;padding:15px;}
 			-webkit-mask-image: url('../images/img01.jpg');
 			color:#4BCEFF;
 		}
+		line-height:200px;
 	}
 }
 /*************************** text-03 ***************************/
@@ -137,7 +139,7 @@ ul.row li{border:5px solid #fff;padding:15px;}
 	.list{padding:15px;background-color:#ddd;}
 	.list ul{margin-bottom:0;line-height:30px;}
 	.list li{position:relative;height:30px;text-align:left;}
-	.list li p{position:absolute;left:0;top:0;width:100%;height:30px;margin-bottom:0;background-color:#fff;opacity:0;filter:alpha(opacity=0);}
+	.list li p{position:absolute;left:0;top:0;margin:0;width:100%;height:30px;background-color:#fff;opacity:0;filter:alpha(opacity=0);}
 	.list li div{position:absolute;left:0;top:0;width:100%;height:30px;z-index:1;}
 	.list li div span{float:right;font-size:12px;color:#999;}
 	.list li div a{margin-right:100px;color:#666;}

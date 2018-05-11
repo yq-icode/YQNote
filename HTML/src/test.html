@@ -45,8 +45,18 @@
 	</div>
 	<!-- 列表数据模板 -->
 	<script>
-		var dKey = $('#result').find('td').eq(0).dataset();
-		console.log('data-key:' + dKey);
+//		var dKey = $('#result').find('td').eq(0).dataset();
+		
+		console.log("document.documentElement.clientWidth : " + document.documentElement.clientWidth);
+		console.log("document.documentElement.clientHeight : " + document.documentElement.clientHeight);
+		console.log("$(window).width() : " + $(window).width());
+		console.log("$(window).height() : " + $(window).height());
+		console.log("document.body.offsetWidth" + document.body.offsetWidth);
+		console.log("document.body.offsetHeight : " + document.body.offsetHeight);
+		
+		for(var i=0;i<50;i++){
+			$('body').append('<p>aaaa</p>');
+		}
 	</script>
 </body>
 </html>

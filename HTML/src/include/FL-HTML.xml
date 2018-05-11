@@ -16,5 +16,10 @@
 			<name>h5tag</name>
 			<path>/views/html5/</path>
 		</file>
+		<file>
+			<title>IndexedDB列表与分页</title>
+			<name>idxDB1</name>
+			<path>/views/html5/</path>
+		</file>
 	</main>
 </fileList>

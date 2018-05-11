@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SVG</title>
+    <link rel="stylesheet/less" href="/css/iconfont.css">
+	<link rel="stylesheet/less" href="/css/default.less">
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+    <div id="wmain">
+    	<h2 class="r2-title">栅格布局不支持IE8该如何解决？</h2>
+    	<div class="r2-body">
+    		<p>用bootstrap的栅格布局在IE8上出现失效的情况，通常有两种解决方式</p>
+	    	<h3 class="r3-title">方法一</h3>
+	    	<p>引用第三方js，一个叫respond.js的东西，github上可以搜到</p>
+	    	<a class="ref" href="https://github.com/FOmaerl/Respond.js">respond.js</a>
+	    	
+	    	<h3 class="r3-title">方法二</h3>
+	    	<p>由于IE8不支持媒体查询，所以对应不同分辨率的样式失效了，所以解决方法也很简单，都用col-xs的列布局来实现就好了。</p>
+    	</div>
+    </div>
+</div>
+</body>
+</html>

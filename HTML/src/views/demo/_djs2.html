@@ -5,7 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
+	<link rel="stylesheet/less" href="/css/iconfont.css">
+	<link rel="stylesheet/less" href="/css/default.less">
     <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/default.js"></script>
     <style type="text/css">
 		#djs{
 			font-size:30px;
@@ -14,8 +18,9 @@
 	</style>
 </head>
 <body>
-	<h3>数字倒计时</h3>
-	<span id="djs"></span>
+	<div id="wrap">
+		<span id="djs"></span>
+	</div>
 	
 	<script type="text/javascript">
 	    var qTime = "10";
@@ -27,6 +32,8 @@
 	        }
 	    }
 	    setInterval("countDown()", 1000);
+	    
+	    addArticleTop();//添加TOP
 	</script>
 </body>
 </html>

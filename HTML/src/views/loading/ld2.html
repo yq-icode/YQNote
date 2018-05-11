@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet/less" href="/css/iconfont.css">
+	<link rel="stylesheet/less" href="/css/default.less">
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/default.js"></script>
+    <style type="text/css">
+    	.cirPer{
+		    position:relative;
+		    width:120px;
+		    height:130px;
+		}
+		.cirPer circle{
+			-webkit-transition: stroke-dasharray .25s;
+			transition: stroke-dasharray .25s;
+		}
+		.cirPer circle:nth-child(2){ 
+			-webkit-transform-origin: 50% 50%;
+			-ms-transform-origin: 50% 50%;
+			-moz-transform-origin: 50% 50%;
+			-o-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+			-webkit-transform: rotate(-90deg);
+			-moz-transform: rotate(-90deg);
+			-ms-transform: rotate(-90deg);
+			-o-transform: rotate(-90deg);
+			transform: rotate(-90deg);
+		}
+		.cirPer p{
+		    position:absolute;
+		    left:0;
+		    top:25px;
+		    display:block;
+		    width:100%;
+		    text-align:center;
+		    color:#999;
+		    font-size:14px;
+		}
+		.cirPer circle{
+			-webkit-transition: stroke-dasharray .25s;
+			transition: stroke-dasharray .25s;
+		}
+		.cirPer p big{
+		    font-size:30px;
+		}
+		.cirPer p sup{
+		    font-size:10px;
+		}
+		.cirPer p label{
+		    display:block;
+		    position:relative;
+		    top:-8px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="cirPer">
+			<svg width="120" height="120" viewbox="0 0 120 120">
+			    <circle cx="60" cy="60" r="50" stroke-width="10" stroke="#D1D3D7" fill="none"></circle>
+			    <circle cx="60" cy="60" r="50" stroke-width="10" stroke="#00A5E0" fill="none" transform="matrix(0,-1,1,0,0,120)" stroke-dasharray="0 1069"></circle>
+			</svg>
+			<p>
+                <big class="perV">0</big><sup>%</sup>
+                <label>合格率</label>
+            </p>
+		</div>
+		<p>设置进度：<input id="range" type="range" min="0" max="100" value="0" style="width:120px;"></p>
+		<dl class="dlist">
+			<dt>注意点</dt>
+			<dd>
+				应用在 SVG circle 上的 rotate 在IE9 IE10 Edge中不起作用,FF中正常<br>
+				加在 SVG circle 上的 transform="matrix(0,-1,1,0,0,120)" 在IE9+ FF中均正常
+			</dd>
+		</dl>
+	</div>
+	</div>
+	<script type="text/javascript">
+	    if (window.addEventListener) {
+		    var range = document.querySelector("#range"),
+		    	circle = document.querySelectorAll("circle")[1];
+		    	cR = circle.getAttribute('r');
+		    	
+		    if (range && circle) {
+		        range.addEventListener("change", function() {
+		        	$('.perV').html(this.value);
+		        	
+		            var percent = this.value / 100,
+		            	perimeter = Math.PI * 2 * cR;
+		            	
+		            circle.setAttribute('stroke-dasharray', perimeter * percent + " " + perimeter * (1- percent));
+		        });
+		    }
+		}
+	    
+	    addArticleTop();//添加TOP
+	</script>
+</body>
+</html>

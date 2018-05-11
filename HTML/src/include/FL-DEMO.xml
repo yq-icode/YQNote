@@ -126,6 +126,11 @@
 				<name>index</name>
 				<path>/views/loading/</path>
 			</file>
+			<file>
+				<title>SVG环形进度条</title>
+				<name>ld2</name>
+				<path>/views/loading/</path>
+			</file>
 		</sub>
 		<sub title="导航navigation">
 			<file>

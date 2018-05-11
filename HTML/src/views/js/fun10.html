@@ -16,13 +16,29 @@
 		<p class="reference">
 			<a href="http://blog.csdn.net/u013795673/article/details/52171411"></a>
 		</p>
-		<h2 class="r2-title">offsetLeft offsetTop</h2>
+		<h2 class="r2-title">网页可视区域</h2>
+		<div class="browser-support">
+			<div class="summary">FF; Chrome; IE7+</div>
+		</div>
 		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//JS	                	
+document.documentElement.clientWidth
+document.documentElement.clientHeight
+//JQuery
+$(window).width()
+$(window).height()
+		            </code>
+	            </pre>
+	        </div>
+			<dl class="dlist">
+				<dt>注意点</dt>
+				<dd>如果页面中有动态加载的DOM，获取网页可视区域的JS要放在动态加载DOM结构的JS前，否则FF chrome中获取的值不正确，IE7+中不受此影响，一直都正常。</dd>
+			</dl>
+		
 		</section>
-		
-		<h2 class="r2-title">offsetWidth offsetHeight</h2>
-		
-        
 	</div>
 </div>
 </body>

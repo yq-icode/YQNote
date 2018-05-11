@@ -46,10 +46,10 @@
 			        <span class="mui-tab-label">设置</span>
 			    </a>
 			</nav>
-	    	<div class="mui-content mui-scroll-wrapper">
+	    	<div class="mui-content mui-scroll-wrapper" id="manPg">
 	      		<div class="mui-scroll">
-	        	<!-- 主界面具体展示内容 -->
-	         	
+	        		<!-- 主界面具体展示内容 -->
+	        		<div style="height: 2000px;">主界面具体展示内容</div>
 	      		</div>
 	    	</div> 
 	    	<div class="mui-off-canvas-backdrop"></div>
@@ -76,6 +76,11 @@
 			_html_pl += "</li>"
 		}
 		$('#p-list').html($('#p-list').html()+_html_pl);
+		
+		//为解决和侧滑滚动的冲突，添加此代码可以让主页面滚动正常
+		mui('#manPg').scroll({
+			deceleration: 0.0005
+		});
 	</script>
 </body>
 </html>

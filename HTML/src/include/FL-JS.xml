@@ -82,22 +82,29 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>判断图片是否加载完成</title>
-				<name>method01</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>获取图片的原始尺寸</title>
-				<name>method01</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
 				<title>js编码与解码</title>
 				<name>method01</name>
 				<path>/views/js/</path>
 			</file>
 		</sub>
-		<sub title="">
+		<sub title="图片类处理">
+			<file>
+				<title>判断图片是否加载完成</title>
+				<name>method02</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>获取图片的原始尺寸</title>
+				<name>method02</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>图片等比例绽放</title>
+				<name>method02</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+		<sub title="其它">
 			<file>
 				<title>页面传参</title>
 				<name>chuanZhi</name>

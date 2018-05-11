@@ -77,6 +77,15 @@ $(function(){
 		})
 	}
 	
+	/* 单独的链接引用
+	 */
+	var ref = document.querySelectorAll('.ref');
+	if(ref.length > 0){
+		$(ref).each(function(){
+			$(this).attr('target','_blank');
+		})
+	}
+	
 	/* 屏幕截图图片的处理：
 	 * 1 将其缩放为100%;
 	 * 2 图片存放目录：images/screenPics/
