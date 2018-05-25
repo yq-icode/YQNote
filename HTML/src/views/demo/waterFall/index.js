@@ -67,5 +67,5 @@ function checkWillLoad(){
 	var lastBoxDis = $(lastBox).outerHeight() + $(lastBox).offset().top; //取出最后一个盒子高度的一半 +头部偏离的位置
 	var clientHeight = $(window).height(); //求出浏览器的高度
 	var scrollTopHeight = $(window).scrollTop(); //求出页面偏离浏览器高度
-	return lastBoxDis <= clientHeight + scrollTopHeight; //比较返回
+	return lastBoxDis <= clientHeight + scrollTopHeight + 20; //比较返回
 }

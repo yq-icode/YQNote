@@ -131,7 +131,9 @@
 	<script src="../js/mui.min.js"></script>
 	<script>
 		mui.init();
-		mui('.mui-scroll-wrapper').scroll();
+		
+		mui('.mui-scroll-wrapper').scroll();//此段代码可以解决mui-popover滚动条失效的问题
+		
 		mui('body').on('shown', '.mui-popover', function(e) {
 			console.log('show:  ' + e.detail.id);//detail为当前popover元素
 		});

@@ -10,7 +10,13 @@ body{
     overflow-y: hidden;
 	overflow-x: scroll;
 }
-.pic{overflow: hidden;}
+.box {
+	padding: 10px 0 0;
+	animation: zoomOut 500ms;
+}
+.pic {
+	line-height: 0.8;
+}
 
 .pic img{
 	width: 100%;

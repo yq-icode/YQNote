@@ -7,17 +7,19 @@
 			<path>/views/html5/</path>
 		</file>
 		<file>
-			<title>HTML5本地存储IndexedDB数据库</title>
-			<name>idxDB</name>
-			<path>/views/html5/</path>
-		</file>
-		<file>
 			<title>HTML5标签</title>
 			<name>h5tag</name>
 			<path>/views/html5/</path>
 		</file>
+	</main>
+	<main title="indexedDB">
 		<file>
-			<title>IndexedDB列表与分页</title>
+			<title>基本知识详解</title>
+			<name>idxDB</name>
+			<path>/views/html5/</path>
+		</file>
+		<file>
+			<title>实例：添加、删除数据</title>
 			<name>idxDB1</name>
 			<path>/views/html5/</path>
 		</file>

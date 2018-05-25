@@ -4,73 +4,63 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>小知识点</title>
-    <!--#include virtual="/include/_head_import_file.html" -->
-    <link rel="stylesheet/less" href="/css/global.less">
-    <link rel="stylesheet/less" href="/css/tutorial.less">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
     <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
 </head>
 <body>
-	<article>
-        <h1 class="article-title">小知识点</h1>
-        
-        <div class="ttBlock">
-        	<h2 class="ttBlock_head">鼠标悬停于控件时显示为手型</h2>
-            <div class="ttBlock_body">
-            	<p>除了选择控件可以保持箭头图标，凡是有点击交互动作的部件都会变成手型图标，悬停变化为手型图标的部件几乎没有，如果想要光标变成手形，可以给控件加空的点击事件。</p>
-            </div>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">鼠标悬停于控件时显示为手型</h2>
+        <div class="r2-body">
+        	<p>除了选择控件可以保持箭头图标，凡是有点击交互动作的部件都会变成手型图标，悬停变化为手型图标的部件几乎没有，如果想要光标变成手形，可以给控件加空的点击事件。</p>
         </div>
-        
-        <div class="ttBlock">
-        	<h2 class="ttBlock_head">关于提交按钮</h2>
-            <div class="ttBlock_body">
-            	<p>提交按钮的填充颜色、边框颜色和其他大多数样式格式都被禁用了。取而代之的是生成原型后在浏览器中它会使用内建的样式。
+    
+    	<h2 class="r2-title">关于提交按钮</h2>
+        <div class="r2-body">
+        	<p>提交按钮的填充颜色、边框颜色和其他大多数样式格式都被禁用了。取而代之的是生成原型后在浏览器中它会使用内建的样式。
 不过，提交按钮可以改变大小和禁用。如果你想自定义你的按钮样式，请使用 形状按钮 Shape button</p>
-            </div>
         </div>
-        
-        <div class="ttBlock">
-        	<h2 class="ttBlock_head">axure选中底层原件的方法</h2>
-            <div class="ttBlock_body">
-            	<p>axure里经常会出现很多元件层叠，这种情况下如何选中底层元件呢？</p>
-                <p>方法：比如你有3层部件，左键点击最上层的，停一小下，再点击左键一下就会选择第二层的了，再停一小下，再点击左键就选第三层的了。。。点->停->点</p>
-            </div>
+    
+    	<h2 class="r2-title">axure选中底层原件的方法</h2>
+        <div class="r2-body">
+        	<p>axure里经常会出现很多元件层叠，这种情况下如何选中底层元件呢？</p>
+            <p>方法：比如你有3层部件，左键点击最上层的，停一小下，再点击左键一下就会选择第二层的了，再停一小下，再点击左键就选第三层的了。。。点->停->点</p>
         </div>
-        
-        <div class="ttBlock">
-        	<h2 class="ttBlock_head">只有动态面板才有的用例事件</h2>
-            <div class="ttBlock_body">
-                <p>拖动开始时、拖动时、拖动结束时、向左拖动结束时、向右拖动结束时，只有动态面板才有这些事件，其它如形状、图片、文本、链接、标题、按钮等都没有。</p>
-            </div>
+    
+    	<h2 class="r2-title">只有动态面板才有的用例事件</h2>
+        <div class="r2-body">
+            <p>拖动开始时、拖动时、拖动结束时、向左拖动结束时、向右拖动结束时，只有动态面板才有这些事件，其它如形状、图片、文本、链接、标题、按钮等都没有。</p>
         </div>
-        
-        <div class="ttBlock">
-        	<h2 class="ttBlock_head">格式刷的应用</h2>
-            <div class="ttBlock_body">
-            	<p>格式刷可以复制元件样式，包括交互样式也可以复制，然后将复制的样式应用到其它元件上，非常方便。</p>
-                <ul class="list lst-decimal">
-                	<li>选中需要复制样式的控件；</li>
-                    <li>点击格式刷（弹出窗口，窗口的样式就是需要复制的控件样式）；</li>
-					<li>点击格式刷窗口底下的“复制”按钮；</li>
-					<li>选择目标控件；</li>
-					<li>点击格式刷窗口底下的“应用”按钮。</li>
-                </ul>
-            </div>
+    
+    	<h2 class="r2-title">格式刷的应用</h2>
+        <div class="r2-body">
+        	<p>格式刷可以复制元件样式，包括交互样式也可以复制，然后将复制的样式应用到其它元件上，非常方便。</p>
+            <ul class="list lst-decimal">
+            	<li>选中需要复制样式的控件；</li>
+                <li>点击格式刷（弹出窗口，窗口的样式就是需要复制的控件样式）；</li>
+				<li>点击格式刷窗口底下的“复制”按钮；</li>
+				<li>选择目标控件；</li>
+				<li>点击格式刷窗口底下的“应用”按钮。</li>
+            </ul>
         </div>
-        
-        <div class="ttBlock">
-        	<h2 class="ttBlock_head">对表格的操作</h2>
-            <div class="ttBlock_body">
-            	<p>AxureRP自带的表格组件的编辑功能是比较弱的，一些常规的编辑操作都是不支持的，只能通过折中的方法来解决。</p>
-                <ul class="list lst-decimal">
-                	<li>用矩形组件自己拼一个表格出来，不要使用Axure默认提供的表格，这是最傻的方法了，要调整表格大小的时候会非常麻烦，用矩形拼的时候，把需要合并单元格的部分，只使用一个矩形即可。</li>
-                    <li>使用表格组件，在需要合并单元格的地方用一个矩形，把它们盖住。这个方法稍微好一点，调整的时候调整量比第一种小。</li>
-					<li>在需要合并单元格的地方添加几条白线或者是与背景色相同的线条，把表格的黑线遮住。 这个方法调整量又比第二种小一点。</li>
-					<li>在Word或者Excel中先把表格标记好，然后复制粘贴到AxureRP中，粘贴过来后会变成一张图片，要更改的时候就得更改源word或excel文件，再重新复制粘贴。</li>
-                </ul>
-            </div>
+    
+    	<h2 class="r2-title">对表格的操作</h2>
+        <div class="r2-body">
+        	<p>AxureRP自带的表格组件的编辑功能是比较弱的，一些常规的编辑操作都是不支持的，只能通过折中的方法来解决。</p>
+            <ul class="list lst-decimal">
+            	<li>用矩形组件自己拼一个表格出来，不要使用Axure默认提供的表格，这是最傻的方法了，要调整表格大小的时候会非常麻烦，用矩形拼的时候，把需要合并单元格的部分，只使用一个矩形即可。</li>
+                <li>使用表格组件，在需要合并单元格的地方用一个矩形，把它们盖住。这个方法稍微好一点，调整的时候调整量比第一种小。</li>
+				<li>在需要合并单元格的地方添加几条白线或者是与背景色相同的线条，把表格的黑线遮住。 这个方法调整量又比第二种小一点。</li>
+				<li>在Word或者Excel中先把表格标记好，然后复制粘贴到AxureRP中，粘贴过来后会变成一张图片，要更改的时候就得更改源word或excel文件，再重新复制粘贴。</li>
+            </ul>
         </div>
-        
-    </article>
+    </div>
+</div>
 </body>
 </html>

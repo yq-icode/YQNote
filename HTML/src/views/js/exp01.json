@@ -1,0 +1,18 @@
+{
+	"students":[
+		{"name":"刘丽","sex":"女","age":"23"},
+		{"name":"胡彬","sex":"男","age":"32"},
+		{"name":"吴军","sex":"男","age":"28"}
+	],
+	"authors":[
+		{"name":"Any","level":"one"},
+		{"name":"cool","level":"two"},
+		{"name":"Luck","level":"three"}
+	],
+	"origin":[
+		{"place":"上海"},
+		{"place":"深圳"},
+		{"place":"北京"},
+		{"place":"广州"}
+	]
+}

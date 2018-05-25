@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link href="/css/iconfont.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/prism.css">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+        <strong>FORM表单</strong>
+        <div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>
+&lt;form id="fmEle"&gt;
+	&lt;table&gt;
+		&lt;tr&gt;
+			&lt;th&gt;姓名&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" name="Tname" value="" /&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;性别&lt;/th&gt;
+			&lt;td&gt;
+				&lt;label&gt;&lt;input type="radio" name="Tsex" value="男" /&gt;男&lt;/label&gt;
+				&lt;label&gt;&lt;input type="radio" name="Tsex" value="女" /&gt;女&lt;/label&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;已婚&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="checkbox" name="Tyihun" value="是" /&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;出生日期&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="date" name="Tbirthday" /&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;所在地&lt;/th&gt;
+			&lt;td&gt;
+				&lt;select name="Taddr"&gt;
+					&lt;option&gt;北京&lt;/option&gt;
+					&lt;option&gt;天津&lt;/option&gt;
+					&lt;option&gt;上海&lt;/option&gt;
+				&lt;/select&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;兴趣爱好&lt;/th&gt;
+			&lt;td&gt;
+				&lt;label&gt;&lt;input type="checkbox" name="TxingQu[1]" value="游泳" /&gt; 游泳&lt;/label&gt;
+				&lt;label&gt;&lt;input type="checkbox" name="TxingQu[2]" value="读书" /&gt; 读书&lt;/label&gt;
+				&lt;label&gt;&lt;input type="checkbox" name="TxingQu[3]" value="看电影" /&gt; 看电影&lt;/label&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;备注&lt;/th&gt;
+			&lt;td&gt;
+				&lt;textarea rows="3" name="Tremark"&gt;&lt;/textarea&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/table&gt;
+	&lt;button id="btnAdd" type="submit"&gt;添加&lt;/button&gt;
+&lt;/form&gt;
+		        </code>
+            </pre>
+        </div>
+        <h2 class="r2-title">法一</h2>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var fmE = document.getElementById('fmEle'); 
+fmE.addEventListener('submit', function(event){
+	event.preventDefault();
+	
+	var addData = {};
+	[].slice.call(this.querySelectorAll('input,textarea,select')).forEach(function (ele) {
+	    if (ele.name){
+	        addData[ele.name] = ele.value;
+	    }
+	});
+	
+	this.reset(); //清除表单数据
+}
+		        </code>
+            </pre>
+        </div>
+        
+        <h2 class="r2-title">法二：serializeArray</h2>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var fmE = document.getElementById('fmEle'); 
+fmE.addEventListener('submit', function(event){
+	event.preventDefault();
+	
+	addData['TxingQu'] = '';
+	addData['Tyihun'] = "否"; //默认为未选中
+	
+	$(fmE).serializeArray().forEach(function(e){
+    	if(e.name){
+    		addData[e.name] = e.value;
+    		
+    		//将兴趣爱的多个值合并到一起
+    		if(e.name.indexOf('TxingQu') > -1){
+    			addData['TxingQu'] += e.value + " ";
+    		}
+    	}
+    })
+	
+	this.reset(); //清除表单数据
+}
+		        </code>
+            </pre>
+        </div>
+        <a class="expLink" href="../html5/idxDB1.html">实例</a>
+        
+	</div>
+</div>
+</body>
+</html>

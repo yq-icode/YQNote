@@ -210,7 +210,11 @@ p{margin: 1em 0;}
 .wbox .r3-title:first-child{margin-top: 0;}/* 设置wbox中的首个r3-title的margin-top为0 */
 
 .r4-title{
+    font-weight: bold;
 	font-size: 18px;
+}
+.r4-title:before{
+    content: '/ ';
 }
 .r3-title mark{ /*标题中的标签*/
 	display: inline-block;
@@ -289,7 +293,14 @@ a.ref:visited{color: #00A0D3;}
 	padding: 30px;
 	background-color: #FAFAFA;
 }
-
+/*实例链接*/
+.expLink{
+    font-size: 16px;
+    color: #0066ff;
+}
+.expLink .iconfont{
+    margin-right: 5px;
+}
 /*白色盒子（可去掉）*/
 .wbox{
 	padding: 30px;
@@ -318,7 +329,8 @@ a.ref:visited{color: #00A0D3;}
 	margin-bottom: 1px;
 	padding: 0 10px;
 	background-color: #EAF6E2;
-	font-size: 1.6rem;
+	font-size: 1.4rem;
+	font-weight: bold;
 }
 .LT a{
 	display: inline-block;
@@ -336,7 +348,7 @@ a.ref:visited{color: #00A0D3;}
 .dlist{
 	margin: 10px 0;
 	border: 1px dotted #ccc;
-	padding: 10px 10px 0;
+	padding: 20px 20px 0;
 	font-size: 14px;
 	counter-reset: dlNum;
 	dt{
@@ -360,6 +372,8 @@ a.ref:visited{color: #00A0D3;}
 		margin-bottom: 15px;
 	}
 }
+.listTit + .dlist{margin-top: 0;}
+.dlist p + .screenPics{margin: 0;}
 
 /* ******************************************************* *
  * 菜单主页面的列表
@@ -370,7 +384,7 @@ a.ref:visited{color: #00A0D3;}
 	h3{
 		padding: 5px;
 		background-color: #F2F7EA;
-		font-size: 2rem;
+		font-size: 1.6rem;
 		color: #444;
 		.text-shadow(1px,1px,0,#fff);
 		counter-increment: xuHao;
@@ -419,9 +433,9 @@ a.ref:visited{color: #00A0D3;}
 	.transition(background-color,.5s);
 	pre{
 		margin:0;border:0;background-color:@color;.transition(background-color,.5s);
-		&.line-numbers{margin:0 0 0 -30px;line-height: 1.35;}
+		&.line-numbers{margin:0 0 0 -30px;line-height: 1.2;}
 		code{
-			font-size:13px;text-shadow:0 1px 0 rgba(255,255,255,.3);color:#fff;
+			font-size:12px;text-shadow:0 1px 0 rgba(255,255,255,.3);color:#fff;
 			.token.comment{.text-shadow-none;}
 		}
 	}
@@ -468,4 +482,5 @@ a.ref:visited{color: #00A0D3;}
 	padding-left: 10px;
 	font-size: 16px;
 	vertical-align: middle;
+	font-family: "microsoft yahei";
 }

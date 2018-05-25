@@ -99,6 +99,30 @@ mui('.mui-scroll-wrapper').scroll().reLayout();
 				</code>
             </pre>
         </div>
+        
+        <h2 class="r2-title">popover 滚动条失效</h2>
+        <p>如果 popover 内容超出容器需要滚动才能显示时，需要加以下 JS popover才能正常滚动。</p>
+        <div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>
+&lt;div id="pv1" class="mui-popover"&gt;
+    &lt;div class="mui-popover-arrow"&gt;&lt;/div&gt;
+    &lt;div class="mui-scroll-wrapper"&gt;
+        &lt;div class="mui-scroll"&gt;
+            ....
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+				</code>
+            </pre>
+        </div>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+mui('#pv1').scroll();
+				</code>
+            </pre>
+        </div>
    </div>
 </div>
 </body>

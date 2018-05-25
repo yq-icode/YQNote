@@ -15,16 +15,21 @@
 	<div id="wmain">
 		<h2 class="r2-title">方法或属性讲解</h2>
 		<section class="r2-body">
-			<h3 class="r3-title">cursor.continue</h3>
-			<p>cursor.continue的作用在于使游标移动到结果集的下一项，默认情况下游标只发起一次请求，要想发起另一次请求使游标继续查找，则需调用continue(key)方法，该方法中参数可选，不指定参数，移到下一项，指定该参数，移到指定键的位置。</p>
-			<p>如果不加cursor.continue则会只出现第一条数据</p>
+			<h3 class="r3-title">兼容性</h3>
+			<p>由于indexedDB数据库兼容性还不是很好，需要为各自的对象各自浏览器加上前缀，我们 可以按下面来做统一对象</p>
 			<div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>
-	cursor.continue
+//indexDB对象	                	
+window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+//事务对象
+window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction || {READ_WRITE: "readwrite"};
+//key过滤对象
+window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange; 
 	                </code>
 	            </pre>
 	        </div>
+			
 	        <!--*********************************-->
 	        <h3 class="r3-title">e.target.result == this.result</h3>
 	        <div class="code-box">
@@ -35,31 +40,69 @@ e.target.result == this.result //这二者是等价的
 	            </pre>
 	        </div>
 	        <!--*********************************-->
-	        <h3 class="r3-title">object store</h3>
+	        <h3 class="r3-title">createObjectStore</h3>
 	        <p>有了数据库后我们自然希望创建一个表用来存储数据，但indexedDB中没有表的概念，而是objectStore，一个数据库中可以包含多个objectStore，objectStore是一个灵活的数据结构，可以存放多种类型数据。也就是说一个objectStore相当于一张表，里面存储的每条数据和一个键相关联。</p>
 	        <p>我们可以使用每条记录中的某个指定字段作为键值（keyPath），也可以使用自动生成的递增数字作为键值（keyGenerator），也可以不指定。选择键的类型不同，objectStore可以存储的数据结构也有差异</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+db.createObjectStore(storeName, keyPath);
+
+objectStore = db.createObjectStore("students",{keyPath:"id"}); //实例1
+objectStore = db.createObjectStore("students",{autoIncrement:true}); //实例2
+objectStore = db.createObjectStore('TUser', { //实例3
+    keyPath: 'id',
+    autoIncrement: true
+});
+	                </code>
+	            </pre>
+	        </div>
+	        <div class="listTit">createObjectStore 参数</div>
 	        <dl class="dlist">
-	        	<dt>键类型</dt>
-	        	<dd>存储数据</dd>
-	        	<dt>不使用</dt>
-	        	<dd>任意值，但是没添加一条数据的时候需要指定键参数</dd>
+	        	<dt>storeName</dt>
+	        	<dd>存储对象空间的名字，即表格名</dd>
 	        	<dt>keyPath</dt>
-	        	<dd>Javascript对象，对象必须有一属性作为键值</dd>
-	        	<dt>keyGenerator</dt>
-	        	<dd>任意值</dd>
-	        	<dt>都使用</dt>
-	        	<dd>Javascript对象，如果对象中有keyPath指定的属性则不生成新的键值，如果没有自动生成递增键值，填充keyPath指定属性</dd>
+	        	<dd>存储空间的键，既数据库表中的主键，我们进行查找或者删除某个对象都要通过这个键来查找，如果不设置存储空间的键，可以如实例2一样，设置自增类型。</dd>
 	        </dl>
+	        <div class="listTit mt20">可能出现的问题</div>
+	        <dl class="dlist">
+	        	<dt>问题一</dt>
+	        	<dd>应该在upgradneeded事件的回调函数中调用createObjectStore方法创建store object，不应该在success的回调中，否则会报错。</dd>
+	        	<dt>问题二</dt>
+	        	<dd>当为open方法传入一个本域没有的数据库名时，会创建相应的数据库，并触发success、upgradeneeded事件，从而创建一个store object。但是，chrome54并不会触发upgradeneeded事件，造成store object不会被创建，后续在store object上创建事务并操作数据时候就会报错。Stackoverflow上提供的解决办法是，在open方法传入第二个参数（与已有version不同，且更大），这样就会触发chrome上的upgradeneeded事件了。不过，每次都需要调用db.version获取当前的版本号。</dd>
+	        	<dt>Cannot read property ‘createObjectStore’ of undefined</dt>
+	        	<dd>这是因为indexedDB是异步的，你必须在回调函数中使用createObjectStore方法，即使你把createObjectStore调用写在open函数后面，也无法保证哪个先完成。</dd>
+	        </dl>
+	        
+	        
 	        <!--*********************************-->
 	        <h3 class="r3-title">createIndex</h3>
-	        <p>在建立存储空间时，指定的存储键可以有两种，一种是通过keyPath指定存储键，另一种是通过autoIncrement使记录自增，如果我们想为存储空间指定多个键要怎么办呢？IndexedDB提供了创建索引的方式，下面我们看一下如何创建索引以及索引的作用。
-要创建索引，首先要引用对象存储空间，然后调用createIndex()方法，如下示例：</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+objectStore.createIndex(indexName, keyPath, objectParameters)
+	                </code>
+	            </pre>
+	        </div>
 	        <dl class="dlist">
-	        	<dt>createIndex()</dt>
-	        	<dd>第一个参数是建立的索引的名字，第二个参数是索引的属性的名字，第三个参数是一个包含unique属性的选项的对象，表示这个索引的键在记录中是否唯一。</dd>
+	        	<dt>indexName</dt>
+	        	<dd>
+	        		<p>创建的索引名称，可以使用空名称作为索引。</p>
+	        		<img src="images/screenPics/sc002.jpg" />
+	        	</dd>
+	        	<dt>keyPath</dt>
+	        	<dd>
+	        		<p>索引使用的关键路径(索引的属性的名字，即表格的列标题)</p>
+	        		<img src="images/screenPics/sc003.jpg" />
+	        	</dd>
+	        	<dt>objectParameters</dt>
+	        	<dd>可选参数。常用参数之一是unique，表示该字段值是否唯一，不能重复。</dd>
 	        	<dt>注意点</dt>
 	        	<dd>测demo的时候发现创建索引应该和创建存储空间一起，如果先创建存储空间然后再获得存储空间创建索引会报错。</dd>
 	        </dl>
+	        
+	        <p>在建立存储空间时，指定的存储键可以有两种，一种是通过keyPath指定存储键，另一种是通过autoIncrement使记录自增，如果我们想为存储空间指定多个键要怎么办呢？IndexedDB提供了创建索引的方式，下面我们看一下如何创建索引以及索引的作用。
+要创建索引，首先要引用对象存储空间，然后调用createIndex()方法，如下示例：</p>
 	        <div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>
@@ -69,7 +112,279 @@ var index = store.createIndex("age","age",{unique:false});
 	            </pre>
 	        </div>
 	        
-	   </section>
+	        <!--*********************************-->
+	        <h3 class="r3-title">transaction 事务</h3>
+	    	<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+var transaction = db.transaction(['students']);
+var objectStore = transaction.objectStore('students'); //获取students object store
+
+objectStore.add(newData); //添加数据
+	                </code>
+	            </pre>
+	        </div>
+	        
+	    	<p>在对新数据库做任何事情之前，需要开始一个事务。事务中需要指定该事务跨越哪些object store。</p>
+	    	
+	    	<div class="listTit">transaction() 方法接受三个参数（虽然两个是可选的）并返回一个事务对象。</div>
+	    	<dl class="dlist">
+	    		<dt>第一个参数</dt>
+	    		<dd>第一个参数是事务希望跨越的对象存储空间的列表。如果你希望事务能够跨越所有的对象存储空间你可以传入一个空数组。</dd>
+	    		<dt>第二个参数</dt>
+	    		<dd>如果你没有为第二个参数指定任何内容，你得到的是只读事务。</dd>
+	    	</dl>
+	    	
+	    	<div class="listTit mt20">事务具有三种模式</div>
+	    	<dl class="dlist">
+		    	<dt>只读 readonly</dt>
+		    	<dd>不能修改数据库数据，可以并发执行</dd>
+		    	<dt>读写 readwrite</dt>
+		    	<dd>可以进行读写操作</dd>
+		    	<dt>版本变更 verionchange</dt>
+		    	<dd></dd>
+		    </dl>
+		    <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+db.transaction(storeName,'readwrite');
+
+var transaction = db.transaction('students'); //只读事务
+var transaction = db.transaction(['students']);
+var transaction = db.transaction(['students','taecher'],'readwrite'); //打开一个事务，使用 students 和 teacher object store
+	                </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">游标</h3>
+	        <h4 class="r4-title">openCursor()</h4>
+	        <h4 class="listTit">openCursor 方法接收两个参数</h4>
+	        <dl class="dlist">
+	        	<dt>参数一：IDBKeyRange 对象</dt>
+	        	<dd>
+	        		<div class="code-box">
+			            <pre class="language-js line-numbers">
+			                <code>
+// boundRange 表示主键值从1到10(包含1和10)的集合。
+// 如果第三个参数为true，则表示不包含最小键值1，如果第四参数为true，则表示不包含最大键值10，默认都为false
+var boundRange = IDBKeyRange.bound(1, 10, false, false);
+ 
+// onlyRange 表示由一个主键值的集合。only() 参数则为主键值，整数类型。
+var onlyRange = IDBKeyRange.only(1);
+ 
+// lowerRaneg 表示大于等于1的主键值的集合。
+// 第二个参数可选，为true则表示不包含最小主键1，false则包含，默认为false
+var lowerRange = IDBKeyRange.lowerBound(1, false);
+ 
+// upperRange 表示小于等于10的主键值的集合。
+// 第二个参数可选，为true则表示不包含最大主键10，false则包含，默认为false
+var upperRange = IDBKeyRange.upperBound(10, false);
+			                </code>
+			            </pre>
+			        </div>
+	        	</dd>
+	        	<dt>参数二：游标的读取方向</dt>
+	        	<dd>
+	        		<ul class="list-decimal">
+	        			<li>next : 游标中的数据按主键值升序排列，主键值相等的数据都被读取</li>
+	        			<li>nextunique : 游标中的数据按主键值升序排列，主键值相等只读取第一条数据</li>
+	        			<li>prev : 游标中的数据按主键值降序排列，主键值相等的数据都被读取</li>
+	        			<li>prevunique : 游标中的数据按主键值降序排列，主键值相等只读取第一条数据</li>
+	        		</ul>
+	        	</dd>
+	        </dl>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+var request = indexedDB.open('dbName', 6);
+// ...
+request.onsuccess = function(e){
+    var db = e.target.result;
+    var tx = db.transaction('Users','readwrite');
+    var store = tx.objectStore('Users');
+    var range = IDBKeyRange.bound(1,10);
+    var req = store.openCursor(range, 'next');
+    req.onsuccess = function(){
+        var cursor = this.result;
+        if(cursor){
+            console.log(cursor.value.userName);
+            cursor.continue();
+        }else{
+            console.log('检索结束');
+        }
+    }
+}
+	                </code>
+	            </pre>
+	        </div>
+	        <p>当存在符合检索条件的数据时，可以通过 update 方法更新该数据</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+cursor.updata({
+    userId : cursor.key,
+    userName : 'Hello',
+    age : 18
+});
+	                </code>
+	            </pre>
+	        </div>
+	        <p>可以通过 delete 方法删除该数据</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+cursor.delete();
+	                </code>
+	            </pre>
+	        </div>
+	        <h4 class="r4-title">cursor.continue</h4>
+			<p>cursor.continue的作用在于使游标移动到结果集的下一项，默认情况下游标只发起一次请求，要想发起另一次请求使游标继续查找，则需调用continue(key)方法，该方法中参数可选，不指定参数，移到下一项，指定该参数，移到指定键的位置。</p>
+			<p>如果不加cursor.continue则会只出现第一条数据</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+cursor.continue();
+	                </code>
+	            </pre>
+	        </div>
+	        
+	   	</section>
+	   
+	   	<h2 class="r2-title">数据库基础操作</h2>
+	   	<section class="r2-body">
+	   		<h3 class="r3-title">打开数据库</h3>
+	   		<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+window.indexedDB.open(dbName, version);
+	                </code>
+	            </pre>
+	        </div>
+	        <h3 class="listTit">indexedDB.open 方法</h3>
+	        <dl class="dlist">
+	        	<dt>dbName</dt>
+	        	<dd>数据库名称</dd>
+	        	<dt>version</dt>
+	        	<dd>数据库的版本，当我们对数据库的字段进行增加或修改时候，需要增加个版本。</dd>
+	        </dl>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+var db;
+var dbName = "idxTestDB";
+var DBOpenRequest = window.indexedDB.open(dbName, 1);// 打开数据库
+
+//连接数据库失败时执行
+DBOpenRequest.onerror = function(event){}
+
+//数据库打开成功后
+DBOpenRequest.onsuccess = function(event) {        
+    db = DBOpenRequest.result; //存储数据结果
+    console.log('新数据库版本号为=' + event.newVersion);
+};
+	                </code>
+	            </pre>
+	        </div>
+	        <dl class="dlist">
+	        	<dt>数据库版本</dt>
+	        	<dd>因为 indexedDB API 中不允许数据库中的数据仓库在同一版本中发生变化，所以需要在 indexedDB.open 方法中传入新的版本号来更新版本，避免在同一版本中重复修改数据库。版本号必须为整数！</dd>
+	        </dl>
+	        
+	        <h3 class="r3-title">关闭数据库</h3>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+DBOpenRequest.onsuccess = function(event) {        
+    db = event.target.result;
+    db.close();
+};
+	                </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">删除数据库</h3>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+indexedDB.deleteDatabase(dbName);
+	                </code>
+	            </pre>
+	        </div>
+	        
+	   	</section>
+	   
+	   <h2 class="r2-title">创建对象仓库（即数据库表）</h2>
+	   <section class="r2-body">
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+// 下面事情执行于：数据库首次创建版本，或者window.indexedDB.open传递的新版本（版本数值要比现在的高）
+DBOpenRequest.onupgradeneeded = function(event) {
+    var db = event.target.result;
+
+    // 创建一个数据库存储对象,即表格'TUser'
+    var objectStore = db.createObjectStore('TUser', { 
+        keyPath: 'id',
+        autoIncrement: true
+    });
+
+    // 定义存储对象的数据项
+    objectStore.createIndex('id', 'idTest', {
+        unique: true    
+    });
+    objectStore.createIndex('name', 'nameTest');
+    objectStore.createIndex('begin', 'begin');
+    objectStore.createIndex('end', 'end');
+    objectStore.createIndex('person', 'personTest');
+    objectStore.createIndex('remark', 'remark');
+};
+	                </code>
+	            </pre>
+	        </div>
+	    </section>
+	    
+	    <h2 class="r2-title">操作数据</h2>
+	    <section class="r2-body">
+	    	<dl class="dlist">
+	    		<dt>add() 增加数据</dt>
+	    		<dd>接收一个参数，为需要保存到对象仓库中的对象。</dd>
+	    		<dt>put() 增加或修改数据</dt>
+	    		<dd>接收一个参数，为需要保存到对象仓库中的对象。</dd>
+	    		<dt>get() 获取数据</dt>
+	    		<dd>接收一个参数，为需要获取数据的主键值。</dd>
+	    		<dt>delete() 删除数据</dt>
+	    		<dd>接收一个参数，为需要获取数据的主键值。</dd>
+	    		<dt>add与put的区别</dt>
+	    		<dd>put 保存数据时，如果该数据的主键在数据库中已经有相同主键的时候，则会修改数据库中对应主键的对象，而使用 add 保存数据，如果该主键已经存在，则保存失败。</dd>
+	    	</dl>
+	    	<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+var request = indexedDB.open('dbName', 5);
+// ...
+request.onsuccess = function(e){
+    var db = e.target.result;
+    var tx = db.transaction('Users','readwrite');
+    var store = tx.objectStore('Users');
+    var value = {
+        'userId': 1,
+        'userName': 'linxin',
+        'age': 24
+    }
+    var req1 = store.put(value);        // 保存数据
+    var req2 = store.get(1);            // 获取索引userId为1的数据
+    req2.onsuccess = function(){
+        console.log(this.result.userName);  // linxin
+    }
+    var req3 = store.delete(1);             // 删除索引为1的数据
+    req3.onsuccess = function(){
+        console.log('删除数据成功');        // 删除数据成功
+    }
+}
+	                </code>
+	            </pre>
+	        </div>
+	    </section>
 	   
         <h2 class="r2-title">常见错误</h2>
         <div class="r2-body">

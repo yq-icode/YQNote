@@ -21,5 +21,10 @@
 			<name>_article04</name>
 			<path>/views/axure/</path>
 		</file>
+		<file>
+			<title>图片轮播</title>
+			<name>_article05</name>
+			<path>/views/axure/</path>
+		</file>
 	</main>
 </fileList>

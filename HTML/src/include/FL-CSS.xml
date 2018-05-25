@@ -150,6 +150,13 @@
 			<path>/views/demo/text/</path>
 		</file>
 	</main>
+	<main title="常见问题">
+		<file>
+			<title>html页面字母"x"变成打印机图标的原因</title>
+			<name>ques1</name>
+			<path>/views/css/</path>
+		</file>
+	</main>
 	<main title="实用工具">
 		<file>
 			<title>查看浏览器兼容工具</title>

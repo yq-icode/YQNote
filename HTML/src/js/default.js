@@ -77,6 +77,16 @@ $(function(){
 		})
 	}
 	
+	/* 实例链接
+	 */
+	var expLk = document.querySelectorAll('.expLink');
+	if(expLk.length > 0){
+		$(expLk).each(function(){
+			var _ifh = "<i class='iconfont icon-xiaoguo'></i>";
+			$(this).attr('target','_blank').prepend(_ifh);
+		})
+	}
+	
 	/* 单独的链接引用
 	 */
 	var ref = document.querySelectorAll('.ref');

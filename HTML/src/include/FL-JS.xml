@@ -86,6 +86,11 @@
 				<name>method01</name>
 				<path>/views/js/</path>
 			</file>
+			<file>
+				<title>将提交的表单数据转为数组</title>
+				<name>method03</name>
+				<path>/views/js/</path>
+			</file>
 		</sub>
 		<sub title="图片类处理">
 			<file>
@@ -121,7 +126,7 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>表单相关操作</title>
+				<title>select</title>
 				<name>fun08</name>
 				<path>/views/js/</path>
 			</file>
@@ -148,6 +153,11 @@
 		<file>
 			<title>索引相关的操作</title>
 			<name>fun06</name>
+			<path>/views/js/</path>
+		</file>
+		<file>
+			<title>jquery tmpl 详解</title>
+			<name>exp01</name>
 			<path>/views/js/</path>
 		</file>
 	</main>
