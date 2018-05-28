@@ -236,8 +236,13 @@
 		</sub>
 		<sub title="抽奖">
 			<file>
-				<title>抽奖</title>
-				<name>index</name>
+				<title>抽奖1</title>
+				<name>draw_01</name>
+				<path>demo/draw/</path>
+			</file>
+			<file>
+				<title>抽奖2</title>
+				<name>draw_02</name>
 				<path>demo/draw/</path>
 			</file>
 		</sub>

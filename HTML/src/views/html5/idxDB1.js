@@ -4,13 +4,6 @@ var OS_TUser = "TUser";
 
 var DBOpenRequest = window.indexedDB.open(dbName, dbVersion);//打开数据库(只有改变版本号才能对该数据库结构和数据进行操作)
 
-//var data = [
-//	{'Tname':'刘丽1', 'Tbegin':'2017-07-16', 'Tend':'2017-12-18', 'Tperson':'张鑫旭', 'Tremark':'测试测试'},
-//	{'Tname':'刘丽2', 'Tbegin':'2017-07-16', 'Tend':'2017-12-18', 'Tperson':'张鑫旭', 'Tremark':'测试测试'},
-//	{'Tname':'刘丽3', 'Tbegin':'2017-07-16', 'Tend':'2017-12-18', 'Tperson':'张鑫旭', 'Tremark':'测试测试'}
-//]
-
-
 //下面事情执行于：数据库首次创建版本，或者window.indexedDB.open传递的新版本（版本数值要比现在的高）
 DBOpenRequest.onupgradeneeded = function(event) {
     var db = event.target.result;
