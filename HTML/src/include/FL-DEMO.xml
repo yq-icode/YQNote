@@ -41,6 +41,16 @@
 				<name>numbox</name>
 				<path>demo/form/</path>
 			</file>
+			<file>
+				<title>验证码（字母+数字）</title>
+				<name>yzm1</name>
+				<path>demo/form/</path>
+			</file>
+			<file>
+				<title>验证码（图片）</title>
+				<name>yzm2</name>
+				<path>demo/form/</path>
+			</file>
 		</sub>
 		<sub title="tab切换">
 			<file>
@@ -69,7 +79,7 @@
 				<path>demo/tab/demos/05/</path>
 			</file>
 		</sub>
-		<sub title="分页">
+		<sub title="表格">
 			<file>
 				<title>前端分页一</title>
 				<name>pagination</name>
@@ -98,6 +108,11 @@
 			<file>
 				<title>Ajax获取数据然后显示在页面的实现方法2</title>
 				<name>pagination6</name>
+				<path>demo/</path>
+			</file>
+			<file>
+				<title>表格排序</title>
+				<name>tableSort1</name>
 				<path>demo/</path>
 			</file>
 		</sub>
@@ -232,6 +247,23 @@
 				<title>NAV-4</title>
 				<name>index</name>
 				<path>demo/nav/demos/04/</path>
+			</file>
+		</sub>
+		<sub title="滚动条">
+			<file>
+				<title>jquery.mCustomScrollbar垂直滚动条</title>
+				<name>scroll-1</name>
+				<path>demo/</path>
+			</file>
+			<file>
+				<title>jquery.mCustomScrollbar水平滚动条</title>
+				<name>scroll-2</name>
+				<path>demo/</path>
+			</file>
+			<file>
+				<title>jquery.mCustomScrollbar水平垂直滚动条</title>
+				<name>scroll-3</name>
+				<path>demo/</path>
 			</file>
 		</sub>
 		<sub title="抽奖">

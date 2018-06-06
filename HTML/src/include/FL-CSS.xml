@@ -31,6 +31,11 @@
 			<name>property</name>
 			<path>/views/css/</path>
 		</file>
+		<file>
+			<title>line-height</title>
+			<name>lineHeight</name>
+			<path>/views/css/</path>
+		</file>
 	</main>
 	<main title="CSS3">
 		<file>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<link href="css/jigsaw.css" rel="stylesheet" />
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<style>
+	    input {
+	      display: block;
+	      width: 290px;
+	      line-height: 40px;
+	      margin: 10px 0;
+	      padding: 0 10px;
+	      outline: none;
+	      border:1px solid #c8cccf;
+	      border-radius: 4px;
+	      color:#6a6f77;
+	    }
+	    #msg {
+	      line-height: 40px;
+	      font-size: 14px;
+	    }
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="browser-support mb20">
+			<p class="summary">FF; Safari; Chrome; 不兼容IE</p>
+		</div>
+		<input type="text" value="admin" readonly="readonly" />
+		<input type="password" value="1234567890" readonly="readonly" />
+		<div id="captcha" class="yzBox"></div>
+		<div id="msg"></div>
+	</div>
+	<script src="js/jigsaw.js"></script>
+	<script type="text/javascript">
+		jigsaw.init(document.getElementById('captcha'), function (){
+		    document.getElementById('msg').innerHTML = '登录成功！'
+		})
+	    
+	    //添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

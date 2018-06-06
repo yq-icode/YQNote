@@ -34,9 +34,9 @@ $(function(){
 	
 	/* 添加footer
 	 */
-	var footWrap = "<footer id='footer'></footer>";
-	$("body").append(footWrap);
-	$("#footer").load("/include/_footer.html");
+//	var footWrap = "<footer id='footer'></footer>";
+//	$("body").append(footWrap);
+//	$("#footer").load("/include/_footer.html");
 	
 	/*
 	 * 动态生成文章数字

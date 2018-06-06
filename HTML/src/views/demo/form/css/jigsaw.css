@@ -1,0 +1,121 @@
+.yzBox{
+	position: relative;
+	width: 310px;
+}
+.yzBox .block {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.yzBox .sliderContainer {
+  position: relative;
+  text-align: center;
+  width: 310px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 15px;
+  background: #f7f9fa;
+  color: #45494c;
+  border: 1px solid #e4e7eb;
+}
+
+.yzBox .sliderContainer_active .slider {
+  height: 38px;
+  top: -1px;
+  border: 1px solid #1991FA;
+}
+
+.yzBox .sliderContainer_active .sliderMask {
+  height: 38px;
+  border-width: 1px;
+}
+
+.yzBox .sliderContainer_success .slider {
+  height: 38px;
+  top: -1px;
+  border: 1px solid #52CCBA;
+  background-color: #52CCBA !important;
+}
+
+.yzBox .sliderContainer_success .sliderMask {
+  height: 38px;
+  border: 1px solid #52CCBA;
+  background-color: #D2F4EF;
+}
+
+.yzBox .sliderContainer_success .sliderIcon {
+  background-position: 0 0 !important;
+}
+
+.yzBox .sliderContainer_fail .slider {
+  height: 38px;
+  top: -1px;
+  border: 1px solid #f57a7a;
+  background-color: #f57a7a !important;
+}
+
+.yzBox .sliderContainer_fail .sliderMask {
+  height: 38px;
+  border: 1px solid #f57a7a;
+  background-color: #fce1e1;
+}
+
+.yzBox .sliderContainer_fail .sliderIcon {
+  background-position: 0 -83px !important;
+}
+.yzBox .sliderContainer_active .sliderText,
+.yzBox .sliderContainer_success .sliderText,
+.yzBox .sliderContainer_fail .sliderText {
+  display: none;
+}
+
+.yzBox .sliderMask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 40px;
+  border: 0 solid #1991FA;
+  background: #D1E9FE;
+}
+
+.yzBox .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background .2s linear;
+}
+
+.yzBox .slider:hover {
+  background: #1991FA;
+}
+
+.yzBox .slider:hover .sliderIcon {
+  background-position: 0 -13px;
+}
+
+.yzBox .sliderIcon {
+  position: absolute;
+  top: 15px;
+  left: 13px;
+  width: 14px;
+  height: 10px;
+  background: url(../images/icon_light.f13cff3.png) 0 -26px;
+  background-size: 34px 471px;
+}
+
+.yzBox .refreshIcon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  background: url(../images/icon_light.f13cff3.png) 0 -437px;
+  background-size: 34px 471px;
+}

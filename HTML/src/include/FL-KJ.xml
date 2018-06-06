@@ -31,4 +31,11 @@
 			<path>/views/bootstrap/</path>
 		</file>
 	</main>
+	<main title="VUE">
+		<file>
+			<title>VUE</title>
+			<name>index</name>
+			<path>/KJ/VUE/</path>
+		</file>
+	</main>
 </fileList>

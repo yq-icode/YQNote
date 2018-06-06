@@ -68,7 +68,6 @@
 	        <section id="sec-1">
 	            <h3 class="r3-title">单行文本/图片垂直居中</h3>
 	            <p class="reference"><a target="_blank" href="http://www.w3cplus.com/css/vertically-center-content-with-css"></a></p>
-	            <p>只要保证元素内容是单行，并且其高度是固定不变的，你只要将其“line-height”设置成和“height”值一样就Ok了。</p>
 	            <div class="code-box">
 	            	<pre class="language-html">
 	                	<code>
@@ -76,6 +75,8 @@
 	                            </code>
 	                </pre>
 	            </div>
+	            <h4 class="r4-title">法一</h4>
+	            <p>只要保证元素内容是单行，并且其高度是固定不变的，你只要将其“line-height”设置成和“height”值一样就Ok了。</p>
 	            <div class="code-box">
 	                <pre class="language-css">
 	                    <code>
@@ -87,6 +88,67 @@
 	                </pre>
 	            </div>
 	            <p>这种方法对运用在小元素上是非常有用的，比如说让一个button、图片或者单行文本字段垂直居中。</p>
+	            
+	            <h4 class="r4-title">法二</h4>
+	            <div class="code-box">
+	                <pre class="language-css">
+	                    <code>
+	.vertical {
+	    line-height: 100px;/*值等于元素高度的值*/
+	}                    
+	                    </code>
+	                </pre>
+	            </div>
+	            <a class="ref" href="http://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/">实现原理请看此处</a>
+	        
+	        	<h3 class="r3-title">多行文本垂直居中</h3>
+	        	<div class="code-box">
+	                <pre class="language-html">
+	                    <code>
+&lt;p class="mulit_line"&gt;
+    &lt;span style="font-size:12px;"&gt;这里是高度为150像素的标签内的多行文字，文字大小为12像素。&lt;br /&gt;这里是第二行，用来测试多行的显示效果。&lt;/span&gt;
+    &lt;i&gt;&nbsp;&lt;/i&gt;
+&lt;/p&gt;                
+	                    </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	                <pre class="language-css">
+	                    <code>
+.mulit_line{line-height:150px; border:1px dashed #cccccc; padding-left:5px;}
+.mulit_line span{display:-moz-inline-stack; display:inline-block; line-height:1.4em; vertical-align:middle;}
+.mulit_line i{width:0; display:-moz-inline-stack; display:inline-block; vertical-align:middle; font-size:0;}                  
+	                    </code>
+	                </pre>
+	            </div>
+	        	<a class="ref" href="http://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/">实现原理请看此处</a>
+	        
+	        	<h3 class="r3-title">图片垂直居中</h3>
+	        	<div class="code-box">
+	                <pre class="language-html">
+	                    <code>
+&lt;ul class="zxx_ul_image"&gt;
+	&lt;li&gt;&lt;img src="http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg" /&gt;&lt;/li&gt; 
+	&lt;li&gt;&lt;img src="http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg" /&gt;&lt;/li&gt; 
+	&lt;li&gt;&lt;img src="http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg" /&gt;&lt;/li&gt; 
+	&lt;li&gt;&lt;img src="http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg" /&gt;&lt;/li&gt; 
+	&lt;li&gt;&lt;img src="http://image.zhangxinxu.com/image/study/s/s128/mm5.jpg" /&gt;&lt;/li&gt; 
+	&lt;li&gt;&lt;img src="http://image.zhangxinxu.com/image/study/s/s128/mm6.jpg" /&gt;&lt;/li&gt; 
+&lt;/ul&gt;                
+	                    </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	                <pre class="language-css">
+	                    <code>
+.zxx_ul_image{overflow:hidden; zoom:1;} 
+.zxx_ul_image li{float:left; width:150px; height:150px; text-align:center; line-height:150px; *font-size:125px;} 
+.zxx_ul_image li:after{content:' '; vertical-align:middle;} 
+.zxx_ul_image li img{vertical-align:middle;}                
+	                    </code>
+	                </pre>
+	            </div>
+	        	<a class="ref" href="http://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/">实现原理请看此处</a>
 	        </section>
 	    </div>
         <!-- **************** separator line ****************  -->
