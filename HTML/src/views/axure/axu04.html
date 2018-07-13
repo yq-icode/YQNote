@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<link href="/css/tutorial.less" rel="stylesheet/less" >
+    <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+	<article id="wrap">
+        <div class="ttBlock">
+        	<h2 class="ttBlock_head">实现原理</h2>
+            <div class="ttBlock_body">
+            	<ul class="smlist mt20">
+                	<li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="ttBlock">
+            <h2 class="ttBlock_head">步骤</h2>
+            <div class="ttBlock_body">
+                <ol class="ttBlock-orderlist">
+                	<li class="ttBlock-list">
+                        <div class="ttBlock-list-txt">新建两个动态面板，分别命名为：大图、缩略图，放对应的大图和缩略图；<br>新建一个矩形并命名：currentPic，用于存储当前图片的值；<br>新建两个形状，分别命名为：pre、next；</div>
+                    </li>
+                    <li class="ttBlock-list">
+                        <div class="ttBlock-list-txt">在大图动态面板中新建8个面板状态，每个状态中放置一张大图；</div>
+                        <div class="ttBlock-list-media">
+                        	<img src="images/screenPics/sc016.jpg" />
+                        </div>
+                    </li>
+                    <li class="ttBlock-list">
+                        <div class="ttBlock-list-txt">
+                        	<ul class="list-decimal">
+                        		<li>在缩略图动态面板中放所有的缩略图，并为每个缩略图分别命名为：缩略图1、缩略图2、...、缩略图8；</li>
+                        		<li>为所有缩略图设置选中状态；</li>
+                        		<li>为所有缩略图设置选项组名称：缩略图（为了点击缩略图时，每次只能选中一个）</li>
+                        		<li>单击某个缩略图时（假使此缩略图序号为4），设置其选中状态为true; 并设置大图（动态面板）的面板状态与缩略图的序号一致，即也为4；设置 currentPic = 4 （currentPic 用于存储当前图片的序号）</li>
+                        	</ul>
+                        </div>
+                        <div class="ttBlock-list-media">
+                        	<img src="images/screenPics/sc035.jpg" />
+                        	<img src="images/screenPics/sc017.jpg" />
+                        </div>
+                    </li>
+                    <li class="ttBlock-list">
+                        <div class="ttBlock-list-txt">初始截入时：大图（动态面板）默认显示第一张图（即第一个面板状态中的图）；设置缩略图（动态面板）的第一张为选中状态；设置 currentPic = 1</div>
+                        <div class="ttBlock-list-media">
+                        	<img src="images/screenPics/sc018.jpg" />
+                        </div>
+                    </li>
+                    <li class="ttBlock-list">
+                        <div class="ttBlock-list-txt">
+                        	点击next时，根据currentPic的值做以下设置（因为currentPic取值范围为1~8，所以会有8种情况），假设currentPic当前值为2：
+                        	<ul class="list-decimal">
+                        		<li>大图（动态面板）向右滑动到下一个面板状态，即第3个面板状态；</li>
+                        		<li>将 currentPic 的值增1，即 currentPic = 3；</li>
+                        		<li>设置序号为3的缩略图的选中状态为true；</li>
+                        	</ul>
+                        	<p>当 currentPic 的值为 1~8时，均按如上设置，但是当 currentPic > 8 （即在最后一张图时点击next）时，情况不同于上面，需要按如下设置：</p>
+                        	<ul class="list-decimal">
+                        		<li>设置序号为1的缩略图的选中状态为true；</li>
+                        		<li>设置 currentPic = 1 </li>
+                        	</ul>
+                        </div>
+                        <div class="ttBlock-list-media">
+                        	<img src="images/screenPics/sc019.jpg" />
+                        	<p>设置缩略图的选中状态：</p>
+                        	<img src="images/screenPics/sc022.jpg" />
+                        	<p>设置大图（动态面板）的面板状态：</p>
+                        	<img src="images/screenPics/sc020.jpg" />
+                        	<p>设置 currentPic 的值 ：</p>
+                        	<img src="images/screenPics/sc021.jpg" />
+                        	<p>当 currentPic > 8 时，重置 currentPic = 1（图中的写法：LVAR1 = currentPic, currentPic = LVAR1 - 图片总数(8)，效果和 currentPic = 1 是一样的）</p>
+                        	<img src="images/screenPics/sc036.jpg" />
+                        </div>
+                    </li>
+                    <li class="ttBlock-list">
+                        <div class="ttBlock-list-txt">
+                        	点击pre时，根据currentPic的值做以下设置（因为currentPic取值范围为1~8，所以会有8种情况），假设currentPic当前值为5：
+                        	<ul class="list-decimal">
+                        		<li>大图（动态面板）向左滑动到上一个面板状态，即第4个面板状态；</li>
+                        		<li>将 currentPic 的值减1，即 currentPic = 4；</li>
+                        		<li>设置序号为4的缩略图的选中状态为true；</li>
+                        	</ul>
+                        	<p>当 currentPic 的值为 1~8时，均按如上设置，但是当 currentPic < 1 （即在第一张图时点击pre）时，情况不同于上面，需要按如下设置：</p>
+                        	<ul class="list-decimal">
+                        		<li>设置序号为8的缩略图的选中状态为true；</li>
+                        		<li>设置 currentPic = 8 </li>
+                        	</ul>
+                        </div>
+                        <div class="ttBlock-list-media">
+                        	<img src="images/screenPics/sc023.jpg" />
+                        	<p>设置缩略图的选中状态：</p>
+                        	<img src="images/screenPics/sc024.jpg" />
+                        	<p>设置大图（动态面板）的面板状态：</p>
+                        	<img src="images/screenPics/sc025.jpg" />
+                        	<p>设置 currentPic 的值 ：</p>
+                        	<img src="images/screenPics/sc026.jpg" />
+                        	<p>当 currentPic < 1 时，重置 currentPic = 8（图中的写法：LVAR1 = currentPic, currentPic = LVAR1 + 图片总数(8)，效果和 currentPic = 8 是一样的）</p>
+                        	<img src="images/screenPics/sc037.jpg" />
+                        </div>
+                    </li>
+                    <li class="ttBlock-list">
+                        <div class="ttBlock-list-txt">完成</div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </article>
+    
+    <script type="text/javascript">
+		addArticleTop();
+	</script>
+</body>
+</html>

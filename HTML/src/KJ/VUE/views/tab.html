@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VUE</title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/vue.js"></script>
+    <style>
+    	.tabWrap{
+    		border: 1px solid #ccc;
+    	}
+    	.tabWrap .tabTit a{
+    		display: inline-block;
+    		padding: 5px 20px;
+    		background-color: #eee;
+    		color: #666;
+    	}
+    	.tabWrap .tabTit a.cur{
+    		background-color: #fff;
+    		color: #000;
+    	}
+    	.tabWrap .tabCon > div{
+    		padding: 20px;
+    	}
+    </style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="tab" class="tabWrap">
+			<div class="tabTit">
+				<a href="javascript:void(0)" @click="curId=1" :class="{'cur':curId===1}">TAB1</a>
+				<a href="javascript:void(0)" @click="curId=2" :class="{'cur':curId===2}">TAB2</a>
+				<a href="javascript:void(0)" @click="curId=3" :class="{'cur':curId===3}">TAB3</a>
+				<a href="javascript:void(0)" @click="curId=4" :class="{'cur':curId===4}">TAB4</a>
+			</div>
+			<div class="tabCon">
+				<div v-show="curId===1">TAB1</div>
+				<div v-show="curId===2">TAB2</div>
+				<div v-show="curId===3">TAB3</div>
+				<div v-show="curId===4">TAB4</div>
+			</div>
+		</div>
+    </div>
+    <script type="text/javascript">
+    	new Vue({
+    		el:"#tab",
+    		data:{
+    			curId:1
+    		}
+    	})
+    	
+		//添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

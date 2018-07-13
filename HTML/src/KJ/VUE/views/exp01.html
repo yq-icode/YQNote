@@ -5,16 +5,177 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>VUE</title>
-    <!--#include virtual="/include/_head_import_file2.html" -->
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
     <script src="/js/vue.js"></script>
+    <style>
+    	form{
+    		margin-bottom: 20px;
+    		border: 1px solid #eee;
+    		padding: 20px;
+    		font-size: 12px;
+    		text-align: left;
+    	}
+    	form th, form td{
+    		padding: 5px 0;
+    	}
+    	form input, form textarea, form select{
+    		padding: 5px 10px;
+    		font-size: 12px;
+    	}
+    	form button{
+    		padding: 5px 20px;
+    	}
+    	.tlist{border-collapse: collapse; font-size: 12px;}
+    	.tlist th, .tlist td{border: 1px solid #eee;padding: 5px 10px;}
+    </style>
 </head>
 <body>
-	<!--#include virtual="/include/_header.html" -->
 	<div id="wrap">
-		<div id="list"></div>
+		<div id="userList">
+			<form>
+				<table>
+					<tr>
+						<th width="60">姓名</th>
+						<td>
+							<input type="text" v-model="username" />
+						</td>
+					</tr>
+					<tr>
+						<th>性别</th>
+						<td>
+							<input type="radio" v-model="sex" id="sexMan" value="男" />
+							<label for="sexMan">男</label>
+							<input type="radio" v-model="sex" id="sexWoman" value="女" />
+							<label for="sexWoman">女</label>
+						</td>
+					</tr>
+					<tr>
+						<th>年龄</th>
+						<td>
+							<input type="number" v-model.number="age" />
+						</td>
+					</tr>
+					<tr>
+						<th>出生日期</th>
+						<td>
+							<input type="date" v-model="birthday" />
+						</td>
+					</tr>
+					<tr>
+						<th>籍贯</th>
+						<td>
+							<select v-model="addr">
+								<option>北京</option>
+								<option>天津</option>
+								<option>上海</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>兴趣</th>
+						<td>
+							<input type="checkbox" v-model="interest" id="xq1" value="旅游" />
+							<label for="xq1">旅游</label>
+							<input type="checkbox" v-model="interest" id="xq2" value="看电影" />
+							<label for="xq2">看电影</label>
+							<input type="checkbox" v-model="interest" id="xq3" value="打篮球" />
+							<label for="xq3">打篮球</label>
+						</td>
+					</tr>
+					<tr>
+						<th>备注</th>
+						<td>
+							<textarea v-model="notes" placeholder="备注"></textarea>
+						</td>
+					</tr>
+				</table>
+				<button type="button" v-on:click="userAdd()">添加</button>
+			</form>
+			<table class="tlist">
+				<thead>
+					<tr>
+						<th width="30">序号</th>
+						<th width="120">姓名</th>
+						<th width="50">性别</th>
+						<th width="50">年龄</th>
+						<th width="80">出生日期</th>
+						<th width="50">籍贯</th>
+						<th width="200">兴趣</th>
+						<th width="250">备注</th>
+						<th width="50"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(user, index) in users">
+						<td>{{index+1}}</td>
+						<td>{{user.username}}</td>
+						<td>{{user.sex}}</td>
+						<td>{{user.age}}</td>
+						<td>{{user.birthday}}</td>
+						<td>{{user.addr}}</td>
+						<td>{{user.interest}}</td>
+						<td>{{user.notes}}</td>
+						<td>
+							<a href="javascript:void(0)" v-on:click="userDelete(index)">删除</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
     </div>
     <script type="text/javascript">
-		
+    	new Vue({
+    		el:'#userList', //此ID要包含表单和下面的表格列表
+    		data:{
+    			users:[
+    				{username:"刘丽",   sex:"女", age:"23"},
+    				{username:"吴军",   sex:"男", age:"36"},
+    				{username:"杜小彬", sex:"男", age:"18"},
+    				{username:"王天楚", sex:"男", age:"28"},
+    				{username:"杨颖",   sex:"女", age:"31"}
+    			],
+    			username:'',
+    			sex:'',
+    			age:'',
+    			birthday:'',
+    			addr:'',
+    			interest:[],
+    			notes:''
+    		},
+    		methods:{
+    			userAdd: function(){
+					this.users.push({
+						username:this.username,
+						sex:this.sex,
+						age:this.age,
+						birthday:this.birthday,
+						addr:this.addr,
+						interest:this.interest,
+						notes:this.notes
+					})
+					//清除表单数据
+					this.username = "",
+					this.sex = "",
+					this.age = "",
+					this.birthday = "",
+					this.addr = "",
+					this.interest = [],
+					this.notes = ""
+    			},
+    			//此处为能命名为delete
+	    		userDelete: function(index){
+	    			this.users.splice(index,1);
+	    		}
+	    	}
+    	})
+    	
+    	
+		//添加TOP
+		addArticleTop();
 	</script>
 </body>
 </html>

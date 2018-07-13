@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VUE</title>
+	<link href="/css/prism.css" rel="stylesheet">
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">method与computed的区别</h2>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>   
+&lt;div id="app"&gt;
+    &lt;p&gt;{{message}}&lt;/p&gt;
+    &lt;p&gt;{{message.split('').reverse().join('')}}&lt;/p&gt; //直接在模板中绑定表达式
+    &lt;p&gt;{{reverseMessage}}&lt;/p&gt; //运用计算属性
+    &lt;p&gt;{{methodMessage()}}&lt;/p&gt; //运用methods方式
+&lt;/div&gt;
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+var vm=new Vue({
+    el:"#app",
+    data:{
+        message:"hello"
+    },
+    computed:{
+        reverseMessage:function(){
+            return this.message.split('').reverse().join('');
+        }
+    },
+    methods:{
+        methodMessage:function () {
+            return this.message.split('').reverse().join('');
+        }
+    }
+})
+		            </code>
+	            </pre>
+	        </div>
+	        <p>我在此将三种方式进行了比较。返回的结果是一样的，写但在法上computed计算属性的方式在用属性时不用加(),而methods方式在使用时要像方法一样去用，必须加().</p>
+	        <p>两种方式在缓存上也大有不同，利用computed计算属性是将 reverseMessage与message绑定，只有当message发生变化时才会触发reverseMessage，而methods方式是每次进入页面都要执行该方法，但是在利用实时信息时，比如显示当前进入页面的时间，必须用methods方式</p>
+		</section>
+	</div>
+</div>
+</body>
+</html>

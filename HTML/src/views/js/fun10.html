@@ -37,9 +37,30 @@ $(window).height()
 				<dt>注意点</dt>
 				<dd>如果页面中有动态加载的DOM，获取网页可视区域的JS要放在动态加载DOM结构的JS前，否则FF chrome中获取的值不正确，IE7+中不受此影响，一直都正常。</dd>
 			</dl>
-		
+		</section>
+		<h2 class="r2-title">屏幕分辨率</h2>
+		<div class="browser-support">
+			<div class="summary">&lt;!doctype html&gt;下测试; FF; Chrome; IE7+; IE6- 没有测试环境，所以未测试</div>
+		</div>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//屏幕分辨率	                	
+window.screen.width
+window.screen.height
+
+//屏幕可用工作区(即屏幕分辨率－任务栏)
+window.screen.availWidth
+window.screen.availHeight
+		            </code>
+	            </pre>
+	        </div>
 		</section>
 	</div>
 </div>
+<script>
+	console.log("*** screen.width:" + window.screen.width + " | screen.height:" + window.screen.height + " | screen.availWidth" + window.screen.availWidth + " | screen.availHeight" + window.screen.availHeight)
+</script>
 </body>
 </html>

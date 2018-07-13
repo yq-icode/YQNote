@@ -15,22 +15,31 @@
 	    <h1 class="mui-title">自动消失提示框</h1>
 	</header>
 	<div class="mui-content mui-content-padded">
-	    <button type="button" id="btn-toast">自动消失提示框</button>
+	    <button type="button" id="btn-toast1">自动消失提示框1</button>
+	    <button type="button" id="btn-toast2">自动消失提示框2(type:div)</button>
 	</div>
 	<script type="text/javascript">
 		var toast_text = "toast message";
 		var _toast_html = "";
 		_toast_html += "<div class='toast-body'>" + toast_text + "</div>";
 		
-		document.querySelector('#btn-toast').addEventListener('tap',function(){
+		document.querySelector('#btn-toast1').addEventListener('tap',function(){
+			mui.toast(_toast_html,{ duration:2000});
+		})
+		document.querySelector('#btn-toast2').addEventListener('tap',function(){
 			mui.toast(_toast_html,{ duration:2000, type:'div'});
 		})
+		
 	</script>
 	
 	<!-- 【说明】
 		.toast( message [,options])
 		1> message可为字符串，也可为DOM结构，如果添加DOM结构，需要加上 type:'div'；
 		2> 持续时间duration，如果是整数值，则不要放在引号中，即不要写成此种形式 duration:'3000'，这种形式不起作用
+		
+		plus.nativeUI.toast("message");
+		1> 此种方法与mui.toast效果相同
+		2> 用此种方法无法修改样式（目前没有找到可以修改样式的方法）
 	-->
 </body>
 </html>

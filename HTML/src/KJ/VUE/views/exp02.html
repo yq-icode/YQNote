@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VUE</title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/vue.js"></script>
+    <style>
+    	input[type=text]{
+    		padding: 5px 10px;
+    		color: #666;
+    	}
+    </style>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">指令</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">v-once</h3>
+			<div class="example-wrap">
+				<p>
+					<strong>using v-once:</strong>
+					<span v-once>{{msg1}}</span>
+				</p>
+				<p>
+					<strong>using mustaches:</strong>
+					<span>{{msg1}}</span>
+				</p>
+				<input type="text" v-model="msg1" />
+			</div>
+			
+			<h3 class="r3-title">v-html</h3>
+			<div class="example-wrap">
+				<p><strong>Using mustaches:</strong> {{msg2}}</p>
+		  		<p><strong>Using v-html:</strong> <span v-html="msg2"></span></p>
+			</div>
+			
+			<h3 class="r3-title">component</h3>
+			<div class="example-wrap">
+				<ol>
+			    	<todo-item
+			      		v-for="item in groceryList"
+			      		v-bind:todo="item"
+			      		v-bind:key="item.id">
+			    	</todo-item>
+			  	</ol>
+			</div>
+		</section>
+	</div>
+</div>
+<script type="text/javascript">
+	Vue.component('todo-item', {
+	  	props: ['todo'],
+	  	template: '<li>{{todo.id}} : {{ todo.text }}</li>'
+	})
+	
+	new Vue({
+		el:'#wmain',
+		data:{
+			msg1:'指令v-once测试用例',
+			msg2:"<span style='color:red'>指令v-html测试用例</span>",
+			groceryList: [
+		      	{ id: 0, text: '蔬菜' },
+		      	{ id: 1, text: '奶酪' },
+		      	{ id: 2, text: '随便其它什么人吃的东西' }
+		    ]
+		}
+	})
+	
+	
+</script>
+</body>
+</html>

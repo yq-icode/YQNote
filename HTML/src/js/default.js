@@ -82,6 +82,7 @@ $(function(){
 	var expLk = document.querySelectorAll('.expLink');
 	if(expLk.length > 0){
 		$(expLk).each(function(){
+			$(this).text('请查看实例演示');
 			var _ifh = "<i class='iconfont icon-xiaoguo'></i>";
 			$(this).attr('target','_blank').prepend(_ifh);
 		})

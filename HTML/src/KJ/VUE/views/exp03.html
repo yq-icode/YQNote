@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VUE</title>
+	<link href="/css/prism.css" rel="stylesheet">
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+    <script src="/js/vue.js"></script>
+    <script src="/js/default.js"></script>
+    <style>
+    	
+    </style>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">组件名</h2>
+		<section class="r2-body">
+			<p>定义组件名的方式有两种：</p>
+			<h3 class="r3-title">使用 kebab-case</h3>
+			<p>当使用 kebab-case (短横线分隔命名) 定义一个组件时，你也必须在引用这个自定义元素时使用 kebab-case，例如 &lt;my-component-name&gt;。</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Vue.component('my-component-name', { /* ... */ })
+		            </code>
+	            </pre>
+	        </div>
+			<h3 class="r3-title">使用 PascalCase</h3>
+			<p>当使用 PascalCase (驼峰式命名) 定义一个组件时，你在引用这个自定义元素时两种命名法都可以使用。也就是说 &lt;my-component-name&gt; 和 &lt;MyComponentName&gt; 都是可接受的。注意，尽管如此，直接在 DOM (即非字符串的模板) 中使用时只有 kebab-case 是有效的。</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Vue.component('MyComponentName', { /* ... */ })
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		<h2 class="r2-title">组件注册</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">全局注册</h3>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Vue.component('my-component-name', {
+  // ... 选项 ...
+})
+		            </code>
+	            </pre>
+	        </div>
+	        <p>这些组件是全局注册的。也就是说它们在注册之后可以用在任何新创建的 Vue 根实例 (new Vue) 的模板中。比如：</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Vue.component('component-a', { /* ... */ })
+Vue.component('component-b', { /* ... */ })
+Vue.component('component-c', { /* ... */ })
+
+new Vue({ el: '#app' })
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>   
+&lt;div id="app"&gt;
+  	&lt;component-a&gt;&lt;/component-a&gt;
+  	&lt;component-b&gt;&lt;/component-b&gt;
+  	&lt;component-c&gt;&lt;/component-c&gt;
+&lt;/div&gt;
+		            </code>
+	            </pre>
+	        </div>
+	        <p>在所有子组件中也是如此，也就是说这三个组件在各自内部也都可以相互使用。</p>
+	        
+	        <h3 class="r3-title">局部注册</h3>
+	        
+		</section>
+		
+		
+		<h2 class="r2-title">组件的复用</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">data 必须是一个函数</h3>
+			<p>一个组件的 data 选项必须是一个函数</p>
+			
+			<h4 class="r4-title">实例1</h4>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+Vue.component('button-counter', {
+  	data: function () {
+    	return {
+      		count: 0
+    	}
+  	},
+  	template: '&lt;button v-on:click="count++"&gt;You clicked me {{ count }} times.&lt;/button&gt;'
+})
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>   
+&lt;div id="components-demo"&gt;
+  	&lt;button-counter&gt;&lt;/button-counter&gt;
+&lt;/div&gt;
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="example-wrap">
+	        	<div id="components-demo">
+			  		<button-counter></button-counter>
+			  		<button-counter></button-counter>
+			  		<button-counter></button-counter>
+				</div>
+				<script>
+					Vue.component('button-counter', {
+					  	data: function () {
+					    	return {
+					      		count: 0
+					    	}
+					  	},
+					  	template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+					})
+					new Vue({ el: '#components-demo' })
+				</script>
+	        </div>
+	        
+	        <h4 class="r4-title">实例2</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+var buttonCounter2Data = {
+  	count: 0
+}
+Vue.component('button-counter2', {
+  	data: function () {
+    	return buttonCounter2Data
+  	},
+  	template: '&lt;button v-on:click="count++"&gt;You clicked me {{ count }} times.&lt;/button&gt;'
+})
+new Vue({ el: '#components-demo2' })
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>   
+&lt;div id="components-demo2"&gt;
+  	&lt;button-counter2&gt;&lt;/button-counter2&gt;
+&lt;/div&gt;
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="example-wrap">
+	        	<div id="components-demo2">
+			  		<button-counter2></button-counter2>
+			  		<button-counter2></button-counter2>
+			  		<button-counter2></button-counter2>
+				</div>
+				<script>
+					var buttonCounter2Data = {
+					  	count: 0
+					}
+					Vue.component('button-counter2', {
+					  	data: function () {
+					    	return buttonCounter2Data
+					  	},
+					  	template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+					})
+					new Vue({ el: '#components-demo2' })
+				</script>
+	        </div>
+		</section>
+	</div>
+</div>
+<script type="text/javascript">
+	
+	
+</script>
+</body>
+</html>

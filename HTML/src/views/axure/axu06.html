@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<link href="/css/tutorial.less" rel="stylesheet/less" >
+    <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+	<article id="wrap">
+        <div class="ttBlock">
+        	<h2 class="ttBlock_head">准备工作</h2>
+            <div class="ttBlock_body">
+            	<p>默认为100分，最低分为0，最高分为100，当 当前分值被扣除的小于0之后，将其设置为0；</p>
+            	<ul class="list-decimal">
+            		<li>新建一个动态面板，命名为：评判标准，在此动态面板中，放一个中继器，中继器也命名为：评判标准；</li>
+            		<li>新建一个矩形，命名为：当前分值，用于放计算的最终分数；</li>
+            		<li>新建一个矩形，命名为：选中项的分值汇总，用于统计中继器选中项的分数；</li>
+            		<li>新建一个按钮，命名为：扣分</li>
+            	</ul>
+            	<p>效果图如下：</p>
+            	<img src="images/screenPics/sc030.jpg" />
+            </div>
+        </div>
+        
+        <div class="ttBlock">
+            <h2 class="ttBlock_head">步骤</h2>
+            <div class="ttBlock_body">
+                <ol class="ttBlock-orderlist">
+                    <li class="ttBlock-list">
+                        <div class="ttBlock-list-txt">评判标准（中继器）按如下设置：</div>
+                        <div class="ttBlock-list-media">
+                        	<p>分值（矩形）的文本设置为：[[-item.KFFenZhi]]</p>
+                        	<img src="images/screenPics/sc031.jpg" />
+                        	<p>设置分值（矩形）为隐藏状态</p>
+                        	<img src="images/screenPics/sc032.jpg" />
+                        	<p>将中继器每行的所有矩形进行组合，并命名为：行，单击行时需要如下设置：</p>
+                        	<strong>如果行（组合）的选中状态为 true</strong>
+                        	<ul class="list-decimal mb20">
+                        		<li>将行（组合）的选中状态设置为 false</li>
+                        		<li>隐藏 分值（矩形）</li>
+                        		<li>设置 选中项的分值汇总（矩形）的值 = 选中项的分值汇总（矩形）之前的值 － 刚选中项的 [[item.KFFenZhi]]</li>
+                        	</ul>
+                        	<strong>如果行（组合）的选中状态为 false</strong>
+                        	<ul class="list-decimal">
+                        		<li>将行（组合）的选中状态设置为 true</li>
+                        		<li>显示 分值（矩形）</li>
+                        		<li>设置 选中项的分值汇总（矩形）的值 = 选中项的分值汇总（矩形）之前的值 + 刚选中项的 [[item.KFFenZhi]]</li>
+                        	</ul>
+                        	<img src="images/screenPics/sc033.jpg" />
+                        </div>
+                    </li>
+                    <li class="ttBlock-list">
+                        <div class="ttBlock-list-txt">点击扣分按钮时：</div>
+                        <div class="ttBlock-list-media">
+                        	<strong class="mt20">如果 当前分值（矩形）的值 大于等于 选中项的分值汇总（矩形）的值:</strong><br>
+                        	当前分值（矩形）的值 = 当前分值（矩形）的值 - 选中项的分值汇总（矩形）的值
+                        	<p>
+                        	<strong class="mt20">如果 当前分值（矩形）的值 小于 选中项的分值汇总（矩形）的值:</strong><br>
+                        	当前分值（矩形）的值 = 0
+                        	</p>
+                        	<img src="images/screenPics/sc034.jpg" />
+                        </div>
+                    </li>
+                    <li class="ttBlock-list">
+                        <div class="ttBlock-list-txt">完成</div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </article>
+    
+    <script type="text/javascript">
+		addArticleTop();
+	</script>
+</body>
+</html>

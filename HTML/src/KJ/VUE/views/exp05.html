@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VUE</title>
+	<link href="/css/prism.css" rel="stylesheet">
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">控制元素的隐藏和显示</h2>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>   
+&lt;div id="box"&gt;
+    &lt;input type="button" value="toggle" v-on:click="toggle()"&gt;
+    &lt;div v-show="isShow"&gt;点击上面的按钮可控制此DIV显示与隐藏&lt;/div&gt;
+&lt;/div&gt;
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+var vm = new Vue({
+    el:'#box',
+    data:{
+        isShow:false
+    },
+    methods:{
+        toggle:function(){
+            this.isShow = !this.isShow;
+        }
+    }
+});
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

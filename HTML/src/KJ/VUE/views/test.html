@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VUE</title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/vue.js"></script>
+    <style>
+    	
+    </style>
+</head>
+<body>
+	<div id="wrap">
+		<div v-bind:class="classObject">adfsfd</div>
+    </div>
+    <script type="text/javascript">
+		
+		var app7 = new Vue({
+		  	data: {
+			  	isActive: true,
+			  	error: null
+			},
+			computed: {
+			  	classObject: function () {
+			    	return {
+			      		active: this.isActive && !this.error,
+			      		'text-danger': this.error && this.error.type === 'fatal'
+			    	}
+			  	}
+			}
+		})
+    	
+		//添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

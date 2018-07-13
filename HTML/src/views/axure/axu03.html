@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+    <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">功能介绍</h2>
+        <div class="r2-body">
+        	<strong class="listTit">此登录模块包含以下功能：</strong>
+			<dl class="dlist">
+				<dt>角色账号</dt>
+				<dd>包括两个角色账号，一个为普通账号ksy，一个为管理员账号admin，不同的账号登录进去看到的主页菜单不同；</dd>
+				<dt>登录验证</dt>
+				<dd>登录界面的错误提示包括两种：(1)输入内容为空时的错误提示；(2)输入不正确的账号时的错误提示；</dd>
+				<dt>退出系统</dt>
+				<dd>点击退出按钮退出系统时，将系统当前账号currentAccount清空（系统当前账号为全局变量），即 currentAccount = ""</dd>
+				<dt>注销</dt>
+				<dd>进行注销时，根据输入的账号修改系统当前账号currentAccount的值；</dd>
+			</dl>
+			
+			<h3 class="r3-title">角色账号</h3>
+			<ul class="list-decimal">
+				<li>新建全局变量 currentAccount ，代表系统当前账号</li>
+				<li>将输入账号的文本框命名为：账号</li>
+				<li>点击登录按钮时，根据输入的账号不同，为 currentAccount 赋予相应的值，并跳转到主页</li>
+				<li>主页 页面载入时，根据当前账号 currentAccount 的值 显示相应的菜单</li>
+			</ul>
+			<img src="images/screenPics/sc010.jpg" />
+			<img src="images/screenPics/sc011.jpg" />
+			<img src="images/screenPics/sc012.jpg" />
+			
+			<h3 class="r3-title">登录验证</h3>
+			<p>将所有的错误提示信息放在动态面板中。</p>
+			<ul class="list-decimal">
+				<li>新建一个动态面板并命名：错误提示</li>
+				<li>新建两个面板状态，面板状态一：输入内容为空时的错误提示，面板状态二：输入不正确的账号时的错误提示</li>
+				<li>将该动态面板设置为隐藏</li>
+				<li>点击登录按钮时，根据不同的情况显示不同的面板状态</li>
+			</ul>
+			<img src="images/screenPics/sc008.jpg" />
+			<img src="images/screenPics/sc009.jpg" />
+			
+			<h3 class="r3-title">退出系统</h3>
+			<p>退出确认为弹出窗口，点击退出按钮时:</p>
+			<ul class="list-decimal">
+				<li>清空 currentAccount，即 currentAccount = ""</li>
+				<li>关闭当前弹出窗口</li>
+				<li>跳转到登录页面</li>
+			</ul>
+			<img src="images/screenPics/sc013.jpg" />
+			
+			<h3 class="r3-title">注销</h3>
+			<p>注销为弹出窗口，其功能和登录页面差不多，点击注销页面的登录按钮时：</p>
+			<ul class="list-decimal">
+				<li>根据输入的账号不同，为 currentAccount 赋予相应的值</li>
+				<li>关闭当前弹出窗口</li>
+				<li>刷新主页，可以通过重新打开主页来实现</li>
+			</ul>
+			<img src="images/screenPics/sc014.jpg" />
+			<img src="images/screenPics/sc015.jpg" />
+        </div>
+   </div>
+</div>
+    
+</body>
+</html>

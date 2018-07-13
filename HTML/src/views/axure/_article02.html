@@ -60,6 +60,30 @@
 				<li>在Word或者Excel中先把表格标记好，然后复制粘贴到AxureRP中，粘贴过来后会变成一张图片，要更改的时候就得更改源word或excel文件，再重新复制粘贴。</li>
             </ul>
         </div>
+        
+        <h2 class="r2-title">用例－条件判断</h2>
+        <section class="r2-body">
+        	在用例上单击右键可以在 &lt;If&gt; &lt;Else If&gt; 之间进行切换，如图：
+        	<img src="images/screenPics/sc038.jpg" />
+        	<img src="images/screenPics/sc039.jpg" />
+        </section>
+        
+        <h2 class="r2-title">变量名与表达式的写法</h2>
+        <section class="r2-body">
+        	变量名或表达式一定要写在 [[  ]] 中，如：
+        	<dl class="dlist">
+        		<dt>例一</dt>
+        		<dd>正确写法：[[item.name == LVAR1 && item.sex == LVAR2]]  <br>错误写法：[[item.name == LVAR1]] && [[item.sex == LVAR2]]</dd>
+        		<dt>例二</dt>
+        		<dd>正确写法：[[LVAR1 + 10]] <br>错误写法：[[LVAR1]] + 10</dd>
+        	</dl>
+        </section>
+        
+        <h2 class="r2-title">获取日期控制的值</h2>
+        <section class="r2-body">
+        	只有为日期文本框预设一个值，如下图，才能获取到日期文本框中的值，否则无法获取；
+        	<img src="images/screenPics/sc056.jpg" />
+        </section>
     </div>
 </div>
 </body>

@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<!--#include virtual="/include/_head_import_file.html" -->
+	<!--#include virtual="/include/_head_import_file2.html" -->
     <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
@@ -13,57 +13,76 @@
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
-		<h2 class="r2-title">parseInt(string, radix)</h2>
-		<p>parseInt() 函数可解析一个字符串，并返回一个整数。</p>
-    	<strong class="mt20 dis-block">radix可选，表示要解析的数字的基数，该值介于 2 ~ 36 之间。</strong>
-		<ul class="list-decimal">
-			<li>radix:如果省略该参数或其值为 0，则数字将以 10 为基础来解析。</li>
-			<li>radix:如果该参数小于 2 或者大于 36，则 parseInt() 将返回 NaN。</li>
-		</ul>
-		<strong class="mt20 dis-block">当参数 radix 的值为 0，或没有设置该参数时，parseInt() 会根据 string 来判断数字的基数。</strong>
-		<ul class="list-decimal">
-			<li>如果 string 以 "0x" 开头，parseInt() 会把 string 的其余部分解析为十六进制的整数。</li>
-			<li>如果 string 以 1 ~ 9 的数字开头，parseInt() 将把它解析为十进制的整数。</li>
-			<li>如果 string 以 0 开头，那么 ECMAScript v3 允许 parseInt() 的一个实现把其后的字符解析为八进制或十六进制的数字。</li>
-		</ul>
-		<strong class="mt20 dis-block">注意</strong>
-		<ul class="list-decimal">
-			<li>如果字符串的第一个字符不能被转换为数字，那么 parseInt() 会返回 NaN。</li>
-			<li>只有字符串中的第一个数字会被返回。</li>
-			<li>开头和结尾的空格是允许的。</li>
-		</ul>
-    	<div class="code-box">
-            <pre class="language-js line-numbers">
-                <code>   
-parseInt(string, radix)
-//example
-parseInt("10");         //十进制 10
-parseInt("19",10);      //十进制 10+9=19
-parseInt("11",2);       //二进制 2+1=3
-parseInt("17",8);       //八进制 8+7=15
-parseInt("1f",16);      //十六进制 16+15=31
-parseInt("010");        //未定：返回 10 或 8
-parseInt("He was 40");  //NaN	
+		<h2 class="r2-title">window.open</h2>
+		<section class="r2-body">
+			<p>open() 方法用于打开一个新的浏览器窗口或查找一个已命名的窗口。</p>
+			<strong class="listTit">window.open(URL,name,features,replace)</strong>
+			<dl class="dlist">
+				<dt>URL</dt>
+				<dd>一个可选的字符串，声明了要在新窗口中显示的文档的 URL。如果省略了这个参数，或者它的值是空字符串，那么新窗口就不会显示任何文档。</dd>
+				<dt>name</dt>
+				<dd>一个可选的字符串，该字符串是一个由逗号分隔的特征列表，其中包括数字、字母和下划线，该字符声明了新窗口的名称。这个名称可以用作标记 <a> 和 <form> 的属性 target 的值。如果该参数指定了一个已经存在的窗口，那么 open() 方法就不再创建一个新窗口，而只是返回对指定窗口的引用。在这种情况下，features 将被忽略。</dd>
+				<dt>features</dt>
+				<dd>一个可选的字符串，声明了新窗口要显示的标准浏览器的特征。如果省略该参数，新窗口将具有所有标准特征。窗口特征请看下面</dd>
+				<dt>replace</dt>
+				<dd>一个可选的布尔值。规定了装载到窗口的 URL 是在窗口的浏览历史中创建一个新条目，还是替换浏览历史中的当前条目。支持下面的值：<br>
+				    true - URL 替换浏览历史中的当前条目。<br>
+				    false - URL 在浏览历史中创建新的条目。
+				</dd>
+			</dl>
+			<strong class="listTit">Features窗口特征</strong>
+			<dl class="dlist">
+				<dt>width=pixels</dt>
+				<dd>窗口的文档显示区的宽度。以像素计。</dd>
+				<dt>height=pixels</dt>
+				<dd>窗口文档显示区的高度。以像素计。</dd>
+				<dt>left=pixels</dt>
+				<dd>窗口的 x 坐标。以像素计。</dd>
+				<dt>top=pixels</dt>
+				<dd>窗口的 y 坐标。</dd>
+				<dt>menubar=yes|no|1|0</dt>
+				<dd>是否显示菜单栏。默认是 yes。</dd>
+				<dt>resizable=yes|no|1|0</dt>
+				<dd>窗口是否可调节尺寸。默认是 yes。</dd>
+				<dt></dt>
+				<dd></dd>
+				<dt></dt>
+				<dd></dd>
+				<dt></dt>
+				<dd></dd>
+				<dt></dt>
+				<dd></dd>
+			</dl>
+			<h3 class="r3-title">修改弹出窗口的标题</h3>
+			<p>先利用window.open（url）打开一个窗口，然后在利用设置document.tiltle修改弹出窗口的标题。</p>
+			<p>在此需要特别声明window.open方法是异步执行的，也就是说如果按照以下的方法去修改标题是不能保证一定都能修改成功的：</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+var title1="标题"
+var obj=window.open(url);
+obj.document.title=title1;
 	                </code>
-            </pre>
-        </div>
-	    
-	    <!------------------------------------------------>
-    	<h2 class="r2-title">toFixed()</h2>
-    	<p>toFixed() 方法可把 Number 四舍五入为指定小数位数的数字。</p>
-        <div class="code-box">
-            <pre class="language-js line-numbers">
-                <code>   
-NumberObject.toFixed(num)
-//example
-var num = new Number(13.37); num.toFixed(1) //13.4
-                </code>
-            </pre>
-        </div>
-        <dl class="dlist">
-        	<dt>num</dt>
-        	<dd>必需。规定小数的位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将用 0 代替。</dd>
-        </dl>
+	            </pre>
+	        </div>
+	        <strong class="listTit">有以下两种可能：</strong>
+	        <ul class="list-decimal">
+	        	<li>window.open(url);方法执行速度比较快,window.open(url);执行完之后再执行 obj.document.title=title1;方法，因此可以正确修改标题。</li>
+	        	<li>window.open(url);方法执行速度比较慢，因此异步先执行obj.document.title="标题";该语句执行完毕之后再执行window.open(url);所以刚刚修改的标题又被冲没了。设置标题失败。</li>
+	        </ul>
+	        <p>因此简单的调用 obj.document.title=title1;并不能达到理想的修改窗口标题的效果。由于window.open(url);异步执行，所以可以等该方法执行完之后再去设置标题。在此代码修改为如下，可以实现修改标题的功能：</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+var title1="标题"
+var obj=window.open(url);
+setTimeout(function(){
+    obj.document.title = title1 ;
+}, 1000) ;
+	                </code>
+	            </pre>
+	        </div>
+		</section>
 	</div>
 </div>
 </body>

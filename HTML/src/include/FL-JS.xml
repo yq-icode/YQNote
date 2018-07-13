@@ -8,18 +8,18 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>Math 对象方法</title>
+				<title>jQuery data 数据操作</title>
+				<name>fun11</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>操作number的函数</title>
 				<name>fun02</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>常用函数</title>
+				<title>打开新窗口</title>
 				<name>fun03</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>jQuery data 数据操作</title>
-				<name>fun11</name>
 				<path>/views/js/</path>
 			</file>
 			<file>

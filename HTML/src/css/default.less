@@ -99,10 +99,10 @@ p{margin: 1em 0;}
 	color: #0066CC;
 }
 
-#wside dl dt a.on{background-color: #002731;}
-#wside dl dd a.on{color: #0D89B2;text-decoration: underline;}
+#wside dl dt a.on{background-color: #a3c851;}
+#wside dl dd a.on{color: #333;font-size: 14px; font-weight: bold;}
 
-#wside dl dt a:hover{background-color: #0F93BF;text-decoration: none;}
+#wside dl dt a:hover{background-color: #a3c851;text-decoration: none;}
 #wside dl dd a:hover{color: #000;}
 
 #wside dl dt:nth-child(n+2){
@@ -112,17 +112,17 @@ p{margin: 1em 0;}
 	display: inline-block;
 	position: relative;
 	margin:5px 0;
-	padding:0 5px 0 20px;
+	padding:0 5px 0 30px;
 	font-size: 12px;
-	color: #fff;
+	color: #3f4523;
 	font-weight: normal;
 	counter-increment: secDT;
-	background-color: #6FDAFE;
+	background-color: #EAF0D3;
 }
 #wside dl dt a::before{
 	position: absolute;
 	left: 0;
-	content: counter(secDT);/* dt的编号 */
+	content: "(" counter(secDT,cjk-ideographic) ")";/* dt的编号 */
 	padding-left: 5px;
 }
 #wside dl dd{
@@ -181,7 +181,7 @@ p{margin: 1em 0;}
 	counter-increment: secTR2;
 	&::before{
 		margin-right: 10px;
-		content: counter(secTR2, cjk-ideographic);
+		content: "(" counter(secTR2, cjk-ideographic) ")";
 	}
 }
 .r2-body{
@@ -191,18 +191,20 @@ p{margin: 1em 0;}
 		counter-increment: secTR3;
 		&::before{
 			position: relative;
-			top: -1px;
+//			top: -1px;
 			display: inline-block;
 			margin-right: 5px;
-			width: 36px;
-			height: 20px;
+			width: 16px;
+//			height: 20px;
 			content: counter(secTR3);
-			border-radius: 10px;
-			background-color: #B3CF26;
-			color: #FFFFFF;
-			text-align: center;
-			font-size: 16px;
-			line-height: 20px;
+//			border-radius: 10px;
+//			background-color: #a3c851;
+			color: #000;
+//			text-align: center;
+//			font-size: 16px;
+//			line-height: 20px;
+			font-family:Tempus Sans ITC;
+			font-weight: bold;
 		}
 	}
 }
@@ -290,15 +292,18 @@ a.ref:visited{color: #00A0D3;}
 
 /*实例容器（即实例演示）*/
 .example-wrap{
-	border: 1px solid #666;
+	border: 10px double #E5F0DE;
 	padding: 30px;
-	background-color: #FAFAFA;
 }
 /*实例链接*/
-.expLink{
-    font-size: 16px;
+.expLink:link{
+    font-size: 14px;
     color: #0066ff;
+    text-decoration: underline;
 }
+.expLink:visited{color: #0066ff;}
+.expLink:hover{text-decoration: none;color: #0066cc;}
+
 .expLink .iconfont{
     margin-right: 5px;
 }
@@ -315,11 +320,13 @@ a.ref:visited{color: #00A0D3;}
 }
 /*屏幕截图*/
 .screenPics{
+    display: block;
 	margin: 1em 0;
 	max-width: 100%;
 	border: 10px solid #F2F5EA;
 	padding: 30px;
 	background-color: #fff;
+	box-sizing: border-box;
 }
 /* ******************************************************* *
  * 列表
