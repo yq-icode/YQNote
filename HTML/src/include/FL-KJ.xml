@@ -31,6 +31,13 @@
 			<path>/views/bootstrap/</path>
 		</file>
 	</main>
+	<main title="Layui">
+		<file>
+			<title>Layui</title>
+			<name>index</name>
+			<path>/KJ/Layui/</path>
+		</file>
+	</main>
 	<main title="VUE">
 		<file>
 			<title>VUE</title>

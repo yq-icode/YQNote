@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+    <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">隐藏部件时不再影响尺寸</h2>
+        <section class="r2-body">
+        	<p>在 8.x 版本中，隐藏条目中的部件时不会再影响该条目的显示尺寸了。如果你在Axure 8 中打开 7.x版创建的文档，将按此改进更新文档。如果你希望保留由隐藏部件定义的条目尺寸大小，可以添加一个热区部件到该中继器条目中。</p>
+        	<img src="images/screenPics/sc077.gif" />
+        </section>
+        
+        <h2 class="r2-title">适应Html内容</h2>
+        <section class="r2-body">
+        	<p>当选中中继器部件的“适应Html内容”属性项时，中继器的条目尺寸大小将随着该条目其中的部件的显示、隐藏和移动变化自动改变。该“适应Html内容”属性项可以在选中某个中继器部件后，在其检查器面板的属性tab中找到。</p>
+        	<img src="images/screenPics/sc078.gif" />
+        </section>
+        
+        <h2 class="r2-title">项目调整尺寸时（OnItemResize）</h2>
+        <section class="r2-body">
+        	<p>中继器部件新增了一个条目尺寸变更事件（OnItemResize），可以用来响应中继器条目（以及中继器部件本身）的尺寸变化操作。例如：可以根据需要调用“移动”操作来移动页面上得其他部件。（译注：如下图中，中继器条目尺寸变化，动态移动中继器后面的灰色矩形块）</p>
+        	<img src="images/screenPics/sc079.gif" />
+        </section>
+        
+   </div>
+</div>
+</body>
+</html>

@@ -41,6 +41,11 @@
 			<name>lineHeight</name>
 			<path>/views/css/</path>
 		</file>
+		<file>
+			<title>字体</title>
+			<name>font-family</name>
+			<path>/views/css/</path>
+		</file>
 	</main>
 	<main title="CSS3">
 		<file>

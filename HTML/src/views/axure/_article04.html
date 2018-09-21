@@ -26,9 +26,12 @@
         		<dt>datacount</dt>
         		<dd>中继器所有记录数</dd>
         		<dt>visibleitemcount</dt>
-        		<dd>当前页面可见记录数</dd>
+        		<dd>
+        			<p class="mt10">当前页面可见记录数</p>
+        			<p class="mt10">当删除行时，visibleitemcount 值会立即变化；<br>当连续添加行时，第一次添加行时，visibleitemcount 值不变，从第二次添加行时，visibleitemcount 才会变化；<br>原因不明</p>
+        		</dd>
         		<dt>itemcount</dt>
-        		<dd>当前加载记录总数（如果中继器无条件的全部加载则 itemcount=datacount，如果有条件的加载，则 itemcount < datacount）</dd>
+        		<dd>当前加载记录总数<br>（如果中继器无条件的全部加载则 itemcount=datacount，如果有条件的加载，则 itemcount < datacount）<br>（如经过条件筛选操作后，符合条件的记录条数。datacount >= itemcount >= visibleitemcount）</dd>
         	</dl>
         </section>
         <h2 class="r2-title">数字</h2>
@@ -38,6 +41,18 @@
         		<dd>指定数字的小数点位数，使用方法：如果 n=1.232，[[n.toFixed(2)]] 返回值 1.23；</dd>
         		<dt>toPrecision</dt>
         		<dd>把数字格式化为指定的长度：如果 n=1, [[n. toPrecision (6)]] 返回值 1.00000。</dd>
+        	</dl>
+        </section>
+        
+        <h2 class="r2-title">鼠标指针</h2>
+        <section class="r2-body">
+        	<dl class="dlist">
+        		<dt>DragX、DragY</dt>
+        		<dd>面板在任意时间点上在X和Y方向的瞬间移动距离。理解为瞬间速度即可。比如任意极短的时间 t0 水平移动了 x0 ，那么在这一瞬间X方向的速度就是 x0/ t0</dd>
+        		<dt>TotalDragX、TotalDragY</dt>
+        		<dd>指的是一次拖曳面板时从拖曳开始到停止拖曳，面板在X和Y方向移动的距离。左和上为负值，右和下为正值。虽然在拖曳过程中这个函数的值是动态的，但一般是在拖曳停止时的值才有价值，它实际上表达了一次拖曳过程中面板往X和Y方向移动的幅度.</dd>
+        		<dt>DragTime</dt>
+        		<dd></dd>
         	</dl>
         </section>
    </div>

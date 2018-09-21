@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">通过 jquery 的 getJSON()方法读取JSON数据</h2>
+		<strong class="listTit">$.getJSON(url,data,success(data,status,xhr))</strong>
+		<dl class="dlist">
+			<dt>url</dt>
+			<dd>必需。规定将请求发送的哪个 URL。 </dd>
+			<dt>data</dt>
+			<dd>可选。规定连同请求发送到服务器的数据。</dd>
+			<dt>success(data,status,xhr)</dt>
+			<dd>
+				可选。规定当请求成功时运行的函数。
+				<ol class="mt10">
+					<li>response - 包含来自请求的结果数据</li>
+					<li>status - 包含请求的状态</li>
+					<li>xhr - 包含 XMLHttpRequest 对象</li>
+				</ol>
+			</dd>
+		</dl>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+$.getJSON("js/userinfo.json", function (data){
+	
+})
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		
+		<h2 class="r2-title">通过ajax读取json数据</h2>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+$.ajax({
+    url:'JData1.json',
+    type:'get',
+    dataType:'json',
+    success:function(data){
+        
+    }
+})	
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+        
+	</div>
+</div>
+</body>
+</html>

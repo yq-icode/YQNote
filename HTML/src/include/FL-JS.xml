@@ -141,6 +141,11 @@
 	</main>
 	<main title="JQUERY">
 		<file>
+			<title>jquery</title>
+			<name>jquery</name>
+			<path>/views/js/</path>
+		</file>
+		<file>
 			<title>$.each 和 $(selector).each()的区别详解</title>
 			<name>fun05</name>
 			<path>/views/js/</path>
@@ -165,6 +170,11 @@
 		<file>
 			<title>JSON</title>
 			<name>json</name>
+			<path>/views/js/</path>
+		</file>
+		<file>
+			<title>读取JSON数据的方法</title>
+			<name>json2</name>
 			<path>/views/js/</path>
 		</file>
 	</main>

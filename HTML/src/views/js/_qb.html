@@ -161,7 +161,8 @@ document.querySelector(".el").hasChildNodes()
                 <pre class="language-js line-numbers">
                     <code>
 //jq
-$('.el').html();
+$('.el').html(); //获取当前结点的HTML，不包括当前结点
+$('.el').prop("outerHTML"); //获取当前结点的HTML，包括当前结点
 $('.el').val();
 $('.el').text();
 $(el).replaceWith(string);

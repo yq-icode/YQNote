@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+    <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">法一</h2>
+        <section class="r2-body">
+        	<h3 class="r3-title">实现原理</h3>
+        	<strong class="listTit mt10">环形进度</strong>
+        	<ul class="list-decimal">
+        		<li>制作 4 个半圆环，分别命名为：左槽、右槽、左环、右环，其中左槽、右槽为底色圆环，左环、右环为加载时显示的色彩圆环；</li>
+        		<li>4 个半圆环的排序层次从上到下依次为：右槽、右环、左槽、左环；</li>
+        		<li>让右环以左侧为中心顺时针线性旋转 180，时间为 2000ms，此时右环旋转到左槽之上；</li>
+        		<li>等待 2000ms</li>
+        		<li>将左环置于顶层</li>
+        		<li>让左环以右侧为中心顺时间线性旋转 180，时间为 2000ms</li>
+        		<li>至此环形进度的效果制作完成</li>
+        	</ul>
+        	<strong class="listTit mt20">添加文字进度</strong>
+        	<ul class="list-decimal">
+        		<li>新建文字标签并命名为：per，用于显示文字进度</li>
+        		<li>per 默认为隐藏状态，页面载入时设置其 显示；</li>
+        		<li>per 显示时：当 per 元件文字 != 100% 时，等待 0ms，设置 per 的文本为：[[Math.floor((LVAR1.rotation + LVAR2.rotation) / 360 *100)]]% ，LVAR1、LVAR2 为左环和右环；</li>
+        		<li>隐藏 per</li>
+        		<li>显示 per</li>
+        		<li>至此文字进度添加完成</li>
+        	</ul>
+        	
+        	<h3 class="r3-title">制作步骤</h3>
+        	制作 4 个半圆环，分别命名为：左槽、右槽、左环、右环，其中左槽、右槽为底色圆环，左环、右环为加载时显示的色彩圆环；<br>
+        	4 个半圆环的排序层次从上到下依次为：右槽、右环、左槽、左环；
+        	<img src="images/screenPics/sc065.jpg" />
+        	让右环以左侧为中心顺时针线性旋转 180，时间为 2000ms
+        	<img src="images/screenPics/sc066.jpg" />
+        	让左环以右侧为中心顺时间线性旋转 180，时间为 2000ms
+        	<img src="images/screenPics/sc067.jpg" />
+        	添加文字进度
+        	<img src="images/screenPics/sc068.jpg" />
+        </section>
+        
+   </div>
+</div>
+    
+</body>
+</html>

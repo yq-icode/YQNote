@@ -1,0 +1,88 @@
+/* 左侧管理部门
+ * ******************************* */
+.TreeNav{
+	position: relative;
+	width: 180px;
+	line-height: 24px;
+}
+.TreeNav:before{
+	display: inline-block;
+	content: '';
+	position: absolute;
+	top: 11px;
+	left: -13px;
+	bottom: 12px;
+	border-left: 1px solid #BCC8CE;
+}
+.TreeNav h5{
+	position: relative;
+	margin: 0;
+	height: 24px;
+	font-weight: bold;
+	line-height: 24px;
+	font-size: 12px;
+}
+.TreeNav h5:before{
+	display: inline-block;
+	content: '';
+	position: absolute;
+	top: 11px;
+	left: -13px;
+	width: 13px;
+	height: 0;
+	border-top: 1px solid #BCC8CE;
+}
+.TreeNav h5 label{
+	display: inline-block;
+	padding: 0 5px;
+	cursor: pointer;
+	background-color: #FCFFFA;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.TreeNav h5 i + label{
+	margin: 0 0 0 14px;
+}
+.TreeNav h5 label.on{
+	background-color: #2593FC;
+	color: #fff;
+}
+.TreeNav h5 .iconfont{
+	position: absolute;
+	top: 5px;
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	background-color: #67767E;
+	border-radius: 13px;
+	font-size: 7px;
+	color: #fff;
+	cursor: pointer;
+	text-align: center;
+	line-height: 15px;
+	vertical-align: middle;
+}
+.TreeNav .collap{
+	position: relative;
+	padding-left: 20px;
+}
+.TreeNav .collap:before{
+	display: inline-block;
+	content: '';
+	position: absolute;
+	top: -6px;
+	left: 6px;
+	bottom: 12px;
+	border-left: 1px solid #BCC8CE;
+}
+/*后缀 :after的为遮挡超出部分的垂直线条*/
+.TreeNav .collap.last:after{
+	display: inline-block;
+	content: '';
+	position: absolute;
+	top: -12px;
+	left: -14px;
+	bottom: 0;
+	border-left: 1px solid #FCFFFA;
+}

@@ -248,6 +248,11 @@
 				<name>index</name>
 				<path>demo/nav/demos/04/</path>
 			</file>
+			<file>
+				<title>树形菜单</title>
+				<name>index</name>
+				<path>demo/nav/demos/05/</path>
+			</file>
 		</sub>
 		<sub title="滚动条">
 			<file>

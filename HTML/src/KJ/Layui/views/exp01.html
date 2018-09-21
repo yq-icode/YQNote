@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Layui</title>
+	<link href="/css/prism.css" rel="stylesheet">
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+    <script src="/js/default.js"></script>
+    <style>
+    	
+    </style>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">checkbox的选中及部分选中效果</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">不通过点击设置checkbox的选中及部分选中效果</h3>
+			<p>注意：先更新渲染，再设置部分选中，这样可以避免 部分选中效果 被 更新渲染覆盖。</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+$("input[type='checkbox']").each(function(){
+	if($(this).attr('title') == '科目二'){
+		var zob = $(this).parents('dt').next('dd').find("input[type='checkbox']");
+		$(zob).each(function(){
+			console.log($(this).index())
+			if($(this).parents('.layui-col-xs3').index() < 5){
+				$(this).attr('checked','');
+			}
+		})
+		form.render('checkbox');//先更新渲染，再设置部分选中
+		$(this).next('.layui-form-checkbox').addClass('checkedPart');
+	}
+})
+		            </code>
+	            </pre>
+	        </div>
+	        部分选中时的样式 checkedPart 
+			<div class="code-box">
+	            <pre class="language-css line-numbers">
+	                <code>   
+.layui-form-checkbox[lay-skin="primary"].checkedPart i{
+	color: #2593FC;
+}
+.layui-form-checkbox[lay-skin="primary"].checkedPart i:before{
+	background-color: #2593FC;
+	font-size: 8px;
+	vertical-align: top;
+}
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		
+		
+	</div>
+</div>
+<script type="text/javascript">
+	
+	
+</script>
+</body>
+</html>

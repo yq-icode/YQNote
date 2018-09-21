@@ -1,9 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+    <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">实现原理</h2>
+        <section class="r2-body">
+        	<dl class="dlist">
+        		<dt>准备工作</dt>
+        		<dd>
+        			<ul class="list-decimal">
+		        		<li>将中继器的一行进行组合并命名为：行</li>
+		        	</ul>
+        		</dd>
+        		<dt>根据不同的条件显示不同的背景色</dt>
+        		<dd>
+        			<ul class="list-decimal">
+        				<li>新建动态面板并命名为：行SelectedColor，放在行（组合）下面，将其状态设置为隐藏；</li>
+        				<li>建几个面板状态，为每个面板状态设置一个背景颜色；</li>
+        				<li>作用为：当根据不同的条件需要显示不同的背景色时，只需要设置成此动态面板相应的面板状态即可；</li>
+		        	</ul>
+        		</dd>
+        		<dt>悬停效果</dt>
+        		<dd>
+        			<ul class="list-decimal">
+        				<li>新建动态面板并命名为：行HoverColor，放在 行SelectedColor（动态面板）下面，将其状态设置为隐藏；</li>
+        				<li>为此动态面板的面板状态设置一个背景颜色；</li>
+        				<li>鼠标移入 行（组合）时：显示 行HoverColor</li>
+        				<li>鼠标移出 行（组合）时：隐藏 行HoverColor</li>
+        			</ul>
+        		</dd>
+        	</dl>
+        	<img src="images/screenPics/sc076.jpg" />
+        </section>
+        
+   </div>
+</div>
+</body>
 </html>

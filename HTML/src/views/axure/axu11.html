@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+    <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">自制滚动条－垂直</h2>
+        <section class="r2-body">
+        	<p class="reference">
+        		<a href="http://www.woshipm.com/rp/818992.html"></a>
+        	</p>
+        	<img src="images/screenPics/sc069.png" />
+        </section>
+        <h2 class="r2-title">自制滚动条－水平</h2>
+        <section class="r2-body">
+        	<h3 class="r3-title">注意点</h3>
+        	<h4 class="r4-title">计算滚动条的移动距离时</h4>
+        	计算滚动条的移动距离时要按以下方法：
+        	<ul class="list-decimal">
+        		<li>将滚动条 HScrollBar 的左边界坐标值 HScrollBar.left 赋值给元件 HScrollBar-Left</li>
+        		<li>元件 HScrollBar-Left 的值 减去 滚动条轨道 HScrollRail 的左边界坐标值 HScrollRail.left 即滚动条的移动距离</li>
+        	</ul>
+        	<strong>注意：滚动条 HScrollBar 的左边界坐标值 HScrollBar.left 减去 滚动条轨道 HScrollRail 的左边界坐标值 HScrollRail.left，这样无法获取滚动条的移动距离。</strong>
+        	
+        	<h4 class="r4-title">关于滚动条的宽度注意点</h4>
+        	<p>滚动条元件的宽度要设置成和初始载入时计算的滚动条宽度一致。</p>
+        </section>
+   </div>
+</div>
+    
+</body>
+</html>

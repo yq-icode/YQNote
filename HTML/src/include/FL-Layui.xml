@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="基础">
+		<file>
+			<title>checkbox</title>
+			<name>exp01</name>
+			<path>/KJ/Layui/views/</path>
+		</file>
+		<file>
+			<title>layer弹框</title>
+			<name>exp02</name>
+			<path>/KJ/Layui/views/</path>
+		</file>
+	</main>
+</fileList>

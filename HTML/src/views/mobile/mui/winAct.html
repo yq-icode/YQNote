@@ -137,22 +137,38 @@ plus.webview.create( url, id, styles, extras )
         </div>
     
     	<h2 class="r2-title">打开页面</h2>
-        <div class="code-box">
-            <pre class="language-js line-numbers">
-                <code>
-plus.webview.open(url, id, styles, aniShow, duration, showedCB )
-    			</code>
-            </pre>
-        </div>
-        
-        <div class="code-box">
-            <pre class="language-js line-numbers">
-                <code>
-mui.openWindow();//打开新页面
-    			</code>
-            </pre>
-        </div>
-        <p>每次都用mui.openWindow而不close页面会造成内存消耗过大。这是因为使用mui.openWindow跳转页面会用到plus.webview.show方法，如果不close页面会新开很多重复的webview，这样就造成多个页面同时在消耗内存。</p>
+    	<section class="r2-body">
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+	plus.webview.open(url, id, styles, aniShow, duration, showedCB )
+	    			</code>
+	            </pre>
+	        </div>
+	        
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+	mui.openWindow();//打开新页面
+	    			</code>
+	            </pre>
+	        </div>
+	        <p>每次都用mui.openWindow而不close页面会造成内存消耗过大。这是因为使用mui.openWindow跳转页面会用到plus.webview.show方法，如果不close页面会新开很多重复的webview，这样就造成多个页面同时在消耗内存。</p>
+        	
+        	<h3 class="r3-title">在APP中打开外部链接</h3>
+    		<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+	document.getElementById("HCODE").addEventListener('tap', function(event) {
+		mui.openWindow({
+			url: 'https://www.gov.uk/guidance/the-highway-code',
+			id: 'HighwayCode'
+		});
+	})
+	    			</code>
+	            </pre>
+	        </div>
+    	</section>
         
     	<h2 class="r2-title">预加载页面</h2>
         <div class="code-box">

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+    <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">模糊搜索</h2>
+    	<strong class="listTit">[[LVAR.indexOf('searchValue')]]</strong>
+    	<dl class="dlist">
+    		<dt>函数说明</dt>
+    		<dd>在LVAR搜索searchValue</dd>
+    		<dt>单条件模糊搜索</dt>
+    		<dd>[[item.KCPinPai.indexOf(LVAR1) > -1]]</dd>
+    		<dt>多并列条件模糊搜索</dt>
+    		<dd>
+    			[[(item.CheHao.indexOf(LVAR1) + item.ChePai.indexOf(LVAR1) + item.KCPinPai.indexOf(LVAR1)) > -3]]<br>
+    			车辆编号、车牌号牌、车辆品牌三项中只要有一项符合条件即可搜索
+    		</dd>
+    		<dt>多组合条件模糊搜索</dt>
+    		<dd>
+    			[[(item.CheHao.indexOf(LVAR1) + item.ChePai.indexOf(LVAR1) + item.KCPinPai.indexOf(LVAR1)) > -1]]<br>
+    			车辆编号、车牌号牌、车辆品牌三项均符合条件才可搜索
+    		</dd>
+    	</dl>
+        <section class="r2-body">
+        	<p>下面示例图为三条件并列模糊搜索</p>
+        	<img src="images/screenPics/sc077.jpg" />
+        	<img src="images/screenPics/sc078.jpg" />
+        </section>
+        
+        
+   </div>
+</div>
+</body>
+</html>
