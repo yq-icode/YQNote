@@ -45,4 +45,16 @@
 			<path>/KJ/VUE/</path>
 		</file>
 	</main>
+	<main title="滚动条">
+		<file>
+			<title>mCustomScrollbar</title>
+			<name>index</name>
+			<path>/KJ/scrollbar/</path>
+		</file>
+		<file>
+			<title>tinyscrollbar</title>
+			<name>index</name>
+			<path>/KJ/scrollbar/</path>
+		</file>
+	</main>
 </fileList>
