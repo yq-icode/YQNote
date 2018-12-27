@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">用表格显示对象</h2>
+		<section class="r2-body">
+			<p>有时， 有一组复杂的对象要查看，可以通过console.log查看并滚动浏览，亦或者使用console.table展开，更容易看到正在处理的内容！</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+var animals = [ 
+	{ animal: 'Horse', name: 'Henry', age: 43 }, 
+ 	{ animal: 'Dog', name: 'Fred', age: 13 }, 
+ 	{ animal: 'Cat', name: 'Frodo', age: 18 } 
+];
+console.table(animals);
+		            </code>
+	            </pre>
+	        </div>
+	        <img src="images/screenPics/sc008.png">
+		</section>
+	</div>
+</div>
+</body>
+</html>

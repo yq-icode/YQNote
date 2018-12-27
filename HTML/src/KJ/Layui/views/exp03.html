@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Layui</title>
+	<link href="/css/prism.css" rel="stylesheet">
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+    <script src="/js/default.js"></script>
+    <style>
+    	
+    </style>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">table表格</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">为表格添加序号</h3>
+			<p>为表格添加序号 {{ d.LAY_INDEX }}，可以使用自定义模板 templet ，templet 提供了三种使用方式：</p>
+			<h4 class="r4-title">方式一：绑定模版选择器</h4>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+&lt;script type="text/html" id="XuHao"&gt;
+	{{ d.LAY_INDEX }}
+&lt;/script&gt;
+
+table.render({
+	elem: '#TList'
+	,url: 'data/role.json'
+	,cols: [[
+  		{field:'XH', title: '序号', width:60, sort: true, templet: '#XuHao'}
+  		,{field:'Name', title: '角色名称', width:150, sort: true}
+	  	,{field:'Desc', title: '角色描述'}
+	]]
+	,skin: 'row'
+	,even: true
+});
+		            </code>
+	            </pre>
+	        </div>
+	        <h4 class="r4-title">方式二：函数转义</h4>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+table.render({
+	elem: '#TList'
+	,url: 'data/role.json'
+	,cols: [[
+  		{field:'XH', title: '序号', width:60, sort: true
+  			,templet: function(d){
+  				return '&lt;div&gt;{{ d.LAY_INDEX }}&lt;/div&gt;'
+  			}
+  		}
+  		,{field:'Name', title: '角色名称', width:150, sort: true}
+	  	,{field:'Desc', title: '角色描述'}
+	]]
+	,skin: 'row'
+	,even: true
+});
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h4 class="r4-title">方式三：直接赋值模版字符</h4>
+	        <p>注意：这里一定要被一层 &lt;div&gt;&lt;/div&gt; 包裹，否则无法读取到模板</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+table.render({
+	elem: '#TList'
+	,url: 'data/role.json'
+	,cols: [[
+  		{field:'XH', title: '序号', width:60, sort: true, templet: '&lt;div&gt;{{ d.LAY_INDEX }}&lt;/div&gt;'}
+  		,{field:'Name', title: '角色名称', width:150, sort: true}
+	  	,{field:'Desc', title: '角色描述'}
+	]]
+	,skin: 'row'
+	,even: true
+});
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">数据载入时,根据不同的条件为 TD/TR 设置不同的样式</h3>
+	        <p>在数据渲染完的回调函数 done 中进行判断并设置</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+table.render({
+	elem: '#TList'
+	,url: 'data/computer.json'
+	,cols: [[
+  		{field:'XH', title: '序号', width:60, sort: true, templet: '&lt;div&gt;{{ d.LAY_INDEX }}&lt;/div&gt;'}
+  		,{field:'KCName', title: '所属考场', width:200, sort: true}
+  		,{field:'BianHao', title: '机器编号', width:90, sort: true}
+	  	,{field:'IP', title: 'IP地址', width:110, sort: true}
+	  	,{field:'MAC', title: 'MAC', width:135, sort: true}
+	  	,{field:'LeiXing', title: '终端类型', width:90, sort: true}
+	  	,{field:'State', title: '机器状态', width:90, sort: true, templet: '#StateTpl'}
+	  	,{field:'desc', title: '说明'}
+	  	,{fixed: 'right', title: '操作', width:120, toolbar: '#ColAction'}
+	]]
+	,skin: 'row'
+	,even: true
+	,done: function(res){
+		$('.layui-table-main .layui-table tr').each(function(i){
+	  		var stateObj = $(this).find('td:eq(6)'), stateTxt = $(this).find('td:eq(6) .layui-table-cell').text();
+	  		if(stateTxt.indexOf('申请') > -1){
+	  			$(stateObj).addClass('color-1');
+	  		}
+	  		if(stateTxt.indexOf('禁用') > -1){
+	  			$(stateObj).addClass('color-2');
+	  		}
+	  	})
+	}
+});
+
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">当单元格中内容过多时，如何让 单元格中的内容换行显示，而不是显示省略号？</h3>
+	        <p>可以通过修改 .layui-table-cell 的样式实现。</p>
+	        <p>缺点：列固定效果会出现问题，因为这样修改后，左侧的单元格高度不固定了，而右侧固定列的高度还是固定的，所以导致右侧的固定列就无法和左侧的行水平对齐了，所以如果让单元格内容换行显示，只能取消列固定效果；</p>
+			
+			<h3 class="r3-title">table 组件默认的 JSON 数据格式</h3>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+{
+	"code": 0,
+	"msg": "",
+	"count": 150,
+	"data": [
+		{"Name":"考试员", "GLBM":"河北交警总队", "Time":"08:30:00-18:00:00", "Desc":"", "State":"正常"},
+		{"Name":"操作员", "GLBM":"石家庄交警支队", "Time":"13:30:00-15:30:00", "Desc":"", "State":"停用"},
+		{"Name":"普通管理员", "GLBM":"河北交警总队", "Time":"08:30:00-18:00:00", "Desc":"", "State":"正常"},
+		{"Name":"配置管理员", "GLBM":"河北交警总队", "Time":"08:00:00-21:00:00", "Desc":"", "State":"正常"},
+		{"Name":"超级管理员", "GLBM":"石家庄交警支队", "Time":"不限", "Desc":"", "State":"正常"}
+	]
+}
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		
+		
+	</div>
+</div>
+</body>
+</html>

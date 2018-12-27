@@ -7,21 +7,74 @@
 	<title></title>
 	<!--#include virtual="/include/_head_import_file.html" -->
     <script src="/js/less-2.5.3.min.js"></script>
-    <style>
-    	#wmain{
-    		width: 990px;
-    		border: 2px solid #ffffff;
-    		background-color: #F5F5D5;
-    	}
-    </style>
 </head>
 <body>
 	<!--#include virtual="/include/_header.html" -->
 	<div id="wrap">
+		<div id="wside"></div>
 		<div id="wmain">
-    		<h2 class="r2-title">CSS 变量</h2>
-    		<p class="reference"><a target="_blank" href="http://www.ruanyifeng.com/blog/2017/05/css-variables.html"></a></p>
-    		<img src="images/screenPics/sc08.png" />
+    		<h2 class="r2-title">CSS3 var() 变量讲解</h2>
+    		<section class="r2-body">
+    			<p class="reference"><a target="_blank" href="http://www.ruanyifeng.com/blog/2017/05/css-variables.html"></a></p>
+    			<img src="images/screenPics/sc08.png" />
+    		</section>
+    		<h2 class="r2-title">操作 CSS 变量</h2>
+    		<section class="r2-body">
+    			<h3 class="r3-title">设置 CSS 变量</h3>
+    			<h4 class="r4-title">HTML 标签中设置CSS变量</h4>
+    			<p>直接正常 CSS 语句一样在 style 属性中设置即可。</p>
+    			<div class="code-box">
+		            <pre class="language-html line-numbers">
+		                <code>
+&lt;div id="box" style="--color: #cd0000;">
+    &lt;img src="mm.jpg" style="border: 10px solid var(--color);">
+&lt;/div>	
+			            </code>
+		            </pre>
+		        </div>
+    			<h4 class="r4-title">JS设置CSS变量</h4>
+    			<p>使用 setProperty() 方法</p>
+    			<div class="code-box">
+		            <pre class="language-html line-numbers">
+		                <code>
+&lt;div id="box">
+    &lt;img src="mm.jpg" style="border: 10px solid var(--color);">
+&lt;/div>	
+			            </code>
+		            </pre>
+		        </div>
+		        <p>如果要想让 var(--color) 生效，执行下面 JavaScript 代码：</p>
+		        <div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+box.style.setProperty('--color', '#cd0000');	
+			            </code>
+		            </pre>
+		        </div>
+    			<h3 class="r3-title">获取 CSS 变量</h3>
+    			<p>使用 getPropertyValue() 方法</p>
+    			<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+box.style.getPropertyValue('--color');	
+			            </code>
+		            </pre>
+		        </div>
+		        
+		        <h3 class="r3-title">删除 CSS 变量</h3>
+		        <div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+box.style.removeProperty('--color');	
+			            </code>
+		            </pre>
+		        </div>
+		        
+    		</section>
+    		<h2 class="r2-title">实例应用</h2>
+    		<p>
+    			<a href="https://www.css88.com/archives/9598">【实例】通过 CSS自定义属性（CSS变量）和 JavaScript 实现高级CSS主题切换</a>
+    		</p>
 		</div>
 	</div>
 </body>

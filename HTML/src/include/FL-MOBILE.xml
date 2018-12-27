@@ -17,6 +17,13 @@
 			<path>/views/mobile/</path>
 		</file>
 	</main>
+	<main title="原生mobile">
+		<file>
+			<title>plus.nativeUI 弹框</title>
+			<name>ys001</name>
+			<path>/views/mobile/YS/</path>
+		</file>
+	</main>
 	<main title="jquerymobile">
 		<file>
 			<title>jquerymobile</title>
@@ -68,6 +75,11 @@
 		<file>
 			<title>滚动</title>
 			<name>mui004</name>
+			<path>/views/mobile/mui/</path>
+		</file>
+		<file>
+			<title>奇怪的问题</title>
+			<name>mui005</name>
 			<path>/views/mobile/mui/</path>
 		</file>
 	</main>

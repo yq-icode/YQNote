@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">如何实现页面等比例缩放？</h2>
+		<p>zoom 属性是 IE 浏览器的专有属性，Firefox 等浏览器不支持, 通过 zoom 和 scale 结合来实现兼容 IE 的缩放功能，IE: zoom:2,  非IE浏览器：transform:scale(2)</p>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//scaleSize为缩放比例	                	
+if($(ifrm).parents('.mBlock').hasClass('fullScreen')){ //全屏时
+	if(navigator.appName == "Microsoft Internet Explorer"){ //IE浏览器
+		$(ifrm).parents(':root .mBlock').css({
+			'zoom': scaleSize
+		});
+	}
+	else{
+		$(ifrm).parents('.mBlock').css({ //非IE浏览器
+			'-webkit-transform': 'scale(' + scaleSize + ')',
+			'-moz-transform': 'scale(' + scaleSize + ')',
+			'transform': 'scale(' + scaleSize + ')'
+		});
+	}
+}
+else{ //取消全屏时
+	$(ifrm).parents('.mBlock').css({
+		'zoom':'',
+		'-webkit-transform':'',
+		'-moz-transform':'',
+		'transform':''
+	});
+}
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

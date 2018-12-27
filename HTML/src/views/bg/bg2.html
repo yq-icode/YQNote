@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">IE8下背景图片平铺</h2>
+		<p>IE9+ 及其它浏览器实现背景图片平铺只需要一个属性就可以background-size:100%/cover，但是background-size 在 IE8下是不起作用的，因此我们需要用到滤镜，来解决背景图片拉伸问题。仅需如下代码：</p>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-css line-numbers">
+	                <code>
+.bgAll{
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-image:url(news-banner.png);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='news-banner.png',sizingMethod='scale');
+	-ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='news-banner.png',sizingMethod='scale');
+}
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

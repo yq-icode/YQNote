@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Layui</title>
+	<link href="/css/prism.css" rel="stylesheet">
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+    <script src="/js/default.js"></script>
+    <style>
+    	
+    </style>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">layer弹窗(页面层)下的select下拉框被遮挡或显示不全问题</h2>
+		<section class="r2-body">
+			<h4 class="r4-title">问题</h4>
+			<p>如下图，弹窗固定了高宽，但是里面的 select 下拉框，在显示的时候却被弹窗挡住了，导致滚动条出现。</p>
+			<img src="../images/P0001.png" class="screenPics" />
+			<h4 class="r4-title">解决方法</h4>
+			<p>其实是layui样式设置的问题，如图：</p>
+			<img src="../images/P0002.png" class="screenPics" />
+			<p>可以看到在layui内部样式中，对.layui-layer-content定义了overflow属性且为auto,只要取消这个属性，就不存在遮挡问题。</p>
+			<p>可以为出现 select 被遮挡的弹框通过 skin 设置自定义属性</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+layer.open({
+  	skin: 'demo-class'
+});
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-css line-numbers">
+	                <code>   
+body .demo-class .layui-layer-content {
+    overflow: visible;
+}
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		
+		<h2 class="r2-title">禁止 iframe 弹层出现滚动条</h2>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+layer.open({
+  type: 2, 
+  content: 'http://sentsin.com' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+}); 
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		
+		<h2 class="r2-title">屏蔽浏览器滚动条</h2>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+layer.open({
+  	content: '浏览器滚动条已锁',
+  	scrollbar: false
+});
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

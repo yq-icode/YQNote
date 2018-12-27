@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">debugger</h2>
+		<section class="r2-body">
+			<p class="reference">
+				<a href="https://developer.mozilla.org/zh-CN/docs/Tools/Debugger"></a>
+			</p>
+			<h3 class="r3-title">通过在代码中加 debugger 进入调试</h3>
+			<p>在JS代码中加入 debugger 即可进入调试器，如：</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+if(eC3_check > 0){
+	debugger;
+	pElem.prop('checked',false);
+	form.render('checkbox', fl);
+}
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">黑盒测试</h3>
+	        <p>T左下角的眼睛是一个按钮，可以在你选中文件后进行 black box （切换黑盒）。切换黑盒功能在查看源文件但不调试源文件时非常有用，就像jQuery的包一样。如果一个资源进入黑盒状态，此时调试器将不在关注此资源：所有在些文件中设置的断点将会失效，并且调试器跟踪到这里时将会跳过这里的代码。</p>
+			<img src="images/screenPics/sc009.png" />
+			
+			<h3 class="r3-title">脚本美化</h3>
+			<p>这对花括号  { } 允许你将压缩过（minified）的脚本进行美化 ,这样方便你的阅读.</p>
+		</section>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">iframe</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">获取当前页面所在的iframe</h3>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+self.frameElement
+self.frameElement.getAttribute('id') 
+window.frameElement.id
+		            </code>
+	            </pre>
+	        </div>
+	        
+			<h3 class="r3-title">通过iframe获取window、document</h3>
+			<p>如果想获取iframe里的window或者document，可以使用</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+iframe.contentWindow、iframe.contentDocument
+iframe.contentDocument = iframe.contentWindow.document //不过iframe.contentDocument在IE8及以下的版本不支持。
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">通过window获取iframe</h3>
+	        <p>window.frames是个伪数组，可以通过window.frames[index]或window.frames[name]来获取iframe</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+window.frames[index] //索引是从左往右，从上往下的，从0开始
+window.frames[name]
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

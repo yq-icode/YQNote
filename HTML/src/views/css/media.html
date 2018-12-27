@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">@meta 查询</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">CSS3 Media 写法</h3>
+			<div class="browser-support">
+				<p class="summary">IE 9+; firfox 3.5+; chrome 21; safari 4.0; opera 9+</p>
+			</div>
+			<div class="code-box">
+	            <pre class="language-css line-numbers">
+	                <code>
+@media screen {}
+@media print {}
+@media screen,print {}
+
+@media only screen and (min-width:960px) {}
+@media screen and (min-width:960px) and (max-width:1200px) {}
+@media screen and (min-width:1200px) {}
+
+@media screen and (orientation: portrait) and (max-width: 720px) {} /* 竖屏 */
+@media screen and (orientation: landscape) {} /* 横屏 */
+
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">@media 内部不能放注释</h3>
+	        <p>写法没问题，但是运行的时候却不生效，把注释去掉就正常了，原因不明</p>
+			<div class="code-box">
+	            <pre class="language-css line-numbers">
+	                <code>
+@media screen and (max-width: 480px) {
+    /*iPhone5/SE*/
+    .test{
+        letter-spacing: 0;
+    }
+}
+
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">CSS2 Media 写法</h3>
+			<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;link rel="stylesheet" type="text/css" media="screen" href="style.css">
+&lt;link rel="stylesheet" type="text/css" media="screen and (orientation:portrait)" href="style.css">
+&lt;link rel="stylesheet" type="text/css" media="screen and (max-width:960px)" href="style.css">
+		            </code>
+	            </pre>
+	        </div>
+	        
+		</section>
+		
+		<h2 class="r2-title">@media 兼容</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">通过加载JS文件兼容 IE<9</h3>
+			<p>因为IE8既不支持HTML5也不支持CSS3 Media，所以我们需要加载两个JS文件，来保证我们的代码实现兼容效果：</p>
+			<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;!--[if lt IE 9]>
+  &lt;script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  &lt;script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+&lt;![endif]-->
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">设置IE渲染方式默认为最高</h3>
+	        <p> 现在有很多人的IE浏览器都升级到IE9以上了，所以这个时候就有又很多诡异的事情发生了，例如现在是IE9的浏览器，但是浏览器的文档模式却是IE8，为了防止这种情况，我们需要下面这段代码来让IE的文档模式永远都是最新的</p>
+			<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+&lt;!--如果想使用固定的IE版本，可写成-->
+&lt;meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+
+&lt;!--另一个更给力的写法-->
+&lt;meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+		            </code>
+	            </pre>
+	        </div>
+	        <p>这句话的意思是将IE浏览器默认的渲染方式设为电脑上所装IE浏览器的最高标准，比如我电脑上装了IE10和IE8两个浏览器，如果我用IE8浏览器打开这个页面，会以IE10 的标准来渲染页面。</p>
+	        <p>chrome=1，Google Chrome Frame（谷歌内嵌浏览器框架GCF）, 如果有的用户电脑里面装了这个chrome的插件，就可以让电脑里面的IE不管是哪个版本的都可以使用Webkit引擎及V8引擎进行排版及运算，无比给力，不过如果用户没装这个插件，那这段代码就会让IE以最高的文档模式展现效果。</p>
+		</section>
+		
+		<h2 class="r2-title">媒体类型</h2>
+		<section class="r2-body">
+			<dl class="dlist col2">
+				<dt>all</dt>
+				<dd>用于所有设备</dd>
+				<dt>print</dt>
+				<dd>用于打印机和打印预览</dd>
+				<dt>screen</dt>
+				<dd>用于电脑屏幕，平板电脑，智能手机等。</dd>
+				<dt>speech</dt>
+				<dd>应用于屏幕阅读器等发声设备</dd>
+			</dl>
+		</section>
+		
+		<h2 class="r2-title">媒体功能</h2>
+		<section class="r2-body">
+			<strong class="listTit">输出设备的屏幕</strong>
+			<dl class="dlist col2">
+				<dt>device-width</dt>
+				<dd>定义输出设备的屏幕可见宽度</dd>
+				<dt>device-height</dt>
+				<dd>定义输出设备的屏幕可见高度</dd>
+				<dt>max-device-width</dt>
+				<dd>定义输出设备的屏幕最大可见宽度</dd>
+				<dt>max-device-height</dt>
+				<dd>定义输出设备的屏幕最大可见高度</dd>
+				<dt>min-device-width</dt>
+				<dd>定义输出设备的屏幕最小可见宽度</dd>
+				<dt>min-device-height</dt>
+				<dd>定义输出设备的屏幕最小可见高度</dd>
+			</dl>
+			<strong class="listTit">输出设备中的页面可见区域</strong>
+			<dl class="dlist col2">
+				<dt>width</dt>
+				<dd>定义输出设备中的页面可见区域宽度</dd>
+				<dt>height</dt>
+				<dd>定义输出设备中的页面可见区域高度</dd>
+				<dt>max-width</dt>
+				<dd>定义输出设备中的页面最大可见区域宽度</dd>
+				<dt>max-height</dt>
+				<dd>定义输出设备中的页面最大可见区域高度</dd>
+				<dt>min-width</dt>
+				<dd>定义输出设备中的页面最小可见区域宽度</dd>
+				<dt>min-height</dt>
+				<dd>定义输出设备中的页面最小可见区域高度</dd>
+			</dl>
+			<strong class="listTit">输出设备的屏幕可见宽度与高度的比率</strong>
+			<dl class="dlist col2">
+				<dt>device-aspect-ratio</dt>
+				<dd>定义输出设备的屏幕可见宽度与高度的比率</dd>
+				<dt>max-device-aspect-ratio</dt>
+				<dd>定义输出设备的屏幕可见宽度与高度的最大比率</dd>
+				<dt>min-device-aspect-ratio</dt>
+				<dd>定义输出设备的屏幕可见宽度与高度的最小比率</dd>
+			</dl>
+			<strong class="listTit">输出设备中的页面可见区域宽度与高度的比率</strong>
+			<dl class="dlist col2">
+				<dt>aspect-ratio</dt>
+				<dd>定义输出设备中的页面可见区域宽度与高度的比率</dd>
+				<dt>max-aspect-ratio</dt>
+				<dd>定义输出设备中的页面可见区域宽度与高度的最大比率</dd>
+				<dt>min-aspect-ratio</dt>
+				<dd>定义输出设备中的页面可见区域宽度与高度的最小比率</dd>
+			</dl>
+			<strong class="listTit">分辨率&方向</strong>
+			<dl class="dlist col2">
+				<dt>resolution</dt>
+				<dd>定义设备的分辨率。如：96dpi, 300dpi, 118dpcm</dd>
+				<dt>max-resolution</dt>
+				<dd>定义设备的最大分辨率</dd>
+				<dt>min-resolution</dt>
+				<dd>定义设备的最小分辨率</dd>
+				<dt>orientation</dt>
+				<dd>定义输出设备中的页面可见区域高度是否大于或等于宽度</dd>
+			</dl>
+		</section>
+	</div>
+</div>
+</body>
+</html>

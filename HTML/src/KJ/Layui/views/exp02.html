@@ -27,7 +27,7 @@
 			<p>因为项目框架用了iframe，所以在用layer时，默认layer.open弹出的窗口只能在iframe子窗口区域显示。现在想让layer在父窗口或者说框架的最顶层显示，需要使用top.layer.open或者parent.layer.open方法：</p>
 			<ul class="list-decimal">
 				<li>父级页面和 iframe 里面的子页面都需要，引用 layui.js 和 layui.css </li>
-				<li>子页面中调用 parent.layer.open({ }) 或 parent.layer.open({ }) 方法</li>
+				<li>子页面中调用 parent.layer.open({ }) 或 top.layer.open({ }) 方法</li>
 				<li>在父页面也要加载模块 layer</li>
 			</ul>
 			<div class="code-box">
@@ -42,18 +42,15 @@ layui.use('layer', function(){
 			<div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>   
-
+layer.open() //在当前层弹出
+parent.layer.open() //在父级层弹出
+parent.parent.layer.open() //在父级的父级层弹出
+top.layer.open() //在最顶层弹出
 		            </code>
 	            </pre>
 	        </div>
 		</section>
-		
-		
 	</div>
 </div>
-<script type="text/javascript">
-	
-	
-</script>
 </body>
 </html>

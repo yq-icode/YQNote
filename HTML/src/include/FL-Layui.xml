@@ -11,5 +11,20 @@
 			<name>exp02</name>
 			<path>/KJ/Layui/views/</path>
 		</file>
+		<file>
+			<title>table表格</title>
+			<name>exp03</name>
+			<path>/KJ/Layui/views/</path>
+		</file>
+		<file>
+			<title>form</title>
+			<name>exp04</name>
+			<path>/KJ/Layui/views/</path>
+		</file>
+		<file>
+			<title>layer</title>
+			<name>layer1</name>
+			<path>/KJ/Layui/views/</path>
+		</file>
 	</main>
 </fileList>

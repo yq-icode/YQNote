@@ -130,6 +130,21 @@
 				<name>fun08</name>
 				<path>/views/js/</path>
 			</file>
+			<file>
+				<title>iframe</title>
+				<name>fun12</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>debugger调试</title>
+				<name>debugger</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>console</title>
+				<name>console</name>
+				<path>/views/js/</path>
+			</file>
 		</sub>
 		<sub title="奇怪的问题">
 			<file>

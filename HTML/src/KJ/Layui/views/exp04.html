@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Layui</title>
+	<link href="/css/prism.css" rel="stylesheet">
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+    <script src="/js/default.js"></script>
+    <style>
+    	
+    </style>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">form</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">为日历插件加图标</h3>
+			<p>因为 layui.css 中 设置的 layui-input-block 为相对定位，且 input 宽度为 100%，所以为图标设置绝对定位，并为 input 设置 padding-right 空出图标的位置；</p>
+			<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;div class="layui-input-block">
+	&lt;input type="text" class="layui-input" id="YH-YXQ1" name="YXQ1" placeholder="年/月/日" style="padding-right: 30px;">
+	&lt;i class="iconfont icon-rili">&lt;/i>
+&lt;/div>
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-css line-numbers">
+	                <code>
+.layui-input-block .iconfont{
+	position: absolute;
+	right: 10px;
+	top: 7px;
+	color: #67767E;
+}
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">如何将表单提交数据的格式由 名称值 对象模式 {name: value} 改成数组格式？</h3>
+	        <div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;button type="button" id="btnSave" class="layui-btn layui-btn-sm btnC1" lay-submit="" lay-filter="dataSave">保存&lt;/button>
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+form.on('submit(dataSave)', function(data){
+	var arr = [];
+	for(i in data.field){
+		obj = {};
+		obj[i] = data.field[i];
+		arr.push(obj);
+	}
+	console.log(arr);
+});
+		            </code>
+	            </pre>
+	        </div>
+	        
+		</section>
+	</div>
+</div>
+</body>
+</html>

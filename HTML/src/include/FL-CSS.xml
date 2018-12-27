@@ -17,7 +17,7 @@
 			<path>/views/css/</path>
 		</file>
 		<file>
-			<title>CSS 变量</title>
+			<title>CSS3 var 变量</title>
 			<name>css-variables</name>
 			<path>/views/css/</path>
 		</file>
@@ -44,6 +44,11 @@
 		<file>
 			<title>字体</title>
 			<name>font-family</name>
+			<path>/views/css/</path>
+		</file>
+		<file>
+			<title>相似属性辩解</title>
+			<name>similar</name>
 			<path>/views/css/</path>
 		</file>
 	</main>
@@ -137,6 +142,11 @@
 			<name>fixed1</name>
 			<path>/views/css/</path>
 		</file>
+		<file>
+			<title>media 响应式布局</title>
+			<name>media</name>
+			<path>/views/css/</path>
+		</file>
 	</main>
 	<main title="各种效果">
 		<file>
@@ -163,6 +173,16 @@
 			<title>多行文本溢出显示省略号</title>
 			<name>txt1</name>
 			<path>/views/demo/text/</path>
+		</file>
+		<file>
+			<title>IE8下背景图片平铺</title>
+			<name>bg2</name>
+			<path>/views/bg/</path>
+		</file>
+		<file>
+			<title>页面等比例缩放</title>
+			<name>scale</name>
+			<path>/views/css/</path>
 		</file>
 	</main>
 	<main title="常见问题">

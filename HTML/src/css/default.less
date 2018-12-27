@@ -100,7 +100,7 @@ p{margin: 1em 0;}
 }
 
 #wside dl dt a.on{background-color: #a3c851;}
-#wside dl dd a.on{color: #333;font-size: 14px; font-weight: bold;}
+#wside dl dd a.on{color: #333;font-weight: bold;}
 
 #wside dl dt a:hover{background-color: #a3c851;text-decoration: none;}
 #wside dl dd a:hover{color: #000;}
@@ -133,7 +133,7 @@ p{margin: 1em 0;}
 	position: relative;
 	padding-left: 25px;
 	font-size: 12px;
-	color: #666;
+	color: #888;
 	counter-increment: secDD;
 }
 #wside dl dd a::before{
@@ -328,6 +328,18 @@ a.ref:visited{color: #00A0D3;}
 	background-color: #fff;
 	box-sizing: border-box;
 }
+/*小徽章*/
+.badge{
+    display: inline-block;
+    height: 18px;
+    border: 1px solid #fff;
+    padding: 0 5px;
+    background-color: #DEF0D1;
+    line-height: 18px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #5F6F55;
+}
 /* ******************************************************* *
  * 列表
  * ******************************************************* */
@@ -352,7 +364,7 @@ a.ref:visited{color: #00A0D3;}
 	list-style-type: decimal;
 }
 
-/*分标题和内容的双列形式列表*/
+/*标题+内容的列表*/
 .dlist{
 	margin: 10px 0;
 	border: 1px dotted #ccc;
@@ -378,6 +390,13 @@ a.ref:visited{color: #00A0D3;}
 	}
 	dd{
 		margin-bottom: 15px;
+	}
+&.col2{ /*双列*/
+	    display: flex;
+	    flex-wrap: wrap;
+	    padding-bottom: 20px;
+	    dt{width: 16%; margin: 5px 0; padding:0 5px; box-sizing: border-box; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+	    dd{width: 34%; margin: 5px 0; padding: 0 10px; box-sizing: border-box;}
 	}
 }
 .listTit + .dlist{margin-top: 0;}

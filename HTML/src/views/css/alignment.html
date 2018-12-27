@@ -149,6 +149,40 @@
 	                </pre>
 	            </div>
 	        	<a class="ref" href="http://www.zhangxinxu.com/wordpress/2009/11/css%E8%A1%8C%E9%AB%98line-height%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8F%8A%E5%BA%94%E7%94%A8/">实现原理请看此处</a>
+	        
+	        	<h3 class="r3-title">不固定高宽div垂直居中</h3>
+	        	<div class="code-box">
+	                <pre class="language-html">
+	                    <code>
+&lt;div class="block" style="height: 300px;">
+    &lt;div class="centered">
+        &lt;h1>案例题目&lt;/h1>
+        &lt;p>案例内容案例内容案例内容案例内容案例内容&lt;/p>
+    &lt;/div>
+&lt;/div>              
+	                    </code>
+	                </pre>
+	            </div>
+	            <div class="code-box">
+	                <pre class="language-css">
+	                    <code>
+.block {
+  	text-align: center;
+}
+.block:before {
+  	content: '';
+  	display: inline-block;
+  	height: 100%;
+  	vertical-align: middle;
+}
+.centered {
+  	display: inline-block;
+  	vertical-align: middle;
+  	width: 50%;
+}             
+	                    </code>
+	                </pre>
+	            </div>
 	        </section>
 	    </div>
         <!-- **************** separator line ****************  -->
