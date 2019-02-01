@@ -58,7 +58,7 @@ body .demo-class .layui-layer-content {
 	                <code>   
 layer.open({
   type: 2, 
-  content: 'http://sentsin.com' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+  content: ['http://sentsin.com', 'no']
 }); 
 		            </code>
 	            </pre>
@@ -77,6 +77,80 @@ layer.open({
 		            </code>
 	            </pre>
 	        </div>
+		</section>
+		
+		<h2 class="r2-title">如何让layer弹出层显示在top顶层？</h2>
+		<section class="r2-body">
+			<p>因为项目框架用了iframe，所以在用layer时，默认layer.open弹出的窗口只能在iframe子窗口区域显示。现在想让layer在父窗口或者说框架的最顶层显示，需要使用top.layer.open或者parent.layer.open方法：</p>
+			<ul class="list-decimal">
+				<li>父级页面和 iframe 里面的子页面都需要，引用 layui.js 和 layui.css </li>
+				<li>子页面中调用 parent.layer.open({ }) 或 top.layer.open({ }) 方法</li>
+				<li>在父页面也要加载模块 layer</li>
+			</ul>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+layui.use('layer', function(){
+   var layer = layui.layer; 
+});
+		            </code>
+	            </pre>
+	        </div>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+layer.open() //在当前层弹出
+parent.layer.open() //在父级层弹出
+parent.parent.layer.open() //在父级的父级层弹出
+top.layer.open() //在最顶层弹出
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		
+		<h2 class="r2-title">Layer弹层高度自适应</h2>
+		<section class="r2-body">
+			<h4 class="r4-title">如果是非iframe弹层</h4>
+			<p>只需要为area设置宽度即可，area:'500px'</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+layer.open({
+  type: 1, 
+  content: ''
+  ,area: '500px'
+}); 
+		            </code>
+	            </pre>
+	        </div>
+			<h4 class="r4-title">如果是iframe弹层</h4>
+			<p>在iframe页面中每次可能改变高度时，执行以下代码：</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+var index = parent.layer.getFrameIndex(window.name);
+parent.layer.iframeAuto(index);
+		            </code>
+	            </pre>
+	        </div>
+	        <p>或者在success回调函数中执行：</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+layer.open({
+   type: 2
+   ,title: "申请备案"
+   ,content: ["/Login/ApplicationFiling?name=" + $("#name").val(), 'no']
+   ,area: "612px"
+   ,success: function (layero, index) {
+       layer.iframeAuto(index);
+   }
+})
+		            </code>
+	            </pre>
+	        </div>
+	        <strong>注意：</strong>
+	        <p>在iframe页面中执行layer.iframeAuto(index)时，取的高度不正确，少一部分，原因不明（可能是因为页面未加载完毕就执行了计算iframe高度的代码）；在success回调函数中执行layer.iframeAuto(index)时，取的高度是正确的；</p>
 		</section>
 	</div>
 </div>

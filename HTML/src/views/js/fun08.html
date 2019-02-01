@@ -14,65 +14,125 @@
 	<div id="wside"></div>
 	<div id="wmain">
 		<!************************************************->
-        <h2 class="r2-title">select</h2>
+		<div class="code-box mt20">
+            <pre class="language-html line-numbers">
+                <code>
+&lt;select id="eSelect" class="eSel"&gt;
+	&lt;option value="1"&gt;&lt;/option&gt;
+	&lt;option value="2"&gt;&lt;/option&gt;
+	&lt;option value="3"&gt;&lt;/option&gt;
+&lt;/select&gt;
+	            </code>
+            </pre>
+        </div>
+        
+        <h2 class="r2-title">基本操作</h2>
         <div class="r2-body">
-	        <div class="code-box mt20">
-	            <pre class="language-html line-numbers">
+	        <h4 class="r4-title">创建 select</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
 	                <code>
-	&lt;select id="eSelect" class="eSel"&gt;
-		&lt;option value="1"&gt;&lt;/option&gt;
-		&lt;option value="2"&gt;&lt;/option&gt;
-		&lt;option value="3"&gt;&lt;/option&gt;
-	&lt;/select&gt;
+var mySelect = document.createElement("select");
+mySelect.id = "mySelect";
+document.body.appendChild(mySelect);
 		            </code>
 	            </pre>
 	        </div>
-	        <div class="code-box mt20">
+	        <h4 class="r4-title">删除 select</h4>
+	        <div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>
-var e = document.getElementById("eSelect");
+var mySelect = document.getElementById("mySelect");
+mySelect.parentNode.removeChild(mySelect);	
+		            </code>
+	            </pre>
+	        </div>
+	        <h4 class="r4-title">添加 option</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+var obj=document.getElementById('mySelect');
+obj.add(new Option("文本","值")); //这个只能在IE中有效
+obj.options.add(new Option("text","value")); //这个兼容IE与firefox
 
-//取option
-var eOpts = e.options;
+//JQUERY
+$("#mySelect").append("&lt;option>Text&lt;/option>"); //将option追加到最后
+$("#mySelect").prepend("&lt;option>Text&lt;/option>"); //将option追加到第一位
 
-//option数量
-e.options.length
+		            </code>
+	            </pre>
+	        </div>
+	        <h4 class="r4-title">删除一个  option</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+var obj=document.getElementById('mySelect');
+var index=obj.selectedIndex; //index,要删除选项的索引，这里取当前选中选项的索引
+obj.options.remove(index);
 
-$(e).options.length
+$("#mySelect option").eq(index).remove();
+$("#mySelect option:last").remove(); //删除Select中索引值最大Option(最后一个) 
+$("#mySelect option[index='0']").remove(); //删除Select中索引值为0的Option(第一个) 
+$("#mySelect option[value='3']").remove(); //删除Select中Value='3'的Option 
+$("#mySelect option[text='4']").remove(); //删除Select中Text='4'的Option
+$("#mySelect").remove(index);//index为option索引
+		            </code>
+	            </pre>
+	        </div>
+	        <h4 class="r4-title">删除所有  option</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+var obj=document.getElementById('mySelect');
+obj.options.length=0;
 
-//索引
-e.selectedIndex;
+$("#mySelect").empty();
+$("#mySelect").options.length = 0;
+		            </code>
+	            </pre>
+	        </div>
+	        <h4 class="r4-title">获取 option 的值/文本/索引/选中状态/数量</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+var obj=document.getElementById('mySelect');
 
-$(e).selectedIndex;
-$(e).find("option:selected").selectedIndex;
+//取索引
+var index=obj.selectedIndex; //取当前选中选项的索引
 
-//选中项的值
-e.options[e.selectedIndex].value;
+$("#mySelect").selectedIndex;
+$("#mySelect").find("option:selected").selectedIndex;
 
-$(e).val();
-$('#eSelect option:selected').val();
-$(e).find("option:selected").val();
+//取值
+obj.options[index].value;
 
-//选中项的文本
-e.options[e.selectedIndex].text;
+$('#mySelect option:selected').val();
+$("#mySelect").find("option:selected").val();
+$("#mySelect").val();
 
-$('#eSelect option:selected').text();
-$(e).find("option:selected").text();
+//取文本
+obj.options[index].text;
 
-//设置选中状态
-e.options[i].selected = true;
+$('#mySelect option:selected').text();
+$("#mySelect").find("option:selected").text();
 
-//赋值
-$("#eSelect option:["value='1']").val("0");
-	
-//删除选项
-$(e).remove(i);//i为option索引
-$(e).remove($(e).selectedIndex);
+//取选中状态
+obj.options[index].selected = true;
 
-//清空
-$(e).empty();
-$(e).options.length = 0;
-
+//取数量
+obj.options.length
+$("#mySelect").options.length
+		            </code>
+	            </pre>
+	        </div>
+	        <h4 class="r4-title">修改 option 的值/文本/选中状态</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//同时修改文本与值            	
+var obj=document.getElementById('mySelect');
+var index=obj.selectedIndex;
+var val = obj.options[index] = new Option("新文本","新值");
 		            </code>
 	            </pre>
 	        </div>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<p class="reference">
+			<a href="https://www.cnblogs.com/web-wjg/p/7894657.html"></a>
+			<a href="https://www.cnblogs.com/chongyao/p/7298986.html"></a>
+		</p>
+        <h2 class="r2-title">法一：直接通过html的form提交</h2>
+        <div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>
+&lt;form action="" method="" id="forms">
+    &lt;input type="text" name="username" value="" />
+    &lt;input type="password" name="pwd" value="" />
+    &lt;input type="submit" value="提交"/>
+&lt;/form>
+		        </code>
+            </pre>
+        </div>
+        <h2 class="r2-title">JS提交</h2>
+        <p>但有时候我们会出于安全角度考虑，给用户输入的密码进行加密，方法一就没办法解决这个问题，这时候我们同常会选择另一种方法，使用javaScript来进行表单提交，代码入下：</p>
+        <div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>
+&lt;form action="" method="" id="test_form">
+    &lt;input type="text" name="username" value="" />
+    &lt;input type="password" name="pwd" value="" />
+    &lt;button type="button" onclick='doSubmitForm()'>提交&lt;button/>
+&lt;/form>
+		        </code>
+            </pre>
+        </div>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var form = document.getElementById('test_form');
+form.submit();
+		        </code>
+            </pre>
+        </div>
+        <p>这种方法有个缺点就是，打乱正常的表单提交程序，通常用户输入完成后点击回车键就可以提交，但是这个方法实现不了，所以，使用下面的方法便可以解决这个问题,，通过form自身的onsubmit方法，来触发提交，然后进行input的修改：</p>
+        <h2 class="r2-title">onsubmit提交</h2>
+        <div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>
+&lt;form id='test_form' action='' method='' onsubmit='return checkForm()'>
+    &lt;input type='text' name='username' value=''/>
+    &lt;input type='password' name='pwd' value =''/>
+    &lt;button type='submit'>提交&lt;button/>
+&lt;form/>
+		        </code>
+            </pre>
+        </div>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+function checkForm(){
+    var form = document.getElementById('test_form');
+    return ture;
+}
+		        </code>
+            </pre>
+        </div>
+        <p>注意，checkForm()方法中，return true时，表单才会正常提交，为false时，浏览器将不会提交，通常是用户的密码输入错误时，终止提交。</p>
+        <h2 class="r2-title">ajax异步提交表单数据</h2>
+        <p></p>
+        <div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>
+&lt;form id="form"  method="post">
+   &lt;input type="text" name="name" id="name"/>
+&lt;/form>
+		        </code>
+            </pre>
+        </div>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var params = {"name", $("#name").val()}
+$.ajax({
+	type: "POST",
+	url: "/url.do",
+	data: params,
+	dataType : "json",
+	success: function(respMsg){
+	}
+});
+		        </code>
+            </pre>
+        </div>
+        <h2 class="r2-title">修改表单提交的数据</h2>
+        <p>表单只会提交带有 name 属性的表单元素</p>
+        <div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>
+&lt;form id='test_form' action='' method='' omsubmit='return checkForm()'>
+    &lt;input type='text' name='username' value=''/>
+    &lt;input type='password'  id='input_pwd' value =''/>
+    &lt;input type='hidden' name='pwd' id='md5_pwd' value=''/>
+    &lt;button type='submit'>提交&lt;button/>
+&lt;form/>
+		        </code>
+            </pre>
+        </div>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+function checkForm(){
+    var input_pwd= document.getElementById('input_pwd');
+    var md5_pwd= document.getElementById('md5_pwd');
+     md5_pwd.value= toMD5(input_pwd.value); //MD5密码加密方法       
+    //进行下一步
+    return ture;
+}
+		        </code>
+            </pre>
+        </div>
+        <p>&lt;input type='password'/>是用户输入密码的input框，并没有设置 name 属性，而是给 &lt;input type='hidden' /> 设置了 name='pwd'，这样表单提交只会提交带有name属性的输入框，从而修改了表单提交的数据，只提交了我们想要的数据。</p>
+	</div>
+</div>
+</body>
+</html>

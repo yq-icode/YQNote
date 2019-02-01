@@ -270,6 +270,11 @@
 				<name>scroll-3</name>
 				<path>demo/</path>
 			</file>
+			<file>
+				<title>隐藏垂直滚动条</title>
+				<name>scroll-4</name>
+				<path>demo/</path>
+			</file>
 		</sub>
 		<sub title="抽奖">
 			<file>
@@ -354,6 +359,11 @@
 		<file>
 			<title>设置IIS，使之支持less</title>
 			<name>_article03</name>
+			<path>/views/other/</path>
+		</file>
+		<file>
+			<title>配置IIS，运行Visual Studio项目</title>
+			<name>_article04</name>
 			<path>/views/other/</path>
 		</file>
 	</main>

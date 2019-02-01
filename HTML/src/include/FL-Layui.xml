@@ -7,11 +7,6 @@
 			<path>/KJ/Layui/views/</path>
 		</file>
 		<file>
-			<title>layer弹框</title>
-			<name>exp02</name>
-			<path>/KJ/Layui/views/</path>
-		</file>
-		<file>
 			<title>table表格</title>
 			<name>exp03</name>
 			<path>/KJ/Layui/views/</path>
@@ -22,8 +17,13 @@
 			<path>/KJ/Layui/views/</path>
 		</file>
 		<file>
-			<title>layer</title>
+			<title>layer1</title>
 			<name>layer1</name>
+			<path>/KJ/Layui/views/</path>
+		</file>
+		<file>
+			<title>layer2</title>
+			<name>layer2</name>
 			<path>/KJ/Layui/views/</path>
 		</file>
 	</main>

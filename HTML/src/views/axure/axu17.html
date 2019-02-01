@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+    <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">多值单变量的页面传值</h2>
+    	<section class="r2-body">
+    		<p>axure建议全局变量不要超过25个（如果在IE浏览器中浏览原型），但是我们在做原型时，经常需要实现在两个页面之间传递多值，这样的话25个全局变量根本不够用，所以这就涉及了如何用一个变量在两个页面之间传递多个值的问题，下面就讲实现方法。</p>
+        	<h4 class="r4-title">为全局变量 KSJL 赋多值</h4>
+        	<ol class="list-decimal">
+        		<li>将三个元件 Name ChengJi KSResult 的元件文字分别赋给了三个局部变量 Name ChengJi KSResult</li>
+        		<li>将三个局部变量 Name ChengJi KSResult 通过 '& + 数字' 形式的连接符连接成了一个字符串</li>
+        		<li>将此字符串赋给了全局变量 KSJL</li>
+        	</ol>
+        	<img class="screenPics" src="images/screenPics/sc080.png" />
+        	<img class="screenPics" src="images/screenPics/sc081.png" />
+        	
+        	<h4 class="r4-title">拆分全局变量 KSJL 并获取相应的值</h4>
+        	<p>通过 substring() 和 indexOf() 两种方法可以获取到全局变量 KSJL 相应的值，实现方法请看下图</p>
+        	<dl class="dlist">
+        		<dt>获取 Name</dt>
+        		<dd>[[KSJL.substring(0, KSJL.indexOf('&1'))]]</dd>
+        		<dt>获取 ChengJi</dt>
+        		<dd>[[KSJL.substring( KSJL.indexOf('&1')+2, KSJL.indexOf('&2'))]]</dd>
+        		<dt>获取 KSResult</dt>
+        		<dd>[[KSJL.substring(KSJL.indexOf('&2')+2)]]</dd>
+        	</dl>
+        	<img class="screenPics" src="images/screenPics/sc082.png" />
+        	<img class="screenPics" src="images/screenPics/sc083.png" />
+        	<img class="screenPics" src="images/screenPics/sc084.png" />
+        	<img class="screenPics" src="images/screenPics/sc085.png" />
+        </section>
+   </div>
+</div>
+</body>
+</html>

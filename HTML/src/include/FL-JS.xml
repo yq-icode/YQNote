@@ -86,6 +86,13 @@
 				<name>method01</name>
 				<path>/views/js/</path>
 			</file>
+		</sub>
+		<sub title="表单">
+			<file>
+				<title>JS提交表单</title>
+				<name>method04</name>
+				<path>/views/js/</path>
+			</file>
 			<file>
 				<title>将提交的表单数据转为数组</title>
 				<name>method03</name>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Layui</title>
+	<link href="/css/prism.css" rel="stylesheet">
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+    <script src="/js/default.js"></script>
+    <style>
+    	
+    </style>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">1.	layer.open({type:4}) 与 layer.tips 对比</h2>
+		<section class="r2-body">
+			<h4 class="r4-title">layer.tips</h4>
+			<p>layer.tips 中的表单（包括select、checkbox）点击事件被屏蔽了，点击时没有任何效果；</p>
+			<h4 class="r4-title">layer.open({type:4})</h4>
+			<p>是用layer.open执行tips层，即layer.open({type:4}) ，弹框中的表单点击事件都正常；</p>
+		</section>
+		
+	</div>
+</div>
+</body>
+</html>

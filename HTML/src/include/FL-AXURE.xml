@@ -61,7 +61,11 @@
 			<name>axu02</name>
 			<path>/views/axure/</path>
 		</file>
-		
+		<file>
+			<title>多值单变量的页面传值</title>
+			<name>axu17</name>
+			<path>/views/axure/</path>
+		</file>
 	</main>
 	<main title="常用效果">
 		<file>
