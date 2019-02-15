@@ -183,6 +183,11 @@
 			<path>/views/js/</path>
 		</file>
 		<file>
+			<title>attr与prop的区别</title>
+			<name>fun13</name>
+			<path>/views/js/</path>
+		</file>
+		<file>
 			<title>jquery tmpl 详解</title>
 			<name>exp01</name>
 			<path>/views/js/</path>

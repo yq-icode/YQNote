@@ -6,36 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>测试</title>
     <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/vue.js"></script>
+    <!--<script src="js/vue.js"></script>-->
     <style type="text/css">
-	    .parent {
-	        display: flex;
-	        width: 600px;
-	    }
-	    .parent > div {
-	        height: 100px;
-	    }
-	    .item-1 {
-	        width: 140px;
-	        flex: 2 1 0%;
-	        background: blue;
-	    }
-	    .item-2 {
-	        width: 100px;
-	        flex: 2 1 auto;
-	        background: darkblue;
-	    }
-	    .item-3 {
-	        flex: 1 1 200px;
-	        background: lightblue;
-	    }
+    	#report_content{
+    		min-height: 120px;
+    		padding: 10px;
+    		background-color: #eee;
+    	}
 	</style>
 </head>
 <body>
-	<div class="parent">
-	    <div class="item-1"></div>
-	    <div class="item-2"></div>
-	    <div class="item-3"></div>
-	</div>
+	<input type="file" onchange="readFile()" />
+	<div id="report_content"></div>
+	<script>
+		window.readFile = function(){
+			var reader = new FileReader(),
+				file = document.querySelector('input[type=file]').files[0];
+			reader.readAsText(file);
+			reader.onload = function(){
+				document.getElementById("report_content").innerHTML = this.result;
+     		}			 
+		}
+
+	</script>
 </body>
 </html>
