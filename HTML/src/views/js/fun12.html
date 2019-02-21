@@ -31,8 +31,15 @@ window.frameElement.id
 			<div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>
-iframe.contentWindow、iframe.contentDocument
+iframe.contentWindow
+iframe.contentDocument
 iframe.contentDocument = iframe.contentWindow.document //不过iframe.contentDocument在IE8及以下的版本不支持。
+
+//调用 iframe 窗口内的方法
+iframe.contentWindow.method()
+
+//获取 iframe 页面中的DOM元素
+iframe.contentDocument.getElementById()
 		            </code>
 	            </pre>
 	        </div>

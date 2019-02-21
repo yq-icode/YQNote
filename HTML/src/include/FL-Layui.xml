@@ -7,8 +7,13 @@
 			<path>/KJ/Layui/views/</path>
 		</file>
 		<file>
-			<title>table表格</title>
+			<title>table</title>
 			<name>exp03</name>
+			<path>/KJ/Layui/views/</path>
+		</file>
+		<file>
+			<title>table样式</title>
+			<name>exp02</name>
 			<path>/KJ/Layui/views/</path>
 		</file>
 		<file>
@@ -24,6 +29,11 @@
 		<file>
 			<title>layer2</title>
 			<name>layer2</name>
+			<path>/KJ/Layui/views/</path>
+		</file>
+		<file>
+			<title>layer传值</title>
+			<name>layer3</name>
 			<path>/KJ/Layui/views/</path>
 		</file>
 	</main>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+        <h2 class="r2-title">audio</h2>
+        <section class="r2-body">
+        	<h3 class="r3-title">播放控制</h3>
+	        <div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;audio src="/data/af1.mp3" id="audioPlayer" controls="controls" loop="false"></audio>
+&lt;button type="button" id="btnStop">STOP</button>
+			        </code>
+	            </pre>
+	        </div>
+	        <h4 class="r4-title">停止播放</h4>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//法一	                	
+$('#btnStop').click(function(){
+	audio.pause();
+	audio.currentTime = 0;
+})
+//法二
+$('#btnStop').click(function(){
+	audio.pause();
+	audio.load(); //重新加载音频元素
+})
+			        </code>
+	            </pre>
+	        </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>

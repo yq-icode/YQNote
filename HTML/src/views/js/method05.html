@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+        <h2 class="r2-title">AJAX 读取文件</h2>
+        <section class="r2-body">
+        	<h3 class="r3-title">定时读取文件最后20行</h3>
+        	<p>利用换行符分割整个文件内容，并将每一行作为一个数据存入数组，读取此数据的最后20行，且每读取一行数据加个换行符 &lt;br/>，最后将读取的数据拼接起来，并赋给 DOM 元素  #BWBox。</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+function refreshBW(){
+	$.ajax({
+		url: "data/testTxt.txt",
+		success: function(res){
+			var arr = res.split("\r\n"), BWTxt = "", temp = "", i=0;
+			if(arr.length > 20)
+			{ 
+			    i = arr.length - 20;
+			}
+			else{
+			    i = 0;
+			}
+			for(; i < arr.length; i++){
+			    temp = arr[i] + "&lt;br/>";
+			    BWTxt = BWTxt.concat(temp);
+			}
+			$("#BWBox").html(res);
+		}
+	})		
+}
+refreshBW(); //初始调用
+setInterval(refreshBW,8000); //每8秒读取一次文件
+			        </code>
+	            </pre>
+	        </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>

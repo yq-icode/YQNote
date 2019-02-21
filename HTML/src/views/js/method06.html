@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+        <h2 class="r2-title">onsubmit 提交</h2>
+        <section class="r2-body">
+        	<p>表单中没有提交按钮，修改表单后即时提交；实现方法：在每个表单的操作函数中调用表单提交函数；</p>
+	        <div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;form name="form1" method="post" action="" onsubmit="submitData()">
+	&lt;div class="layui-form" lay-filter="LyForm">
+		&lt;label>报文频率:&lt;/label>
+	    &lt;select name="out_fre" lay-filter="BWPL">
+	      &lt;option value="1HZ">1HZ&lt;/option>
+	      &lt;option value="5HZ">5HZ&lt;/option>
+	      &lt;option value="10HZ">10HZ&lt;/option>
+	    &lt;/select>
+		&lt;label>NMEA开关:&lt;/label>
+		&lt;input type="checkbox" name="NMEA" value="" lay-skin="switch" lay-text="ON|OFF" lay-filter="NMEA" checked>
+	&lt;/div>
+&lt;/form>
+		
+		
+			        </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+layui.use(['form'], function(){
+	var form = layui.form;
+	
+	form.on('select(BWPL)', function(data){
+		submitData("BWPL", data.value);
+	})
+
+	form.on('switch(NMEA)', function(data){
+		if(data.elem.checked){
+			data.value = "on";
+		}
+		else{
+			data.value = "off";
+		}
+		submitData("NMEA", data.value);
+	})
+})
+
+function submitData(name, value){
+	var params = {name, value};
+	console.log(params);
+}		
+			        </code>
+	            </pre>
+	        </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>

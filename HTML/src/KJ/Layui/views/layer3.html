@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Layui</title>
+	<link href="/css/prism.css" rel="stylesheet">
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+    <script src="/js/default.js"></script>
+    <style>
+    	
+    </style>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">Layer iframe 弹层父子层传值</h2>
+		<section class="r2-body">
+			<h4 class="r4-title">前置条件</h4>
+			<ul class="list-decimal">
+				<li>顶级窗口中有多个 iframe （ifrm1, ifrm2, ifrm3, ...）</li>
+				<li>其中某个 iframe 页面中的弹层弹出位置在顶层，而不是 当前 iframe 层</li>
+				<li>以 ifrm1 为例，点击 ifrm1 页面中的元素 #KSDownload 弹出层 KSDown，且弹出位置在顶层，在 KSDown 中需要调用 ifrm1 页面中的方法 </li>
+			</ul>
+			<h4 class="r4-title">需要实现的效果</h4>
+			<p>在 KSDown 中需要调用 ifrm1 中的方法</p>
+			<h4 class="r4-title">实现方法</h4>
+			<p>获取 ifrm1 的 ID，将 ifrm1 的 ID 赋给 KSDown 页面中的隐藏域 #ifrmId, 通过遍历所有 iframe 的 ID查找到 ifrm1，利用 ifrm1 对象调用 ifrm1 中的 print() 方法。</p>
+			<p>ifrm1 页面：</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+&lt;script>
+layui.use(['layer'], function(){
+	var layer = layui.layer;
+	$('#KSDownload').click(function(){
+		var ifrId = self.frameElement.getAttribute('id');
+		top.layer.open({
+			type: 2
+			,title: '考生下载'
+			,content: ["/Html/KSDown", "no"]
+			,area: ['765px','280px']
+			,success: function (layero, index) {
+		       var ifrDoc = layero.find('iframe')[0].contentDocument;
+		       ifrDoc.getElementById('winName').value = ifrId;
+		   	}
+		})
+	})
+})
+function print(){
+	console.log('Hello World');
+}
+&lt;/script>
+		            </code>
+	            </pre>
+	        </div>
+	        <p>如果 print() 方法在某个函数作用域内，则需要按如下写法 window.method = funtion(){} 才能调用到该函数；</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+&lt;script>
+layui.use(['layer'], function(){
+	var layer = layui.layer;
+	$('#KSDownload').click(function(){
+		var ifrId = self.frameElement.getAttribute('id');
+		top.layer.open({
+			type: 2
+			,title: '考生下载'
+			,content: ["/Html/KSDown", "no"]
+			,area: ['765px','280px']
+			,success: function (layero, index) {
+		       var ifrDoc = layero.find('iframe')[0].contentDocument;
+		       ifrDoc.getElementById('winName').value = ifrId;
+		   	}
+		})
+	})
+	window.print = print(){
+		console.log('Hello World');
+	}
+})
+&lt;/script>
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <p>弹层 KSDown 页面：</p>
+			<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>   
+&lt;input type="hidden" id="ifrmId" value="" />
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+setTimeout(function(){
+	var wn = $('#ifrmId').val(), ifrs = top.document.getElementsByTagName('iframe');
+	for(i=0; i&lt;ifrs.length; i++){
+		if(ifrs[i].id == wn){
+			ifrs[i].contentWindow.print() //可以这样调用父层方法
+		}
+	}
+}, 1000)
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		
+	</div>
+</div>
+</body>
+</html>

@@ -86,6 +86,11 @@
 				<name>method01</name>
 				<path>/views/js/</path>
 			</file>
+			<file>
+				<title>AJAX 读取文件</title>
+				<name>method05</name>
+				<path>/views/js/</path>
+			</file>
 		</sub>
 		<sub title="表单">
 			<file>
@@ -96,6 +101,18 @@
 			<file>
 				<title>将提交的表单数据转为数组</title>
 				<name>method03</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>表单提交实例</title>
+				<name>method06</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+		<sub title="音频视频">
+			<file>
+				<title>audio</title>
+				<name>audio01</name>
 				<path>/views/js/</path>
 			</file>
 		</sub>
@@ -190,6 +207,13 @@
 		<file>
 			<title>jquery tmpl 详解</title>
 			<name>exp01</name>
+			<path>/views/js/</path>
+		</file>
+	</main>
+	<main title="ECMAScript 6.0">
+		<file>
+			<title>ES6 教程</title>
+			<name>es001</name>
 			<path>/views/js/</path>
 		</file>
 	</main>
