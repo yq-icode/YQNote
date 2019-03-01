@@ -47,6 +47,11 @@
 				<name>fun09</name>
 				<path>/views/js/</path>
 			</file>
+			<file>
+				<title>JS加载与执行顺序</title>
+				<name>fun14</name>
+				<path>/views/js/</path>
+			</file>
 		</sub>
 		<sub title="相似方法&amp;函数区别">
 			<file>
@@ -133,6 +138,18 @@
 				<path>/views/js/</path>
 			</file>
 		</sub>
+		<sub title="开发者工具">
+			<file>
+				<title>debugger调试</title>
+				<name>debugger</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>console</title>
+				<name>console</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
 		<sub title="其它">
 			<file>
 				<title>页面传参</title>
@@ -157,16 +174,6 @@
 			<file>
 				<title>iframe</title>
 				<name>fun12</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>debugger调试</title>
-				<name>debugger</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>console</title>
-				<name>console</name>
 				<path>/views/js/</path>
 			</file>
 		</sub>

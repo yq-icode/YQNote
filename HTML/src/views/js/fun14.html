@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">原理讲解</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">按代码块加载并执行JS代码</h3>
+			<p>一个闭合的 &lt;script>&lt;/script>为一个代码块；</p>
+			<p>对于一个HTML文档，浏览器的解析顺序为：按照文档流从上到下逐步解析页面的结构。JavaScript代码作为通过标签嵌入或引入的脚本，也是HTML文档的组成部分。因此，JavaScript代码在装载时的执行顺序也是根据脚本标签 &lt;script> 的出现顺序来确定的。</p>
+			<p>但是，浏览器加载JavaScript时有个特点，那就是载入之后立即就会执行（先编译后执行），因为JavaScript可能会影响DOM树的结构，所以浏览器在执行完后才能继续加载下面的HTML内容。也就是说，浏览器下载并执行JavaScript的过程会阻塞DOM树的继续建立。所以，引入的多个js文件，会按顺序分开执行。同样的，对于不同&lt;script>标签嵌入的JavaScript代码，也会分开执行。同一组&lt;script>标签包括的代码就是一个代码块。后引入的JavaScript文件可以调用先引入的JavaScript文件的资源，下面的代码块可以访问上面代码块的资源，反之则不行。</p>
+			<p>由于JavaScript通常需要操作DOM，所以，一般把JavaScript放在&lt;/body>前或者文档结尾处引入。若需要在&lt;head>中引入，可以通过修改window.onload或者document.ready事件，强制等到DOM加载完成后再执行相关函数。</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//以下JS的执行顺序为：SB1	 SB2              	
+&lt;script id="SB1" src="">&lt;/script> //代码块SB1
+&lt;script id="SB2"> //代码块SB2
+	function(){}
+&lt;/script>
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">先预处理后执行</h3>
+	        <p>在一个JavaScript文件或一个JavaScript代码块的内部，浏览器会先对代码进行预处理（编译），然后再执行。</p>
+	        <p>预处理会跳过执行语句，只处理声明语句，同样也是按从上到下按顺序进行的。包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理。 即使声明是在调用的下方进行的，但浏览器仍然先声明再调用（执行），这个现象叫做“提升”。所以，即便一个函数的声明在下方，在前面仍然可以正常执行这个函数。</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+
+		            </code>
+	            </pre>
+	        </div>
+	        <ul class="list-decimal">
+	        	<li>对于声明并赋值的语句，例如 var a = 1，在预处理阶段会把这句话拆成两句：var a; a = 1; 也就是说，赋值或其他逻辑运算是在执行阶段进行的，在预处理阶段会被忽略。</li>
+	        	<li>函数声明的提升优先于变量声明的提升；</li>
+	        	<li>重复的var声明会被忽略掉，但是重复的 function 声明会覆盖掉前面的声明。因此在预处理阶段，声明的变量的初始值是undefined, 采用function声明的函数的初始内容就是函数体的内容。</li>
+	        </ul>
+	        
+	        <h3 class="r3-title">执行顺序</h3>
+	        <p>完成预处理之后，JavaScript代码会从上到下按顺序执行逻辑操作和函数的调用。</p>
+		</section>
+		
+		<h2 class="r2-title">实例解析</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">按块执行JavaScript代码</h3>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>            	
+//JS代码块1
+&lt;script>
+	alert(a);
+	f();
+&lt;/script>
+//JS代码块2
+&lt;script>
+	var a = 1;
+	function f(){
+    	alert(1);
+	}
+&lt;/script>
+		            </code>
+	            </pre>
+	        </div>
+	        <ul class="list-decimal">
+	        	<li>JavaScript解释器在执行脚本时，是按块来执行的。通俗地说，就是浏览器在解析HTML文档流时，如果遇到一个&lt;script>标签，则JavaScript解释器会等到这个代码块都加载完后，先对代码块进行预编译，然后再执行。执行完毕后，浏览器会继续解析下面的HTML文档流，同时JavaScript解释器也准备好处理下一个代码块。</li>
+	        	<li>由于JavaScript是按块执行的，所以如果在一个JavaScript块中调用后面块中声明的变量或函数就会提示语法错误。例如，当JavaScript解释器执行上面代码时就会提示语法错误，显示变量a未定义，对象f找不到。</li>
+	        	<li>虽然说，JavaScript是按块执行的，但是不同块都属于同一个全局作用域，也就是说，块之间的变量和函数是可以共享的。</li>
+	        </ul>
+	        
+	        <h3 class="r3-title">借助事件机制改变JavaScript执行顺序</h3>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>            	
+//JS代码块1
+&lt;script>
+	window.onload = function(){ //页面初始化事件处理函数
+	    alert(a);
+	    f();
+	}
+&lt;/script>
+//JS代码块2
+&lt;script>
+	var a = 1;
+	function f(){
+    	alert(1);
+	}
+&lt;/script>
+		            </code>
+	            </pre>
+	        </div>
+	        <ul class="list-decimal">
+	        	<li>由于JavaScript是按块处理代码，同时又遵循HTML文档流的解析顺序，所以在上面示例中会看到这样的语法错误。但是当文档流加载完毕，如果再次访问就不会出现这样的错误。例如，把访问第2块代码中的变量和函数的代码放在页面初始化事件函数中，就不会出现语法错误了。</li>
+	        	<li>为了安全起见，我们一般在页面初始化完毕之后才允许JavaScript代码执行，这样可以避免网速对JavaScript执行的影响，同时也避开了HTML文档流对于JavaScript执行的限制。</li>
+	        	<li>注意如果在一个页面中存在多个windows.onload事件处理函数，则只有最后一个才是有效的，为了解决这个问题，可以把所有脚本或调用函数都放在同一个onload事件处理函数中.</li>
+	        	<li>除了页面初始化事件外，我们还可以通过各种交互事件来改变JavaScript代码的执行顺序，如鼠标事件、键盘事件及时钟触发器等方法。</li>
+	        </ul>
+	        
+	        <h3 class="r3-title">JavaScript输出脚本的执行顺序</h3>
+	        <p>在JavaScript开发中，经常会使用document对象的write()方法输出JavaScript脚本。那么这些动态输出的脚本是如何执行的呢？例如：</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>            	
+document.write('&lt;script type="text/javascript">');
+document.write('f();');
+document.write('function f(){');
+document.write('alert(1);');
+document.write('}');
+document.write('&lt;/script>');
+		            </code>
+	            </pre>
+	        </div>
+	        <p>运行上面代码，我们会发现：document.write()方法先把输出的脚本字符串写入到脚本所在的文档位置，浏览器在解析完document.write()所在文档内容后，继续解析document.write()输出的内容，然后才按顺序解析后面的HTML文档。也就是说，JavaScript脚本输出的代码字符串会在输出后马上被执行。</p>
+			<p>请注意，使用document.write()方法输出的JavaScript脚本字符串必须放在同时被输出的&lt;script>标签中，否则JavaScript解释器因为不能够识别这些合法的JavaScript代码，而作为普通的字符串显示在页面文档中。例如，下面的代码就会把JavaScript代码显示出来，而不是执行它。</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>            	
+document.write('f();');
+document.write('function f(){');
+document.write('alert(1);');
+document.write(');');
+		            </code>
+	            </pre>
+	        </div>
+	        <p></p>
+		</section>
+	</div>
+</div>
+</body>
+</html>

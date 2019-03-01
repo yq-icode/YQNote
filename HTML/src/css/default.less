@@ -359,9 +359,28 @@ a.ref:visited{color: #00A0D3;}
 }
 
 /*数字标号列表*/
+.list-decimal{
+    margin: 10px 0;
+    border:1px dotted #ccc;
+    padding: 10px 20px;
+    counter-reset: dlNum;
+}
 .list-decimal li{
-	margin: 5px 0 0 20px;
-	list-style-type: decimal;
+    position: relative;
+	margin: 10px 0;
+	padding-left: 30px;
+	counter-increment: dlNum;
+	list-style-position: outside;
+}
+.list-decimal li:before{
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    padding: 0 5px;
+    content: counter(dlNum,decimal) ".";
+    background-color: #EAF6E2;
+    font-size: 11px;
+    color: #999;
 }
 
 /*标题+内容的列表*/
