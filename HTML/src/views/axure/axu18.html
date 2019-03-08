@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+    <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">允许触发鼠标交互</h2>
+        <section class="r2-body">
+        	<p>组合元件、动态面板当勾选【允许触发鼠标交互】时，有什么效果？</p>
+        	<h4 class="r4-title">组合元件</h4>
+        	<dl class="dlist">
+        		<dt>勾选了【允许触发鼠标交互】：</dt>
+        		<dd>当鼠标悬停时，触发组合中所有元件的悬停效果；</dd>
+        		<dt>未勾选【允许触发鼠标交互】：</dt>
+        		<dd>只有当鼠标放在某个元件上面时，才会触发该元件的悬停效果，被该元件遮挡的元件的悬停效果不会被触发。</dd>
+        	</dl>
+        	
+        	<h4 class="r4-title">动态面板</h4>
+        	<p>如果对动态面板状态不同状态中的部件设置了【鼠标悬停】、【鼠标按下】、【选中】、【禁用】等交互样式：</p>
+        	<dl class="dlist">
+        		<dt>勾选了【允许触发鼠标交互】：</dt>
+        		<dd>当对动态面板进行交互时，就会触发动态面板内部部件的交互样式。即鼠标指针接触到动态面板范围后，就会触发其内部所包含部件的【鼠标悬停】的交互效果。</dd>
+        		<dt>未勾选【允许触发鼠标交互】：</dt>
+        		<dd>鼠标放在某个元件上面时，只触发该元件的悬停效果，被该元件遮挡的元件和动态面板中的其它元件的悬停效果不会被触发。</dd>
+        	</dl>
+        </section>
+        
+   </div>
+</div>
+</body>
+</html>

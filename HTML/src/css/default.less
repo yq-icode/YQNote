@@ -364,11 +364,12 @@ a.ref:visited{color: #00A0D3;}
     border:1px dotted #ccc;
     padding: 10px 20px;
     counter-reset: dlNum;
+    line-height: 1.2em;
 }
 .list-decimal li{
     position: relative;
 	margin: 10px 0;
-	padding-left: 30px;
+	padding-left: 35px;
 	counter-increment: dlNum;
 	list-style-position: outside;
 }
@@ -377,8 +378,8 @@ a.ref:visited{color: #00A0D3;}
     left: 0;
     display: inline-block;
     padding: 0 5px;
-    content: counter(dlNum,decimal) ".";
-    background-color: #EAF6E2;
+    content: counter(dlNum,decimal) " >";
+    background-color: #F4F5F3;
     font-size: 11px;
     color: #999;
 }
@@ -400,7 +401,7 @@ a.ref:visited{color: #00A0D3;}
 		&:before{
 			margin-right: 10px;
 			content: counter(dlNum,decimal) ".";
-			color: #999;
+			color: #666;
 			font-size: 12px;
 		}
 		font-family: "comic sans ms";

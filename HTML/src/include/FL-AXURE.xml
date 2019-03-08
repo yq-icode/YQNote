@@ -66,6 +66,11 @@
 			<name>axu17</name>
 			<path>/views/axure/</path>
 		</file>
+		<file>
+			<title>允许触发鼠标交互</title>
+			<name>axu18</name>
+			<path>/views/axure/</path>
+		</file>
 	</main>
 	<main title="常用效果">
 		<file>
