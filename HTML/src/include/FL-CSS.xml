@@ -51,6 +51,11 @@
 			<name>similar</name>
 			<path>/views/css/</path>
 		</file>
+		<file>
+			<title>伪元素</title>
+			<name>pseudo</name>
+			<path>/views/css/</path>
+		</file>
 	</main>
 	<main title="CSS3">
 		<file>

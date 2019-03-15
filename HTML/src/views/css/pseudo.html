@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+    <div id="wmain">
+        <h2 class="r2-title">伪元素</h2>
+        <div class="r2-body">
+        	<h3 class="r3-title">content属性</h3>
+        	<h4 class="r4-title">插入字符</h4>
+        	<div class="code-box">
+	            <pre class="language-css line-numbers">
+	                <code>
+.ele:before {
+    content: '--';
+}
+		            </code>
+	            </pre>
+	        </div>
+        	<h4 class="r4-title">插入图片</h4>
+        	<div class="code-box">
+	            <pre class="language-css line-numbers">
+	                <code>
+.ele {
+	position: relative;
+}
+.ele:before {
+    content: '';
+    background: url('../img/triangle_up.png') no-repeat top left;
+    position: absolute;
+    top: -15px;
+    z-index: 2;
+    width: 32px;
+    height: 16px;
+}
+		            </code>
+	            </pre>
+	        </div>
+        	<h4 class="r4-title">插入属性</h4>
+        	<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;a href="http://www.w3school.com.cn">W3School&lt;/a>
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-css line-numbers">
+	                <code>
+a:after{content:"(" attr(href) ")"}
+/*运行结果：W3School(http://www.w3school.com.cn)*/
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <h4 class="r4-title">插入项目编号</h4>
+        	<p>和 counter 计算器配合使用，可以实现项目编号的效果。要查看实例，请点击：<a class="ref" href="counter.html">CSS计算器counter</a></p>
+	        
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

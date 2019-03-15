@@ -5,8 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>测试</title>
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <!--<script src="js/vue.js"></script>-->
+    <!--<script src="js/jquery-1.11.3.min.js"></script>-->
+    <script src="js/vue.js"></script>
     <style type="text/css">
     	#report_content{
     		min-height: 120px;
@@ -16,17 +16,23 @@
 	</style>
 </head>
 <body>
-	<input type="file" onchange="readFile()" />
-	<div id="report_content"></div>
+	<div id="test">
+		<h1 v-show="ok">Hello!</h1>
+	</div>
+	
 	<script>
-		window.readFile = function(){
-			var reader = new FileReader(),
-				file = document.querySelector('input[type=file]').files[0];
-			reader.readAsText(file);
-			reader.onload = function(){
-				document.getElementById("report_content").innerHTML = this.result;
-     		}			 
-		}
+		var vm = new Vue({
+			el:"#test",
+			data:{
+				loginType:'username',
+				ok:false
+			},
+			methods:{
+				toggleLoginType:function(){
+					return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+				}
+			}
+		})
 
 	</script>
 </body>
