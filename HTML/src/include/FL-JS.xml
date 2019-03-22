@@ -140,13 +140,18 @@
 		</sub>
 		<sub title="开发者工具">
 			<file>
-				<title>debugger调试</title>
-				<name>debugger</name>
+				<title>查看器(Elements)</title>
+				<name>elements</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>console</title>
+				<title>控制台(Console)</title>
 				<name>console</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>debugger调试</title>
+				<name>debugger</name>
 				<path>/views/js/</path>
 			</file>
 		</sub>
