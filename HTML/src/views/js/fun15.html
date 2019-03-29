@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">以网络路径引用本地图片</h2>
+		<section class="r2-body">
+			<p>uniapp中的要求，图片如果大于40KB,需开发者自己将其转换为base64格式使用或将其挪到服务器上，从网络地址引用,下面演示了如何以网络路径引用本地图片。</p>
+			<h4 class="r4-title">通过IIS配置网络路径</h4>
+	        <img src="images/screenPics/2019-03-27_174234.png" class="screenPics" />
+			<img src="images/screenPics/2019-03-27_174323.png" class="screenPics" />
+			<h4 class="r4-title">引用</h4>
+			<div class="code-box">
+				            <pre class="language-css line-numbers">
+				                <code>
+.test{
+	background:url(http://localhost:1111/bg2.png) no-repeat center top;
+}
+					            </code>
+				            </pre>
+				        </div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

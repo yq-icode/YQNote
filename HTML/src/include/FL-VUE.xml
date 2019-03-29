@@ -2,6 +2,11 @@
 <fileList>
 	<main title="基础">
 		<file>
+			<title>this指向</title>
+			<name>vue001</name>
+			<path>/KJ/VUE/views/</path>
+		</file>
+		<file>
 			<title>组件component</title>
 			<name>exp03</name>
 			<path>/KJ/VUE/views/</path>

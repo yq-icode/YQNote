@@ -34,7 +34,7 @@
 			</file>
 			<file>
 				<title>监听函数</title>
-				<name>_jsP01</name>
+				<name>_jsP02</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
@@ -181,6 +181,11 @@
 				<name>fun12</name>
 				<path>/views/js/</path>
 			</file>
+			<file>
+				<title>以网络路径访问本地图片/文件</title>
+				<name>fun15</name>
+				<path>/views/js/</path>
+			</file>
 		</sub>
 		<sub title="奇怪的问题">
 			<file>
@@ -261,12 +266,5 @@
 				<path>/views/js/</path>
 			</file>
 		</sub>
-	</main>
-	<main title="VUE">
-		<file>
-			<title>Vue.js</title>
-			<name>vue</name>
-			<path>/views/js/</path>
-		</file>
 	</main>
 </fileList>

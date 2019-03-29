@@ -13,147 +13,23 @@
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
-    	<h2 class="r2-title">addEventListener</h2>
-    	<div class="reference">
-    		<a href="http://www.runoob.com/jsref/met-element-addeventlistener.html"></a>
-    	</div>
-    	<p>addEventListener() 方法用于向指定元素添加事件句柄。</p>
-    	<div class="browser-support">
-    		<div class="summary">IE 9+; chrome 1.0+; FF 1.0+; safari 1.0+; Opera 7.0+ </div>
-    	</div>
-    	<p>如果浏览器不支持 addEventListener() 方法, 你可以使用 attachEvent() 方法替代。</p>
-    	<div class="code-box">
-            <pre class="language-js line-numbers">
-                <code>   
-var x = document.getElementById("myBtn");
-if (x.addEventListener){ //所有主流浏览器，除了 IE 8 及更早 IE版本
-    x.addEventListener("click", myFunction);
-}
-else if (x.attachEvent){ // IE 8 及更早 IE 版本
-    x.attachEvent("onclick", myFunction);
-}
-                </code>
-            </pre>
-        </div>
-    	
-    	<h2 class="r2-title">removeEventListener</h2>
-    	<div class="reference">
-    		<a href="http://www.runoob.com/jsref/met-element-removeeventlistener.html"></a>
-    	</div>
-    	<p>removeEventListener() 方法用于移除由 addEventListener() 方法添加的事件句柄。</p>
-    	<div class="browser-support">
-    		<div class="summary">IE 9+; chrome 1.0+; FF 1.0+; safari 1.0+; Opera 7.0+ </div>
-    	</div>
-    	
-    	<h2 class="r2-title">addEventListener和on的区别</h2>
-        <section>
-            <p>为什么需要addEventListener？先来看一个片段：html代码</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>   
-        &lt;div id="box"&gt追梦子&lt;/div&gt
-                    </code>
-                </pre>
-            </div>
-            <p>用on的代码</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>   
-        window.onload = function(){
-    var box = document.getElementById("box");
-    box.onclick = function(){
-        console.log("我是box1");
-    }
-    box.onclick = function(){
-        box.style.fontSize = "18px";
-        console.log("我是box2");
-    }
-}
-　　　　　运行结果：“我是box2”
-                    </code>
-                </pre>
-            </div>
-            <p>看到了吧，第二个onclick把第一个onclick给覆盖了，虽然大部分情况我们用on就可以完成我们想要的结果，但是有时我们又需要执行多个相同的事件，很明显如果用on完成不了我们想要的，那不用猜，你们肯定知道了，对！addEventListener可以多次绑定同一个事件并且不会覆盖上一个事件。</p>
-            <p>用addEventListener的代码</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>   
-        window.onload = function(){
-    var box = document.getElementById("box");
-    box.addEventListener("click",function(){
-        console.log("我是box1");
-    })
-    box.addEventListener("click",function(){
-        console.log("我是box2");
-    })
-}
-　　　　运行结果：我是box1
-　　　　　　　　　我是box2
-                    </code>
-                </pre>
-            </div>
-            <p>第三个参数的使用,有时候的情况是这样的</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>   
-        &lt;body&gt;
-        　　&lt;div id="box"&gt;
-        　　　　&lt;div id="child"&gt;&lt;/div&gt;
-        　　&lt;/div&gt;
-        &lt;/body&gt;
-                    </code>
-                </pre>
-            </div>
-            <p>如果我给box加click事件，如果我直接单击box没有什么问题，但是如果我单击的是child元素，那么它是怎么样执行的？（执行顺序）</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>   
-   box.addEventListener("click",function(){
-    console.log("box");
-})
-
-child.addEventListener("click",function(){
-    console.log("child");
-})
-　　执行的结果：
-　　　　　　　　child
-　　　　　　　　box    
-                    </code>
-                </pre>
-            </div>
-            <p>也就是说，默认情况事件是按照事件冒泡的执行顺序进行的。</p>
-            <p>如果第三个参数写的是true，则按照事件捕获的执行顺序进行的。</p>
-            <div class="code-box">
-                <pre class="language-js line-numbers">
-                    <code>   
-box.addEventListener("click",function(){
-    console.log("box");
-},true)
-
-child.addEventListener("click",function(){
-    console.log("child");
-})
-　　执行的结果：
-　　　　　　　　box
-　　　　　　　　child       
-                    </code>
-                </pre>
-            </div>
-            <p>事件冒泡执行过程：从最具体的的元素（你单击的那个元素）开始向上开始冒泡，拿我们上面的案例讲它的顺序是：child->box</p
-			<p>事件捕获执行过程：从最不具体的元素（最外面的那个盒子）开始向里面冒泡，拿我们上面的案例讲它的顺序是：box->child</p>
-        </section>
-        
         <h2 class="r2-title">this探讨</h2>
-        <div class="reference">
-        	<a href="http://www.cnblogs.com/wangfupeng1988/p/3988422.html"></a>
-        </div>
         <section class="r2-body">
+			<h4 class="r4-title">普通函数的this</h4>
+			<p>普通函数的this是由动态作用域决定，它总指向于它的直接调用者。具体可以分为以下四项：</p>
+			<ul class="list-decimal">
+				<li>this总是指向它的直接调用者， 例如 obj.func() ,那么func()里的this指的是obj</li>
+				<li>在默认情况(非严格模式,未使用 'use strict')，如果函数没有直接调用者，this为window</li>
+				<li>在严格模式下,如果函数没有直接调者，this为undefined</li>
+				<li>使用call,apply,bind绑定的，this指的是绑定的对象</li>
+			</ul>
+			<h4 class="r4-title">箭头函数的this</h4>
+			<p>箭头函数是没有绑定自己的this，函数内使用的this是由静态作用域（也成为词法作用域，参考this）决定。静态作用域就是说箭头函数里this是由定义它的代码决定，而不是执行调用箭头函数的代码。</p>
+			<p>上面的说法有时很难理解，我自己总结的方法是：找出定义箭头函数的上下文（即包含箭头函数最近的函数或者对象），那么上下文所处的父上下文即为this。</p>
+			<div class="reference">
+				<a href="http://www.cnblogs.com/wangfupeng1988/p/3988422.html"></a>
+			</div>
         	<img src="images/screenPics/sc004.png" />
-        </section>
-        
-        <h2 class="r2-title">监听函数</h2>
-        <section class="r2-body">
-        	<p>监听函数有：on，bind，listen，addEventListener，observe</p>
         </section>
     </div>
 </div>
