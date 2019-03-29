@@ -7,20 +7,31 @@
 	<title>echarts test</title>
     <script src="js/echarts.js"></script>
     <style type="text/css">
-    	#chartPie{
-    		width: 500px;
-			height: 500px;
+		body{margin: 0;}
+    	#chart1{
+    		width: 750px;
+			height: 400px;
+			background-color: #F3F3F3;
     	}
+		#chart2{
+			margin-top: 10px;
+			width: 750px;
+			height: 400px;
+			background-color: #F3F3F3;
+		}
 	</style>
 </head>
 <body>
-	<div id="chartPie"></div>
+	<div id="chart1"></div>
+	<div id="chart2"></div>
 	
 	<script>
-		var myChart = echarts.init(document.getElementById('chartPie'));
-		// app.title = '环形图';
-
-		option = {
+		var myChart1 = echarts.init(document.getElementById('chart1')),
+			myChart2 = echarts.init(document.getElementById('chart2'));
+		
+		/* 环形饼图
+		**************************************/
+		var opt1 = {
 			color:['#9CD048', '#4DC3FF', '#FEB204', '#98DCFF'],
 			tooltip: {
 				trigger: 'item',
@@ -29,45 +40,45 @@
 			legend: {
 				orient: 'vertical',
 				// x:'right',
-				right: '0',
-				top:'0',
+				right: '20',
+				top:'100',
 				bottom:'0',
-				data:[
-					{name:'电子支付', icon:'rect', textStyle:{}},
-					{name:'刷卡', icon:'rect', textStyle:{}},
-					{name:'现金', icon:'rect', textStyle:{}},
-					{name:'其它（未缴费）', icon:'rect', textStyle:{}}
-				],
-				itemWidth:'14',
-				itemHeight:'14',
-				// itemGap:'10',
+				icon:'rect',
+				itemWidth:14,
+				itemHeight:14,
+				itemGap:20,
 				textStyle:{
 					color:'#333'
-				}
-				// data:['电子支付','刷卡','现金','其它（未缴费）']
+				},
+				data:['电子支付','刷卡','现金','其它（未缴费）']
 			},
 			series: [
 				{
 					name:'访问来源',
 					type:'pie',
-					radius: ['50%', '70%'],
+					center:[250,'50%'],
+					radius: [120, 150],
 					avoidLabelOverlap: false,
 					label: {
 						normal: {
-							show: false,
-							position: 'center'
+							show: true,
+							position: 'outside',
+							formatter: "{b}:{c}\n({d}%)",
+							textStyle: {
+								fontSize: '14',
+								fontWeight: 'bold'
+							}
 						},
 						emphasis: {
 							show: true,
 							textStyle: {
-								fontSize: '30',
-								fontWeight: 'bold'
+								fontSize: '18'
 							}
 						}
 					},
 					labelLine: {
 						normal: {
-							show: false
+							show: true
 						}
 					},
 					data:[
@@ -79,7 +90,24 @@
 				}
 			]
 		};
-		 myChart.setOption(option);
+		/* 柱图
+		**************************************/
+		var opt2 = {
+			xAxis: {
+				type: 'category',
+				data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+			},
+			yAxis: {
+				type: 'value'
+			},
+			series: [{
+				data: [120, 200, 150, 80, 70, 110, 130],
+				type: 'bar'
+			}]
+		};
+		
+		myChart1.setOption(opt1);
+		myChart2.setOption(opt2);
 	</script>
 </body>
 </html>
