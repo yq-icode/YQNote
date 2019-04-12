@@ -8,26 +8,23 @@
     <script src="js/echarts.js"></script>
     <style type="text/css">
 		body{margin: 0;}
-    	#chart1{
+    	.chartBox{
+			margin: 10px;
     		width: 750px;
 			height: 400px;
 			background-color: #F3F3F3;
     	}
-		#chart2{
-			margin-top: 10px;
-			width: 750px;
-			height: 400px;
-			background-color: #F3F3F3;
-		}
 	</style>
 </head>
 <body>
-	<div id="chart1"></div>
-	<div id="chart2"></div>
+	<!-- <div class="chartBox" id="chart1"></div>
+	<div class="chartBox" id="chart2"></div> -->
+	<div class="chartBox" id="chart3"></div>
 	
 	<script>
-		var myChart1 = echarts.init(document.getElementById('chart1')),
-			myChart2 = echarts.init(document.getElementById('chart2'));
+// 		var myChart1 = echarts.init(document.getElementById('chart1')),
+// 			myChart2 = echarts.init(document.getElementById('chart2')),
+		var myChart3 = echarts.init(document.getElementById('chart3'));
 		
 		/* 环形饼图
 		**************************************/
@@ -111,8 +108,142 @@
 			}]
 		};
 		
-		myChart1.setOption(opt1);
-		myChart2.setOption(opt2);
+		/* 折线图
+		**************************************/
+		const yAxis = {
+			type: 'value',
+			min:0,
+			max:100,
+			interval:25,
+			axisLabel:{
+				formatter:'{value}%'
+			},
+			axisLine:{
+				show:false
+			},
+			axisTick:{
+				show:false
+			},
+			color:'#999'
+		};
+		const grid = {
+			left:0,
+			right:0,
+			top:30,
+			bottom:50,
+			containLabel:true
+		};
+		const tooltip = {
+			triggerOn:'none',
+			position: function (pt) {
+				return [pt[0], 0];
+			},
+			axisPointer:{
+				show:true,
+				label:{
+					show:true,
+					color:'#fff',
+					backgroundColor:'#676B7A'
+				},
+				lineStyle:{
+					color:'#FC3C60'
+				}
+			},
+			formatter:'{c}'
+		};
+		const dataZoom = [{
+            startValue: ''
+        }, {
+            type: 'slider'
+        }];
+		
+		let dateBase = new Date('2017-10-10'),
+			dateInterval = 10,
+			xLineDate = [],
+			xLineData = [];
+		for(let i = 0; i<50; i++){
+			dateBase.setDate(dateBase.getDate() + dateInterval);
+			let year = dateBase.getFullYear(),
+				month = (dateBase.getMonth() + 1).toString(),
+				day = (dateBase.getDate()).toString();
+			if (month.length == 1) { 
+				month = "0" + month; 
+			} 
+			if (day.length == 1) { 
+				day = "0" + day; 
+			}
+			xLineDate.push([month, day].join('.'));
+			xLineData.push(Math.round(Math.random()*100));
+		}
+		console.log(xLineDate);
+		let opt3 = {
+			color:['#7F69FA'],
+			tooltip:tooltip,
+			dataZoom:dataZoom,
+			xAxis: {
+				type: 'category',
+				data: xLineDate,
+	// 			min: this.dateS,
+	// 			max: this.dateE,
+				axisLine:{
+					show:false
+				},
+				axisTick:{
+					show:false
+				},
+				color:'#999',
+				axisPointer:{
+					handle:{
+						show:true
+					}
+				}
+			},
+			yAxis: yAxis,
+			grid:grid,
+			series: [{
+				label:{
+					show:true,
+					position:'top',
+					color:'#000',
+					formatter:'{c}%'
+				},
+				data: xLineData,
+				type: 'line',
+				smooth:true,
+				itemStyle:{
+					color:{
+						type: 'linear',
+						x: 0,
+						y: 0,
+						x2: 0,
+						y2: 1,
+						colorStops: [{
+							offset: 0, color: '#5377F6'
+						}, {
+							offset: 1, color: '#9C60FC'
+						}]
+					}
+				},
+				areaStyle:{
+					color:{
+						type: 'linear',
+						x: 0,
+						y: 0,
+						x2: 0,
+						y2: 1,
+						colorStops: [{
+							offset: 0, color: '#C4BCF4'
+						}, {
+							offset: 1, color: '#fff'
+						}]
+					},
+					origin:'auto'
+				}
+			}]
+		};
+// 		myChart1.setOption(opt1);
+// 		myChart2.setOption(opt2);
+		myChart3.setOption(opt3);
 	</script>
 </body>
 </html>
