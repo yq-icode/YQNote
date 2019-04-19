@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css.css">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="picScroll.js"></script>
+</head>
+<body>
+	<div class="picCut">
+		<dl class="pcSide" id="xmlist">
+			<dt>考试项目</dt>
+		</dl>
+		<div class="pcMain">
+			<div class="bar">1/4 开始考试</div>
+			<div class="picLarge">
+				
+			</div>
+			<div class="scrollWrap">
+				<div class="mask"><ul class="clearfix" id="picList"></ul></div>
+				<a class="btn-left" href="javascript:void(0)"><span><</span></a>
+	            <a class="btn-right" href="javascript:void(0)"><span>></span></a>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		var TData = [
+			{"XMName":"开始考试", "Pics":[
+				{"Name":"img1.jpg", "Time":"15:00:02"}
+			]},
+			{"XMName":"倒车入库", "Pics":[
+//				{"Name":"img2.jpg", "Time":"15:00:02"},
+//				{"Name":"img3.jpg", "Time":"15:00:02"},
+//				{"Name":"img4.jpg", "Time":"15:00:02"},
+//				{"Name":"img5.jpg", "Time":"15:00:02"},
+				{"Name":"img6.jpg", "Time":"15:00:02"}
+			]},
+			{"XMName":"曲线行驶", "Pics":[
+				{"Name":"img4.jpg", "Time":"15:00:02"},
+				{"Name":"img5.jpg", "Time":"15:00:02"},
+				{"Name":"img6.jpg", "Time":"15:00:02"}
+			]},
+			{"XMName":"结束考试", "Pics":[
+//				{"Name":"img2.jpg", "Time":"15:00:02"},
+//				{"Name":"img4.jpg", "Time":"15:00:02"},
+//				{"Name":"img5.jpg", "Time":"15:00:02"},
+				{"Name":"img6.jpg", "Time":"15:00:02"}
+			]}
+		]
+			
+		function GJDom(){
+			var _xm = "", _pics = "", n = 1;
+			for(var i=0; i<TData.length; i++){
+				_xm += "<dd data-xm-id='" + (i+1) + "'><span>" + (i+1) + "</span>" + TData[i].XMName + "</dd>";
+				for(var j=0; j<TData[i].Pics.length; j++){
+					_pics += "<li data-xm-id='" + (i+1) + "' data-pic-id='" + n + "'>";
+					_pics += "<img src='images/" + TData[i].Pics[j].Name + "' alt='' />";
+					_pics += "<span>" + TData[i].Pics[j].Time + "</span>";
+					_pics += "</li>";
+					n++;
+				}
+			}
+			$('#xmlist').append(_xm);
+			$('#picList').append(_pics);
+		}
+	
+		GJDom();
+		
+		$('.picLarge').html("<img src='images/" + TData[0].Pics[0].Name + "' alt='' />");
+
+		window.onload = function(){
+			imgscroll();
+		}
+	</script>
+</body>
+</html>

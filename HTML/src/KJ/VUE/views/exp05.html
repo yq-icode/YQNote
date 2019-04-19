@@ -18,35 +18,38 @@
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
-		<h2 class="r2-title">控制元素的隐藏和显示</h2>
+		<h2 class="r2-title">零散点</h2>
 		<section class="r2-body">
-			<div class="code-box">
-	            <pre class="language-html line-numbers">
-	                <code>   
-&lt;div id="box"&gt;
-    &lt;input type="button" value="toggle" v-on:click="toggle()"&gt;
-    &lt;div v-show="isShow"&gt;点击上面的按钮可控制此DIV显示与隐藏&lt;/div&gt;
-&lt;/div&gt;
-		            </code>
-	            </pre>
-	        </div>
-	        <div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>   
-var vm = new Vue({
-    el:'#box',
-    data:{
-        isShow:false
-    },
-    methods:{
-        toggle:function(){
-            this.isShow = !this.isShow;
-        }
-    }
-});
-		            </code>
-	            </pre>
-	        </div>
+			<h4 class="r4-title">条件渲染</h4>
+			<p>在 &lt;template> 元素上不能使用 v-show 条件渲染</p>
+			
+			<h4 class="r4-title">动态绑定class</h4>
+			<dl class="dlist">
+				<dt>数组形式</dt>
+				<dd>
+					<div class="code-box">
+			            <pre class="language-html">
+			                <code>   
+		&lt;div :class='["classify",current=="0" ? "active" : ""]'>课程&lt;/div>
+				            </code>
+			            </pre>
+			        </div>
+			        <p>数组中的classify如果不加引号的话，代表的是data中的一项，并不是类名，将classify加上引号，变成字符串就可以变成类名</p>
+				</dd>
+				<dt>字符串拼接</dt>
+				<dd>
+					<div class="code-box">
+			            <pre class="language-html">
+			                <code>   
+		&lt;div :class="'classify'+(current=='0'?' active':'')">课程&lt;/div>
+		
+				            </code>
+			            </pre>
+			        </div>
+			        <p>active前要加一个空格（必须有），字符串拼接时，两个字符串之间要有空格</p>
+				</dd>
+			</dl>
+			
 		</section>
 	</div>
 </div>

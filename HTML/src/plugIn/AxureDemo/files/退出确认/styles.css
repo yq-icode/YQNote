@@ -13,7 +13,7 @@
   position:absolute;
   z-index:0;
 }
-#u318_div {
+#u791_div {
   position:absolute;
   left:0px;
   top:0px;
@@ -27,14 +27,14 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-#u318 {
+#u791 {
   position:absolute;
   left:10px;
   top:10px;
   width:300px;
   height:150px;
 }
-#u319 {
+#u792 {
   position:absolute;
   left:2px;
   top:67px;
@@ -42,7 +42,7 @@
   visibility:hidden;
   word-wrap:break-word;
 }
-#u320_div {
+#u793_div {
   position:absolute;
   left:0px;
   top:0px;
@@ -57,7 +57,7 @@
   box-shadow:none;
   font-size:20px;
 }
-#u320 {
+#u793 {
   position:absolute;
   left:80px;
   top:42px;
@@ -65,14 +65,14 @@
   height:22px;
   font-size:20px;
 }
-#u321 {
+#u794 {
   position:absolute;
   left:0px;
   top:0px;
   width:161px;
   white-space:nowrap;
 }
-#u322_div {
+#u795_div {
   position:absolute;
   left:0px;
   top:0px;
@@ -92,7 +92,7 @@
   font-size:12px;
   line-height:18px;
 }
-#u322 {
+#u795 {
   position:absolute;
   left:80px;
   top:101px;
@@ -104,7 +104,7 @@
   font-size:12px;
   line-height:18px;
 }
-#u322_div.mouseOver {
+#u795_div.mouseOver {
   position:absolute;
   left:0px;
   top:0px;
@@ -131,9 +131,9 @@
   font-size:12px;
   line-height:18px;
 }
-#u322.mouseOver {
+#u795.mouseOver {
 }
-#u322_div.disabled {
+#u795_div.disabled {
   position:absolute;
   left:0px;
   top:0px;
@@ -152,16 +152,16 @@
   font-size:12px;
   line-height:18px;
 }
-#u322.disabled {
+#u795.disabled {
 }
-#u323 {
+#u796 {
   position:absolute;
   left:2px;
   top:6px;
   width:66px;
   word-wrap:break-word;
 }
-#u324_div {
+#u797_div {
   position:absolute;
   left:0px;
   top:0px;
@@ -185,7 +185,7 @@
   color:#333333;
   line-height:18px;
 }
-#u324 {
+#u797 {
   position:absolute;
   left:153px;
   top:101px;
@@ -198,7 +198,7 @@
   color:#333333;
   line-height:18px;
 }
-#u324_div.mouseOver {
+#u797_div.mouseOver {
   position:absolute;
   left:0px;
   top:0px;
@@ -229,9 +229,9 @@
   color:#333333;
   line-height:18px;
 }
-#u324.mouseOver {
+#u797.mouseOver {
 }
-#u324_div.disabled {
+#u797_div.disabled {
   position:absolute;
   left:0px;
   top:0px;
@@ -254,9 +254,9 @@
   color:#333333;
   line-height:18px;
 }
-#u324.disabled {
+#u797.disabled {
 }
-#u325 {
+#u798 {
   position:absolute;
   left:2px;
   top:6px;

@@ -13,18 +13,23 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>操作number的函数</title>
+				<title>number相关函数</title>
 				<name>fun02</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>字符串、数组相关函数</title>
+				<name>fun04</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>Date相关函数</title>
+				<name>fun16</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
 				<title>打开新窗口</title>
 				<name>fun03</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>字符串和数组</title>
-				<name>fun04</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
@@ -99,7 +104,7 @@
 		</sub>
 		<sub title="表单">
 			<file>
-				<title>JS提交表单</title>
+				<title>表单提交</title>
 				<name>method04</name>
 				<path>/views/js/</path>
 			</file>

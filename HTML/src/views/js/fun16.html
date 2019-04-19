@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">实例</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">转日期格式</h3>
+	    	<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+bindDateChange: function(e) {
+	let arr = e.target.value.toString().split('-');
+	this.date = arr[0] + "." + arr[1] + "." + arr[2];
+}
+		            </code>
+	            </pre>
+	        </div>
+	    	<h3 class="r3-title">前一天、后一天</h3>
+	    	<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//前一天                	
+datePre:function(){
+	let d = new Date('2017-10-10');
+	d.setDate(d.getDate() - 1);
+	let _d = dateToString(d);
+}
+//后一天
+dateNext:function(){
+	let d = new Date('2017-10-10');
+	d.setDate(d.getDate() + 1);
+	let _d = dateToString(d);
+}
+dateToString:function(d){
+	let year = d.getFullYear(),
+		month = d.getMonth() + 1,
+		day = d.getDate();
+	month = month > 9 ? month : '0' + month;
+	day = day > 9 ? day : '0' + day;
+	let date = year + "." + month + "." + day;
+	return date;
+}
+
+		            </code>
+	            </pre>
+	        </div>
+	        <h3 class="r3-title">注意点</h3>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//注意点一	                	
+d.setDate(d.getDate() + 1)
+d = d.setDate(d.getDate() + 1);// 这样写不对
+
+//注意点二
+let d = new Date('2017-10-10');
+d.getMonth();//获取得值为9
+
+//注意点三
+let d = new Date(2017,10,10);
+d.getMonth();//获取得值为10
+
+//'注意点二'计算日期增减时，日期计算无误，'注意点三'则计算的不正确
+
+		            </code>
+	            </pre>
+	        </div>
+        </section>
+	</div>
+</div>
+</body>
+</html>

@@ -102,6 +102,8 @@
 }
 .line {
 }
+.arrow {
+}
 ._流程形状 {
 }
 .table_cell {
@@ -113,8 +115,16 @@
 }
 .menu_item {
 }
+.snapshot {
+}
 .sticky_1 {
   text-align:left;
+}
+.sticky_2 {
+  text-align:left;
+}
+.marker {
+  color:#FFFFFF;
 }
 .icon {
 }
@@ -142,5 +152,12 @@
   font-weight:400;
   font-style:normal;
   font-size:12px;
+  text-align:left;
+}
+.tree_node {
+  text-align:left;
+}
+.label1 {
+  font-size:14px;
   text-align:left;
 }
