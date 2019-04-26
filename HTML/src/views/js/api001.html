@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">宽度</h2>
+		<section class="r2-body">
+			<p>关于jquery中对于宽度计算的几种方法</p>
+			
+			<h3 class="r3-title">.width()</h3>
+			<section class="r3-body">
+				<p class="reference">
+					<a href="https://www.jquery123.com/width/"></a>
+				</p>
+				<p>此方法有以下几种形式</p>
+				<strong class="listTit">.width()</strong>
+				<dl class="dlist">
+					<dt>描述</dt>
+					<dd>
+						<p>返回一个没有单位的数值（例如，400）</p>
+						<p>总是返回内容宽度,不管CSS box-sizing属性值<br>
+						所以当计算元素占据空间的宽度时，如果元素设置有 box-sizing: border-box，需要加上border和padding值，才是元素占据空间的宽度。为了避免这种问题，请使用 $(ele).css('width')
+					</dd>
+					<dt>其它</dt>
+					<dd>
+						<p>这个方法同样能计算出window和document的宽度</p>
+						<div class="code-box">
+				            <pre class="language-js">
+				                <code>   
+								$(window).width();
+								$(document).width();
+					            </code>
+				            </pre>
+				        </div>
+					</dd>
+				</dl>
+				
+				<strong class="listTit">.width(value)</strong>
+				<dl class="dlist">
+					<dt>描述</dt>
+					<dd>给每个匹配的元素设置CSS宽度。</dd>
+					<dt>value</dt>
+					<dd>
+						类型: String, Number<br>
+						value 为 Number 时，jQuery会自动加上单位px；<br>
+						value 为 String 时，任何有效的CSS尺寸都可以为宽度赋值（就像100px, 50%, 或者 auto）
+					</dd>
+					<dt>注意</dt>
+					<dd>
+						此方法设置的容器宽度是根据CSS box-sizing属性来定的.<br>
+						如果元素设置了 border-box , 则此宽度包含 padding border;<br>
+						如果元素未设置 border-box , 则此宽度不包含 padding border;<br>
+					</dd>
+				</dl>
+				
+				<strong class="listTit">.width(function(index, width))</strong>
+				<dl class="dlist">
+					
+				</dl>
+			</section>
+			
+			<h3 class="r3-title">.innerWidth()</h3>
+			<p class="reference">
+				<a href="https://www.jquery123.com/innerWidth/"></a>
+			</p>
+			<section class="r3-body">
+				<dl class="dlist">
+					<dt>描述</dt>
+					<dd>
+						为匹配的元素集合中获取第一个元素的当前计算宽度值,包括padding，但是不包括border。<br>
+						这个方法不接受任何参数。<br>
+						这个方法返回元素的宽度，包括左边和右边的padding，单位是像素。
+					</dd>
+					<dt>其它</dt>
+					<dd>这个方法不适用于window 和 document对象，可以使用.width()代替。</dd>
+				</dl>
+			</section>
+			
+			<h3 class="r3-title">.outerWidth([includeMargin ])</h3>
+			<p class="reference">
+				<a href="https://www.jquery123.com/outerWidth/"></a>
+			</p>
+			<section class="r3-body">
+				<dl class="dlist">
+					<dt>描述</dt>
+					<dd>
+						获取元素集合中第一个元素的当前计算宽度值,包括padding，border和选择性的margin。（注：返回一个整数（不包含“px”）<br>
+						返回元素的宽度，包括左右 padding值，border值和可选择性的margin。单位为像素。
+					</dd>
+					<dt>includeMargin</dt>
+					<dd>
+						<p>一个布尔值，表明是否在计算时包含元素的margin值。<br>如果 includeMargin省略或者false，padding 和 border会被包含在计算中；如果true，margin也会被包含在计算中 。</p>
+					</dd>
+					<dt>其它</dt>
+					<dd>这个方法不适用于window 和 document对象，可以使用.width()代替。</dd>
+				</dl>
+				<h4 class="r4-title">示例</h4>
+				<div class="code-box">
+		            <pre class="language-js">
+		                <code>   
+						$(ele).outerWidth(); //不包含 margin
+						$(ele).outerWidth(false); //不包含 margin
+						$(ele).outerWidth(true); //包含 margin
+			            </code>
+		            </pre>
+		        </div>
+			</section>
+			
+			<h3 class="r3-title">$(ele).css('width')</h3>
+			<section class="r3-body">
+				<p>返回的是CSS中设置的宽度，带有完整单位的字符串（例如，400px）</p>
+			</section>
+        </section>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">运算符</h2>
+		<p class="reference">
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Comparison_Operators"></a>
+		</p>
+		<section class="r2-body">
+			<h3 class="r3-title">比较操作符</h3>
+			<p>JavaScript 有两种比较方式：严格比较运算符和转换类型比较运算符。</p>
+			<ul class="list-decimal">
+				<li>对于严格比较运算符（===）来说，仅当两个操作数的类型相同且值相等为 true;</li>
+				<li>而对于被广泛使用的比较运算符（==）来说，会在进行比较之前，将两个操作数转换成相同的类型。</li>
+				<li>对于关系运算符（比如 <=）来说，会先将操作数转为原始值，使它们类型相同，再进行比较运算。</li>
+				<li>字符串比较则是使用基于标准字典的 Unicode 值来进行比较的。</li>
+			</ul>
+			
+			<strong class="listTit">比较的特点</strong>
+			<ul class="list-decimal">
+				<li>对于两个拥有相同字符顺序，相同长度，并且每个字符的位置都匹配的字符串，应该使用严格比较运算符。</li>
+				<li>对于两个数值相同的数字应该使用严格比较运算符，NaN和任何值不相等，包括其自身，正数零等于负数零。</li>
+				<li>对于两个同为true或同为false的布尔操作数，应使用严格比较运算符。</li>
+				<li>不要使用严格比较运算符或比较运算符来比较两个不相等的对象。</li>
+				<li>当比较一个表达式和一个对象时，仅当两个操作数引用相同的对象（指针指向相同对象）。</li>
+				<li>对于Null 和 Undefined 类型而言，应使用严格比较运算符比较其自身，使用比较运算符进行互相比较。</li>
+			</ul>
+			
+			<strong class="listTit">相等运算符(==)</strong>
+			<dl class="dlist">
+				<dt></dt>
+				<dd></dd>
+				<dt></dt>
+				<dd></dd>
+			</dl>
+			
+        </section>
+	</div>
+</div>
+</body>
+</html>

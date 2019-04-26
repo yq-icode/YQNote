@@ -177,9 +177,12 @@
 		}
 		console.log(xLineDate);
 		let opt3 = {
+			legend:{
+				data:['C1','C2']
+			},
 			color:['#7F69FA'],
 			tooltip:tooltip,
-			dataZoom:dataZoom,
+			// dataZoom:dataZoom,
 			xAxis: {
 				type: 'category',
 				data: xLineDate,
@@ -191,12 +194,7 @@
 				axisTick:{
 					show:false
 				},
-				color:'#999',
-				axisPointer:{
-					handle:{
-						show:true
-					}
-				}
+				color:'#999'
 			},
 			yAxis: yAxis,
 			grid:grid,
@@ -219,6 +217,45 @@
 						y2: 1,
 						colorStops: [{
 							offset: 0, color: '#5377F6'
+						}, {
+							offset: 1, color: '#9C60FC'
+						}]
+					}
+				},
+				areaStyle:{
+					color:{
+						type: 'linear',
+						x: 0,
+						y: 0,
+						x2: 0,
+						y2: 1,
+						colorStops: [{
+							offset: 0, color: '#C4BCF4'
+						}, {
+							offset: 1, color: '#fff'
+						}]
+					},
+					origin:'auto'
+				}
+			},{
+				label:{
+					show:true,
+					position:'top',
+					color:'#000',
+					formatter:'{c}%'
+				},
+				data: xLineData,
+				type: 'line',
+				smooth:true,
+				itemStyle:{
+					color:{
+						type: 'linear',
+						x: 0,
+						y: 0,
+						x2: 0,
+						y2: 1,
+						colorStops: [{
+							offset: 0, color: '#CCCCCC'
 						}, {
 							offset: 1, color: '#9C60FC'
 						}]

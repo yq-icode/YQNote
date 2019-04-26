@@ -48,7 +48,6 @@ $(function(){
 	 */
 	var b_support = document.querySelectorAll('.browser-support');
 	var b_num = b_support.length;
-	console.log("browser-support num: " + b_num);
 	if(b_num > 0){
 		$(b_support).each(function(){
 			var b_summary = $(this).find('.summary').html();
@@ -63,7 +62,6 @@ $(function(){
 	 */
 	var reference = document.querySelectorAll('.reference');
 	var reference_num = reference.length;
-	console.log("reference num: " + reference_num);
 	if(reference_num > 0){
 		$(reference).each(function(){
 			var linkA = $(this).find('a');
@@ -112,7 +110,25 @@ $(function(){
 		}
 	}
 	
+	
+	
 })
+
+//动态设置iframe高度，使其等于其内容页的高度，不出现垂直滚动条
+function ifrHeightAuto(){
+	if($('iframe').length > 0){
+		$('iframe').each(function(){
+			var ifr = this;
+			var y = (ifr.contentWindow || ifr.contentDocument);
+    		if(y.document)y = y.document;
+			$(this).css('height', $(y).find('#wrap').height());
+		})
+	}
+}
+
+window.onload = function(){
+	ifrHeightAuto();
+}
 
 /* 【article文章及DEMO页面自动添加fixed TOP及标题】
 */
@@ -238,6 +254,32 @@ function processData(data,ele){
 	}
 	
 	$(ele).prepend(_HTML);
+}
+
+
+/* 已废弃、已过时
+ */
+function hovrTip(ele){
+	var _html = "<h3>已废弃</h3>" +
+				"<p>已废弃的元素或者属性意味着它已经过时。<br>废弃的元素在以后将会过时，但是浏览器会继续支持已废弃的元素。</p>" +
+				"<h3>已过时</h3>" +
+				"<p>已过时的元素和属性浏览器不再支持，W3C也不会再去定义它。</p>";
+	
+	var index;
+	
+	$(ele).hover(
+		function(){
+			index = layer.tips(_html, $(this), {
+				tips: [1, '#333'],
+				area: 'auto',
+				maxWidth: 500,
+				time: 0
+			})
+		},
+		function(){
+			layer.close(index);
+		}
+	)
 }
 
 

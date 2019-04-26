@@ -12,7 +12,7 @@
   position:absolute;
   z-index:0;
 }
-#u2029 {
+#u2052 {
   position:absolute;
   left:20px;
   top:20px;
@@ -21,7 +21,7 @@
   overflow:hidden;
   touch-action:none;
 }
-#u2029_state0 {
+#u2052_state0 {
   position:absolute;
   left:0px;
   top:0px;
@@ -34,28 +34,28 @@
   background-color:rgba(0, 0, 0, 1);
   background-image:none;
 }
-#u2029_state0_content {
+#u2052_state0_content {
   position:absolute;
   left:0px;
   top:0px;
   width:1px;
   height:1px;
 }
-#u2030_img {
+#u2053_img {
   position:absolute;
   left:0px;
   top:0px;
   width:1500px;
   height:587px;
 }
-#u2030 {
+#u2053 {
   position:absolute;
   left:0px;
   top:0px;
   width:1500px;
   height:587px;
 }
-#u2031 {
+#u2054 {
   position:absolute;
   left:2px;
   top:286px;

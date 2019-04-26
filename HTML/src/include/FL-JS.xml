@@ -57,6 +57,11 @@
 				<name>fun14</name>
 				<path>/views/js/</path>
 			</file>
+			<file>
+				<title>运算符</title>
+				<name>fun17</name>
+				<path>/views/js/</path>
+			</file>
 		</sub>
 		<sub title="相似方法&amp;函数区别">
 			<file>
@@ -201,36 +206,45 @@
 		</sub>
 	</main>
 	<main title="JQUERY">
-		<file>
-			<title>jquery</title>
-			<name>jquery</name>
-			<path>/views/js/</path>
-		</file>
-		<file>
-			<title>$.each 和 $(selector).each()的区别详解</title>
-			<name>fun05</name>
-			<path>/views/js/</path>
-		</file>
-		<file>
-			<title>bind()、trigger()、on()</title>
-			<name>fun06</name>
-			<path>/views/js/</path>
-		</file>
-		<file>
-			<title>索引相关的操作</title>
-			<name>fun06</name>
-			<path>/views/js/</path>
-		</file>
-		<file>
-			<title>attr与prop的区别</title>
-			<name>fun13</name>
-			<path>/views/js/</path>
-		</file>
-		<file>
-			<title>jquery tmpl 详解</title>
-			<name>exp01</name>
-			<path>/views/js/</path>
-		</file>
+		<sub title="API详解">
+			<file>
+				<title>宽度类方法</title>
+				<name>api001</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+		<sub title="other">
+			<file>
+				<title>jquery</title>
+				<name>jquery</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>$.each 和 $(selector).each()的区别详解</title>
+				<name>fun05</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>bind()、trigger()、on()</title>
+				<name>fun06</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>索引相关的操作</title>
+				<name>fun06</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>attr与prop的区别</title>
+				<name>fun13</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>jquery tmpl 详解</title>
+				<name>exp01</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
 	</main>
 	<main title="ECMAScript 6.0">
 		<file>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+    <div id="wmain">
+    	<h2 class="r2-title">基础讲解</h2>
+    	<section class="r2-body">
+		    <h3 class="r3-title">换行-CSS属性</h3>
+		    <section class="r3-body">
+		    	<h4 class="r4-title">word-wrap</h4>
+		    	<section class="r4-body">
+		    		<div class="browser-support">
+			    		<div class="summary">IE 5.5+; FF 3.5+; Chrome 4.0+; Safari 3.1+; Opera 10.5+</div>
+			    	</div>
+			    	<strong class="listTit mt10">word-wrap: norma | break-word</strong>
+			    	<dl class="dlist">
+		    			<dt>版本</dt>
+		    			<dd>CSS3</dd>
+		    			<dt>normal(默认值)</dt>
+		    			<dd>只在允许的断字点换行（浏览器保持默认处理）</dd>
+		    			<dt>break-word</dt>
+		    			<dd>在长单词或 URL 地址内部进行换行。</dd>
+		    		</dl>
+		    	</section>
+	    		
+	    		<h4 class="r4-title">word-break</h4>
+	    		<section class="r4-body">
+			    	<p>word-break 属性指定非 CJK 脚本的断行规则。<br>提示: CJK 脚本是中国，日本和韩国（"中日韩"）脚本。</p>
+			    	<div class="browser-support">
+			    		<div class="summary">IE 5.5+; FF 15.0+; Chrome 4.0+; Safari 3.1+; Opera 15.0+</div>
+			    	</div>
+			    	<strong class="listTit mt10">word-break: normal | break-all | keep-all</strong>
+			    	<dl class="dlist">
+		    			<dt>版本</dt>
+		    			<dd>CSS3</dd>
+		    			<dt>normal(默认值)</dt>
+		    			<dd>使用浏览器默认的换行规则</dd>
+		    			<dt>break-all</dt>
+		    			<dd>允许在单词内换行</dd>
+		    			<dt>keep-all</dt>
+		    			<dd>只能在半角空格或连字符处换行</dd>
+		    		</dl>
+	    		</section>
+	    		
+	    		<h4 class="r4-title">white-space</h4>
+	    		<p>white-space 属性指定元素内的空白怎样处理。</p>
+	    		<section class="r4-body">
+	    			<div class="browser-support">
+			    		<div class="summary">IE 5.5+; FF 3.5+; Chrome 1.0+; Safari 3.0+; Opera 9.5+</div>
+			    	</div>
+	    			<dl class="dlist">
+		    			<dt>版本</dt>
+		    			<dd>CSS1</dd>
+		    			<dt>normal(默认值)</dt>
+		    			<dd>空白会被浏览器忽略</dd>
+		    			<dt>pre</dt>
+		    			<dd>空白会被浏览器保留。其行为方式类似 HTML 中的  &lt;pre> 标签。</dd>
+		    			<dt>nowrap</dt>
+		    			<dd>文本不会换行，文本会在在同一行上继续，直到遇到  &lt;br> 标签为止。</dd>
+		    			<dt>pre-wrap</dt>
+		    			<dd>保留空白符序列，但是正常地进行换行。</dd>
+		    			<dt>pre-line</dt>
+		    			<dd>合并空白符序列，但是保留换行符。</dd>
+		    			<dt>inherit</dt>
+		    			<dd>规定应该从父元素继承 white-space 属性的值。</dd>
+		    		</dl>
+	    		</section>
+	    		
+	    		<h4 class="r4-title">text-wrap</h4>
+	    		<section class="r4-body">
+	    			<p>这个也是 CSS3 属性，但是任何主流浏览器都不支持 text-wrap 属性，就不讲解了。</p>
+	    		</section>
+		    </section>
+		    <h3 class="r3-title">换行-HTML属性</h3>
+		    <section class="r3-body">
+		    	<h4 class="r4-title">th、td 标签的 nowrap属性</h4>
+		    	<p>nowrap 属性规定表格单元格中的内容不换行。</p>
+		    	<div class="browser-support">
+		    		<div class="summary">IE 6+</div>
+		    	</div>
+		    	<ul class="list-decimal">
+		    		<li>所有主流浏览器都支持  nowrap 属性。</li>
+		    		<li>HTML5 不支持 &lt;td> &lt;th> nowrap 属性，请使用 CSS 代替。</li>
+		    		<li>在 HTML 4.01 中，&lt;td> &lt;th> 的 nowrap 属性 <span class="tip obsolete">已废弃</span>。</li>
+		    		<li>nowrap 属性是一个布尔属性。</li>
+		    		<li>HTML 与  XHTML 之间的差异：在 XHTML 中，禁止属性最小化，nowrap 属性必须定义为 &lt;th nowrap="nowrap">。</li>
+		    	</ul>
+		    </section>
+		    <h3 class="r3-title">换行-HTML标签</h3>
+		    <section class="r3-body">
+		    	<h4 class="r4-title">&lt;nobr>&lt;/nobr></h4>
+		    	<ul class="list-decimal">
+		    		<li>&lt;nobr> 元素阻止文本自动拆分成新行，所以它展示为长的一行，可能还需要滚动。这个标签不是标准的 HTML，并且不应该使用。</li>
+		    		<li>&lt;nobr> 只有遇到了 &lt;br> 文本才会换行。</li>
+		    	</ul>
+		    </section>
+		</section>
+		
+		<h2 class="r2-title">实例</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">英文、中文强制换行与不换行的代码</h3>
+			<div class="example-wrap">
+				<iframe id="ifr" frameborder="0" width="100%" height="100%" scrolling="no" src="/views/demo/text/text-wrap.html"></iframe>
+			</div>
+		</section>
+    </div>
+</div>
+
+<script>
+	hovrTip($('.obsolete'));
+	
+//	window.onload = function(){
+//		var aa = window.frames["ifr"].contentWindow.document.getElementById('wrap');
+//		console.log("wrap: " + $(aa));
+//		$('iframe').css('height', $(aa).height())
+//	}
+</script>
+</body>
+</html>

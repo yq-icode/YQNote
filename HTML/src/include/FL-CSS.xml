@@ -56,6 +56,11 @@
 			<name>pseudo</name>
 			<path>/views/css/</path>
 		</file>
+		<file>
+			<title>关于换行</title>
+			<name>text-wrap</name>
+			<path>/views/css/</path>
+		</file>
 	</main>
 	<main title="CSS3">
 		<file>

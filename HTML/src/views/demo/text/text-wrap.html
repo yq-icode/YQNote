@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet/less" href="/css/iconfont.css">
+	<link rel="stylesheet/less" href="/css/common.less">
+	<link rel="stylesheet/less" href="/css/default.less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<style>
+		#wrap{
+			display: flex;
+			flex-direction: column;
+		}
+		#wrap > div{
+			margin: 10px 0;
+			width: 160px;
+			border: 1px dotted #ccc;
+			padding: 5px 10px;
+		}
+		.p1{word-break:break-all;}
+		.p2{word-wrap:break-word;}
+		.p3{white-space:pre-wrap;}
+		.p4{white-space:nowrap;}
+		.p5{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<strong>word-break:break-all</strong>
+		<p>只对英文起作用，以字母作为换行依据<br>断句时，不会把长单词挪到下一行，而是直接进行单词内的断句 </p>
+		<div class="p1">word-break:break-all;SSSSSSSSSSSSSSSSSSSSSSS</div>
+		
+		<strong>word-wrap:break-word</strong>
+		<p>只对英文起作用，以单词作为换行依据 <br>允许单词内断句，首先会尝试挪到下一行，看看下一行的宽度够不够，不够的话就进行单词内的断句</p>
+		<div class="p2">word-wrap:break-word;SSSSSSSSSSSSSSSSSSSSSSS</div>
+		
+		<strong>white-space:pre-wrap</strong>
+		<p>只对中文起作用，强制换行 </p>
+		<div class="p3">white-space:pre-wrap;SSSSSSSSSSSSSSSSSSSSSSS</div>
+		
+		<strong>white-space:nowrap</strong>
+		<div class="p4">white-space:nowrap;SSSSSSSSSSSSSSSSSSSSSSS</div>
+		
+		<strong>white-space:nowrap; overflow:hidden; text-overflow:ellipsis;</strong>
+		<p>不换行，超出部分隐藏且以省略号形式出现 </p>
+		<div class="p5">white-space:nowrap;SSSSSSSSSSSSSSSSSSSSSSS</div>
+	</div>
+</body>
+</html>
