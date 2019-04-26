@@ -15,7 +15,7 @@
 	<div id="wmain">
         <h2 class="r2-title">this探讨</h2>
         <section class="r2-body">
-			<h4 class="r4-title">普通函数的this</h4>
+			<h3 class="r3-title">普通函数的this</h3>
 			<p>普通函数的this是由动态作用域决定，它总指向于它的直接调用者。具体可以分为以下四项：</p>
 			<ul class="list-decimal">
 				<li>this总是指向它的直接调用者， 例如 obj.func() ,那么func()里的this指的是obj</li>
@@ -23,13 +23,38 @@
 				<li>在严格模式下,如果函数没有直接调者，this为undefined</li>
 				<li>使用call,apply,bind绑定的，this指的是绑定的对象</li>
 			</ul>
-			<h4 class="r4-title">箭头函数的this</h4>
+			
+			<h3 class="r3-title">箭头函数的this</h3>
 			<p>箭头函数是没有绑定自己的this，函数内使用的this是由静态作用域（也成为词法作用域，参考this）决定。静态作用域就是说箭头函数里this是由定义它的代码决定，而不是执行调用箭头函数的代码。</p>
 			<p>上面的说法有时很难理解，我自己总结的方法是：找出定义箭头函数的上下文（即包含箭头函数最近的函数或者对象），那么上下文所处的父上下文即为this。</p>
 			<div class="reference">
 				<a href="http://www.cnblogs.com/wangfupeng1988/p/3988422.html"></a>
 			</div>
         	<img src="images/screenPics/sc004.png" />
+        	
+        	<h3 class="r3-title">Jquery 中 this 和 $(this) 的区别</h3>
+        	<ul class="list-decimal">
+        		<li>$(this)是jquery对象，jquery对象不能直接指定元素的属性（ele.style），需要get（index）或者直接（index）取得对象中元素才行</li>
+        		<li>JQuery中的 $() 这个符号，实际上这个符号在JQuery中相当于JQuery（），即$(this)=jquery(this);</li>
+        		<li></li>
+        	</ul>
+        	<h4 class="r4-title">当你用的是jquery时，就用$(this)，如果是JS，就用this</h4>
+        	<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+$(this).html(); //.html()是jquery方法
+this.innerHTML(); //.innerHTML()是JS方法
+		            </code>
+	            </pre>
+	        </div>
+	        <h4 class="r4-title"></h4>
+        	<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+
+		            </code>
+	            </pre>
+	        </div>
         </section>
     </div>
 </div>
