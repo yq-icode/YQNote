@@ -13,16 +13,23 @@
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
-		<dl class="dlist">
-			<dt>window.frames</dt>
-			<dd>返回一个类数组对象,返回当前窗口的所有子框架元素.</dd>
-			<dt>window.parent</dt>
-			<dd>返回当前窗口的父窗口,也就是说,包含当前窗口所在的frameElement元素的窗口.</dd>
-			<dt></dt>
-			<dd></dd>
-			<dt></dt>
-			<dd></dd>
-		</dl>
+		<h2 class="r2-title">iframe</h2>
+		<section class="r2-body">
+			<dl class="dlist">
+				<dt>window.frames</dt>
+				<dd>返回一个类数组对象,返回当前窗口的所有子框架元素.</dd>
+				<dt>window.parent</dt>
+				<dd>返回当前窗口的父窗口,也就是说,包含当前窗口所在的frameElement元素的窗口.</dd>
+				<dt>window.top</dt>
+				<dd>返回当前窗口最顶层的父窗口</dd>
+				<dt>window.frameElement</dt>
+				<dd>返回嵌入当前window对象的元素,如果当前window对象已经是顶层窗口,则返回null</dd>
+			</dl>
+			<a class="ref" href="https://www.jquery123.com/contents/">.contents()方法</a>
+	        <a class="ref" href="https://www.runoob.com/jsref/prop-frame-contentwindow.html">contentWindow</a>
+	        <a class="ref" href="https://www.runoob.com/jsref/prop-frame-contentdocument.html">contentDocument</a>
+	   </section>
+	   
 		<h2 class="r2-title">iframe</h2>
 		<section class="r2-body">
 			<h3 class="r3-title">父页面获取子页面中DOM元素</h3>
@@ -42,10 +49,14 @@ $(window.frames["iframe1"].frames["iframe2"].document).find("#objEle");
 
 //框架数量
 window.frames.length
+
+
+//window.frames是个伪数组，可以通过window.frames[index]或window.frames[name]来获取iframe
+window.frames[index] //索引是从左往右，从上往下的，从0开始
+window.frames[name]
 		            </code>
 	            </pre>
 	        </div>
-	        <a class="ref" href="https://www.jquery123.com/contents/">.contents()方法</a>
 	        
 	        
 	        <h3 class="r3-title">子页面获取父页面中DOM元素</h3>
@@ -81,16 +92,6 @@ iframe.contentDocument.getElementById()
 	            </pre>
 	        </div>
 	        
-	        <h3 class="r3-title">通过window获取iframe</h3>
-	        <p>window.frames是个伪数组，可以通过window.frames[index]或window.frames[name]来获取iframe</p>
-			<div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>
-window.frames[index] //索引是从左往右，从上往下的，从0开始
-window.frames[name]
-		            </code>
-	            </pre>
-	        </div>
 		</section>
 		
 		<h2 class="r2-title">常用方法</h2>
@@ -103,7 +104,7 @@ if (window.parent != window.top) { }
 
 // 如果当前窗口被包含在一个框架里面,则将该框架的地址跳到'http://mozilla.org/'
 var frameEl = window.frameElement;
-if (frameEl) frameEl.src = 'http://mozilla.org/';
+if (frameEl) frameEl.src = 'http://mozilla.org/'
 		            </code>
 	            </pre>
 	        </div>
