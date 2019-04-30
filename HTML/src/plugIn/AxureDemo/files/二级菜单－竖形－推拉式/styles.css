@@ -1,11 +1,11 @@
 ﻿body {
   margin:0px;
   background-image:none;
-  position:static;
-  left:auto;
+  position:relative;
+  left:-0px;
   width:160px;
-  margin-left:0;
-  margin-right:0;
+  margin-left:auto;
+  margin-right:auto;
   text-align:left;
 }
 #base {
@@ -100,7 +100,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -113,7 +113,7 @@
   top:570px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -137,7 +137,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -163,7 +163,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -943,7 +943,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -956,7 +956,7 @@
   top:690px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -980,7 +980,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1006,7 +1006,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1035,7 +1035,7 @@
   top:713px;
   width:16px;
   height:16px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1082,7 +1082,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1095,7 +1095,7 @@
   top:630px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1119,7 +1119,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1145,7 +1145,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1174,7 +1174,7 @@
   top:653px;
   width:16px;
   height:16px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1217,7 +1217,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆 Bold', '幼圆 Regular', '幼圆';
+  font-family:'Arial Negreta', 'Arial Normal', 'Arial';
   font-weight:700;
   font-style:normal;
   font-size:12px;
@@ -1229,7 +1229,7 @@
   top:540px;
   width:160px;
   height:30px;
-  font-family:'幼圆 Bold', '幼圆 Regular', '幼圆';
+  font-family:'Arial Negreta', 'Arial Normal', 'Arial';
   font-weight:700;
   font-style:normal;
   font-size:12px;
@@ -1262,7 +1262,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆 Bold', '幼圆 Regular', '幼圆';
+  font-family:'Arial Negreta', 'Arial Normal', 'Arial';
   font-weight:700;
   font-style:normal;
   font-size:12px;
@@ -1274,7 +1274,7 @@
   top:810px;
   width:160px;
   height:30px;
-  font-family:'幼圆 Bold', '幼圆 Regular', '幼圆';
+  font-family:'Arial Negreta', 'Arial Normal', 'Arial';
   font-weight:700;
   font-style:normal;
   font-size:12px;
@@ -1311,7 +1311,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1324,7 +1324,7 @@
   top:840px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1348,7 +1348,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1374,7 +1374,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -1403,7 +1403,7 @@
   top:864px;
   width:16px;
   height:16px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -2393,7 +2393,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -2406,7 +2406,7 @@
   top:898px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -2430,7 +2430,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -2456,7 +2456,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -2485,7 +2485,7 @@
   top:922px;
   width:16px;
   height:16px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -2887,7 +2887,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -2900,7 +2900,7 @@
   top:958px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -2924,7 +2924,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -2950,7 +2950,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -2979,7 +2979,7 @@
   top:982px;
   width:16px;
   height:16px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -3652,7 +3652,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -3665,7 +3665,7 @@
   top:750px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -3689,7 +3689,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -3715,7 +3715,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4308,7 +4308,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4321,7 +4321,7 @@
   top:30px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4345,7 +4345,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4371,7 +4371,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4437,7 +4437,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆 Bold', '幼圆 Regular', '幼圆';
+  font-family:'Arial Negreta', 'Arial Normal', 'Arial';
   font-weight:700;
   font-style:normal;
   font-size:12px;
@@ -4449,7 +4449,7 @@
   top:0px;
   width:160px;
   height:30px;
-  font-family:'幼圆 Bold', '幼圆 Regular', '幼圆';
+  font-family:'Arial Negreta', 'Arial Normal', 'Arial';
   font-weight:700;
   font-style:normal;
   font-size:12px;
@@ -4486,7 +4486,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4499,7 +4499,7 @@
   top:480px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4523,7 +4523,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4549,7 +4549,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4615,7 +4615,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆 Bold', '幼圆 Regular', '幼圆';
+  font-family:'Arial Negreta', 'Arial Normal', 'Arial';
   font-weight:700;
   font-style:normal;
   font-size:12px;
@@ -4627,7 +4627,7 @@
   top:450px;
   width:160px;
   height:30px;
-  font-family:'幼圆 Bold', '幼圆 Regular', '幼圆';
+  font-family:'Arial Negreta', 'Arial Normal', 'Arial';
   font-weight:700;
   font-style:normal;
   font-size:12px;
@@ -4664,7 +4664,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4677,7 +4677,7 @@
   top:90px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4701,7 +4701,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4727,7 +4727,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4797,7 +4797,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4810,7 +4810,7 @@
   top:150px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4834,7 +4834,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4860,7 +4860,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4930,7 +4930,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4943,7 +4943,7 @@
   top:210px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4967,7 +4967,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -4993,7 +4993,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5063,7 +5063,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5076,7 +5076,7 @@
   top:270px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5100,7 +5100,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5126,7 +5126,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5196,7 +5196,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5209,7 +5209,7 @@
   top:330px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5233,7 +5233,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5259,7 +5259,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5329,7 +5329,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5342,7 +5342,7 @@
   top:390px;
   width:160px;
   height:60px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5366,7 +5366,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5392,7 +5392,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -5451,7 +5451,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:16px;
@@ -5463,7 +5463,7 @@
   top:0px;
   width:160px;
   height:55px;
-  font-family:'幼圆';
+  font-family:'幼圆 Regular', '幼圆';
   font-weight:400;
   font-style:normal;
   font-size:16px;

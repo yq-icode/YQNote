@@ -1,11 +1,11 @@
 ﻿body {
   margin:0px;
   background-image:none;
-  position:static;
-  left:auto;
-  width:1569px;
-  margin-left:0;
-  margin-right:0;
+  position:relative;
+  left:-33px;
+  width:1536px;
+  margin-left:auto;
+  margin-right:auto;
   text-align:left;
 }
 #base {
@@ -590,7 +590,7 @@
   left:0px;
   top:0px;
   width:181px;
-  height:13px;
+  height:15px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -605,7 +605,7 @@
   left:227px;
   top:42px;
   width:181px;
-  height:13px;
+  height:15px;
   font-size:12px;
 }
 #u568 {
@@ -1187,7 +1187,7 @@
   left:0px;
   top:0px;
   width:181px;
-  height:13px;
+  height:15px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -1202,7 +1202,7 @@
   left:227px;
   top:745px;
   width:181px;
-  height:13px;
+  height:15px;
   font-size:12px;
 }
 #u594 {
@@ -2322,7 +2322,7 @@
   left:0px;
   top:0px;
   width:652px;
-  height:165px;
+  height:176px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -2336,7 +2336,7 @@
   left:917px;
   top:58px;
   width:652px;
-  height:165px;
+  height:176px;
 }
 #u639 {
   position:absolute;
@@ -2349,8 +2349,8 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:253px;
-  height:15px;
+  width:247px;
+  height:16px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -2363,14 +2363,14 @@
   position:absolute;
   left:917px;
   top:274px;
-  width:253px;
-  height:15px;
+  width:247px;
+  height:16px;
 }
 #u641 {
   position:absolute;
   left:0px;
   top:0px;
-  width:253px;
+  width:247px;
   white-space:nowrap;
 }
 #u642_div {
@@ -2378,7 +2378,7 @@
   left:0px;
   top:0px;
   width:155px;
-  height:15px;
+  height:16px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -2392,7 +2392,7 @@
   left:917px;
   top:332px;
   width:155px;
-  height:15px;
+  height:16px;
 }
 #u643 {
   position:absolute;

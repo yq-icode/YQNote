@@ -1,39 +1,39 @@
 ﻿body {
   margin:0px;
   background-image:none;
-  position:static;
-  left:auto;
-  width:205px;
-  margin-left:0;
-  margin-right:0;
+  position:relative;
+  left:-55px;
+  width:150px;
+  margin-left:auto;
+  margin-right:auto;
   text-align:left;
 }
 #base {
   position:absolute;
   z-index:0;
 }
-#u1880 {
+#u2009 {
   position:absolute;
   left:0px;
   top:0px;
   width:0px;
   height:0px;
 }
-#u1881_img {
+#u2010_img {
   position:absolute;
   left:0px;
   top:0px;
   width:150px;
   height:150px;
 }
-#u1881 {
+#u2010 {
   position:absolute;
   left:55px;
   top:52px;
   width:150px;
   height:150px;
 }
-#u1882 {
+#u2011 {
   position:absolute;
   left:2px;
   top:67px;
@@ -41,21 +41,21 @@
   visibility:hidden;
   word-wrap:break-word;
 }
-#u1883_img {
+#u2012_img {
   position:absolute;
   left:0px;
   top:0px;
   width:150px;
   height:150px;
 }
-#u1883 {
+#u2012 {
   position:absolute;
   left:55px;
   top:52px;
   width:150px;
   height:150px;
 }
-#u1884 {
+#u2013 {
   position:absolute;
   left:2px;
   top:68px;
@@ -63,21 +63,21 @@
   visibility:hidden;
   word-wrap:break-word;
 }
-#u1885_img {
+#u2014_img {
   position:absolute;
   left:-10px;
   top:-10px;
   width:140px;
   height:140px;
 }
-#u1885 {
+#u2014 {
   position:absolute;
   left:70px;
   top:67px;
   width:120px;
   height:120px;
 }
-#u1886 {
+#u2015 {
   position:absolute;
   left:2px;
   top:52px;
@@ -85,12 +85,12 @@
   visibility:hidden;
   word-wrap:break-word;
 }
-#u1887_div {
+#u2016_div {
   position:absolute;
   left:0px;
   top:0px;
-  width:55px;
-  height:40px;
+  width:73px;
+  height:42px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -98,28 +98,28 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'Arial Normal', 'Arial';
   font-weight:400;
   font-style:normal;
   font-size:36px;
   color:#6699FF;
 }
-#u1887 {
+#u2016 {
   position:absolute;
   left:103px;
   top:107px;
-  width:55px;
-  height:40px;
-  font-family:'幼圆';
+  width:73px;
+  height:42px;
+  font-family:'Arial Normal', 'Arial';
   font-weight:400;
   font-style:normal;
   font-size:36px;
   color:#6699FF;
 }
-#u1888 {
+#u2017 {
   position:absolute;
   left:0px;
   top:0px;
-  width:55px;
+  width:73px;
   white-space:nowrap;
 }

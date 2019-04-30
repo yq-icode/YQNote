@@ -22,23 +22,8 @@
 			<path>/views/axure/</path>
 		</file>
 		<file>
-			<title>中继器功能讲解</title>
-			<name>axu14</name>
-			<path>/views/axure/</path>
-		</file>
-		<file>
-			<title>中继器自增效果</title>
-			<name>_article03</name>
-			<path>/views/axure/</path>
-		</file>
-		<file>
 			<title>搜索</title>
 			<name>axu15</name>
-			<path>/views/axure/</path>
-		</file>
-		<file>
-			<title>中继器中数据统计</title>
-			<name>axu06</name>
 			<path>/views/axure/</path>
 		</file>
 		<file>
@@ -84,16 +69,6 @@
 			<path>/views/axure/</path>
 		</file>
 		<file>
-			<title>通过中继器实现 radio 效果</title>
-			<name>axu19</name>
-			<path>/views/axure/</path>
-		</file>
-		<file>
-			<title>select下拉框</title>
-			<name>axu20</name>
-			<path>/views/axure/</path>
-		</file>
-		<file>
 			<title>根据不同的条件设置文字状态</title>
 			<name>axu13</name>
 			<path>/views/axure/</path>
@@ -108,11 +83,43 @@
 			<name>axu11</name>
 			<path>/views/axure/</path>
 		</file>
+		<file>
+			<title>弹框</title>
+			<name>axu21</name>
+			<path>/views/axure/</path>
+		</file>
+	</main>
+	<main title="中继器">
+		<file>
+			<title>中继器功能讲解</title>
+			<name>axu14</name>
+			<path>/views/axure/</path>
+		</file>
+		<file>
+			<title>中继器自增效果</title>
+			<name>_article03</name>
+			<path>/views/axure/</path>
+		</file>
+		<file>
+			<title>中继器中数据统计</title>
+			<name>axu06</name>
+			<path>/views/axure/</path>
+		</file>
+		<file>
+			<title>通过中继器实现 radio 效果</title>
+			<name>axu19</name>
+			<path>/views/axure/</path>
+		</file>
 	</main>
 	<main title="表单">
 		<file>
 			<title>表单中用到的小知识点</title>
 			<name>axu05</name>
+			<path>/views/axure/</path>
+		</file>
+		<file>
+			<title>select下拉框</title>
+			<name>axu20</name>
 			<path>/views/axure/</path>
 		</file>
 	</main>

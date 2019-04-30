@@ -1,18 +1,18 @@
 ﻿body {
   margin:0px;
   background-image:none;
-  position:static;
-  left:auto;
-  width:148px;
-  margin-left:0;
-  margin-right:0;
+  position:relative;
+  left:-33px;
+  width:115px;
+  margin-left:auto;
+  margin-right:auto;
   text-align:left;
 }
 #base {
   position:absolute;
   z-index:0;
 }
-#u1989_div {
+#u2118_div {
   position:absolute;
   left:0px;
   top:0px;
@@ -29,14 +29,14 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-#u1989 {
+#u2118 {
   position:absolute;
   left:60px;
   top:33px;
   width:60px;
   height:30px;
 }
-#u1990 {
+#u2119 {
   position:absolute;
   left:2px;
   top:7px;
@@ -44,14 +44,14 @@
   visibility:hidden;
   word-wrap:break-word;
 }
-#u1991 {
+#u2120 {
   position:absolute;
   left:61px;
   top:34px;
   width:58px;
   height:28px;
 }
-#u1991_input {
+#u2120_input {
   position:absolute;
   left:0px;
   top:0px;
@@ -67,29 +67,29 @@
   border-color:transparent;
   outline-style:none;
 }
-#u1992_img {
+#u2121_img {
   position:absolute;
   left:0px;
   top:0px;
   width:20px;
   height:20px;
 }
-#u1992 {
+#u2121 {
   position:absolute;
   left:128px;
   top:38px;
   width:20px;
   height:20px;
 }
-#u1992_img.mouseOver {
+#u2121_img.mouseOver {
 }
-#u1992.mouseOver {
+#u2121.mouseOver {
 }
-#u1992_img.disabled {
+#u2121_img.disabled {
 }
-#u1992.disabled {
+#u2121.disabled {
 }
-#u1993 {
+#u2122 {
   position:absolute;
   left:2px;
   top:2px;
@@ -97,29 +97,29 @@
   visibility:hidden;
   word-wrap:break-word;
 }
-#u1994_img {
+#u2123_img {
   position:absolute;
   left:0px;
   top:0px;
   width:20px;
   height:20px;
 }
-#u1994 {
+#u2123 {
   position:absolute;
   left:33px;
   top:38px;
   width:20px;
   height:20px;
 }
-#u1994_img.mouseOver {
+#u2123_img.mouseOver {
 }
-#u1994.mouseOver {
+#u2123.mouseOver {
 }
-#u1994_img.disabled {
+#u2123_img.disabled {
 }
-#u1994.disabled {
+#u2123.disabled {
 }
-#u1995 {
+#u2124 {
   position:absolute;
   left:2px;
   top:2px;
@@ -127,12 +127,12 @@
   visibility:hidden;
   word-wrap:break-word;
 }
-#u1996_div {
+#u2125_div {
   position:absolute;
   left:0px;
   top:0px;
   width:61px;
-  height:13px;
+  height:15px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -143,16 +143,16 @@
   font-size:12px;
   color:#FF0000;
 }
-#u1996 {
+#u2125 {
   position:absolute;
   left:164px;
   top:42px;
   width:61px;
-  height:13px;
+  height:15px;
   font-size:12px;
   color:#FF0000;
 }
-#u1997 {
+#u2126 {
   position:absolute;
   left:0px;
   top:0px;

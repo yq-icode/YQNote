@@ -13,18 +13,55 @@
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
+		<dl class="dlist">
+			<dt>window.frames</dt>
+			<dd>返回一个类数组对象,返回当前窗口的所有子框架元素.</dd>
+			<dt>window.parent</dt>
+			<dd>返回当前窗口的父窗口,也就是说,包含当前窗口所在的frameElement元素的窗口.</dd>
+			<dt></dt>
+			<dd></dd>
+			<dt></dt>
+			<dd></dd>
+		</dl>
 		<h2 class="r2-title">iframe</h2>
 		<section class="r2-body">
-			<h3 class="r3-title">获取当前页面所在的iframe</h3>
+			<h3 class="r3-title">父页面获取子页面中DOM元素</h3>
 			<div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>
+//jQuery	                	
+$(window.frames["iframeChild"].document).find("#objEle")
+$("#objEle",window.frames["iframeChild"].document)
+$("#frame_1").contents().find("#objEle")
+
+//JS
+document.getElementById('koyoz').contentWindow.document.getElementById('objEle')
+
+//获得iframe中的iframe
+$(window.frames["iframe1"].frames["iframe2"].document).find("#objEle"); 
+
+//框架数量
+window.frames.length
+		            </code>
+	            </pre>
+	        </div>
+	        <a class="ref" href="https://www.jquery123.com/contents/">.contents()方法</a>
+	        
+	        
+	        <h3 class="r3-title">子页面获取父页面中DOM元素</h3>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+$(window.parent.document).find("#objEle");
+$('#objEle', parent.document);
+
 self.frameElement
 self.frameElement.getAttribute('id') 
 window.frameElement.id
 		            </code>
 	            </pre>
 	        </div>
+			
 	        
 			<h3 class="r3-title">通过iframe获取window、document</h3>
 			<p>如果想获取iframe里的window或者document，可以使用</p>
@@ -51,6 +88,22 @@ iframe.contentDocument.getElementById()
 	                <code>
 window.frames[index] //索引是从左往右，从上往下的，从0开始
 window.frames[name]
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		
+		<h2 class="r2-title">常用方法</h2>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+// 至少有三层窗口	                	
+if (window.parent != window.top) { }
+
+// 如果当前窗口被包含在一个框架里面,则将该框架的地址跳到'http://mozilla.org/'
+var frameEl = window.frameElement;
+if (frameEl) frameEl.src = 'http://mozilla.org/';
 		            </code>
 	            </pre>
 	        </div>

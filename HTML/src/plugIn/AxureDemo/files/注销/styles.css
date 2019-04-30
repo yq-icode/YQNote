@@ -2,18 +2,18 @@
   margin:0px;
   background-color:rgba(242, 242, 242, 1);
   background-image:none;
-  position:static;
-  left:auto;
-  width:410px;
-  margin-left:0;
-  margin-right:0;
+  position:relative;
+  left:-10px;
+  width:400px;
+  margin-left:auto;
+  margin-right:auto;
   text-align:left;
 }
 #base {
   position:absolute;
   z-index:0;
 }
-#u822_div {
+#u951_div {
   position:absolute;
   left:0px;
   top:0px;
@@ -27,14 +27,14 @@
   -webkit-box-shadow:none;
   box-shadow:none;
 }
-#u822 {
+#u951 {
   position:absolute;
   left:10px;
   top:10px;
   width:400px;
   height:200px;
 }
-#u823 {
+#u952 {
   position:absolute;
   left:2px;
   top:92px;
@@ -42,20 +42,20 @@
   visibility:hidden;
   word-wrap:break-word;
 }
-#u824 {
+#u953 {
   position:absolute;
   left:126px;
   top:48px;
   width:200px;
   height:30px;
 }
-#u824_input {
+#u953_input {
   position:absolute;
   left:0px;
   top:0px;
   width:200px;
   height:30px;
-  font-family:'幼圆';
+  font-family:'Arial Normal', 'Arial';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -63,12 +63,12 @@
   color:#000000;
   text-align:left;
 }
-#u825_div {
+#u954_div {
   position:absolute;
   left:0px;
   top:0px;
   width:43px;
-  height:15px;
+  height:16px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -76,33 +76,33 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'Arial Normal', 'Arial';
   font-weight:400;
   font-style:normal;
 }
-#u825 {
+#u954 {
   position:absolute;
   left:85px;
   top:56px;
   width:43px;
-  height:15px;
-  font-family:'幼圆';
+  height:16px;
+  font-family:'Arial Normal', 'Arial';
   font-weight:400;
   font-style:normal;
 }
-#u826 {
+#u955 {
   position:absolute;
   left:0px;
   top:0px;
   width:43px;
   white-space:nowrap;
 }
-#u827_div {
+#u956_div {
   position:absolute;
   left:0px;
   top:0px;
   width:43px;
-  height:15px;
+  height:16px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -110,41 +110,41 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'Arial Normal', 'Arial';
   font-weight:400;
   font-style:normal;
 }
-#u827 {
+#u956 {
   position:absolute;
   left:85px;
   top:95px;
   width:43px;
-  height:15px;
-  font-family:'幼圆';
+  height:16px;
+  font-family:'Arial Normal', 'Arial';
   font-weight:400;
   font-style:normal;
 }
-#u828 {
+#u957 {
   position:absolute;
   left:0px;
   top:0px;
   width:43px;
   white-space:nowrap;
 }
-#u829 {
+#u958 {
   position:absolute;
   left:126px;
   top:87px;
   width:200px;
   height:30px;
 }
-#u829_input {
+#u958_input {
   position:absolute;
   left:0px;
   top:0px;
   width:200px;
   height:30px;
-  font-family:'幼圆';
+  font-family:'Arial Normal', 'Arial';
   font-weight:400;
   font-style:normal;
   font-size:14px;
@@ -152,7 +152,7 @@
   color:#000000;
   text-align:left;
 }
-#u830_div {
+#u959_div {
   position:absolute;
   left:0px;
   top:0px;
@@ -172,7 +172,7 @@
   font-size:12px;
   line-height:18px;
 }
-#u830 {
+#u959 {
   position:absolute;
   left:126px;
   top:156px;
@@ -184,7 +184,7 @@
   font-size:12px;
   line-height:18px;
 }
-#u830_div.mouseOver {
+#u959_div.mouseOver {
   position:absolute;
   left:0px;
   top:0px;
@@ -211,9 +211,9 @@
   font-size:12px;
   line-height:18px;
 }
-#u830.mouseOver {
+#u959.mouseOver {
 }
-#u830_div.disabled {
+#u959_div.disabled {
   position:absolute;
   left:0px;
   top:0px;
@@ -232,16 +232,16 @@
   font-size:12px;
   line-height:18px;
 }
-#u830.disabled {
+#u959.disabled {
 }
-#u831 {
+#u960 {
   position:absolute;
   left:2px;
   top:6px;
   width:66px;
   word-wrap:break-word;
 }
-#u832_div {
+#u961_div {
   position:absolute;
   left:0px;
   top:0px;
@@ -265,7 +265,7 @@
   color:#333333;
   line-height:18px;
 }
-#u832 {
+#u961 {
   position:absolute;
   left:199px;
   top:156px;
@@ -278,7 +278,7 @@
   color:#333333;
   line-height:18px;
 }
-#u832_div.mouseOver {
+#u961_div.mouseOver {
   position:absolute;
   left:0px;
   top:0px;
@@ -309,9 +309,9 @@
   color:#333333;
   line-height:18px;
 }
-#u832.mouseOver {
+#u961.mouseOver {
 }
-#u832_div.disabled {
+#u961_div.disabled {
   position:absolute;
   left:0px;
   top:0px;
@@ -334,9 +334,9 @@
   color:#333333;
   line-height:18px;
 }
-#u832.disabled {
+#u961.disabled {
 }
-#u833 {
+#u962 {
   position:absolute;
   left:2px;
   top:6px;

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+    <script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="/js/default.js" type="text/javascript"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+        <h2 class="r2-title">灯箱实现的弹框</h2>
+        <a class="expLink" href="http://localhost:82/plugIn/AxureDemo/start.html#g=1&p=%E7%81%AF%E7%AE%B1%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%BC%B9%E6%A1%86"></a>
+        <section class="r2-body">
+        	<dl class="dlist">
+        		<dt>缺点</dt>
+        		<dd>无法实现点击关闭按钮关闭弹框和定时关闭弹框同时存在的效果。<br>原因：当设定等待X秒后自动关闭弹框之后，无法清除此定时器效果。这就导致，当通过点击关闭按钮关闭弹框之后，定时关闭还在运行，在定时关闭的时间内，又打开弹框之后，弹框会在定时关闭剩余的时间（而不是从初始设定的等待时间）内关闭。</dd>
+        		<dt>如何实现定时关闭</dt>
+        		<dd>可以试试通过倒计时来定时关闭</dd>
+        	</dl>
+        </section>
+   </div>
+</div>
+</body>
+</html>

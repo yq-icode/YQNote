@@ -1,11 +1,11 @@
 ﻿body {
   margin:0px;
   background-image:none;
-  position:static;
-  left:auto;
-  width:679px;
-  margin-left:0;
-  margin-right:0;
+  position:relative;
+  left:-31px;
+  width:648px;
+  margin-left:auto;
+  margin-right:auto;
   text-align:left;
 }
 #base {
@@ -349,7 +349,7 @@
   left:0px;
   top:0px;
   width:145px;
-  height:20px;
+  height:22px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -357,7 +357,7 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-family:'幼圆';
+  font-family:'Arial Normal', 'Arial';
   font-weight:400;
   font-style:normal;
 }
@@ -366,8 +366,8 @@
   left:244px;
   top:30px;
   width:145px;
-  height:20px;
-  font-family:'幼圆';
+  height:22px;
+  font-family:'Arial Normal', 'Arial';
   font-weight:400;
   font-style:normal;
 }
@@ -383,7 +383,7 @@
   left:0px;
   top:0px;
   width:435px;
-  height:15px;
+  height:16px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -397,7 +397,7 @@
   left:244px;
   top:62px;
   width:435px;
-  height:15px;
+  height:16px;
 }
 #u17 {
   position:absolute;
