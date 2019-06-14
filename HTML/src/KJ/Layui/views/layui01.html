@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Layui</title>
+	<link href="/css/prism.css" rel="stylesheet">
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+    <script src="/js/default.js"></script>
+    <style>
+    	
+    </style>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">修改 option 颜色</h2>
+		<section class="r2-body">
+			<p>option标签中只能放文本内容，即使放了其它标签，也会被剔除，即在 debug-审查元素中，会发现标签被自动删除掉了。因此只能将 标签+文本的组合 以字符串形式放在 option的自定义属性中</p>
+			<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>   
+&lt;select name="KCName" lay-verify="required">
+	&lt;option value="">请选择&lt;/option>
+	&lt;option value="春雨科目三aaa考场" data-str="春雨科目三&lt;label style='color: red;'>aaa&lt;/label>考场">春雨科目三aaa考场&lt;/option>
+	&lt;option value="河南小兴考场">河南小兴考场&lt;/option>
+&lt;/select>
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+if($('select').length > 0){
+	$('select').each(function(){
+		var D_Select = $(this);
+		$(D_Select).find('option').each(function(){
+			var D_Option = $(this);
+			if($(D_Option).attr('data-str')){
+				var O_Idx = $(D_Option).index(),
+					O_DStr = $(D_Option).attr('data-str');
+				$(D_Select).next('.layui-form-select').find('dl dd').eq(O_Idx).html(O_DStr);
+			}
+		})
+	})
+}
+		            </code>
+	            </pre>
+	        </div>
+	        <img src="../images/P0004.png" class="screenPics" />
+		</section>
+	</div>
+</div>
+</body>
+</html>

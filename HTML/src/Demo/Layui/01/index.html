@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="/IncludeFile/layui/css/layui.css">
+	<link rel="stylesheet" href="css.css">
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/includeFile/layui/layui.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<form class="layui-form" lay-filter="LY1">
+			<div id="AuthList" class="authTree"></div>
+			<div class="mt20">
+				<button type="button" id="btnSave" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="dataSave">保存</button>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+	    var DSValue = [], //存储所有checkbox的data-state值
+			partCK = []; //partCK存储非弹框中部分选中状态的checkbox的name值
+		
+		layui.use(['layer', 'form'], function(){
+		  	var layer = layui.layer, form = layui.form;
+//		  	debugger;
+		  	$.getJSON('data.json', function(data){
+				var _html = "", n = 0;
+				var domTree = function(data){
+					if(data.length > 0){
+						$(data).each(function(i){
+							var node = data[i];
+							n = n + 1;
+							if(node.child){ //分类
+								_html += "<dl>";
+								_html += "<dt class='layui-form' lay-filter='LFT" + n + "'>";
+								if(node.state == "2"){
+									_html += "<input name='N" + n + "' value='V" + n + "' data-state='" + node.state + "' title='" + node.name + "' lay-skin='primary' type='checkbox' checked='checked'>";
+								}
+								else if(node.state == "1"){
+									partCK.push(n);
+									_html += "<input name='N" + n + "' value='V" + n + "' data-state='" + node.state + "' title='" + node.name + "' lay-skin='primary' type='checkbox' checked='checked'>";
+								}
+								else{
+									_html += "<input name='N" + n + "' value='V" + n + "' data-state='" + node.state + "' title='" + node.name + "' lay-skin='primary' type='checkbox'>";
+								}
+								
+								_html += "</dt>";
+								_html += "<dd class='layui-form' lay-filter='LFD" + n + "'>";
+								domTree(node.child);
+								_html += "</dd>";
+								_html += "</dl>";
+							}
+							else{ //菜单
+								if(node.auth){ //有弹框的菜单
+									_html += "<div onmouseenter='showPanel(this)' onmouseleave='hidePanel(this)'>";
+								}
+								else{
+									_html += "<div>";
+								}
+								
+								_html += "<div id='" + n + "' class='layui-form' lay-filter='LF" + n + "'>";
+								if(node.state == "2"){
+									_html += "<input class='last' name='N" + n + "' value='V" + n + "' data-state='" + node.state + "' title='" + node.name + "' lay-skin='primary' type='checkbox' checked='checked'>";
+								}
+								else if(node.state == "1"){
+									partCK.push(n);
+									_html += "<input class='last' name='N" + n + "' value='V" + n + "' data-state='" + node.state + "' title='" + node.name + "' lay-skin='primary' type='checkbox' checked='checked'>";
+								}
+								else{
+									_html += "<input class='last' name='N" + n + "' value='V" + n + "' data-state='" + node.state + "' title='" + node.name + "' lay-skin='primary' type='checkbox'>";
+								}
+								_html += "</div>";
+								
+								if(node.auth){ //有弹框的菜单
+									_html += "<div class='layui-form hbox' lay-filter='LFBox" + n + "'>";
+									for(j in node.auth){
+										if(node.auth[j].state == "2"){
+											_html += "<input type='checkbox' class='pck' name='N" + n + "-" + j + "' value='V" + n + "-" + j + "' data-state='" + node.auth[j].state + "' title='" + node.auth[j].name + "' lay-skin='primary' checked='checked'>";
+										}
+										else{
+											_html += "<input type='checkbox' class='pck' name='N" + n + "-" + j + "' value='V" + n + "-" + j + "' data-state='" + node.auth[j].state + "' title='" + node.auth[j].name + "' lay-skin='primary'>";
+										}
+									}
+									_html += "</div>";
+								}
+								_html += "</div>";
+							}
+						})
+					}
+				}
+				domTree(data);
+				$('#AuthList').html(_html);
+				form.render('checkbox', 'LY1');
+				
+				//为部分选择的checkbox设置样式
+				for(i in partCK){
+					$("input[name='N" + partCK[i] + "']").next('.layui-form-checkbox').addClass('checkedPart').removeClass('layui-form-checked');
+				}
+				console.log("DSValue:" + DSValue);
+		  		console.log("partCK:" + partCK);
+			})
+		  	
+			//显示/隐藏权限面板
+			window.showPanel = function(obj){
+				var x = window.event.clientX;
+				if(x > $('.authTree').width()/2){
+					$(obj).find('.hbox').css({left:'auto', right:0});
+				}
+				else{
+					$(obj).find('.hbox').css({left:'0', right:'auto'});
+				}
+				$(obj).find('.hbox').slideDown(100);
+			}
+			window.hidePanel = function(obj){
+				$(obj).find('.hbox').slideUp(100);
+			}
+			
+		  	//全选、取消全选、部分选择
+		  	form.on('checkbox', function(data){
+		  		var ele = data.elem, 
+		  			othis = data.othis,
+		  			DState = $(ele).attr('data-state');
+		  		
+		  		//当点击的为最后一级时
+		  		if($(ele).hasClass('last')){
+		  			var hboxLength = $(ele).parents('div').next('.hbox').length; //没有弹框的菜单
+		  			
+		  			//根据当前chekcbox状态设置当前checkbox和弹框中的checkbox状态
+		  			switch (DState){
+		  				case '0':
+		  					$(ele).attr('data-state','2');
+		  					$(ele).prop('checked',true);
+		  					$(othis).removeClass('checkedPart');
+		  					if(hboxLength > 0){
+		  						$(ele).parents('div').next('.hbox').find('input').prop('checked',true).attr('data-state','2');
+		  					}
+		  					break;
+		  				case '2':
+		  					$(ele).attr('data-state','1');
+		  					$(ele).prop('checked',true);
+		  					$(othis).addClass('checkedPart');
+		  					if(hboxLength > 0){
+		  						$(ele).parents('div').next('.hbox').find('input').prop('checked',false).attr('data-state','0');
+		  					}
+		  					break;
+		  				case '1':
+		  					$(ele).attr('data-state','0');
+		  					$(ele).prop('checked',false);
+		  					$(othis).removeClass('layui-form-checked checkedPart');
+		  					if(hboxLength > 0){
+		  						$(ele).parents('div').next('.hbox').find('input').prop('checked',false).attr('data-state','0');
+		  					}
+		  					break;
+		  				default:
+		  					break;
+		  			}
+		  			var lf = $(ele).parents('div').next('.hbox').attr('lay-filter');
+		  			if(hboxLength > 0){
+  						form.render('checkbox', lf);
+  					}
+		  			pd(ele);
+		  		}
+		  		//当点击的为弹框中的checkbox时
+		  		else if($(ele).hasClass('pck')){
+		  			if(ele.checked){
+		  				$(ele).attr('data-state','2');
+		  			}
+		  			else{
+		  				$(ele).attr('data-state','0');
+		  			}
+		  			
+		  			var CNum = $(ele).parents('.hbox').find('input[type=checkbox]').length, //checkbox总数量
+	  				CNumCheck = $(ele).parents('.hbox').find('input[type=checkbox]:checked').length; //checkbox选中状态的数量
+	  				
+	  				console.log(CNumCheck);
+	  				if(CNumCheck == 0){
+						$(ele).parents('.hbox').prev('div').find('input').prop('checked',false).attr('data-state','0');
+						var lf = $(ele).parents('.hbox').prev('div').attr('lay-filter');
+						form.render('checkbox', lf);
+						$(ele).parents('.hbox').prev('div').find('.layui-form-checkbox').removeClass('checkedPart');
+					}
+					else if(CNumCheck > 0 && CNumCheck < CNum){
+						$(ele).parents('.hbox').prev('div').find('input').prop('checked',true).attr('data-state','1');
+	  					$(ele).parents('.hbox').prev('div').find('.layui-form-checkbox').addClass('checkedPart').removeClass('layui-form-checked');
+	  				}
+					else{
+						$(ele).parents('.hbox').prev('div').find('input').prop('checked',true).attr('data-state','2');
+						var lf = $(ele).parents('.hbox').prev('div').attr('lay-filter');
+						form.render('checkbox', lf);
+						$(ele).parents('.hbox').prev('div').find('.layui-form-checkbox').removeClass('checkedPart');
+					}
+					pd(ele);
+		  		}
+		  		else{ //当点击的为分类时
+		  			if(ele.checked == true){
+		  				$(ele).attr('data-state','2');
+		  				$(ele).parents('dt').next('dd').find('input').prop('checked',true).attr('data-state','2');
+		  			}
+		  			else{
+		  				$(ele).attr('data-state','0');
+		  				$(ele).parents('dt').next('dd').find('input').prop('checked',false).attr('data-state','0');
+		  			}
+		  			var lf = $(ele).parents('dt').next('dd').attr('lay-filter');
+		  			form.render('checkbox', lf);
+		  			$(ele).next('.layui-form-checkbox').removeClass('checkedPart');
+		  			//当为非顶级分类时
+		  			pd(ele);
+		  		}
+		  		
+		  	})
+		  	
+		  	//判断并设置父级状态
+		  	function pd(ele){
+		  		for(i=0; i<$(ele).parents('dd').length; i++){
+		  			setCk(ele, i);
+		  		}
+		  	}
+		  	
+		  	function setCk(obj, n){
+		  		var CNum = $(obj).parents('dd').eq(n).find('input[type=checkbox]').length, //checkbox总数量
+  					CNumCheck = $(obj).parents('dd').eq(n).find('input[type=checkbox]:checked').length, //checkbox选中状态的数量
+  					CNumCheckPart = $(obj).parents('dd').eq(n).find('.checkedPart').length; //checkbox部分选中状态的数量
+  					
+  				var pDt = $(obj).parents('dd').eq(n).prev('dt'),
+  					pEle = $(pDt).find('input'),
+  					pOthis = $(pDt).find('.layui-form-checkbox');
+  				
+  				if(CNumCheck == 0 && CNumCheckPart == 0){
+					$(pEle).prop('checked',false).attr('data-state','0');
+					var lf = $(pDt).attr('lay-filter');
+					form.render('checkbox', lf);
+					$(pOthis).removeClass('checkedPart');
+				}
+				else if((CNumCheck > 0 && CNumCheck < CNum) || CNumCheckPart > 0){
+					$(pEle).prop('checked',true).attr('data-state','1');
+  					$(pOthis).addClass('checkedPart').removeClass('layui-form-checked')
+  				}
+				else{
+					$(pEle).prop('checked',true).attr('data-state','2');
+					var lf = $(pDt).attr('lay-filter');
+					form.render('checkbox', lf);
+					$(pOthis).removeClass('checkedPart');
+				}
+		  	}
+		  	
+			
+		  	//保存
+		  	form.on('submit(dataSave)', function(data){
+			    var df = data.field, arr = [];
+			    for(i in df){
+			    	arr.push(df[i]);
+			    }
+			    console.log(data.field);
+			});
+		});
+	    
+	</script>
+</body>
+</html>

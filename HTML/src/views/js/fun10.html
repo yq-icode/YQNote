@@ -17,10 +17,10 @@
 			<a href="http://blog.csdn.net/u013795673/article/details/52171411"></a>
 		</p>
 		<h2 class="r2-title">网页可视区域</h2>
-		<div class="browser-support">
-			<div class="summary">&lt;!doctype html&gt;下测试; FF; Chrome; IE7+; IE6- 没有测试环境，所以未测试</div>
-		</div>
 		<section class="r2-body">
+			<div class="browser-support">
+				<div class="summary">&lt;!doctype html&gt;下测试; FF; Chrome; IE7+; IE6- 没有测试环境，所以未测试</div>
+			</div>
 			<div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>
@@ -39,10 +39,10 @@ $(window).height()
 			</dl>
 		</section>
 		<h2 class="r2-title">屏幕分辨率</h2>
-		<div class="browser-support">
-			<div class="summary">&lt;!doctype html&gt;下测试; FF; Chrome; IE7+; IE6- 没有测试环境，所以未测试</div>
-		</div>
 		<section class="r2-body">
+			<div class="browser-support">
+				<div class="summary">&lt;!doctype html&gt;下测试; FF; Chrome; IE7+; IE6- 没有测试环境，所以未测试</div>
+			</div>
 			<div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>
@@ -56,6 +56,27 @@ window.screen.availHeight
 		            </code>
 	            </pre>
 	        </div>
+		</section>
+		
+		<h2 class="r2-title">鼠标事件及坐标</h2>
+		<section class="r2-body">
+			<h4 class="r4-title">clientX、clientY</h4>
+			<p>点击位置距离当前body可视区域的x，y坐标</p>
+			
+			<h4 class="r4-title">pageX、pageY</h4>
+			<p>对于整个页面来说，包括了被卷去的body部分的长度</p>
+			
+			<h4 class="r4-title">screenX、screenY</h4>
+			<p>点击位置距离当前电脑屏幕的x，y坐标</p>
+			
+			<h4 class="r4-title">offsetX、offsetY</h4>
+			<p>相对于带有定位的父盒子的x，y坐标</p>
+			
+			<h4 class="r4-title">x、y</h4>
+			<p>和screenX、screenY一样</p>
+			
+			<img src="images/screenPics/sc011.png" class="screenPics" />
+			<img src="images/screenPics/sc010.jpg" class="screenPics" />
 		</section>
 	</div>
 </div>

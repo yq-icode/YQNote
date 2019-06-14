@@ -5,35 +5,67 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>测试</title>
-    <!--<script src="js/jquery-1.11.3.min.js"></script>-->
-    <script src="js/vue.js"></script>
+	<link href="plugIn/s-slick/slick/slick.css" rel="stylesheet" />
+    <link href="plugIn/s-slick/slick/slick-theme.css" rel="stylesheet" />
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="plugIn/s-slick/slick/slick.js"></script>
+    <!--<script src="js/vue.js"></script>-->
     <style type="text/css">
-    	#report_content{
-    		min-height: 120px;
-    		padding: 10px;
-    		background-color: #eee;
+    	.picscroll{
+    		margin: 10px 25px;
+    		height: 250px;
     	}
+    	.picscroll img{
+    		width: 100%;
+    	}
+    	.slick-prev::before, .slick-next::before{
+    		color: #000;
+    	}
+    	.shadow{
+    		display: flex;
+    		position: fixed;
+    		left: 0;
+    		top: 0;
+    		z-index: 10;
+    		width: 0;
+    		height: 100%;
+    		background-color: rgba(0,0,0,0.8);
+    		align-items: center;
+    		justify-content: center;
+    	}
+    	.shadow img{
+    		width: 95%;
+    	}
+    	
 	</style>
 </head>
 <body>
-	<div id="test">
-		<h1 v-show="ok">Hello!</h1>
+	<div class="slider picscroll">
+		<div>
+			<img src="imgTest/p01.jpg" />
+		</div>
+		<div>
+			<img src="imgTest/p02.jpg" />
+		</div>
+		<div>
+			<img src="imgTest/p03.jpg" />
+		</div>
 	</div>
-	
+	<div class="shadow">
+		<img src="" />
+	</div>
 	<script>
-		var vm = new Vue({
-			el:"#test",
-			data:{
-				loginType:'username',
-				ok:false
-			},
-			methods:{
-				toggleLoginType:function(){
-					return this.loginType = this.loginType === 'username' ? 'email' : 'username'
-				}
-			}
+		$('.picscroll').slick({
+			adaptiveHeight:true,
+			dots:true
 		})
-
+		$('.picscroll img').click(function(){
+			$('.shadow').animate({'width':'100%'},500);
+			$('body .shadow img').attr('src', $(this).attr('src'));
+		})
+		$('.shadow').click(function(){
+			$(this).animate({'width':'0px'},500);;
+		})
 	</script>
 </body>
 </html>

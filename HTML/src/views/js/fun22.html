@@ -1,0 +1,410 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<p class="reference">
+			<a href="https://www.liaoxuefeng.com/wiki/1022910821149312/1023021187855808"></a>
+		</p>
+		<h2 class="r2-title">定义函数</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">定义函数</h3>
+			<section class="r3-body">
+				<p>在JavaScript中，定义函数的方式如下：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+function abs(x) {
+    if (x >= 0) {
+        return x;
+    } else {
+        return -x;
+    }
+}	
+					    </code>
+		            </pre>
+		        </div>
+		        <p>由于JavaScript的函数也是一个对象，上述定义的abs()函数实际上是一个函数对象，而函数名abs可以视为指向该函数的变量。<br>因此，第二种定义函数的方式如下：</p>
+		        <div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+var abs = function (x) {
+    if (x >= 0) {
+        return x;
+    } else {
+        return -x;
+    }
+};	
+					    </code>
+		            </pre>
+		        </div>
+		        <p>在这种方式下，function (x) { ... }是一个匿名函数，它没有函数名。但是，这个匿名函数赋值给了变量abs，所以，通过变量abs就可以调用该函数。</p>
+		        <p>上述两种定义完全等价，注意第二种方式按照完整语法需要在函数体末尾加一个';'，表示赋值语句结束。</p>
+			</section>
+			
+			<h3 class="r3-title">调用函数</h3>
+			<section class="r3-body">
+				<p>由于JavaScript允许传入任意个参数而不影响调用，因此传入的参数比定义的参数多也没有问题，虽然函数内部并不需要这些参数：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+abs(10, 'blablabla'); // 返回10
+abs(-9, 'haha', 'hehe', null); // 返回9
+					    </code>
+		            </pre>
+		        </div>
+		        <p>传入的参数比定义的少也没有问题：</p>
+		        <div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+abs(); // 返回NaN
+					    </code>
+		            </pre>
+		        </div>
+		        <p>此时abs(x)函数的参数x将收到undefined，计算结果为NaN。要避免收到undefined，可以对参数进行检查：</p>
+		        <div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+function abs(x) {
+    if (typeof x !== 'number') {
+        throw 'Not a number';
+    }
+    if (x >= 0) {
+        return x;
+    } else {
+        return -x;
+    }
+}
+					    </code>
+		            </pre>
+		        </div>
+			</section>
+			
+			<h3 class="r3-title">arguments & rest</h3>
+			<section class="r3-body">
+				<h4 class="r4-title">arguments</h4>
+				<p>JavaScript还有一个免费赠送的关键字arguments，它只在函数内部起作用，并且永远指向当前函数的调用者传入的所有参数。arguments类似Array但它不是一个Array。<br>利用arguments，你可以获得调用者传入的所有参数。也就是说，即使函数不定义任何参数，还是可以拿到参数的值：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+function abs() {
+    if (arguments.length === 0) {
+        return 0;
+    }
+    var x = arguments[0];
+    return x >= 0 ? x : -x;
+}
+
+abs(); // 0
+abs(10); // 10
+abs(-9); // 9
+
+					    </code>
+		            </pre>
+		        </div>
+		        
+				<h4 class="r4-title">rest参数</h4>
+				<ul class="list-decimal">
+					<li>rest参数是ES6新标准，只能写在最后，前面用...标识，从运行结果可知，传入的参数先绑定a、b，多余的参数以数组形式交给变量rest</li>
+					<li>如果传入的参数连正常定义的参数都没填满，也不要紧，rest参数会接收一个空数组（注意不是undefined）</li>
+				</ul>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+function foo(a, b, ...rest) {
+    console.log('a = ' + a);
+    console.log('b = ' + b);
+    console.log(rest);
+}
+
+foo(1, 2, 3, 4, 5);
+// 结果:
+// a = 1
+// b = 2
+// Array [ 3, 4, 5 ]
+
+foo(1);
+// 结果:
+// a = 1
+// b = undefined
+// Array []
+
+					    </code>
+		            </pre>
+		        </div>
+			</section>
+			
+			<h3 class="r3-title">行末自动添加分号的机制</h3>
+			<section class="r3-body">
+				<p>前面我们讲到了JavaScript引擎有一个在行末自动添加分号的机制，这可能让你栽到return语句的一个大坑：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+function foo() {
+    return { name: 'foo' };
+}
+foo(); // { name: 'foo' }
+
+					    </code>
+		            </pre>
+		        </div>
+		        <p>如果把return语句拆成两行：</p>
+		        <div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+function foo() {
+    return
+        { name: 'foo' };
+}
+foo(); // undefined
+
+					    </code>
+		            </pre>
+		        </div>
+		        <p>要小心了，由于JavaScript引擎在行末自动添加分号的机制，上面的代码实际上变成了：</p>
+		        <div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+function foo() {
+    return; // 自动添加了分号，相当于return undefined;
+        { name: 'foo' }; // 这行语句已经没法执行到了
+}
+					    </code>
+		            </pre>
+		        </div>
+		        <p>所以正确的多行写法是：</p>
+		        <div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+function foo() {
+    return { // 这里不会自动加分号，因为{表示语句尚未结束
+        name: 'foo'
+    };
+}
+					    </code>
+		            </pre>
+		        </div>
+			</section>
+		</section>
+		
+		<h2 class="r2-title">变量作用域与解构赋值</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">变量提升</h3>
+			<section class="r3-body">
+				<p>JavaScript的函数定义有个特点，它会先扫描整个函数体的语句，把所有申明的变量“提升”到函数顶部：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+//'use strict';		                	
+function foo() {
+    var x = 'Hello, ' + y;
+    console.log(x);
+    var y = 'Bob';
+}
+foo();
+					    </code>
+		            </pre>
+		        </div>
+		        <p>虽然是strict模式，但语句var x = 'Hello, ' + y;并不报错，原因是变量y在稍后申明了。但是console.log显示Hello, undefined，说明变量y的值为undefined。这正是因为JavaScript引擎自动提升了变量y的声明，但不会提升变量y的赋值。<br>对于上述foo()函数，JavaScript引擎看到的代码相当于：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+function foo() {
+    var y; // 提升变量y的申明，此时y为undefined
+    var x = 'Hello, ' + y;
+    console.log(x);
+    y = 'Bob';
+}
+					    </code>
+		            </pre>
+		        </div>
+		        <p>由于JavaScript的这一怪异的“特性”，我们在函数内部定义变量时，请严格遵守“在函数内部首先申明所有变量”这一规则。最常见的做法是用一个var申明函数内部用到的所有变量：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+function foo() {
+    var
+        x = 1, // x初始化为1
+        y = x + 1, // y初始化为2
+        z, i; // z和i为undefined
+    // 其他语句:
+    for (i=0; i<100; i++) {
+        ...
+    }
+}
+					    </code>
+		            </pre>
+		        </div>
+			</section>
+			
+			<h3 class="r3-title">全局作用域</h3>
+			<section class="r3-body">
+				<p>不在任何函数内定义的变量就具有全局作用域。实际上，JavaScript默认有一个全局对象window，全局作用域的变量实际上被绑定到window的一个属性：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+//'use strict';
+
+var course = 'Learn JavaScript';
+alert(course); // 'Learn JavaScript'
+alert(window.course); // 'Learn JavaScript'
+					    </code>
+		            </pre>
+		        </div>
+		        <p>因此，直接访问全局变量course和访问window.course是完全一样的。<br>你可能猜到了，由于函数定义有两种方式，以变量方式var foo = function () {}定义的函数实际上也是一个全局变量，因此，顶层函数的定义也被视为一个全局变量，并绑定到window对象：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+//'use strict';
+
+function foo() {
+    alert('foo');
+}
+
+foo(); // 直接调用foo()
+window.foo(); // 通过window.foo()调用
+					    </code>
+		            </pre>
+		        </div>
+		        <p>进一步大胆地猜测，我们每次直接调用的alert()函数其实也是window的一个变量：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+//'use strict';
+
+window.alert('调用window.alert()');
+
+// 把alert保存到另一个变量:
+var old_alert = window.alert;
+
+// 给alert赋一个新函数:
+window.alert = function () {}
+alert('无法用alert()显示了!');
+
+// 恢复alert:
+window.alert = old_alert;
+alert('又可以用alert()了!');
+					    </code>
+		            </pre>
+		        </div>
+		        <p>这说明JavaScript实际上只有一个全局作用域。任何变量（函数也视为变量），如果没有在当前函数作用域中找到，就会继续往上查找，最后如果在全局作用域中也没有找到，则报ReferenceError错误。</p>
+			</section>
+			
+			<h3 class="r3-title">名字空间</h3>
+			<section class="r3-body">
+				<p>全局变量会绑定到window上，不同的JavaScript文件如果使用了相同的全局变量，或者定义了相同名字的顶层函数，都会造成命名冲突，并且很难被发现。<br>减少冲突的一个方法是把自己的所有变量和函数全部绑定到一个全局变量中。例如：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+// 唯一的全局变量MYAPP:
+var MYAPP = {};
+
+// 其他变量:
+MYAPP.name = 'myapp';
+MYAPP.version = 1.0;
+
+// 其他函数:
+MYAPP.foo = function () {
+    return 'foo';
+};
+					    </code>
+		            </pre>
+		        </div>
+		        <p>把自己的代码全部放入唯一的名字空间MYAPP中，会大大减少全局变量冲突的可能。<br>许多著名的JavaScript库都是这么干的：jQuery，YUI，underscore等等。</p>
+			</section>
+			
+			<h3 class="r3-title">局部作用域</h3>
+			<section class="r3-body">
+				<p>由于JavaScript的变量作用域实际上是函数内部，我们在for循环等语句块中是无法定义具有局部作用域的变量的：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+//'use strict';
+
+function foo() {
+    for (var i=0; i<100; i++) {
+        //
+    }
+    i += 100; // 仍然可以引用变量i
+}
+					    </code>
+		            </pre>
+		        </div>
+		        <p>为了解决块级作用域，ES6引入了新的关键字let，用let替代var可以申明一个块级作用域的变量：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+//'use strict';
+
+function foo() {
+    var sum = 0;
+    for (let i=0; i<100; i++) {
+        sum += i;
+    }
+    // SyntaxError:
+    i += 1;
+}
+					    </code>
+		            </pre>
+		        </div>
+			</section>
+			
+			<h3 class="r3-title">常量</h3>
+			<section class="r3-body">
+				<p>由于var和let申明的是变量，如果要申明一个常量，在ES6之前是不行的，我们通常用全部大写的变量来表示“这是一个常量，不要修改它的值”：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+var PI = 3.14;
+					    </code>
+		            </pre>
+		        </div>
+		        <p>ES6标准引入了新的关键字const来定义常量，const与let都具有块级作用域：</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+//'use strict';
+
+const PI = 3.14;
+PI = 3; // 某些浏览器不报错，但是无效果！
+PI; // 3.14
+
+					    </code>
+		            </pre>
+		        </div>
+			</section>
+			
+			<h3 class="r3-title">解构赋值</h3>
+			<section class="r3-body">
+				<p></p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+
+					    </code>
+		            </pre>
+		        </div>
+		        <p></p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+
+					    </code>
+		            </pre>
+		        </div>
+			</section>
+		</section>
+	</div>
+</div>
+</body>
+</html>

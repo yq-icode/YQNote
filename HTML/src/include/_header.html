@@ -13,14 +13,14 @@
 		{name:"AXURE", url:"/views/axure/index.html"},
 		{name:"Office", url:"/office/index.html"},
 		{name:"框架 • 插件", url:"/views/index.html"},
-		{name:"TAGS", url:"/views/tags.html"}
+		{name:"TAGS", url:"/views/tags.html"},
+		{name:"Test", url:"../test.html"}
 	]
-	var gNavHtml = "";
-	for(i=0;i<globalNav.length;i++){
-		var gn = globalNav[i];
-		gNavHtml += "<li>";
-		gNavHtml += "<a href='" + gn.url + "'>" + gn.name + "</a>";
-		gNavHtml += "</li>";
-	}
-	document.querySelector('ul').innerHTML = gNavHtml;
+	
+	$.each(globalNav, function(i,item) {
+		var _tb = i == globalNav.length -1 ? " target='_blank'>":">",
+			_hA = "<a href='" + item.url + "'" + _tb + item.name + "</a>";
+			
+		$('ul').append("<li>" + _hA + "</li>");
+	});
 </script>

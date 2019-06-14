@@ -184,8 +184,23 @@ table.render({
 		            </code>
 	            </pre>
 	        </div>
+	        
+	        <h3 class="r3-title">去除‘点击查看单元格中隐藏内容的效果’</h3>
+	        <p>去除‘点击查看单元格中隐藏内容的效果’，即去除下面图中的效果</p>
+			<img src="../images/P0003.png" class="screenPics" />
+			<p>通过修改CSS实现</p>
+			<div class="code-box">
+	            <pre class="language-css line-numbers">
+	                <code>   
+.layui-table-grid-down{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+		            </code>
+	            </pre>
+	        </div>
 		</section>
-		
 		
 	</div>
 </div>

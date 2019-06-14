@@ -1,0 +1,87 @@
+#wrap{
+	margin: 20px;
+	width: 680px;
+}
+.mt20{margin-top: 20px;}
+
+
+/* checkbox
+ * ******************************* */
+.layui-form-checkbox[lay-skin="primary"]{
+	padding-left: 20px;
+}
+.layui-form-checked[lay-skin="primary"] i{
+	border-color: #2593FC;
+	background-color: #2593FC;
+}
+.layui-form-checkbox[lay-skin="primary"]:hover i{
+	border-color: #2593FC;
+}
+.layui-form-checkbox[lay-skin="primary"].checkedPart i{
+	color: #2593FC;
+}
+.layui-form-checkbox[lay-skin="primary"].checkedPart i:before{
+	display: inline-block;
+	position: relative;
+	background-color: #2593FC;
+	content: '';
+	width: 8px;
+	height: 8px;
+	border-radius: 2px;
+}
+
+/* authTree
+ * ******************************* */
+.authTree .layui-layer-tips .layui-layer-content{
+	padding: 5px 0 7px 5px;
+}
+.authTree dl{
+	margin: 15px 0;
+}
+.authTree dl dt, .authTree dl dd{
+	line-height: 2.4;
+}
+.authTree dl dd{
+	margin-top: 5px;
+	border: 1px solid #BCC8CE;
+	padding: 5px 10px;
+}
+.authTree dl dd dt{
+	float: left;
+	width: 120px;
+}
+.authTree dl dd dd{
+	margin: 0 0 0 120px;
+	border: 0;
+	padding: 0;
+}
+.authTree dd > div{
+	position: relative;
+	display: inline-block;
+	margin-right: 15px;
+}
+.authTree > div{
+	position: relative;
+	clear: both;
+}
+.authTree .layui-form-checkbox span{
+	width: 90px;
+	padding-right: 0;
+	font-size: 12px;
+}
+/* 弹框部分 */
+.authTree .hbox{
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 28px;
+	z-index: 100;
+	width: 280px;
+	border: 1px solid #eee;
+	padding: 8px 10px 10px;
+	background-color: #F3F3F3;
+	border-radius: 5px;
+}
+.authTree .hbox .layui-form-checkbox span{
+	width: 40px;
+}

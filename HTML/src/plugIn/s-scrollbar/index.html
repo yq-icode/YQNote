@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<div class="reference">
+			<a href="https://github.com/gromo/jquery.scrollbar/"></a>
+		</div>
+		<div class="browser-support">
+			<div class="summary">IE7+</div>
+		</div>
+		
+		<h2 class="r2-title">使用说明</h2>
+		<section class="r2-body">
+			<h4 class="r4-title">不需要固定width、height</h4>
+			<p>大多数滚动条插件需要固定 width、height 以计算滚动条的尺寸，此插件不需要，当然也可以为其设置。有以下几种方法设置width、height：</p>
+			<ul class="list-decimal">
+				<li>为滚动条容器设置 max-height/max-width</li>
+				<li>为滚动条容器设置  height/width，单位可以为 百分比%和像素px </li>
+			</ul>
+			
+			<h4 class="r4-title">支持3种类型的滚动条</h4>
+			<p>只需要将 class = "scrollbar-inner/scrollbar-outer/scrollbar-external" 加到滚动条容器上即可。</p>
+			<p>此三种形式的区别没弄懂，第三种external的实例没弄出来。</p>
+			<dl class="dlist">
+				<dt>inner</dt>
+				<dd>scrollbar is displayed over content (Apple Mac OS)</dd>
+				<dt>outer</dt>
+				<dd>scrollbar shifts content to display itself (Microsoft Windows scrollbars)</dd>
+				<dt>external</dt>
+				<dd>scrollbar is located in any place of your page. So, you can choose between Apple Mac and Windows style scrollbar or even place it outside of the container and style it as you wish.</dd>
+			</dl>
+        </section>
+        
+        <h2 class="r2-title">Scrollbar Options</h2>
+        <section class="r2-body">
+        	<h4 class="r4-title">autoScrollSize</h4>
+        	<strong class="listTit">[true|false] (default: true)</strong>
+        	<p>根据容器尺寸自动计算滚动条的尺寸</p>
+        	
+        	<h4 class="r4-title">disableBodyScroll</h4>
+        	<strong class="listTit">[true|false] (default: false)</strong>
+        	<p>如果设置为 true，当鼠标在滚动条容器上时，body 部分无法滚动</p>
+        	
+        	<h4 class="r4-title">onInit</h4>
+        	<strong class="listTit">[function] (default: null)</strong>
+        	<p>滚动条初次初始化时的回调函数</p>
+        	
+        	<h4 class="r4-title">onScroll</h4>
+        	<strong class="listTit">[function] (default: null)</strong>
+        	<p>当滚动条滚动时的回调函数</p>
+        	
+        	<h4 class="r4-title">onUpdate</h4>
+        	<strong class="listTit">[function] (default: null)</strong>
+        	<p>计算滚动条尺寸时的回调函数</p>
+        	
+        	<h4 class="r4-title">onDestroy</h4>
+        	<strong class="listTit">[function] (default: null)</strong>
+        	<p>滚动条被销毁时的回调函数</p>
+        </section>
+	</div>
+</div>
+</body>
+</html>

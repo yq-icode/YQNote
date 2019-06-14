@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">.on()</h2>
+		<section class="r2-body">
+			<p class="reference">
+				<a href="https://www.jquery123.com/on/"></a>
+			</p>
+			<dl class="dlist">
+				<dt>ele 必须在页面文档中已经存在</dt>
+				<dd>事件处理只能绑定在当前被选中的元素上;而且，在您的代码调用.on()的时候，他们必须在页面文档中已经存在。为了确保目前的元素可以被选择的（注：即，存在），最好是在 document 的 ready 事件中进行事件绑定。（即 ele 必须在页面文档中已经存在）</dd>
+			</dl>
+			<h3 class="r3-title">直接事件 </h3>
+			<strong class="listTit">$(ele).on( events [, data ], handler(eventObject) )</strong>
+			<p>如果省略selector或者是null，那么事件处理程序被称为直接事件 或者 直接绑定事件 。每次选中的元素触发事件时，就会执行处理程序，不管它直接绑定在元素上，还是从后代（内部）元素冒泡到该元素的</p>
+			
+			<h3 class="r3-title">委托/代理事件</h3>
+			<strong class="listTit">$(ele).on( events [, selector ] [, data ], handler(eventObject) )</strong>
+			<p>当提供selector参数时，事件处理程序是指为委派 事件（注：通常也有很多人叫它代理事件）。事件不会在直接绑定的元素上触发，但当selector参数选择器匹配到后代（内部元素）的时候，事件处理函数才会被触发。jQuery 会从 event target 开始向上层元素(例如，由最内层元素到最外层元素)开始冒泡，并且在传播路径上所有绑定了相同事件的元素若满足匹配的选择器，那么这些元素上的事件也会被触发。</p>
+			
+			<dl class="dlist">
+				<dt>委托/代理事件优点1</dt>
+				<dd>委托事件有一个优势，他们能在后代元素添加到文档后，可以处理这些事件。即可以给未创建的后代元素绑定事件。</dd>
+				<dt>委托/代理事件优点2</dt>
+				<dd>
+					<p>当需要监视很多元素的时候，代理事件的开销更小。</p>
+					<div class="code-box">
+			            <pre class="language-js line-numbers">
+			                <code>
+//在一个表格的 tbody 中含有 1000 行，下面这个例子会为这 1000 元素绑定事件			                	
+$("#dataTable tbody tr").on("click", function(event){
+  	alert($(this).text());
+});
+
+//委派事件的方法只有一个元素的事件处理程序，tbody，并且事件只会向上冒泡一层（从被点击的tr 到 tbody ）
+$("#dataTable tbody").on("click", "tr", function(event){
+  	alert($(this).text());
+});
+							</code>
+			            </pre>
+			        </div>
+				</dd>
+				<dt>委托事件不能用于SVG</dt>
+			</dl>
+        </section>
+		<h2 class="r2-title">绑定 hover 事件</h2>
+		<section class="r2-body">
+			<p>用on给动态添加的元素绑定hover事件，以下写法是错误的。</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//错误写法	                	
+$('ul.course_lists').on('hover','li',function(){ 
+    // mouseenter dosomething 
+},function(){
+    // mouseleave dosomething
+});
+
+//错误写法
+$('ul.course_lists').on('hover','li',function(){});
+					</code>
+	            </pre>
+	        </div>
+	        
+			<h3 class="r3-title">分析</h3>
+			<strong class="listTit">$(selector).on(event,childSelector,data,function,map)</strong>
+			<dl class="dlist">
+				<dt>绑定方式一</dt>
+				<dd>在JQuery中，hover()函数本身是对 mouseenter mouseleave 的封装，然而在原生event中，并没有hover这一事件，所以在传递参数hover时，并不会有任何的效果。<br>
+如果想绑定类似hover的效果，可以绑定两个事件mouseenter mouseleave + 一个function</dd>
+				<dt>绑定方式二</dt>
+				<dd>在map里面，一个事件对应一个function</dd>
+			</dl>
+			
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//绑定方式一
+$('ul.course_lists').on('mouseenter mouseleave','li',function(){});
+
+//绑定方式二
+$('ul.course_lists li').on({
+    mouseenter:function(){},
+    mouseleave:function(){}
+});
+					</code>
+	            </pre>
+	        </div>
+        </section>
+	</div>
+</div>
+</body>
+</html>

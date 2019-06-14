@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>图片懒加载</title>
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="jquery.lazyload.1.9.1.js"></script>
+    <style>
+    	ul{
+    		display: flex;
+    		flex-direction: column;
+    	}
+    	li{
+    		list-style-type: none;
+    	}
+    </style>
+</head>
+<body>
+	<div id="wrap">
+		<ul class="piclist"></ul>
+    </div>
+    <script type="text/javascript">
+		var data = [
+			{"imgName":"1.jpg"},
+			{"imgName":"2.jpg"},
+			{"imgName":"3.png"},
+			{"imgName":"4.jpg"},
+			{"imgName":"5.jpg"},
+			{"imgName":"6.png"},
+			{"imgName":"7.jpg"},
+			{"imgName":"9.png"},
+			{"imgName":"index_28.jpg"},
+			{"imgName":"index_29.jpg"},
+			{"imgName":"index_30.jpg"},
+			{"imgName":"index_32.jpg"},
+			{"imgName":"index_36.jpg"},
+			{"imgName":"index_38.jpg"},
+		]
+		$.each(data, function(idx,item) {
+			$('.piclist').append("<li><img src='images/loading.gif' data-original='images/" + item.imgName + "' /></li>");
+		});
+		
+//		var num = document.getElementsByTagName('img').length;
+//      var img = document.getElementsByTagName("img");
+//      
+//      console.log(num);
+//      var n = 0;
+//      lazyload();                                
+//      window.onscroll = lazyload;
+//      function lazyload() {
+//          var seeHeight = document.documentElement.clientHeight;
+//          var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+//          for (var i = n; i < num; i++) {
+//              if (img[i].offsetTop < seeHeight + scrollTop) {
+//                  if (img[i].getAttribute("src") == "images/loading.gif") {
+//                      img[i].src = img[i].getAttribute("data-src");
+//                  }
+//                  n = i + 1;
+//              }
+//          }
+//      }
+		$(function() {
+      		$("img").lazyload({effect: "fadeIn"});
+  		});
+    </script>
+</body>
+</html>

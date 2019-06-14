@@ -45,16 +45,28 @@
 			<path>/KJ/VUE/</path>
 		</file>
 	</main>
+	<main title="ECharts">
+		<file>
+			<title>ECharts</title>
+			<name>index</name>
+			<path>/plugIn/ECharts/</path>
+		</file>
+	</main>
 	<main title="常用插件">
 		<file>
 			<title>mCustomScrollbar</title>
 			<name>index</name>
-			<path>/KJ/scrollbar/</path>
+			<path>/plugIn/s-mCustomScrollbar/</path>
+		</file>
+		<file>
+			<title>scrollbar</title>
+			<name>index</name>
+			<path>/plugIn/s-scrollbar/</path>
 		</file>
 		<file>
 			<title>tinyscrollbar</title>
 			<name>index</name>
-			<path>/KJ/scrollbar/</path>
+			<path>/plugIn/scrollbar/</path>
 		</file>
 		<file>
 			<title>select(搜索)</title>

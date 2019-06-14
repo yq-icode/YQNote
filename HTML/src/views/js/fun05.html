@@ -13,41 +13,57 @@
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
-		<h2 class="r2-title">$.each 和 $(selector).each()的区别详解</h2>
-		<div class="reference">
-			<a target="_blank" href="https://www.cnblogs.com/qq313462961/p/6111446.html"></a>
-		</div>
-		<p class="mt20">jQuery提供的each方法$.each是对参数一提供的对象的中所有的子元素逐一进行方法调用。而jQuery对象提供的each方法$(selector).each()则是对jQuery内 部的子元素进行逐个调用。</p>
-		<div class="r2-body">
-			<h3 class="r3-title">$(selector).each()</h3>
-			<p>这个方法主要用于DOM遍历</p>
+		<h2 class="r2-title">$(selector).each()</h2>
+		<section class="r2-body">
+			<div class="reference">
+				<a target="_blank" href="https://www.jquery123.com/each/"></a>
+			</div>
+			<p>这个方法主要用于迭代jQuery对象中的每一个DOM元素。</p>
+			<strong class="listTit">$(selector).each(function(index, Element){ })</strong>
+			<dl class="dlist">
+				<dt>index</dt>
+				<dd>当前对象的索引</dd>
+				<dt>Element</dt>
+				<dd>当前DOM元素，this == Element</dd>
+				<dt>$(this)</dt>
+				<dd>当前jQuery对象</dd>
+				<dt>return</dt>
+				<dd>可以使用 'return'来提前结束循环</dd>
+			</dl>
 			<div class="code-box">
-	            <pre class="language-js line-numbers">
+	            <pre class="language-html line-numbers">
 	                <code>   
-$("input[type='text']").each(function(i){
-	
-})
+&lt;ul>
+    &lt;li>foo&lt;/li>
+    &lt;li>bar&lt;/li>
+&lt;/ul>
 		            </code>
 	            </pre>
 	        </div>
-	        
-			<!************************************************->
-			<h3 class="r3-title">$.each</h3>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+$('li').each(function(index,ele){
+  	console.log(index + ':' + $(this).text()); //0:foo  1:bar
+  	alert(ele); //[object HTMLLIElement]
+	alert(this); //[object HTMLLIElement]
+	alert($(this)); //[object Object]
+});
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		
+		<h2 class="r2-title">$.each()</h2>
+		<section class="r2-body">
+			<div class="reference">
+				<a target="_blank" href="https://www.jquery123.com/jQuery.each/"></a>
+			</div>
+			<p>一个通用的迭代函数，它可以用来无缝迭代对象和数组。<br>$.each()返回false来终止迭代。返回非false相当于一个循环中的continue语句，这意味着，它会立即跳出当前的迭代，转到下一个迭代。</p>
+			<h4 class="r4-title">方法介绍</h4>
 			<div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>
-//遍历对象(有附加参数)	                	
-$.each(Object, function(p1, p2) {
-    this;       //这里的this指向每次遍历中Object的当前属性值
-    p1; p2;     //访问附加参数
-}, ['参数1', '参数2']);
-
-//遍历数组(有附件参数)
-$.each(Array, function(p1, p2){
-    this;       //这里的this指向每次遍历中Array的当前元素
-    p1; p2;     //访问附加参数
-}, ['参数1', '参数2']);
-
 //遍历对象(没有附加参数)
 $.each(Object, function(name, value) {
     this;      //this指向当前属性的值
@@ -55,22 +71,40 @@ $.each(Object, function(name, value) {
     value;     //value表示Object当前属性的值
 });
 
+//遍历对象(有附加参数)	                	
+$.each(Object, function(p1, p2) {
+    this;       //这里的this指向每次遍历中Object的当前属性值
+    p1; p2;     //访问附加参数
+}, ['参数1', '参数2']);
+
 //遍历数组(没有附加参数)
 $.each(Array, function(i, value) {
     this;      //this指向当前元素
     i;         //i表示Array当前下标
     value;     //value表示Array当前元素
 });
+
+//遍历数组(有附加参数)
+$.each(Array, function(p1, p2){
+    this;       //这里的this指向每次遍历中Array的当前元素
+    p1; p2;     //访问附加参数
+}, ['参数1', '参数2']);
 		            </code>
 	            </pre>
 	        </div>
-	        <p>下面为实例</p>
+	        <h4 class="r4-title">迭代数组与对象的实例</h4>
 	    	<div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>   
 var arr1 = [ "one", "two", "three"]; //一维数组
 var arr2 = [[1, 4, 3], [4, 6, 6], [7, 20, 9]]; //二维数组
 var obj = { one:"win1", two:2, three:3}; //JSON
+//对象数组
+var objArr = [
+	{"id":"1","tagName":"apple"},
+　　	{"id":"2","tagName":"banana"},
+　　	{"id":"3","tagName":"orange"}
+]
 		            </code>
 	            </pre>
 	        </div>
@@ -128,22 +162,24 @@ $.each(arr2, function(i,item){
 //遍历JSON
 $.each(obj, function(key,val){
 	console.log(key + ":" + obj[key]);
+	console.log(key + ":" + val);
 });
-//输出结果：one:win1  two:2  three:3
+//以上两种写法的输出结果均为：one:win1  two:2  three:3
 		            </code>
 	            </pre>
 	        </div>
+	        
 	        <div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>   
-
+//遍历数组对象
+$.each(objArr, function(i,item){
+	console.log(i + ":" + item.tagName);
+})
 		            </code>
 	            </pre>
 	        </div>
-		    <!************************************************->
-        
-        
+		</section>
 	</div>
-</div>
 </body>
 </html>

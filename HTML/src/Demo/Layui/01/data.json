@@ -1,0 +1,483 @@
+[
+	{
+		"name": "考试管理",
+		"state": "1",
+		"auth":null,
+		"child":[
+			{
+				"name":"考场管理",
+				"state":"1",
+				"auth":[
+					{"name":"查询", "state":"2", "auth":null, "child":null},
+					{"name":"添加", "state":"2", "auth":null, "child":null},
+					{"name":"编辑", "state":"2", "auth":null, "child":null},
+					{"name":"删除", "state":"0", "auth":null, "child":null},
+					{"name":"导入", "state":"0", "auth":null, "child":null},
+					{"name":"导出", "state":"2", "auth":null, "child":null}
+				],
+				"child":null
+			},
+			{
+				"name":"考试名单",
+				"state":"1",
+				"auth":[
+					{"name":"查询", "state":"2", "auth":null, "child":null},
+					{"name":"添加", "state":"2", "auth":null, "child":null},
+					{"name":"编辑", "state":"2", "auth":null, "child":null},
+					{"name":"导入", "state":"0", "auth":null, "child":null},
+					{"name":"导出", "state":"2", "auth":null, "child":null}
+				],
+				"child":null
+			},
+			{
+				"name":"考试安排",
+				"state":"1",
+				"auth":[
+					{"name":"查询", "state":"2", "auth":null, "child":null},
+					{"name":"添加", "state":"2", "auth":null, "child":null},
+					{"name":"编辑", "state":"2", "auth":null, "child":null},
+					{"name":"删除", "state":"0", "auth":null, "child":null},
+					{"name":"导入", "state":"0", "auth":null, "child":null},
+					{"name":"导出", "state":"2", "auth":null, "child":null}
+				],
+				"child":null
+			},
+			{
+				"name":"视频认证",
+				"state":"1",
+				"auth":[
+					{"name":"查询", "state":"2", "auth":null, "child":null},
+					{"name":"认证", "state":"2", "auth":null, "child":null},
+					{"name":"导入", "state":"0", "auth":null, "child":null},
+					{"name":"导出", "state":"2", "auth":null, "child":null}
+				],
+				"child":null
+			},
+			{
+				"name":"电子签名",
+				"state":"1",
+				"auth":[
+					{"name":"查询", "state":"2", "auth":null, "child":null},
+					{"name":"编辑", "state":"2", "auth":null, "child":null},
+					{"name":"删除", "state":"0", "auth":null, "child":null},
+					{"name":"导入", "state":"0", "auth":null, "child":null},
+					{"name":"导出", "state":"2", "auth":null, "child":null}
+				],
+				"child":null
+			},
+			{
+				"name":"异常处理",
+				"state":"1",
+				"auth":[
+					{"name":"查询", "state":"2", "auth":null, "child":null},
+					{"name":"处理", "state":"2", "auth":null, "child":null},
+					{"name":"导入", "state":"0", "auth":null, "child":null},
+					{"name":"导出", "state":"2", "auth":null, "child":null}
+				],
+				"child":null
+			},
+			{
+				"name":"缺考处理",
+				"state":"2",
+				"auth":[
+					{"name":"查询", "state":"2", "auth":null, "child":null},
+					{"name":"处理", "state":"2", "auth":null, "child":null},
+					{"name":"导入", "state":"2", "auth":null, "child":null},
+					{"name":"导出", "state":"2", "auth":null, "child":null}
+				],
+				"child":null
+			},
+			{
+				"name":"预警处理",
+				"state":"0",
+				"auth":[
+					{"name":"查询", "state":"0", "auth":null, "child":null},
+					{"name":"处理", "state":"0", "auth":null, "child":null},
+					{"name":"导入", "state":"0", "auth":null, "child":null},
+					{"name":"导出", "state":"0", "auth":null, "child":null}
+				],
+				"child":null
+			},
+			{
+				"name":"无弹框的菜单",
+				"state":"1",
+				"auth":null,
+				"child":null
+			}
+		]
+	},
+	{
+		"name": "系统管理",
+		"state":"1",
+		"auth":null,
+		"child": [
+			{
+				"name": "授权管理",
+				"state":"1",
+				"auth":null,
+				"child":[
+					{
+						"name":"用户管理",
+						"state":"2",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"2", "auth":null, "child":null},
+							{"name":"导入", "state":"2", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null},
+							{"name":"锁定", "state":"2", "auth":null, "child":null},
+							{"name":"解锁", "state":"2", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"角色管理",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"添加", "state":"0", "auth":null, "child":null},
+							{"name":"编辑", "state":"0", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null},
+							{"name":"锁定", "state":"0", "auth":null, "child":null},
+							{"name":"解锁", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"管理部门管理",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"添加", "state":"0", "auth":null, "child":null},
+							{"name":"编辑", "state":"0", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"权限管理",
+						"state":"2",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"2", "auth":null, "child":null},
+							{"name":"导入", "state":"2", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null},
+							{"name":"锁定", "state":"2", "auth":null, "child":null},
+							{"name":"解锁", "state":"2", "auth":null, "child":null}
+						],
+						"child":null
+					}
+				]
+			},
+			{
+				"name": "考场管理",
+				"state":"1",
+				"auth":null,
+				"child":[
+					{
+						"name":"计算机管理",
+						"state":"1",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null},
+							{"name":"锁定", "state":"0", "auth":null, "child":null},
+							{"name":"解锁", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"考试车管理",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"添加", "state":"0", "auth":null, "child":null},
+							{"name":"编辑", "state":"0", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"考试设备管理",
+						"state":"1",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null},
+							{"name":"锁定", "state":"0", "auth":null, "child":null},
+							{"name":"解锁", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"考试线路管理",
+						"state":"1",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"考场参数管理",
+						"state":"2",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"2", "auth":null, "child":null},
+							{"name":"导入", "state":"2", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"视频设备管理",
+						"state":"1",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null},
+							{"name":"锁定", "state":"0", "auth":null, "child":null},
+							{"name":"解锁", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"视频信息管理",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"添加", "state":"0", "auth":null, "child":null},
+							{"name":"编辑", "state":"0", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"场地设备",
+						"state":"1",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null},
+							{"name":"锁定", "state":"0", "auth":null, "child":null},
+							{"name":"解锁", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					}
+				]
+			},
+			{
+				"name": "系统参数",
+				"state":"1",
+				"auth":null,
+				"child":[
+					{
+						"name":"发证机关",
+						"state":"1",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"备案管理",
+						"state":"1",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"考试项目",
+						"state":"1",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"接口管理",
+						"state":"1",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"功能模块管理",
+						"state":"1",
+						"auth":[
+							{"name":"查询", "state":"2", "auth":null, "child":null},
+							{"name":"添加", "state":"2", "auth":null, "child":null},
+							{"name":"编辑", "state":"2", "auth":null, "child":null},
+							{"name":"删除", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"2", "auth":null, "child":null}
+						],
+						"child":null
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "查询统计",
+		"state":"0",
+		"auth":null,
+		"child": [
+			{
+				"name": "记录查询",
+				"state":"0",
+				"auth":null,
+				"child":[
+					{
+						"name":"预警查询",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"考试记录",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"记录抽查",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"操作记录",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					}
+				]
+			},
+			{
+				"name": "日志查询",
+				"state":"0",
+				"auth":null,
+				"child":[
+					{
+						"name":"操作日志",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"安全日志",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"审计日志",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					},
+					{
+						"name":"数据库审计",
+						"state":"0",
+						"auth":[
+							{"name":"查询", "state":"0", "auth":null, "child":null},
+							{"name":"导入", "state":"0", "auth":null, "child":null},
+							{"name":"导出", "state":"0", "auth":null, "child":null}
+						],
+						"child":null
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "信息发布",
+		"state":"2",
+		"auth":[
+			{"name":"查询", "state":"2", "auth":null, "child":null},
+			{"name":"导入", "state":"2", "auth":null, "child":null},
+			{"name":"导出", "state":"2", "auth":null, "child":null}
+		],
+		"child":null
+	}
+]

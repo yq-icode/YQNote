@@ -176,19 +176,19 @@
 		</sub>
 		<sub title="滚动条">
 			<file>
-				<title>jquery.mCustomScrollbar垂直滚动条</title>
+				<title>mCustomScrollbar垂直滚动条</title>
 				<name>scroll-1</name>
-				<path>demo/</path>
+				<path>/plugIn/s-mCustomScrollbar/</path>
 			</file>
 			<file>
-				<title>jquery.mCustomScrollbar水平滚动条</title>
+				<title>mCustomScrollbar水平滚动条</title>
 				<name>scroll-2</name>
-				<path>demo/</path>
+				<path>/plugIn/s-mCustomScrollbar/</path>
 			</file>
 			<file>
-				<title>jquery.mCustomScrollbar水平垂直滚动条</title>
+				<title>mCustomScrollbar水平垂直滚动条</title>
 				<name>scroll-3</name>
-				<path>demo/</path>
+				<path>/plugIn/s-mCustomScrollbar/</path>
 			</file>
 			<file>
 				<title>隐藏垂直滚动条</title>

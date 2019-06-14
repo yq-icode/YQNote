@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="基础">
+		<file>
+			<title>饼图</title>
+			<name>pie02</name>
+			<path>/plugIn/ECharts/views/</path>
+		</file>
+	</main>
+	<main title="实例">
+		<file>
+			<title>多饼图</title>
+			<name>pie01</name>
+			<path>/plugIn/ECharts/views/</path>
+		</file>
+	</main>
+</fileList>

@@ -3,6 +3,21 @@
 	<main title="JS">
 		<sub title="方法&amp;函数基础">
 			<file>
+				<title>函数基础1</title>
+				<name>fun22</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>函数</title>
+				<name>fun18</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>JQuery插件之$.fn</title>
+				<name>fun23</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
 				<title>原生JS Jquery操作DOM</title>
 				<name>_qb</name>
 				<path>/views/js/</path>
@@ -62,21 +77,20 @@
 				<name>fun17</name>
 				<path>/views/js/</path>
 			</file>
-		</sub>
+			<file>
+				<title>阻止冒泡和取消默认事件</title>
+				<name>fun21</name>
+				<path>/views/js/</path>
+			</file>		</sub>
 		<sub title="相似方法&amp;函数区别">
-			<file>
-				<title>addEventListener、removeEventListener、addEventListener和on的区别</title>
-				<name>_jsP01</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>(function($){})(jQuery)、$(function(){})、$(document).ready(function(){})三者的区别讲解</title>
-				<name>_jsP03</name>
-				<path>/views/js/</path>
-			</file>
 			<file>
 				<title>计时器 setInterval() clearInterval() setTimeout()区别</title>
 				<name>fun01</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>for循环、for in循环、for of循环、forEach</title>
+				<name>fun19</name>
 				<path>/views/js/</path>
 			</file>
 		</sub>
@@ -206,10 +220,32 @@
 		</sub>
 	</main>
 	<main title="JQUERY">
-		<sub title="API详解">
+		<sub title="基础">
+			<file>
+				<title>on事件绑定</title>
+				<name>fun20</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+		<sub title="相似方法">
 			<file>
 				<title>宽度类方法</title>
 				<name>api001</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>$.each 和 $(selector).each()的区别详解</title>
+				<name>fun05</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>attr与prop的区别</title>
+				<name>fun13</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>(function($){})(jQuery)、$(function(){})、$(document).ready(function(){})三者的区别讲解</title>
+				<name>_jsP03</name>
 				<path>/views/js/</path>
 			</file>
 		</sub>
@@ -220,11 +256,6 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>$.each 和 $(selector).each()的区别详解</title>
-				<name>fun05</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
 				<title>bind()、trigger()、on()</title>
 				<name>fun06</name>
 				<path>/views/js/</path>
@@ -232,11 +263,6 @@
 			<file>
 				<title>索引相关的操作</title>
 				<name>fun06</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>attr与prop的区别</title>
-				<name>fun13</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
