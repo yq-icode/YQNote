@@ -5,67 +5,19 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>测试</title>
-	<link href="plugIn/s-slick/slick/slick.css" rel="stylesheet" />
-    <link href="plugIn/s-slick/slick/slick-theme.css" rel="stylesheet" />
     <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="plugIn/s-slick/slick/slick.js"></script>
     <!--<script src="js/vue.js"></script>-->
     <style type="text/css">
-    	.picscroll{
-    		margin: 10px 25px;
-    		height: 250px;
-    	}
-    	.picscroll img{
-    		width: 100%;
-    	}
-    	.slick-prev::before, .slick-next::before{
-    		color: #000;
-    	}
-    	.shadow{
-    		display: flex;
-    		position: fixed;
-    		left: 0;
-    		top: 0;
-    		z-index: 10;
-    		width: 0;
-    		height: 100%;
-    		background-color: rgba(0,0,0,0.8);
-    		align-items: center;
-    		justify-content: center;
-    	}
-    	.shadow img{
-    		width: 95%;
-    	}
-    	
 	</style>
 </head>
 <body>
-	<div class="slider picscroll">
-		<div>
-			<img src="imgTest/p01.jpg" />
-		</div>
-		<div>
-			<img src="imgTest/p02.jpg" />
-		</div>
-		<div>
-			<img src="imgTest/p03.jpg" />
-		</div>
-	</div>
-	<div class="shadow">
-		<img src="" />
-	</div>
+	
 	<script>
-		$('.picscroll').slick({
-			adaptiveHeight:true,
-			dots:true
-		})
-		$('.picscroll img').click(function(){
-			$('.shadow').animate({'width':'100%'},500);
-			$('body .shadow img').attr('src', $(this).attr('src'));
-		})
-		$('.shadow').click(function(){
-			$(this).animate({'width':'0px'},500);;
-		})
+		var obj1 = {"name":"刘丽"};
+		var obj2 = {"age":22};
+		var obj3 = {"sex":"女"};
+		Object.assign(obj1, obj2, obj3);
+		console.log(obj1);
 	</script>
 </body>
 </html>

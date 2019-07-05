@@ -59,13 +59,21 @@ var rpAddr = e.detail.spAddr;
         <div class="code-box">
             <pre class="language-js line-numbers">
                 <code>
+//A页面设置要传递的参数
+var param = {
+	name:'Will Smith',
+	sex: 'male'
+}
 var webview = mui.openWindow({
 	url:'info.html',
 	extras:{
-		name:'mui'  //扩展参数
+		name:param  //扩展参数
 	}
 });
-console.log(webview.name);//输出mui字符串
+
+//B页面获取参数
+var param = plus.webview.currentWebview();
+console.log(param.name + param.sex);//输出mui字符串
     				</code>
             </pre>
         </div>

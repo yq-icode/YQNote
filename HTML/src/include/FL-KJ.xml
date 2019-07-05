@@ -1,29 +1,5 @@
 <?xml version="1.0"?>
 <fileList>
-	<main title="MVC">
-		<file>
-			<title>MVC基础</title>
-			<name>index</name>
-			<path>/views/mvc/</path>
-		</file>
-		<file>
-			<title>创建ASP.NET MVC WEB项目</title>
-			<name>mvc001</name>
-			<path>/views/mvc/</path>
-		</file>
-	</main>
-	<main title="SVG">
-		<file>
-			<title>SVG基础</title>
-			<name>index</name>
-			<path>/views/svg/</path>
-		</file>
-		<file>
-			<title>常用属性讲解</title>
-			<name>svg1</name>
-			<path>/views/svg/</path>
-		</file>
-	</main>
 	<main title="BOOTSTRAP">
 		<file>
 			<title>栅格布局不支持IE8该如何解决？</title>
@@ -52,26 +28,67 @@
 			<path>/plugIn/ECharts/</path>
 		</file>
 	</main>
+	<main title="MVC">
+		<file>
+			<title>MVC基础</title>
+			<name>index</name>
+			<path>/views/mvc/</path>
+		</file>
+		<file>
+			<title>创建ASP.NET MVC WEB项目</title>
+			<name>mvc001</name>
+			<path>/views/mvc/</path>
+		</file>
+		<file>
+			<title>Visual Studio SVN</title>
+			<name>mvc002</name>
+			<path>/views/mvc/</path>
+		</file>
+	</main>
+	<main title="SVG">
+		<file>
+			<title>SVG基础</title>
+			<name>index</name>
+			<path>/views/svg/</path>
+		</file>
+		<file>
+			<title>常用属性讲解</title>
+			<name>svg1</name>
+			<path>/views/svg/</path>
+		</file>
+	</main>
 	<main title="常用插件">
-		<file>
-			<title>mCustomScrollbar</title>
-			<name>index</name>
-			<path>/plugIn/s-mCustomScrollbar/</path>
-		</file>
-		<file>
-			<title>scrollbar</title>
-			<name>index</name>
-			<path>/plugIn/s-scrollbar/</path>
-		</file>
-		<file>
-			<title>tinyscrollbar</title>
-			<name>index</name>
-			<path>/plugIn/scrollbar/</path>
-		</file>
-		<file>
-			<title>select(搜索)</title>
-			<name>select1</name>
-			<path>/plugIn/select/</path>
-		</file>
+		<sub title="滚动条">
+			<file>
+				<title>mCustomScrollbar</title>
+				<name>index</name>
+				<path>/plugIn/s-mCustomScrollbar/</path>
+			</file>
+			<file>
+				<title>scrollbar</title>
+				<name>index</name>
+				<path>/plugIn/s-scrollbar/</path>
+			</file>
+			<file>
+				<title>tinyscrollbar</title>
+				<name>index</name>
+				<path>/plugIn/scrollbar/</path>
+			</file>
+		</sub>
+		<sub title="表单">
+			<file>
+				<title>select(搜索)</title>
+				<name>select1</name>
+				<path>/plugIn/select/</path>
+			</file>
+		</sub>
+		<sub title="富文本">
+			<file>
+				<title>wangEditor3</title>
+				<name>e-wangEditor3</name>
+				<path>/plugIn/</path>
+			</file>
+		</sub>
+		
 	</main>
 </fileList>

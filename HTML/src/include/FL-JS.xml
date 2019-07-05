@@ -13,6 +13,11 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
+				<title>对象</title>
+				<name>fun24</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
 				<title>JQuery插件之$.fn</title>
 				<name>fun23</name>
 				<path>/views/js/</path>
