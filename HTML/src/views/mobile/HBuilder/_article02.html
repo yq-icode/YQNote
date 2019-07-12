@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+    <link rel="stylesheet/less" href="/css/tutorial.less">
+    <script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/default.js"></script>
+</head>
+<body>
+	<article id="wrap">
+        <div class="ttBlock">
+            <h2 class="ttBlock_head">导入项目</h2>
+            <div class="ttBlock_body">
+            	<ol class="ttBlock-orderlist">
+                	<li class="ttBlock-list">
+                        <div class="ttBlock-list-txt">依次打开菜单栏->工具->预编译器设置，打开后是这样的：</div>
+                        <div class="ttBlock-list-media">
+                            <img src="../images/screenPics/hb01.png">
+                            <p>点击新建按钮</p>
+                            <img src="../images/screenPics/hb02.png">
+                        	<p>文件后缀为.less</p>
+                        	<p>触发命令地址就是lessc.cmd所在的地址（前提是已安装了less）</p>
+                        	<p>最后依次点击“智能完成”“确定”即可，以后每次less文件有改动保存的时候就会自动编译生成css文件了。如此只需在HTML文件中引用生成的CSS文件即可，不需要再在HTML文件中引用.less和less.js文件了。</p>
+                        	<p>但有的电脑会出现：'node' 不是内部或外部命令,也不是可运行的程序或批处理文件，这种情况就是你的电脑需要安装node.js，只需要安装node.js即可。</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div> 
+    </article>
+    
+    <script type="text/javascript">
+		addArticleTop();
+	</script>
+</body>
+</html>

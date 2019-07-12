@@ -8,16 +8,30 @@
     <script src="js/jquery-1.11.3.min.js"></script>
     <!--<script src="js/vue.js"></script>-->
     <style type="text/css">
+    	video{
+    		width: 500px;
+    	}
 	</style>
 </head>
 <body>
-	
+	<video src="images/clip1.mp4"></video>
+	<span id="time"></span>
+	<button type="button" id="play">play</button>
+	<button type="button" id="end">end</button>
 	<script>
-		var obj1 = {"name":"刘丽"};
-		var obj2 = {"age":22};
-		var obj3 = {"sex":"女"};
-		Object.assign(obj1, obj2, obj3);
-		console.log(obj1);
+		var video = document.getElementsByTagName("video")[0];
+		$('#play').click(function(){
+			video.play();
+		})
+		$('#end').click(function(){
+			video.pause();
+			video.currentTime = video.duration;
+			$('#time').html(video.currentTime);
+			console.log(video.ended);
+		})
+		video.onplay = function(){
+			$('#time').html(video.currentTime);
+		}
 	</script>
 </body>
 </html>

@@ -38,6 +38,11 @@
 			<path>/views/mobile/HBuilder/</path>
 		</file>
 		<file>
+			<title>HBuilder开启less自动编译</title>
+			<name>_article02</name>
+			<path>/views/mobile/HBuilder/</path>
+		</file>
+		<file>
 			<title>对页面/窗口的操作</title>
 			<name>winAct</name>
 			<path>/views/mobile/mui/</path>
