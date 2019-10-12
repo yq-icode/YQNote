@@ -111,7 +111,17 @@
 	</main>
 	<main title="LESS">
 		<file>
-			<title>box-shadow</title>
+			<title>import</title>
+			<name>less01</name>
+			<path>/views/less/</path>
+		</file>
+		<file>
+			<title>Mixins</title>
+			<name>less02</name>
+			<path>/views/less/</path>
+		</file>
+		<file>
+			<title>arguments</title>
 			<name>index</name>
 			<path>/views/less/</path>
 		</file>

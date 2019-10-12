@@ -5,33 +5,29 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>测试</title>
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <!--<script src="js/vue.js"></script>-->
+    <!-- <script src="js/jquery-1.11.3.min.js"></script> -->
+    <script src="js/vue.js"></script>
     <style type="text/css">
-    	video{
-    		width: 500px;
-    	}
+    	
 	</style>
 </head>
 <body>
-	<video src="images/clip1.mp4"></video>
-	<span id="time"></span>
-	<button type="button" id="play">play</button>
-	<button type="button" id="end">end</button>
+	<div id="app">
+		<blog-post title="My journey with Vue"></blog-post>
+		<blog-post title="Blogging with Vue"></blog-post>
+		<blog-post title="Why Vue is so fun"></blog-post>
+	</div>
+	
+
+
 	<script>
-		var video = document.getElementsByTagName("video")[0];
-		$('#play').click(function(){
-			video.play();
+		Vue.component('blog-post', {
+		  props: ['title'],
+		  template: '<h3>{{ title }}</h3>'
 		})
-		$('#end').click(function(){
-			video.pause();
-			video.currentTime = video.duration;
-			$('#time').html(video.currentTime);
-			console.log(video.ended);
+		new Vue({
+		  el: '#app'
 		})
-		video.onplay = function(){
-			$('#time').html(video.currentTime);
-		}
 	</script>
 </body>
 </html>

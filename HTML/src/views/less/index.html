@@ -14,15 +14,16 @@
 <div id="wrap">
 	<div id="wside"></div>
     <div id="wmain">
-        <section>
-            <h2 class="r2-title">box-shadow</h2>
-            <p>以下以box-shadow为例。</p>
+    	<h2 class="r2-title">默认参数 arguments</h2>
+        <section class="r2-body">
+        	<p>Less 可以使用默认参数，如果没有传参数，那么将使用默认参数。<br>@arguments 犹如 JS 中的 arguments， 指的是全部参数。<br>传的参数中 必须带着单位。</p>
+            <h3 class="r3-title">box-shadow</h3>
             <strong class="code-title">此写法只适合一组参数</strong>
             <div class="code-box">
                 <pre class="language-less line-numbers">
                     <code>
     .box-shadow(@x:0; @y:0; @blur-radius:0; @spread-radius:0; @color:#ccc; @rest…){
-        -webkit-box-shadow:@arguments;
+        -webkit-box-shadow:@arguments; //指的是全部参数
         -moz-box-shadow:@arguments;
         box-shadow:@arguments;
     }
@@ -34,7 +35,7 @@
             <div class="code-box">
                 <pre class="language-less line-numbers">
                     <code>
-    .btn4{.box-shadow(0,3px);}
+    .btn4{.box-shadow(0,3px);} //非零值必须带单位
     .btn4{.box-shadow(0,3px,0,0,#ccc);}
     .btn4{.box-shadow(0,3px,0,0,#ccc,inset);}
                     </code>
@@ -65,12 +66,9 @@
                     </code>
                 </pre>
             </div>
+            
+            <h3 class="r3-title">loop实现text-shadow长阴影效果</h3>
         </section>
-        <!-- **************** separator line ****************  -->
-        <h2 class="r2-title">同系列颜色的定义</h2>
-        <p>对于同系列颜色，如蓝色，不论是深蓝还是浅蓝，无论是字体颜色还是背景、边框等颜色，只需要定义一个颜色变量 @color:blue ，则其它的颜色可以通过 Color Operation Functions 来实现，如： darken(@color,20%),lighten(@color,50%)，这样的便利即是当需要将该蓝色系改成红色系时，只需要改 @color 的值就可以了，即：@color:red ，一步即完成转换。</p>
-        <!-- **************** separator line ****************  -->
-        <h2 class="r2-title">loop实现text-shadow长阴影效果</h2>
     </div>
 </div>
 </body>

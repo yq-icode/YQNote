@@ -3,6 +3,11 @@
 	<main title="JS">
 		<sub title="方法&amp;函数基础">
 			<file>
+				<title>JS模块化</title>
+				<name>fun25</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
 				<title>函数基础1</title>
 				<name>fun22</name>
 				<path>/views/js/</path>
@@ -86,7 +91,8 @@
 				<title>阻止冒泡和取消默认事件</title>
 				<name>fun21</name>
 				<path>/views/js/</path>
-			</file>		</sub>
+			</file>
+		</sub>
 		<sub title="相似方法&amp;函数区别">
 			<file>
 				<title>计时器 setInterval() clearInterval() setTimeout()区别</title>

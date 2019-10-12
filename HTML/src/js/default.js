@@ -65,12 +65,16 @@ $(function(){
 	if(reference_num > 0){
 		$(reference).each(function(){
 			var linkA = $(this).find('a');
-			$(this).prepend("摘自：");
 			for(var i=0;i<linkA.length;i++){ //当引用地址有多个时
 				$(linkA).eq(i).attr({
 					'target' : '_blank'
 				});
-				$(linkA).eq(i).text($(linkA).eq(i).attr('href'));
+				var hrefTxt = '<u>' + $(linkA).eq(i).attr('href') + '</u>';
+				if($(linkA).eq(i).html() != ''){
+					$(linkA).eq(i).append(' &lt; ' + hrefTxt + ' >');
+				}else{
+					$(linkA).eq(i).append(hrefTxt);
+				}
 			}
 		})
 	}

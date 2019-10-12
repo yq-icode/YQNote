@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>YQ-Note LESS</title>
+    <!--#include virtual="/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="css/less.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+    <div id="wmain">
+    	<h2 class="r2-title">import</h2>
+        <section class="r2-body">
+        	<h3 class="r3-title">文件后缀名</h3>
+        	<p>在less中，@import声明会根据引入的文件的后缀进行相应的解析。</p>
+        	<ul class="list-decimal">
+        		<li>如果文件是.css的后缀，该文件将会被解析成css样式，然后@import语句会保持原样。</li>
+        		<li>如果文件是其他类型的后缀的话，文件会被解析成less文件，然后进行导入。</li>
+        		<li>如果文件没有任何后缀，将会为文件添加.less的后缀，并且当成less文件进行导入。</li>
+        	</ul>
+            <div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+@import "foo";//会被当成foo.less导入
+@import "foo.less";//导入foo.less
+@import "foo.php";//会被当成foo.less导入
+@import "foo.css";//导入foo.css       
+                    </code>
+                </pre>
+            </div>
+        	<h3 class="r3-title">@import 的位置可随意放置</h3>
+        	<p>在标准css中，@import声明必须放在其他类型的声明之上，也就是放在顶部。但是在less中，@import声明可以放在任何地方。</p>
+            <div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+.foo {
+  background: #900;
+}
+@import "this-is-valid.less";         
+                    </code>
+                </pre>
+            </div>
+        </section>
+        
+        <h2 class="r2-title">Import Options</h2>
+        <section class="r2-body">
+        	<strong class="listTit">import options</strong>
+        	<dl class="dlist">
+        		<dt>reference</dt>
+        		<dd>只引用外部文件，但不会把导入的文件编译到最终输出中；</dd>
+        		<dt>inline</dt>
+        		<dd>将源文件包含进来但是不进行处理。</dd>
+        		<dt>less</dt>
+        		<dd>无论文件后缀是什么类型，都当成less格式的文件。</dd>
+        		<dt>css</dt>
+        		<dd>无论文件后缀是什么类型，都当成css格式的文件。</dd>
+        		<dt>once</dt>
+        		<dd>相同的文件只会被导入一次，而随后的导入文件的重复代码都不会解析。</dd>
+        		<dt>multiple</dt>
+        		<dd>允许导入多个同名文件。</dd>
+        		<dt>optional</dt>
+        		<dd>当文件没找到时会继续编译。</dd>
+        	</dl>
+        	<div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+//可以同时使用多个选项 ，选项间用逗号分隔                  	
+@import (optional, reference) "foo.less";       
+                    </code>
+                </pre>
+            </div>
+            
+            <h3 class="r3-title">reference</h3>
+            <p>使用@import (reference) 导入外部文件，导入的样式不会添加到编译输出，除非该样式被引用。</p>
+            <div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+@import (reference) "foo.less";      
+                    </code>
+                </pre>
+            </div>
+            
+            <h3 class="r3-title">inline</h3>
+            <p>当一个css文件可能无法被less所兼容时，你可以使用这个特性。尽管less支持大部分的标准css，但是它不支持在某些地方的comments和所有没有修改css的css hacks。
+所以你可以使用这个特性将文件包含进输出中，因此所有的css都会在一个文件中。</p>
+            <div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+@import (inline) "not-less-compatible.css";      
+                    </code>
+                </pre>
+            </div>
+            
+            <h3 class="r3-title">once</h3>
+            <p>@import语句的默认行为，意味着文件只会被导入一次，后续的导入相同文件的语句会被忽略。</p>
+            <div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+@import (once) "foo.less";
+@import (once) "foo.less";//该语句会被忽略     
+                    </code>
+                </pre>
+            </div>
+            
+            <h3 class="r3-title">multiple</h3>
+            <p>使用@import（multiple）会允许导入多个相同名字的文件，这行为跟once截然相反。</p>
+            <div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+//在文件foo.less中
+.a{
+    color: green; 
+}
+//在文件main.less
+@import (multiple) "foo.less";
+@import (multiple) "foo.less";
+
+//编译为：
+.a{
+    color: green;
+}
+.a{
+    color: green;
+} 
+                    </code>
+                </pre>
+            </div>
+            
+            <h3 class="r3-title">optional</h3>
+            <p>使用@import（optional）只会导入存在的文件。当导入一个找不到的文件时，如果没有optional的参数，less将会抛出一个fileerror的错误然后停止编译。</p>
+        </section>
+    </div>
+</div>
+</body>
+</html>

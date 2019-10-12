@@ -78,6 +78,11 @@
 			<path>/views/mobile/mui/</path>
 		</file>
 		<file>
+			<title>上拉加载与下拉刷新</title>
+			<name>mui006</name>
+			<path>/views/mobile/mui/</path>
+		</file>
+		<file>
 			<title>滚动</title>
 			<name>mui004</name>
 			<path>/views/mobile/mui/</path>

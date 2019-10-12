@@ -274,14 +274,29 @@ p{margin: 1em 0;}
 }*/
 /*引用(即文章摘取的URL地址)*/
 .reference{
+	position:relative;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	padding-left: 40px;
 	color: #aaa;
 	font-size: 12px;
 	font-family: "comic sans ms";
 }
-.reference a{
-	color: #aaa;
+.reference::before{
+	position: absolute;
+	left: 0;
+	top: 0;
+	content: '摘自：';
+	white-space:nowrap;
 }
-.reference a:nth-child(n+2){margin-left: 15px;}
+.reference a{
+	width:48%;
+	white-space: nowrap;
+	color: #aaa;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
 .reference a:hover{color: #333;}
 
 /*单独的链接引用*/
