@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>播放器进度条控制</title>
+    <link rel="stylesheet" href="/css/iconfont.css">
+	<link rel="stylesheet" href="/css/default.css">
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_485171_bnqff5zx8q6.css">
+    <link rel="stylesheet" href="css/playController.css">
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/mock.js"></script>
+    <script src="/js/default.js"></script>
+    <script src="js/playController.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<div id="pcBar"></div>
+		<div class="mt10">
+			<button type="button" id="setTimePoint">从断点时间（即指定时间点）开始播放</button>
+		</div>
+    </div>
+    <script type="text/javascript">
+		addArticleTop();//添加TOP
+		
+		//实时获取播放时间
+		function test(time,state,operation){
+//			console.log(time + " / " + state + " / " + operation);
+		}
+		
+		var pcBar = $('#pcBar').playController({
+			t_start : '09:21:52',
+	    	t_end : '10:10:31',
+	    	callbackVideoPlay: test
+		});
+		
+		//从断点开始播放
+		$('#setTimePoint').click(function(){
+			pcBar.setProgress('09:40:02');
+		})
+		
+    </script>
+</body>
+</html>

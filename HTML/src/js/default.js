@@ -71,7 +71,7 @@ $(function(){
 				});
 				var hrefTxt = '<u>' + $(linkA).eq(i).attr('href') + '</u>';
 				if($(linkA).eq(i).html() != ''){
-					$(linkA).eq(i).append(' &lt; ' + hrefTxt + ' >');
+					$(linkA).eq(i).append(' < ' + hrefTxt + ' >');
 				}else{
 					$(linkA).eq(i).append(hrefTxt);
 				}
@@ -95,7 +95,7 @@ $(function(){
 	var ref = document.querySelectorAll('.ref');
 	if(ref.length > 0){
 		$(ref).each(function(){
-			$(this).attr('target','_blank');
+			$(this).attr('target','_blank').append($(this).attr('href'));
 		})
 	}
 	
@@ -114,9 +114,30 @@ $(function(){
 		}
 	}
 	
-	
-	
 })
+
+/* 高亮显示关键字*/
+function keyLight(ele, key, bgColor){
+  	var sText = $(ele).html(),
+	  	bgColor = bgColor,    
+	  	sKey = "<span class='keyLight' style='background-color:" + bgColor + "'>" + key + "</span>",
+	  	num = -1,
+	  	rStr = new RegExp(key, "g"),
+	  	rHtml = new RegExp("\<.*?\>","ig"), //匹配html元素
+	  	aHtml = sText.match(rHtml); //存放html元素的数组
+  	sText = sText.replace(rHtml, '{~}');  //替换html标签
+  	sText = sText.replace(rStr,sKey); //替换key
+  	sText = sText.replace(/{~}/g,function(){  //恢复html标签
+    	num++;
+    	return aHtml[num];
+  	});
+
+  	$(ele).html(sText);
+}
+$(function(){
+	keyLight('#wmain','-jquery-');
+})
+
 
 //动态设置iframe高度，使其等于其内容页的高度，不出现垂直滚动条
 function ifrHeightAuto(){

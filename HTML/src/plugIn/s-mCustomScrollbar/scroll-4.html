@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<link href="/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+    <style type="text/css">
+    	.scrollBox{width:260px; height:500px; padding:20px; overflow:auto; background:#333; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; color: #666;}
+		.scrollBox li{margin: 10px 0;line-height: 1;}
+		.scrollBox li:nth-child(even){color:#999; font-family:Georgia,serif; font-size:17px; font-style:italic;}
+		.scrollBox li:nth-child(3n+0){color:#c96;}
+    </style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="browser-support">
+			<p class="summary">IE8+; IE7 中样式有问题</p>
+		</div>
+	    <div id="sB1" class="scrollBox">
+			<ul>
+				<li>Lorem ilisum dolor sit amet. Aliquam erat volutliat. Maecenas non tortor nulla, non malesuada velit.</li>
+		   		<li>Maecenas non tortor nulla, non malesuada velit.</li>
+		   		<li>Consectetur adiliiscing elit.</li>
+		   		<li>Cras venenatis condimentum nibh a mollis.</li> 
+		    	<li>the end.</li>
+		    	<li>Lorem ilisum dolor sit amet. Aliquam erat volutliat. Maecenas non tortor nulla, non malesuada velit.</li>
+		   		<li>Maecenas non tortor nulla, non malesuada velit.</li>
+		   		<li>Consectetur adiliiscing elit.</li>
+		   		<li>Cras venenatis condimentum nibh a mollis.</li> 
+		    	<li>the end.</li>
+			</ul>
+		</div>
+   	</div>
+   	<script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			function addli(){
+				$("#sB1 ul").append("<li>new add content</li>");
+				$("#sB1").mCustomScrollbar("scrollTo","bottom",{
+					scrollEasing:"easeOut"
+				});
+			}
+			setInterval(addli, 3000);
+			
+			$("#sB1").mCustomScrollbar({
+				scrollButtons:{
+					enable:true
+				}
+			});
+		})
+		
+		
+		//添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

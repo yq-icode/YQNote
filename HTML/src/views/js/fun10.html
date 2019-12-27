@@ -58,30 +58,86 @@ window.screen.availHeight
 	        </div>
 		</section>
 		
-		<h2 class="r2-title">鼠标事件及坐标</h2>
+		<h2 class="r2-title">鼠标事件 MouseEvent</h2>
+		<p class="reference">
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent"></a>
+		</p>
 		<section class="r2-body">
 			<h4 class="r4-title">clientX、clientY</h4>
+			<div class="browser-support">
+				<div class="summary">IE6+</div>
+			</div>
 			<p>点击位置距离当前body可视区域的x，y坐标</p>
 			
 			<h4 class="r4-title">pageX、pageY</h4>
+			<div class="browser-support">
+				<div class="summary">IE9+</div>
+			</div>
 			<p>对于整个页面来说，包括了被卷去的body部分的长度</p>
 			
 			<h4 class="r4-title">screenX、screenY</h4>
+			<div class="browser-support">
+				<div class="summary">IE6+</div>
+			</div>
 			<p>点击位置距离当前电脑屏幕的x，y坐标</p>
 			
 			<h4 class="r4-title">offsetX、offsetY</h4>
+			<div class="browser-support">
+				<div class="summary">IE6+</div>
+			</div>
 			<p>相对于带有定位的父盒子的x，y坐标</p>
 			
 			<h4 class="r4-title">x、y</h4>
-			<p>和screenX、screenY一样</p>
+			<div class="browser-support">
+				<div class="summary">IE6+</div>
+			</div>
+			<p>和clientX、clientY一样</p>
 			
 			<img src="images/screenPics/sc011.png" class="screenPics" />
 			<img src="images/screenPics/sc010.jpg" class="screenPics" />
 		</section>
+		
+		<h2 class="r2-title">.offset()与.position()区别</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">.offset() -jquery-</h3>
+			<a class="ref" href="https://www.jquery123.com/offset/"></a>
+			<ul class="list-decimal">
+				<li>获取/设置的坐标相对于文档（document）</li>
+				<li>若元素的属性设置的是 visibility:hidden，那么我们依然可以取得它的坐标。但是若设置的属性是 display:none，由于在绘制 DOM 树时根本就不绘制该元素，所以它的位置属性值是 undefined。 </li>
+				<li>.offset()方法允许我们重新设置元素的位置，这个元素的位置是相对于document对象的。如果对象原先的position样式属性是static的话，会被改成relative来实现重定位。</li>
+			</ul>
+			
+			<h3 class="r3-title">.position() -jquery-</h3>
+			<a class="ref" href="https://www.jquery123.com/position/"></a>
+			<ul class="list-decimal">
+				<li>获取匹配元素中第一个元素的当前坐标，相对于offset parent的坐标。（如果其祖先元素未定位，获取的则是相对于 html 的坐标）</li>
+			</ul>
+			
+			<h3 class="r3-title">offsetParent</h3>
+			<h4 class="r4-title">.offsetParent() -jquery-</h4>
+			<a class="ref" href="https://www.jquery123.com/offsetParent/"></a>
+			<p>取得离指定元素最近的含有定位信息的祖先元素。含有定位信息的元素指的是，CSS 的 position 属性是 relative, absolute, 或 fixed 的元素。</p>
+			<h4 class="r4-title">HTMLElement.offsetParent</h4>
+			<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetParent"></a>
+			<ul class="list-decimal">
+				<li>HTMLElement.offsetParent 是一个只读属性，返回一个指向最近的（指包含层级上的最近）包含该元素的 定位 元素或者最近的 table,td,th,body元素。</li>
+				<li>offsetTop 和  offsetLeft 都是相对于其内边距边界的。</li>
+				<li>在 Webkit 中，如果元素为隐藏的（该元素或其祖先元素的 style.display 为 "none"），或者该元素的 style.position 被设为 "fixed"，则该属性返回 null。</li>
+				<li>在 IE 9 中，如果该元素的 style.position 被设置为 "fixed"，则该属性返回 null。（display:none 无影响。）</li>
+			</ul>
+			
+			<h3 class="r3-title">HTMLElement.offsetLeft、HTMLElement.offsetTop</h3>
+			<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetLeft"></a><br>
+			<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetTop"></a>
+			<p>块元素和行内元素的 offsetLeft offsetTop 好像不一样，文档中有描述，未看懂。</p>
+			
+		</section>
 	</div>
 </div>
 <script>
-	console.log("*** screen.width:" + window.screen.width + " | screen.height:" + window.screen.height + " | screen.availWidth" + window.screen.availWidth + " | screen.availHeight" + window.screen.availHeight)
+	$(function(){
+		console.log("*** screen.width:" + window.screen.width + " | screen.height:" + window.screen.height + " | screen.availWidth" + window.screen.availWidth + " | screen.availHeight" + window.screen.availHeight)
+	})
 </script>
 </body>
 </html>

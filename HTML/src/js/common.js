@@ -58,5 +58,7 @@ $(document).ready(function() {
 });
 //show tooltip
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+	if($('[data-toggle="tooltip"]').length){
+		$('[data-toggle="tooltip"]').tooltip();
+	}
 })

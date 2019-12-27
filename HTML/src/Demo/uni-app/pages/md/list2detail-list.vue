@@ -21,20 +21,20 @@
 		},
 		methods: {
 			getData:function(){
-				Mock.mock("https://testdata.com",{
-					"listData|5":[{
-						"id|+1":1,
-						"age|18-28":25,
-						"sex|1":["男","女"],
-						"name":"@cname"
-					}]
-				})
-				uni.request({
-					url:"https://testdata.com",
-					success(res) {
-						console.log(res)
-					}
-				})
+				// Mock.mock({
+				// 	"listData|5":[{
+				// 		"id|+1":1,
+				// 		"age|18-28":25,
+				// 		"sex|1":["男","女"],
+				// 		"name":"@cname"
+				// 	}]
+				// })
+				// uni.request({
+				// 	url:"https://testdata.com",
+				// 	success(res) {
+				// 		console.log(res)
+				// 	}
+				// })
 			}
 		}
 	}

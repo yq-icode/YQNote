@@ -275,29 +275,24 @@ p{margin: 1em 0;}
 /*引用(即文章摘取的URL地址)*/
 .reference{
 	position:relative;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-between;
 	padding-left: 40px;
 	color: #aaa;
 	font-size: 12px;
 	font-family: "comic sans ms";
+	&::before{
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: '摘自：';
+    }
+    & > a{
+        margin-right: 20px;
+        white-space: nowrap;
+        color: #aaa;
+        text-overflow: ellipsis;
+        &:hover{color: #333;}
+    }
 }
-.reference::before{
-	position: absolute;
-	left: 0;
-	top: 0;
-	content: '摘自：';
-	white-space:nowrap;
-}
-.reference a{
-	width:48%;
-	white-space: nowrap;
-	color: #aaa;
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-.reference a:hover{color: #333;}
 
 /*单独的链接引用*/
 a.ref{
@@ -305,6 +300,7 @@ a.ref{
     background-color: #F3F3F3;
     font-family: "comic sans ms";
     color: #00A0D3;
+    font-size: 12px;
 }
 a.ref:hover{background-color: #ddd;color: #000;}
 a.ref:visited{color: #00A0D3;}
@@ -315,6 +311,17 @@ a.ref:visited{color: #00A0D3;}
 	border: 10px double #E5F0DE;
 	padding: 30px;
 }
+/*高亮显示关键字*/
+.keyLight{
+    padding: 1px 5px;
+    background-color: #becaa0;
+    text-transform: uppercase;
+    font-size: 8px;
+    color: #48470a;
+    .b-radius(20px);
+    text-shadow: none;
+}
+
 /*实例链接*/
 .expLink:link{
     font-size: 14px;

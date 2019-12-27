@@ -24,6 +24,13 @@
 			<path>/views/mobile/YS/</path>
 		</file>
 	</main>
+	<main title="uni-app">
+		<file>
+			<title>登录用户不是该小程序的开发者</title>
+			<name>ua001</name>
+			<path>/views/mobile/uni-app/</path>
+		</file>
+	</main>
 	<main title="jquerymobile">
 		<file>
 			<title>jquerymobile</title>

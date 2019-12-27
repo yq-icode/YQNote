@@ -5,34 +5,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="/css/iconfont.css" rel="stylesheet">
-	<link href="/css/default.less" rel="stylesheet/less">
+    <!--#include virtual="/include/_head_import_file.html" -->
     <script src="/js/less-2.5.3.min.js"></script>
-	<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script src="/js/default.js" type="text/javascript"></script>
 </head>
 <body>
 <!--#include virtual="/include/_header.html" -->
 <div id="wrap">
     <div id="wside"></div>
 	<div id="wmain">
-    	<h2 class="r2-title">Android系统的默认字体</h2>
+		<h2 class="r2-title">字体</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">字体格式</h3>
+			<section class="r3-body">
+				<h4 class="r4-title">.ttf 格式(TureTpe)</h4>
+				<div class="browser-support">
+					<p class="summary">IE9+; Firefox3.5+; Chrome4+; Safari3+; Opera10+; iOS Mobile Safari4.2+</p>
+				</div>
+				<p>.ttf字体是Windows和Mac的最常见的字体，是一种RAW格式，因此他不为网站优化。</p>
+				
+				<h4 class="r4-title">.otf 格式(OpenType)</h4>
+				<div class="browser-support">
+					<p class="summary">Firefox3.5+; Chrome4.0+; Safari3.1+; Opera10.0+; iOS; Mobile Safari4.2+</p>
+				</div>
+				<p>.otf字体被认为是一种原始的字体格式，其内置在TureType的基础上，所以也提供了更多的功能.</p>
+				
+				<h4 class="r4-title">.woff 格式(Web Open Font Format)</h4>
+				<div class="browser-support">
+					<p class="summary">IE9+; Firefox3.5+; Chrome6+; Safari3.6+; Opera11.1+</p>
+				</div>
+				<p>.woff字体是Web字体中最佳格式，他是一个开放的TrueType/OpenType的压缩版本，同时也支持元数据包的分离.</p>
+				
+				<h4 class="r4-title">.eot 格式(Embedded Open Type)</h4>
+				<div class="browser-support">
+					<p class="summary">IE4+</p>
+				</div>
+				<p>.eot字体是IE专用字体，可以从TrueType创建此格式字体.</p>
+				
+				<h4 class="r4-title">.svg 格式(SVG)</h4>
+				<div class="browser-support">
+					<p class="summary">Chrome4+; Safari3.1+; Opera10.0+; iOS Mobile Safari3.2+</p>
+				</div>
+				<p>.svg字体是基于SVG字体渲染的一种格式.</p>
+			</section>
+		</section>
+		
+		<h2 class="r2-title">@font-face</h2>
+		<section class="r2-body">
+			<p class="reference">
+				<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@font-face"></a>
+				<a href="https://www.runoob.com/cssref/css3-pr-font-face-rule.html"></a>
+			</p>
+			<h4 class="r4-title">兼容性写法</h4>
+			<div class="code-box">
+	        	<pre class="language-css line-numbers">
+	            	<code>
+@font-face {
+    font-family: 'YourWebFontName';
+    src: url('YourWebFontName.eot'); /* IE9 Compat Modes */
+    src: url('YourWebFontName.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+             url('YourWebFontName.woff') format('woff'), /* Modern Browsers */
+             url('YourWebFontName.ttf')  format('truetype'), /* Safari, Android, iOS */
+             url('YourWebFontName.svg#YourWebFontName') format('svg'); /* Legacy iOS */
+}
+	
+	                </code>
+	            </pre>
+	        </div>
+		</section>
+		
+    	<h2 class="r2-title">其它</h2>
         <section class="r2-body">
-        	<dl class="dlist">
-        		<dt>Roboto</dt>
-        		<dd>Roboto是为Android操作系统设计的一个无衬线字体家族</dd>
-        		<dt></dt>
-        		<dd></dd>
-        	</dl>
-        </section>
-        <h2 class="r2-title">Mac OS系统的默认字体</h2>
-        <section class="r2-body">
-        	<dl class="dlist">
-        		<dt>Helvetica</dt>
-        		<dd>Helvetica是一种被广泛使用的的西文字体，微软常用的Arial字体也来自于它。Helvetica被广泛用于全世界使用拉丁字母和西里尔字母的国家。</dd>
-        		<dt>Helvetica Neue</dt>
-        		<dd></dd>
-        	</dl>
+        	<h3 class="r3-title">解决iconfont图标在IE8下不显示的问题</h3>
+        	<section class="r3-body">
+        		<p>原先是这样的:</p>
+        		<img class="screenPics" src="images/screenPics/sc22.png" />
+        		<p>改成下面这样:</p>
+        		<img class="screenPics" src="images/screenPics/sc23.png" />
+        	</section>
+        	
+        	<h3 class="r3-title">Android/Mac OS系统的默认字体</h3>
+        	<section class="r3-body">
+        		<strong class="listTit">Android 系统的默认字体</strong>
+	        	<dl class="dlist">
+	        		<dt>Roboto</dt>
+	        		<dd>Roboto是为Android操作系统设计的一个无衬线字体家族</dd>
+	        	</dl>
+	        	<strong class="listTit">Mac OS 系统的默认字体</strong>
+	        	<dl class="dlist">
+	        		<dt>Helvetica</dt>
+	        		<dd>Helvetica是一种被广泛使用的的西文字体，微软常用的Arial字体也来自于它。Helvetica被广泛用于全世界使用拉丁字母和西里尔字母的国家。</dd>
+	        		<dt>Helvetica Neue</dt>
+	        		<dd></dd>
+	        	</dl>
+        	</section>
         </section>
         
    </div>

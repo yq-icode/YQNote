@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-@import "/css/global.less";
+@import "../../../../css/global.less";
 
 .topbar{
 	margin-bottom:20px;background-color:rgba(255,255,255,.7);
@@ -24,18 +24,58 @@
 }
 /*form-01
  ******************************************/
-.form-01 dd span{
-	display:inline-block;
-	width:14px;
-	height:14px;
+.form-01{
+    .checkbox, .radio{
+        display:inline-block;
+        margin:3px 5px;
+        line-height: 1.2;
+        background-repeat: no-repeat;
+        background-position: left center;
+        & > input{
+            opacity:0;
+            filter:alpha(opacity=0);
+        }
+    }
+    .checkbox{
+        background-image: url(../images/checkbox-off.png);
+        &.ckd{background-image:url(../images/checkbox-on.png);}
+    }
+    .radio{
+        background-image:url(../images/radio-off.png);
+        &.ckd{background-image:url(../images/radio-on.png);}
+    }
+    .switch{
+        position: relative;
+        display: inline-block;
+        width: 30px;
+        height: 16px;
+        background-color: #AAAAAA;
+        .b-radius(20px);
+        cursor: pointer;
+        transition: all 0.5s;
+        & > input{
+            opacity:0;
+            filter:alpha(opacity=0);
+        }
+        & > .dot{
+            position: absolute;
+            left: 2px;
+            top:2px;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            .b-radius(20px);
+            background-color: #FFFFFF;
+        }
+        &.on{
+            background-color: #CC3300;
+        }
+        &.on > .dot{
+            right: 2px;
+            left: auto;
+        }
+    }
 }
-.form-01 label{margin:0 10px 0 0;}
-.form-01 span.s_checkbox{background:url(../images/checkbox-off.png) no-repeat;}
-.form-01 span.s_checkbox.ckd{background:url(../images/checkbox-on.png) no-repeat;}
-.form-01 span.s_radio{background:url(../images/radio-off.png) no-repeat;}
-.form-01 span.s_radio.ckd{background:url(../images/radio-on.png) no-repeat;}
-
-.form-01 span input{margin:0;opacity:0;filter:alpha(opacity=0);}
 
 /*form-02
  ******************************************/
@@ -46,6 +86,7 @@
     background-color: #0575F4;
     color: #FFFFFF;
     font-size: 12px;
+    cursor: pointer;
 }
 .form-02 .btn-upload:hover{
     background-color: #0066cc;
@@ -65,6 +106,7 @@
  ******************************************/
 .form-03 .btn-upload{
     position: relative;
+    cursor: pointer;
 }
 .form-03 .btn-upload a{
     display: inline-block;
@@ -86,6 +128,52 @@
     height: 1px;
     overflow: hidden;
     visibility: hidden;
+}
+/*radio/checkbox列表
+ ******************************************/
+.custom-options{
+    .radio{
+        float: left;
+        display: inline-block;
+        margin: 0 0 5px 2%;
+        & + &{margin-top: 0;}
+    }
+    &.C2 span{width: 49%;}
+    &.C3 span{width: 32%;}
+    &.C4 span{width: 23.5%;}
+    &.C5 span{width: 18.4%;}
+    
+    &.C2 span:nth-of-type(2n+1),
+    &.C3 span:nth-of-type(3n+1),
+    &.C4 span:nth-of-type(4n+1),
+    &.C5 span:nth-of-type(5n+1){
+        margin-left: 0;
+    }
+    
+    & input[type="checkbox"], & input[type="radio"]{
+        position: absolute;
+        left: -9999px;
+        & + label{
+            display: inline-block;
+            width: 100%;
+            padding: 7px 10px;
+            background-color: #F7F7F7;
+            color: #666;
+            .b-radius(5px);
+            font-size: 1.3rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        &:checked + label{
+            color: #fff;
+            background-color: #0093FF;
+            .box-shadow(0, 3px, 8px, 0, rgba(80, 182, 255, 0.31));
+        }
+    }
 }
 
 /*数字增减框

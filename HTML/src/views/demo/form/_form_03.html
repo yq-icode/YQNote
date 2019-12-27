@@ -1,0 +1,19 @@
+<h4 class="r4-title">switch 开关</h4>
+<dl class="form-wrap form-01">
+    <dt>
+        <div class="browser-support">
+        	<div class="summary">IE7+</div>
+        </div>
+    </dt>
+    <dd>
+    	<label class="switch" for="switch1">
+    		<input id="switch1" type="checkbox" value="" />
+    		<i class="dot"></i>
+    	</label>
+    </dd>
+</dl>
+<script type="text/javascript">
+	$('.switch input').click(function(){
+		$(this).parent('.switch').toggleClass('on');
+	})
+</script>

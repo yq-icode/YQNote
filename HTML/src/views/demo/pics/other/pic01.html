@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet/less" href="/css/iconfont.css">
+	<link rel="stylesheet/less" href="/css/default.less">
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script src="/js/less-2.5.3.min.js"></script>
+    <script src="/js/default.js"></script>
+    <style>
+    	.picBox{
+    		position: relative;
+    		width: 200px;
+    		height: 150px;
+    		color: #fff;
+    		text-align: center;
+    	}
+    	#pc1:before{
+    		content: '';
+    		position: absolute;
+    		left: 0;
+    		top: 0;
+    		z-index:-1;
+    		width: 100%;
+    		height: 100%;
+    		background:url(images/img05.jpg) no-repeat;
+    		filter: opacity(50%);
+    		opacity:0.5;
+    	}
+    	#pc2{
+    		background:url(images/img05.jpg) no-repeat;
+			filter: opacity(50%);
+    		opacity:0.5;
+    	}
+    </style>
+</head>
+<body>
+<div id="wrap">
+	<h4 class="r4-title">法一（利用伪类）</h4>
+	<div class="browser-support">
+		<div class="summary">IE9+</div>
+	</div>
+	<div class="picBox" id="pc1">背景图片半透明效果</div>
+	
+	<h4 class="r4-title">法二</h4>
+	<div class="browser-support">
+		<div class="summary">IE9+</div>
+	</div>
+	<div class="picBox" id="pc2">
+		<div class="inner">背景图片半透明效果</div>
+	</div>
+</div>
+<script type="text/javascript">
+	addArticleTop();//添加TOP
+</script>
+</body>
+</html>

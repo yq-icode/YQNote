@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/user/index",
     "pages/md/index",
     "pages/index/index",
     "pages/md/list2detail-list",
@@ -25,9 +26,13 @@
       {
         "pagePath": "pages/md/index",
         "text": "模块"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "个人中心"
       }
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap62.json"
+  "sitemapLocation": "sitemap91.json"
 }

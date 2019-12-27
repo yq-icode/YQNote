@@ -32,6 +32,11 @@
 				<path>demo/form/</path>
 			</file>
 			<file>
+				<title>自定义表单列表(radio/checkbox)</title>
+				<name>form02</name>
+				<path>demo/form/</path>
+			</file>
+			<file>
 				<title>提交表单</title>
 				<name>form01</name>
 				<path>demo/form/</path>
@@ -195,6 +200,11 @@
 				<name>scroll-4</name>
 				<path>demo/</path>
 			</file>
+			<file>
+				<title>滚动到指定位置</title>
+				<name>scroll-3</name>
+				<path>demo/</path>
+			</file>
 		</sub>
 		<sub title="抽奖">
 			<file>
@@ -221,7 +231,7 @@
 			</file>
 			<file>
 				<title>播放器进度条控制</title>
-				<name>player-progress-control</name>
+				<name>playController</name>
 				<path>demo/</path>
 			</file>
 		</sub>

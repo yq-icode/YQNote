@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/mock.js"></script>
+	<script src="/js/default.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+    <style type="text/css">
+    	*{box-sizing: border-box;}
+    	.D1{ width:300px; height:300px; padding:20px;background-color: #424242; color: #eee;}
+		.scrollBox{
+			height: 100%;
+			overflow: auto;
+			line-height: 1.2;
+		}
+		.scrollBox li{
+			padding: 10px 0;
+		}
+		.scrollBox li.on{
+			background-color: #000;
+		}
+		.scrollBox li > span{
+			float: left;
+		}
+		.scrollBox li > p{
+			margin: 0 0 0 20px;
+		}
+    </style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="browser-support">
+			<p class="summary">IE6+</p>
+		</div>
+	    <div class="D1">
+	    	<div class="scrollBox">
+		    	<ul></ul>
+			</div>
+	    </div>
+	    <button type="button" class="mt10">scrollTo</button>
+   	</div>
+	<script type="text/javascript">
+		//添加TOP
+		addArticleTop();
+		
+		var data = Mock.mock({
+			"ct|10-15":[
+				{
+					"id|+1":1,
+					"content":"@csentence(8,30)"
+				}
+			]
+		})
+		var _html = "";
+		$.each(data.ct, function() {
+			_html = "<li>" +
+						"<span>" + this.id + "</span>" +
+						"<p>" + this.content + "</p>" +
+					 "</li>";
+			$('.scrollBox > ul').append(_html);
+		});
+		
+		$('.scrollBox > ul > li').first().addClass('on');
+		
+		var n = 0;
+		$('button').click(function(){
+			if(n<data.ct.length - 1){
+				n++;
+			}else{
+				n=0;
+			}
+			$('.scrollBox > ul > li').eq(n).addClass('on').siblings('li').removeClass('on');
+			var sbHeight = $(".scrollBox").height(),
+				posLi = $("ul > li.on").offset().top,
+				posBox = $(".scrollBox").offset().top;
+				
+			$(".scrollBox").animate({
+				scrollTop: posLi - posBox + $(".scrollBox").scrollTop() - sbHeight/2
+			},300);
+		})
+	</script>
+</body>
+</html>

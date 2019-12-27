@@ -1,20 +1,40 @@
+<h4 class="r4-title">radio checkbox 美化</h4>
 <dl class="form-wrap form-01">
     <dt>
-        <h5>radio checkbox 美化</h5>
         <div class="browser-support">
-        	<div class="summary">IE6+</div>
+        	<div class="summary">IE7+</div>
         </div>
     </dt>
-    <dd class="valignMid">
-        <span class="s_checkbox"><input id="ck1" type="checkbox" value="" /></span>
-        <label for="ck1">复选框</label>
-        <span class="s_radio"><input id="rad1" type="radio" value="" /></span>
-        <label for="rad1">单选框</label>
+    <dd>
+        <span class="checkbox">
+        	<input id="ck1" type="checkbox" name="ckbox" value="" />
+        	<label for="ck1">复选框1</label>
+        </span>
+        <span class="checkbox">
+        	<input id="ck2" type="checkbox" name="ckbox" value="" />
+        	<label for="ck2">复选框2</label>
+        </span>
+        <span class="radio">
+        	<input id="rad1" type="radio" name="rad" value="" />
+        	<label for="rad1">单选框1</label>
+        </span>
+        <span class="radio">
+        	<input id="rad2" type="radio" name="rad" value="" />
+        	<label for="rad2">单选框2</label>
+        </span>
     </dd>
-    <dd class="desc">注意点：将点击事件加在checkbox/radio上，因为label已经和chekcbox/radio关联，所以无论点击checkbox/radio还是label都有效果</dd>
+    <dd class="desc">
+    	注意点：将点击事件加在表单元素checkbox/radio上，因为label已经和chekcbox/radio关联，所以无论点击checkbox/radio还是label都有效果。<br>
+    	加在label标签上时，在<<摩托车考试系统－考试监控>>中测试时（测试的为 checkbox），第一次点击时，无法选中 checkbox，从第二次点击时才正常，原因不明。
+    </dd>
 </dl>
 <script type="text/javascript">
-	$('.form-01 span input').click(function(){
-		$(this).parent('span').toggleClass('ckd');
+	$('.checkbox input').click(function(){
+		console.log($(this).prop('checked'));
+		$(this).parent('.checkbox').toggleClass('ckd');
+	})
+	$('.radio input').click(function(){
+		console.log($(this).prop('checked'));
+		$(this).parent('.radio').addClass('ckd').siblings('.radio').removeClass('ckd');
 	})
 </script>

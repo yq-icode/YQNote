@@ -1,20 +1,77 @@
 <?xml version="1.0"?>
 <fileList>
 	<main title="JS">
-		<sub title="方法&amp;函数基础">
+		<sub title="JS基础">
 			<file>
-				<title>JS模块化</title>
-				<name>fun25</name>
+				<title>Web 基础</title>
+				<name>fun29</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>函数基础1</title>
+				<title>函数定义&amp;调用</title>
 				<name>fun22</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>函数</title>
+				<title>匿名函数/闭包</title>
 				<name>fun18</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>Array&amp;String</title>
+				<name>fun04</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>Number&amp;Math</title>
+				<name>fun02</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>Date 相关</title>
+				<name>fun16</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>use strict</title>
+				<name>fun26</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>this探讨</title>
+				<name>_jsP01</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>JS加载与执行顺序</title>
+				<name>fun14</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>运算符</title>
+				<name>fun17</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>语句和声明</title>
+				<name>fun27</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>选择器</title>
+				<name>fun31</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>正则表达式</title>
+				<name>fun32</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+		<sub title="方法&amp;函数基础">
+			<file>
+				<title>JS模块</title>
+				<name>fun25</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
@@ -38,28 +95,8 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>number相关函数</title>
-				<name>fun02</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>字符串、数组相关函数</title>
-				<name>fun04</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>Date相关函数</title>
-				<name>fun16</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
 				<title>打开新窗口</title>
 				<name>fun03</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>this探讨</title>
-				<name>_jsP01</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
@@ -68,23 +105,13 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>网页、屏幕尺寸</title>
+				<title>位置、尺寸</title>
 				<name>fun10</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
 				<title>异步、回调、闭包、事件监听等详解</title>
 				<name>fun09</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>JS加载与执行顺序</title>
-				<name>fun14</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>运算符</title>
-				<name>fun17</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
@@ -95,13 +122,23 @@
 		</sub>
 		<sub title="相似方法&amp;函数区别">
 			<file>
-				<title>计时器 setInterval() clearInterval() setTimeout()区别</title>
+				<title>setInterval、 clearInterval、 setTimeout</title>
 				<name>fun01</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>for循环、for in循环、for of循环、forEach</title>
+				<title>for、for in、for of、forEach、map</title>
 				<name>fun19</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>call、apply、bind、trigger</title>
+				<name>fun30</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>resize</title>
+				<name>fun28</name>
 				<path>/views/js/</path>
 			</file>
 		</sub>
@@ -267,7 +304,7 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>bind()、trigger()、on()</title>
+				<title>jQuery.inArray</title>
 				<name>fun06</name>
 				<path>/views/js/</path>
 			</file>
@@ -285,7 +322,7 @@
 	</main>
 	<main title="ECMAScript 6.0">
 		<file>
-			<title>ES6 教程</title>
+			<title>ES6 兼容</title>
 			<name>es001</name>
 			<path>/views/js/</path>
 		</file>

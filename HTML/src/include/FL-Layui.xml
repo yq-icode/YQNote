@@ -37,6 +37,11 @@
 			<path>/KJ/Layui/views/</path>
 		</file>
 		<file>
+			<title>tips</title>
+			<name>layer4</name>
+			<path>/KJ/Layui/views/</path>
+		</file>
+		<file>
 			<title>layer传值</title>
 			<name>layer3</name>
 			<path>/KJ/Layui/views/</path>

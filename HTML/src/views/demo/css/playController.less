@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+/*视频播放控制器 *
+ * ************/
+
+//@import "/css/global.less";
+
+@controlBarBgColor:#000; //播放控制器背景颜色
+@barTrackColor:#808080; //播放进度条轨迹颜色
+@barBlockColor:#fff; //播放块颜色
+@barColor:#fff; //已播放进度条颜色
+@controlBtnColor:#fff; //播放控制器按钮（播放/暂停、快进、快退）颜色
+@controlBtnHoverColor:#A22700; //播放控制器按钮HOVER颜色
+
+.controlBar{
+	line-height:40px;
+	overflow:hidden;
+	background-color: @controlBarBgColor;
+}
+.controlBar .btnBox{
+	float:left;
+	width:105px;
+	height:40px;
+	padding-left:10px;
+	background-color:#F17C55;
+	& > a{
+	    display:inline-block;
+        margin:0 5px 0;
+        color: @controlBtnColor;
+        font-size: 20px;
+        &:hover{
+            color: @controlBtnHoverColor;
+        }
+	}
+}
+
+.controlBar .barBox{
+	position:relative;
+	margin-left:115px;
+	height:40px;
+}
+.controlBar .barBox .bars{
+	position:relative;
+	top:15px;
+	margin:0 140px 0 11.5px;
+	height:12px;
+	cursor:default;
+	& > .bar,
+    & > .barTrack{
+        position:absolute;
+        left:0;
+        top:5px;
+        margin: 0;
+        width:100%;
+        height:2px;
+        background-color:@barTrackColor;
+    }
+    & > .bar{
+        background-color:@barColor;
+        width:0;
+        z-index:10;
+    }
+    & > .barBlock{
+        position:absolute;
+        left:0;
+        top:2px;
+        display: block;
+        width:4px;
+        height:8px;
+        background-color:@barBlockColor;
+        z-index:20;
+        cursor:pointer;
+    }
+    & > .timeStart,
+    & > .timeEnd,
+    & > .timeCur{
+        position: absolute;
+        top: 10px;
+        color: #999;
+        font-size: 9px;
+        line-height: 1;
+    }
+    & > .timeStart{
+        left: 0;
+    }
+    & > .timeEnd{
+        right: 0;
+    }
+    & > .timeCur{
+        top: -10px;
+        margin-left: -18px;
+        padding: 1px 2px;
+        background-color: #999;
+        color: #000;
+        &:empty{
+            padding: 0;
+        }
+    }
+}
+.controlBar .time{
+	position:absolute;
+	right:10px;
+	top:0;
+	color:#fff;
+	& > em{
+	    padding: 0 3px;
+        font-style: normal;
+	}
+}

@@ -69,6 +69,26 @@
             
             <h3 class="r3-title">loop实现text-shadow长阴影效果</h3>
         </section>
+        <h2 class="r2-title">@rest</h2>
+        <section>
+        	<div class="code-box">
+                <pre class="language-less line-numbers">
+                    <code>
+//别忘记为@rest参数加'...'
+.gradient-linear(@angle, @color_stop1, @color_stop2, @rest...){
+    background: -webkit-linear-gradient(@angle, @color_stop1, @color_stop2, @rest);
+    background: -moz-linear-gradient(@angle, @color_stop1, @color_stop2, @rest);
+    background: -ms-linear-gradient(@angle, @color_stop1, @color_stop2, @rest);
+    background: -o-linear-gradient(@angle, @color_stop1, @color_stop2, @rest);
+}
+//应用
+#video_overlay {
+    .gradient-linear(top,#000000,rgba(0,0,0,0.1) 80%,transparent);
+}
+                    </code>
+                </pre>
+            </div>
+        </section>
     </div>
 </div>
 </body>

@@ -1,31 +1,32 @@
 <?xml version="1.0"?>
 <fileList>
-	<main title="BOOTSTRAP">
-		<file>
-			<title>栅格布局不支持IE8该如何解决？</title>
-			<name>bs1</name>
-			<path>/views/bootstrap/</path>
-		</file>
-	</main>
-	<main title="Layui">
+	<main title="常用框架与插件">
 		<file>
 			<title>Layui</title>
 			<name>index</name>
 			<path>/KJ/Layui/</path>
 		</file>
-	</main>
-	<main title="VUE">
 		<file>
 			<title>VUE</title>
 			<name>index</name>
 			<path>/KJ/VUE/</path>
 		</file>
-	</main>
-	<main title="ECharts">
 		<file>
 			<title>ECharts</title>
 			<name>index</name>
 			<path>/plugIn/ECharts/</path>
+		</file>
+		<file>
+			<title>mockjs</title>
+			<name>index</name>
+			<path>/plugIn/mockjs/</path>
+		</file>
+	</main>
+	<main title="BOOTSTRAP">
+		<file>
+			<title>栅格布局不支持IE8该如何解决？</title>
+			<name>bs1</name>
+			<path>/views/bootstrap/</path>
 		</file>
 	</main>
 	<main title="MVC">

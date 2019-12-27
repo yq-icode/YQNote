@@ -13,7 +13,13 @@
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
-    	<h2 class="r2-title">Math方法</h2>
+		<p class="reference">
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number">Number 对象</a>
+			<a href="https://www.runoob.com/jsref/jsref-obj-number.html">Number 对象</a>
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math">Math 对象</a>
+			<a href="https://www.runoob.com/jsref/jsref-obj-math.html">Math 对象</a>
+		</p>
+    	<h2 class="r2-title">Math对象方法</h2>
     	<section class="r2-body">
     		<h3 class="r3-title">Math.floor(x)</h3>
 	    	<div class="code-box">
@@ -150,45 +156,10 @@ Math.sqrt(-9) --> NaN
 	        <p>sqrt()方法可返回一个数的平方根。x 必须是大于等于 0 的数,如果 x 小于 0，则返回 NaN。</p>
 	    </section>
 	    
-	    <h2 class="r2-title">parseInt(string, radix)</h2>
-		<section class="r2-body">
-			<p>parseInt() 函数可解析一个字符串，并返回一个整数。</p>
-	    	<strong class="mt20 dis-block">radix可选，表示要解析的数字的基数，该值介于 2 ~ 36 之间。</strong>
-			<ul class="list-decimal">
-				<li>radix:如果省略该参数或其值为 0，则数字将以 10 为基础来解析。</li>
-				<li>radix:如果该参数小于 2 或者大于 36，则 parseInt() 将返回 NaN。</li>
-			</ul>
-			<strong class="mt20 dis-block">当参数 radix 的值为 0，或没有设置该参数时，parseInt() 会根据 string 来判断数字的基数。</strong>
-			<ul class="list-decimal">
-				<li>如果 string 以 "0x" 开头，parseInt() 会把 string 的其余部分解析为十六进制的整数。</li>
-				<li>如果 string 以 1 ~ 9 的数字开头，parseInt() 将把它解析为十进制的整数。</li>
-				<li>如果 string 以 0 开头，那么 ECMAScript v3 允许 parseInt() 的一个实现把其后的字符解析为八进制或十六进制的数字。</li>
-			</ul>
-			<strong class="mt20 dis-block">注意</strong>
-			<ul class="list-decimal">
-				<li>如果字符串的第一个字符不能被转换为数字，那么 parseInt() 会返回 NaN。</li>
-				<li>只有字符串中的第一个数字会被返回。</li>
-				<li>开头和结尾的空格是允许的。</li>
-			</ul>
-	    	<div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>   
-	parseInt(string, radix)
-	//example
-	parseInt("10");         //十进制 10
-	parseInt("19",10);      //十进制 10+9=19
-	parseInt("11",2);       //二进制 2+1=3
-	parseInt("17",8);       //八进制 8+7=15
-	parseInt("1f",16);      //十六进制 16+15=31
-	parseInt("010");        //未定：返回 10 或 8
-	parseInt("He was 40");  //NaN	
-		                </code>
-	            </pre>
-	        </div>
-	    </section>
 	    <!------------------------------------------------>
-    	<h2 class="r2-title">toFixed()</h2>
+	    <h2 class="r2-title">Number 对象方法</h2>
     	<section class="r2-body">
+    		<h3 class="r3-title">toFixed()</h3>
 	    	<p>toFixed() 方法可把 Number 四舍五入为指定小数位数的数字。</p>
 	        <div class="code-box">
 	            <pre class="language-js line-numbers">
@@ -204,6 +175,65 @@ Math.sqrt(-9) --> NaN
 	        	<dt>num</dt>
 	        	<dd>必需。规定小数的位数，是 0 ~ 20 之间的值，包括 0 和 20，有些实现可以支持更大的数值范围。如果省略了该参数，将用 0 代替。</dd>
 	        </dl>
+	    </section>
+	    
+	    <h2 class="r2-title">全局函数</h2>
+		<section class="r2-body">
+			<p>全局函数可以直接调用，不需要在调用时指定所属对象，执行结束后会将结果直接返回给调用者。</p>
+			
+			<h3 class="r3-title">常用全局函数</h3>
+			<dl class="dlist">
+				<dt>parseFloat()</dt>
+				<dd>
+					<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseFloat"></a>
+				</dd>
+				<dt>isNaN()</dt>
+				<dd>
+					<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isNaN"></a>
+				</dd>
+				<dt>isFinite()</dt>
+				<dd>
+					<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isFinite"></a>
+				</dd>
+			</dl>
+			
+			<h3 class="r3-title">parseInt(string, radix)</h3>
+			<section class="r3-body">
+				<p>parseInt() 函数可解析一个字符串，并返回一个整数。</p>
+		    	<strong class="mt20 dis-block">radix可选，表示要解析的数字的基数，该值介于 2 ~ 36 之间。</strong>
+				<ul class="list-decimal">
+					<li>radix:如果省略该参数或其值为 0，则数字将以 10 为基础来解析。</li>
+					<li>radix:如果该参数小于 2 或者大于 36，则 parseInt() 将返回 NaN。</li>
+				</ul>
+				<strong class="mt20 dis-block">当参数 radix 的值为 0，或没有设置该参数时，parseInt() 会根据 string 来判断数字的基数。</strong>
+				<ul class="list-decimal">
+					<li>如果 string 以 "0x" 开头，parseInt() 会把 string 的其余部分解析为十六进制的整数。</li>
+					<li>如果 string 以 1 ~ 9 的数字开头，parseInt() 将把它解析为十进制的整数。</li>
+					<li>如果 string 以 0 开头，那么 ECMAScript v3 允许 parseInt() 的一个实现把其后的字符解析为八进制或十六进制的数字。</li>
+				</ul>
+				<strong class="mt20 dis-block">注意</strong>
+				<ul class="list-decimal">
+					<li>如果字符串的第一个字符不能被转换为数字，那么 parseInt() 会返回 NaN。</li>
+					<li>只有字符串中的第一个数字会被返回。</li>
+					<li>开头和结尾的空格是允许的。</li>
+				</ul>
+		    	<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>   
+		parseInt(string, radix)
+		//example
+		parseInt("10");         //十进制 10
+		parseInt("19",10);      //十进制 10+9=19
+		parseInt("11",2);       //二进制 2+1=3
+		parseInt("17",8);       //八进制 8+7=15
+		parseInt("1f",16);      //十六进制 16+15=31
+		parseInt("010");        //未定：返回 10 或 8
+		parseInt("He was 40");  //NaN	
+			                </code>
+		            </pre>
+		        </div>
+			</section>
+			
 	    </section>
     </div>
 </div>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.css" rel="stylesheet">
+	<link href="css/form.css" rel="stylesheet">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/default.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<div class="browser-support">
+			<div class="summary">IE9+</div>
+		</div>
+		<div class="custom-options C4 clearfix" id="zodsign"></div>
+		
+		<h4 class="r4-title">注意：</h4>
+		<section class="r4-body">
+			<img class="screenPics" src="images/p001.png" />
+			<img class="screenPics" src="images/p002.png" />
+			<p>注意：要加上左浮动属性，否则按上面的HTML排列，span元素之间默认会有间距，导致一行放不下所有元素，如果按下面排列，则无间距</p>
+			<img class="screenPics" src="images/p003.png" />
+			<p>所以，为了解决以上BUG，要加上左浮动属性</p>
+		</section>
+	</div>
+	<script type="text/javascript">
+		$.getJSON('images/d_register.json', function (d) {
+            var _h1 = "", _h2 = "", _h3 = "", _h4 = "";
+            $.each(d.ZodiacSign, function (i, val) {
+                _h1 += "<span class='radio'>";
+                _h1 += "<input type='radio' value='" + val + "' id='zodsign" + i + "' name='zodsign'>";
+                _h1 += "<label for='zodsign" + i + "'>" + val + "</label>";
+                _h1 += "</span>";
+            });
+            $('#zodsign').html(_h1);
+        })
+		//添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

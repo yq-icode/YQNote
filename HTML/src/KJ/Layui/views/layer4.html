@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Layui</title>
+	<link href="/css/prism.css" rel="stylesheet">
+    <link href="/css/iconfont.css" rel="stylesheet">
+	<link href="/css/default.less" rel="stylesheet/less">
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/less-2.5.3.min.js"></script>
+	<script src="/js/prism.js"></script>
+    <script src="/js/default.js"></script>
+    <style>
+    	
+    </style>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">遇到的问题</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">tips超出页面</h3>
+			<section class="r3-body">
+				<p>tips超出页面导致页面出现滚动条的问题，如下图</p>
+				<img class="screenPics" src="../images/P0005.png" />
+				<strong class="listTit">TIPS位置规律</strong>
+				<ul class="list-decimal">
+					<li>当TIPS方向为向上/下时，在靠近页面左边距时，TIPS与TD是左对齐的，在靠近页面右边距时，TIPS与TD是右对齐的；</li>
+					<li>当TIPS方向为向左/右时，在靠近页面左边距时，TIPS紧挨TD右边框出现，在靠近页面右边距时，TIPS紧挨TD左边框出现；</li>
+					<li>因此当TD隐藏部分超出页面边距时，就会导致页面滚动条出现</li>
+				</ul>
+				<strong class="listTit">出现原因</strong>
+				<p>上图设置的TIPS方向为向下，因此当鼠标移到TD上时，根据 "TIPS位置规律1"，由于TD只显示了一部分（隐藏部分已经超出了页面右边距），导致TIPS出现时，TIPS右边距也超出了页面右边距，从而致使页面现出滚动条。</p>
+				<strong class="listTit">解决方法</strong>
+				<ul class="list-decimal">
+					<li>将TIPS方向设置为向左或向右</li>
+					<li>将TIPS宽度设置为：(document.width - td.width)/2</li>
+				</ul>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>   
+$("td").hover(
+	function () {
+		var tipWidth = ($(document).width() - $(this).outerWidth())/2 - 20;
+    	idx = layer.tips("tips content", $(this), { tips: [2, "#333333"], time: 0, area: "auto", maxWidth: tipWidth });
+	}, 
+	function () {
+    	layer.close(idx);
+	}
+)	
+			            </code>
+		            </pre>
+		        </div>
+			</section>
+		</section>
+		
+	</div>
+</div>
+</body>
+</html>
