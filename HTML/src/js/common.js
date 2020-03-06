@@ -52,7 +52,7 @@ $(document).ready(function() {
 	var codebox = $('.code-box');
 	$(codebox).each(function(index, element) {
         if($(this).find('pre').hasClass('line-numbers')){
-			$(this).css({'padding-left':'50px'});
+			$(this).css({'padding-left':'20px'});
 		}
     });
 });

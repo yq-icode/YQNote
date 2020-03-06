@@ -135,7 +135,7 @@ function keyLight(ele, key, bgColor){
   	$(ele).html(sText);
 }
 $(function(){
-	keyLight('#wmain','-jquery-');
+	setTimeout(keyLight('#wmain','-jquery-'), 50);
 })
 
 

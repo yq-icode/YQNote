@@ -44,7 +44,14 @@
     	
     	
     	<h2 class="r2-title">注意点</h2>
-    	<p>需注意chrome强制最小字体为12号，即使设置成 10px 最终都会显示成 12px，当把html的font-size设置成10px,子节点rem的计算还是以12px为基准，所以网上很多文章提到的将html的font-size设为10方便计算不是那么可取</p>
+    	<p>需注意chrome强制最小字体为12号，即使设置成 10px 最终都会显示成 12px，当把html的font-size设置成10px,子节点rem的计算还是以12px为基准，所以网上很多文章提到的将html的font-size设为10方便计算不是那么可取，解决方法：</p>
+    	<div class="code-box">
+            <pre class="language-css line-numbers">
+                <code>
+html{font-size: 625%;}	
+			    </code>
+            </pre>
+        </div>
     </div>
 </div>
 </body>

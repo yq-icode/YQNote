@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<strong class="listTit">CSS 动画事件</strong>
+		<dl class="dlist">
+			<dt>animationstart</dt>
+			<dd>
+				某个 CSS 动画开始时触发。<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/Events/animationstart"></a>
+			</dd>
+			<dt>animationend</dt>
+			<dd>
+				某个 CSS 动画完成时触发。<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/Events/animationend"></a>
+			</dd>
+			<dt>animationiteration</dt>
+			<dd>
+				某个 CSS 动画完成后重新开始时触发。<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/animationiteration_event"></a>
+			</dd>
+		</dl>
+		<strong class="listTit">CSS 过渡事件</strong>
+		<dl class="dlist">
+			<dt>transitionstart</dt>
+			<dd>A CSS transition has actually started (fired after any delay).</dd>
+			<dt>transitionend</dt>
+			<dd>A CSS transition has completed.</dd>
+			<dt>transitioncancel</dt>
+			<dd>A CSS transition has been cancelled.</dd>
+			<dt>transitionrun</dt>
+			<dd>A CSS transition has begun running (fired before any delay starts).</dd>
+		</dl>
+	</div>
+</div>
+</body>
+</html>

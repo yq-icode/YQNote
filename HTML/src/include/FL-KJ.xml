@@ -29,21 +29,31 @@
 			<path>/views/bootstrap/</path>
 		</file>
 	</main>
-	<main title="MVC">
+	<main title="ASP.NET">
 		<file>
-			<title>MVC基础</title>
+			<title>ASP.NET</title>
 			<name>index</name>
-			<path>/views/mvc/</path>
+			<path>/views/ASP.NET/</path>
+		</file>
+		<file>
+			<title>MVC</title>
+			<name>mvc03</name>
+			<path>/views/ASP.NET/</path>
+		</file>
+		<file>
+			<title>Razor</title>
+			<name>razor01</name>
+			<path>/views/ASP.NET/</path>
 		</file>
 		<file>
 			<title>创建ASP.NET MVC WEB项目</title>
-			<name>mvc001</name>
-			<path>/views/mvc/</path>
+			<name>mvc01</name>
+			<path>/views/ASP.NET/</path>
 		</file>
 		<file>
 			<title>Visual Studio SVN</title>
-			<name>mvc002</name>
-			<path>/views/mvc/</path>
+			<name>mvc02</name>
+			<path>/views/ASP.NET/</path>
 		</file>
 	</main>
 	<main title="SVG">

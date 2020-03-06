@@ -52,13 +52,18 @@
 			<path>/views/css/</path>
 		</file>
 		<file>
-			<title>伪元素</title>
+			<title>伪元素&amp;伪类</title>
 			<name>pseudo</name>
 			<path>/views/css/</path>
 		</file>
 		<file>
 			<title>关于换行</title>
 			<name>text-wrap</name>
+			<path>/views/css/</path>
+		</file>
+		<file>
+			<title>字体图标</title>
+			<name>fontIcon</name>
 			<path>/views/css/</path>
 		</file>
 	</main>

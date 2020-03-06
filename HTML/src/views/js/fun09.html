@@ -13,20 +13,15 @@
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
-		<h2 class="r2-title">异步</h2>
+		<p class="reference">
+			<a href="https://wangdoc.com/javascript/async/general.html"></a>
+		</p>
+		<h2 class="r2-title">异步编程方法</h2>
 		<section class="r2-body">
-			<p>异步回调产生的结果就是，函数的调用并不直接返回结果，而往往是交给回调函数进行异步处理。</p>
-			<p>因此在异步编程当中，需要注意几个地方：</p>
-			<ul class="list-decimal">
-				<li>需要把依赖于异步函数(需要其执行结果或者达到某种状态)的代码放在对应的回调函数中</li>
-				<li>异步函数后面的代码会立即执行(因此需要知道某段代码是否为异步的)</li>
-			</ul>
-			<h3 class="r3-title">异步编程方法：计时器</h3>
-			<p>js里面最基础的异步实现就是调用setTimeout,setInterval。</p>
-			<h3 class="r3-title">异步编程方法：回调函数</h3>
-			<p class="reference">
-				<a href="https://www.cnblogs.com/zuobaiquan01/p/8477322.html"></a>
-			</p>
+			<h3 class="r3-title">计时器</h3>
+			<p>JS里面最基础的异步实现就是调用setTimeout, setInterval。</p>
+			
+			<h3 class="r3-title">回调函数</h3>
 			<dl class="dlist">
 				<dt>优点</dt>
 				<dd>简单、容易理解和部署</dd>
@@ -36,10 +31,7 @@
 			<p>回调并不一定就是异步。它们之间并没有直接关系。简单区分 同步回调 和 异步回调</p>
 			<img src="images/screenPics/sc007.png" />
 			
-			<h3 class="r3-title">异步编程方法：事件监听</h3>
-			<p class="reference">
-				<a href="https://www.cnblogs.com/zuobaiquan01/p/8477322.html"></a>
-			</p>
+			<h3 class="r3-title">事件监听</h3>
 			<p>采用事件驱动模式。任务的执行不取决代码的顺序，而取决于某一个事件是否发生。</p>
 			<dl class="dlist">
 				<dt>优点</dt>
@@ -48,16 +40,43 @@
 				<dd>整个程序都要变成事件驱动型，运行流程会变得不清晰。</dd>
 			</dl>
 			
+			<h3 class="r3-title">发布/订阅（又称观察者模式）</h3>
+			<a class="ref" href="https://plugins.jquery.com/tag/subscribe/"></a>
+			<p>上面地址为实现这种模式的插件，常用插件列举如下：</p>
+			<dl class="dlist">
+				<dt>Tiny Pub/Sub</dt>
+				<dd>
+					<a class="ref" href="https://github.com/cowboy/jquery-tiny-pubsub"></a>
+				</dd>
+				<dt>jquery-pubsub</dt>
+				<dd>
+					<a class="ref" href="https://github.com/digitalxero/jquery-pubsub"></a>
+				</dd>
+			</dl>
+			
 		</section>
 		
-		<h2 class="r2-title">回调</h2>
+		<h2 class="r2-title">异步操作的流程控制</h2>
 		<section class="r2-body">
-			<p>回调是一个函数被作为一个参数传递到另一个函数里，在那个函数执行完后再执行。（ 也即：B函数被作为参数传递到A函数里，在A函数执行完后再执行B ）</p>
-			<p>回调并不一定就是异步。他们自己并没有直接关系</p>
+			<p class="reference">
+				<a href="https://wangdoc.com/javascript/async/general.html#%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"></a>
+			</p>
+			<p>以下三种流程控制的讲解及代码请访问上面的地址</p>
+			<dl class="dlist">
+				<dt>串行执行</dt>
+				<dd>一个任务完成以后，再执行另一个。这就叫串行执行。</dd>
+				<dt>并行执行</dt>
+				<dd>即所有异步任务同时执行</dd>
+				<dt>并行与串行的结合</dt>
+				<dd>所谓并行与串行的结合，就是设置一个门槛，每次最多只能并行执行n个异步任务，这样就避免了过分占用系统资源。</dd>
+			</dl>
 		</section>
 		
 		<h2 class="r2-title">&lt;script&gt;标签异步加载</h2>
         <section class="r2-body">
+        	<p class="reference">
+        		<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/script"></a>
+        	</p>
 			<img src="images/screenPics/sc006.png" />
 		</section>
 		

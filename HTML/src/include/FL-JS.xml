@@ -8,7 +8,7 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>函数定义&amp;调用</title>
+				<title>函数定义、类别、调用</title>
 				<name>fun22</name>
 				<path>/views/js/</path>
 			</file>
@@ -43,11 +43,6 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>JS加载与执行顺序</title>
-				<name>fun14</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
 				<title>运算符</title>
 				<name>fun17</name>
 				<path>/views/js/</path>
@@ -58,13 +53,28 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>选择器</title>
+				<title>***待定***</title>
 				<name>fun31</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
 				<title>正则表达式</title>
 				<name>fun32</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>WEB 存储</title>
+				<name>fun33</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>异步</title>
+				<name>fun09</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>JS加载与执行顺序</title>
+				<name>fun14</name>
 				<path>/views/js/</path>
 			</file>
 		</sub>
@@ -85,7 +95,7 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>原生JS Jquery操作DOM</title>
+				<title>DOM 操作</title>
 				<name>_qb</name>
 				<path>/views/js/</path>
 			</file>
@@ -110,11 +120,6 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>异步、回调、闭包、事件监听等详解</title>
-				<name>fun09</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
 				<title>阻止冒泡和取消默认事件</title>
 				<name>fun21</name>
 				<path>/views/js/</path>
@@ -122,12 +127,12 @@
 		</sub>
 		<sub title="相似方法&amp;函数区别">
 			<file>
-				<title>setInterval、 clearInterval、 setTimeout</title>
+				<title>setInterval、 setTimeout</title>
 				<name>fun01</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>for、for in、for of、forEach、map</title>
+				<title>for、for in、for of、forEach、$(selector).each()、$.each()、map</title>
 				<name>fun19</name>
 				<path>/views/js/</path>
 			</file>
@@ -139,6 +144,25 @@
 			<file>
 				<title>resize</title>
 				<name>fun28</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+		<sub title="JSON">
+			<file>
+				<title>JSON</title>
+				<name>json</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>读取JSON数据的方法</title>
+				<name>json2</name>
+				<path>/views/js/</path>
+			</file>
+		</sub>
+		<sub title="动画">
+			<file>
+				<title>动画事件</title>
+				<name>fun34</name>
 				<path>/views/js/</path>
 			</file>
 		</sub>
@@ -282,7 +306,7 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
-				<title>$.each 和 $(selector).each()的区别详解</title>
+				<title>***待定***</title>
 				<name>fun05</name>
 				<path>/views/js/</path>
 			</file>
@@ -324,18 +348,6 @@
 		<file>
 			<title>ES6 兼容</title>
 			<name>es001</name>
-			<path>/views/js/</path>
-		</file>
-	</main>
-	<main title="JSON">
-		<file>
-			<title>JSON</title>
-			<name>json</name>
-			<path>/views/js/</path>
-		</file>
-		<file>
-			<title>读取JSON数据的方法</title>
-			<name>json2</name>
 			<path>/views/js/</path>
 		</file>
 	</main>

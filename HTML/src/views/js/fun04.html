@@ -21,56 +21,6 @@
 		</p>
 		<h2 class="r2-title">String 对象方法</h2>
 		<section class="r2-body">
-			<h3 class="r3-title">substring()</h3>
-	    	<div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>   
-	//substring() 方法用于提取字符串中介于两个指定下标之间的字符。
-	stringObject.substring(start,stop)
-		            </code>
-	            </pre>
-	        </div>
-		    <!************************************************->
-	    	<h3 class="r3-title">substr()</h3>
-	    	<div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>   
-	//substr() 方法可在字符串中抽取从 start 下标开始的指定数目的字符。
-	stringObject.substr(start,length)
-		            </code>
-	            </pre>
-	        </div>
-	        <!************************************************->
-	        <h3 class="r3-title">replace()</h3>
-	        <div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>   
-//replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
-stringObject.replace(regexp/substr,replacement)
-		            </code>
-	            </pre>
-	        </div>
-	        <!************************************************->
-	        <h3 class="r3-title">indexOf()</h3>
-	    	<div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>   
-	//indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
-	stringObject.indexOf(searchvalue,fromindex)
-		            </code>
-	            </pre>
-	        </div>
-	        <!************************************************->
-	        <h3 class="r3-title">lastIndexOf()</h3>
-	    	<div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>   
-	//lastIndexOf() 方法可返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索。
-	stringObject.lastIndexOf(searchvalue,fromindex)
-		            </code>
-	            </pre>
-	        </div>
-	        <!************************************************->
 	        <h3 class="r3-title">trim()</h3>
 	        <dl class="dlist">
 	        	<dt>$.trim(str) -- jquery方法</dt>
@@ -97,203 +47,19 @@ $.trim(message)  // [abc def]
 	        </div>
         </section>
         
-        
-        <h2 class="r2-title">Array 对象方法</h2>
+        <h2 class="r2-title">Array 操作</h2>
         <section class="r2-body">
-	        <!************************************************->
-	        <h3 class="r3-title">push()</h3>
-	        <p>
-	        	push()方法可向数组的末尾添加一个或多个元素，并返回新的长度。<br>
-	        	push() 方法可把它的参数顺序添加到 arrayObject 的尾部。它直接修改 arrayObject，而不是创建一个新的数组。
-	        </p>
-	        <strong class="listTit">arrayObject.push(newelement1,newelement2,....,newelementX)</strong>
+        	<strong class="listTit">合并数组</strong>
 	        <dl class="dlist">
-	        	<dt>newelement1</dt>
-	        	<dd>必需。要添加到数组的第一个元素。</dd>
-	        	<dt>newelement2</dt>
-	        	<dd>可选。要添加到数组的第二个元素。</dd>
-	        	<dt>newelementX</dt>
-	        	<dd>可选。可添加多个元素。</dd>
-	        </dl>
-	        <div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>   
-var arr = new Array(3)
-arr[0] = "George"
-arr[1] = "John"
-arr[2] = "Thomas"
-
-document.write(arr) //George,John,Thomas
-document.write(arr.push("James")) //4
-document.write(arr) //George,John,Thomas,James
-		            </code>
-	            </pre>
-	        </div>
-	        <!************************************************->
-	        <h3 class="r3-title">pop()</h3>
-	        <section class="r3-body">
-	        	<p>pop() 方法用于删除并返回数组的最后一个元素。</p>
-	        	<dl class="dlist">
-	        		<dt>arrayObject.pop()</dt>
-	        		<dd>pop() 方法将删除 arrayObject 的最后一个元素，把数组长度减 1，并且返回它删除的元素的值。如果数组已经为空，则 pop() 不改变数组，并返回 undefined 值。</dd>
-	        	</dl>
-	        	<div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>   
-var arr = new Array(3)
-arr[0] = "George"
-arr[1] = "John"
-arr[2] = "Thomas"
-
-document.write(arr) //George,John,Thomas
-document.write(arr.pop())  //Thomas
-document.write(arr) //George,John
-		            </code>
-	            </pre>
-	        </div>
-	        </section>
-	        
-	        <h3 class="r3-title">shift()</h3>
-	        <section class="r3-body">
-	        	
-	        </section>
-	        
-	        <h3 class="r3-title">unshift()</h3>
-	        <section class="r3-body">
-		        <p>
-		        	unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度。
-		        </p>
-		        <p>
-		        	unshift() 方法将把它的参数插入 arrayObject 的头部，并将已经存在的元素顺次地移到较高的下标处，以便留出空间。该方法的第一个参数将成为数组的新元素 0，如果还有第二个参数，它将成为新的元素 1，以此类推。
-		        </p>
-		        <strong class="listTit">arrayObject.unshift(newelement1,newelement2,....,newelementX)</strong>
-		        <dl class="dlist">
-		        	<dt>newelement1</dt>
-		        	<dd>必需。向数组添加的第一个元素。</dd>
-		        	<dt>newelement2</dt>
-		        	<dd>可选。向数组添加的第二个元素。</dd>
-		        	<dt>newelementX</dt>
-		        	<dd>可选。可添加若干个元素。</dd>
-		        	<dt>注意</dt>
-		        	<dd>此方法无法在 Internet Explorer 中正确地工作！</dd>
-		        </dl>
-		        <div class="code-box">
-		            <pre class="language-js line-numbers">
-		                <code>   
-	var arr = new Array()
-	arr[0] = "George"
-	arr[1] = "John"
-	arr[2] = "Thomas"
-	
-	document.write(arr) //George,John,Thomas
-	document.write(arr.unshift("William")) //4
-	document.write(arr) //William,George,John,Thomas
-	
-			            </code>
-		            </pre>
-		        </div>
-		    </section>
-		    
-	        <h3 class="r3-title">splice()</h3>
-	        <p>
-	        	splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。<br>
-	        	splice() 方法可删除从 index 处开始的零个或多个元素，并且用参数列表中声明的一个或多个值来替换那些被删除的元素。
-	        </p>
-	        
-	        <strong class="listTit">arrayObject.splice(index,howmany,item1,.....,itemX)</strong>
-	        <dl class="dlist">
-	        	<dt>index</dt>
-	        	<dd>必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。</dd>
-	        	<dt>howmany</dt>
-	        	<dd>必需。要删除的项目数量。如果设置为 0，则不会删除项目。</dd>
-	        	<dt>item1,.....,itemX</dt>
-	        	<dd>可选。向数组添加的新项目。</dd>
-	        	<dt>注意</dt>
-	        	<dd>该方法会改变原始数组。</dd>
-	        </dl>
-	        <div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>   
-var arr = new Array(6)
-arr[0] = "George"
-arr[1] = "John"
-arr[2] = "Thomas"
-arr[3] = "James"
-arr[4] = "Adrew"
-arr[5] = "Martin"
-
-//例1
-document.write(arr) //George,John,Thomas,James,Adrew,Martin
-arr.splice(2,0,"William")
-document.write(arr) //George,John,William,Thomas,James,Adrew,Martin
-
-//例2
-document.write(arr) //George,John,Thomas,James,Adrew,Martin
-arr.splice(2,3,"William")
-document.write(arr) //George,John,William,Martin
-
-
-		            </code>
-	            </pre>
-	        </div>
-	        <!************************************************->
-	        <h3 class="r3-title">slice()</h3>
-	        <p>slice() 方法可从已有的数组中返回选定的元素。</p>
-	        <strong class="listTit">arrayObject.slice(start,end)</strong>
-	        <dl class="dlist">
-	        	<dt>start</dt>
-	        	<dd>必需。规定从何处开始选取。如果是负数，那么它规定从数组尾部开始算起的位置。也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。</dd>
-	        	<dt>end</dt>
-	        	<dd>可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素。</dd>
-	        	<dt>说明</dt>
+	        	<dt>concat() 合并两个或多个数组</dt>
 	        	<dd>
-	        		返回一个新的数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素。<br>
-	        		如果 end 未被规定，那么 slice() 方法会选取从 start 到数组结尾的所有元素。<br>
+	        		<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat">concat() </a>
 	        	</dd>
-	        	<dt>注意</dt>
-	        	<dd>该方法并不会修改数组，而是返回一个子数组。如果想删除数组中的一段元素，应该使用方法 Array.splice()。</dd>
+	        	<dt>apply() 将数组添加到另一个数组</dt>
+	        	<dd>
+	        		<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">apply() </a>
+	        	</dd>
 	        </dl>
-	        <div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>
-var arr = new Array(6)
-arr[0] = "George"
-arr[1] = "John"
-arr[2] = "Thomas"
-arr[3] = "James"
-arr[4] = "Adrew"
-arr[5] = "Martin"
-
-document.write(arr) //George,John,Thomas,James,Adrew,Martin
-document.write(arr.slice(3)) //James,Adrew,Martin
-document.write(arr.slice(2,4)) //Thomas,James
-document.write(arr) //George,John,Thomas,James,Adrew,Martin
-		            </code>
-	            </pre>
-	        </div>
-	        
-	        <h3 class="r3-title">reverse()</h3>
-	        <section class="r3-body">
-		        <p>reverse() 方法用于颠倒数组中元素的顺序。该方法会改变原来的数组，而不会创建新的数组。</p>
-		        <div class="code-box">
-		            <pre class="language-js line-numbers">
-		                <code>
-	var arr = new Array(3)
-	arr[0] = "George"
-	arr[1] = "John"
-	arr[2] = "Thomas"
-	
-	document.write(arr) //George,John,Thomas
-	document.write(arr.reverse()) //Thomas,John,George
-			            </code>
-		            </pre>
-		        </div>
-	        </section>
-	        
-	        <h3 class="r3-title">sort()</h3>
-	        <section class="r3-body">
-	        	<p>sort() 方法用于对数组的元素进行排序。</p>
-	        </section>
 	    </section>
 	    
 	    <h2 class="r2-title">字符串→数组</h2>

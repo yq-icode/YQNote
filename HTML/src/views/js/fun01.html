@@ -13,6 +13,9 @@
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
+		<p class="reference">
+			<a href="https://wangdoc.com/javascript/async/timer.html"></a>
+		</p>
     	<h2 class="r2-title">setInterval()与clearInterval()</h2>
     	<section class="r2-body">
 	    	<p>clearInterval() 方法可取消由 setInterval() 设置的 timeout。clearInterval() 方法的参数必须是由 setInterval() 返回的 ID 值。</p>
@@ -50,6 +53,7 @@ setTimeout(code,millisec)
 setTimeout(showAlert, 1000); //正确写法
 setTimeout("showAlert()", 1000); //正确写法
 setTimeout(showAlert(), 1000); //错误写法
+setTimeout('console.log(2)',1000); //正确写法
 
 clearTimeout(id_of_settimeout)
 //id_of_settimeout 	由setTimeout()返回的ID值。该值标识要取消的延迟执行代码块。
@@ -57,6 +61,22 @@ clearTimeout(id_of_settimeout)
 	            </pre>
 	        </div>
 	        <p>setTimeout()只执行 code 一次。如果要多次调用，请使用 setInterval()或者让 code自身再次调用 setTimeout()。</p>
+	    </section>
+	    
+	    <h2 class="r2-title">运行机制</h2>
+	    <section class="r2-body">
+	    	<a class="ref" href="https://wangdoc.com/javascript/async/timer.html#%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6">运行机制详解请点击此处 </a>
+	    </section>
+	    
+	    <h2 class="r2-title">应用</h2>
+	    <section class="r2-body">
+	    	<h3 class="r3-title">setTimeout(f, 0) 应用</h3>
+	    	<a class="ref" href="https://wangdoc.com/javascript/async/timer.html#settimeoutf-0"></a>
+	    	<p>setTimeout(f, 0) 典型的应用为 "可以调整事件的发生顺序"，有几个常用实例，具体请点击上面查看</p>
+	    	
+	    	<h3 class="r3-title">debounce （防抖动）函数</h3>
+	    	<a class="ref" href="https://wangdoc.com/javascript/async/timer.html#%E5%AE%9E%E4%BE%8B%EF%BC%9Adebounce-%E5%87%BD%E6%95%B0"></a>
+	    	<p>当用户连续操作时，如何阻止函数被频繁调用，请看上面</p>
 	    </section>
     </div>
 </div>
