@@ -1,3 +1,17 @@
+文件目录：
+/static/css/
+/static/js/
+/static/fonts/
+/static/images/
+/static/include/
+/static/components/（放插件和框架）
+
+/plugIn/（放插件总结及DEMO）
+/KJ/（放各种框架总结及DEMO）
+
+待调整：
+将axure移到到/KJ/下
+
 /****************************************************/
  *SRC结构
 /****************************************************/

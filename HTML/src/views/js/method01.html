@@ -98,7 +98,7 @@ stopDefault = function(e){
 	            </pre>
 	        </div>
 	    </section>
-	    <!************************************************->
+	    
         <h2 class="r2-title">页面前进、后退、刷新</h2>
         <p>history.back(-1)和history.go(-1)的区别</p>
         <div class="code-box">
@@ -118,6 +118,60 @@ window.history.back()
             </pre>
         </div>
         
+        <h2 class="r2-title">点击空白关闭弹窗</h2>
+        <div class="code-box">
+            <pre class="language-html line-numbers">
+                <code>
+&lt;div class="myDropdown">
+	&lt;div class="myDropdown-toggle">Never&lt;/div>
+	&lt;div class="myDropdown-menu">pop box...&lt;/div>
+&lt;/div>
+		        </code>
+            </pre>
+        </div>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var myDd = $('.myDropdown'); 
+
+$(myDd).on('click', '.myDropdown-toggle', function(){
+	$(this).next('.myDropdown-menu').slideToggle(10);
+})
+		        </code>
+            </pre>
+        </div>
+        <h4 class="r4-title">法一</h4>
+        <p>判断点击事件发生在区域外的两个条件：1> 点击事件的对象不是目标区域本身；2> 事件对象不是目标区域的子元素
+</p>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+$(document).mouseup(function(e){
+    if(!$(myDd).is(e.target) && $(myDd).has(e.target).length === 0){
+        $(myDd).find('.myDropdown-menu').slideUp(10);
+    }
+});
+
+		        </code>
+            </pre>
+        </div>
+        <h4 class="r4-title">法二</h4>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//点击整个界面关闭弹窗 
+document.onclick = function()  {
+    $(myDd).find('.myDropdown-menu').slideUp(10);
+}  
+   
+//防止点击弹窗时关闭弹窗
+$(myDd).find('.myDropdown-menu').click(function(){
+	return false;
+})
+
+		        </code>
+            </pre>
+        </div>
 	</div>
 </div>
 </body>

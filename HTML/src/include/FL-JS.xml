@@ -3,18 +3,8 @@
 	<main title="JS">
 		<sub title="JS基础">
 			<file>
-				<title>Web 基础</title>
-				<name>fun29</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>函数定义、类别、调用</title>
-				<name>fun22</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>匿名函数/闭包</title>
-				<name>fun18</name>
+				<title>对象</title>
+				<name>fun24</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
@@ -33,6 +23,26 @@
 				<path>/views/js/</path>
 			</file>
 			<file>
+				<title>运算符</title>
+				<name>fun17</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>Web 基础</title>
+				<name>fun29</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>函数定义、类别、调用</title>
+				<name>fun22</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
+				<title>匿名函数/闭包</title>
+				<name>fun18</name>
+				<path>/views/js/</path>
+			</file>
+			<file>
 				<title>use strict</title>
 				<name>fun26</name>
 				<path>/views/js/</path>
@@ -40,11 +50,6 @@
 			<file>
 				<title>this探讨</title>
 				<name>_jsP01</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>运算符</title>
-				<name>fun17</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
@@ -82,11 +87,6 @@
 			<file>
 				<title>JS模块</title>
 				<name>fun25</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>对象</title>
-				<name>fun24</name>
 				<path>/views/js/</path>
 			</file>
 			<file>
@@ -209,6 +209,11 @@
 				<name>method06</name>
 				<path>/views/js/</path>
 			</file>
+			<file>
+				<title>select</title>
+				<name>fun08</name>
+				<path>/views/js/</path>
+			</file>
 		</sub>
 		<sub title="音频视频">
 			<file>
@@ -265,11 +270,6 @@
 			<file>
 				<title>鼠标滚轮事件</title>
 				<name>fun07</name>
-				<path>/views/js/</path>
-			</file>
-			<file>
-				<title>select</title>
-				<name>fun08</name>
 				<path>/views/js/</path>
 			</file>
 			<file>

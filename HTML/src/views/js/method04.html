@@ -143,6 +143,38 @@
 	        	<dd>通过为 select 添加 disabled 属性做测试，发现此方法在Layui框架中不起作用，无论是将 disabled 加在 select 原始DOM对象上，还是加在美化后的 input 标签上，都不起作用。</dd>
 	        </dl>
         </section>
+        
+        <h2 class="r2-title">重置表单</h2>
+        <section class="r2-body">
+        	<div class="code-box">
+        		<pre class="language-js line-numbers">
+	                <code>
+//法一: JS
+document.getElementById("formId").reset();
+	
+//法二: JQUERY
+$('#formId')[0].reset();
+	
+//法三: 使用input按钮
+&lt;input type="reset" name="reset" />
+
+			        </code>
+	            </pre>
+        	</div>
+        	<h4 class="r4-title">清空默认值</h4>
+        	<p>虽然reset方法可以清空表单，但是对有默认值的表单元素，只会让其恢复成默认值，而不会清空。</p>
+        	<div class="code-box">
+        		<pre class="language-js line-numbers">
+	                <code>
+&lt;input name="percent" value="50"/> //重置后值变为：50
+
+//如要清空，需要进行以下操作
+$(':input','#myform').not(':button, :submit, :reset, :hidden').val('').removeAttr('checked').removeAttr('selected');
+
+			        </code>
+	            </pre>
+        	</div>
+        </section>
 		
 	</div>
 </div>

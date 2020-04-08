@@ -13,6 +13,10 @@
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
+		<p class="reference">
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects">对象</a>
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Property_Accessors">对象属性访问器</a>
+		</p>
 		<h2 class="r2-title">基本操作</h2>
 		<section class="r2-body">
 			<h3 class="r3-title">关于对象数据的操作</h3>
@@ -58,6 +62,17 @@ console.log(obj1); //{age:28, name:"刘丽", sex:"女"}
 			            </code>
 		            </pre>
 		        </div>
+		        
+		        <h4 class="r4-title">删除对象</h4>
+		        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//删除对象中某一属性，返回值为布尔值                	
+let obj = {"name":"刘丽", "age":22};
+delete obj.age //true
+		            </code>
+	            </pre>
+	        </div>
 		        <dl class="dlist">
 		        	<dt>Object.assign()</dt>
 		        	<dd>
