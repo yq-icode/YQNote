@@ -5,11 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<!--#include virtual="/include/_head_import_file.html" -->
-    <script src="/js/less-2.5.3.min.js"></script>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
 </head>
 <body>
-<!--#include virtual="/include/_header.html" -->
+<!--#include virtual="/static/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
@@ -100,10 +99,11 @@ stopDefault = function(e){
 	    </section>
 	    
         <h2 class="r2-title">页面前进、后退、刷新</h2>
-        <p>history.back(-1)和history.go(-1)的区别</p>
-        <div class="code-box">
-            <pre class="language-js line-numbers">
-                <code>
+        <section class="r2-body">
+        	<p>history.back(-1)和history.go(-1)的区别</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
 history.back(-1)//直接返回当前页的上一页，数据全部消失，是个新页面
 history.go(-1)//也是返回当前页的上一页，不过表单里的数据全部还在
 
@@ -113,10 +113,25 @@ window.history.go(1)//前进
 window.history.go(-1)//后退
 window.history.forward()//前进
 window.history.back() 
-
-		        </code>
-            </pre>
-        </div>
+			        </code>
+	            </pre>
+	        </div>
+	        
+	        <h3 class="r3-title">返回上一页（含锚点时）</h3>
+	        <p>如果一个页面中，先进行了锚点跳转，然后再点返回上一页，返回的却是上一个锚点的位置，而不是上一页，这是因为 a 链接跳转后，浏览器的默认操作，会存下浏览记录，如果我们想返回上一页，而不是上一个锚点，就需要阻止浏览器的默认操作.</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+function b(obj){
+	location.replace(obj.href);
+} 
+//将这个函数放到有锚点的 a 链接里，就会阻止它留下记录，即可实现返回上一页而不是上一个锚点
+onclick='b(this);return false;'
+			        </code>
+	            </pre>
+	        </div>
+        </section>
+        
         
         <h2 class="r2-title">点击空白关闭弹窗</h2>
         <div class="code-box">

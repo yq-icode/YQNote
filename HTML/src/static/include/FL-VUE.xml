@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="基础" url="/KJ/VUE/views/">
+		<file>
+			<title>this指向</title>
+			<name>vue001</name>
+		</file>
+		<file>
+			<title>组件component</title>
+			<name>exp03</name>
+		</file>
+		<file>
+			<title>method与computed的区别</title>
+			<name>exp04</name>
+		</file>
+		<file>
+			<title>零散点</title>
+			<name>exp05</name>
+		</file>
+	</main>
+	<main title="实例" url="/KJ/VUE/views/">
+		<file>
+			<title>表格（添加、删除数据）</title>
+			<name>exp01</name>
+		</file>
+		<file>
+			<title>TAB</title>
+			<name>tab</name>
+		</file>
+		<file>
+			<title>图片轮播</title>
+			<name>exp06</name>
+		</file>
+		<file>
+			<title>exp02</title>
+			<name>exp02</name>
+		</file>
+		<file>
+			<title>test</title>
+			<name>exp02</name>
+		</file>
+	</main>
+</fileList>

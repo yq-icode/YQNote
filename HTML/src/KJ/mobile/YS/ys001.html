@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MOBILE</title>
+	<!--#include virtual="/static/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<!--#include virtual="/static/include/_header.html" -->
+	<div id="wrap">
+		<div id="wside"></div>
+		<div id="wmain">
+            <h2 class="r2-title">确认框</h2>
+            <section class="r2-body">
+            	<strong class="listTit">plus.nativeUI.confirm("info", callbackFunc(event), "title", [buttons])</strong>
+	            <dl class="dlist">
+	            	<dt>info</dt>
+	            	<dd>弹出框显示的信息</dd>
+	            	<dt>callbackFunc(event)</dt>
+	            	<dd>点击弹窗框下方按钮后的触发事件</dd>
+	            	<dt>title</dt>
+	            	<dd>弹出框标题</dd>
+	            	<dt>buttons</dt>
+	            	<dd>弹出框下方放置的按钮组合</dd>
+	            </dl>
+            	<div class="code-box">
+	                <pre class="language-js line-numbers">
+	                    <code>
+plus.nativeUI.confirm("显示的信息", function(event) {
+	var tapIndex = event.index;
+	switch (tapIndex) {
+		case 0 : 
+			console.log("你点击了'是'按钮");
+			break;
+		case 1 : 
+			console.log("你点击了'否'按钮");
+			break;
+		case 2 : 
+			console.log("你点击了'不确定'按钮");
+			break;
+	}
+}, "标题", ["是", "否", "不确定"]);
+	    				</code>
+	                </pre>
+	            </div>
+            </section>
+            
+            <h2 class="r2-title">警告框</h2>
+    		<section class="r2-body">
+	    		<p>plus.nativeUI.alert使用的是OS自带的原生警告框，在不同手机上也不一样。无法通过前端自定义样式。</p>
+	    		<strong class="listTit">plus.nativeUI.alert("info", alertFunc(event), "title", buttonName)</strong>
+	    		<dl class="dlist">
+	    			<dt>info</dt>
+	    			<dd></dd>
+	    			<dt>alertFunc(event)</dt>
+	    			<dd></dd>
+	    			<dt>title</dt>
+	    			<dd>定义标题，如果不需要标题，设置成 null</dd>
+	    			<dt>buttonName</dt>
+	    			<dd>自定义按钮文字</dd>
+	    		</dl>
+	    		<p>与confirm不同，alert框只用一个按钮，因此最后一个参数是一个String按钮名称，事件处理是通过alertFunc处理</p>
+	    		<div class="code-box">
+	                <pre class="language-js line-numbers">
+	                    <code>
+plus.nativeUI.alert("提示的信息.", funtion(){}, "标题", "确定");
+	    				</code>
+	                </pre>
+	            </div>
+            </section>
+            
+            <h2 class="r2-title">输入框</h2>
+            <section class="r2-body">
+            	<strong class="listTit">plus.nativeUI.prompt("info", promptFunc(event), "title", tips, [buttons])</strong>
+	            <dl class="dlist">
+	            	<dt>info</dt>
+	            	<dd>输入对话框的提示</dd>
+	            	<dt>promptFunc</dt>
+	            	<dd>关闭对话框的回调</dd>
+	            	<dt>title</dt>
+	            	<dd>标题</dd>
+	            	<dt>tips</dt>
+	            	<dd>输入的地方显示的提示文字</dd>
+	            	<dt>buttons</dt>
+	            	<dd>对话框下显示的按钮数组</dd>
+	            </dl>
+	            <p>如何获取输入的值呢：通过promptFunc的回调函数中的event参数，event.index判断读取的哪一个按钮，event.value获取输入的值。</p>
+            	<div class="code-box">
+	                <pre class="language-js line-numbers">
+	                    <code>
+plus.nativeUI.prompt("输入一个数字", function(event){
+	if(event.index){ //确定按钮
+		console.log("你输入了：" + event.value);
+	} else { //取消按钮
+		console.log("你取消了该次输入");
+	}
+}, "标题", "输入提示", ["取消", "确定"]);
+	    				</code>
+	                </pre>
+	            </div>
+            </section>
+            
+            <h2 class="r2-title">弹出自动消失的浮动框</h2>
+            <section class="r2-body">
+            	<strong class="listTit">plus.nativeUI.toast("info", options)</strong>
+	            <dl class="dlist">
+	            	<dt>info</dt>
+	            	<dd>弹出的内容信息</dd>
+	            	<dt>options</dt>
+	            	<dd>
+	            		对于弹出框的一些说明选项信息，可以配置弹出框显示的图标、位置以及持续时间。
+	            		<ul class="list-decimal">
+	            			<li>icon: 显示的图标</li>
+	            			<li>duration: 消息框持续时间(long/short)</li>
+	            			<li>align: 水平方向位置(left/center/right)</li>
+	            			<li>verticalAlign: 垂直方向位置(top/center/bottom)</li>
+	            		</ul>
+	            	</dd>
+	            </dl>
+            	<div class="code-box">
+	                <pre class="language-js line-numbers">
+	                    <code>
+plus.nativeUI.toast("弹出的消息内容", {
+	icon : "icon URL", //eg. "/img/add.png"
+	duration : "long", //持续3.5s，short---2s
+	align : "center",
+	verticalAlign : "bottom"
+})
+	    				</code>
+	                </pre>
+	            </div>
+            </section>
+		</div>
+	</div>
+</body>
+</html>

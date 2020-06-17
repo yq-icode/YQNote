@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--#include virtual="/static/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/static/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+        <h2 class="r2-title">关于 data() 属性</h2>
+        <section class="r2-body">
+			<ul class="list-decimal">
+				<li>data 必须声明为返回一个初始数据对象的函数；否则页面关闭时，数据不会自动销毁，再次打开该页面时，会显示上次数据。</li>
+			</ul>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+//正确用法：使用函数返回对象
+data() {
+    return {
+        title: 'Hello'
+    }
+}
+
+//错误写法：会导致再次打开页面时，显示上次数据
+data: {
+    title: 'Hello'
+}		
+					</code>
+				</pre>
+			</div>
+		</section>
+		
+    </div>
+</div>
+</body>
+</html>

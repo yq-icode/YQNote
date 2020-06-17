@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>移动web开发之像素和DPR</title>
+    <!--#include virtual="/static/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/static/css/tutorial.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<article id="wrap">
+        <p class="reference">摘自：<a target="_blank" href="http://www.cnblogs.com/xiaohuochai/p/5494624.html"></a></p>
+        
+        <div class="ttBlock">
+            <h2 class="ttBlock_head">定义</h2>
+            <div class="ttBlock_body">
+                <p>像素，又称画素，是图像显示的基本单位，译自英文“pixel”，pix是英语单词picture的常用简写，加上英语单词“元素”element，就得到pixel，故“像素”表示“图像元素”之意，有时亦被称为pel(picture element)</p>
+                <p>像素是网页布局的基础。一个像素就是计算机能够显示一种特定颜色的最小区域。当设备尺寸相同但像素变得更密集时，屏幕能显示的画面的过渡更细致，网站看起来更明快。</p>
+                <p>//ppi是指屏幕上每英寸可以显示的像素点的数量，即屏幕像素密度</p>
+                <img width="60%" src="images/screenPics/740839-20160515092318852-818619954.jpg">
+            </div>
+        </div>
+        
+        <div class="ttBlock">
+        	<h2 class="ttBlock_head">分类</h2>
+            <div class="ttBlock_body">
+            	<p>实际上像素分为两种：设备像素和CSS像素</p>
+            	<ul class="smlist">
+                	<li>设备像素(device independent pixels): 设备屏幕的物理像素，任何设备的物理像素的数量都是固定的</li>
+                    <li>CSS像素(CSS pixels): 又称为逻辑像素，是为web开发者创造的，在CSS和javascript中使用的一个抽象的层</li>
+                </ul>
+                <p>每一个CSS声明和几乎所有的javascript属性都使用CSS像素，因此实际上从来用不上设备像素 ，唯一的例外是screen.width/height</p>
+                <div class="code-box">
+                	<pre class="language-css line-numbers">
+                    	<code>
+//我们通过CSS和javascript代码设置的像素都是逻辑像素
+width:300px;
+font-size:16px;                      
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ttBlock">
+            <h2 class="ttBlock_head">缩放</h2>
+            <div class="ttBlock_body">
+                <p>在桌面端，css的1个像素往往都是对应着电脑屏幕的1个物理像素。<br>　//一个CSS像素完全覆盖了一个设备像素　被称为pel(picture element)</p>
+                <img src="images/screenPics/740839-20160515102843711-1407435940.gif" alt="">
+                <p>而在手机端，由于屏幕尺寸的限制，缩放是经常性的操作。<br>//设备像素(深蓝色背景)、CSS像素(半透明背景)<br>//左图表示当用户进行缩小操作时，一个设备像素覆盖了多个CSS像素<br>//右图表示当用户进行放大操作时，一个CSS像素覆盖了多个设备像素</p>
+<img src="images/screenPics/740839-20160515103300602-1749012296.gif">
+<img src="images/screenPics/740839-20160515103307508-1159608111.gif">
+                <p>不论我们进行缩小或放大操作，元素设置的CSS像素(如width:300px)是始终不变的，而一个CSS像素对应多少个设备像素是根据当前的缩放比例来决定的</p>
+            </div>
+        </div>
+        
+        <div class="ttBlock">
+            <h2 class="ttBlock_head">设备像素比DPR</h2>
+            <div class="ttBlock_body">
+                <p>设备像素比DPR(devicePixelRatio)是默认缩放为100%的情况下，设备像素和CSS像素的比值</p>
+                <div class="code-box">
+                	<pre class="language-markup line-numbers">
+                    	<code>
+DPR = 设备像素 / CSS像素(某一方向上)                   
+                        </code>
+                    </pre>
+                </div>
+                <p>在早先的移动设备中，并没有DPR的概念。随着技术的发展，移动设备的屏幕像素密度越来越高。从iphone4开始，苹果公司推出了所谓的retina视网膜屏幕。之所以叫做视网膜屏幕，是因为屏幕的PPI(屏幕像素密度)太高，人的视网膜无法分辨出屏幕上的像素点。iphone4的分辨率提高了一倍，但屏幕尺寸却没有变化，这意味着同样大小的屏幕上，像素多了一倍，于是DPR = 2</p>
+                <p>实际上，此时的CSS像素对应着以后要提到的理想视口，其对应的javascript属性是screen.width/screen.height<br>
+而对于设备像素比DPR也有对应的javascript属性window.devicePixelRatio<br>
+以iphone5为例，iphone5的CSS像素为320px*568px，DPR是2，所以其设备像素为640px*1136px</p>
+                <div class="code-box">
+                	<pre class="language-markup line-numbers">
+                    	<code>
+640(px) / 320(px)  = 2
+1136(px) / 568(px) = 2
+640(px)*1136(px) /  320(px)*568(px) = 4                  
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+    </article>
+    <script type="text/javascript">
+    	addArticleTop();
+    </script>
+</body>
+</html>

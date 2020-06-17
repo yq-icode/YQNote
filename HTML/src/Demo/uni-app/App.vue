@@ -1,4 +1,5 @@
 <script>
+	import {mockData} from '@/mock/data.js';
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
@@ -13,7 +14,8 @@
 </script>
 
 <style>
-	@import url("/common/uni.css");
-	@import url("/common/global.css");
 	/*每个页面公共css */
+	@import url("/common/uni.css");
+	@import url("/common/common.css");
+	@import url("/common/default.css");
 </style>

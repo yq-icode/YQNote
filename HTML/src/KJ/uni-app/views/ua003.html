@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--#include virtual="/static/include/_head_import_file2.html" -->
+    <link rel="stylesheet/less" href="/static/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+        <h2 class="r2-title">image 变形问题</h2>
+        <section class="r2-body">
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+						&lt;image style="width:150rpx" src="~@/static/img/icon52_1.png" mode="widthFix">&lt;/image>
+					</code>
+				</pre>
+			</div>
+			<p>当 mode="widthFix" 时，只为 image 设置 width, 在真机微信小程序中运行时，在页面载入时，图片会有一瞬的变形，为 image 设置 height 能避免这种现象。</p>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+						&lt;image style="width:150rpx; height:100rpx" src="~@/static/img/icon52_1.png" mode="widthFix">&lt;/image>
+					</code>
+				</pre>
+			</div>
+		</section>
+    </div>
+</div>
+</body>
+</html>

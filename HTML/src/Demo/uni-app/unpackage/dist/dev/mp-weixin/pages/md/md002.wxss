@@ -1,0 +1,78 @@
+page {
+  height: 100%;
+}
+.uni-padding-wrap {
+  height: 100%;
+  background: #007AFF;
+  color: #fff;
+}
+.circleProgressWrap {
+  width: 100%;
+  height: 350rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.circleProgress {
+  position: relative;
+  width: 290rpx;
+  height: 290rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  background: -webkit-linear-gradient(315deg, #0CA3F9, #0B75FD);
+  background: linear-gradient(135deg, #0CA3F9, #0B75FD);
+  border-radius: 50%;
+}
+.circleProgress .progressTextBox {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  color: #fff;
+}
+.circleProgress .progressTextBox .score {
+  font-size: 90rpx;
+}
+.circleProgress .left,
+.circleProgress .right {
+  width: 145rpx;
+  height: 290rpx;
+  overflow: hidden;
+}
+.circleProgress .leftProgress,
+.circleProgress .rightProgress {
+  width: 260rpx;
+  height: 260rpx;
+  border: 15rpx solid rgba(255, 255, 255, 0.2);
+  border-bottom: 15rpx solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+}
+.circleProgress .leftProgress {
+  border-right: 15rpx solid rgba(255, 255, 255, 0.8);
+}
+.circleProgress .rightProgress {
+  border-left: 15rpx solid rgba(255, 255, 255, 0.8);
+  margin-left: -145rpx;
+}
+

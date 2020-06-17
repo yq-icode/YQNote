@@ -5,14 +5,31 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<!--#include virtual="/include/_head_import_file.html" -->
+	<!--#include virtual="/static/include/_head_import_file.html" -->
     <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
-<!--#include virtual="/include/_header.html" -->
+<!--#include virtual="/static/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
+		<h2 class="r2-title">file://形式访问时报错</h2>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+$.getJSON('js/china.json', function(data){})
+					</code>
+	            </pre>
+	        </div>
+	        <p>像这样获取数据时，直接在浏览器打开 html 文件时（即访问形式为：file:///D:/mydisk/workspace2/DOC/html/index.html），firefox 与 chrome 会报以下错误（IE正常）：<br/></p>
+	        <p class="redBlock">已拦截跨源请求：同源策略禁止读取位于 file:///D:/mydisk/workspace2/DOC/html/js/china.json 的远程资源。（原因：CORS 请求不是 http）。</p>
+	        <dl class="dlist">
+	        	<dt>解决方法</dt>
+	        	<dd>不要以 file:// 形式访问，配置IIS访问即可解决此问题</dd>
+	        </dl>
+		</section>
+		
 		<h2 class="r2-title">以网络路径引用本地图片</h2>
 		<section class="r2-body">
 			<p>uniapp中的要求，图片如果大于40KB,需开发者自己将其转换为base64格式使用或将其挪到服务器上，从网络地址引用,下面演示了如何以网络路径引用本地图片。</p>

@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="" url="/views/axure/">
+		<file>
+			<title>SVN + Axure 多人协作</title>
+			<name>axu12</name>
+		</file>
+		<file>
+			<title>制作技巧</title>
+			<name>axu16</name>
+		</file>
+		<file>
+			<title>抽屉式菜单</title>
+			<name>_article01</name>
+		</file>
+		<file>
+			<title>小知识点</title>
+			<name>_article02</name>
+		</file>
+		<file>
+			<title>搜索</title>
+			<name>axu15</name>
+		</file>
+		<file>
+			<title>变量与函数</title>
+			<name>_article04</name>
+		</file>
+		<file>
+			<title>固定在顶部的导航</title>
+			<name>_article06</name>
+		</file>
+		<file>
+			<title>辅助线</title>
+			<name>axu01</name>
+		</file>
+		<file>
+			<title>返回上一页</title>
+			<name>axu02</name>
+		</file>
+		<file>
+			<title>多值单变量的页面传值</title>
+			<name>axu17</name>
+		</file>
+		<file>
+			<title>允许触发鼠标交互</title>
+			<name>axu18</name>
+		</file>
+	</main>
+	<main title="常用效果" url="/views/axure/">
+		<file>
+			<title>悬停、单击选中、载入时默认选中首行 效果 法一</title>
+			<name>axu08</name>
+		</file>
+		<file>
+			<title>悬停、单击选中、载入时默认选中首行 效果 法二</title>
+			<name>axu09</name>
+		</file>
+		<file>
+			<title>根据不同的条件设置文字状态</title>
+			<name>axu13</name>
+		</file>
+		<file>
+			<title>环形进度</title>
+			<name>axu10</name>
+		</file>
+		<file>
+			<title>自制滚动条</title>
+			<name>axu11</name>
+		</file>
+		<file>
+			<title>弹框</title>
+			<name>axu21</name>
+		</file>
+	</main>
+	<main title="中继器" url="/views/axure/">
+		<file>
+			<title>中继器功能讲解</title>
+			<name>axu14</name>
+		</file>
+		<file>
+			<title>中继器自增效果</title>
+			<name>_article03</name>
+		</file>
+		<file>
+			<title>中继器中数据统计</title>
+			<name>axu06</name>
+		</file>
+		<file>
+			<title>通过中继器实现 radio 效果</title>
+			<name>axu19</name>
+		</file>
+	</main>
+	<main title="表单">
+		<file>
+			<title>表单中用到的小知识点</title>
+			<name>axu05</name>
+		</file>
+		<file>
+			<title>select下拉框</title>
+			<name>axu20</name>
+		</file>
+	</main>
+	<main title="模块">
+		<file>
+			<title>登录</title>
+			<name>axu03</name>
+		</file>
+		<file>
+			<title>列表-分页筛选排序</title>
+			<name>axu07</name>
+		</file>
+		<file>
+			<title>图片轮播一</title>
+			<name>axu04</name>
+		</file>
+		<file>
+			<title>图片轮播二</title>
+			<name>_article05</name>
+		</file>
+	</main>
+</fileList>

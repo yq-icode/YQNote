@@ -1,0 +1,15 @@
+/* fontsize */
+.font34 {
+  font-size: 34rpx;
+}
+/* flex layout */
+.flex-column,
+.list {
+  display: flex;
+  flex-direction: column;
+}
+/* list */
+.list > .item {
+  padding: 20rpx 0;
+  border-bottom: 1px solid #eee;
+}

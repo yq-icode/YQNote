@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+        <h2 class="r2-title">常用 Number 处理方法</h2>
+        <section class="r2-body">
+        	<h3 class="r3-title">格式化数字（每三位加逗号）</h3>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+/* @@ 字符串法 @@
+ * 将数字转成字符串，从字符串最后一位字符开始，一位位的将字符添加到一个新数字符串 result 中；
+ * 当字符所在位为 3 的倍数时，添加逗号；
+ * 当 i=0 即第一位字符时，不要加逗号
+ * ------------------------------------- */	                	
+function toThousands(num){
+	var result = '',
+		counter = 0;
+	num = (num || 0).toString();
+	for(var i = num.length - 1; i >= 0; i--){
+		counter++;
+		result = num.charAt(i) + result;
+		if(!(counter % 3) && i != 0) { result = ',' + result; }
+	}
+	return result;
+}
+
+/* @@  slice 法 @@
+ * ------------------------------------- */	
+function toThousands(num) {
+	var num = (num || 0).toString(),
+		result = '';
+	while(num.length > 3){
+		result = ',' + num.slice(-3) + result;
+		num = num.slice(0, num.length - 3);
+	}
+	if(num){ result = num + result; }
+	return result;
+}
+
+/* @@ 数组法 @@
+ * 把数字转换成字符串后，打散为数组；
+ * 从数组末尾开始，逐个把数组中的元素插入到新数组 result 的开头；
+ * 每插入一个元素，counter 就计一次数（加1），当counter为3的倍数时，就插入一个逗号;
+ * 但是要注意开头（i为0时）不需要逗号,最后通过调用新数组的join方法得出结果。
+ * ------------------------------------- */	
+function toThousands(num) {
+	var result = [],
+		counter = 0;
+	num = (num || 0).toString().split('');
+	for(var i = num.length - 1; i >= 0; i--){
+		counter++;
+		result.unshift(num[i]);
+		if (!(counter % 3) && i != 0) { result.unshift(','); }
+	}
+	return result.join('');
+}
+
+/* @@ 正则表达式法 @@
+ * ------------------------------------- */	
+function toThousands(num) {
+	return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
+}
+		
+			        </code>
+	            </pre>
+	        </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>

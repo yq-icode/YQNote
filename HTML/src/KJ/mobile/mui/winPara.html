@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MOBILE</title>
+	<!--#include virtual="/static/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<!--#include virtual="/static/include/_header.html" -->
+<div class="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+    	<h2 class="r2-title">自定义事件传参</h3>
+    	<section>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+mui.fire(target, event, data)
+参数说明：
+- target： Type: WebviewObject 需传值的目标webview
+- event：Type: String 自定义事件名称
+- data：Type: JSON json格式的数据
+    				</code>
+                </pre>
+            </div>
+            <p>A.html发送参数的页面</p>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+&lt;label id="st-name"&gt;李丽&lt;/label&gt;
+&lt;p id="st-addr" class="addr"&gt;海淀区17号&lt;/p&gt;
+//触发自定义事件并传参                  
+mui.fire(pg_list, 'delAct', {
+	spName:$('#st-name').html(),
+    spAddr:$('#st-addr').html()
+});
+    				</code>
+                </pre>
+            </div>
+            <p>B.html接收参数的页面</p>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+window.addEventListener('delAct',notiDel);
+function notiDel(e){
+var rpName = e.detail.spName;
+var rpAddr = e.detail.spAddr;
+}
+    				</code>
+                </pre>
+            </div>
+        </section>
+        
+        <h2 class="r2-title">extras</h2>
+        <p>extras:{}自定义扩展参数，可以用来处理页面间传值</p>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+//A页面设置要传递的参数
+var param = {
+	name:'Will Smith',
+	sex: 'male'
+}
+var webview = mui.openWindow({
+	url:'info.html',
+	extras:{
+		name:param  //扩展参数
+	}
+});
+
+//B页面获取参数
+var param = plus.webview.currentWebview();
+console.log(param.name + param.sex);//输出mui字符串
+    				</code>
+            </pre>
+        </div>
+        <p><b>注意：</b>扩展参数仅在打开新窗口时有效，若目标窗口为预加载页面，则通过mui.openWindow方法打开时传递的extras参数无效。</p>
+        
+        
+        
+        <h2 class="r2-title">mui页面传值的几种方式</h2>
+        <img src="../images/screenPics/mui001.png" />
+   </div>
+</div>
+</body>
+</html>

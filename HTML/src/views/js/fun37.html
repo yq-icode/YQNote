@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<p class="reference">
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader">FileReader</a>
+		</p>
+		<h2 class="r2-title">预览上传图片</h2>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;div id="picBox">&lt;/div>
+&lt;input type="file" id="inputFile">
+		            </code>
+	            </pre>
+	        </div>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+$("#inputFile").change(function(e) {
+    uploadImg($('#picBox'), e.target)
+});
+
+function uploadImg(element, tag) {
+    var upFile = tag.files[0];
+    
+    //判断选择的是否为图片
+    if (!/image\/\w+/.test(upFile.type)) {
+        alert("请选择图片!");
+        return false;
+    }
+    var reader = new FileReader();
+    reader.readAsDataURL(upFile);
+    reader.onload = function() {
+        var imgs = document.createElement("img");
+        $(imgs).attr("src", this.result);
+        element.append(imgs);
+    };
+}
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

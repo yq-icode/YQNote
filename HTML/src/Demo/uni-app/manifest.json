@@ -69,5 +69,11 @@
     },
     "mp-toutiao" : {
         "usingComponents" : true
+    },
+    "h5" : {
+        "router" : {
+            "base" : "http://localhost:82/h5/",
+            "mode" : "hash"
+        }
     }
 }

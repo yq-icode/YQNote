@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MOBILE</title>
+	<!--#include virtual="/static/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<!--#include virtual="/static/include/_header.html" -->
+<div class="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">上拉加载</h2>
+    	<section class="r2-body">
+    		<h3 class="r3-title">DOM结构</h3>
+    		<p>上拉加载的DOM结构中一定要包含滚动模块，不然会在iOS平台报关于滚动的错误</p>
+    		<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+  &lt;div class="mui-scroll">
+    &lt;div class="dataList">&lt;/div> &lt;!--数据放在此DIV中-->
+  &lt;/div>
+&lt;/div>	
+					</code>
+	            </pre>
+	        </div>
+    	</section>
+   </div>
+</div>
+</body>
+</html>

@@ -1,12 +1,20 @@
 {
   "pages": [
     "pages/user/index",
-    "pages/md/index",
-    "pages/index/index",
-    "pages/md/list2detail-list",
-    "pages/md/list2detail-detail"
+    "pages/index/modal",
+    "pages/index/index"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "pages/md",
+      "pages": [
+        "md001",
+        "md002",
+        "list2detail-list",
+        "list2detail-detail"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
@@ -20,11 +28,11 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/md/list2detail-list",
+        "pagePath": "pages/index/index",
         "text": "组件"
       },
       {
-        "pagePath": "pages/md/index",
+        "pagePath": "pages/index/modal",
         "text": "模块"
       },
       {
@@ -33,6 +41,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap91.json"
+  "usingComponents": {}
 }

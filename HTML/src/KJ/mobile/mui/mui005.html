@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MOBILE</title>
+	<!--#include virtual="/static/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+	<!--#include virtual="/static/include/_header.html" -->
+	<div id="wrap">
+		<div id="wside"></div>
+		<div id="wmain">
+    		<h1 class="r2-title">iframe 引用 SVG</h1>
+    		<p>MUI框架中，通过iframe引用SVG，页面显示是正常的，但是加在 iframe 父元素上的事件却不起作用了，原因不明；直接在HTML中引用 SVG，页面显示与SVG父元素事件触发均正常；</p>
+    		<div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+//加在 div#paizhao 上点击事件                    	
+document.getElementById('paizhao').addEventListener('tap',function(){
+	paizhao();
+})
+    				</code>
+                </pre>
+            </div>
+            
+			<div class="code-box">
+                <pre class="language-html line-numbers">
+                    <code>
+&lt;!--页面显示正常，点击事件不起作用  -->                  	
+&lt;div class="mui-pull-right" style="margin-top: 15px;" id="paizhao">
+	&lt;iframe src="images/add.svg" width="30" frameborder="0">&lt;/iframe>
+&lt;/div>
+
+&lt;!--页面显示正常，点击事件也正常  -->    
+&lt;div class="mui-pull-right" style="margin-top: 15px;" id="paizhao">
+	&lt;?xml version="1.0"?>
+	&lt;svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -15 512 512" width="24px">
+		&lt;path d="m150 302c-49.625 0-90-40.375-90-90s40.375-90 90-90 90 40.375 90 90-40.375 90-90 90zm0-150c-33.085938 0-60 26.914062-60 60s26.914062 60 60 60 60-26.914062 60-60-26.914062-60-60-60zm0 0" fill="#FFFFFF"/>
+		&lt;path d="m150 242c-16.542969 0-30-13.457031-30-30s13.457031-30 30-30 30 13.457031 30 30-13.457031 30-30 30zm.015625-30h-.015625zm0 0" fill="#FFFFFF"/>
+		&lt;path d="m302 122h60v30h-60zm0 0" fill="#FFFFFF"/>
+		&lt;path d="m422 219.722656v-157.722656h-30v-62h-90v62h-62v-62h-180v62h-60v300h242.839844c7.484375 67.40625 64.792968 120 134.160156 120 74.4375 0 135-60.5625 135-135 0-58.667969-37.621094-108.703125-90-127.277344zm-90-189.722656h30v32h-30zm-242 0h120v32h-120zm-60 62h362v120.839844c-4.925781-.550782-9.929688-.839844-15-.839844-69.367188 0-126.675781 52.59375-134.160156 120h-212.839844zm347 360c-57.898438 0-105-47.101562-105-105s47.101562-105 105-105 105 47.101562 105 105-47.101562 105-105 105zm0 0" fill="#FFFFFF"/>
+		&lt;path d="m362 272h30v150h-30zm0 0" fill="#FFFFFF"/>
+		&lt;path d="m302 332h150v30h-150zm0 0" fill="#FFFFFF"/>
+	&lt;/svg>
+&lt;/div>
+    				</code>
+                </pre>
+            </div>
+            
+		</div>
+	</div>
+</body>
+</html>

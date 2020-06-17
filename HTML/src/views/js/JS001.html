@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file.html" -->
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">命名冲突</h2>
+		<section class="r2-body">
+			<h4 class="r4-title">实例一</h4>
+			<p>下面代码会报错："notes.submitNote is not a function"</p>
+			<dl class="dlist">
+				<dt>错误信息</dt>
+				<dd>"notes.submitNote is not a function"</dd>
+				<dt>原因</dt>
+				<dd>textarea 的 name 值与对象 notes 相同，命名冲突</dd>
+				<dt>解决方法</dt>
+				<dd>为 textarea 的 name 重新命名</dd>
+				<dt>疑虑</dt>
+				<dd>notes.closeNote 可以正常运行，原因不明</dd>
+			</dl>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+var notes = {
+	submitNote:function(ele, para){
+		...
+	},
+	noteEditHtml:function(para){
+		let _html = "&lt;form onsubmit='notes.submitNote(this," + JSON.stringify(para) + "); return false;'>" +
+						"&lt;textarea name='notes'>" + para.noteContent + "&lt;/textarea>" +
+						"&lt;span onclick='notes.closeNote(this," + JSON.stringify(para) + ")'>close&lt;/span>" +
+						"&lt;button type='submit'>Save&lt;/button>" +
+				 	"&lt;/form>";
+		
+		return _html;
+	},
+	closeNote:function(ele, para){
+		....
+	}
+}
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

@@ -24,6 +24,8 @@ $(function(){
 	$('#wside a').on('click', function(){
 		$('#wside a').removeClass('on');
 		$(this).addClass('on');
+		location.replace(this.href);
+//		return false;
 	})
 	
 	/* 添加全局top按钮
@@ -36,7 +38,7 @@ $(function(){
 	 */
 //	var footWrap = "<footer id='footer'></footer>";
 //	$("body").append(footWrap);
-//	$("#footer").load("/include/_footer.html");
+//	$("#footer").load("/static/include/_footer.html");
 	
 	/*
 	 * 动态生成文章数字
@@ -95,7 +97,8 @@ $(function(){
 	var ref = document.querySelectorAll('.ref');
 	if(ref.length > 0){
 		$(ref).each(function(){
-			$(this).attr('target','_blank').append($(this).attr('href'));
+			$(this).attr('target','_blank');
+			$(this).append("<em class='ml10'>" + $(this).attr('href') + "</em>");
 		})
 	}
 	
@@ -118,21 +121,23 @@ $(function(){
 
 /* 高亮显示关键字*/
 function keyLight(ele, key, bgColor){
-  	var sText = $(ele).html(),
-	  	bgColor = bgColor,    
-	  	sKey = "<span class='keyLight' style='background-color:" + bgColor + "'>" + key + "</span>",
-	  	num = -1,
-	  	rStr = new RegExp(key, "g"),
-	  	rHtml = new RegExp("\<.*?\>","ig"), //匹配html元素
-	  	aHtml = sText.match(rHtml); //存放html元素的数组
-  	sText = sText.replace(rHtml, '{~}');  //替换html标签
-  	sText = sText.replace(rStr,sKey); //替换key
-  	sText = sText.replace(/{~}/g,function(){  //恢复html标签
-    	num++;
-    	return aHtml[num];
-  	});
-
-  	$(ele).html(sText);
+	if($(ele).html() !== undefined){
+		var sText = $(ele).html(),
+		  	bgColor = bgColor,    
+		  	sKey = "<span class='keyLight' style='background-color:" + bgColor + "'>" + key + "</span>",
+		  	num = -1,
+		  	rStr = new RegExp(key, "g"),
+		  	rHtml = new RegExp("\<.*?\>","ig"), //匹配html元素
+		  	aHtml = sText.match(rHtml); //存放html元素的数组
+		sText = sText.replace(rHtml, '{~}');  //替换html标签
+		sText = sText.replace(rStr,sKey); //替换key
+		sText = sText.replace(/{~}/g,function(){  //恢复html标签
+			num++;
+			return aHtml[num];
+		});
+		
+		$(ele).html(sText);
+	}
 }
 $(function(){
 	setTimeout(keyLight('#wmain','-jquery-'), 50);
@@ -180,7 +185,7 @@ function addArticleTop(){
 /* 读取XML文件(菜单主页面的列表)
  * 参数xmlUrl:  xml文件的路径及名称
  * 参数ele:     菜单列表最外层的HTML元素
- */
+ * -------------------------------------- */
 function loadXML(xmlUrl,ele){
 	requestXML(xmlUrl,ele);
 }
@@ -223,18 +228,25 @@ function processData(data,ele){
 	//菜单列表的HTML结构
 	var _HTML   = "";
 	
-	var NMainS, //xml结点<main>
+	var NMainS, 	 		//xml结点<main>
 		NMain,
-		NSubS, //xml结点<sub>
+		NMainUrl = "",   	//xml结点<main目录地址>
+		NSubS, 		 		//xml结点<sub>
 		NSub,
-		NFileS, //xml结点<file>
-		FPath, //file文件路径
-		FName, //file文件名
-		FTitle; //file文件标题
+		NSubUrl = "", 	 	//xml结点<sub目录地址>
+		NFileS, 	 		//xml结点<file>
+		FPath, 		 		//file文件路径
+		FName, 		 		//file文件名
+		FTitle; 	 		//file文件标题
 	
 	NMainS = xmlDoc.getElementsByTagName("main");
 	for(var i=0;i<NMainS.length;i++){
 		NMain = NMainS[i];
+		if(NMain.getAttribute("url") != null){
+			NMainUrl = NMain.getAttribute("url");
+		}else{
+			NMainUrl = "";
+		}
 		_HTML += "<h3>" + NMain.getAttribute("title") + "</h3>";
 		
 		NSubS = NMain.getElementsByTagName("sub");
@@ -243,12 +255,17 @@ function processData(data,ele){
 		if(NSubS.length > 0){ 
 			for(var k=0;k<NSubS.length;k++){
 				NSub = NSubS[k];
-				console.log("*********NSub title: " + NSub.getAttribute("title"));
+				if(NSub.getAttribute("url") != null){
+					NSubUrl = NSub.getAttribute("url");
+				}else{
+					NSubUrl = "";
+				}
+				
 				NFileS = NSub.getElementsByTagName("file");
 				_HTML += "<dl class='dl-horizontal'>";
 				_HTML += "<dt>" + NSub.getAttribute("title") + "</dt>";
 				_HTML += "<dd>";
-				_HTML += getFileHtml(NFileS);
+				_HTML += getFileHtml(NFileS, NMainUrl, NSubUrl);
 				_HTML += "</dd>";
 				_HTML += "</dl>";
 			}
@@ -257,22 +274,38 @@ function processData(data,ele){
 		else{ 
 			NFileS = NMain.getElementsByTagName("file");
 			_HTML += "<p>";
-			_HTML += getFileHtml(NFileS);
+			_HTML += getFileHtml(NFileS, NMainUrl, NSubUrl);
 			_HTML += "</p>";
 		}
 	}
 	//读取取<file>部分
-	function getFileHtml(e){
+	function getFileHtml(e, NMainUrl, NSubUrl){
 		var _html = "";
 		for(var j=0;j<e.length;j++){
-			FPath = e[j].getElementsByTagName("path")[0].childNodes[0].nodeValue; //文件路径
+			let _href = "";
+			
+			if(NMainUrl != ""){
+				_href += NMainUrl;
+			}
+			if(NSubUrl != ""){
+				_href += NSubUrl;
+			}
+			if(e[j].getElementsByTagName("path").length > 0){
+				FPath = e[j].getElementsByTagName("path")[0].childNodes[0].nodeValue; //文件路径
+				_href += FPath;
+			}else{
+				FPath = "";
+			}
+			
+			_href = _href.replace(/\/{2,}/g, '/');
+			
 			FName = e[j].getElementsByTagName("name")[0].childNodes[0].nodeValue; //文件名
 			FTitle = e[j].getElementsByTagName("title")[0].childNodes[0].nodeValue; //文件标题
 			if(FPath.indexOf("https://") > -1){
 				_html += "<a target='_blank' href='" + FPath + "'>" + FTitle + "</a>";
 			}
 			else{
-				_html += "<a href='" + FPath + FName + ".html?tit=" + FTitle + "' title='" + FTitle + "'>" + FTitle + "</a>";
+				_html += "<a href='" + _href + FName + ".html?tit=" + FTitle + "' title='" + FTitle + "'>" + FTitle + "</a>";
 			}
 		}
 		return _html;

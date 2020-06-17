@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--#include virtual="/static/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/static/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+        <h2 class="r2-title">在当前页调用上一个页面的 method 和 data</h2>
+        <section class="r2-body">
+			<h3 class="r3-title">调用上一个页面的 data</h3>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+let pages = getCurrentPages(), //当前页
+	pagePre = pages[pages.length - 2]; //上个页面
+	
+pagePre.triggered = false; //triggered 为上一个页面的 data
+					</code>
+				</pre>
+			</div>
+			<h3 class="r3-title">调用上一个页面的 method</h3>
+			<p>uni-app 是适配多端的，pagePre.refreshPage()只在 h5 中有效，在 app 端和微信小程序端都会报错 not a function, 在 h5 和 app 中调用应该写成：pagePre.$vm.refreshPage()</p>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+let pages = getCurrentPages(), //当前页
+	pagePre = pages[pages.length - 2]; //上个页面
+	
+//#ifdef H5
+pagePre.refreshPage();
+//#endif
+
+//#ifndef H5
+pagePre.$vm.refreshPage();
+//#endif
+					</code>
+				</pre>
+			</div>
+			
+		</section>
+		<h2 class="r2-title">URL 传参</h2>
+		<section class="r2-body">
+			<p>onLoad ，其参数为上个页面传递的数据，参数类型为Object（用于页面传参）</p>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+uni.navigateTo({
+	url: 'test?id=1&name=uniapp'
+});
+						
+//test.vue页面接收参数
+export default {
+	onLoad: function (option) {
+		console.log(option.id);
+		console.log(option.name);
+	}
+}						
+					</code>
+				</pre>
+			</div>
+			
+			<h4 class="r4-title">encodeURIComponent</h4>
+			<p>url有长度限制，太长的字符串会传递失败，可使用 encodeURIComponent 解决</p>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+&lt;navigator :url="'/pages/test/test?item='+ encodeURIComponent(JSON.stringify(item))">&lt;/navigator>
+						
+// 在test.vue页面接收参数
+onLoad: function (option) {
+    const item = JSON.parse(decodeURIComponent(option.item));
+}						
+					</code>
+				</pre>
+			</div>
+		</section>
+		
+		<h2 class="r2-title">全局变量</h2>
+		<section class="r2-body">
+			<p class="reference">
+				<a href="https://ask.dcloud.net.cn/article/35021"></a>
+			</p>
+			<h3 class="r3-title">挂载 Vue.prototype</h3>
+			<ul class="list-decimal">
+				<li>这种方式只支持 vue 页面</li>
+				<li>这种方式，只需要在 main.js 中定义好即可在每个页面中直接调用。</li>
+				<li>每个页面中不要在出现重复的属性或方法名。</li>
+				<li>建议在 Vue.prototype 上挂载的属性或方法，可以加一个统一的前缀。比如 $url、global_url 这样，在阅读代码时也容易与当前页面的内容区分开。 </li>
+			</ul>
+			
+			<h3 class="r3-title">globalData</h3>
+			<ul class="list-decimal">
+				<li>globalData 支持 vue 和 nvue 共享数据。</li>
+				<li>兼容 H5、App</li>
+				<li>在 App.vue 定义 globalData ，也可以使用 API 读写这个值。</li>
+			</ul>
+		</section>
+		
+		<h2 class="r2-title">窗体通信(uni.$emit、uni.$on、uni.$once、uni.$off)</h2>
+		<section class="r2-body">
+			<p class="reference">
+				<a href="https://uniapp.dcloud.io/collocation/frame/communication"></a>
+			</p>
+		</section>
+    </div>
+</div>
+</body>
+</html>

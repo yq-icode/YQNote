@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--#include virtual="/static/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/static/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+		<h2 class="r2-title">下拉刷新</h2>
+		<section class="r2-body">
+			<p class="reference">
+				<a href="https://ask.dcloud.net.cn/article/37181"></a>
+			</p>
+			<p>以上URL是对官方文档中 scroll-view 下拉刷新的补充说明 </p>
+		</section>
+		
+        <h2 class="r2-title">scroll view 高度自适应</h2>
+        <section class="r2-body">
+			<ul class="list-decimal">
+				<li>使用竖向滚动时，需要给 scroll-view 一个固定高度，通过 css 设置 height。</li>
+				<li>scroll-view 不支持 flex 布局，即使设置了 enable-flex 也不起作用（原因不明）</li>
+			</ul>
+			<h3 class="r3-title">法一：css计算器calc</h3>
+			<section class="r3-body">
+				<div class="code-box">
+					<pre class="language-html line-numbers">
+						<code>
+							&lt;template>
+								&lt;view>
+									&lt;view class="uni-swiper-tab">&lt;/view>
+									&lt;scroll-view scroll-y class="listBox">&lt;/scroll-view>
+								&lt;/view>
+							&lt;/template> 
+						</code>
+					</pre>
+				</div>
+				<div class="code-box">
+					<pre class="language-css line-numbers">
+						<code>
+							page{
+								height: 100%;
+							}
+							page > view{
+								display: flex;
+								flex-direction: column;
+								height: 100%;
+							}
+							.listBox{
+								display: flex;
+								flex: 1;
+							}
+							/* 设置以上样式后，在微信开发者工具中 scroll-view 高度是自适应的，但是在真机微信小程序中运行时，
+							 * 还必须得加上以下样式 scroll-view 高度才能自适应；
+							 * 这是因为 scroll-view 不支持 flex 布局，即使设置了 enable-flex 也不起作用（原因不明）
+							 * 62rpx 为 uni-swiper-tab 的高度
+							 */
+							.listBox{
+								height: calc(100% - 62rpx);
+							}
+						</code>
+					</pre>
+				</div>
+			</section>
+			
+			<h3 class="r3-title">法二：外嵌 view + scroll-view 绝对定位</h3>
+			<p>因为 scroll-view 不支持 flex 布局，即使设置了 enable-flex 也不起作用（原因不明），所以在 scroll-view 外嵌套一个 view 来实现 flex 布局。</p>
+			<section class="r3-body">
+				<div class="code-box">
+					<pre class="language-html line-numbers">
+						<code>
+							&lt;template>
+								&lt;view>
+									&lt;view class="uni-swiper-tab">&lt;/view>
+									&lt;view class="sv-wrap">
+										&lt;scroll-view scroll-y>&lt;/scroll-view>
+									&lt;/view>
+								&lt;/view>
+							&lt;/template> 
+						</code>
+					</pre>
+				</div>
+				<div class="code-box">
+					<pre class="language-css line-numbers">
+						<code>
+							page{
+								height: 100%;
+							}
+							page > view{
+								display: flex;
+								flex-direction: column;
+								height: 100%;
+							}
+							.sv-wrap{
+								display: flex;
+								flex: 1;
+								position:relative;
+							}
+							.sv-wrap > scroll-view{
+								position: absolute;
+								left: 0;
+								top: 0;
+								bottom: 0;
+								right: 0;
+							}
+							/* 如果不为 scroll-view 设置绝对定位，只设置 height, 则无法实现 scroll-view 滚动；
+							 * 按以下无法实现 scroll-view 滚动
+							 */
+							.sv-wrap > scroll-view{
+								height: 100%;
+							}
+						</code>
+					</pre>
+				</div>
+			</section>
+			
+		</section>
+    </div>
+</div>
+</body>
+</html>

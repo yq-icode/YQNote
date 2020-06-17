@@ -1,13 +1,21 @@
-文件目录：
+
+/****************************************************/
+ * 文件目录结构说明
+/****************************************************/
 /static/css/
 /static/js/
 /static/fonts/
 /static/images/
-/static/include/
-/static/components/（放插件和框架）
+/static/include/（公共引用文件）
+/static/libs/（整个网站中用到的插件）
 
-/plugIn/（放插件总结及DEMO）
-/KJ/（放各种框架总结及DEMO）
+/plugIn/（插件总结及小DEMO）
+/KJ/（框架总结及小DEMO）
+
+
+/Demo/（框架及插件的整体demo，按正常项目来架构，将所有常用的都总结到里面，再做新项目时直接COPY即可）
+
+/views/ 其它的小分类
 
 待调整：
 将axure移到到/KJ/下

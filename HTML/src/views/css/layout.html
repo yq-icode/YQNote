@@ -5,12 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>常用布局总结</title>
-    <!--#include virtual="/include/_head_import_file.html" -->
-    <link rel="stylesheet/less" href="/css/global.less">
-    <script src="/js/less-2.5.3.min.js"></script>
+    <!--#include virtual="/static/include/_head_import_file2.html" -->
 </head>
 <body>
-<!--#include virtual="/include/_header.html" -->
+<!--#include virtual="/static/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
@@ -237,20 +235,40 @@
 	                </code>
 	            </pre>
 	        </div>
-	        <div class="code-box">
-	        	<pre class="language-css line-numbers">
-	            	<code>
-	                
-	                </code>
-	            </pre>
-	        </div>
 	    </div>
         <!-- **************** separator line ****************  -->
-        
-    </div>
-    <div class="col-md-3" id="side">
-    	<div class="fix-side-nav">
-        </div>
+        <h2 class="r2-title">文字环绕图片布局</h2>
+		<section class="r2-body">
+			<ul class="list-decimal">
+				<li>align 属性已废弃，请使用 float 和 vertical-align 这两个 CSS 属性作为代替</li>
+				<li>hspace 与 vspace 属性已废弃，请使用 CSS 属性 margin 代替</li>
+			</ul>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+			    	<code>
+&lt;div class="box">
+	&lt;img src="images/qq.png" />
+	文字环绕图片布局文字环绕图片布局文字环绕图片布局文字环绕图片布局文字环绕图片布局文字环绕图片布局文字环绕图片布局文字环绕图片布局
+&lt;/div>			        
+			        </code>
+			    </pre>
+			</div>
+			<div class="code-box">
+				<pre class="language-css line-numbers">
+			    	<code>
+.box{
+	width: 260px;
+	padding: 20px;
+	background-color: #F2F2F2;
+}
+.box img{
+	float: left;
+	margin: 0 10px 5px 0;
+}			        
+			        </code>
+			    </pre>
+			</div>
+		</section>
     </div>
 </div>
 </body>

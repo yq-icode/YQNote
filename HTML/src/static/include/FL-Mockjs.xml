@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="基础" url="/plugIn/mockjs/views/">
+		<file>
+			<title>模拟 date&amp;time</title>
+			<name>md01</name>
+		</file>
+		<file>
+			<title>WxMock 微信模拟数据</title>
+			<name>md02</name>
+		</file>
+	</main>
+</fileList>

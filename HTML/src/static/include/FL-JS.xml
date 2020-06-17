@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="JS" url="/views/js/">
+		<sub title="JS基础">
+			<file>
+				<title>对象</title>
+				<name>fun24</name>
+			</file>
+			<file>
+				<title>Array&amp;String</title>
+				<name>fun04</name>
+			</file>
+			<file>
+				<title>Number&amp;Math</title>
+				<name>fun02</name>
+			</file>
+			<file>
+				<title>JSON</title>
+				<name>fun35</name>
+			</file>
+			<file>
+				<title>Date 相关</title>
+				<name>fun16</name>
+			</file>
+			<file>
+				<title>运算符</title>
+				<name>fun17</name>
+			</file>
+			<file>
+				<title>Selection &amp; Range</title>
+				<name>fun38</name>
+			</file>
+			<file>
+				<title>Web 基础</title>
+				<name>fun29</name>
+			</file>
+			<file>
+				<title>函数定义、类别、调用</title>
+				<name>fun22</name>
+			</file>
+			<file>
+				<title>匿名函数/闭包</title>
+				<name>fun18</name>
+			</file>
+			<file>
+				<title>use strict</title>
+				<name>fun26</name>
+			</file>
+			<file>
+				<title>this探讨</title>
+				<name>_jsP01</name>
+			</file>
+			<file>
+				<title>语句和声明</title>
+				<name>fun27</name>
+			</file>
+			<file>
+				<title>***待定***</title>
+				<name>fun31</name>
+			</file>
+			<file>
+				<title>正则表达式</title>
+				<name>fun32</name>
+			</file>
+			<file>
+				<title>WEB 存储</title>
+				<name>fun33</name>
+			</file>
+			<file>
+				<title>异步</title>
+				<name>fun09</name>
+			</file>
+			<file>
+				<title>JS加载与执行顺序</title>
+				<name>fun14</name>
+			</file>
+		</sub>
+		<sub title="方法&amp;函数基础">
+			<file>
+				<title>JS模块</title>
+				<name>fun25</name>
+			</file>
+			<file>
+				<title>JQuery插件之$.fn</title>
+				<name>fun23</name>
+			</file>
+			<file>
+				<title>JS 操作 DOM、CLASS、Attribute</title>
+				<name>_qb</name>
+			</file>
+			<file>
+				<title>jQuery data 数据操作</title>
+				<name>fun11</name>
+			</file>
+			<file>
+				<title>打开新窗口</title>
+				<name>fun03</name>
+			</file>
+			<file>
+				<title>监听函数</title>
+				<name>_jsP02</name>
+			</file>
+			<file>
+				<title>位置、尺寸</title>
+				<name>fun10</name>
+			</file>
+			<file>
+				<title>阻止冒泡和取消默认事件</title>
+				<name>fun21</name>
+			</file>
+		</sub>
+		<sub title="相似方法&amp;函数区别">
+			<file>
+				<title>setInterval、 setTimeout</title>
+				<name>fun01</name>
+			</file>
+			<file>
+				<title>for、for in、for of、forEach、$(selector).each()、$.each()、map</title>
+				<name>fun19</name>
+			</file>
+			<file>
+				<title>call、apply、bind、trigger</title>
+				<name>fun30</name>
+			</file>
+			<file>
+				<title>resize</title>
+				<name>fun28</name>
+			</file>
+		</sub>
+		<sub title="JSON">
+			<file>
+				<title>JSON</title>
+				<name>json</name>
+			</file>
+			<file>
+				<title>读取JSON数据的方法</title>
+				<name>json2</name>
+			</file>
+		</sub>
+		<sub title="动画">
+			<file>
+				<title>动画事件</title>
+				<name>fun34</name>
+			</file>
+		</sub>
+		<sub title="表单">
+			<file>
+				<title>表单提交</title>
+				<name>method04</name>
+			</file>
+			<file>
+				<title>表单数据</title>
+				<name>method03</name>
+			</file>
+			<file>
+				<title>表单提交实例</title>
+				<name>method06</name>
+			</file>
+			<file>
+				<title>select</title>
+				<name>fun08</name>
+			</file>
+		</sub>
+		<sub title="文件&amp;图片处理">
+			<file>
+				<title>图片预览</title>
+				<name>fun37</name>
+			</file>
+		</sub>
+		<sub title="音频视频">
+			<file>
+				<title>audio</title>
+				<name>audio01</name>
+			</file>
+		</sub>
+		<sub title="图片类处理">
+			<file>
+				<title>判断图片是否加载完成</title>
+				<name>method02</name>
+			</file>
+			<file>
+				<title>获取图片的原始尺寸</title>
+				<name>method02</name>
+			</file>
+			<file>
+				<title>图片等比例绽放</title>
+				<name>method02</name>
+			</file>
+		</sub>
+		<sub title="便捷小方法">
+			<file>
+				<title>常用 Number 处理方法</title>
+				<name>method07</name>
+			</file>
+			<file>
+				<title>获取数组中的最小/大值</title>
+				<name>method01</name>
+			</file>
+			<file>
+				<title>取消事件的默认动作</title>
+				<name>method01</name>
+			</file>
+			<file>
+				<title>截取文件名</title>
+				<name>method01</name>
+			</file>
+			<file>
+				<title>js编码与解码</title>
+				<name>method01</name>
+			</file>
+			<file>
+				<title>AJAX 读取文件</title>
+				<name>method05</name>
+			</file>
+		</sub>
+		<sub title="开发者工具">
+			<file>
+				<title>查看器(Elements)</title>
+				<name>elements</name>
+			</file>
+			<file>
+				<title>控制台(Console)</title>
+				<name>console</name>
+			</file>
+			<file>
+				<title>debugger调试</title>
+				<name>debugger</name>
+			</file>
+			<file>
+				<title>source map</title>
+				<name>fun36</name>
+			</file>
+		</sub>
+		<sub title="其它">
+			<file>
+				<title>页面传参</title>
+				<name>chuanZhi</name>
+			</file>
+			<file>
+				<title>页面前进、后退、刷新</title>
+				<name>method01</name>
+			</file>
+			<file>
+				<title>鼠标滚轮事件</title>
+				<name>fun07</name>
+			</file>
+			<file>
+				<title>iframe</title>
+				<name>fun12</name>
+			</file>
+			<file>
+				<title>路径访问问题</title>
+				<name>fun15</name>
+			</file>
+		</sub>
+		<sub title="奇怪的问题">
+			<file>
+				<title>命名冲突</title>
+				<name>JS001</name>
+			</file>
+			<file>
+				<title>IE8及以下jquery.html()的BUG</title>
+				<name>jsP02</name>
+			</file>
+		</sub>
+	</main>
+	<main title="JQUERY" url="/views/js/">
+		<sub title="基础">
+			<file>
+				<title>on事件绑定</title>
+				<name>fun20</name>
+			</file>
+		</sub>
+		<sub title="相似方法">
+			<file>
+				<title>宽度类方法</title>
+				<name>api001</name>
+			</file>
+			<file>
+				<title>***待定***</title>
+				<name>fun05</name>
+			</file>
+			<file>
+				<title>attr与prop的区别</title>
+				<name>fun13</name>
+			</file>
+			<file>
+				<title>(function($){})(jQuery)、$(function(){})、$(document).ready(function(){})三者的区别讲解</title>
+				<name>_jsP03</name>
+			</file>
+		</sub>
+		<sub title="other">
+			<file>
+				<title>jquery</title>
+				<name>jquery</name>
+			</file>
+			<file>
+				<title>jQuery.inArray</title>
+				<name>fun06</name>
+			</file>
+			<file>
+				<title>索引相关的操作</title>
+				<name>fun06</name>
+			</file>
+			<file>
+				<title>jquery tmpl 详解</title>
+				<name>exp01</name>
+			</file>
+		</sub>
+	</main>
+	<main title="ECMAScript 6.0" url="/views/js/">
+		<file>
+			<title>ES6 兼容</title>
+			<name>es001</name>
+		</file>
+	</main>
+	<main title="AJAX" url="/views/js/">
+		<sub title="">
+			<file>
+				<title>AJAX</title>
+				<name>ajax</name>
+			</file>
+			<file>
+				<title>同步（Synchronous）和异步（Asychronous）</title>
+				<name>asy</name>
+			</file>
+		</sub>
+		<sub title="jQuery ajax">
+			<file>
+				<title>jQuery AJAX 操作函数</title>
+				<name>ajax2</name>
+			</file>
+		</sub>
+	</main>
+</fileList>

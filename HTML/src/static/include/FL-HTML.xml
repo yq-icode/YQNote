@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="html5" url="/views/html5/">
+		<file>
+			<title>video</title>
+			<name>video</name>
+		</file>
+		<file>
+			<title>HTML5标签</title>
+			<name>h5tag</name>
+		</file>
+	</main>
+	<main title="indexedDB" url="/views/html5/">
+		<file>
+			<title>基本知识详解</title>
+			<name>idxDB</name>
+		</file>
+		<file>
+			<title>实例：添加、删除数据</title>
+			<name>idxDB1</name>
+		</file>
+	</main>
+</fileList>

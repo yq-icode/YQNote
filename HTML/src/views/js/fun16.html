@@ -5,11 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<!--#include virtual="/include/_head_import_file.html" -->
-    <script src="/js/less-2.5.3.min.js"></script>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
 </head>
 <body>
-<!--#include virtual="/include/_header.html" -->
+<!--#include virtual="/static/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
@@ -41,14 +40,65 @@
 			<h3 class="r3-title">转日期格式</h3>
 	    	<div class="code-box">
 	            <pre class="language-js line-numbers">
-	                <code>   
-bindDateChange: function(e) {
-	let arr = e.target.value.toString().split('-');
-	this.date = arr[0] + "." + arr[1] + "." + arr[2];
+	                <code>
+//假设传入的 date 格式为 yyyy-mm-dd	                	
+switchDateFormat: function(d) {
+	let arr = d.toString().split('-');
+	return arr[0] + "." + arr[1] + "." + arr[2];
 }
 		            </code>
 	            </pre>
 	        </div>
+			
+			<h3 class="r3-title">判断日期是否为今天</h3>
+			<p>后端返回字符串数据，需要前端判断该日期是否为今天。假如返回日期格式为：2018-08-14</p>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+//方法一						
+function isToday(str){
+    var d = new Date(str.replace(/-/g,"/"));
+    var todaysDate = new Date();
+    if(d.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)){
+        return true;
+    } else {
+        return false;
+    }
+}
+isToday('2018-08-14');
+
+//方法二（比较时间戳值，是否小于一天的时间戳值）
+function isToday(str) {
+   return new Date().getTime() - new Date(str).getTime() < 86400000;
+}
+isToday('2018-8-14');
+
+//方法三（比较日期字符串是否一致）
+function isToday(str){
+    var d = new Date(),
+    	year = d.getFullYear(), // 年
+    	month = d.getMonth() + 1, // 月份从0开始的
+    	day = d.getDate(); //日
+    return str == (year + '-' + month + '-' + day);
+}
+console.log(isToday('2018-8-14'));
+
+					</code>
+				</pre>
+			</div>
+			
+			<h3 class="r3-title">按以下方式显示日期时间</h3>
+			<p>以当天为基点，当天只显示时间，不显示日期，昨天显示文字 '昨天', 再之前只显示日期，不显示时间</p>
+	    	<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+
+
+		            </code>
+	            </pre>
+	        </div>
+			
+			
 	    	<h3 class="r3-title">前一天、后一天</h3>
 	    	<div class="code-box">
 	            <pre class="language-js line-numbers">
@@ -79,6 +129,7 @@ dateToString:function(d){
 	            </pre>
 	        </div>
 	        <h3 class="r3-title">注意点</h3>
+			<p>所有主流浏览器都支持的格式为：new Date("2017/09/12 13:42:00")</p>
 	        <div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>

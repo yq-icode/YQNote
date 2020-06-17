@@ -5,15 +5,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<!--#include virtual="/include/_head_import_file.html" -->
+	<!--#include virtual="/static/include/_head_import_file.html" -->
     <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
-<!--#include virtual="/include/_header.html" -->
+<!--#include virtual="/static/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
 		<p class="reference">
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FormData">FormData</a>
 			<a href="https://www.cnblogs.com/web-wjg/p/7894657.html"></a>
 			<a href="https://www.cnblogs.com/chongyao/p/7298986.html"></a>
 		</p>
@@ -57,7 +58,7 @@
 	        <div class="code-box">
 	            <pre class="language-html line-numbers">
 	                <code>
-	&lt;form id='test_form' action='' method='' onsubmit='return checkForm()'>
+	&lt;form id='test_form' action='' method='' onsubmit='return checkForm(this)'>
 	    &lt;input type='text' name='username' value=''/>
 	    &lt;input type='password' name='pwd' value =''/>
 	    &lt;button type='submit'>提交&lt;button/>
@@ -68,7 +69,7 @@
 	        <div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>
-	function checkForm(){
+	function checkForm(form){
 	    var form = document.getElementById('test_form');
 	    return ture;
 	}
@@ -104,46 +105,65 @@
 	        </div>
 	    </section>
 	    
-        <h2 class="r2-title">表单提交数据</h2>
-        <section class="r2-body">
-        	<h3 class="r3-title">修改提交的数据</h3>
-	        <p>表单只会提交带有 name 属性的表单元素</p>
-	        <div class="code-box">
-	            <pre class="language-html line-numbers">
-	                <code>
-	&lt;form id='test_form' action='' method='' omsubmit='return checkForm()'>
-	    &lt;input type='text' name='username' value=''/>
-	    &lt;input type='password' id='input_pwd' value =''/>
-	    &lt;input type='hidden' name='pwd' id='md5_pwd' value=''/>
-	    &lt;button type='submit'>提交&lt;button/>
-	&lt;form/>
-			        </code>
-	            </pre>
-	        </div>
-	        <div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>
-	function checkForm(){
-	    var input_pwd= document.getElementById('input_pwd');
-	    var md5_pwd= document.getElementById('md5_pwd');
-	     md5_pwd.value= toMD5(input_pwd.value); //MD5密码加密方法       
-	    //进行下一步
-	    return ture;
+	    <h2 class="r2-title">表单提交不刷新页面</h2>
+	    <section class="r2-body">
+	    	<h3 class="r3-title">利用 onsubmit 事件</h3>
+	    	<section class="r3-body">
+	    		<div class="code-box">
+		            <pre class="language-html line-numbers">
+		                <code>
+&lt;form action="" method="post" onsubmit="return save()">
+    &lt;input type="text" name="name"/>
+    &lt;input type="submit" value="保存"/>
+&lt;/form>
+				        </code>
+		            </pre>
+	            </div>
+	            <div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+	function save(){
+		// ajax数据提交代码
+		// .....
+	 
+		return false;	//重要!一定要写
 	}
-			        </code>
-	            </pre>
-	        </div>
-	        <p>&lt;input type='password'/>是用户输入密码的input框，并没有设置 name 属性，而是给 &lt;input type='hidden' /> 设置了 name='pwd'，这样表单提交只会提交带有name属性的输入框，从而修改了表单提交的数据，只提交了我们想要的数据。</p>
-		
-        	<h3 class="r3-title">如何不提交隐藏DIV中的表单？</h3>
-	        <dl class="dlist">
-	        	<dt>去除表单元素的 name 属性</dt>
-	        	<dd>此方法有效果（去除 name 属性之后，不需要重新渲染表单）</dd>
-	        	<dt>为表单元素添加 disabled 属性</dt>
-	        	<dd>通过为 select 添加 disabled 属性做测试，发现此方法在Layui框架中不起作用，无论是将 disabled 加在 select 原始DOM对象上，还是加在美化后的 input 标签上，都不起作用。</dd>
-	        </dl>
-        </section>
-        
+				        </code>
+		            </pre>
+		        </div>
+		        <p>我们在绑定onsubmit的时候是把return false放进onsubmit后面的调用函数内的, 这样子如果你的函数出现了错误, 将不会继续执行到函数最后'return false'这里, 还是会出现刷新的现象; 
+我们应该把return false写到绑定事件中. 所以为了安全起见, 我们可以不用去掉函数的return false.</p>
+				<div class="code-box">
+		            <pre class="language-html line-numbers">
+		                <code>
+&lt;form action="" method="post" onsubmit="save(); return false;">&lt;/form>
+				        </code>
+		            </pre>
+	            </div>
+	    	</section>
+	    	
+	    	<h3 class="r3-title">利用 iframe</h3>
+	    	<section class="r3-body">
+	    		<p>利用一个隐藏的 iframe 来实现, 把提交目标放到一个隐藏的 iframe 里, 然后让 iframe 提交数据</p>
+	    		<ul class="list-decimal">
+	    			<li>form 标签的 target 属性与 iframe 标签的 name 属性值保持一致</li>
+	    			<li>此方法后台返回数据无法在前台使用</li>
+	    		</ul>
+	    		<div class="code-box">
+		            <pre class="language-html line-numbers">
+		                <code>
+&lt;form action="" method="post" target="formIframe">
+    &lt;input type="text" name="name"/>
+    &lt;input type="submit" οnclick="save()" value="保存"/>
+&lt;/form>
+ 
+&lt;iframe id="id_iframe" name="formIframe" style="display:none;">&lt;/iframe>
+				        </code>
+		            </pre>
+	            </div>
+	    	</section>
+	    </section>
+	    
         <h2 class="r2-title">重置表单</h2>
         <section class="r2-body">
         	<div class="code-box">

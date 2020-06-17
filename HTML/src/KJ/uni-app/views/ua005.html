@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--#include virtual="/static/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/static/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+        <h2 class="r2-title">onShareAppMessage()</h2>
+        <section class="r2-body">
+			<p class="reference">
+				<a href="https://uniapp.dcloud.io/api/plugins/share?id=onshareappmessage"></a>
+				<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/share.html"></a>
+			</p>
+			<ul class="list-decimal">
+				<li>onShareAppMessage 处理函数和 onLoad 等生命周期函数同级</li>
+				<li>微信小程序中只能分享到微信</li>
+			</ul>
+			
+			<h3 class="r3-title">显示与隐藏 '分享' 按钮</h3>
+			<ul class="list-decimal">
+				<li>只要定义了 onShareAppMessage() 处理函数，小程序右上角的原生菜单中就会显示 '分享' 按钮 <span class="badge">微信</span><span class="badge">头条平台</span></li>
+				<li>showShareMenu 与 hideShareMenu 也可以控制小程序右上角的原生菜单中的 '分享' 按钮</li>
+			</ul>
+			
+			<h3 class="r3-title">触发 onShareAppMessage 事件</h3>
+			<ul class="list-decimal">
+				<li>点击小程序右上角原生菜单自带的 '分享' 按钮时会触发；</li>
+				<li>通过给 button 组件设置属性 open-type="share"，可以在用户点击按钮后触发 onShareAppMessage 事件</li>
+			</ul>
+		</section>
+		
+		<h2 class="r2-title">微信小程序分享到朋友圈</h2>
+		<section class="r2-body">
+			<p>微信小程序还没有能够直接分享到朋友圈的 API ,转发给朋友和群是可以实现的，以下两篇文章讲述了如何将微信小程序分享到朋友圈</p>
+			<a class="ref" href="https://www.cnblogs.com/till-the-end/p/8470557.html"></a>
+			<a class="ref" href="https://blog.csdn.net/weixin_43073241/article/details/90294828"></a>
+		</section>
+    </div>
+</div>
+</body>
+</html>

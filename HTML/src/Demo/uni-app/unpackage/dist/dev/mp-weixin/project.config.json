@@ -7,8 +7,8 @@
 		"urlCheck": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.0",
-	"appid": "wx86b7f499f387c3d8",
+	"libVersion": "2.9.2",
+	"appid": "touristappid",
 	"projectname": "YQ-uni-app",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

@@ -5,32 +5,44 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<!--#include virtual="/include/_head_import_file.html" -->
+	<!--#include virtual="/static/include/_head_import_file.html" -->
     <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
-<!--#include virtual="/include/_header.html" -->
+<!--#include virtual="/static/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
 		<p class="reference">
 			<a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html">require.js</a>
 			<a href="http://es6.ruanyifeng.com/#docs/module">ES6 模块化</a>
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import">import</a>
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/export">export</a>
 			<a href="https://www.runoob.com/w3cnote/es6-module.html">ES6 模块化</a>
 			<a href="https://www.cnblogs.com/libin-1/p/7127481.html">CommonJS、AMD、CMD、ES6 模块化区别</a>
 		</p>
 		<h2 class="r2-title">JS 模块化介绍</h2>
 		<section class="r2-body">
 			<p>JS 模块化规范有以下几种，在 ES6 以前，最主要的 JS 模块规范有两种：Node CommonJS 和 AMD，前者用于服务器，后者用于浏览器。</p>
+			<a class="ref" href="https://www.jianshu.com/p/536405cbf915">几种模块化的区别</a>
 			<dl class="dlist">
-				<dt>Node CommonJS</dt>
+				<dt>Node CommonJS（服务端）</dt>
 				<dd></dd>
-				<dt>AMD(Asynchronous Module Definition 异步模块定义)</dt>
-				<dd>主要有两个Javascript库实现了AMD规范：require.js 和 curl.js。</dd>
-				<dt>CMD (Common Module Definition)</dt>
-				<dd>seajs 的规范是 CMD</dd>
-				<dt>ES6规范</dt>
-				<dd></dd>
+				<dt>AMD(Asynchronous Module Definition 异步模块定义，客户端)</dt>
+				<dd>
+					<p>主要有两个Javascript库实现了AMD规范：require.js 和 curl.js。</p>
+					<a class="ref" href="https://github.com/amdjs/amdjs-api/blob/master/AMD.md">AMD</a>
+				</dd>
+				<dt>CMD (Common Module Definition，客户端)</dt>
+				<dd>
+					<p>seajs 的规范是 CMD</p>
+					<a class="ref" href="https://seajs.github.io/seajs/docs/">seajs</a>
+					<a class="ref" href="https://www.zhangxinxu.com/sp/seajs/">seajs(zhangxinxu)</a>
+				</dd>
+				<dt>ES6规范（ECMA）</dt>
+				<dd>
+					
+				</dd>
 			</dl>
 		</section>
 		<h2 class="r2-title">RequireJs</h2>

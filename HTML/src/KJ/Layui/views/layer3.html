@@ -5,19 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Layui</title>
-	<link href="/css/prism.css" rel="stylesheet">
-    <link href="/css/iconfont.css" rel="stylesheet">
-	<link href="/css/default.less" rel="stylesheet/less">
-	<script src="/js/jquery-1.11.3.min.js"></script>
-	<script src="/js/less-2.5.3.min.js"></script>
-	<script src="/js/prism.js"></script>
-    <script src="/js/default.js"></script>
-    <style>
-    	
-    </style>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
 </head>
 <body>
-<!--#include virtual="/include/_header.html" -->
+<!--#include virtual="/static/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
@@ -49,7 +40,7 @@ layui.use(['layer'], function(){
 			,area: ['765px','280px']
 			,success: function (layero, index) {
 		       var ifrDoc = layero.find('iframe')[0].contentDocument;
-		       ifrDoc.getElementById('winName').value = ifrId;
+		       ifrDoc.getElementById('ifrmId').value = ifrId;
 		   	}
 		})
 	})
@@ -61,7 +52,7 @@ function print(){
 		            </code>
 	            </pre>
 	        </div>
-	        <p>如果 print() 方法在某个函数作用域内，则需要按如下写法 window.method = funtion(){} 才能调用到该函数；</p>
+	        <p>如果 print() 方法在某个函数作用域内，如下，print() 在 layui.use 中，则需要按如下写法 window.method = funtion(){} 才能调用到该函数；</p>
 	        <div class="code-box">
 	            <pre class="language-js line-numbers">
 	                <code>
@@ -77,11 +68,11 @@ layui.use(['layer'], function(){
 			,area: ['765px','280px']
 			,success: function (layero, index) {
 		       var ifrDoc = layero.find('iframe')[0].contentDocument;
-		       ifrDoc.getElementById('winName').value = ifrId;
+		       ifrDoc.getElementById('ifrmId').value = ifrId;
 		   	}
 		})
 	})
-	window.print = print(){
+	window.print = function(){
 		console.log('Hello World');
 	}
 })
@@ -109,6 +100,29 @@ setTimeout(function(){
 		}
 	}
 }, 1000)
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+		
+		<h2 class="r2-title">Layer iframe 向子页面传递对象</h2>
+		<section class="r2-body">
+			<h4 class="r4-title">前置条件</h4>
+			<p>layer 只能向子页面传递值（上面的方法传递的就是值），却无法传递对象，因此当需要传递的数据量很大时会非常不方便</p>
+			<h4 class="r4-title">需要实现的效果</h4>
+			<p>将父页面的对象传递给子页面</p>
+			<h4 class="r4-title">实现方法</h4>
+			<p>在父页面写获取对象的方法，在子页面调用父页面的方法来获取对象</p>
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>   
+//父页面JS
+function getObjData(){
+	return objData; //objData 为要传递的对象数据，且是父页面定义的全局对象
+}
+
+//子页面JS
+var data = window.parent.getObjData();
 		            </code>
 	            </pre>
 	        </div>

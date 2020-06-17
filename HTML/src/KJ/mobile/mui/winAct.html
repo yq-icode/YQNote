@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+    	<h2 class="r2-title">关于页面/窗口的一些知识</h2>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+页面默认ID
+当没有指定页面ID时，ID默认为页面名，如页面 cmta.html，其默认ID为cmta.html
+
+获取当前窗口的WebviewObject对象
+var self = plus.webview.currentWebview();
+当前页ID:self.id
+当前页URL:self.getURL()
+
+查找指定标识的WebviewObject窗口
+plus.webview.getWebviewById('list.html')
+    				</code>
+            </pre>
+        </div>
+        
+    	
+        <h2 class="r2-title">关闭页面</h2>
+        <section class="r2-body">
+            <h3 class="r3-title">法一</h3>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+mui.back();
+直接调用mui.back()方法，执行窗口关闭逻辑；
+    				</code>
+                </pre>
+            </div>
+            
+            <h3 class="r3-title">法二</h3>
+            <p>只需要在对应控件上添加.mui-action-back类即可实现关闭效果，如：</p>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+&lt;header class="mui-bar mui-bar-nav"&gt;
+	&lt;a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"&gt;&lt;/a&gt;
+	&lt;h1 class="mui-title"&gt;标题&lt;/h1&gt;
+&lt;/header>
+&lt;button type="button" class='mui-btn mui-btn-danger mui-action-back'&gt;关闭&lt;/button&gt;
+    				</code>
+                </pre>
+            </div>
+            
+            <h3 class="r3-title">法三</h3>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+plus.webview.getWebviewById('main').close();//通过获取页面ID来关闭页面
+plus.webview.currentWebview().close();//关闭当前页面
+    				</code>
+                </pre>
+            </div>
+            
+            <h3 class="r3-title">法四：在屏幕内，向右快速滑动</h3>
+            <p>mui框架封装的页面右滑关闭功能，默认未启用，若要使用右滑关闭功能，需要在mui.init();方法中设置swipeBack参数，如下：</p>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+mui.init({
+	swipeBack:true //启用右滑关闭功能
+});    				
+					</code>
+                </pre>
+            </div>
+            
+            <h3 class="r3-title">法五：Android手机按下back按键</h3>
+            <p>mui框架默认会监听Android手机的back按键，然后执行页面关闭逻辑； 若不希望mui自动处理back按键，可通过如下方式关闭mui的back按键监听；</p>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+mui.init({
+	keyEventBind: {
+		backbutton: false  //关闭back按键监听
+	}
+});    				
+					</code>
+                </pre>
+            </div>
+            
+            <h3 class="r3-title">法六</h3>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+plus.webview.close(id_wvobj, aniClose, duration, extras)
+    				</code>
+                </pre>
+            </div>
+        </section>
+        
+    	<h2 class="r2-title">隐藏页面</h2>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+plus.webview.hide(id_wvobj, aniHide, duration, extras)
+    			</code>
+            </pre>
+        </div>
+        
+    	<h2 class="r2-title">显示页面</h2>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+plus.webview.show( id_wvobj, aniShow, duration, showedCB, extras );
+    			</code>
+            </pre>
+        </div>
+    
+    	<h2 class="r2-title">创建页面</h2>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+plus.webview.create( url, id, styles, extras )
+    			</code>
+            </pre>
+        </div>
+    
+    	<h2 class="r2-title">打开页面</h2>
+    	<section class="r2-body">
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+	plus.webview.open(url, id, styles, aniShow, duration, showedCB )
+	    			</code>
+	            </pre>
+	        </div>
+	        
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+	mui.openWindow();//打开新页面
+	    			</code>
+	            </pre>
+	        </div>
+	        <p>每次都用mui.openWindow而不close页面会造成内存消耗过大。这是因为使用mui.openWindow跳转页面会用到plus.webview.show方法，如果不close页面会新开很多重复的webview，这样就造成多个页面同时在消耗内存。</p>
+        	
+        	<h3 class="r3-title">在APP中打开外部链接</h3>
+    		<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+	document.getElementById("HCODE").addEventListener('tap', function(event) {
+		mui.openWindow({
+			url: 'https://www.gov.uk/guidance/the-highway-code',
+			id: 'HighwayCode'
+		});
+	})
+	    			</code>
+	            </pre>
+	        </div>
+    	</section>
+        
+    	<h2 class="r2-title">预加载页面</h2>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+mui.preload(); //预加载页面
+mui.init({
+	preloadPages:[ //在初始化中预加载页面 { url:prelaod-page-url, id:preload-page-id, styles:{},//窗口参数 extras:{},//自定义扩展参数 subpages:[{},{}]//预加载页面的子页面 } ],
+})
+    			</code>
+            </pre>
+        </div>
+    </div>
+</div>
+</body>
+</html>

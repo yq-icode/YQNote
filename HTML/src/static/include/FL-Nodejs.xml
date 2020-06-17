@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="基础" url="/KJ/Nodejs/views/">
+		<file>
+			<title>待定</title>
+			<name>ns001</name>
+		</file>
+	</main>
+	<main title="NPM" url="/KJ/Nodejs/Npm/">
+		<file>
+			<title>常用命令</title>
+			<name>npm001</name>
+		</file>
+	</main>
+</fileList>

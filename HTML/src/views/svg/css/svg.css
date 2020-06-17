@@ -1,0 +1,441 @@
+@charset "utf-8";
+/* CSS Document */
+/* CSS Document */
+/* CSS Document */
+/* 圆角
+ * 应用实例：.b-radius(5px);
+ *************************************/
+/* 只适用于一个阴影的格式 */
+/* 一个及以上阴影参数的格式 */
+/* 无阴影 */
+.box-shadow-none {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* 只适用于一个阴影的格式 */
+/* 一个及以上阴影参数的格式 */
+/* 无阴影 */
+.text-shadow-none {
+  -webkit-text-shadow: none;
+  -moz-text-shadow: none;
+  text-shadow: none;
+}
+/* vertical gradient form top to bottom */
+/* horizotal gradient form left to right */
+/* 要给0加上单位才能在firefox下正常显示 */
+/* 应用于除transform外的其它所有属性 */
+/* 仅应用于tranform */
+/* 一个及以上过渡效果，不包括transform */
+/* 一个及以上转变格式 */
+.animation-none {
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+}
+/* ------------------------------------------------------- *
+ * 
+ * ------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style-type: none;
+}
+a:focus,
+button,
+input {
+  outline: none;
+}
+a:link,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+.valignMid * {
+  vertical-align: middle;
+}
+.mt5 {
+  margin-top: 5px;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.mt20 {
+  margin-top: 20px;
+}
+.mb10 {
+  margin-bottom: 10px;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.mb30 {
+  margin-bottom: 30px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+/* ------------------------------------------------------- *
+ * clearfix
+ * ------------------------------------------------------- */
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+.pos-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.list-group-item-warning {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.sec dt {
+  margin: 20px 0 10px;
+  font-size: 20px;
+  font-weight: normal;
+  font-family: "Microsoft yahei";
+}
+.sec dd {
+  padding: 20px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 3px 3px rgba(204, 204, 204, 0.05);
+  -moz-box-shadow: 0 0 3px 3px rgba(204, 204, 204, 0.05);
+  box-shadow: 0 0 3px 3px rgba(204, 204, 204, 0.05);
+}
+.sec dd.txt {
+  color: #666;
+}
+.sec h4 {
+  font-weight: bold;
+}
+/* ------------------------------------------------------- *
+ * global
+ * ------------------------------------------------------- */
+/*h2{margin:0 0 10px;padding:30px 10px 15px;background-color:#769E0F;color:#fc0;}*/
+h3 {
+  margin-top: 2em;
+}
+h3 .num {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px;
+  background-color: #B3CF26;
+  color: #fff;
+  font-size: 0.5em;
+  vertical-align: middle;
+}
+h4 {
+  margin-top: 2em;
+}
+.cblock {
+  position: relative;
+  height: 200px;
+  background-color: #33ccff;
+  overflow: hidden;
+}
+.cblock .bg-under {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.cblock .bg-under .shape1 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-width: 100px 700px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.3);
+}
+.cblock .content-area {
+  position: relative;
+  z-index: 2;
+  font-family: "迷你简中倩";
+  color: #fff;
+}
+.cblock .content-area h1 {
+  margin-top: 40px;
+  font-size: 60px;
+}
+.cblock .content-area p {
+  font-size: 24px;
+  line-height: 1em;
+  font-family: "幼圆";
+  color: #fff;
+}
+/* ------------------------------------------------------- *
+ * side
+ * ------------------------------------------------------- */
+#side {
+  position: relative;
+}
+.fix-side-nav {
+  position: fixed;
+  right: 2em;
+  bottom: 2em;
+  text-align: right;
+  line-height: 20px;
+}
+.fix-side-nav dl {
+  margin: 5px 0 0;
+  border-top: 3px solid #eee;
+  padding-top: 5px;
+}
+.fix-side-nav dl dt a {
+  display: inline-block;
+  padding: 0 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: normal;
+  background-color: #6FDAFE;
+}
+.fix-side-nav dl dt a:hover {
+  color: #000;
+}
+.fix-side-nav dl dt a::before {
+  content: '// ';
+}
+.fix-side-nav dl dd a {
+  display: inline-block;
+  padding: 0 2px;
+  color: #B2DBF5;
+  font-size: 12px;
+  color: #333;
+}
+.fix-side-nav dl dd a:hover {
+  background-color: #333;
+  color: #fff;
+}
+.fix-side-nav h5::before {
+  content: '///////////////////';
+  margin-right: 5px;
+  color: #999;
+}
+.fix-side-nav ul {
+  margin: 0;
+}
+.fix-side-nav ul li a {
+  font-size: 12px;
+  color: #06f;
+  text-decoration: underline;
+}
+.fix-side-nav ul li a:hover {
+  color: #000;
+  text-decoration: none;
+}
+.fix-side-nav .toTop {
+  margin: 5px 0 0;
+}
+.fix-side-nav .toTop a {
+  color: #666;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: "Comic Sans MS";
+}
+.fix-side-nav .toTop a i {
+  top: 0;
+  height: 10px;
+  overflow: hidden;
+}
+.fix-side-nav .toTop a:hover {
+  color: #000;
+}
+/* ------------------------------------------------------- *
+ * note item
+ * ------------------------------------------------------- */
+.note-item {
+  margin: 2em 0 0;
+  border: 1px solid #eee;
+  padding: 20px;
+  -webkit-box-shadow: 2px 2px 0 0 #fff inset, -2px -2px 0 0 #fff inset;
+  -moz-box-shadow: 2px 2px 0 0 #fff inset, -2px -2px 0 0 #fff inset;
+  box-shadow: 2px 2px 0 0 #fff inset, -2px -2px 0 0 #fff inset;
+}
+.note-item h3 {
+  margin-top: 0;
+  font-size: 22px;
+  font-weight: normal;
+}
+.note-item h3 a {
+  color: #333;
+}
+.note-item h3 a:hover {
+  color: #0098C9;
+}
+.note-item .note-body {
+  font-size: 14px;
+  line-height: 2em;
+  color: #666;
+}
+.note-item:hover {
+  background-color: #fafafa;
+  border-color: #ccc;
+}
+/* ------------------------------------------------------- *
+ * code
+ * ------------------------------------------------------- */
+.title-sec {
+  margin-top: 2em;
+  color: #000;
+}
+.title-sec small {
+  font-size: 60%;
+}
+.title-sec time {
+  margin-left: 10px;
+  font-size: 0.5em;
+  color: #ccc;
+}
+.code-title {
+  display: block;
+  margin: 2em 0 0.5em 0;
+  font-family: "幼圆";
+}
+/* ------------------------------------------------------- *
+ * list and table
+ * ------------------------------------------------------- */
+.list-type-common,
+dl.list.lst-square dt::before,
+dl.list.lst-star dt::before,
+ul.list.lst-square li::before,
+ul.list.lst-star li::before {
+  margin-right: 10px;
+  list-style-type: none;
+  font-family: 'FontAwesome';
+  color: #333;
+}
+.display-list-item,
+ul.list.lst-decimal li,
+ul.list.lst-upper-roman li,
+ul.list.lst-cjk-ideographic li,
+ul.list.lst-decimal-leading-zero li {
+  display: list-item;
+}
+dl.list {
+  margin-left: 2em;
+  /*- 字体图标 -*/
+}
+dl.list dt {
+  margin: 1.5em 0 0.5em 0;
+}
+dl.list.lst-square dt::before {
+  content: "\f04d";
+}
+dl.list.lst-star dt::before {
+  content: "\f005";
+}
+ul.list {
+  margin-left: 2em;
+  /*- 字体图标 -*/
+  /*- list-stype-type自带 -*/
+}
+ul.list li {
+  margin: 10px 0;
+}
+ul.list.lst-square li::before {
+  content: "\f04d";
+}
+ul.list.lst-star li::before {
+  content: "\f005";
+}
+ul.list.lst-decimal li {
+  list-style-type: decimal;
+}
+ul.list.lst-upper-roman li {
+  list-style-type: upper-roman;
+}
+ul.list.lst-cjk-ideographic li {
+  list-style-type: cjk-ideographic;
+}
+ul.list.lst-decimal-leading-zero li {
+  list-style-type: decimal-leading-zero;
+}
+/*@mark-1:dl;@mark-2:dt;
+@{mark-1}.list-3{
+	margin-left:2em;
+	@{mark-2}{margin:1.5em 0 .5em 0;}
+	&.lst-square @{mark-2}::before{&:extend(.list-type-common);content:"\f04d"}
+	&.lst-star @{mark-2}::before{&:extend(.list-type-common);content:"\f005";}
+	
+	&.lst-decimal @{mark-2}{&:extend(.display-list-item);list-style-type:decimal;}
+	&.lst-cjk-ideographic @{mark-2}{&:extend(.display-list-item);list-style-type:cjk-ideographic;}
+	&.lst-decimal-leading-zero @{mark-2}{&:extend(.display-list-item);list-style-type:decimal-leading-zero;}
+}*/
+table.table-1 {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  color: #369;
+}
+table.table-1 th,
+table.table-1 td {
+  border: 1px solid #eee;
+  padding: 5px 20px;
+}
+table.table-1 th {
+  font-size: 16px;
+}
+table.table-1 td:last-child {
+  font-size: 12px;
+}
+table.table-1 td em {
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 0 5px;
+  background-color: #690;
+  color: #fff;
+  font-style: normal;
+}
+/* ------------------------------------------------------- *
+ * 情境
+ * ------------------------------------------------------- */
+.emphasis {
+  color: #C30;
+}
+.emphasis * {
+  vertical-align: baseline;
+}
+.emphasis::before {
+  display: inline-block;
+  font-family: 'FontAwesome';
+  content: "\f06a";
+}
+.my-info {
+  position: relative;
+  padding: 5px 10px 5px 33px;
+  background-color: #FFFF9B;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.4em;
+}
+.my-info::before {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  margin-top: -8px;
+  content: '\e086';
+  font-size: 14px;
+  color: #717108;
+  font-family: 'Glyphicons Halflings';
+}
+.test {
+  border: 1px solid #000;
+}

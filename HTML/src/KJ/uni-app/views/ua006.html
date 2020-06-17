@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--#include virtual="/static/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/static/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+        <h2 class="r2-title">导航栏背景图</h2>
+        <section class="r2-body">
+			<p>为导航栏加背景图，首先要取消默认的原生导航栏，即设置 navigationStyle 为 custom, 然后再按下面的方法设置，即可实现导航栏背景图固定效果。</p>
+			<h3 class="r3-title">法一：page 背景图 + scroll-view</h3>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;template>
+	&lt;page>
+		&lt;uni-nav-bar fixed status-bar left-icon="back" @clickLeft="back" :title="pageTitle" color="#ffffff" background-color="transparent">&lt;/uni-nav-bar>
+		&lt;scroll-view scroll-y>&lt;/scroll-view>
+	&lt;/page>
+&lt;/template>			
+					</code>
+				</pre>
+			</div>
+			<div class="code-box">
+				<pre class="language-css line-numbers">
+					<code>
+page {
+	background-color: #EFF0F1;
+	background-image: url('../static/images/bg2.jpg');
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: 100% 220rpx;
+}
+scroll-view {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 220rpx;
+	bottom: 0;
+}				
+					</code>
+				</pre>
+			</div>
+		</section>
+		
+    </div>
+</div>
+</body>
+</html>

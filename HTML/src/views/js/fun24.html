@@ -5,15 +5,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<!--#include virtual="/include/_head_import_file.html" -->
-    <script src="/js/less-2.5.3.min.js"></script>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
 </head>
 <body>
-<!--#include virtual="/include/_header.html" -->
+<!--#include virtual="/static/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
 		<p class="reference">
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
 			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects">对象</a>
 			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Property_Accessors">对象属性访问器</a>
 		</p>
@@ -65,14 +65,14 @@ console.log(obj1); //{age:28, name:"刘丽", sex:"女"}
 		        
 		        <h4 class="r4-title">删除对象</h4>
 		        <div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>
-//删除对象中某一属性，返回值为布尔值                	
-let obj = {"name":"刘丽", "age":22};
-delete obj.age //true
-		            </code>
-	            </pre>
-	        </div>
+		            <pre class="language-js line-numbers">
+		                <code>
+	//删除对象中某一属性，返回值为布尔值                	
+	let obj = {"name":"刘丽", "age":22};
+	delete obj.age //true
+			            </code>
+		            </pre>
+		        </div>
 		        <dl class="dlist">
 		        	<dt>Object.assign()</dt>
 		        	<dd>
@@ -83,6 +83,110 @@ delete obj.age //true
 		        	</dd>
 		        </dl>
 			</section>
+			
+			<h3 class="r3-title">判断是否为对象</h3>
+			<section class="r3-body">
+				<h4 class="r4-title">jQuery.isPlainObject()</h4>
+				<a class="ref" href="https://www.jquery123.com/jQuery.isPlainObject/">isPlainObject</a>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+jQuery.isPlainObject({}) 	 // true
+jQuery.isPlainObject("test") // false
+
+			            </code>
+		            </pre>
+		        </div>
+			</section>
+			
+			<h3 class="r3-title">判断对象为空</h3>
+			<section class="r3-body">
+				<h4 class="r4-title">将json对象转化为json字符串，再判断该字符串是否为"{}"</h4>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+var data = {};
+var b = (JSON.stringify(data) == "{}");
+alert(b);//true
+			            </code>
+		            </pre>
+		        </div>
+		        
+		        <h4 class="r4-title">jQuery.isEmptyObject()</h4>
+		        <a class="ref" href="https://www.jquery123.com/jQuery.isEmptyObject/">isEmptyObject</a>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+var data = {};
+var b = $.isEmptyObject(data);
+alert(b);//true
+
+			            </code>
+		            </pre>
+		        </div>
+		        
+		        <h4 class="r4-title">Object.getOwnPropertyNames()</h4>
+		        <div class="browser-support">
+		        	<p class="summary">IE9+</p>
+		        </div>
+		        <a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames">getOwnPropertyNames</a>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+var data = {};
+var arr = Object.getOwnPropertyNames(data);
+alert(arr.length == 0);//true
+			            </code>
+		            </pre>
+		        </div>
+		        
+		        <h4 class="r4-title">Object.keys()</h4>
+		        <div class="browser-support">
+		        	<p class="summary">IE9+</p>
+		        </div>
+		        <a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/keys">keys</a>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+var data = {};
+var arr = Object.keys(data);
+alert(arr.length == 0);//true
+			            </code>
+		            </pre>
+		        </div>
+		        
+		        <h4 class="r4-title">for in 循环判断</h4>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+var obj = {};
+
+var b = function(){
+	for(var key in obj){
+		return false;
+	}
+	return true;
+}
+
+alert(b());//true
+			            </code>
+		            </pre>
+		        </div>
+			</section>
+		</section>
+		
+		<h2 class="r2-title">注意点</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">onclick 不可传参对象</h3>
+			<p>onclick 无法直接传递对象参数，js 拼接 html 通过 onclick 传参对象时，需要将对象转化成 json 字符串来传递；</p>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//data 为要传递的对象参数，要将其转化成 json 字符串才可正常传递                	
+&lt;span onclick="editName(JSON.stringify(data))">&lt;/span>
+		            </code>
+	            </pre>
+	        </div>
 		</section>
 	</div>
 </div>

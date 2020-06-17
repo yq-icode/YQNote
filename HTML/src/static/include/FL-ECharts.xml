@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="基础" url="/plugIn/ECharts/views/">
+		<file>
+			<title>legend</title>
+			<name>legend01</name>
+		</file>
+		<file>
+			<title>tooltip</title>
+			<name>tooltip01</name>
+		</file>
+		<file>
+			<title>label</title>
+			<name>label01</name>
+		</file>
+		<file>
+			<title>axisLabel</title>
+			<name>label02</name>
+		</file>
+		<file>
+			<title>toolbox</title>
+			<name>toolbox01</name>
+		</file>
+		<file>
+			<title>图形颜色 color</title>
+			<name>color1</name>
+		</file>
+		<file>
+			<title>饼图</title>
+			<name>pie02</name>
+		</file>
+		<file>
+			<title>柱状图</title>
+			<name>bar01</name>
+		</file>
+		<file>
+			<title>折线图</title>
+			<name>line01</name>
+		</file>
+	</main>
+	<main title="实例" url="/plugIn/ECharts/examples/">
+		<sub title="公共">
+			<file>
+				<title>自定义legend图例文字</title>
+				<name>exp01</name>
+			</file>
+		</sub>
+		<sub title="饼图">
+			<file>
+				<title>多饼图</title>
+				<name>pie01</name>
+			</file>
+		</sub>
+		<sub title="散点图">
+			<file>
+				<title>散点地图</title>
+				<name>scatter01</name>
+			</file>
+		</sub>
+	</main>
+</fileList>

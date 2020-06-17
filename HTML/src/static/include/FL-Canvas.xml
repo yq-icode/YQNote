@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="基础" url="/plugIn/Canvas/views/">
+		<file>
+			<title>尺寸</title>
+			<name>canvas01</name>
+		</file>
+	</main>
+</fileList>

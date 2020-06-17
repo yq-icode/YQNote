@@ -5,11 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<!--#include virtual="/include/_head_import_file.html" -->
+	<!--#include virtual="/static/include/_head_import_file.html" -->
     <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
-<!--#include virtual="/include/_header.html" -->
+<!--#include virtual="/static/include/_header.html" -->
 <div id="wrap">
 	<div id="wside"></div>
     <div id="wmain">
@@ -296,58 +296,64 @@ el.style.display = 'none';
             </div>
         </section>
         
-            <h2 class="r2-title">对class的操作</h2>
-            <section class="r2-body">
-	            <strong>是否包含某个 class</strong>
-	            <div class="code-box">
-	                <pre class="language-js line-numbers">
-	                    <code>
-	//jq
-	$(el).hasClass(className);
-	//js
-	if (el.classList)
-	  el.classList.contains(className);
-	else
-	  new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
-	                    </code>
-	                </pre>
-	            </div>
-	            <strong>添加 Class</strong>
-	            <div class="code-box">
-	                <pre class="language-js line-numbers">
-	                    <code>
-	//jq
-	$(el).addClass(className);
-	//js
-	if (el.classList)
-	  el.classList.add(className);
-	else
-	  el.className += ' ' + className;
-	                    </code>
-	                </pre>
-	            </div>
-	            <strong>移除class</strong>
-	            <div class="code-box">
-	                <pre class="language-js line-numbers">
-	                    <code>
-	//jq
-	$(el).removeClass(className);
-	//js
-	// removeClass, takes two params: element and classname
-	function removeClass(el, cls) {
-	  var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-	  el.className = el.className.replace(reg, " ").replace(/(^\s*)|(\s*$)/g,"");
-	}
-	
-	/* 如果你只需要支持像IE10+,Chrome,FireFox,Opera和Safari这样较现代的浏览器，那么你可以开始使用HTML5的classList功能，它让增加和删除类变得更简单 */
-	el.classList.add(className);
-	el.classList.remove("foo")
-	el.classList.contains("foo");
-	el.classList.toggle("active");       
-	                    </code>
-	                </pre>
-	            </div>
-	        </section>
+        <h2 class="r2-title">对class的操作</h2>
+        <section class="r2-body">
+            <strong>是否包含某个 class</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+//jq
+$(el).hasClass(className);
+//js
+if (el.classList)
+  el.classList.contains(className);
+else
+  new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+                    </code>
+                </pre>
+            </div>
+            <strong>添加 Class</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+//jq
+$(el).addClass(className);
+//js
+if (el.classList)
+  el.classList.add(className);
+else
+  el.className += ' ' + className;
+                    </code>
+                </pre>
+            </div>
+            <strong>移除class</strong>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+//jq
+$(el).removeClass(className);
+//js
+// removeClass, takes two params: element and classname
+function removeClass(el, cls) {
+  var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
+  el.className = el.className.replace(reg, " ").replace(/(^\s*)|(\s*$)/g,"");
+}
+
+/* 如果你只需要支持像IE10+,Chrome,FireFox,Opera和Safari这样较现代的浏览器，那么你可以开始使用HTML5的classList功能，它让增加和删除类变得更简单 */
+el.classList.add(className);
+el.classList.remove("foo")
+el.classList.contains("foo");
+el.classList.toggle("active");       
+                    </code>
+                </pre>
+            </div>
+        </section>
+        
+        <h2 class="r2-title">对 style 的操作</h2>
+        <section class="r2-body">
+        	<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle">getComputedStyle</a>
+        	<a class="ref" href="https://www.jianshu.com/p/533526c9f755"></a>
+        </section>
 	        
     </div>
 </div>

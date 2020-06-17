@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<p class="reference">
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Selection">Selection</a>
+			<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Range">Range</a>
+		</p>
+		<h2 class="r2-title">在光标处插入文本/图片</h2>
+		<section class="r2-body">
+			<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+/* 在文本编辑框中添加表情图片
+ * imgNode 中为要插入的表情图片，将 imgNode 插入到 #editarea 
+ * --------------------------------------------------- */
+onAddFace:function(){
+	var eRange;
+	$('.faceBox').on('click', 'img', function(){
+		var imgNode = document.createElement("img");
+		imgNode.src = this.src;
+		eRange.insertNode(imgNode); //注意：此处可以插入的是结点，而不是 DOM 元素，也不是 string
+	})
+	$('#editarea').on('click', function(){
+		eRange = document.getSelection().getRangeAt(0);
+	})
+	return events;
+}
+		            </code>
+	            </pre>
+	        </div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

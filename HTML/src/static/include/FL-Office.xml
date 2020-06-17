@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="WORD">
+	</main>
+	<main title="EXCEL" url="/office/excel/views/">
+		<file>
+			<title>设置下拉框并添加样式(V2013)</title>
+			<name>exc001</name>
+		</file>
+	</main>
+	<main title="PPT">
+	</main>
+	<main title="windows-commands" url="/office/win-cmd/">
+		<file>
+			<title>常用命令</title>
+			<name>wc01</name>
+		</file>
+	</main>
+</fileList>

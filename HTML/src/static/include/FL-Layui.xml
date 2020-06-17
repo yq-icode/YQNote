@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="基础" url="/KJ/Layui/views/">
+		<file>
+			<title>checkbox</title>
+			<name>exp01</name>
+		</file>
+		<file>
+			<title>select</title>
+			<name>layui01</name>
+		</file>
+		<file>
+			<title>table</title>
+			<name>exp03</name>
+		</file>
+		<file>
+			<title>table样式</title>
+			<name>exp02</name>
+		</file>
+		<file>
+			<title>form</title>
+			<name>exp04</name>
+		</file>
+		<file>
+			<title>layer外观展示</title>
+			<name>layer1</name>
+		</file>
+		<file>
+			<title>layer2</title>
+			<name>layer2</name>
+		</file>
+		<file>
+			<title>tips</title>
+			<name>layer4</name>
+		</file>
+		<file>
+			<title>layer传值</title>
+			<name>layer3</name>
+		</file>
+	</main>
+</fileList>

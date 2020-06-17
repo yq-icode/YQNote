@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--#include virtual="/static/include/_head_import_file.html" -->
+    <link rel="stylesheet/less" href="/static/css/global.less">
+    <script src="/js/less-2.5.3.min.js"></script>
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+        <h2 class="r2-title">关闭视频播放页面后，video继续播放的问题</h2>
+        <p>视频video在videoPlay.html中播放，如果通过mui.openWindow方式打开videoPlay.html，则退出该页面后，视频仍在播放，但是如果通过plus.webview.create形式打开videoPlay.html，则不会出现这种问题。原因请看：<a href="http://ask.dcloud.net.cn/question/6514">http://ask.dcloud.net.cn/question/6514</a></p>
+        <p>此外，无论是mui.openWindow还是plus.webview.create，附带的传递的参数vidName都无法传递到videoPlay.html中，但是通过本地存储localStorage可以正常传递参数。</p>
+        
+        <strong>视频列表页videoList.html</strong>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var fname = "clip.mp4";
+localStorage.setItem("videoName",fname); //从视频播放页videoPlay.html可以获取到此值
+
+mui.openWindow({
+	url: 'videoPlay.html',
+	id:'videoPlay',
+	extra:{
+		vidName: fname //从视频播放页videoPlay.html获取不到此值，原因不明
+	}
+})
+
+var widVideo = plus.webview.create(
+	'videoPlay.html',
+	'videoPlay',{
+		vidName: fname //从视频播放页videoPlay.html获取不到此值，原因不明
+	}
+);
+widVideo.show();
+
+				</code>
+            </pre>
+        </div>
+        <strong>视频播放页videoPlay.html</strong>
+        <div class="code-box">
+            <pre class="language-js line-numbers">
+                <code>
+var vn = localStorage.getItem("videoName"); //接收从视频列表页videoList.html传递的视频名 
+
+var eVideo = document.querySelector('video');
+$(eVideo).attr('src', "../images/" + vn + ".mp4");
+				</code>
+            </pre>
+        </div>
+        
+        
+        <!-- ######################## -->
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+    <script src="/static/libs/require.js"></script>
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+    <div id="wmain">
+        <h2 class="r2-title">模拟指定范围的日期与时间段</h2>
+        <section class="r2-body">
+        	<ul class="list-decimal">
+        		<li>模拟日期范围：10天前 至 当天</li>
+        		<li>模拟时间范围：时间段不能跨天（即不能显示成 23:00 - 01:00）</li>
+        		<li>排序：日期按时间先后排序</li>
+        		
+        	</ul>
+			<a class="ref" href="../js/md01.js">md01.js</a>
+        </section>
+        
+    </div>
+    
+    <script>
+    	require(['../js/md01'], function(MD){
+    		console.log("-- " + $('h2').eq(0).html() + " --");
+    		console.log(MD.DateF1);
+    	})
+    </script>
+</div>
+</body>
+</html>
+
+

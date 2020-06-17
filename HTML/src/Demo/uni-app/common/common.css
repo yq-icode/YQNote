@@ -1,0 +1,9 @@
+/* fontsize */
+.font34 {
+  font-size: 34rpx;
+}
+/* flex layout */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}

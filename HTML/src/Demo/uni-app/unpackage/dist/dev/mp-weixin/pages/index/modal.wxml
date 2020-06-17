@@ -1,0 +1,1 @@
+<view class="uni-padding-wrap"><view class="list"><block wx:for="{{navs}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['jump',['$0'],[[['navs','',index]]]]]]]}}" class="item" bindtap="__e"><view class="font34">{{item.title}}</view></view></block></view></view>
