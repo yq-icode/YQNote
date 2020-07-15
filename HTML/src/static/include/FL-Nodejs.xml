@@ -11,5 +11,9 @@
 			<title>常用命令</title>
 			<name>npm001</name>
 		</file>
+		<file>
+			<title>npx</title>
+			<name>npm002</name>
+		</file>
 	</main>
 </fileList>

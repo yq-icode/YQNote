@@ -21,6 +21,8 @@
 			<title>form</title>
 			<name>exp04</name>
 		</file>
+	</main>
+	<main title="layer" url="/KJ/Layui/views/">
 		<file>
 			<title>layer外观展示</title>
 			<name>layer1</name>
@@ -30,12 +32,22 @@
 			<name>layer2</name>
 		</file>
 		<file>
+			<title>layer传值</title>
+			<name>layer3</name>
+		</file>
+		<file>
 			<title>tips</title>
 			<name>layer4</name>
 		</file>
+	</main>
+	<main title="demo" url="/Demo/Layui/">
 		<file>
-			<title>layer传值</title>
-			<name>layer3</name>
+			<title>三级 checkbox 全选、部分选中、全不选实例</title>
+			<name>001/index</name>
+		</file>
+		<file>
+			<title>多个 layer 垂直排列</title>
+			<name>002/index</name>
 		</file>
 	</main>
 </fileList>

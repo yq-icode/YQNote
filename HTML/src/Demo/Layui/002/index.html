@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="/static/css/iconfont.css">
+	<link rel="stylesheet/less" href="/static/css/common.less">
+	<link rel="stylesheet" href="/static/css/tutorial.css">
+	<link rel="stylesheet" href="/static/css/default.css">
+	<link rel="stylesheet" href="./main.css">
+	<link rel="shortcut icon" href="#" />
+    <script src="/static/libs/jquery/jquery-1.11.3.min.js"></script>
+    <script src="/static/libs/layer/layer.js"></script>
+    <script src="/static/js/default.js"></script>
+    <script src="./main.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<h2 class="r2-title">DEMO描述</h2>
+		<section class="r2-body">
+			
+		</section>
+	</div>
+	<div id="warnBox" style="display: none;">
+		<p class="hint">
+			<strong></strong>秒后自动关闭
+		</p>
+	</div>
+	<script type="text/javascript">
+	    var sw = $(window).width(),     		//网页可视区域 width
+	    	sh = $(window).height(),			//网页可视区域 height
+	    	layerW = 220, 						//layer width
+	    	layerH = 120, 						//layer height
+	    	layerMargin = 10,					//layer之间的间距
+	    	layerCurNum = 0, 					//已弹出的 layer总数
+	    	layerMax = Math.floor(sh/layerH), 	//允许弹出的 layer 最大数量
+	    	/* ----------------------------------------
+             * <注意点>
+             * layerContent 设置为 $('#warnBox')时，只能弹出 一个layer, 
+             * 设置为 $('#warnBox').html()时，可以弹出 多个layer,原因不明
+             * ---------------------------------------- */
+	    	layerContent = $('#warnBox').html(); //layer content
+	   	
+	   	var multiLayers = {
+	   		/* 打开layer
+	    	 * ---------------------------------- */
+	   		openLayer:function(){
+	   			var layerLeft = sw - layerW, //layer left 坐标
+		    		layerTop = sh - layerH*(layerCurNum + 1) - layerMargin*layerCurNum, //layer top 坐标
+		    		layerObj;   //layer对象
+		    	
+		    	layer.open({
+		    		id: layerCurNum,
+		            type: 1,
+		            title: 'layer' + layerCurNum,
+		            content: layerContent, 
+		            area: [layerW + 'px', layerH + 'px'],
+		            skin: 'dialogMe',
+		            offset: [layerTop, layerLeft],
+		            shade: 0,
+		            time:0,
+		            success:function(layero, index){
+		            	layerCurNum++;
+		            	multiLayers.autoCloseLayer(layero);
+		            	multiLayers.positionReset();
+						console.log("layerCurNum:" + layerCurNum);
+		            },
+		            end:function(){
+		            	layerCurNum--;
+		            	console.log("layerCurNum:" + layerCurNum);
+		            	multiLayers.positionReset();
+		            }
+		        })
+	   		},
+	   		/* 倒计时自动关闭layer
+	    	 * ---------------------------------- */
+	    	autoCloseLayer:function(layero){
+	    		var qTime = "10",
+	    			obj = $(layero).find('.hint strong'),
+	    			idx = $(layero).attr('id').substring($(layero).attr('id').length-1, $(layero).attr('id').length);
+	    			
+			    $(obj).html(qTime);
+			    var int = setInterval(countDown, 1000);
+			    function countDown(){
+			        if(qTime > 0){
+			            qTime--;
+			            $(obj).html(qTime);
+			        }else{
+			        	clearInterval(int);
+			        	layer.close(idx);
+			        }
+			    }
+	    	},
+	    	//手动关闭layer(ele为关闭按钮)
+			handCloseLayer:function(ele){
+				var obj = $(ele).parents('.layui-layer');
+					idx = obj.attr('id').substring(11);
+				layer.close(idx);
+			},
+	    	/* 添加/关闭某个layer后，重新排列所有layer位置
+	    	 * ---------------------------------- */
+	    	positionReset:function(){
+	    		$('.layui-layer').each(function(index){
+            		$(this).css('top', sh - layerH*(index + 1) - layerMargin*index);
+            	})
+	    	}
+	   	}
+	    	
+	    for(var i=0; i<layerMax; i++){
+	    	setTimeout(multiLayers.openLayer, 4000*i)
+	    }
+	    
+	    //添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<fileList>
+	<main title="基础" url="/KJ/IIS/views/">
+		<file>
+			<title>IIS中添加html对include的引用</title>
+			<name>iis001</name>
+		</file>
+		<file>
+			<title>MIME类型</title>
+			<name>iis002</name>
+		</file>
+		<file>
+			<title>配置IIS，运行Visual Studio项目</title>
+			<name>iis003</name>
+		</file>
+	</main>
+</fileList>

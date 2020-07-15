@@ -5,8 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<!--#include virtual="/static/include/_head_import_file.html" -->
-    <script src="/js/less-2.5.3.min.js"></script>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
 </head>
 <body>
 <!--#include virtual="/static/include/_header.html" -->
@@ -16,13 +15,90 @@
 		<p class="reference">
 			<a href="https://segmentfault.com/a/1190000018447195"></a>
 		</p>
-		<h2 class="r2-title">JQuery插件之$.fn</h2>
+		<ul class="list-decimal">
+			<li>
+				<a class="ref" href="https://www.jquery123.com/jQuery.fn.extend/">jQuery.fn.extend</a>
+			</li>
+			<li>
+				<a class="ref" href="https://www.jquery123.com/jQuery.extend/">jQuery.extend()</a>
+			</li>
+			<li>
+				<a class="ref" href="https://www.jquery123.com/jquery-2/">.jquery</a>
+			</li>
+		</ul>
+		<h2 class="r2-title">jQuery插件封装方法</h2>
 		<section class="r2-body">
-			
-			<h3 class="r3-title">内存泄露问题</h3>
+			<a class="ref" href="https://www.jianshu.com/p/5196cb659fb6">下图截自此网站</a>
+			<img class="screenPics" src="images/screenPics/sc014.png" />
+		</section>
+		
+		<h2 class="r2-title">jQuery插件写法小结</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">链式写法</h3>
 			<section class="r3-body">
-				
+				<p>链式编程的好处就是当调用完一个方法后，可以在后面继续调用该对象的其他方法。</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+jQuery.fn.extend({
+    greenify: function () {
+        $(this).css("color", "red");
+        return this; //在结尾处返回this
+    }
+});
+$(function () {
+    $("a").greenify().addClass("greenified");
+});
+			            </code>
+		            </pre>
+		        </div>
 			</section>
+			
+			<h3 class="r3-title">$的别名保护</h3>
+			<section class="r3-body">
+				<p>$在JavaScript库中使用是非常广泛的，如果你正在使用的其他JavaScript类库中也使用到了$，并且你也使用了jQuery，那么你不得不使用 jQuery.noConflict() 来解除冲突。显然这会破坏我们的插件，因为它是在假设$是jQuery函数的别名（实际上$本来就是jQuery的别名）如果既想使用其他插件，也要使用jQuery的$别名，我们需要将代码放进<strong>立即执行函数</strong>（文章结尾会对其简单解释）中，然后将jQuery作为实参传递进去，$作为形参接收。</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+(function ( $ ) {
+    $.fn.greenify = function() {
+        this.css( "color", "green" );
+        return this;
+    };
+}( jQuery ));
+			            </code>
+		            </pre>
+		        </div>
+		        <p>由于<code>window</code>，<code>document</code>都是全局作用域的，而将其传入函数内部后，其在内部是作为局部变量存在的，这样做可以提高性能，减少作用域的查找时间，如果在函数内部多次调用<code>window</code>、<code>document</code>，这是很高效的做法。</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+(function ( _window, _document ) {
+    $.fn.greenify = function() {
+        this.css( "color", "green" );
+        return this;
+    };
+}( window, document));
+			            </code>
+		            </pre>
+		        </div>
+			</section>
+			
+			<h3 class="r3-title">;分号的使用</h3>
+			<section class="r3-body">
+				<p>通常在编写插件时，会在在立即执行函数前加入一个分号</p>
+				<div class="code-box">
+		            <pre class="language-js line-numbers">
+		                <code>
+;(function($){
+   //do something...
+})(jQuery);
+			            </code>
+		            </pre>
+		        </div>
+		        <p>作用：防止多个文件压缩合并后，前一个文件最后一行语句没加分号，而引起合并后的语法错误。<br>如果前面已经加了分号，此时就会多出来一个分号，但这样是不会报错的。即不怕多，就怕少。</p>
+			</section>
+			
 		</section>
 	</div>
 </div>

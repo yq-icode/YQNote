@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+/* 圆角
+ * 应用实例：.b-radius(5px);
+ *************************************/
+/* 只适用于一个阴影的格式 */
+/* 一个及以上阴影参数的格式 */
+/* 无阴影 */
+.box-shadow-none {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* 只适用于一个阴影的格式 */
+/* 一个及以上阴影参数的格式 */
+/* 无阴影 */
+.text-shadow-none {
+  -webkit-text-shadow: none;
+  -moz-text-shadow: none;
+  text-shadow: none;
+}
+/* vertical gradient form top to bottom */
+/* horizotal gradient form left to right */
+/* 要给0加上单位才能在firefox下正常显示 */
+/* 应用于除transform外的其它所有属性 */
+/* 仅应用于tranform */
+/* 一个及以上过渡效果，不包括transform */
+/* 一个及以上转变格式 */
+.animation-none {
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+}
+/* ------------------------------------------------------- *
+ * 
+ * ------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style-type: none;
+}
+a:focus,
+button,
+input {
+  outline: none;
+}
+a:link,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+.valignMid * {
+  vertical-align: middle;
+}
+.mt5 {
+  margin-top: 5px;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.mt20 {
+  margin-top: 20px;
+}
+.mb10 {
+  margin-bottom: 10px;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.mb30 {
+  margin-bottom: 30px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+/* ------------------------------------------------------- *
+ * clearfix
+ * ------------------------------------------------------- */
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+.pos-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.list-group-item-warning {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.dialogMe .hint {
+  padding-top: 20px;
+  font-size: 12px;
+  text-align: center;
+}

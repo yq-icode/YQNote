@@ -1,0 +1,221 @@
+@charset "utf-8";
+/* CSS Document */
+/* 圆角
+ * 应用实例：.b-radius(5px);
+ *************************************/
+/* 只适用于一个阴影的格式 */
+/* 一个及以上阴影参数的格式 */
+/* 无阴影 */
+.box-shadow-none {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* 只适用于一个阴影的格式 */
+/* 一个及以上阴影参数的格式 */
+/* 无阴影 */
+.text-shadow-none {
+  -webkit-text-shadow: none;
+  -moz-text-shadow: none;
+  text-shadow: none;
+}
+/* vertical gradient form top to bottom */
+/* horizotal gradient form left to right */
+/* 要给0加上单位才能在firefox下正常显示 */
+/* 应用于除transform外的其它所有属性 */
+/* 仅应用于tranform */
+/* 一个及以上过渡效果，不包括transform */
+/* 一个及以上转变格式 */
+.animation-none {
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+}
+/* ------------------------------------------------------- *
+ * 
+ * ------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style-type: none;
+}
+a:focus,
+button,
+input {
+  outline: none;
+}
+a:link,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+.valignMid * {
+  vertical-align: middle;
+}
+.mt5 {
+  margin-top: 5px;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.mt20 {
+  margin-top: 20px;
+}
+.mb10 {
+  margin-bottom: 10px;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.mb30 {
+  margin-bottom: 30px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+/* ------------------------------------------------------- *
+ * clearfix
+ * ------------------------------------------------------- */
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+.pos-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.list-group-item-warning {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+/* 笔记  */
+ul.note > li {
+  position: relative;
+  margin-top: 0.1rem;
+  padding: 0.3rem 0.2rem;
+  background-color: #FAFAFA;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  font-size: 0.17rem;
+  /*笔记编辑框*/
+}
+ul.note > li > .time {
+  position: absolute;
+  right: 0.3rem;
+  bottom: 0.12rem;
+  color: #999999;
+  font-size: 0.15rem;
+}
+ul.note > li > .dropDown {
+  position: absolute;
+  right: 0.05rem;
+  top: 0.1rem;
+  cursor: pointer;
+}
+ul.note > li > .dropDown > .dropDown-toggle {
+  display: none;
+  width: 0.24rem;
+  height: 0.24rem;
+  background: url(/Content/images/icon14.png) no-repeat right top;
+}
+ul.note > li > .dropDown > .dropDown-menu {
+  display: none;
+  position: absolute;
+  right: 0.1rem;
+  top: 0.2rem;
+  z-index: 10;
+  min-width: 1.2rem;
+  padding: 0.05rem 0.2rem;
+  background-color: #FFFFFF;
+  color: #666666;
+  font-size: 0.14rem;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+}
+ul.note > li > .dropDown > .dropDown-menu > span {
+  display: block;
+  margin: 0.15rem 0;
+  padding-left: 0.22rem;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0.14rem 0.14rem;
+  cursor: pointer;
+}
+ul.note > li > .dropDown > .dropDown-menu > span:hover {
+  color: #026ACC;
+}
+ul.note > li > .dropDown > .dropDown-menu .edit {
+  background-image: url(/Content/images/icon05_1.png);
+}
+ul.note > li > .dropDown > .dropDown-menu .delete {
+  background-image: url(/Content/images/icon05_2.png);
+}
+ul.note > li:hover {
+  background-color: #F2F2F2;
+}
+ul.note > li:hover .dropDown-toggle {
+  display: inline-block;
+}
+ul.note > li.editBox {
+  position: relative;
+  margin-bottom: 1px;
+  padding: 0.3rem 0.2rem 0.4rem;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid #026ACC;
+  background-color: #FFFFFF;
+}
+ul.note > li.editBox#noteAdd {
+  display: none;
+}
+ul.note > li.editBox textarea {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  resize: none;
+}
+ul.note > li.editBox .close {
+  position: absolute;
+  right: 0.2rem;
+  top: 0.1rem;
+  display: block;
+  width: 0.18rem;
+  height: 0.18rem;
+  color: #999999;
+  background: url(/Content/images/icon05_3.png) no-repeat right top;
+  background-size: 100% 100%;
+  opacity: 1;
+}
+ul.note > li.editBox button {
+  position: absolute;
+  right: 0.2rem;
+  bottom: 0.1rem;
+  width: 0.8rem;
+}
+/*笔记为空时*/
+.noteEmpty {
+  display: none;
+  text-align: center;
+  background-color: #FFFFFF;
+  font-size: 0.17rem;
+}

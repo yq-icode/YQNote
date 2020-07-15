@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MOBILE</title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+	<!--#include virtual="/static/include/_header.html" -->
+	<div id="wrap">
+		<div id="wside"></div>
+		<div id="wmain">
+    		<h2 class="r2-title">微信小程序中使用css var变量的方法</h2>
+			<div class="r2-body">
+				<div class="code-box">
+	                <pre class="language-css line-numbers">
+	                    <code>
+/*微信小程序：在 page{}、 element{} 中定义 CSS 变量，等同于在 :root{} 中定义 CSS 变量	*/                  	
+page{
+  --theme-color:#EF114C;
+}
+element{
+  --theme-color:#EF114C;
+}
+:root{
+  --theme-color:#EF114C;
+}
+	    				</code>
+	                </pre>
+	            </div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

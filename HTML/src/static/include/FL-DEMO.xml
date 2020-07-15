@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <fileList>
 	<main title="DEMO">
+		<sub title="模块" url="/Demo/modules/">
+			<file>
+				<title>笔记增、删、改、时间排序功能</title>
+				<name>index</name>
+				<path>/001/</path>
+			</file>
+		</sub>
 		<sub title="布局" url="/views/demo/">
 			<file>
 				<title>Jquery实现的瀑布流</title>
@@ -107,20 +114,17 @@
 				<name>tableSort1</name>
 			</file>
 		</sub>
-		<sub title="图片类效果" url="/views/demo/pics/">
+		<sub title="图片类效果">
 			<file>
 				<title>图片类效果</title>
 				<name>index</name>
+				<path>/views/demo/pics/</path>
 			</file>
 		</sub>
 		<sub title="文本" url="/views/demo/text/">
 			<file>
 				<title>文本的各种效果</title>
 				<name>index</name>
-			</file>
-			<file>
-				<title>多行文本溢出显示省略号</title>
-				<name>txt1</name>
 			</file>
 		</sub>
 		<sub title="loading" url="/views/loading/">
@@ -211,23 +215,6 @@
 				<name>playController</name>
 			</file>
 		</sub>
-		<sub title="其它效果">
-			<file>
-				<title>纯CSS制作图形背景</title>
-				<name>index</name>
-				<path>/views/bg/</path>
-			</file>
-			<file>
-				<title>纯CSS实现的形状</title>
-				<name>index</name>
-				<path>/views/shape/</path>
-			</file>
-			<file>
-				<title>图片替换文本的CSS方法</title>
-				<name>img-replace-text-with-css</name>
-				<path>/views/css/</path>
-			</file>
-		</sub>
 	</main>
 	<main title="小插件">
 		<file>
@@ -254,18 +241,6 @@
 		<file>
 			<title>开放端口，让其它电脑可以访问</title>
 			<name>_article01</name>
-		</file>
-		<file>
-			<title>IIS中添加html对include的引用</title>
-			<name>_article02</name>
-		</file>
-		<file>
-			<title>设置IIS，使之支持less</title>
-			<name>_article03</name>
-		</file>
-		<file>
-			<title>配置IIS，运行Visual Studio项目</title>
-			<name>_article04</name>
 		</file>
 	</main>
 	<main title="移动开发" url="/KJ/mobile/">

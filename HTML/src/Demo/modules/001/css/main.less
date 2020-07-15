@@ -1,0 +1,115 @@
+@import "../../../../static/css/common.less";
+
+/* 笔记  */
+ul.note{
+    & > li{
+        position: relative;
+        margin-top: 0.1rem;
+        padding: 0.3rem 0.2rem;
+        background-color: #FAFAFA;
+        .b-radius(10px);
+        font-size: 0.17rem;
+        & > .time{
+            position: absolute;
+            right: 0.3rem;
+            bottom: 0.12rem;
+            color: #999999;
+            font-size: 0.15rem;
+        }
+        & > .dropDown{
+            position: absolute;
+            right: 0.05rem;
+            top: 0.1rem;
+            cursor: pointer;
+            & > .dropDown-toggle{
+                display: none;
+                width: 0.24rem;
+                height: 0.24rem;
+                background:url(/Content/images/icon14.png) no-repeat right top;
+            }
+            & > .dropDown-menu{
+                display: none;
+                position: absolute;
+                right: 0.1rem;
+                top: 0.2rem;
+                z-index: 10;
+                min-width: 1.2rem;
+                padding: 0.05rem 0.2rem;
+                background-color: #FFFFFF;
+                color: #666666;
+                font-size: 0.14rem;
+                .b-radius(4px);
+                .box-shadow(0, 2px, 8px, 0, rgba(0,0,0,0.16));
+                & > span{
+                    display: block;
+                    margin: 0.15rem 0;
+                    padding-left: 0.22rem;
+                    background-repeat: no-repeat;
+                    background-position: left center;
+                    background-size: 0.14rem 0.14rem;
+                    cursor: pointer;
+                    &:hover{
+                        color: #026ACC;
+                    }
+                }
+                .edit{
+                    background-image:url(/Content/images/icon05_1.png);
+                }
+                .delete{
+                    background-image:url(/Content/images/icon05_2.png);
+                }
+            }
+        }
+        &:hover{
+            background-color: #F2F2F2;
+            .dropDown-toggle{
+                display: inline-block;
+            }
+        }
+        /*笔记编辑框*/
+        &.editBox{
+            &#noteAdd{
+                display: none;
+            }
+            position: relative;
+            margin-bottom: 1px;
+            padding: 0.3rem 0.2rem 0.4rem;
+            .b-radius(10px);
+            border:1px solid #026ACC;
+            background-color: #FFFFFF;
+            textarea{
+                width: 100%;
+                height: 100%;
+                border: 0;
+                resize: none;
+            }
+            .close{
+                position: absolute;
+                right: 0.2rem;
+                top: 0.1rem;
+                display: block;
+                width: 0.18rem;
+                height: 0.18rem;
+                color: #999999;
+                background:url(/Content/images/icon05_3.png) no-repeat right top;
+                background-size: 100% 100%;
+                opacity: 1;
+            }
+            button{
+                position: absolute;
+                right: 0.2rem;
+                bottom: 0.1rem;
+                width: 0.8rem;
+            }
+        }
+    }
+}
+
+/*笔记为空时*/
+.noteEmpty{
+    display: none;
+    text-align: center;
+    &:extend(.color3);
+    background-color: #FFFFFF;
+    font-size: 0.17rem;
+}

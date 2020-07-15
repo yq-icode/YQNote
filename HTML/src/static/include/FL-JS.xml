@@ -3,7 +3,7 @@
 	<main title="JS" url="/views/js/">
 		<sub title="JS基础">
 			<file>
-				<title>对象</title>
+				<title>Object 对象</title>
 				<name>fun24</name>
 			</file>
 			<file>
@@ -13,10 +13,6 @@
 			<file>
 				<title>Number&amp;Math</title>
 				<name>fun02</name>
-			</file>
-			<file>
-				<title>JSON</title>
-				<name>fun35</name>
 			</file>
 			<file>
 				<title>Date 相关</title>
@@ -43,6 +39,14 @@
 				<name>fun18</name>
 			</file>
 			<file>
+				<title>异步</title>
+				<name>fun09</name>
+			</file>
+			<file>
+				<title>JS加载与执行顺序</title>
+				<name>fun14</name>
+			</file>
+			<file>
 				<title>use strict</title>
 				<name>fun26</name>
 			</file>
@@ -55,10 +59,6 @@
 				<name>fun27</name>
 			</file>
 			<file>
-				<title>***待定***</title>
-				<name>fun31</name>
-			</file>
-			<file>
 				<title>正则表达式</title>
 				<name>fun32</name>
 			</file>
@@ -67,22 +67,22 @@
 				<name>fun33</name>
 			</file>
 			<file>
-				<title>异步</title>
-				<name>fun09</name>
+				<title>JSON</title>
+				<name>fun35</name>
 			</file>
 			<file>
-				<title>JS加载与执行顺序</title>
-				<name>fun14</name>
+				<title>JSON</title>
+				<name>json</name>
+			</file>
+			<file>
+				<title>读取JSON数据的方法</title>
+				<name>json2</name>
 			</file>
 		</sub>
-		<sub title="方法&amp;函数基础">
+		<sub title="方法、函数基础">
 			<file>
 				<title>JS模块</title>
 				<name>fun25</name>
-			</file>
-			<file>
-				<title>JQuery插件之$.fn</title>
-				<name>fun23</name>
 			</file>
 			<file>
 				<title>JS 操作 DOM、CLASS、Attribute</title>
@@ -109,7 +109,7 @@
 				<name>fun21</name>
 			</file>
 		</sub>
-		<sub title="相似方法&amp;函数区别">
+		<sub title="相似方法、函数">
 			<file>
 				<title>setInterval、 setTimeout</title>
 				<name>fun01</name>
@@ -126,21 +126,21 @@
 				<title>resize</title>
 				<name>fun28</name>
 			</file>
-		</sub>
-		<sub title="JSON">
 			<file>
-				<title>JSON</title>
-				<name>json</name>
+				<title>宽度类方法</title>
+				<name>api001</name>
 			</file>
 			<file>
-				<title>读取JSON数据的方法</title>
-				<name>json2</name>
+				<title>attr与prop的区别</title>
+				<name>fun13</name>
 			</file>
-		</sub>
-		<sub title="动画">
 			<file>
-				<title>动画事件</title>
-				<name>fun34</name>
+				<title>(function($){})(jQuery)、$(function(){})、$(document).ready(function(){})三者的区别讲解</title>
+				<name>_jsP03</name>
+			</file>
+			<file>
+				<title>***待定***</title>
+				<name>fun05</name>
 			</file>
 		</sub>
 		<sub title="表单">
@@ -160,20 +160,16 @@
 				<title>select</title>
 				<name>fun08</name>
 			</file>
+			<file>
+				<title>radio&amp;checkbox</title>
+				<name>fun31</name>
+			</file>
 		</sub>
-		<sub title="文件&amp;图片处理">
+		<sub title="文件、图片、音频、视频">
 			<file>
 				<title>图片预览</title>
 				<name>fun37</name>
 			</file>
-		</sub>
-		<sub title="音频视频">
-			<file>
-				<title>audio</title>
-				<name>audio01</name>
-			</file>
-		</sub>
-		<sub title="图片类处理">
 			<file>
 				<title>判断图片是否加载完成</title>
 				<name>method02</name>
@@ -185,6 +181,16 @@
 			<file>
 				<title>图片等比例绽放</title>
 				<name>method02</name>
+			</file>
+			<file>
+				<title>audio</title>
+				<name>audio01</name>
+			</file>
+		</sub>
+		<sub title="动画">
+			<file>
+				<title>动画事件</title>
+				<name>fun34</name>
 			</file>
 		</sub>
 		<sub title="便捷小方法">
@@ -267,40 +273,22 @@
 	<main title="JQUERY" url="/views/js/">
 		<sub title="基础">
 			<file>
+				<title>jquery插件</title>
+				<name>fun23</name>
+			</file>
+			<file>
+				<title>Array&amp;String</title>
+				<name>fun06</name>
+			</file>
+			<file>
 				<title>on事件绑定</title>
 				<name>fun20</name>
-			</file>
-		</sub>
-		<sub title="相似方法">
-			<file>
-				<title>宽度类方法</title>
-				<name>api001</name>
-			</file>
-			<file>
-				<title>***待定***</title>
-				<name>fun05</name>
-			</file>
-			<file>
-				<title>attr与prop的区别</title>
-				<name>fun13</name>
-			</file>
-			<file>
-				<title>(function($){})(jQuery)、$(function(){})、$(document).ready(function(){})三者的区别讲解</title>
-				<name>_jsP03</name>
 			</file>
 		</sub>
 		<sub title="other">
 			<file>
 				<title>jquery</title>
 				<name>jquery</name>
-			</file>
-			<file>
-				<title>jQuery.inArray</title>
-				<name>fun06</name>
-			</file>
-			<file>
-				<title>索引相关的操作</title>
-				<name>fun06</name>
 			</file>
 			<file>
 				<title>jquery tmpl 详解</title>

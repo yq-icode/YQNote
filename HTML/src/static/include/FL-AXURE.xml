@@ -6,17 +6,10 @@
 			<name>axu12</name>
 		</file>
 		<file>
-			<title>制作技巧</title>
-			<name>axu16</name>
-		</file>
-		<file>
 			<title>抽屉式菜单</title>
 			<name>_article01</name>
 		</file>
-		<file>
-			<title>小知识点</title>
-			<name>_article02</name>
-		</file>
+		
 		<file>
 			<title>搜索</title>
 			<name>axu15</name>
@@ -38,38 +31,12 @@
 			<name>axu02</name>
 		</file>
 		<file>
-			<title>多值单变量的页面传值</title>
+			<title>用一个变量在页面间传递多个值</title>
 			<name>axu17</name>
 		</file>
 		<file>
 			<title>允许触发鼠标交互</title>
 			<name>axu18</name>
-		</file>
-	</main>
-	<main title="常用效果" url="/views/axure/">
-		<file>
-			<title>悬停、单击选中、载入时默认选中首行 效果 法一</title>
-			<name>axu08</name>
-		</file>
-		<file>
-			<title>悬停、单击选中、载入时默认选中首行 效果 法二</title>
-			<name>axu09</name>
-		</file>
-		<file>
-			<title>根据不同的条件设置文字状态</title>
-			<name>axu13</name>
-		</file>
-		<file>
-			<title>环形进度</title>
-			<name>axu10</name>
-		</file>
-		<file>
-			<title>自制滚动条</title>
-			<name>axu11</name>
-		</file>
-		<file>
-			<title>弹框</title>
-			<name>axu21</name>
 		</file>
 	</main>
 	<main title="中继器" url="/views/axure/">
@@ -116,6 +83,46 @@
 		<file>
 			<title>图片轮播二</title>
 			<name>_article05</name>
+		</file>
+		<file>
+			<title>echarts 图表</title>
+			<name>axu22</name>
+		</file>
+	</main>
+	<main title="常用效果" url="/views/axure/">
+		<file>
+			<title>悬停、单击选中、载入时默认选中首行 效果 法一</title>
+			<name>axu08</name>
+		</file>
+		<file>
+			<title>悬停、单击选中、载入时默认选中首行 效果 法二</title>
+			<name>axu09</name>
+		</file>
+		<file>
+			<title>根据不同的条件设置文字状态</title>
+			<name>axu13</name>
+		</file>
+		<file>
+			<title>环形进度</title>
+			<name>axu10</name>
+		</file>
+		<file>
+			<title>自制滚动条</title>
+			<name>axu11</name>
+		</file>
+		<file>
+			<title>弹框</title>
+			<name>axu21</name>
+		</file>
+	</main>
+	<main title="知识点">
+		<file>
+			<title>制作技巧</title>
+			<name>axu16</name>
+		</file>
+		<file>
+			<title>小知识点</title>
+			<name>_article02</name>
 		</file>
 	</main>
 </fileList>

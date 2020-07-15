@@ -132,6 +132,10 @@
 			<title>常见问题</title>
 			<name>wx002</name>
 		</file>
+		<file>
+			<title>微信小程序CSS</title>
+			<name>wx003</name>
+		</file>
 	</main>
 	<main title="开发工具" url="/KJ/mobile/">
 		<file>
