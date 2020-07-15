@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <fileList>
-	<main title="" url="/views/axure/">
+	<main title="" url="/KJ/axure/">
 		<file>
 			<title>SVN + Axure 多人协作</title>
 			<name>axu12</name>
@@ -39,7 +39,7 @@
 			<name>axu18</name>
 		</file>
 	</main>
-	<main title="中继器" url="/views/axure/">
+	<main title="中继器" url="/KJ/axure/">
 		<file>
 			<title>中继器功能讲解</title>
 			<name>axu14</name>
@@ -57,7 +57,7 @@
 			<name>axu19</name>
 		</file>
 	</main>
-	<main title="表单">
+	<main title="表单" url="/KJ/axure/">
 		<file>
 			<title>表单中用到的小知识点</title>
 			<name>axu05</name>
@@ -67,7 +67,7 @@
 			<name>axu20</name>
 		</file>
 	</main>
-	<main title="模块">
+	<main title="模块" url="/KJ/axure/">
 		<file>
 			<title>登录</title>
 			<name>axu03</name>
@@ -89,7 +89,7 @@
 			<name>axu22</name>
 		</file>
 	</main>
-	<main title="常用效果" url="/views/axure/">
+	<main title="常用效果" url="/KJ/axure/">
 		<file>
 			<title>悬停、单击选中、载入时默认选中首行 效果 法一</title>
 			<name>axu08</name>
@@ -115,7 +115,7 @@
 			<name>axu21</name>
 		</file>
 	</main>
-	<main title="知识点">
+	<main title="知识点" url="/KJ/axure/">
 		<file>
 			<title>制作技巧</title>
 			<name>axu16</name>
