@@ -86,7 +86,10 @@ $(function(){
 	var expLk = document.querySelectorAll('.expLink');
 	if(expLk.length > 0){
 		$(expLk).each(function(){
-			$(this).text('请查看实例演示');
+			if($(this).text() == ''){
+				$(this).text('请查看实例演示');
+			}
+			
 			var _ifh = "<i class='iconfont icon-xiaoguo'></i>";
 			$(this).attr('target','_blank').prepend(_ifh);
 		})
@@ -97,8 +100,26 @@ $(function(){
 	var ref = document.querySelectorAll('.ref');
 	if(ref.length > 0){
 		$(ref).each(function(){
+			var cls = 'ml10';
 			$(this).attr('target','_blank');
-			$(this).append("<em class='ml10'>" + $(this).attr('href') + "</em>");
+			if($(this).html() == ''){
+				cls = '';
+			}
+			$(this).append("<em class='" + cls + "'>" + $(this).attr('href') + "</em>");
+		})
+	}
+	
+	/* 如果 dt>a 中包含 href 属性，则为 dl.horizontal 中的 dt>a添加链接图标
+	 */
+	var dlHoriz = document.querySelectorAll('dl.horizontal');
+	if(dlHoriz.length > 0){
+		$(dlHoriz).each(function(){
+			var aLinks = $(this).find('dt > a[href]');
+			if(aLinks.length > 0){
+				$(aLinks).each(function(){
+					$(this).attr('target', '_blank').prepend("<i class='iconfont icon-link'></i>");
+				})
+			}
 		})
 	}
 	
@@ -123,7 +144,7 @@ $(function(){
 function keyLight(ele, key, bgColor){
 	if($(ele).html() !== undefined){
 		var sText = $(ele).html(),
-		  	bgColor = bgColor,    
+		  	bgColor = bgColor,
 		  	sKey = "<span class='keyLight' style='background-color:" + bgColor + "'>" + key + "</span>",
 		  	num = -1,
 		  	rStr = new RegExp(key, "g"),
@@ -273,6 +294,7 @@ function processData(data,ele){
 		//当<main>下不包含<sub>时
 		else{ 
 			NFileS = NMain.getElementsByTagName("file");
+			NSubUrl = "";
 			_HTML += "<p>";
 			_HTML += getFileHtml(NFileS, NMainUrl, NSubUrl);
 			_HTML += "</p>";
@@ -307,6 +329,7 @@ function processData(data,ele){
 			else{
 				_html += "<a href='" + _href + FName + ".html?tit=" + FTitle + "' title='" + FTitle + "'>" + FTitle + "</a>";
 			}
+			console.log(_href + "|" + FName);
 		}
 		return _html;
 	}

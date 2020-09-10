@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <!--#include virtual="/static/include/_head_import_file2.html" -->
+	<link href="../../../static/libs/webuploader/css/webuploader.css" rel="stylesheet">
+	<link href="./uploadPics.css" rel="stylesheet">
+</head>
+<body>
+	<div id="wrap">
+		<div class="fileWrap">
+		    <ul class="fileList"></ul>
+		    <div class="filePicker">选择图片</div>
+		    <p>已选择<span class="fileCount">0</span>张图片，共<span class="fileSize"></span></p>
+		</div>
+	</div>
+	<script src="../../../static/libs/webuploader/webuploader.min.js"></script>
+	<script type="text/javascript">
+		var $eleFileList = $('.fileList'),
+			$eleFileCount = $('.fileCount'),
+			$eleFileSize = $('.fileSize'),
+			fileNumLimit = 2,  				//上传的文件总数量限制
+		    fileSizeLimit = 2*1024*1024, 	//所有文件大小限制
+		    fileSingleSizeLimit = 50*1024, 	//单个文件大小限制
+		    fileType = 'image',				//文件类型限制
+			fileCount = 0,  				//已添加的文件数量
+			fileSize = 0;   				//已添加的文件总大小
+			
+		var uploader = WebUploader.create({
+		    auto: true,
+		    swf: '/js/Uploader.swf',
+		    server: '/FileUpload/Upload',
+		    pick: '.filePicker',
+		    fileNumLimit: fileNumLimit,
+		    fileSizeLimit: fileSizeLimit,
+		    fileSingleSizeLimit: fileSingleSizeLimit,
+		    accept: {
+		        title: 'Images',
+		        extensions: 'gif,jpg,jpeg,bmp,png',
+		        mimeTypes: 'image/*'
+		    }
+		});
+		
+		uploader.onBeforeFileQueued = function(file){
+			var max = this.options.fileNumLimit;
+			if(fileCount >= max){
+				this.trigger('error', 'Q_EXCEED_NUM_LIMIT', max, file );
+			}
+			return fileCount >= max ? false : true;
+		};
+		
+        uploader.onFileQueued = function(file) {
+            fileCount++;
+            fileSize += file.size;
+            methods.addFile(file);
+        };
+
+        uploader.onFileDequeued = function(file) {
+            methods.removeFile(file);
+        };
+        
+        uploader.on("error", function(error){
+        	console.log(error);
+	        if (error == "F_EXCEED_SIZE") {
+	            alert("文件大小不能超过" + WebUploader.formatSize(fileSingleSizeLimit, 2));
+	        }else if(error == "Q_TYPE_DENIED"){
+	            alert("文件类型必须为" + fileType);
+	        }else if(error == "Q_EXCEED_NUM_LIMIT"){
+	            alert("文件数量不超过" + fileNumLimit + "个");
+	        }
+	    });
+        
+        var methods = {
+        	// 当有文件添加进来时执行，负责view的创建
+        	addFile:function(file){
+        		var $li = $(
+				            '<li id="' + file.id + '">' +
+				                '<div class="imgWrap"><img></div>' +
+				                '<div class="fileName">' + file.name + '</div>' +
+				            '</li>'
+				           ),
+			        $btnPanel = $('<div class="btnPanel"><span class="rotateLeft">左转</span><span class="rotateRight">右转</span><span class="delete">删除</span></div>').appendTo($li),
+			        
+			        $imgWrap = $li.find('.imgWrap');
+			        $img = $li.find('img');
+			
+			    $eleFileList.append($li);
+			    $eleFileCount.html(fileCount);
+			    $eleFileSize.html(WebUploader.formatSize(fileSize, 2));
+			
+			    //创建缩略图
+			    uploader.makeThumb(file, function(error, src){
+			        if(error){
+			            $img.replaceWith('<span>不能预览</span>');
+			            return;
+			        }
+			        $img.attr('src', src);
+			    }, 100, 100);
+			    
+			    //显示$btnPanel
+			    $li.on( 'mouseenter', function() {
+		            $btnPanel.stop().animate({height: 22});
+		        });
+				//隐藏$btnPanel
+		        $li.on( 'mouseleave', function() {
+		            $btnPanel.stop().animate({height: 0});
+		        });
+		        
+		        $btnPanel.on('click', 'span', function() {
+		            var index = $(this).index(),
+		                deg;
+		
+		            switch (index){
+		                case 0:
+		                    file.rotation -= 90;
+		                    break;
+		                    
+		                case 1:
+		                    file.rotation += 90;
+		                    break;
+		                    
+		                case 2:
+		                    methods.removeFile(file);
+		                    return;
+		            }
+		
+		            if(methods.supportTransition){
+		                deg = 'rotate(' + file.rotation + 'deg)';
+		                $imgWrap.css({
+		                    '-webkit-transform': deg,
+		                    '-mos-transform': deg,
+		                    '-o-transform': deg,
+		                    'transform': deg
+		                });
+		            }else{
+		                $imgWrap.css( 'filter', 'progid:DXImageTransform.Microsoft.BasicImage(rotation='+ (~~((file.rotation/90)%4 + 4)%4) +')');
+		            }
+		        });
+        	},
+        	// 负责view的销毁
+        	removeFile:function(file){
+        		var $li = $('#'+file.id);
+	            $li.off().find('.btnPanel').off().end().remove();
+	            fileCount--;
+            	fileSize -= file.size;
+	            $eleFileCount.html(fileCount);
+			    $eleFileSize.html(WebUploader.formatSize(fileSize, 2));
+        	},
+        	supportTransition:function(){
+        		var s = document.createElement('p').style,
+                    r = 'transition' in s ||
+                        'WebkitTransition' in s ||
+                        'MozTransition' in s ||
+                        'msTransition' in s ||
+                        'OTransition' in s;
+                s = null;
+                return r;
+        	}
+        }
+		
+		
+		//添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

@@ -9,5 +9,19 @@
 			<title>遇到的问题</title>
 			<name>wk002</name>
 		</file>
+		<file>
+			<title>webpack.config.js</title>
+			<name>wk005</name>
+		</file>
+	</main>
+	<main title="plugins" url="/KJ/webpack/views/">
+		<file>
+			<title>html-webpack-plugin</title>
+			<name>wk003</name>
+		</file>
+		<file>
+			<title>mini-css-extract-plugin</title>
+			<name>wk004</name>
+		</file>
 	</main>
 </fileList>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<p class="reference">
+			<a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Forms/Data_form_validation"></a>
+		</p>
+		<h2 class="r2-title">多个 checkbox 验证</h2>
+		<section class="r2-body">
+			<p>验证要求：一组多个 checkbox 中必选一个</p>
+			<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;div class="custom-control custom-checkbox custom-control-inline">
+	&lt;input type="checkbox" class="custom-control-input" id="weekThis" name="weekThis" />
+	&lt;label class="custom-control-label" for="weekThis">This week</label>
+&lt;/div>
+&lt;div class="custom-control custom-checkbox custom-control-inline">
+	&lt;input type="checkbox" class="custom-control-input" id="weekNext" name="weekNext" />
+	&lt;label class="custom-control-label" for="weekNext">Next week</label>
+&lt;/div>
+		            </code>
+	            </pre>
+	        </div>
+	        <div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+if($("[name^='week'][checked]").length == 0){
+	//验证信息
+}
+		            </code>
+	            </pre>
+	        </div>
+	        
+	        <ul class="list-decimal">
+	        	<li>获取 input:checked length, length > 1 即符合要求；</li>
+	        	<li>为获取 name 方便，要有相同的命名规则，如上面 checkbox 的 name 都是以 'week' 开头；</li>
+	        </ul>
+		</section>
+	</div>
+</div>
+</body>
+</html>

@@ -13,10 +13,10 @@
 	<div id="wside"></div>
 	<div id="wmain">
 		<h2 class="r2-title">运算符</h2>
-		<p class="reference">
-			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Comparison_Operators"></a>
-		</p>
 		<section class="r2-body">
+			<p class="reference">
+				<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Comparison_Operators"></a>
+			</p>
 			<h3 class="r3-title">比较操作符</h3>
 			<p>JavaScript 有两种比较方式：严格比较运算符和转换类型比较运算符。</p>
 			<ul class="list-decimal">
@@ -43,7 +43,19 @@
 				<dt></dt>
 				<dd></dd>
 			</dl>
-			
+        </section>
+        
+        <h2 class="r2-title">表达式</h2>
+        <section class="r2-body">
+        	<h3 class="r3-title">在拼接 html 中使用三元表达式</h3>
+        	<div class="code-box">
+	            <pre class="language-js line-numbers">
+	                <code>
+//注意：要将整个三元表达式用括号括起来	                	
+var _html = "&lt;div>" + (isShow == true ? 'on':'') + "&lt;/div>";
+		            </code>
+	            </pre>
+	        </div>
         </section>
 	</div>
 </div>

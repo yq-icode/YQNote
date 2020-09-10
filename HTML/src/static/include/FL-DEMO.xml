@@ -31,30 +31,46 @@
 				<path>demo/btn/</path>
 			</file>
 		</sub>
-		<sub title="表单" url="/views/demo/form/">
+		<sub title="表单">
 			<file>
 				<title>自定义表单外观</title>
 				<name>index</name>
+				<path>/views/demo/form/</path>
 			</file>
 			<file>
 				<title>自定义表单列表(radio/checkbox)</title>
 				<name>form02</name>
+				<path>/views/demo/form/</path>
+			</file>
+			<file>
+				<title>input value 验证</title>
+				<name>form04</name>
+				<path>/Demo/form/</path>
 			</file>
 			<file>
 				<title>提交表单</title>
 				<name>form01</name>
+				<path>/views/demo/form/</path>
 			</file>
 			<file>
 				<title>数字增减框</title>
 				<name>numbox</name>
+				<path>/views/demo/form/</path>
 			</file>
 			<file>
 				<title>验证码（字母+数字）</title>
 				<name>yzm1</name>
+				<path>/views/demo/form/</path>
 			</file>
 			<file>
 				<title>验证码（图片）</title>
 				<name>yzm2</name>
+				<path>/views/demo/form/</path>
+			</file>
+			<file>
+				<title>上传图片</title>
+				<name>uploadPics</name>
+				<path>/Demo/uploadFile/</path>
 			</file>
 		</sub>
 		<sub title="tab切换" url="/views/demo/tab/">

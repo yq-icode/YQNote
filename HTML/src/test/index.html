@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>test</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="shortcut icon" href="#" />
+</head>
+<body>
+	<ul></ul>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="test.bundle.js"></script>
+    <script>
+    	mockData.usrInfo.forEach(function(e){
+    		$('ul').append(
+    			"<li>" + e.name + "</li>" +
+    			"<li>" + e.age + "</li>" +
+    			"<li>" + e.desc + "</li>"
+    		)
+    	})
+    </script>
+</body>
+</html>

@@ -10,6 +10,12 @@
 	</main>
 	<main title="PPT">
 	</main>
+	<main title="Visio" url="/office/visio/views/">
+		<file>
+			<title>文字标尺</title>
+			<name>v001</name>
+		</file>
+	</main>
 	<main title="windows-commands" url="/office/win-cmd/">
 		<file>
 			<title>常用命令</title>

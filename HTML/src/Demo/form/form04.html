@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+    <!--#include virtual="/static/include/_head_import_file2.html" -->
+    <style>
+    	input[type='number']{
+    		width: 300px;
+    		padding: 5px 10px;
+    	}
+    </style>
+</head>
+<body>
+	<div id="wrap" style="padding: 20px;">
+		<div class="browser-support">
+			<div class="summary">IE9+</div>
+		</div>
+		
+		<h4 class="r4-title">input[type='number']验证</h4>
+		<section class="r4-body">
+			<input type="number" max="1000" oninput="validateValue(this)" maxlength="7" />
+			<ul class="list-decimal">
+	        	<li>maxLength 的默认值为 -1，即不设置 maxLength 属性值，maxLength 的值为 -1</li>
+	        	<li>value 与 max 进行比较时，如果判断写成 e.value > e.max 不起作用，e.value - e.max > 0 则可以，原因不明</li>
+	        </ul>
+		</section>
+	</div>
+	<script type="text/javascript">
+		function validateValue(e){
+			//验证最大值
+			if(e.max){
+				if(e.value - e.max > 0){ //注意：此处判断如果写成 e.value > e.max，则不起作用，原因不明；
+					e.value = e.max;
+				}
+			}
+			//验证length
+			if(e.maxLength > 0 && e.value.length > e.maxLength){
+				e.value = e.value.slice(0, e.maxLength);
+			}
+		}
+		//添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

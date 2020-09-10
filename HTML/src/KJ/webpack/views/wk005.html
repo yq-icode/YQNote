@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>webpack</title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">webpack.config.js</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">css、image、file 配置</h3>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+module: {
+    rules: [
+        {
+        	test: /\.less$/,
+        	use: [MiniCssExtractPlugin.loader, 'css-loader?sourceMap', 'less-loader?sourceMap']
+        },{
+        	test: /\.(gif|png|jpe?g|svg)$/i,
+			use:{
+			    loader: 'file-loader',
+			    options: {
+			      	name: '[name].[ext]',
+			      	outputPath: 'images/'
+			    }
+			}
+        }
+    ]
+}		
+					</code>
+				</pre>
+			</div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

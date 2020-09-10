@@ -116,13 +116,29 @@
 		</file>
 	</main>
 	<main title="知识点" url="/KJ/axure/">
-		<file>
-			<title>制作技巧</title>
-			<name>axu16</name>
-		</file>
-		<file>
-			<title>小知识点</title>
-			<name>_article02</name>
-		</file>
+		<sub title="文本、图片、形状">
+			<file>
+				<title>TIS-1</title>
+				<name>axu23</name>
+			</file>
+			<file>
+				<title>字体</title>
+				<name>axu25</name>
+			</file>
+			<file>
+				<title>元件库</title>
+				<name>axu24</name>
+			</file>
+			<file>
+				<title>小知识点</title>
+				<name>_article02</name>
+			</file>
+		</sub>
+		<sub title="交互">
+			<file>
+				<title>用透明矩形框来做页面级交互</title>
+				<name>axu16</name>
+			</file>
+		</sub>
 	</main>
 </fileList>

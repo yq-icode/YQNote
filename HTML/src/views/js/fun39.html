@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<h2 class="r2-title">input[type=number]</h2>
+		<section class="r2-body">
+			<h4 class="r4-title">设置 maxlength</h4>
+			<p>&lt;input type="text" maxlength="5" /> 效果ok，当 &lt;input type="number" maxlength="5" /> 时 maxlength失效，长度可以无限输入。</p>
+			解决方法
+			<div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;input type="number" oninput="if(value.length > 5) value = value.slice(0,5)" />
+		            </code>
+	            </pre>
+	        </div>
+	        <ul class="list-decimal">
+	        	<li>maxLength 的默认值为 -1，即不设置 maxLength 属性值，maxLength 的值为 -1</li>
+	        </ul>
+	        
+	        <h4 class="r4-title">设置 min & max</h4>
+	        <p>max，min的大小限制以及 step 属性是给右侧的上下按钮使用的，手动输入数值的话，它就是个input框，因此无法限定手动输入值的大小</p>
+	        
+	        <h4 class="r4-title">设置  maxlength 及 min max</h4>
+	        <div class="code-box">
+	            <pre class="language-html line-numbers">
+	                <code>
+&lt;input type="number" oninput="if(value-max>0) value=max; if(value.length>maxLength) value=value.slice(0,maxLength);" max="9999.99" maxlength="7" >
+		            </code>
+	            </pre>
+	        </div>
+	        <ul class="list-decimal">
+	        	<li>value 与 max 进行比较时，如果判断写成 value > max 不起作用，value - max > 0 则可以，原因不明</li>
+	        </ul>
+		</section>
+		
+		<h2 class="r2-title">input[type=text]</h2>
+		<section class="r2-body">
+			<h4 class="r4-title">只能输入数字</h4>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;input type="text" oninput="value=value.replace(/[^\d]/g,'')" />
+					</code>
+				</pre>
+			</div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

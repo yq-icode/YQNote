@@ -12,61 +12,118 @@
 <div id="wrap">
 	<div id="wside"></div>
 	<div id="wmain">
+		<div class="reference">
+			<a href="https://www.npmjs.cn/cli/root/"></a>
+		</div>
 		<h2 class="r2-title">常用命令</h2>
 		<section class="r2-body">
 			<h4 class="r4-title">安装与卸载</h4>
 			<div class="code-box">
         		<pre class="language-js line-numbers">
 	            	<code>
-//安装模块的特定版本
-npm install sax@0.1.1     //本地安装
-npm install sax@0.1.1 -g  //全局安装
-
-//卸载
-npm uninstall sax@0.1.1
-
-//查看安装路径
-where npm     //查看 npm 安装路径
-where node    //查看 node 安装路径
-where webpack //查看 webpack 安装路径
-
-//生成package.json文件
-npm init
-
-//为项目添加webpack依赖
-npm install webpack --save-dev
-
 //指定配置文件
 webpack --config webpack.dev.config.js
-
 	                </code>
             	</pre>
         	</div>
+        	
         	
         	<h4 class="r4-title">查看版本</h4>
         	<div class="code-box">
         		<pre class="language-js line-numbers">
 	            	<code>
-//查看本地已安装模块清单
-npm list
-
-//查看本地已安装模块版本
-npm list packageName
+/* ------------------------------ *
+ * 查看安装路径 *
+ * ------------------------------ */
+where npm     //查看 npm 安装路径
+where node    //查看 node 安装路径
+where webpack //查看 webpack 安装路径
 
 //查看某模块的详细信息 包括各版本号等
 npm info packageName
-
-//查看某模块远程最新版本
-npm view packageName version
-
-//查看某模块远程所有版本
-npm view packageName versions
 
 //查看某模块版本号
 webpack -v //查看webpack版本号
 	                </code>
             	</pre>
         	</div>
+        	
+        	<h3 class="r3-title"></h3>
+        	<dl class="horizontal">
+        		<dt><a></a></dt>
+        		<dd></dd>
+        		<dt><a></a></dt>
+        		<dd></dd>
+        		<dt><a></a></dt>
+        		<dd></dd>
+        	</dl>
+			
+			<h3 class="r3-title">npm-init</h3>
+        	<dl class="horizontal">
+        		<dt><a>npm-init</a></dt>
+        		<dd>生成package.json文件</dd>
+        		<dt><a>npm init -y / npm init --yes</a></dt>
+				<dd>直接略过所有问答，全部采用默认答案</dd>
+        		<dt><a></a></dt>
+        		<dd></dd>
+        		<dt><a></a></dt>
+        		<dd></dd>
+        	</dl>
+
+        	<h3 class="r3-title">安装&卸载</h3>
+        	<dl class="horizontal">
+        		<dt><a>npm install sax@0.1.1</a></dt>
+        		<dd>本地安装</dd>
+        		<dt><a>npm install sax@0.1.1 -g</a></dt>
+        		<dd>全局安装</dd>
+        		<dt><a>npm install webpack --save-dev</a></dt>
+        		<dd>为项目添加webpack依赖</dd>
+        		<dt><a>npm uninstall sax@0.1.1</a></dt>
+        		<dd>卸载</dd>
+        		<dt><a>rimraf node_modules</a></dt>
+        		<dd>
+        			删除 node_modules 文件夹<br>
+        			<span class="annotation">//先安装 npm 包 rimraf</span> <br>
+        			npm install rimraf -g <br>
+        			<span class="annotation">//在 cmd 指令下，进入所需删除的 node_modules 文件夹的位置, 输入以下指令进行删除</span><br>
+        			rimraf node_modules
+        		</dd>
+        	</dl>
+        	
+        	<h3 class="r3-title">npm view</h3>
+        	<dl class="horizontal">
+        		<dt><a href="https://www.npmjs.cn/cli/view/">npm view packageName version</a></dt>
+        		<dd>查看某模块远程最新版本</dd>
+        		<dt><a>npm view packageName versions</a></dt>
+        		<dd>查看某模块远程所有版本</dd>
+        	</dl>
+        	
+        	<h3 class="r3-title">npm root（查看 node_modules 安装目录）</h3>
+        	<dl class="horizontal">
+        		<dt><a href="https://www.npmjs.cn/cli/root/">npm root</a></dt>
+        		<dd>查看当前项目 node_modules 安装目录</dd>
+        		<dt><a>npm root -g</a></dt>
+        		<dd>查看全局 node_modules 安装目录</dd>
+        	</dl>
+        	
+        	<h3 class="r3-title">npm list</h3>
+        	<dl class="horizontal">
+        		<dt>
+        			<a href="https://www.npmjs.cn/cli/ls/">npm list</a>
+        		</dt>
+        		<dd>列出当前项目安装的所有模块，以及它们依赖的模块</dd>
+        		<dt><a>npm list -global</a></dt>
+        		<dd>列出全局安装的模块</dd>
+        		<dt><a>npm list packageName</a></dt>
+        		<dd>列出单个模块</dd>
+        		<dt><a>npm list -depth 0</a></dt>
+        		<dd>列出依赖项深度（0：一级目录, 1: 一级目录和二级目录）</dd>
+        		<dt><a>npm list -dev</a></dt>
+        		<dd>列出 dependency 模块</dd>
+        		<dt><a>npm list -prod</a></dt>
+        		<dd>列出 production 模块</dd>
+        	</dl>
+        	
 		</section>
 	</div>
 </div>

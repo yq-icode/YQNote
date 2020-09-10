@@ -12,47 +12,83 @@
 <div id="wrap">
     <div id="wside"></div>
 	<div id="wmain">
-    	<h2 class="r2-title">中继器变量</h2>
-    	<p class="reference">
+		<p class="reference">
     		<a href="http://www.pmgod.cn/resource/function.html"></a>
+    		<a href="http://www.axureux.com/home/functions.html"></a>
     		<a href="https://www.jianshu.com/p/6fc4fbe59617"></a>
     	</p>
+    	<h2 class="r2-title">中继器变量</h2>
         <section class="r2-body">
         	<dl class="dlist">
-        		<dt>pageindex</dt>
+        		<dt>pageIndex</dt>
         		<dd>当前页码</dd>
-        		<dt>pagecount</dt>
+        		<dt>pageCount</dt>
         		<dd>总页数</dd>
-        		<dt>datacount</dt>
-        		<dd>中继器所有记录数</dd>
-        		<dt>visibleitemcount</dt>
+        		<dt>visibleItemCount</dt>
         		<dd>
-        			<p class="mt10">当前页面可见记录数</p>
-        			<p class="mt10">当删除行时，visibleitemcount 值会立即变化；<br>当连续添加行时，第一次添加行时，visibleitemcount 值不变，从第二次添加行时，visibleitemcount 才会变化；<br>原因不明</p>
+        			<p class="mt10">中继器项目列表中可见项的数量。比如：项目列表共有15项，分页显示为每页6项。当项目列表在第1、2页时，可见项数量为6；当项目列表在第3页时，可见项数量为3。</p>
+        			<p class="mt10">当删除行时，visibleitemcount 值会立即变化；</p>
         		</dd>
-        		<dt>itemcount</dt>
-        		<dd>当前加载记录总数<br>（如果中继器无条件的全部加载则 itemcount=datacount，如果有条件的加载，则 itemcount < datacount）<br>（如经过条件筛选操作后，符合条件的记录条数。datacount >= itemcount >= visibleitemcount）</dd>
-        	</dl>
-        </section>
-        <h2 class="r2-title">数字</h2>
-        <section class="r2-body">
-        	<dl class="dlist">
-        		<dt>toFixed</dt>
-        		<dd>指定数字的小数点位数，使用方法：如果 n=1.232，[[n.toFixed(2)]] 返回值 1.23；</dd>
-        		<dt>toPrecision</dt>
-        		<dd>把数字格式化为指定的长度：如果 n=1, [[n. toPrecision (6)]] 返回值 1.00000。</dd>
+        		<dt>itemCount</dt>
+        		<dd>中继器项目列表的总数量，或者叫加载项数量。默认情况下项目列表的总数量会与中继器数据集中的数据行数量一致，但是，如果进行了筛选，项目列表的总数量则是筛选后的数量，这个数量不受分页影响。</dd>
+        		<dt>dataCount</dt>
+        		<dd>中继器数据集中数据行的总数量。</dd>
+        		<dt>Item</dt>
+        		<dd>获取数据集一行数据的集合，即数据行的对象。</dd>
+        		<dt>TargetItem</dt>
+        		<dd>目标数据行的对象。</dd>
         	</dl>
         </section>
         
-        <h2 class="r2-title">鼠标指针</h2>
+        <h2 class="r2-title">元件属性</h2>
         <section class="r2-body">
         	<dl class="dlist">
+        		<dt>this</dt>
+        		<dd>获取当前元件对象。当前元件是指当前添加交互动作的元件。</dd>
+        		<dt>target</dt>
+        		<dd>获取目标元件对象。目标元件是指当前交互动作控制的元件。</dd>
+        		<dt>x, y</dt>
+        		<dd>获取元件对象的X轴、Y轴坐标值。</dd>
+        		<dt>width, height</dt>
+        		<dd>获取元件对象的width、height值。</dd>
+        		<dt>scrollX, scrollY</dt>
+        		<dd>获取元件对象的水平、垂直滚动距离（当前仅限动态面板）</dd>
+        		<dt>text</dt>
+        		<dd>获取元件对象的文本文字。</dd>
+        		<dt>name</dt>
+        		<dd>获取元件对象的自定义名称。</dd>
+        		<dt>top, left, right, bottom</dt>
+        		<dd>获取元件对象的上边界、左边界、右边界、底边界坐标值。</dd>
+        		<dt>opacity</dt>
+        		<dd>获取元件对象的不透明比例。</dd>
+        		<dt>rotation</dt>
+        		<dd>获取元件对象的旋转角度。</dd>
+        	</dl>
+        </section>
+        
+        <h2 class="r2-title">鼠标属性 </h2>
+        <section class="r2-body">
+        	<dl class="dlist">
+        		<dt>Cursor.x, Cursor.y</dt>
+        		<dd>鼠标指针在页面中位置的X轴、Y轴坐标。</dd>
         		<dt>DragX、DragY</dt>
-        		<dd>面板在任意时间点上在X和Y方向的瞬间移动距离。理解为瞬间速度即可。比如任意极短的时间 t0 水平移动了 x0 ，那么在这一瞬间X方向的速度就是 x0/ t0</dd>
+        		<dd>鼠标指针沿X轴、Y轴拖动元件时的瞬间(0.01秒)拖动距离。</dd>
         		<dt>TotalDragX、TotalDragY</dt>
-        		<dd>指的是一次拖曳面板时从拖曳开始到停止拖曳，面板在X和Y方向移动的距离。左和上为负值，右和下为正值。虽然在拖曳过程中这个函数的值是动态的，但一般是在拖曳停止时的值才有价值，它实际上表达了一次拖曳过程中面板往X和Y方向移动的幅度.</dd>
+        		<dd>鼠标指针拖动元件从开始到结束的X轴、Y轴移动距离。</dd>
         		<dt>DragTime</dt>
-        		<dd></dd>
+        		<dd>鼠标指针拖动元件从开始到结束的总时长。</dd>
+        	</dl>
+        </section>
+        
+        <h2 class="r2-title">数字</h2>
+        <section class="r2-body">
+        	<dl class="dlist">
+        		<dt>toFixed(decimalPoints)</dt>
+        		<dd>将一个数字转为保留指定位数的小数，小数位数超出指定位数时进行四舍五入。decimalPoints为保留小数的位数。示例：如果n=1.232，[[n.toFixed(2)]]返回值1.23</dd>
+        		<dt>toPrecision(length)</dt>
+        		<dd>把数字示例化为指定的长度。length为示例化后的数字长度，小数点不计入长度。示例：如果n=1, [[n.toPrecision(6)]]返回值1.00000</dd>
+        		<dt>toExponential(decimalPoints)</dt>
+        		<dd>把对象的值转换为指数计数法。decimalPoints为保留小数的位数。示例：[[n.toExponential (参数)]]</dd>
         	</dl>
         </section>
    </div>

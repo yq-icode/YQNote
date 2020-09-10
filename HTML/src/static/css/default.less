@@ -3,16 +3,23 @@
 
 @import "common.less";
 
+@color1:#0049B0; //header背景色
+@color2:#172B4D; //主体字体颜色、标题文字颜色
+@color3:#42526e; //左栏字体颜色
+@color4:#dfe1e5; //左栏标题bar背景色
+@color5:#F4F5F7; //左栏背景色;
+@color6:#007cff; //链接文字颜色
+@color7:#ff6c00; //橙色（表示突出）
+
 html{font-size: 10px;}
 body{
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	background-color: #FCFFFA;
 	font-size: 14px;
-	color: #333;
+	color: @color2;
 	line-height: 1.8em;
-	font-family:"Microsoft yahei","Courier New",monospace;
+	font-family:"Microsoft yahei", "Courier New", monospace,;
 }
 ul,li{margin: 0;padding: 0;}
 li{list-style-type: none;}
@@ -31,21 +38,25 @@ p{margin-top: 1em}
 .dis-inline{display: inline;}
 
 #wrap{
-	margin:0 20px;
-	flex: 1;
-}
-#wside, #wmain{
-	box-sizing: border-box;
+//  display: flex;
+//  flex-direction: row;
+//	flex: 1;
 }
 #wside{
-	position: fixed;
-	top: 86px;
-	width:200px;
+    position: fixed;
+    left: 0;
+    top: 40px;
+    bottom: 0;
+	width:280px;
+	padding: 20px;
 	line-height: 1.5em;
+	background-color: @color5;
 }
 #wmain{
-	margin-left:220px;
-	max-width: 1000px;
+    margin-top: 40px;
+    padding: 20px 40px;
+	margin-left:280px;
+//	max-width: 1000px;
 	overflow: hidden;
 	counter-reset: secTR2;
 }
@@ -60,8 +71,13 @@ p{margin-top: 1em}
  * header
  * ******************************************************* */
 #header{
-	margin-bottom: 10px;
-	background-color:#000;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 40px;
+    line-height: 40px;
+	background-color:@color1;
 	font-family:"Comic Sans MS";
 	ul{
 		margin-left: 10px;
@@ -69,7 +85,7 @@ p{margin-top: 1em}
 			display:inline-block;
 			a{
 				display:inline-block;
-				padding:8px 10px;
+				padding:0 10px;
 				color:#ccc;
 				font-size:1.2rem;
 				&:hover{color: #fff;}	
@@ -97,51 +113,51 @@ p{margin-top: 1em}
 }
 #wside dl a{
 	padding: 5px;
-	color: #0066CC;
+	color: @color3;
+	.text-shadow(0, 1px, 0, #fff);
+	&:hover, &.on{
+	    font-weight: bold;
+	}
 }
-
-#wside dl dt a.on{background-color: #a3c851;}
-#wside dl dd a.on{color: #333;font-weight: bold;}
-
-#wside dl dt a:hover{background-color: #a3c851;text-decoration: none;}
-#wside dl dd a:hover{color: #000;}
 
 #wside dl dt:nth-child(n+2){
 	margin-top: 15px;
 }
 #wside dl dt a{
-	display: inline-block;
 	position: relative;
+	display: inline-block;
 	margin:5px 0;
-	padding:0 5px 0 30px;
+	padding:0 10px 0 40px;
 	font-size: 12px;
-	color: #3f4523;
 	font-weight: normal;
 	counter-increment: secDT;
-	background-color: #EAF0D3;
-}
-#wside dl dt a::before{
-	position: absolute;
-	left: 0;
-	content: "(" counter(secDT,cjk-ideographic) ")";/* dt的编号 */
-	padding-left: 5px;
+	background-color: @color4;
+	.b-radius(50px);
+	line-height: 2;
+	&::before{
+	    position: absolute;
+        left: 0;
+        content: "(" counter(secDT,cjk-ideographic) ")";/* dt的编号 */
+        padding-left: 10px;
+	}
 }
 #wside dl dd{
+    padding-left: 10px;
 	counter-reset: secDD;
 }
 #wside dl dd a{
 	display: block;
 	position: relative;
-	padding-left: 25px;
+	padding-left: 18px;
 	font-size: 12px;
-	color: #888;
 	counter-increment: secDD;
-}
-#wside dl dd a::before{
-	position: absolute;
-	left: 0;
-	content: counter(secDT) '.' counter(secDD);/* dd的编号 */
-	color: #ccc;
+	&:before{
+	    position: absolute;
+        left: 0;
+        font-family: Tempus Sans ITC;
+//      content: counter(secDT) '.' counter(secDD);
+        content: counter(secDD)'.';/* dd的编号 */
+	}
 }
 /* ******************************************************* *
  * 页尾
@@ -165,7 +181,7 @@ p{margin-top: 1em}
  * ******************************************************* */
 .r1-title, .r2-title, .r3-title, .r4-title{
 	margin: 30px 0 10px;
-	color: #333;
+	color: #172B4D;
 	font-weight: normal;
 }
 .r1-title{
@@ -215,9 +231,9 @@ p{margin-top: 1em}
 .r4-title{
     font-weight: bold;
 	font-size: 18px;
-}
-.r4-title:before{
-    content: '/ ';
+	&:before{
+        content: '/ ';
+    }
 }
 .r3-title mark{ /*标题中的标签*/
 	display: inline-block;
@@ -271,9 +287,6 @@ p{margin-top: 1em}
 	&.ib{
 	    display: inline-block;
 	    margin-left: 10px;
-	}
-	&.small{
-	    
 	}
 }
 	
@@ -395,6 +408,11 @@ a.ref{
     font-size: 12px;
     color: #5F6F55;
 }
+/*注释*/
+.annotation{
+    color: #b2b7c1;
+}
+
 /*有提示弹框的文字*/
 .tip{
     text-decoration: underline;
@@ -454,7 +472,7 @@ a.ref{
 	padding: 20px 20px 0;
 	font-size: 14px;
 	counter-reset: dlNum;
-	dt{
+	& > dt{
 		display: inline;
 		margin-bottom: 5px;
 		padding: 0 10px 0 5px;
@@ -478,10 +496,11 @@ a.ref{
 		font-weight: normal;
 		color: #666;
 	}
-	dd{
+	& > dd{
 		margin-bottom: 15px;
 	}
-    &.col2{ /*双列*/
+	/*双列*/
+    &.col2{ 
 	    display: flex;
 	    flex-wrap: wrap;
 	    padding-bottom: 20px;
@@ -492,12 +511,58 @@ a.ref{
 .listTit + .dlist{margin-top: 0;}
 .dlist p + .screenPics{margin: 0;}
 
+/*horizontal*/
+dl.horizontal{
+    & > dt, & > dd{
+        margin-top: 5px;
+        font-size: 12px;
+    }
+    & > dt{
+        float: left;
+        width: 250px;
+        overflow: hidden;
+        clear: left;
+        text-align: right;
+        &.on > a{
+            background-color: @color1;
+            color: #FFFFFF !important;
+        }
+        & > a{
+            display: inline-block;
+            padding: 2px 5px;
+            color: @color2;
+            font-family: "courier new";
+            line-height: 1;
+            &:link{
+                text-decoration: underline;
+                color: @color6;
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+            & > .iconfont{
+                display: inline-block;
+                margin-right: 3px;
+                font-size: 12px;
+            }
+        }
+    }
+    & > dd{
+        margin-left: 270px;
+        min-height: 25px;
+        border-bottom: 1px dashed #eee;
+        padding: 2px 10px;
+    }
+}
+
 
 
 /* ******************************************************* *
  * 菜单主页面的列表
  * ******************************************************* */
 #list{
+    margin-top: 60px;
+    padding: 0 30px;
 	color: #555;
 	counter-reset: xuHao;
 	h3{
@@ -530,7 +595,7 @@ a.ref{
 		min-width: 120px;
 		max-width: 220px;
 		border: 1px solid #CFD2C6;
-		padding: 3px 10px;
+		padding: 0 10px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
