@@ -439,33 +439,55 @@ a.ref{
 	padding: 5px 0;
 }
 
-/*数字标号列表*/
+/* <ul/ol> 数字标号列表（垂直排列）*/
 .list-decimal{
     margin: 10px 0;
     border:1px dotted #ccc;
     padding: 10px 20px;
     counter-reset: dlNum;
     line-height: 1.2em;
-}
-.list-decimal li{
-    position: relative;
-	margin: 10px 0;
-	padding-left: 35px;
-	counter-increment: dlNum;
-	list-style-position: outside;
-}
-.list-decimal li:before{
-    position: absolute;
-    left: 0;
-    display: inline-block;
-    padding: 0 5px;
-    content: counter(dlNum,decimal) " >";
-    background-color: #F4F5F3;
-    font-size: 11px;
-    color: #999;
+    & > li{
+        position: relative;
+        margin: 10px 0;
+        padding-left: 35px;
+        counter-increment: dlNum;
+        list-style-position: outside;
+        &:before{
+            position: absolute;
+            left: 0;
+            display: inline-block;
+            padding: 0 5px;
+            content: counter(dlNum,decimal) " >";
+            background-color: #F4F5F3;
+            font-size: 11px;
+            color: #999;
+        }
+    }
 }
 
-/*标题+内容的列表*/
+/* <ul/ol> 列表（水平排列）*/
+.list-short{
+    margin: 10px 0;
+    border:1px dotted #ccc;
+    padding: 10px 20px 10px 0;
+    line-height: 1.2em;
+    font-family: "courier new";
+    & > li{
+        float: left;
+        margin: 10px 0 10px 20px;
+        min-width: 300px;
+        & > label{
+            margin-right: 5px;
+            padding: 0 5px;
+            background-color: #EAF6E2;
+            .b-radius(5px);
+            .text-shadow(1px,1px,0,#fff);
+        }
+    }
+}
+
+
+/* <dl>标题+内容的列表*/
 .dlist{
 	margin: 10px 0;
 	border: 1px dotted #ccc;
@@ -511,7 +533,7 @@ a.ref{
 .listTit + .dlist{margin-top: 0;}
 .dlist p + .screenPics{margin: 0;}
 
-/*horizontal*/
+/* <dl> 水平排列*/
 dl.horizontal{
     & > dt, & > dd{
         margin-top: 5px;

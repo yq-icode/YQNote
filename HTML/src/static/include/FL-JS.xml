@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <fileList>
 	<main title="JS" url="/views/js/">
+		<sub title="Web 基础">
+			<file>
+				<title>概总</title>
+				<name>fun29</name>
+			</file>
+			<file>
+				<title>Console API</title>
+				<name>fun41</name>
+			</file>
+		</sub>
 		<sub title="JS基础">
 			<file>
 				<title>Object 对象</title>
@@ -19,6 +29,10 @@
 				<name>fun16</name>
 			</file>
 			<file>
+				<title>字符</title>
+				<name>fun42</name>
+			</file>
+			<file>
 				<title>语句和声明</title>
 				<name>fun27</name>
 			</file>
@@ -29,10 +43,6 @@
 			<file>
 				<title>Selection &amp; Range</title>
 				<name>fun38</name>
-			</file>
-			<file>
-				<title>Web 基础</title>
-				<name>fun29</name>
 			</file>
 			<file>
 				<title>函数定义、类别、调用</title>
@@ -239,6 +249,10 @@
 			<file>
 				<title>debugger调试</title>
 				<name>debugger</name>
+			</file>
+			<file>
+				<title>Chrome/Network</title>
+				<name>fun43</name>
 			</file>
 			<file>
 				<title>source map</title>
