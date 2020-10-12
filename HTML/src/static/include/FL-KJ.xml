@@ -26,6 +26,11 @@
 			<name>index</name>
 			<path>/plugIn/mockjs/</path>
 		</file>
+		<file>
+			<title>slick</title>
+			<name>slick01</name>
+			<path>/plugIn/slick/</path>
+		</file>
 	</main>
 	<main title="BOOTSTRAP">
 		<file>
