@@ -109,7 +109,7 @@ var iphoneXFirstPass = true;
             (SAFARI && BROWSER_VERSION < 602) || // Minor version 10
             (FIREFOX && BROWSER_VERSION < 57) || // Support Quantum 
             ($axure.browser.isEdge && BROWSER_VERSION < 15) || // 15 for mobile devices (else could go 16, possibly 17)
-            (!$axure.browser.isEdge && IE)) {
+            IE_10_AND_BELOW) {
             if (!QQ && !UC) appendOutOfDateNotification();
         }
 
@@ -135,6 +135,9 @@ var iphoneXFirstPass = true;
         toAppend += '       </div>';
         toAppend += '       <div class="browserContainer">';
         toAppend += '           <div class="browserName">Apple Safari</div><div class="browserSupportedVersion">v10 and later</div>';
+        toAppend += '       </div>';
+        toAppend += '       <div class="browserContainer">';
+        toAppend += '           <div class="browserName">Internet Explorer</div><div class="browserSupportedVersion">v11 and later</div>';
         toAppend += '       </div>';
         toAppend += '   </div>';
         toAppend += '   <div id="browserOutOfDateNotificationButtons">'
@@ -545,24 +548,15 @@ var iphoneXFirstPass = true;
             }
             $('.rightPanel').css('height', '');
             if ($('.rightPanel').is(':visible')) {
-                var lastRightPanelWidthDefaultSub = ($(window).width() - lastRightPanelWidthDefault || 0);
-                var rightPanelWidth = ($('.rightPanel').width() || 0);
-                var leftPanelPanelWidthSub = ($(window).width() - $('.leftPanel').width()) || 0;
-
-                var newWidth = Math.min(lastRightPanelWidthDefaultSub, rightPanelWidth, leftPanelPanelWidthSub);
+                var newWidth = Math.min($(window).width() - lastRightPanelWidthDefault, $('.rightPanel').width(), $(window).width() - $('.leftPanel').width());
                 lastRightPanelWidth = Math.max(lastRightPanelWidthDefault, newWidth);
-                $('.rightPanel').width(lastRightPanelWidth ? lastRightPanelWidth : lastRightPanelWidthDefault);
+                $('.rightPanel').width(lastRightPanelWidth != 0 ? lastRightPanelWidth : lastRightPanelWidthDefault);
                 $('#rsplitbar').css('left', $(window).width() - $('.rightPanel').width());
             }
             if ($('.leftPanel').is(':visible')) {
-                var lastLeftPanelWidthSub = ($(window).width() - lastLeftPanelWidthDefault || 0);
-                var leftPanelWidth = ($('.leftPanel').width() || 0);
-                var rightPanelWidthSub = ($(window).width() - $('.rightPanel').width()) || 0;
-
-                var newWidth = Math.min(lastLeftPanelWidthSub, leftPanelWidth, rightPanelWidthSub);
-
+                var newWidth = Math.min($(window).width() - lastLeftPanelWidthDefault, $('.leftPanel').width(), $(window).width() - $('.rightPanel').width());
                 lastLeftPanelWidth = Math.max(lastLeftPanelWidthDefault, newWidth);
-                $('.leftPanel').width(lastLeftPanelWidth ? lastLeftPanelWidth : lastLeftPanelWidthDefault);
+                $('.leftPanel').width(lastLeftPanelWidth != 0 ? lastLeftPanelWidth : lastLeftPanelWidthDefault);
                 $('#lsplitbar').css('left', $('.leftPanel').width() - 4);
             }
         }
@@ -663,14 +657,6 @@ var iphoneXFirstPass = true;
         var $iframe = $($('#mainPanel').find('iframe')[0].contentWindow);
         var selectedScale = $('.vpScaleOption').find('.selectedRadioButton');
         var scaleVal = $(selectedScale).parent().attr('val');
-
-        var dimStr = $('.currentAdaptiveView').attr('data-dim');
-        var dim = dimStr ? dimStr.split('x') : { w: '0', h: '0' };
-        var isDevice = dim[1] != '0' ? true : false;
-        // This line is necessary for right handling DEFAULT SCALE
-        // Because default scale relates to scale-to-fit item for device projects
-        if (scaleVal == '0' && isDevice) scaleVal = 2;
-
         var scale = $('#mainPanelContainer').css('transform');;
         scale = (scale == "none") ? 1 : Number(scale.substring(scale.indexOf('(') + 1, scale.indexOf(',')));
 
@@ -694,9 +680,6 @@ var iphoneXFirstPass = true;
         var isCentered = $($iframe[0].document.body).css('position') == 'relative';
         if (isCentered && scaleVal == 1) leftPos = 0;
         else if (isCentered && scaleVal == 2) leftPos = $('#mainPanelContainer').width() * scale / 2.0 - contentLeftOfOriginOffset;
-
-        // Include clipFrameScroll offset in mainPanelContainer
-        topPos += (parseFloat($('#clipFrameScroll').css("top")) || 0) * scale;
 
         return {
             left: leftPos,
@@ -852,7 +835,7 @@ var iphoneXFirstPass = true;
             $('.leftPanel').removeClass('popup');
             if(!isMobileMode()) {
                 isAnimating = true;
-                var newWidth = (lastLeftPanelWidth ? lastLeftPanelWidth : lastLeftPanelWidthDefault);
+                var newWidth = (lastLeftPanelWidth != 0 ? lastLeftPanelWidth : lastLeftPanelWidthDefault);
                 var clippingWidth = calculateClippingBoundsWidth(newWidth, true);
                 var newLeft = calculateScrollLeftWithOffset(-newWidth, true);
 
@@ -874,17 +857,14 @@ var iphoneXFirstPass = true;
                     }});
             }
         } else {
-            if ($('#rsplitbar').is(':visible')) {
-                // update width of rightPanel plugin
-                var newWidth = lastRightPanelWidth ? lastRightPanelWidth : lastRightPanelWidthDefault;
-                $('#' + hostId).width(newWidth);
+            if($('#rsplitbar').is(':visible')) {
                 $('#' + hostId).show();
                 $axure.player.pluginVisibleChanged(hostId, true);
                 return;
             }
             if (!isMobileMode()) {
                 isAnimating = true;
-                var newWidth = lastRightPanelWidth ? lastRightPanelWidth : lastRightPanelWidthDefault;
+                var newWidth = lastRightPanelWidth != 0 ? lastRightPanelWidth : lastRightPanelWidthDefault;
                 var clippingWidth = calculateClippingBoundsWidth(newWidth, false);
                 var newLeft = calculateScrollLeftWithOffset(-newWidth, false);
 
@@ -926,16 +906,8 @@ var iphoneXFirstPass = true;
         var h = dim[1] != '0' ? dim[1] : '';
 
         var scaleVal = $('.vpScaleOption').find('.selectedRadioButton').parent().attr('val');
-        var selectedScaleValue = scaleVal;
         $axure.player.noFrame = false;
         if (h && scaleVal == 1) $axure.player.noFrame = true;
-
-        $('#mainPanelContainer').attr({
-            "data-scale-n": scaleVal,
-            "data-page-dimensions-type": h ? "device" : w ? "web" : "auto",
-            "data-scale-shift-x": null,
-            "data-scale-shift-y": null,
-        });
 
         var clipToView = h && !$axure.player.noFrame;
         var isDevice = h;
@@ -947,9 +919,9 @@ var iphoneXFirstPass = true;
         if (!h || !clipToView) h = mainPanelHeight;
         if (MOBILE_DEVICE && h > mainPanelHeight) h = mainPanelHeight;
         if (MOBILE_DEVICE && w > mainPanelWidth) w = mainPanelWidth;
-        
+
         if (clipToView) {
-            if (!MOBILE_DEVICE && scaleVal == '0') scaleVal = 2;
+            if (scaleVal == '0') scaleVal = 2;
 
             w = Number(w);
             h = Number(h);
@@ -959,24 +931,21 @@ var iphoneXFirstPass = true;
             $('#mainFrame').height(h);
             $('#clipFrameScroll').height(h);
 
-            var topPadding = MOBILE_DEVICE ? 0 : 10;
+            var topPadding = 10;
             var leftPadding = 0;
             var rightPadding = 0;
-            var bottomPadding = MOBILE_DEVICE ? 0 : 10;
+            var bottomPadding = 10;
 
-            w = w + leftPadding + rightPadding;
-            h = h + topPadding + bottomPadding;
+            if (!MOBILE_DEVICE) {
+                w = w + leftPadding + rightPadding;
+                h = h + topPadding + bottomPadding;
+            }
 
             var x = (mainPanelWidth - w) / 2;
             var y = (mainPanelHeight - h) / 2 - 1;
 
             x = Math.max(0, x);
             if (scaleVal != 2) y = Math.max(0, y);
-
-            $('#mainPanelContainer').attr({
-                "data-scale-shift-x": x,
-                "data-scale-shift-y": y,
-            });
 
             $('#mainPanelContainer').css({
                 'margin': 'auto',
@@ -1032,9 +1001,7 @@ var iphoneXFirstPass = true;
             clipToView: clipToView
         };
         $axure.messageCenter.postMessage('getScale', vpScaleData);
-        $axure.messageCenter.postMessage('cloud_ScaleValueChanged', {
-            scale: selectedScaleValue,
-        });
+
         if (scaleVal == '0' && clipToView) $('#mainPanel').css('overflow', 'auto');
         else $('#mainPanel').css('overflow', '');
     }
@@ -1754,7 +1721,7 @@ var iphoneXFirstPass = true;
         var currentX = window.event.pageX;
         var newWidth = Math.min(startSplitWidth + currentX - startSplitX, $(window).width() - $('.rightPanel').width(), $(window).width() - lastRightPanelWidthDefault);
         lastLeftPanelWidth = Math.max(lastLeftPanelWidthDefault, newWidth);
-        $('.leftPanel').width(lastLeftPanelWidth ? lastLeftPanelWidth : lastLeftPanelWidthDefault);
+        $('.leftPanel').width(lastLeftPanelWidth != 0 ? lastLeftPanelWidth : lastLeftPanelWidthDefault);
         $('#lsplitbar').css('left', $('.leftPanel').width() - 4);
         $axure.player.updateClippingBoundsWidth();
         $axure.player.refreshViewPort();
@@ -1764,7 +1731,7 @@ var iphoneXFirstPass = true;
         var currentX = window.event.pageX;
         var newWidth = Math.min(startSplitWidth - currentX + startSplitX, $(window).width() - $('.leftPanel').width(), $(window).width() - lastLeftPanelWidthDefault);
         lastRightPanelWidth = Math.max(lastRightPanelWidthDefault, newWidth);
-        $('.rightPanel').width(lastRightPanelWidth ? lastRightPanelWidth : lastRightPanelWidthDefault);
+        $('.rightPanel').width(lastRightPanelWidth != 0 ? lastRightPanelWidth : lastRightPanelWidthDefault);
         $('#rsplitbar').css('left', $(window).width() - $('.rightPanel').width());
         $axure.player.updateClippingBoundsWidth();
         $axure.player.refreshViewPort();
@@ -1892,18 +1859,13 @@ var iphoneXFirstPass = true;
         var $pins = $('#existingPinsOverlay').children();
         for (var i = 0; i < $pins.length; i++) {
             // calculate new position of pin
-            const left = parseFloat($($pins[i]).attr('data-x'));
-            const top = parseFloat($($pins[i]).attr('data-y'));
+            const left = parseFloat($($pins[i]).css('left'));
+            const top = parseFloat($($pins[i]).css('top'));
             const width = $($pins[i]).width();
             const height = $($pins[i]).height();
-
-            // Get current scale of mainPanelContainer
-            // MainPanelContainer scaled without setContentScale message
-            var scale = $('#mainPanelContainer').css('transform');;
-            scale = (scale == "none") ? 1 : Number(scale.substring(scale.indexOf('(') + 1, scale.indexOf(',')));
-            const scaledLeft = (left * scale) - (width / 2);
-            const scaledTop = (top * scale) - (height / 2);
-
+            // we should scale center of pin instead of left top corner
+            const scaledLeft = ((left + (width / 2)) * data.scaleN / data.prevScaleN) - (width / 2);
+            const scaledTop = ((top + (height / 2)) * data.scaleN / data.prevScaleN) - (height / 2);
 
             $($pins[i]).css('left', scaledLeft + 'px');
             $($pins[i]).css('top', scaledTop + 'px');
@@ -1921,7 +1883,7 @@ var iphoneXFirstPass = true;
         } else if (message == 'setContentScale') {
             if (data.clipToView) {
                 var scaleVal = $('.vpScaleOption').find('.selectedRadioButton').parent().attr('val');
-                if (scaleVal == '2' || (!MOBILE_DEVICE && scaleVal == '0')) {
+                if (scaleVal == '2' || scaleVal == '0') {
                     var scaleN = newScaleN = $('#mainPanel').width() / data.viewportWidth;
                     var hScaleN = ($('#mainPanel').height()) / data.viewportHeight;
                     if (hScaleN < scaleN) scaleN = newScaleN = hScaleN;

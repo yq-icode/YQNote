@@ -16,6 +16,10 @@
 		<section class="r2-body">
 			<h3 class="r3-title">中继器中的元件的坐标</h3>
 			<p>因为中继器中的元件，其X、Y坐标是以中继器为基准的，隐藏元件后，隐藏元件的X、Y坐标是不变的，只有移动元件，其X、Y坐标才会改变。 </p>
+			<h3 class="r3-title">mark（标记中继器）</h3>
+			<p>对中继器进行标记时，不要用 “标记marked" 和 "选中selected”，因为中继器的 update、filter等操作都会使中继器刷新，中继器刷新后会导致 “标记marked" 和 "选中selected”效果消失。
+这种情况下可以为中继器加一个字段，如 isMarked 来判断中继器是否已标记，这样无论中继器如何刷新，标记都不会消失；</p>
+			
 		</section>
     	<h2 class="r2-title">功能讲解</h2>
         <section class="r2-body">

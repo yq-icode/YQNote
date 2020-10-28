@@ -16,7 +16,7 @@
   position:absolute;
   z-index:0;
 }
-#u745_img {
+#u723_img {
   border-width:0px;
   position:absolute;
   left:0px;
@@ -24,7 +24,7 @@
   width:300px;
   height:170px;
 }
-#u745 {
+#u723 {
   border-width:0px;
   position:absolute;
   left:37px;
@@ -33,20 +33,20 @@
   height:170px;
   display:flex;
 }
-#u745 .text {
+#u723 .text {
   position:absolute;
   align-self:center;
   padding:2px 2px 2px 2px;
   box-sizing:border-box;
   width:100%;
 }
-#u745_text {
+#u723_text {
   border-width:0px;
   word-wrap:break-word;
   text-transform:none;
   visibility:hidden;
 }
-#u746_div {
+#u724_div {
   border-width:0px;
   position:absolute;
   left:0px;
@@ -66,7 +66,7 @@
   font-size:20px;
   text-align:center;
 }
-#u746 {
+#u724 {
   border-width:0px;
   position:absolute;
   left:13px;
@@ -80,14 +80,14 @@
   font-size:20px;
   text-align:center;
 }
-#u746 .text {
+#u724 .text {
   position:absolute;
   align-self:flex-start;
   padding:0px 0px 0px 0px;
   box-sizing:border-box;
   width:100%;
 }
-#u746_text {
+#u724_text {
   border-width:0px;
   word-wrap:break-word;
   text-transform:none;
@@ -101,21 +101,21 @@ body.a {  background-color:rgba(255, 255, 255, 1);
   margin-right:0;
   text-align:left;
 }
-#u745.a {
+#u723.a {
 }
-#u745_img.a {
+#u723_img.a {
 }
-#u745.a {
+#u723.a {
 }
-#u745_text.a {
+#u723_text.a {
 }
-#u745 .text.a {
+#u723 .text.a {
   align-self:center;
   padding:2px 2px 2px 2px;
 }
-#u746.a {
+#u724.a {
 }
-#u746_div.a {
+#u724_div.a {
   border-width:0px;
   position:absolute;
   left:0px;
@@ -135,11 +135,11 @@ body.a {  background-color:rgba(255, 255, 255, 1);
   font-size:20px;
   text-align:center;
 }
-#u746.a {
+#u724.a {
 }
-#u746_text.a {
+#u724_text.a {
 }
-#u746 .text.a {
+#u724 .text.a {
   align-self:flex-start;
   padding:0px 0px 0px 0px;
 }
@@ -152,21 +152,21 @@ body.b {  background-color:rgba(255, 255, 255, 1);
   margin-right:0;
   text-align:left;
 }
-#u745.b {
+#u723.b {
 }
-#u745_img.b {
+#u723_img.b {
 }
-#u745.b {
+#u723.b {
 }
-#u745_text.b {
+#u723_text.b {
 }
-#u745 .text.b {
+#u723 .text.b {
   align-self:center;
   padding:2px 2px 2px 2px;
 }
-#u746.b {
+#u724.b {
 }
-#u746_div.b {
+#u724_div.b {
   border-width:0px;
   position:absolute;
   left:0px;
@@ -186,11 +186,11 @@ body.b {  background-color:rgba(255, 255, 255, 1);
   font-size:20px;
   text-align:center;
 }
-#u746.b {
+#u724.b {
 }
-#u746_text.b {
+#u724_text.b {
 }
-#u746 .text.b {
+#u724 .text.b {
   align-self:flex-start;
   padding:0px 0px 0px 0px;
 }

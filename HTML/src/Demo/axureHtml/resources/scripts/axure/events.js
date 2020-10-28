@@ -316,7 +316,7 @@ $axure.internal(function ($ax) {
 
         eventNesting += 1;
 
-        if (!synthetic && !_getCanClick() && (eventDescription == 'OnClick' || eventDescription == 'OnPageClick')) return;
+        if(!_getCanClick() && (eventDescription == 'OnClick' || eventDescription == 'OnPageClick')) return;
         // If you are supposed to suppress, do that right away.
         if(suppressedEventStatus[eventDescription]) {
             return;
@@ -1832,7 +1832,7 @@ $axure.internal(function ($ax) {
             if(_callFilterCheck(callFilter, $ax.constants.PAGE_TYPE)) {
                 //if scrolling, set direction, later master will know
                 if(eventName === "onScroll") {
-                    var currentScrollTop = ((SAFARI && IOS) || SHARE_APP) ? $('#ios-safari-html').scrollTop() : $(window).scrollTop();
+                    var currentScrollTop = $(window).scrollTop();
                     _event.windowScrollingUp = currentScrollTop < lastScrollTop;
                     _event.windowScrollingDown = currentScrollTop > lastScrollTop;
                 }

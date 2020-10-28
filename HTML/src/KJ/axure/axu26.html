@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+		<div class="reference">
+			<a href="http://www.woshipm.com/rp/377287.html"></a>
+			<a href="http://api.woshipm.com/rp/577031.html?sf=mobile"></a>
+		</div>
+        <h2 class="r2-title">实现原理</h2>
+        <section class="r2-body">
+        	<p>日历的实现需要3个全局变量</p>
+			<strong class="listTit">3个全局变量</strong>
+			<dl class="dlist">
+				<dt>Date_Now</dt>
+				<dd>当天日期，[[Now.toLocaleDateString()]]</dd>
+				<dt>Date_Now_1</dt>
+				<dd>当月的1日，[[Date_Now.addDays(1-Date_Now.getDate() ).toLocaleDateString()]]</dd>
+				<dt>Date_Now_1_Index</dt>
+				<dd>当月的1日对应的星期，[[Date_Now_1.getDay()]]</dd>
+			</dl>
+			<h4 class="r4-title">填充日期</h4>
+			<p>Date 的 getDay() 方法返回的是一周的第几天， 0 表示周日，6表示周六，而每个月的1日一定位于第一行，根据这两点从而可以确定1日的索引；
+根据上面的中继器的排列（请看原型效果图），第一行周日的索引是7，而1日的 getDay() 方法返回的 0 表示周日，因此：</p>
+			<ul class="list-decimal">
+				<li>当每月1日的 getDay() 方法返回值为 0 时，1日的索引为  (1日.getDay() + 7)</li>
+				<li>当每月1日的 getDay() 方法返回值为非 0 时，1日的索引为  1日.getDay()</li>
+			</ul>
+			<p>根据与 1日 的索引差和 addDays()方法即可以确定其它日期：[[Date_Now_1.addDays(Item.index-Date_Now_1_Index).getDate()]]</p>
+			
+			<h4 class="r4-title">判断是否为当月</h4>
+			<p>通过 .getMonth() 方法获取日期的月份，然后和 1日 的月份对比，如果相同，则表示位于同一个月；<br>
+[[Date_Now_1.addDays(Item.index-Date_Now_1_Index).getMonth()]] == [[Date_Now_1.getMonth()]]</p>
+			
+			<h4 class="r4-title">判断是否为当天</h4>
+			<p>获取日期与当天的日期对比，如果相同，则表示为当天；<br>
+[[Date_Now_1.addDays(Item.index-Date_Now_1_Index).toLocaleDateString()]] == [[Now.toLocaleDateString()]]</p>
+			
+			<h4 class="r4-title">上一月/下一月</h4>
+			<p>上一月 addMonths(-1)， 下一月 addMonths(1)<br>
+Date_Now_1 = [[Date_Now_1.addMonths(1).toLocaleDateString()]]<br>
+Date_Now_1_Index = [[Date_Now_1.getDay()]]</p>
+			
+			<h4 class="r4-title">上一年/下一年</h4>
+			<p>上一年 addYears(-1)， 下一年 addYears(1)<br>
+Date_Now_1 = [[Date_Now_1.addYears(1).toLocaleDateString()]]<br>
+Date_Now_1_Index = [[Date_Now_1.getDay()]]</p>
+        </section>
+   </div>
+</div>
+</body>
+</html>
