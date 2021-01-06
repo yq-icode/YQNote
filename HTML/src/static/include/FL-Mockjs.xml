@@ -2,7 +2,7 @@
 <fileList>
 	<main title="基础" url="/plugIn/mockjs/views/">
 		<file>
-			<title>模拟 date&amp;time</title>
+			<title>常用数据模拟</title>
 			<name>md01</name>
 		</file>
 		<file>

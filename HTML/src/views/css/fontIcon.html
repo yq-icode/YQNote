@@ -12,13 +12,78 @@
 <div id="wrap">
     <div id="wside"></div>
     <div id="wmain">
+		<p class="reference">
+			<a href="https://www.iconfont.cn"></a>
+		</p>
         <h2 class="r2-title">iconfont</h2>
-        <div class="r2-body">
-        	<p class="reference">
-        		<a href="https://www.iconfont.cn"></a>
-        	</p>
-        	
-        </div>
+        <section class="r2-body">
+        	<p>iconfont 图标 fontClass、symbol 两种引用方式可以同时使用（已经测试过，两种在线引用方式，可以同时使用）</p>
+			<p>引用 SVG 图标时，可以将 SVG 文件上传到 iconfont，通过 iconfont symbol 方式引用 SVG，这样引用很方便。</p>
+        </section>
+		<h2 class="r2-title">HTML中嵌入SVG图片</h2>
+		<section class="r2-body">
+			<h4 class="r4-title">使用 SVG 标签</h4>
+			<p>即直接把svg整个标签内容（除了开头的xml和doctype声明外的svg文件内容）都丢到 HTML 中即可。</p>
+			
+			<h4 class="r4-title">使用 img 标签</h4>
+			<p>需要注意的是，svg里面带的 &lt;image>标签将无法正常显示。&lt;img>标签适合显示纯矢量+文本的SVG图片。</p>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;img src="./test.svg" style="display:block;width:330px;height:240px" />                      
+					</code>
+				</pre>
+			</div>
+			
+			<h4 class="r4-title">使用 embed/object 标签</h4>
+			<p>注意配置viewBox</p>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;embed src="./test.svg" style="display:block;width:330px;height:240px" />
+			    
+&lt;object type="image/svg+xml" data="./test.svg" style="display:block;width:330px;height:240px" >
+    &lt;param name="src" value="./test.svg" >
+&lt;/object>	  
+					</code>
+				</pre>
+			</div>
+			
+			<h4 class="r4-title">使用div的背景图片</h4>
+			<p>svg图片是可以作为背景图片的。不过和 img 标签一样，无法显示SVG内嵌的 image.</p>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;div style="display:block;width:330px;height:240px;background: url(./test.svg) no-repeat;background-size: 100%;">&lt;/div>			          
+					</code>
+				</pre>
+			</div>
+			
+			<h4 class="r4-title">使用picture标签</h4>
+			<p>picture 标签是HTML5新增的一个专门显示图片的标签。<br>
+注意设置 source 标签的属性srcset而非src. 此外必需要添加一个 img 标签，不过可以在 img 标签中指定另外一张图片，以便在浏览器无法显示 source 指定的图片的时候显示 img 标签中的图片。
+ <br>picture 和 img 一样，无法显示SVG内嵌的 image .</p>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;picture >
+    &lt;source srcset="./test.svg"  type="image/svg+xml">
+    &lt;img src="./test.png" style="display:block;width:330px;height:240px">
+&lt;/picture>			          
+					</code>
+				</pre>
+			</div>
+			
+			<h4 class="r4-title">使用iframe标签</h4>
+			<p>万能的iframe当然什么都能显示，但是无法控制内容大小 -- viewBox也搞不定，估计只能用百分比来定位了，太麻烦了，不建议使用。</p>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;iframe src="./test.svg" style="display:block;width:330px;height:240px;border:none;" >&lt;/iframe>			          
+					</code>
+				</pre>
+			</div>
+		</section>
     </div>
 </div>
 </body>

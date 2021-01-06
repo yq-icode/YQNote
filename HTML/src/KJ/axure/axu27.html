@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+    <div id="wside"></div>
+	<div id="wmain">
+        <h2 class="r2-title">实现原理</h2>
+        <section class="r2-body">
+			<strong class="listTit">日历的实现需要2个全局变量</strong>
+			<dl class="dlist">
+				<dt>clickRowIndex</dt>
+				<dd>保存点击行的索引</dd>
+				<dt>clickRowRankNo</dt>
+				<dd>保存点击行的排序号rankNo</dd>
+				<dt>isMark (中继器字段)</dt>
+				<dd>标记选中行的选中效果，1表示选中，0表示未选中，默认值为0</dd>
+			</dl>
+			<h4 class="r4-title">点击上移按钮时</h4>
+			<p>当点击的不是第一行时：</p>
+			<ul class="list-decimal">
+				<li>触发行的点击事件</li>
+				<li>更新点击行的 rankNo ，使其 -1；</li>
+				<li>更新点击行的上一行的 rankNo，使其 +1；</li>
+				<li>添加排序，按照升序排序</li>
+			</ul>
+			
+			<h4 class="r4-title">点击下移按钮时</h4>
+			<p>当点击的不是最后一行时：</p>
+			<ul class="list-decimal">
+				<li>触发行的点击事件</li>
+				<li>更新点击行的 rankNo ，使其 +1；</li>
+				<li>更新点击行的下一行的 rankNo，使其 -1；</li>
+				<li>添加排序，按照升序排序</li>
+			</ul>
+			
+			<h4 class="r4-title">每项加载时（OnItemLoad）</h4>
+			<ul class="list-decimal">
+				<li>如果 isMark 的值为 1，则设置该行“选中”</li>
+				<li>首行时，禁用上移按钮</li>
+				<li>末行时，禁用下移按钮</li>
+			</ul>
+			
+			<h4 class="r4-title">点击行时</h4>
+			<ul class="list-decimal">
+				<li>将该行的索引赋予 clickRowIndex</li>
+				<li>将该行的排序号赋予 clickRowRankNo</li>
+				<li>更新所有行，使 isMark = 0</li>
+				<li>更新当前点击行，使 isMark = 1</li>
+			</ul>
+        </section>
+   </div>
+</div>
+</body>
+</html>

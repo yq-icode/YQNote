@@ -62,7 +62,7 @@
 				<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@font-face"></a>
 				<a href="https://www.runoob.com/cssref/css3-pr-font-face-rule.html"></a>
 			</p>
-			<h4 class="r4-title">兼容性写法</h4>
+			<h3 class="r3-title">兼容性写法</h3>
 			<div class="code-box">
 	        	<pre class="language-css line-numbers">
 	            	<code>
@@ -78,6 +78,60 @@
 	                </code>
 	            </pre>
 	        </div>
+			
+			<h3 class="r3-title">unicode-range</h3>
+			<section class="r3-body">
+				<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@font-face/unicode-range"></a>
+				<h4 class="r4-title">中文、英文应用不同的字体(1)</h4>
+				<div class="code-box">
+					<pre class="language-css line-numbers">
+						<code>
+/* 常用中文字符的编码范围为 4E00-9FCB */							
+@font-face {
+	font-family: 'mixFont';
+	src: url('fonts/STHeiti-Light.ttf');
+	unicode-range: U+4E00-9FCB; /* 此编码范围内的字符是中文，会应用字体 STHeiti-Light.ttf */
+} 
+@font-face {
+	font-family: 'mixFont';
+	src: url('fonts/HelveticaThin.ttf');
+}		
+						</code>
+					</pre>
+				</div>
+				
+				<h4 class="r4-title">中文、英文应用不同的字体(2)</h4>
+				<p>你希望数字英文是Helvetica字体，中文是苹方或微软雅黑，直接把英文字体放在前面就可以了！</p>
+				<p>因为，据我所知，这些英文字体是没有中文字符集映射的，也就是，英文字体实际上对中文是没有任何作用的。考虑到font-family的字体解析是从前往后依次的，所以，自然而然上面的代码数字英文是Helvetica字体，中文是苹方或微软雅黑，完全不需要使用unicode-range做吃力不讨好的事情。</p>
+				<div class="code-box">
+					<pre class="language-css line-numbers">
+						<code>
+.font {
+    font-family: Helvetica, 'Pingfang SC', 'microsoft yahei';
+}		
+						</code>
+					</pre>
+				</div>
+				
+				<h4 class="r4-title">对特殊字符进行处理</h4>
+				<div class="code-box">
+					<pre class="language-css line-numbers">
+						<code>
+@font-face {
+  font-family: BASE;
+  src: local('PingFang SC'),
+       local("Microsoft Yahei");	
+}
+@font-face {
+  font-family: quote;
+  src: local('SimSun');	
+  unicode-range: U+201c, U+201d; /* 对字符'双引号'单独设置字体 SimSun */
+}							
+						</code>
+					</pre>
+				</div>
+			</section>
+			
 		</section>
 		
     	<h2 class="r2-title">其它</h2>
@@ -91,6 +145,8 @@
         	</section>
         	
         	<h3 class="r3-title">解决 Chrome 浏览器默认显示最小字号为 12px</h3>
+			<p>用css3的新属性 transform:scale() 来达到对文本进行缩放，但是注意，它会对元素进行整体缩放，而这不是我们所希望的，我们只是想单独缩放字体，所以用一个标签把需要缩放的文本包起来，然后单独对他添加 transform:scale() 避免对其他元素影响。</p>
+			<p>此外，transform:scale() 是对尺寸的元素进行缩放，而内联元素没有尺寸，所以对内联元素不起作用，因为需要为内联元素设置 display：inline-block 属性。</p>
         	<div class="code-box">
 	        	<pre class="language-css line-numbers">
 	            	<code>

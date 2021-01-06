@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+    <div id="wmain">
+		<div class="reference">
+			<a href="https://bootstrap-table.com/">官网</a>
+			<a href="https://www.bootstrap-table.com.cn/">中文网</a>
+		</div>
+        <h2 class="r2-title">搜索</h2>
+        <section class="r2-body">
+			<div class="r3-title">远程搜索（服务器端搜索）</div>
+			<strong class="listTit">queryParams</strong>
+			<div class="r4-title">queryParamsType = 'limit'时，queryParams的参数为：</div>
+			<ul class="list-short clearfix">
+				<li>
+					<label>limit</label>每页显示的记录数
+				</li>
+				<li>
+					<label>offset</label>偏移量（如果当前为第3页，每页显示的数量为10，则offset=20）
+				</li>
+				<li>
+					<label>search</label>搜索的字符串
+				</li>
+				<li>
+					<label>sort</label>排序的字段名
+				</li>
+				<li>
+					<label>order</label>asc/desc
+				</li>
+			</ul>
+			<div class="r4-title">queryParamsType != 'limit'时，queryParams的参数为：</div>
+			<ul class="list-short clearfix">
+				<li>
+					<label>pageSize</label>每页显示的记录数
+				</li>
+				<li>
+					<label>pageNumber</label>当前第几页
+				</li>
+				<li>
+					<label>searchText</label>搜索的字符串
+				</li>
+				<li>
+					<label>sortName</label>排序的字段名
+				</li>
+				<li>
+					<label>sortOrder</label>asc/desc
+				</li>
+			</ul>
+			<p>注意：如果后台直接接收queryParams的参数，那么后台的参数名称必须和queryParams的参数名称一致；
+queryParams的参数会作为URL的参数传递到后台，如：
+http://localhost:3363/MockData/Pupils?sortName=drivingProgress&sortOrder=asc
+			</p>
+			
+			<div class="r3-title">本地搜索（即本地客户端搜索，也是插件自带搜索）</div>
+			<div class="r4-title">使用插件自带的搜索框(全局搜索)</div>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+//这仅仅是针对全局的模糊查询，要想针对某一列模糊查询可以在customSearch函数中定义						
+$table.bootstrapTable({
+	search: true
+})
+					</code>
+				</pre>
+			</div>
+			<div class="r4-title">使用自定义的搜索框(全局搜索)</div>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+$table.bootstrapTable({
+	search: true,
+	searchSelector: "#searchText" //"#searchText"为搜索框的ID
+})
+					</code>
+				</pre>
+			</div>
+			
+			<div class="r4-title">使用自定义的搜索框(某列的模糊搜索)</div>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+//只对 studentName 进行模糊搜索
+$table.bootstrapTable({
+	search: true,
+	searchSelector: "#searchText", //"#searchText"为搜索框的ID
+	customSearch: function(data, text){
+		return data.filter(function (row) {
+		  return row.studentName.indexOf(text) > -1
+		})
+	}
+})
+					</code>
+				</pre>
+			</div>
+		</section>
+    </div>
+</div>
+</body>
+</html>

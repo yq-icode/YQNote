@@ -29,6 +29,10 @@
 				<name>fun16</name>
 			</file>
 			<file>
+				<title>正则表达式</title>
+				<name>fun32</name>
+			</file>
+			<file>
 				<title>字符</title>
 				<name>fun42</name>
 			</file>
@@ -67,10 +71,6 @@
 			<file>
 				<title>this探讨</title>
 				<name>_jsP01</name>
-			</file>
-			<file>
-				<title>正则表达式</title>
-				<name>fun32</name>
 			</file>
 			<file>
 				<title>WebSocket</title>
@@ -283,7 +283,7 @@
 		</sub>
 		<sub title="奇怪的问题">
 			<file>
-				<title>命名冲突</title>
+				<title>命名冲突 &amp; onclick调整函数</title>
 				<name>JS001</name>
 			</file>
 			<file>
@@ -318,50 +318,12 @@
 			</file>
 		</sub>
 	</main>
-	<main title="常用插件">
-		<sub title="辅助工具">
-			<file>
-				<title>babel</title>
-				<name>bb01</name>
-				<path>/plugIn/babel/</path>
-			</file>
-			<file>
-				<title>polyfill 腻子脚本</title>
-				<name>pf01</name>
-				<path>/plugIn/polyfill/</path>
-			</file>
-		</sub>
-		<sub title="滚动条">
-			<file>
-				<title>mCustomScrollbar</title>
-				<name>index</name>
-				<path>/plugIn/s-mCustomScrollbar/</path>
-			</file>
-			<file>
-				<title>scrollbar</title>
-				<name>index</name>
-				<path>/plugIn/s-scrollbar/</path>
-			</file>
-			<file>
-				<title>tinyscrollbar</title>
-				<name>index</name>
-				<path>/plugIn/scrollbar/</path>
-			</file>
-		</sub>
-		<sub title="表单">
-			<file>
-				<title>select(搜索)</title>
-				<name>select1</name>
-				<path>/plugIn/select/</path>
-			</file>
-		</sub>
-		<sub title="富文本">
-			<file>
-				<title>wangEditor3</title>
-				<name>e-wangEditor3</name>
-				<path>/plugIn/</path>
-			</file>
-		</sub>
+	<main title="JS框架">
+		<file>
+			<title>VUE</title>
+			<name>index</name>
+			<path>/KJ/VUE/</path>
+		</file>
 	</main>
 	<main title="ECMAScript 6.0" url="/views/js/">
 		<file>

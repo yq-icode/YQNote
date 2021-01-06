@@ -1,43 +1,95 @@
 <?xml version="1.0"?>
 <fileList>
-	<main title="常用框架与插件">
+	<main title="前端框架">
+		<file>
+			<title>bootstrap</title>
+			<name>index</name>
+			<path>/KJ/bootstrap/</path>
+		</file>
 		<file>
 			<title>Layui</title>
 			<name>index</name>
 			<path>/KJ/Layui/</path>
 		</file>
-		<file>
-			<title>VUE</title>
-			<name>index</name>
-			<path>/KJ/VUE/</path>
-		</file>
-		<file>
-			<title>ECharts</title>
-			<name>index</name>
-			<path>/plugIn/ECharts/</path>
-		</file>
-		<file>
-			<title>Canvas</title>
-			<name>index</name>
-			<path>/plugIn/Canvas/</path>
-		</file>
-		<file>
-			<title>Mockjs</title>
-			<name>index</name>
-			<path>/plugIn/mockjs/</path>
-		</file>
-		<file>
-			<title>slick</title>
-			<name>slick01</name>
-			<path>/plugIn/slick/</path>
-		</file>
 	</main>
-	<main title="BOOTSTRAP">
-		<file>
-			<title>栅格布局不支持IE8该如何解决？</title>
-			<name>bs1</name>
-			<path>/views/bootstrap/</path>
-		</file>
+	<main title="插件">
+		<sub title="图表">
+			<file>
+				<title>ECharts</title>
+				<name>index</name>
+				<path>/plugIn/ECharts/</path>
+			</file>
+			<file>
+				<title>Canvas</title>
+				<name>index</name>
+				<path>/plugIn/Canvas/</path>
+			</file>
+		</sub>
+		<sub title="表单">
+			<file>
+				<title>jquery validation</title>
+				<name>index</name>
+				<path>/plugIn/jqueryValidation/</path>
+			</file>
+			<file>
+				<title>bootstrap-table</title>
+				<name>index</name>
+				<path>/plugIn/bootstrap-table/</path>
+			</file>
+			<file>
+				<title>bootstrap-select</title>
+				<name>index</name>
+				<path>/plugIn/bootstrap-select/</path>
+			</file>
+		</sub>
+		<sub title="滚动条">
+			<file>
+				<title>mCustomScrollbar</title>
+				<name>index</name>
+				<path>/plugIn/s-mCustomScrollbar/</path>
+			</file>
+			<file>
+				<title>scrollbar</title>
+				<name>index</name>
+				<path>/plugIn/s-scrollbar/</path>
+			</file>
+			<file>
+				<title>tinyscrollbar</title>
+				<name>index</name>
+				<path>/plugIn/scrollbar/</path>
+			</file>
+		</sub>
+		<sub title="图片类插件">
+			<file>
+				<title>slick</title>
+				<name>slick01</name>
+				<path>/plugIn/slick/</path>
+			</file>
+		</sub>	
+		<sub title="辅助工具">
+			<file>
+				<title>Mockjs</title>
+				<name>index</name>
+				<path>/plugIn/mockjs/</path>
+			</file>
+			<file>
+				<title>babel</title>
+				<name>bb01</name>
+				<path>/plugIn/babel/</path>
+			</file>
+			<file>
+				<title>polyfill 腻子脚本</title>
+				<name>pf01</name>
+				<path>/plugIn/polyfill/</path>
+			</file>
+		</sub>
+		<sub title="富文本">
+			<file>
+				<title>wangEditor3</title>
+				<name>e-wangEditor3</name>
+				<path>/plugIn/</path>
+			</file>
+		</sub>
 	</main>
 	<main title="ASP.NET" url="/views/ASP.NET/">
 		<file>

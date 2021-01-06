@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<div class="reference">
+			<a href="https://jqueryvalidation.org/"></a>
+		</div>
+		<h2 class="r2-title">基础讲解</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">required</h3>
+			<p>不同的校验规则，设置不同的错误提示</p>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+$("#form").validate({
+	rules:{
+		stepPath:{
+			required: function(value){
+				var num=value.getAttribute("id").substring(8);
+				var stepType=$("#stepType"+num).val();
+             	if(stepType=="2" && $("#stepPath"+num).val()==""){
+             		/*不同的校验规则，不同的错误提示*/
+             		$.validator.messages.required = "API接口，必须填写包路径";
+            		return true;
+            	}else if(stepType=="0" && $("#stepPath"+num).val()==""){
+            		$.validator.messages.required = "HTTP接口，必须填写请求URL";
+            		return true;
+            	}else{                        		
+            		return false;
+            	} 
+            }
+		}
+	}
+});
+					</code>
+				</pre>
+			</div>
+        </section>
+		
+		<h2 class="r2-title">select 验证</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">select 非空验证</h3>
+			<p>只要将作为提示项 option 的 value 值设置为空即可。如下，第一个 option 的值: value = ""</p>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;select class="custom-select" name="fruit">
+	&lt;option value="">水果&lt;/option>
+	&lt;option value="apple">苹果&lt;/option>
+	&lt;option value="banana">香蕉&lt;/option>
+&lt;/select>			
+					</code>
+				</pre>
+			</div>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+$('form').validate({
+	rules: {
+		fruit:"required"
+	},
+	messages: {
+		fruit: "请选择水果."
+	}
+})
+					</code>
+				</pre>
+			</div>
+		</section>
+		
+		<div class="r2-title">自定义验证</div>
+		<section class="r2-body">
+			<div class="r3-title">根据不同的条件使用不同的验证规则</div>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+//比如根据一个lable里面是0还是1.是0 input中只能输入数字，是1随便输入什么
+//这块是页面里的表单判断 rules 内容
+xxx : function(){
+     if('lable'==0){//判断规则自己写
+       return true;
+     }elseif('lable'==1){
+       return false;
+     }
+}
+
+$.validator.addMethod("xxx", function(value, element, param) {
+    if(param){//为true进行规则判断
+      //判断是否为数字,判断规则自己写
+    }else{//为false不进行判断,任意输入
+       return true;
+    }
+}
+					</code>
+				</pre>
+			</div>
+		</section>
+		
+		<div class="r2-title">使用 class 属性进行字段验证</div>
+		<section class="r2-body">
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;input type="text" class="form-control validNumberLimit" name="lessonHours" />
+					</code>
+				</pre>
+			</div>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+jQuery.validator.addClassRules({
+	//数字验证（必填，包括小数点位数最大为7位，大于0，小数点后最多2位）
+	validNumberLimit:{
+		required: true,
+		number: true,
+		maxlength: 7,
+		greaterThan: 0,
+		twoDecimal: true
+	}
+});
+// 验证值必须大于特定值(不能等于)
+jQuery.validator.addMethod("greaterThan", function(value, element, param){
+	return value > param;
+}, $.validator.format("The input value must be greater than {0}."));
+
+// 小数点位数不能大于两位
+$.validator.addMethod("twoDecimal", function(value, element, param){
+	var returnVal = true, arr = value.split(".");
+	if(arr.length == 2){
+		if(arr[1].length > 2){
+			returnVal = false;
+			return false;
+		}
+	}
+	return returnVal;
+}, "The decimal point must not be greater than 2 places.");
+					</code>
+				</pre>
+			</div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

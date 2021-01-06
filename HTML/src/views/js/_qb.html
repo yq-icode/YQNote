@@ -352,6 +352,16 @@ el.classList.toggle("active");
         <section class="r2-body">
         	<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle">getComputedStyle</a>
         	<a class="ref" href="https://www.jianshu.com/p/533526c9f755"></a>
+			<h3 class="r3-title">移除CSS属性</h3>
+			<div class="code-box">
+				<pre class="language-css line-numbers">
+					<code>
+/* 无用JS移除CSS属性的方法，要移除CSS的属性可以将CSS属性值设置为空字符串；*/
+$(ele).css({'top':''});
+/* 这样也可以达到去除CSS属性的目的 */
+					</code>
+				</pre>
+			</div>
         </section>
 	        
     </div>

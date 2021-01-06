@@ -538,25 +538,22 @@ table.table-1 td em {
   z-index: 2;
 }
 .bg-effect-4 {
-  position: relative;
-  height: 250px;
-  background-color: #69e128;
+  padding-bottom: 50px;
   overflow: hidden;
 }
 .bg-effect-4 .bg-under {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-}
-.bg-effect-4 .bg-under .shape1 {
   position: relative;
-  left: 50%;
-  top: 50%;
-  margin-left: -110px;
-  margin-top: -110px;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 220px;
+  height: 200px;
+}
+.bg-effect-4 .bg-under:after {
+  content: '';
+  position: absolute;
+  left: -30%;
+  top: 0;
+  bottom: -50px;
+  width: 160%;
+  border-radius: 0 0 50% 50%;
+  background: -webkit-linear-gradient(96deg, #a1c8f4 0%, #d0e1fa 100%);
 }
 .bg-effect-4 .content-area {
   position: relative;

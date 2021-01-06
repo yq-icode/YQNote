@@ -585,7 +585,7 @@ a.ref > em {
 }
 .list-short > li {
   float: left;
-  margin: 10px 0 10px 20px;
+  margin: 5px 0 5px 20px;
   min-width: 300px;
 }
 .list-short > li > label {

@@ -99,8 +99,10 @@ var obj=document.getElementById('mySelect');
 //取索引
 var index=obj.selectedIndex; //取当前选中选项的索引
 
-$("#mySelect").selectedIndex;
-$("#mySelect").find("option:selected").selectedIndex;
+$("#mySelect").prop('selectedIndex');
+$('option:selected', '#someId').index();
+$('#someId option').index($('#someId option:selected'))
+$("#mySelect").find("option:selected").selectedIndex; //取不到索引值
 
 //取值
 obj.options[index].value;
@@ -115,10 +117,10 @@ obj.options[index].text;
 $('#mySelect option:selected').text();
 $("#mySelect").find("option:selected").text();
 
-//取选中状态
+//设置选中
 obj.options[index].selected = true;
 
-//取数量
+//获取选项数量
 obj.options.length
 $("#mySelect").options.length
 		            </code>
@@ -137,6 +139,74 @@ var val = obj.options[index] = new Option("新文本","新值");
 	        </div>
 	        
 	    </div>
+		
+		<h2 class="r2-title">常用效果</h2>
+		<section class="r2-body">
+			<div class="r3-title">当 select 的选中项为第一个选项时，颜色设置为浅灰</div>
+			<p>为需要此效果的 select 元素添加 class='firstOptionGray'</p>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;select class="custom-select firstOptionGray" name="sex">
+	&lt;option value="">Please select sex&lt;/option>
+	&lt;option value="1">male&lt;/option>
+	&lt;option value="2">female&lt;/option>
+&lt;/select>
+					</code>
+				</pre>
+			</div>
+			<div class="code-box">
+				<pre class="language-css line-numbers">
+					<code>
+.custom-select{
+	color: #333333;
+	/* 设置选中值颜色为浅灰 */
+	&.lightGrayColor{
+		color: #CDCDD7;
+	}
+	/* 设置第一个选项颜色为浅灰 */
+	&.firstOptionGray{
+		option{
+			color: #333333;
+			&:first-child{
+				color: #CDCDD7;
+			}
+		}
+	}
+}
+					</code>
+				</pre>
+			</div>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+//当 select 的选中项为第一个选项时，颜色设置为浅灰
+var setFirstOptionGray:function(e){
+	var e = $(".firstOptionGray");
+	if(e.length > 0){
+		$(e).each(function(){
+			if($(this).val() == $(this).find('option:first').val()){
+				$(this).addClass('lightGrayColor');
+			}
+			$(e).change(function () {
+				var selectedVal = $(this).val();
+				if (selectedVal == $(this).find('option:first').val()) {
+					$(this).addClass('lightGrayColor');
+				} else {
+					$(this).removeClass('lightGrayColor');
+				}
+			});
+		})
+	}
+	return this;
+}
+$(function(){
+	setFirstOptionGray();
+})
+					</code>
+				</pre>
+			</div>
+		</section>
 	</div>
 </div>
 </body>

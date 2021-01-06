@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<!--#include virtual="/static/include/_head_import_file.html" -->
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
     <script src="/js/less-2.5.3.min.js"></script>
 </head>
 <body>
@@ -50,6 +50,41 @@ var notes = {
 		            </code>
 	            </pre>
 	        </div>
+		</section>
+		
+		<h2 class="r2-title">onclick调整函数</h2>
+		<section class="r2-body">
+			<p>今天处理html标签里的onclick功能的时候总是报错：XXX is not defined at HTMLSpanElement.onclick</p>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;input type="button" value="立即登录" onclick="dosave();"/>			
+					</code>
+				</pre>
+			</div>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+//正确写法						
+dosave = function (){
+	alert("成功啦！");
+}
+//错误写法
+function dosave(){
+	alert("会报错！！");
+}
+//错误写法
+var dosave = function (){
+	alert("会报错！！");
+}
+
+/* 这三种定义函数的写法都是正确的，只不过作用域不同;
+ * var dosave = function(){}和function dosave(){}是等价的，是最常用的定义函数方式，区别在于function dosave(){}可以进行声明提升，而var dosave = function(){}必须先定义才能使用。
+ * dosave = function(){}的写法会把dosave函数作为全局作用域函数，相当于windows对象作为他的作用域，所以可以被调用到。
+ */
+					</code>
+				</pre>
+			</div>
 		</section>
 	</div>
 </div>

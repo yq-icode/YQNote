@@ -13,8 +13,9 @@
 <div id="wrap">
     <div id="wside"></div>
     <div id="wmain">
-        <h2 class="r2-title">模拟指定范围的日期与时间段</h2>
+        <h2 class="r2-title">模拟日期与时间</h2>
         <section class="r2-body">
+			<h3 class="r3-title">模拟指定范围的日期与时间段</h3>
         	<ul class="list-decimal">
         		<li>模拟日期范围：10天前 至 当天</li>
         		<li>模拟时间范围：时间段不能跨天（即不能显示成 23:00 - 01:00）</li>
@@ -22,6 +23,26 @@
         		
         	</ul>
 			<a class="ref" href="../js/md01.js">md01.js</a>
+			
+			<h3 class="r3-title">phone</h3>
+			<div class="code-box mt20">
+				<pre class="language-js line-numbers">
+					<code>
+var Random = Mock.Random;
+Random.extend({
+	phone: function(){
+		var phonePrefixs = ['132', '135', '189']; //手机号前缀
+		return this.pick(phonePrefixs) + Mock.mock(/\d{8}/);
+	}
+})
+
+//调用方法
+"student":{
+	"phone": "@phone"
+}
+					</code>
+				</pre>
+			</div>
         </section>
         
     </div>

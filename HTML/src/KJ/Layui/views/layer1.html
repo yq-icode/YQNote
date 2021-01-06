@@ -99,9 +99,9 @@ top.layer.open() //在最顶层弹出
 	        </div>
 		</section>
 		
-		<h2 class="r2-title">Layer弹层高度自适应</h2>
+		<h2 class="r2-title">Layer弹层高度自适应&垂直居中</h2>
 		<section class="r2-body">
-			<h4 class="r4-title">如果是非iframe弹层</h4>
+			<h3 class="r3-title">如果是非iframe弹层</h3>
 			<p>只需要为area设置宽度即可，area:'500px'</p>
 			<div class="code-box">
 	            <pre class="language-js line-numbers">
@@ -114,20 +114,16 @@ layer.open({
 		            </code>
 	            </pre>
 	        </div>
-			<h4 class="r4-title">如果是iframe弹层</h4>
-			<p>在iframe页面中每次可能改变高度时，执行以下代码：</p>
+			<h3 class="r3-title">如果是iframe弹层</h3>
+			<div class="r4-title">当页面中没有动态加载的 DOM 时</div>
 			<div class="code-box">
 	            <pre class="language-js line-numbers">
-	                <code>   
+	                <code>
+//在iframe页面中每次可能改变高度时，执行以下代码：						
 var index = parent.layer.getFrameIndex(window.name);
 parent.layer.iframeAuto(index);
-		            </code>
-	            </pre>
-	        </div>
-	        <p>或者在success回调函数中执行：</p>
-	        <div class="code-box">
-	            <pre class="language-js line-numbers">
-	                <code>   
+
+//或者在success回调函数中执行：					
 layer.open({
    type: 2
    ,title: "申请备案"
@@ -140,45 +136,38 @@ layer.open({
 		            </code>
 	            </pre>
 	        </div>
-	        <strong>注意：</strong>
-	        <p>在iframe页面中执行layer.iframeAuto(index)时，取的高度不正确，少一部分，原因不明（可能是因为页面未加载完毕就执行了计算iframe高度的代码）；在success回调函数中执行layer.iframeAuto(index)时，取的高度是正确的；</p>
-		</section>
-		
-		<h2 class="r2-title">Layer iframe弹层自适应高度&垂直居中</h2>
-		<section class="r2-body">
-			<h4 class="r4-title">问题</h4>
-			<p>Layer iframe弹层设置自适应高度后，无法垂直居中</p>
-			<h4 class="r4-title">解决方法</h4>
-			<p>可以设置一个初始高度,这个初始高度和实际高度的值要差不多，这样layer会根据这个初始高度计算top值</p>
-			<div class="code-box">
+	        <div class="code-box">
 	            <pre class="language-js line-numbers">
-	                <code>
-//因为没有设置高度值，所以弹层明显没有垂直居中	                	
-top.layer.open({
-	type: 2
-	,title: '排考详情'
-	,content: 'Kspk_Qx'
-	,area: '1220px'
-	,success: function (layero, index) {
-		layer.iframeAuto(index);
-	}
-})
-
-//因为设置了一个实际高度相差不大的高度值，虽然没有完全垂直居中，但视觉上不会相差那么多了
-top.layer.open({
-	type: 2
-	,title: '排考详情'
-	,content: 'Kspk_Qx'
-	,area: ['1220px','600px']
-	,success: function (layero, index) {
-		layer.iframeAuto(index);
-	}
-})
+	                <code>   
 
 		            </code>
 	            </pre>
 	        </div>
+			<div class="r4-title">当页面中包含动态加载的 DOM 时</div>
+	        <p>当页面中包含动态加载的 DOM 时, 在iframe页面中执行layer.iframeAuto(index)时，取的高度不正确，因为它只能计算页面上本来就有的 DOM 的高度, 对于动态生成的 DOM 是没有计算进去的。因此当有动态生成的 DOM 时，当动态 DOM 加载完成后，需要手动计算页面的高度，然后赋值给 iframe.</p>
+			<strong>重新计算 iframe 的高度</strong>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+//window.name 是 iframe 的 name (layer iframe 的 name 和 id 是相同的)						
+$(window.parent.document).find("#" + window.name).css('height', $(document).height());
+//或
+parent.$("#" + window.name).css('height', $(document).height());
+					</code>
+				</pre>
+			</div>
+			<p>按上述方法将 iframe 高度重置之后，layer 不再垂直居中了，此时需要重新设置 layer 的 top 值。</p>
+			<strong>重新调整 layer 的 top 值以使其垂直居中</strong>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+//layer 的 id 的命名都是以 'layui-layer' 开头的, layerIdx 是 layer 的索引。					
+parent.$("#layui-layer" + layerIdx).css('top', (parent.window.innerHeight - $(document).height())/2 + 'px');
+					</code>
+				</pre>
+			</div>
 		</section>
+		
 	</div>
 </div>
 </body>
