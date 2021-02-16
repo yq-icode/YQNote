@@ -114,6 +114,39 @@ color: {
 	            </pre>
 	        </div>
         </section>
+		
+		<h2 class="r2-title">为同一系列的bar设置不同的颜色</h2>
+		<section class="r2-body">
+			<p>color 支持使用回调函数，通过 color 的回调函数和 bar 的索引 dataIndex 为同一系列的bar设置不同的颜色. dataIndex 是传入 color 回调函数的一个参数。</p>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+/* 为同一系列的bar设置不同的渐变颜色
+ * ------------------------------------------------------- */
+color:function(p){
+	var colorBar1 = [["#3DDCFF", "#029EFF"],["#D79DFF", "#8E69FF"]];
+	var colorList = [
+		new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
+			offset: 0,
+			color: colorBar1[0][0]
+		},{
+			offset: 1,
+			color: colorBar1[0][1]
+		}], false),
+		new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
+			offset: 0,
+			color: colorBar1[1][0]
+		},{
+			offset: 1,
+			color: colorBar1[1][1]
+		}], false)
+	]
+	return colorList[p.dataIndex];
+}
+					</code>
+				</pre>
+			</div>
+		</section>
     </div>
 </div>
 </body>

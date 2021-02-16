@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--#include virtual="/static/include/_head_import_file2.html" -->
+    <link rel="stylesheet/less" href="/static/css/global.css">
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+        <h2 class="r2-title">range-key</h2>
+        <section class="r2-body">
+			<p>在 uniapp 中，picker 里 range 为对象数组时，设置 range-key 时，要加'单引号'才起作用。如下 :range-key="'name'", name 要加单引号。</p>
+			<div class="code-box">
+				<pre class="language-html line-numbers">
+					<code>
+&lt;picker @change="schoolChange" :value="idxSchool" :range="userInfo.schoolList" :range-key="'name'" class="d-inline-block">
+	&lt;view>{{userInfo.schoolList[idxSchool].name}}&lt;/view>
+&lt;/picker>
+					</code>
+				</pre>
+			</div>
+		</section>
+    </div>
+</div>
+</body>
+</html>

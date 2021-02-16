@@ -22,42 +22,54 @@
 		</file>
 	</main>
 	<main title="uni-app" url="/KJ/uni-app/views/">
-		<file>
-			<title>登录用户不是该小程序的开发者</title>
-			<name>ua001</name>
-		</file>
-		<file>
-			<title>组件 scroll-view</title>
-			<name>ua002</name>
-		</file>
-		<file>
-			<title>组件 image</title>
-			<name>ua003</name>
-		</file>
-		<file>
-			<title>导航栏</title>
-			<name>ua006</name>
-		</file>
-		<file>
-			<title>跨页面通讯</title>
-			<name>ua004</name>
-		</file>
-		<file>
-			<title>页面跳转</title>
-			<name>ua009</name>
-		</file>
-		<file>
-			<title>data()</title>
-			<name>ua007</name>
-		</file>
-		<file>
-			<title>分享</title>
-			<name>ua005</name>
-		</file>
-		<file>
-			<title>分包</title>
-			<name>ua008</name>
-		</file>
+		<sub title="">
+			<file>
+				<title>登录用户不是该小程序的开发者</title>
+				<name>ua001</name>
+			</file>
+			<file>
+				<title>导航栏</title>
+				<name>ua006</name>
+			</file>
+			<file>
+				<title>样式</title>
+				<name>ua010</name>
+			</file>
+			<file>
+				<title>跨页面通讯</title>
+				<name>ua004</name>
+			</file>
+			<file>
+				<title>页面跳转</title>
+				<name>ua009</name>
+			</file>
+			<file>
+				<title>data()</title>
+				<name>ua007</name>
+			</file>
+			<file>
+				<title>分享</title>
+				<name>ua005</name>
+			</file>
+			<file>
+				<title>分包</title>
+				<name>ua008</name>
+			</file>
+		</sub>
+		<sub title="组件">
+			<file>
+				<title>scroll-view</title>
+				<name>ua002</name>
+			</file>
+			<file>
+				<title>image</title>
+				<name>ua003</name>
+			</file>
+			<file>
+				<title>picker</title>
+				<name>ua011</name>
+			</file>
+		</sub>
 	</main>
 	<main title="jquerymobile" url="/KJ/mobile/jquerymobile/">
 		<file>

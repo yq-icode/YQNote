@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--#include virtual="/static/include/_head_import_file2.html" -->
+    <link rel="stylesheet/less" href="/static/css/global.css">
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain" style="width: 1000px;">
+        <h2 class="r2-title">pages.json 中 backgroundColor 与 page 背景颜色</h2>
+        <section class="r2-body">
+			<p>在 uni-app 的 pages.json 中，有两处可以设置 backgroundColor，一处是 globalStyle，针对全局所有页面生效，另一处是 pages->style 中，针对当前设置的页面生效。这个 backgroundColor 并不是设置页面的背景色，而是窗口的背景色，窗口背景色就是 html 下面的背景色，下拉刷新露出来的颜色。</p>
+			<p>要想为页面设置 backgroundColor，在页面 style 中的为 page 设置即可; 要想设置全局的背景色，在 app.vue 的 style 中设置 page 的背景色即可。</p>
+			<div class="code-box">
+				<pre class="language-css line-numbers">
+					<code>
+page{
+	background-color: #F7F7F7;
+}		
+					</code>
+				</pre>
+			</div>
+		</section>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+	<link href="/static/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <style type="text/css">
+    	.scrollBox{width:260px; height:200px; padding:20px; overflow:auto; background:#333; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; color: #999;}
+		.scrollBox li{
+			padding: 10px 0;
+			line-height: 1;
+			border-bottom: 1px solid #444;
+		}
+    </style>
+</head>
+<body>
+	<div id="wrap">
+		<p>每次滚动一项的距离，且滚动到底部之后自动返回顶部重新开始滚动；</p>
+	    <div id="sB1" class="scrollBox">
+			<ul>
+				<li>Lorem ilisum dolor sit amet. Aliquam erat volutliat. Maecenas non tortor nulla, non malesuada velit.</li>
+		   		<li>Maecenas non tortor nulla, non malesuada velit.</li>
+		   		<li>Consectetur adiliiscing elit.</li>
+		   		<li>Cras venenatis condimentum nibh a mollis.</li> 
+		    	<li>the end.</li>
+		    	<li>Lorem ilisum dolor sit amet. Aliquam erat volutliat. Maecenas non tortor nulla, non malesuada velit.</li>
+		   		<li>Maecenas non tortor nulla, non malesuada velit.</li>
+		   		<li>Consectetur adiliiscing elit.</li>
+		   		<li>Cras venenatis condimentum nibh a mollis.</li> 
+		    	<li>the end.</li>
+			</ul>
+		</div>
+   	</div>
+   	<script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var obj = $('#sB1'),
+				len = $(obj).find('li').length,
+				n = 0,
+				liH; //每次要滚动的距离
+			
+			//初次滚动
+			setTimeout(function(){
+				liH = $(obj).find('li').eq(0).outerHeight();
+				$(obj).mCustomScrollbar("scrollTo", "-=" + liH);
+			}, 1000)
+			
+			$(obj).mCustomScrollbar({
+				callbacks:{
+					onScroll:function(){
+						n++;
+						if(n >= len){
+							n = 0;
+							return false;
+						}else{
+							liH = $(obj).find('li').eq(n).outerHeight();
+							setTimeout(function(){
+								$(obj).mCustomScrollbar("scrollTo", "-=" + liH);
+							}, 1000)
+						}
+					},
+					onTotalScroll:function(){
+						n = -1; //滚动到底部时，重置n
+						setTimeout(function(){
+							$(obj).mCustomScrollbar("scrollTo", 'top');
+						}, 1000)
+					}
+				}
+			});
+		})
+		
+		//添加TOP
+		addArticleTop();
+	</script>
+</body>
+</html>

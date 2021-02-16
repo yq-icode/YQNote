@@ -30,6 +30,10 @@
 			<name>browser-compatibility</name>
 		</file>
 		<file>
+			<title>块元素</title>
+			<name>eleBlock</name>
+		</file>
+		<file>
 			<title>CSS 属性详解</title>
 			<name>property</name>
 		</file>
