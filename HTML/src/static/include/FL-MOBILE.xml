@@ -22,11 +22,7 @@
 		</file>
 	</main>
 	<main title="uni-app" url="/KJ/uni-app/views/">
-		<sub title="">
-			<file>
-				<title>登录用户不是该小程序的开发者</title>
-				<name>ua001</name>
-			</file>
+		<sub title="基础">
 			<file>
 				<title>导航栏</title>
 				<name>ua006</name>
@@ -55,6 +51,10 @@
 				<title>分包</title>
 				<name>ua008</name>
 			</file>
+			<file>
+				<title>登录、授权</title>
+				<name>ua012</name>
+			</file>
 		</sub>
 		<sub title="组件">
 			<file>
@@ -70,6 +70,12 @@
 				<name>ua011</name>
 			</file>
 		</sub>
+        <sub title="常见问题">
+        	<file>
+        		<title>登录用户不是该小程序的开发者</title>
+        		<name>ua001</name>
+        	</file>
+        </sub>
 	</main>
 	<main title="jquerymobile" url="/KJ/mobile/jquerymobile/">
 		<file>
@@ -149,10 +155,16 @@
 			<name>wx003</name>
 		</file>
 	</main>
-	<main title="开发工具" url="/KJ/mobile/">
+	<main title="开发工具、插件">
 		<file>
 			<title>微信开发者工具</title>
 			<name>wx001</name>
+            <path>/KJ/mobile/</path>
 		</file>
+        <file>
+        	<title>uCharts</title>
+        	<name>index</name>
+            <path>/plugIn/uCharts/</path>
+        </file>
 	</main>
 </fileList>

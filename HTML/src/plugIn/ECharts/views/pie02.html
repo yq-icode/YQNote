@@ -21,12 +21,8 @@
         		<dd>高亮扇区的偏移距离。</dd>
         		<dt>selectedMode</dt>
         		<dd>选中模式，表示是否支持多个选中，默认关闭，支持布尔值和字符串，字符串取值可选'single'，'multiple'，分别表示单选还是多选。<br>（此处是点击饼图的选中模式，legend中的selectedMode属性是图例的选择模式）</dd>
-        		<dt></dt>
-        		<dd></dd>
-        		<dt></dt>
-        		<dd></dd>
-        		<dt></dt>
-        		<dd></dd>
+        		<dt>series.right</dt>
+        		<dd>pie chart组件离容器右侧的距离，此组件不包括 legend 图例组件, 即如果 pie 与 legend 图例组件左右排列，通过设置 series.right 可以防止 pei 与 legend 图例组件重叠</dd>
         	</dl>
         </section>
         
@@ -43,6 +39,38 @@ formatter:function(data){
 	                </code>
 	            </pre>
 	        </div>
+            
+            <h3 class="r3-title">饼图图形上的文本标签颜色</h3>
+            <p>如何为饼图图形上的文本标签设置不同的颜色？即和饼图图块颜色一致</p>
+            <div class="code-box">
+                <pre class="language-js line-numbers">
+                    <code>
+//为 series.data[i].label.color 设置颜色即可;
+
+//数据格式
+"dataM5|4":[
+    {
+        "name|+1": ["加减档位", "变更车道", "直线行驶", "其它"],
+        "per|+1": [35, 22, 18, 25]
+    }
+]
+//option 配置（d 即上面生成的数据 dataM5）
+var colors = ['#09d2db', '#0090db', '#a764d7', '#db9282'], tdata = [];
+$.each(d, function(i){
+    var obj = {
+        name: d[i].name,
+        value: d[i].per,
+        label:{
+            color: colors[i]
+        }
+    }
+    tdata.push(obj);
+})
+ecOptions.oPie1.series[0].data = tdata;
+echarts.init(document.getElementById('pie1')).setOption(ecOptions.oPie1);
+                    </code>
+                </pre>
+            </div>
         </section>
     </div>
 </div>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<!--#include virtual="/static/include/_head_import_file2.html" -->
+</head>
+<body>
+<!--#include virtual="/static/include/_header.html" -->
+<div id="wrap">
+	<div id="wside"></div>
+	<div id="wmain">
+		<div class="reference">
+			<a href="https://ext.dcloud.net.cn/plugin?id=271"></a>
+            <a href="https://www.ucharts.cn/"></a>
+		</div>
+		<h2 class="r2-title">常见问题</h2>
+		<section class="r2-body">
+			<h3 class="r3-title">设置series时 name 属性必传 </h3>
+			<p>设置series时 name 属性必传，否则报错 <span class="redBlock">Cannot read property 'toString' of undefined</span></p>
+            
+            <h3 class="r3-title">Y轴标签文字显示问题</h3>
+            <img src="images/screenPics/sc0001.png" />
+            <div class="code-box">
+            	<pre class="language-js line-numbers">
+            		<code>
+canvasObj[canvasId] = new uCharts({
+    padding: [0, 0, 0, 0],
+    yAxis: {
+        gridType: 'dash',
+        gridColor: '#EDEDED',
+        splitNumber: 5,
+        data:[{
+            min: 0,
+            max: 100,
+            format: (val) => {
+                console.log(val);
+                return val.toFixed(0) + '%'
+            },
+            fontColor: '#666666',
+            fontSize: 8,
+            axisLine: false
+        }]
+    }
+});                       
+            		</code>
+            	</pre>
+            </div>
+            <p>请看上面截图和代码，两个问题</p>
+            
+            <strong class="listTit">问题</strong>
+            <ul class="list-decimal">
+                <li>为什么下面红圈中会有重影？</li>
+                <li>为什么上面红圈中的最大值没显示？</li>
+            </ul>
+            
+            <strong class="listTit">原因</strong>
+            <ul class="list-decimal">
+                <li>出现上面问题的原因是 padding 设置为了 padding: [0, 0, 0, 0], 原理不明</li>
+            </ul>
+            
+            <strong class="listTit">解决方法</strong>
+            <ul class="list-decimal">
+                <li>将 padding 设置为 padding: [5, 0, 0, 0] 即可</li>
+            </ul>
+        </section>
+		
+	</div>
+</div>
+</body>
+</html>

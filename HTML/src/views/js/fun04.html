@@ -50,16 +50,30 @@ $.trim(message)  // [abc def]
         <section class="r2-body">
         	<h3 class="r3-title">合并数组</h3>
 	        <dl class="dlist">
-	        	<dt>concat() 合并两个或多个数组</dt>
-	        	<dd>
-	        		<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat">concat() </a>
-	        	</dd>
-	        	<dt>apply() 将数组添加到另一个数组</dt>
-	        	<dd>
-	        		<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">apply() </a>
-	        	</dd>
+	        	<dt>concat()</dt>
+	        	<dd>合并两个或多个数组</dd>
+	        	<dt>apply()</dt>
+	        	<dd>将数组添加到另一个数组</dd>
 	        </dl>
+            
+            <h3 class="r3-title">排序数组</h3>
+            <dl class="dlist">
+            	<dt>sort()</dt>
+            	<dd>对数组的元素进行排序，数组已原地排序，并且不进行复制。</dd>
+            </dl>
 	        
+            <h3 class="r3-title">筛选数组</h3>
+            <dl class="dlist">
+            	<dt>filter() </dt>
+            	<dd>返回符合条件的新数组</dd>
+            	<dt>find()</dt>
+            	<dd>返回符合条件的第一个元素的值</dd>
+            	<dt></dt>
+            	<dd>
+            		<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">apply() </a>
+            	</dd>
+            </dl>
+            
 	        <h3 class="r3-title">修改数组的值</h3>
 	        <p>修改数组的值需要通过 arr[index] = value 的方式。</p>
 	        <div class="code-box">
@@ -78,27 +92,7 @@ arr.forEach(function(item){
 	            </pre>
 	        </div>
 	        
-	        <h3 class="r3-title">筛选数组</h3>
-	        <dl class="dlist">
-	        	<dt>返回符合条件的新数组</dt>
-	        	<dd>
-	        		filter()
-	        		<div class="browser-support ib">
-	        			<p class="summary">IE9+</p>
-	        		</div>
-	        	</dd>
-	        	<dt>返回符合条件的第一个元素的值</dt>
-	        	<dd>
-	        		find()
-	        		<div class="browser-support ib">
-	        			<p class="summary">no support IE</p>
-	        		</div>
-	        	</dd>
-	        	<dt></dt>
-	        	<dd>
-	        		<a class="ref" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">apply() </a>
-	        	</dd>
-	        </dl>
+	        
 	    </section>
 	    
 	    <h2 class="r2-title">字符串→数组</h2>

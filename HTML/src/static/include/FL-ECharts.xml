@@ -26,7 +26,7 @@
 			<name>series01</name>
 		</file>
 		<file>
-			<title>图形颜色 color</title>
+			<title>color</title>
 			<name>color1</name>
 		</file>
 		<file>
@@ -40,6 +40,10 @@
 		<file>
 			<title>折线图</title>
 			<name>line01</name>
+		</file>
+		<file>
+			<title>整合多个类似option</title>
+			<name>ec001</name>
 		</file>
 	</main>
 	<main title="实例" url="/plugIn/ECharts/examples/">

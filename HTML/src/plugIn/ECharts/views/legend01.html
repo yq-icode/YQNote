@@ -58,6 +58,42 @@ legend:{
 					</code>
 				</pre>
 			</div>
+            
+            <h3 class="r3-title">Legend不显示的问题</h3>
+            <ul class="list-decimal">
+                <li>legend 中的 name 要和 series 中的 name 完全一致，否则 legend 就无法显示；</li>
+                <li>用 endcode 设置数据时，要设置 seriesName, 否则 legend 就无法显示；</li>
+            </ul>
+            <div class="code-box">
+            	<pre class="language-js line-numbers">
+            		<code>
+//数据格式
+"dataM9|2-55":[
+    {
+        "name": "@cword(1,8)驾校",
+        "perK2|0-100": 50,
+        "perK3|0-100": 50
+    }
+]
+//option 配置
+series:[
+    {
+        encode:{
+            x:[0],
+            y:[1],
+            seriesName: [1] //需要设置 seriesName, 否则 legend 无法显示
+        }
+    },{
+        encode:{
+            x:[0],
+            y:[2],
+            seriesName: [2] //需要设置 seriesName, 否则 legend 无法显示
+        }
+    }
+]            
+            		</code>
+            	</pre>
+            </div>
 			
 			<h3 class="r3-title">Legend 整体与容器的对齐</h3>
 			<div class="code-box">
@@ -69,6 +105,34 @@ legend:{
 					</code>
 				</pre>
 			</div>
+            
+            <h3 class="r3-title">Legend icon 颜色渐变</h3>
+            <ul class="list-decimal">
+                <li>在series中 单独设置color的值, 但是此处color 好像不支持 function 形式；</li>
+            </ul>
+            <div class="code-box">
+            	<pre class="language-js line-numbers">
+            		<code>
+//此示例在 bar 柱图中实验过，可行                        
+var colors = [["#a0a3fe", "#8551ee"],["#02d7bd", "#00a3d2"]];                        
+$.each(ecOptions.oBar.series, function(i){
+    this.color = {
+        type: 'linear',
+        x: 0,
+        y: 0,
+        x2: 0,
+        y2: 1,
+        colorStops: [{
+            offset: 0, color: colors[i][0]
+        }, {
+            offset: 1, color: colors[i][1]
+        }],
+        global: false
+    }
+})            
+            		</code>
+            	</pre>
+            </div>
 		</section>
     </div>
 </div>

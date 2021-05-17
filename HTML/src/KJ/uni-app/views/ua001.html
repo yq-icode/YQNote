@@ -12,9 +12,19 @@
 	<div id="wside"></div>
 	<div id="wmain" style="width: 1000px;">
         <h2 class="r2-title">登录用户不是该小程序的开发者</h2>
-        <p>解决登录用户不是该小程序的开发者的方法：将开发小程序的APPID改成小程序的APPID即可</p>
-        <img class="screenPics" src="../images/screenPics/sc04.png" />
-        <img class="screenPics" src="../images/screenPics/sc05.png" />
+        <section class="r2-body">
+            <p>解决登录用户不是该小程序的开发者的方法：将开发小程序的APPID改成小程序的APPID即可</p>
+            <img class="screenPics" src="../images/screenPics/sc004.png" />
+            <img class="screenPics" src="../images/screenPics/sc005.png" />
+        </section>
+        
+        <h2 class="r2-title">更改appid失败</h2>
+        <section class="r2-body">
+            <p>uniapp运行到微信开发者工具报错“更改appid失败touristappidError:tourist appid”</p>
+            <h3 onclick="r3-title">解决方法</h3>
+            <p>找到文件 manifest.json, 点击“源码视图”, 找到微信小程序节点, 设置 "appid" 后, 完全关闭微信开发者工具再次通过HBuilder启动, 即可完美解决</p>
+            <img class="screenPics" src="../images/screenPics/sc001.png" />
+        </section>
     </div>
 </div>
 </body>
