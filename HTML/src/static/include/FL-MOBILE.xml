@@ -77,12 +77,6 @@
         	</file>
         </sub>
 	</main>
-	<main title="jquerymobile" url="/KJ/mobile/jquerymobile/">
-		<file>
-			<title>jquerymobile</title>
-			<name>index</name>
-		</file>
-	</main>
 	<main title="MUI" url="/KJ/mobile/">
 		<file>
 			<title>HBuilder导入项目</title>
@@ -166,5 +160,11 @@
         	<name>index</name>
             <path>/plugIn/uCharts/</path>
         </file>
+	</main>
+	<main title="jquerymobile" url="/KJ/mobile/jquerymobile/">
+		<file>
+			<title>jquerymobile</title>
+			<name>index</name>
+		</file>
 	</main>
 </fileList>

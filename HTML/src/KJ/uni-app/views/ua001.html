@@ -21,9 +21,19 @@
         <h2 class="r2-title">更改appid失败</h2>
         <section class="r2-body">
             <p>uniapp运行到微信开发者工具报错“更改appid失败touristappidError:tourist appid”</p>
-            <h3 onclick="r3-title">解决方法</h3>
+            <h3 class="r4-title">解决方法</h3>
             <p>找到文件 manifest.json, 点击“源码视图”, 找到微信小程序节点, 设置 "appid" 后, 完全关闭微信开发者工具再次通过HBuilder启动, 即可完美解决</p>
             <img class="screenPics" src="../images/screenPics/sc001.png" />
+        </section>
+
+        <h2 class="r2-title">uni.hideLoading隐藏toast弹窗</h2>
+        <section class="r2-body">
+            <h3 class="r4-title">问题描述</h3>
+            <p>当wx.showLoading 和 wx.showToast 混合使用时，showLoading和showToast会相互覆盖对方，调用hideLoading时也会将toast弹窗隐藏掉。（微信开发者工具中是正常的，只有真机中会出现这种问题）</p>
+            <h3 class="r4-title">原因</h3>
+            <p>这个问题的出现，其实是因为小程序将Toast和Loading放到同一层渲染引起的</p>
+            <h3 class="r4-title">解决方法</h3>
+            <a class="ref" href="https://developers.weixin.qq.com/community/develop/article/doc/0004a4d49d0e883b13692633c51013"></a>
         </section>
     </div>
 </div>
