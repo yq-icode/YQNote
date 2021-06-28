@@ -16,6 +16,43 @@
 			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp"></a>
 			<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions"></a>
 		</p>
+		<h2 class="r2-title">常用验证</h2>
+        <section class="r2-body">
+            <h3 class="r3-title">phone</h3>
+			<p>手机号规则：第一位是【1】开头，第二位则则有【3,4,5,7,8】，第三位则是【0-9】，第三位之后则是数字【0-9】</p>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+                        function checkPhone(phoneNumber){ 
+							if(!(/^1[34578]\d{9}$/.test(phoneNumber))){ 
+								alert("手机号码有误，请重填");  
+								return false; 
+							}else{
+								return true;
+							}
+						}
+					</code>
+				</pre>
+			</div>
+
+			<h3 class="r3-title">身份证号</h3>
+			<p>身份证号规则：身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X|x</p>
+			<div class="code-box">
+				<pre class="language-js line-numbers">
+					<code>
+                        function checkSFZ(sfz){ 
+							var regIdNo = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+							if(!regIdNo.test(sfz)){ 
+								alert(‘身份证号填写有误‘); 
+								return false; 
+							}else{
+								return true;
+							}
+						}
+					</code>
+				</pre>
+			</div>
+		</section>
 	</div>
 </div>
 </body>
